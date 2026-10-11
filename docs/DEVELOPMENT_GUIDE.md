@@ -4,21 +4,22 @@
 
 ## 先跑不依赖数据库的检查
 
-以下命令在仓库根目录运行；Python 命令须来自自己的虚拟环境。
+以下 Windows PowerShell 命令在仓库根目录运行；创建环境后始终明确使用其中的解释器，避免把依赖装入系统 Python。
 
 ~~~text
 python -m venv .venv
-python -m pip install -r .github/requirements-ci.txt
-python -m unittest discover -s tests/engineering -v
-python scripts/ci/check_repository.py
-python scripts/ci/run_backend_tests.py
-python scripts/ci/check_contracts.py
+.\.venv\Scripts\python.exe -m pip install -r .github/requirements-ci.txt
+.\.venv\Scripts\python.exe -m unittest discover -s tests/engineering -v
+.\.venv\Scripts\python.exe scripts/ci/check_repository.py
+.\.venv\Scripts\python.exe scripts/ci/run_backend_tests.py
+.\.venv\Scripts\python.exe scripts/ci/check_contracts.py
 node scripts/ci/check_frontend.mjs
 npm ci --prefix .github --ignore-scripts --no-audit --no-fund
 node .github/node_modules/typescript/bin/tsc -p .github/tsconfig.contracts.json
+npm --prefix frontend test
 ~~~
 
-Windows PowerShell 的虚拟环境解释器位于 .venv/Scripts/python.exe；可激活，也可以直接使用完整路径。最后进入 frontend 运行 npm test。现有前端没有依赖安装或 build 脚本；独立 .github 工具只安装契约编译器，不改变应用。
+Linux/macOS 将上述 Python 路径替换为 .venv/bin/python。现有前端没有依赖安装或 build 脚本；独立 .github 工具只安装契约编译器，不改变应用。
 
 ## CI 究竟检查什么
 

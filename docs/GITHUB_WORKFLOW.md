@@ -21,6 +21,8 @@ git switch -c frontend/yourname-investigation-view
 
 每个 PR 都填写模板，并查看 **Repository safety**、**Backend unit and contracts**、**Frontend tests and types**。作者不能用历史日志替代当前 CI；别人新增提交后必须查看最新提交的结果。合并决定由负责人明确执行，不开启 auto-merge。
 
+CI 在以 main、feature/backend 或 feature/frontend 为目标的 PR 创建/更新时运行，也在 main 推送和手动运行时执行。个人或协作分支直接 push 后，请创建/更新 PR 或手动运行检查；不会同时重复运行 push/PR 检查。同步 main 的工程配置后，队友协作分支也具备同一套工作流。
+
 ## 同步与冲突
 
 个人分支保存自己的工作后再同步目标分支；共享分支不强制重写历史。冲突由涉及模块的负责人解决，关注字段删除、状态含义、证据引用和契约差异。没有队友授权不能覆盖其未完成内容。
