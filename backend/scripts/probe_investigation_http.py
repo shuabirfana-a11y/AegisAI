@@ -131,15 +131,28 @@ def run_probe(client, case, *, timeout_seconds=45, poll_interval=.1, requested_m
     return report
 
 
+class ProbeArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        # Do not echo arbitrary argument values; main writes a fresh failure report.
+        raise ValueError('INVALID_PROBE_ARGUMENT')
+
+
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    default_output = ROOT / 'work/phase12c/live-http-report.json'
+    parser = ProbeArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument('--base-url', default='http://127.0.0.1:8769')
     parser.add_argument('--case', type=Path, default=ROOT / 'demo/phase12c/real-source-case.json')
     parser.add_argument('--mode', choices=['MOCK', 'REAL'])
     parser.add_argument('--timeout', type=float, default=45)
-    parser.add_argument('--output', type=Path, default=ROOT / 'work/phase12c/live-http-report.json')
-    args = parser.parse_args()
+    parser.add_argument('--output', type=Path, default=default_output)
+    output = default_output
     try:
+        # Locate the user's report before validating other CLI options. Otherwise
+        # argparse would exit and leave a previous ready=true report unchanged.
+        output_parser = ProbeArgumentParser(add_help=False, allow_abbrev=False)
+        output_parser.add_argument('--output', type=Path, default=default_output)
+        output = output_parser.parse_known_args()[0].output
+        args = parser.parse_args()
         origin = checked_origin(args.base_url)
         headers = {'Origin': origin}
         token = os.environ.get('AEGIS_ASSET_TOKEN')
@@ -155,8 +168,8 @@ def main():
         exit_code = 2
     else:
         exit_code = 0 if report['ready'] else 1
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return exit_code
 

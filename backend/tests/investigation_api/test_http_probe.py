@@ -85,3 +85,14 @@ def test_failed_cli_overwrites_stale_success_without_exposing_secrets(tmp_path, 
     report = json.loads(destination.read_text(encoding='utf-8'))
     assert report['ready'] is False and report['error_code'] == 'HTTP_PROBE_FAILED'
     assert 'secret' not in capsys.readouterr().out
+
+
+@pytest.mark.parametrize('invalid_args', [['--mode', 'REEL'], ['--timeout', 'invalid'], ['--unknown-option']])
+def test_invalid_arguments_replace_the_requested_report(tmp_path, monkeypatch, invalid_args):
+    probe = get_probe()
+    destination = tmp_path / 'probe.json'
+    destination.write_text('{"ready": true}', encoding='utf-8')
+    monkeypatch.setattr(sys, 'argv', ['probe', '--output', str(destination), *invalid_args])
+    assert probe.main() == 2
+    report = json.loads(destination.read_text(encoding='utf-8'))
+    assert report['ready'] is False and report['error_code'] == 'HTTP_PROBE_FAILED'

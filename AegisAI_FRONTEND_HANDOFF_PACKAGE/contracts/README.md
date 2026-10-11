@@ -22,6 +22,6 @@ generated/ 包含 JSON Schema 类型映射和人工 HTTP 响应映射；不是�
 
 Phase 11-D 的公共HTTP投影已开放，优先使用 api/reference/investigation-http.d.ts；此目录保留的内部DTO不是公共响应。生成文件中的 InvestigationContext 等内部审计模型不可直接作为浏览器响应；其中控制字段只作为内部定义参考，不属于公开接口。类型里出现某字段不能说明前端有读取权限。
 
-既有前端没有 TypeScript 构建系统。当前验证包括 Node 原生 TypeScript 语法、导入/导出引用及 Schema 比对，未运行 tsc。团队复制后需按自己的工程进行 TypeScript 语义检查；仅用类型断言不会验证网络返回。
+既有前端页面使用原生 JavaScript，没有应用构建命令。Phase 12-C 已运行独立的 TypeScript 契约语义检查（`tsc -p .github/tsconfig.contracts.json`），退出码为 0；同时完成导入/导出引用及 Schema 比对。团队复制后仍需在自己的工程中检查页面与调用代码；仅用类型断言不会验证网络返回。
 
 所有示例的外层标签不属于这些 DTO，见 [Mock 说明](../mock/README.md)。

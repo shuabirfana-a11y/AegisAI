@@ -86,12 +86,12 @@
 
 ## 7. 实际测试与检查
 
-本轮验收总计 **478项不同测试通过**；不是历史1261项全量重跑。
+本轮验收总计 **481项不同测试通过**；不是历史1261项全量重跑。
 
 | 实际命令 | 结果 |
 |---|---|
 | `python -m unittest discover -s tests/engineering -v` | 12通过 |
-| `python scripts/ci/run_backend_tests.py` | 438通过；1条真实缓存Embedding测试明确排除 |
+| `python scripts/ci/run_backend_tests.py` | 441通过；1条真实缓存Embedding测试明确排除 |
 | `python -m pytest tests/investigation_api/test_tcp_chain.py tests/investigation_api/test_live_chain.py -q`（backend目录） | 5通过：新增TCP3条、既有TestClient2条 |
 | `npm --prefix frontend test` | 23通过 |
 | `python scripts/ci/check_contracts.py` | 42操作、5组PythonSchema、40个合成对象校验通过 |
@@ -100,7 +100,9 @@
 | `node scripts/ci/check_frontend.mjs` | 17个已有JS文件语法通过；当前前端没有应用build命令 |
 | `python backend/scripts/probe_investigation_http.py --timeout 30` | 退出码1；真实默认Mock未就绪被正确报告 |
 
-新增无数据库测试15条（已包括在438中），TCP3条（已包括在5中），不重复累加。两次pytest套件各有1个现有Starlette/AnyIO弃用警告，共2条；没有本轮失败项或静默跳过。
+新增无数据库测试18条（已包括在441中），TCP3条（已包括在5中），不重复累加。两组pytest套件各有1个现有Starlette/AnyIO弃用警告，共2条；没有本轮验收失败项或静默跳过。
+
+独立审查发现检查工具遇到非法命令参数时可能保留旧成功摘要。已先复现，再修复参数解析错误路径，并实际运行3条新增回归：模式拼写错误、超时值非法、未知参数均返回退出码2并覆盖指定摘要为失败，不回显任意参数值。交接包中“未运行tsc”的过期说明也已更正；本轮契约语义检查退出码0。
 
 GitHub CI、仓库敏感信息检查、包清单验证与独立审查结果以该分支最终验证记录/PR检查为准；不能借用PR #7的CI作为本分支CI。
 

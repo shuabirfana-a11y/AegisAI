@@ -1,6 +1,6 @@
 {
   "phase": "12-C",
-  "verified_at_utc": "2026-10-11T15:25:08.376678+00:00",
+  "verified_at_utc": "2026-10-11T15:38:12.155535+00:00",
   "baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
   "scope": "Loopback TCP transport, actual services with synthetic controlled inputs, current public contracts and documentation.",
   "engineering_status": "PASS",
@@ -19,11 +19,11 @@
   "legacy_response_validation": "LEGACY_DESCRIPTION_ONLY",
   "tests": {
     "engineering": 12,
-    "portable_backend": 438,
+    "portable_backend": 441,
     "database_chain": 5,
     "frontend": 23,
-    "unique_passed": 478,
-    "new_probe_unit_cases_in_portable": 15,
+    "unique_passed": 481,
+    "new_probe_unit_cases_in_portable": 18,
     "new_tcp_cases_in_database": 3,
     "explicitly_deselected_real_cached_embedding": 1,
     "pytest_deprecation_warnings": 2

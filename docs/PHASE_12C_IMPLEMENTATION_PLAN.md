@@ -28,23 +28,23 @@
 
 ## 任务 1：固定场景与 HTTP 检查
 
-- [ ] 先添加检查工具的模式、地址和固定场景测试，运行并确认缺少工具时失败。
-- [ ] 新增 `backend/scripts/probe_investigation_http.py`，读取固定请求，有限轮询并验证八个操作的实际响应 Schema。
-- [ ] 新增 `demo/phase12c/real-source-case.json` 和说明；使用已在本地来源数据中存在的 CVE-2025-32434 / torch 2.5.1，不预填答案。
-- [ ] 运行纯检查测试；记录真实来源 + 默认 Mock 的实际失败。
+- [x] 先添加检查工具的模式、地址和固定场景测试，运行并确认缺少工具时失败。
+- [x] 新增 `backend/scripts/probe_investigation_http.py`，读取固定请求，有限轮询并验证八个操作的实际响应 Schema。
+- [x] 新增 `demo/phase12c/real-source-case.json` 和说明；使用已在本地来源数据中存在的 CVE-2025-32434 / torch 2.5.1，不预填答案。
+- [x] 运行纯检查测试；记录真实来源 + 默认 Mock 的实际失败。
 
 ## 任务 2：TCP 闭环与模型配置准备
 
-- [ ] 新增 `backend/tests/investigation_api/test_tcp_chain.py`，复用既有合成输入和 Model Gateway，启动独立临时端口。
-- [ ] 实际验证 Planner、三个 Agent、工具记录、Artifact、Gate、冻结 Answer 和八个 HTTP 操作。
-- [ ] 验证失败、模式不匹配和运行中取消；不改业务执行逻辑。
-- [ ] 补充已有 `backend/.env.example` 的兼容远程 / 国产 / 本地配置说明；仅验证配置，不调用外部模型。
+- [x] 新增 `backend/tests/investigation_api/test_tcp_chain.py`，复用既有合成输入和 Model Gateway，启动独立临时端口。
+- [x] 实际验证 Planner、三个 Agent、工具记录、Artifact、Gate、冻结 Answer 和八个 HTTP 操作。
+- [x] 验证失败、模式不匹配和运行中取消；不改业务执行逻辑。
+- [x] 补充已有 `backend/.env.example` 的兼容远程 / 国产 / 本地配置说明；仅验证配置，不调用外部模型。
 
 ## 任务 3：当前交接契约与交付
 
-- [ ] 更新 `docs/FRONTEND_HANDOFF.md`，移除当前规范中已过期的调查 API_NOT_EXPOSED 描述，保留尚未实现的缺口。
-- [ ] 同步队友交接包当前文档、清单与 ZIP，保留历史验证记录并明确历史含义。
-- [ ] 更新 `CURRENT_STATUS.md`，生成 `PHASE_12C_RESULT.md`，区分历史 1261 与本次实际测试。
+- [x] 更新 `docs/FRONTEND_HANDOFF.md`，移除当前规范中已过期的调查 API_NOT_EXPOSED 描述，保留尚未实现的缺口。
+- [x] 同步队友交接包当前文档、清单与 ZIP，保留历史验证记录并明确历史含义。
+- [x] 更新 `CURRENT_STATUS.md`，生成 `PHASE_12C_RESULT.md`，区分历史 1261 与本次实际测试。
 - [ ] 运行回归、OpenAPI/TypeScript 一致性检查、敏感信息检查；完成独立审查后提交 PR。
 
 验收后停止，不进入真实模型效果评测、正式 AegisBench 或公网部署。
