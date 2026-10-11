@@ -1,0 +1,166 @@
+{
+  "record_kind": "ANNOTATION_BATCH_PLAN_NOT_GROUND_TRUTH",
+  "batch_id": "batch_02",
+  "target_count": 20,
+  "state": "PLANNED_NOT_STARTED",
+  "category_counts": {
+    "VULNERABILITY_FACTS": 2,
+    "VERSION_IMPACT": 8,
+    "PATCH_ANALYSIS": 3,
+    "POC_VERIFICATION": 2,
+    "ASSET_RISK": 3,
+    "MULTIHOP_QA": 2
+  },
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "tasks": [
+    {
+      "id": "GHSA-47fc-vmwq-366v-facts",
+      "type": "VULNERABILITY_FACTS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-facts.json",
+      "position": 1
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-facts",
+      "type": "VULNERABILITY_FACTS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-facts.json",
+      "position": 2
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-fixed",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-fixed.json",
+      "position": 3
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-unknown.json",
+      "position": 4
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-affected",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-affected.json",
+      "position": 5
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-fixed",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-fixed.json",
+      "position": 6
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-unknown",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-unknown.json",
+      "position": 7
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-affected.json",
+      "position": 8
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-fixed",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-fixed.json",
+      "position": 9
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-unknown",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-unknown.json",
+      "position": 10
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-commit-candidate",
+      "type": "PATCH_ANALYSIS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-commit-candidate.json",
+      "position": 11
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-commit-candidate",
+      "type": "PATCH_ANALYSIS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-commit-candidate.json",
+      "position": 12
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-commit-candidate",
+      "type": "PATCH_ANALYSIS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-commit-candidate.json",
+      "position": 13
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+      "type": "POC_VERIFICATION",
+      "additional_types": [
+        "PATCH_ANALYSIS"
+      ],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-release-and-poc.json",
+      "position": 14
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-release-and-poc",
+      "type": "POC_VERIFICATION",
+      "additional_types": [
+        "PATCH_ANALYSIS"
+      ],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-release-and-poc.json",
+      "position": 15
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-risk-affected.json",
+      "position": 16
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-fixed",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-risk-fixed.json",
+      "position": 17
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-risk-affected",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-risk-affected.json",
+      "position": 18
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-multihop",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-multihop.json",
+      "position": 19
+    },
+    {
+      "id": "cross-advisory-priorities",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/cross-advisory-priorities.json",
+      "position": 20
+    }
+  ],
+  "manual_completed_count": 0,
+  "reviewing_count": 0,
+  "approved_count": 0,
+  "rejected_count": 0,
+  "final_evaluation_run": false
+}

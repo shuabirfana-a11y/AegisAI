@@ -1,0 +1,80 @@
+{
+  "check_id": "maintainer-GHSA-935w-9g4m-p28p",
+  "source_id": "GHSA-935w-9g4m-p28p",
+  "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+  "kind": "MAINTAINER_ADVISORY",
+  "original_source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p",
+  "check_started_at": "2026-10-11T08:39:32.681791+00:00",
+  "retrieved_at": "2026-10-11T08:39:34.025882+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+  "response_sha256": "9835fb32202a454fa776c695cd1f03ca7ced07215de2b8c329309b80d757d5ef",
+  "projected_record": {
+    "ghsa_id": "GHSA-935w-9g4m-p28p",
+    "cve_id": "CVE-2026-105752",
+    "summary": "Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+    "severity": "low",
+    "published_at": "2026-09-28T07:34:45Z",
+    "updated_at": "2026-10-05T22:32:00Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+      "score": 3.1
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+        "score": 3.1
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "vllm"
+        },
+        "vulnerable_version_range": "< 0.30.0",
+        "patched_versions": ">= 0.30.0",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-200"
+      },
+      {
+        "cwe_id": "CWE-524"
+      }
+    ],
+    "references": []
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "d8b5d7466d5ec972a760a9ff4ea474a0b76421dc57898f4532b15915cfb5b0d1",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.794487+00:00",
+      "retrieved_at": "2026-10-11T08:37:12.047636+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:32.681791+00:00",
+      "retrieved_at": "2026-10-11T08:39:34.025882+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

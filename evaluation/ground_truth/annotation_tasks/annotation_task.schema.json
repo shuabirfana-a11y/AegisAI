@@ -1,0 +1,447 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Manual annotation task card, not Ground Truth",
+  "description": "Task management only. Independent human identity, evidence support and actual manual records require human review. This schema never approves or exports labels.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "aegisbench-annotation-task-v1"
+    },
+    "record_kind": {
+      "const": "ANNOTATION_TASK_NOT_GROUND_TRUTH"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "type": {
+      "enum": [
+        "VULNERABILITY_FACTS",
+        "VERSION_IMPACT",
+        "PATCH_ANALYSIS",
+        "POC_VERIFICATION",
+        "ASSET_RISK",
+        "MULTIHOP_QA"
+      ]
+    },
+    "additional_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "category": {
+      "enum": [
+        "facts",
+        "version",
+        "poc_patch",
+        "risk",
+        "multihop"
+      ]
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "input_context": {
+      "type": "object"
+    },
+    "origin": {
+      "enum": [
+        "REAL_SOURCE",
+        "CONTROLLED_SCENARIO",
+        "TEST_FIXTURE"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "dataset_questions_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "question_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "batch_id": {
+      "enum": [
+        "batch_01",
+        "batch_02",
+        "batch_03"
+      ]
+    },
+    "batch_position": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "ANNOTATING",
+        "REVIEWING",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "assignment_status": {
+      "enum": [
+        "UNASSIGNED",
+        "ASSIGNED"
+      ]
+    },
+    "annotator": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "annotation_record_status": {
+      "enum": [
+        "NOT_STARTED",
+        "DRAFT",
+        "REVIEWING",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "annotation_record_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "annotation_content_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_evidence_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidate_packet_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "source_check_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "human_confirmations": {
+      "type": "object",
+      "properties": {
+        "annotator_read_sources": {
+          "type": "boolean"
+        },
+        "reviewer_read_sources": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "annotator_read_sources",
+        "reviewer_read_sources"
+      ],
+      "additionalProperties": false
+    },
+    "quality_gate": {
+      "enum": [
+        "AWAITING_HUMANS",
+        "HUMAN_REVIEWING",
+        "HUMAN_APPROVED_PENDING_EXPORT",
+        "REJECTED_BY_HUMAN",
+        "EXPORT_BLOCKED"
+      ]
+    },
+    "prepared_by": {
+      "const": "AI_ASSISTANT"
+    },
+    "prepared_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "event",
+          "actor",
+          "at",
+          "note"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_kind",
+    "id",
+    "type",
+    "additional_types",
+    "category",
+    "question",
+    "input_context",
+    "origin",
+    "source_ids",
+    "dataset_version",
+    "dataset_questions_sha256",
+    "question_sha256",
+    "batch_id",
+    "batch_position",
+    "status",
+    "assignment_status",
+    "annotator",
+    "reviewer",
+    "annotation_record_status",
+    "annotation_record_path",
+    "annotation_content_sha256",
+    "evidence_count",
+    "candidate_evidence_count",
+    "candidate_packet_paths",
+    "source_check_ids",
+    "human_confirmations",
+    "quality_gate",
+    "prepared_by",
+    "prepared_at",
+    "history"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "DRAFT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "annotation_record_status": {
+            "const": "NOT_STARTED"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "assignment_status": {
+            "const": "UNASSIGNED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "annotator": {
+            "const": ""
+          },
+          "reviewer": {
+            "const": ""
+          },
+          "status": {
+            "const": "DRAFT"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ANNOTATING"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assignment_status": {
+            "const": "ASSIGNED"
+          },
+          "annotator": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "annotation_record_status": {
+            "enum": [
+              "NOT_STARTED",
+              "DRAFT"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "REVIEWING",
+              "APPROVED",
+              "REJECTED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assignment_status": {
+            "const": "ASSIGNED"
+          },
+          "annotator": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "reviewer": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "annotation_record_path": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "annotation_content_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "REVIEWING"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "annotation_record_status": {
+            "const": "REVIEWING"
+          },
+          "quality_gate": {
+            "const": "HUMAN_REVIEWING"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "APPROVED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "annotation_record_status": {
+            "const": "APPROVED"
+          },
+          "evidence_count": {
+            "minimum": 1
+          },
+          "quality_gate": {
+            "enum": [
+              "HUMAN_APPROVED_PENDING_EXPORT",
+              "EXPORT_BLOCKED"
+            ]
+          },
+          "human_confirmations": {
+            "properties": {
+              "annotator_read_sources": {
+                "const": true
+              },
+              "reviewer_read_sources": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "REJECTED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "annotation_record_status": {
+            "const": "REJECTED"
+          },
+          "quality_gate": {
+            "const": "REJECTED_BY_HUMAN"
+          }
+        }
+      }
+    }
+  ]
+}

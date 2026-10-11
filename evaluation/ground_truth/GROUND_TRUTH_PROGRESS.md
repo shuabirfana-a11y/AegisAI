@@ -43,8 +43,8 @@ POC/Patch 复合题只有一条台账记录；六类详见 [QUESTION_CLASSIFICAT
 
 | 序号 | question_id | 主类型 | 领取状态 | 流程状态 | 标注人 | 复核人 | 修订 | 当前人工记录 | 导出状态 | 阻塞/说明 |
 |---:|---|---|---|---|---|---|---|---|---|---|
-| 1 | GHSA-53q9-r3pm-6pq6-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 2 | GHSA-53q9-r3pm-6pq6-affected | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 1 | GHSA-53q9-r3pm-6pq6-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
+| 2 | GHSA-53q9-r3pm-6pq6-affected | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 3 | GHSA-53q9-r3pm-6pq6-fixed | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 4 | GHSA-53q9-r3pm-6pq6-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 5 | GHSA-53q9-r3pm-6pq6-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
@@ -57,15 +57,15 @@ POC/Patch 复合题只有一条台账记录；六类详见 [QUESTION_CLASSIFICAT
 | 12 | GHSA-47fc-vmwq-366v-fixed | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 13 | GHSA-47fc-vmwq-366v-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 14 | GHSA-47fc-vmwq-366v-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 15 | GHSA-47fc-vmwq-366v-commit-candidate | PATCH_ANALYSIS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 15 | GHSA-47fc-vmwq-366v-commit-candidate | PATCH_ANALYSIS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 16 | GHSA-47fc-vmwq-366v-risk-affected | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 17 | GHSA-47fc-vmwq-366v-risk-fixed | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 18 | GHSA-47fc-vmwq-366v-multihop | MULTIHOP_QA | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 19 | GHSA-c67j-w6g6-q2cm-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 19 | GHSA-c67j-w6g6-q2cm-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 20 | GHSA-c67j-w6g6-q2cm-affected | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 21 | GHSA-c67j-w6g6-q2cm-fixed | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 22 | GHSA-c67j-w6g6-q2cm-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 23 | GHSA-c67j-w6g6-q2cm-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 23 | GHSA-c67j-w6g6-q2cm-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 24 | GHSA-c67j-w6g6-q2cm-commit-candidate | PATCH_ANALYSIS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 25 | GHSA-c67j-w6g6-q2cm-risk-affected | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 26 | GHSA-c67j-w6g6-q2cm-risk-fixed | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
@@ -73,22 +73,22 @@ POC/Patch 复合题只有一条台账记录；六类详见 [QUESTION_CLASSIFICAT
 | 28 | GHSA-9rwj-6rc7-p77c-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 29 | GHSA-9rwj-6rc7-p77c-affected | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 30 | GHSA-9rwj-6rc7-p77c-fixed | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 31 | GHSA-9rwj-6rc7-p77c-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 31 | GHSA-9rwj-6rc7-p77c-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 32 | GHSA-9rwj-6rc7-p77c-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 33 | GHSA-9rwj-6rc7-p77c-commit-candidate | PATCH_ANALYSIS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 34 | GHSA-9rwj-6rc7-p77c-risk-affected | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 34 | GHSA-9rwj-6rc7-p77c-risk-affected | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 35 | GHSA-9rwj-6rc7-p77c-risk-fixed | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 36 | GHSA-9rwj-6rc7-p77c-multihop | MULTIHOP_QA | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 37 | GHSA-935w-9g4m-p28p-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 37 | GHSA-935w-9g4m-p28p-facts | VULNERABILITY_FACTS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 38 | GHSA-935w-9g4m-p28p-affected | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 39 | GHSA-935w-9g4m-p28p-fixed | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 40 | GHSA-935w-9g4m-p28p-unknown | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 41 | GHSA-935w-9g4m-p28p-release-and-poc | POC_VERIFICATION | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 42 | GHSA-935w-9g4m-p28p-commit-candidate | PATCH_ANALYSIS | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 43 | GHSA-935w-9g4m-p28p-risk-affected | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 44 | GHSA-935w-9g4m-p28p-risk-fixed | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 44 | GHSA-935w-9g4m-p28p-risk-fixed | ASSET_RISK | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 45 | GHSA-935w-9g4m-p28p-multihop | MULTIHOP_QA | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
-| 46 | GHSA-c67j-w6g6-q2cm-gap | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
+| 46 | GHSA-c67j-w6g6-q2cm-gap | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 首批资料已备；待真人领取与查源 |
 | 47 | GHSA-c67j-w6g6-q2cm-older-fix | VERSION_IMPACT | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 48 | cross-advisory-priorities | MULTIHOP_QA | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
 | 49 | cross-advisory-missing-version | MULTIHOP_QA | UNASSIGNED | NOT_STARTED | — | — | — | — | NOT_PREPARED | 待真实成员领取与查源 |
@@ -102,3 +102,9 @@ POC/Patch 复合题只有一条台账记录；六类详见 [QUESTION_CLASSIFICAT
 5. READY_FOR_RUNNER、正式 HUMAN_GOLD 与模型实验分别记录；模板形状通过不证明证据正确。
 
 当前阻塞：尚无人工独立调查/复核；没有填写任何标准答案。Phase 13-C 到此完成流程设施后停止，Phase 13-D 才开始人工执行及冻结。
+
+## Phase 13-D 准备进度
+
+[标注任务入口](annotation_tasks/README.md)；[首批10题工作单](annotation_tasks/batches/batch_01/BATCH_WORKBOOK.md)；[第一批临时质量报告](annotation_tasks/batches/batch_01/GROUND_TRUTH_BATCH_REPORT.md)。
+
+已创建49张 task DRAFT 元数据卡，按10/20/19分批；task DRAFT只是已建卡，不改变本台账的人审状态。第一批候选来源和定位已整理，未填写答案、未分配真人、未生成任何人审记录。人工 DRAFT/REVIEWING/APPROVED/REJECTED均仍为0，整个Phase 13-D尚未完成。
