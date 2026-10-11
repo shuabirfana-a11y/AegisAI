@@ -1,0 +1,10 @@
+{
+  "scenario_id": "synthetic-vllm-0_6_0-chain",
+  "data_origin": "SYNTHETIC_TEST",
+  "model_provider": "mock",
+  "fixture": "tests.orchestration.fixtures.scenario(engine, mode='complete')",
+  "input_condition": {"component": "vLLM", "ecosystem": "PyPI", "version": "0.6.0"},
+  "database_constraint": "aegis_phase5_test ONLY",
+  "identity_binding": "The fixed semantic scenario binds fresh synthetic CVE, package and UUID identities for database isolation; no random question or answer is generated.",
+  "warning": "SYNTHETIC INPUTS AND MODEL RECEIPT; NOT REAL SECURITY EVIDENCE OR BENCHMARK GROUND TRUTH"
+}

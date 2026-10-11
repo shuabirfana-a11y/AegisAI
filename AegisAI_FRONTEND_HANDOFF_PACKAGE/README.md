@@ -40,3 +40,7 @@
 现有前端采用原生 JavaScript ESM 和 Node 本地代理，七页已经存在。此包提供 TypeScript 契约供团队使用，不等于项目已经改成 React/Vue 或建立了 TypeScript 构建系统。
 
 本包不含可部署网站，也不含服务地址或登录凭据。收到 ZIP 后可以立即进行离线 Mock 页面开发；真实联调需取得完整项目或由后端负责人提供可访问环境。历史测试与本轮实跑结果分别记录；当前验证见 PHASE12B_VERIFICATION.json，原 VALIDATION.json 仅保留历史交接检查。
+
+## Phase 12-C 当前联调
+
+八个HTTP操作和现有TypeScript Client已通过本机TCP闭环；成功输入/模型回执明确为SYNTHETIC_TEST。默认Mock真实来源查询仍PLANNING_FAILED，不能声明真实模型演示已就绪。参见 [当前联调结果](docs/PHASE12C_INTEGRATION.md) 与 [当前验证](PHASE12C_VERIFICATION.json)。历史VALIDATION.json与PHASE12B_VERIFICATION.json保留原时间和范围，不替代当前记录。

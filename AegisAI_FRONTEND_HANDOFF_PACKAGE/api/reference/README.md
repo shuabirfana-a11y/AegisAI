@@ -1,11 +1,10 @@
-# 真实协议离线参考
+# 当前离线契约
 
-- openapi.json：当前 FastAPI 导出；34 个实际操作，无建议路由。
-- http-apis.json / HTTP_API_REFERENCE.md：逐项请求/返回、权限、错误和源码定位；示例请求均标 Mock。
-- *.schemas.json / *.d.ts：当前 Pydantic 或现有 HTTP 行/序列化结构的映射，保留原字段及枚举。internal 仅内部协议。
-- tools.registry.json：37 个工具的真实注册定义；外部 invoke 权限仍受只读限制。
-- examples/：Phase 12-A.5 的原始脱敏导出。生产数据=false；测试合成/Schema Mock 区分标注。
+- openapi.json：当前FastAPI原样导出，42个HTTP操作、41条路径。
+- investigation-http.openapi.json：八个调查操作及实际公共Schema。
+- investigation-http.d.ts / investigation-client.ts：队友优先使用的公共类型和Client，放在同一目录。
+- http-apis.json：真实路径、权限、浏览器代理限制及响应边界。
+- http-input / tool-input / internal-input / internal-output / legacy-output：已有Schema和内部/旧协议映射；内部输出不是新的浏览器响应。
+- HTTP_API_REFERENCE.md：旧34操作的逐项参数与错误参考，新增八操作见 [调查规范](../INVESTIGATION_API.md)。
 
-HTTP 成功响应未声明 response_model，不能依靠 OpenAPI 的空对象生成业务返回类型；配合 contracts/generated/http-responses.ts 使用。源文件定位指完整项目，源码不随包附带。
-
-本包实际核对结果与哈希见 [VALIDATION](../../VALIDATION.json) 和 [MANIFEST](../../MANIFEST.json)。
+旧操作OpenAPI描述不替代兼容返回逻辑；新调查严格Pydantic。原始历史fixture、验证时间和内部字段均保留来源说明。

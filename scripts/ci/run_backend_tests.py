@@ -18,6 +18,7 @@ TESTS = [
     "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
     "tests/investigation_api/test_contract.py",
     "tests/investigation_api/test_service.py", "tests/investigation_api/test_review_regressions.py",
+    "tests/investigation_api/test_http_probe.py",
 ]
 
 

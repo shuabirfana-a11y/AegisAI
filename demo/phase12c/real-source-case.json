@@ -1,0 +1,14 @@
+{
+  "case_id": "torch-CVE-2025-32434-version-2_5_1",
+  "data_origin": "REAL_SOURCE",
+  "requested_mode": "REAL",
+  "description": "固定真实来源漏洞联调输入；本地已有该 CVE 记录。2.5.1 是待判断的查询条件，不是预填标准答案；没有假定资产、影响结论或修复版本。",
+  "request": {
+    "user_query": "torch 2.5.1 是否受到 CVE-2025-32434 影响？请给出补丁与证据，保留未知。",
+    "asset_scope": {
+      "target": "CVE-2025-32434",
+      "component": {"name": "torch", "ecosystem": "PyPI", "package_name": "torch", "version": "2.5.1"}
+    },
+    "options": {"mode": "deep", "realtime": false}
+  }
+}
