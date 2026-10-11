@@ -1,0 +1,86 @@
+{
+  "check_id": "database-GHSA-47fc-vmwq-366v",
+  "source_id": "GHSA-47fc-vmwq-366v",
+  "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+  "kind": "GITHUB_REVIEWED_DATABASE",
+  "original_source_url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+  "check_started_at": "2026-10-11T08:39:28.780813+00:00",
+  "retrieved_at": "2026-10-11T08:39:30.888796+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+  "response_sha256": "28dec9a7f78380522d60a08cfc54d4c3f1de83a4bf307fcb7d1be417861c6064",
+  "projected_record": {
+    "ghsa_id": "GHSA-47fc-vmwq-366v",
+    "cve_id": "CVE-2022-45907",
+    "summary": "PyTorch vulnerable to arbitrary code execution",
+    "severity": "critical",
+    "published_at": "2022-11-26T03:30:27Z",
+    "updated_at": "2024-11-13T22:52:23Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "score": 9.8
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "score": 9.8
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+        "score": 9.3
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "torch"
+        },
+        "vulnerable_version_range": "<= 1.13.0",
+        "first_patched_version": "1.13.1",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-77"
+      }
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-45907",
+      "https://github.com/pytorch/pytorch/issues/88868",
+      "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+      "https://github.com/pytorch/pytorch/issues/89855",
+      "https://github.com/pytorch/pytorch/pull/89189",
+      "https://github.com/pytorch/pytorch/releases/tag/v1.13.1",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/torch/PYSEC-2022-43015.yaml",
+      "https://github.com/advisories/GHSA-47fc-vmwq-366v"
+    ]
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "8cd0ad2ad9e39429017d081be08c716e1bcfd935aeb460d6e9bbbfdb91082610",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.493474+00:00",
+      "retrieved_at": "2026-10-11T08:37:11.800476+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:28.780813+00:00",
+      "retrieved_at": "2026-10-11T08:39:30.888796+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

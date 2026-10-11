@@ -1,0 +1,45 @@
+{
+  "check_id": "commit-767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+  "source_id": "GHSA-47fc-vmwq-366v",
+  "url": "https://api.github.com/repos/pytorch/pytorch/commits/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+  "kind": "MAINTAINER_COMMIT_METADATA",
+  "original_source_url": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+  "check_started_at": "2026-10-11T08:39:32.949291+00:00",
+  "retrieved_at": "2026-10-11T08:39:34.174876+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/repos/pytorch/pytorch/commits/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+  "response_sha256": "0504dac904c8486ebe78398bfdb87416aaa7f6b2a6ddbe2a0e00d0640e280e52",
+  "projected_record": {
+    "sha": "767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+    "html_url": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+    "committed_at": "2022-11-17T22:05:30Z",
+    "parent_shas": [
+      "fbbf3687453aed1b732eee6f6e9050258ce29561"
+    ]
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "971ef0c9158f0d5565fc8c678be5deb4b23545dec9d35e4c8b822a06d6d0e306",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.800476+00:00",
+      "retrieved_at": "2026-10-11T08:37:30.988084+00:00",
+      "http_status": null,
+      "check_status": "NETWORK_CHECK_FAILED",
+      "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:32.949291+00:00",
+      "retrieved_at": "2026-10-11T08:39:34.174876+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

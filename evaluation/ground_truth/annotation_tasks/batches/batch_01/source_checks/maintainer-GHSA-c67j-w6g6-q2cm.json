@@ -1,0 +1,82 @@
+{
+  "check_id": "maintainer-GHSA-c67j-w6g6-q2cm",
+  "source_id": "GHSA-c67j-w6g6-q2cm",
+  "url": "https://api.github.com/repos/langchain-ai/langchain/security-advisories/GHSA-c67j-w6g6-q2cm",
+  "kind": "MAINTAINER_ADVISORY",
+  "original_source_url": "https://github.com/langchain-ai/langchain/security/advisories/GHSA-c67j-w6g6-q2cm",
+  "check_started_at": "2026-10-11T08:39:31.673847+00:00",
+  "retrieved_at": "2026-10-11T08:39:32.942060+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/repos/langchain-ai/langchain/security-advisories/GHSA-c67j-w6g6-q2cm",
+  "response_sha256": "1a28d79bd2dd53577446a5a387ce407fb3466095b2b17d4ef1082e77ad1a16ca",
+  "projected_record": {
+    "ghsa_id": "GHSA-c67j-w6g6-q2cm",
+    "cve_id": "CVE-2025-68664",
+    "summary": "LangChain serialization injection vulnerability enables secret extraction in dumps/loads APIs",
+    "severity": "critical",
+    "published_at": "2025-12-23T01:44:38Z",
+    "updated_at": "2025-12-23T17:00:35Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+      "score": 9.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+        "score": 9.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": "< 1.2.5, >= 1.0.0",
+        "patched_versions": "1.2.5",
+        "vulnerable_functions": []
+      },
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": "< 0.3.81",
+        "patched_versions": "0.3.81",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [],
+    "references": []
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "c0069992cc28f6537fe6ae77c07fb3f9ac1ba895ebf550d1d5cc224bd03759da",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.792486+00:00",
+      "retrieved_at": "2026-10-11T08:37:30.988084+00:00",
+      "http_status": null,
+      "check_status": "NETWORK_CHECK_FAILED",
+      "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:31.673847+00:00",
+      "retrieved_at": "2026-10-11T08:39:32.942060+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, feature/backend, feature/frontend]
   workflow_dispatch:
 
 permissions:
@@ -41,7 +40,22 @@ jobs:
           printf '%s  %s\n' 551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb "$archive" | sha256sum --check
           tar -xzf "$archive" -C "$RUNNER_TEMP" gitleaks
       - name: Scan all Git history with redaction
-        run: '"$RUNNER_TEMP/gitleaks" git --redact=100 --no-banner --log-opts="--all --full-history" .'
+        run: >-
+          "$RUNNER_TEMP/gitleaks" git --redact=100 --no-banner
+          --report-format=json --report-path="$RUNNER_TEMP/gitleaks-history.json"
+          --log-opts="--all --full-history" .
+      - name: Report finding locations without secret values
+        if: failure()
+        shell: python
+        run: |
+          import json
+          import os
+          from pathlib import Path
+          report = Path(os.environ["RUNNER_TEMP"]) / "gitleaks-history.json"
+          if report.is_file():
+              findings = json.loads(report.read_text(encoding="utf-8"))
+              fields = ("RuleID", "File", "StartLine", "Commit", "Fingerprint")
+              print(json.dumps([{key: item.get(key) for key in fields} for item in findings]))
 
   backend:
     name: Backend unit and contracts
@@ -69,6 +83,10 @@ jobs:
         run: python scripts/ci/check_contracts.py
       - name: Investigation HTTP contracts
         run: python scripts/export_investigation_api.py --check
+      - name: AegisBench offline contracts and metrics
+        run: python -m pytest tests/aegisbench -q
+      - name: AegisBench offline pilot (quality availability is reported explicitly)
+        run: python evaluate.py --output work/ci-aegisbench
 
   frontend:
     name: Frontend tests and types

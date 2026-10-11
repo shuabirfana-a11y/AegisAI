@@ -1,0 +1,77 @@
+{
+  "check_id": "maintainer-GHSA-9rwj-6rc7-p77c",
+  "source_id": "GHSA-9rwj-6rc7-p77c",
+  "url": "https://api.github.com/repos/langchain-ai/langgraph/security-advisories/GHSA-9rwj-6rc7-p77c",
+  "kind": "MAINTAINER_ADVISORY",
+  "original_source_url": "https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c",
+  "check_started_at": "2026-10-11T08:39:31.725103+00:00",
+  "retrieved_at": "2026-10-11T08:39:33.032386+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/repos/langchain-ai/langgraph/security-advisories/GHSA-9rwj-6rc7-p77c",
+  "response_sha256": "169cc5f20c9b060e9889c1671d28737ec47dab5f15c3cdb09c47667a49dfd1f1",
+  "projected_record": {
+    "ghsa_id": "GHSA-9rwj-6rc7-p77c",
+    "cve_id": "CVE-2025-67644",
+    "summary": "SQL injection via metadata filter key in SQLite checkpointer list method",
+    "severity": "high",
+    "published_at": "2025-12-09T22:07:45Z",
+    "updated_at": "2025-12-10T17:48:37Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+      "score": 7.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+        "score": 7.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": " langgraph-checkpoint-sqlite"
+        },
+        "vulnerable_version_range": "<3.0.1",
+        "patched_versions": "3.0.1",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-89"
+      }
+    ],
+    "references": []
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "c37e35be3504ba97f8ce9aeb4bfd38d6f501ca083de3cf9a83ddfc3951f98698",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.793486+00:00",
+      "retrieved_at": "2026-10-11T08:37:12.046627+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:31.725103+00:00",
+      "retrieved_at": "2026-10-11T08:39:33.032386+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

@@ -1,6 +1,6 @@
 # AegisAI 团队开发规范
 
-本规范用于已有私有仓库。当前业务基线是 Phase 11-D，前端协议基线是 Phase 12-A.5；新调查 HTTP 接口仍待 Phase 12-B 实施。
+本规范用于已有私有仓库。Phase 11-D 内部闭环和 Phase 12-A.5 交接已完成，Phase 12-B 调查 HTTP 接口已经实现。能力和主分支发布状态分开记录，以 [CURRENT_STATUS.md](CURRENT_STATUS.md) 为准；功能分支有代码不等于已经进入 main。
 
 ## 分支
 
