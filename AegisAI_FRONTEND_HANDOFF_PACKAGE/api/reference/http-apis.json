@@ -1,0 +1,2313 @@
+{
+  "classification": "Existing HTTP availability and current frontend transport are separate; no proposed route appears in this list.",
+  "operations": [
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/health",
+      "permissions": "none",
+      "request": {
+        "parameters": [],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "Health",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "503": "Database down; response still uses Health fields"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/health",
+        "body": null
+      },
+      "source": "backend/app/api/routes.py",
+      "line": 13
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/sources",
+      "permissions": "none",
+      "request": {
+        "parameters": [],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "SourcesResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {},
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/sources",
+        "body": null
+      },
+      "source": "backend/app/api/routes.py",
+      "line": 21
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/sync-runs",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "CVE_LIST",
+                    "OSV",
+                    "CISA_KEV"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "SyncRunsResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/sync-runs",
+        "body": null
+      },
+      "source": "backend/app/api/routes.py",
+      "line": 24
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "CVE_LIST",
+                    "OSV",
+                    "CISA_KEV"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "ai_relevance",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "relevant",
+                    "irrelevant",
+                    "uncertain"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ai Relevance"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "modified_desc",
+                "published_desc"
+              ],
+              "type": "string",
+              "default": "modified_desc",
+              "title": "Sort"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "VulnerabilityListResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities",
+        "body": null
+      },
+      "source": "backend/app/api/routes.py",
+      "line": 28
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "VulnerabilityDetail",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001",
+        "body": null
+      },
+      "source": "backend/app/api/routes.py",
+      "line": 34
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/enrichment",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<EnrichmentJob>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/enrichment",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/claims",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<ClaimRow>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/claims",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/evidence",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<EvidenceRow>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/evidence",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/pocs",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<PocCandidate>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/pocs",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/patches",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<PatchCandidate>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/patches",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/vulnerabilities/{id}/timeline",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EnrichedPage<IntelligenceEvent>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/vulnerabilities/CVE-2099-0001/timeline",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 18
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/evidence/{id}",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "EvidenceRow",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/evidence/00000000-0000-4000-8000-000000000001",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 27
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/reviews",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "open",
+                    "assigned",
+                    "resolved",
+                    "deferred",
+                    "cancelled"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "Page<ReviewRow>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/reviews",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 33
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/reviews/{id}",
+      "permissions": "none",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "ReviewDetail",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/reviews/00000000-0000-4000-8000-000000000001",
+        "body": null
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 41
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/reviews/{id}/resolve",
+      "permissions": "AEGIS_REVIEW_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/Decision"
+        },
+        "body_model": "Decision",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "AuditRow",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset review requires protected context"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/reviews/00000000-0000-4000-8000-000000000001/resolve",
+        "body": {
+          "expected_revision": 1,
+          "expected_claim_revision": 1,
+          "request_key": "mock-review-001",
+          "status": "PENDING",
+          "reason": "MOCK: evidence requires review",
+          "evidence_ids": []
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/enrichment.py",
+      "line": 58
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "Page<AssetRow>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 43
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/overview",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "AssetOverview",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/overview",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 49
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/assets",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/NewAsset"
+        },
+        "body_model": "NewAsset",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 201,
+        "typescript_type": "AssetRow",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset or component unavailable"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/assets",
+        "body": {
+          "name": "MOCK asset",
+          "request_key": "mock-asset-001",
+          "is_demo": true
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 52
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "AssetDetail",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 57
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/assets/{id}/components",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/NewComponent"
+        },
+        "body_model": "NewComponent",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 201,
+        "typescript_type": "ComponentRow",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset or component unavailable"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/components",
+        "body": {
+          "name": "vllm",
+          "version": "0.6.0",
+          "request_key": "mock-component-001"
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 62
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "PATCH",
+      "url": "/api/v1/assets/{id}/components/{component_id}",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "component_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Component Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/UpdateVersion"
+        },
+        "body_model": "UpdateVersion",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "ComponentRow",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset or component unavailable"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "PATCH",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/components/00000000-0000-4000-8000-000000000001",
+        "body": {
+          "version": "0.6.1",
+          "expected_revision": 1,
+          "request_key": "mock-version-001"
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 67
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/assets/{id}/sbom",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "x-request-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 150,
+              "title": "X-Request-Key"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": "CycloneDX1.6 / SPDX2.3 JSON; x-request-key Header"
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "SbomImportResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset or component unavailable",
+        "413": "Exceeds 2 MiB",
+        "400": "Invalid Content-Length"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/sbom",
+        "body": {
+          "bomFormat": "CycloneDX",
+          "specVersion": "1.6",
+          "version": 1,
+          "components": [
+            {
+              "type": "library",
+              "name": "vllm",
+              "version": "0.6.0",
+              "purl": "pkg:pypi/vllm@0.6.0"
+            }
+          ]
+        },
+        "auth": "configured server token required; value intentionally omitted",
+        "headers": {
+          "x-request-key": "mock-sbom-001",
+          "Content-Type": "application/json"
+        }
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 71
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}/risks",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "AssetRisksResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/risks",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 86
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}/risks/{snapshot_id}",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "snapshot_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Snapshot Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "HistoricalAssetRisk",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/risks/00000000-0000-4000-8000-000000000001",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 91
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/assets/{id}/recompute",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "{items: LegacyAssetRiskPayload[]}",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "Invalid request or business input",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Idempotency or revision conflict",
+        "404": "Asset or component unavailable"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/recompute",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 96
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}/risk-changes",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "RiskChangeResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/risk-changes",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 102
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}/inventory-history",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "InventoryHistoryResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/inventory-history",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 107
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/{id}/reviews",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "Page<ReviewDetail>",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/00000000-0000-4000-8000-000000000001/reviews",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 115
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
+      "url": "/api/v1/assistant/query",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/QueryRequest"
+        },
+        "body_model": "QueryRequest",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 202,
+        "typescript_type": "LegacyAssistantRun",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "409": "Same request key with different content",
+        "403": "Realtime tools disabled by server policy",
+        "429": "Assistant queue full"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/assistant/query",
+        "body": {
+          "question": "查询 CVE-2099-0001（MOCK）",
+          "request_key": "mock-query-001",
+          "target": "CVE-2099-0001",
+          "realtime": false
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assistant.py",
+      "line": 9
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assistant/runs/{id}",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "LegacyAssistantRun",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assistant/runs/00000000-0000-4000-8000-000000000001",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assistant.py",
+      "line": 16
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assistant/runs/{id}/tasks",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "{items: LegacyTaskRun[]}",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assistant/runs/00000000-0000-4000-8000-000000000001/tasks",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assistant.py",
+      "line": 21
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assistant/runs/{id}/trace",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "LegacyAssistantTrace",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Resource missing or not owned; protected review context may be excluded"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assistant/runs/00000000-0000-4000-8000-000000000001/trace",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assistant.py",
+      "line": 26
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/tools/contracts",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "ToolContractsResponse",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/tools/contracts",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/tools.py",
+      "line": 13
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "PROXY_BLOCKED",
+      "method": "POST",
+      "url": "/api/v1/tools/{name}",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": {
+          "type": "object",
+          "additionalProperties": true,
+          "title": "Body"
+        },
+        "body_model": "",
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "ToolEnvelope",
+        "openapi_success_schema": {}
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured",
+        "404": "Unknown tool",
+        "403": "Tool not READ_ONLY, or refresh requested"
+      },
+      "proxy_errors": {
+        "405": "POST/PATCH not allowed by current frontend proxy"
+      },
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "POST",
+        "url": "/api/v1/tools/search_vulnerabilities",
+        "body": {
+          "q": "CVE-2099-0001",
+          "limit": 20
+        },
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/tools.py",
+      "line": 19
+    }
+  ]
+}

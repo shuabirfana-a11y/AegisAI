@@ -1,0 +1,45 @@
+[
+  {
+    "url": "https://api.first.org/data/v1/epss?cve=CVE-2025-32434",
+    "status": 200,
+    "bytes": 203
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cisagov/kev-data/main/known_exploited_vulnerabilities.json",
+    "status": 200,
+    "bytes": 1765906
+  },
+  {
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+    "status": 200,
+    "bytes": 4233
+  },
+  {
+    "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/32xxx/CVE-2025-32434.json",
+    "status": 200,
+    "bytes": 5411
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/main/2025/32xxx/CVE-2025-32434.json",
+    "status": 404
+  },
+  {
+    "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+    "status": 200,
+    "bytes": 2435
+  },
+  {
+    "url": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip",
+    "status": 200,
+    "bytes": 2021351
+  },
+  {
+    "url": "https://capec.mitre.org/data/xml/capec_latest.xml.zip",
+    "status": 404
+  },
+  {
+    "url": "https://api.osv.dev/v1/query",
+    "status": 200,
+    "bytes": 41600
+  }
+]

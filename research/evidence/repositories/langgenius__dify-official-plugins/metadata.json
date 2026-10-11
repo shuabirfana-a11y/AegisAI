@@ -1,0 +1,53 @@
+{
+  "full_name": "langgenius/dify-official-plugins",
+  "html_url": "https://github.com/langgenius/dify-official-plugins",
+  "homepage": null,
+  "description": null,
+  "language": "Python",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 634,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-12-18T09:20:44Z",
+  "updated_at": "2026-10-02T15:14:30Z",
+  "pushed_at": "2026-10-01T02:53:39Z",
+  "open_issues_count": 89,
+  "default_branch": "main",
+  "requested_repo": "langgenius/dify-official-plugins",
+  "commit": "60fd178450bf76fa651f348113a9bc93783dd1ee",
+  "commit_date": "2026-09-29T02:24:08Z",
+  "commit_message": "feat(nvidia_nim): auto-discover NVIDIA Build catalog endpoint and validate models (#3953)\n\n- endpoint_url now optional with default https://integrate.api.nvidia.com/v1\n  (NVIDIA Build catalog); empty value auto-targets the catalog.\n- New optional api_key credential (secret-input) for cloud catalog auth.\n- validate_credentials: normalize endpoint, soft-check the model against\n  the OpenAI-compatible /models list with typo suggestions, and keep the\n  inherited ping as the authoritative key/access check. Custom NIM\n  endpoints without /models fall back gracefully.\n- Add api_key field, README auto-discovery section, tests with mocked HTTP,\n  manifest 0.0.12, pytest dev dep + lockfile.\n\nCo-authored-by: hpiclaranet <hpiclaranet@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:31:20.615072+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/langgenius/dify-official-plugins/blob/60fd178450bf76fa651f348113a9bc93783dd1ee/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/langgenius/dify-official-plugins/blob/60fd178450bf76fa651f348113a9bc93783dd1ee/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/langgenius/dify-official-plugins/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 3998,
+      "title": "[Azure OpenAI] Add GPT-6 and gpt-transcribe support to Azure OpenAI",
+      "state": "open",
+      "updated_at": "2026-10-02T15:53:26Z",
+      "html_url": "https://github.com/langgenius/dify-official-plugins/issues/3998",
+      "comments": 0
+    },
+    {
+      "number": 3994,
+      "title": "Anthropic model provider has an unnecessary schema file",
+      "state": "open",
+      "updated_at": "2026-10-01T23:25:37Z",
+      "html_url": "https://github.com/langgenius/dify-official-plugins/issues/3994",
+      "comments": 1
+    }
+  ]
+}

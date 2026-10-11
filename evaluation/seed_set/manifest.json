@@ -1,0 +1,86 @@
+{
+  "schema_version": "aegis-seed/0.1",
+  "checked_at_utc": "2026-10-03T04:03:25.377395+00:00",
+  "count": 12,
+  "cve_list_commit": "281e4a53d95c7e8cbc68e428a7469e67dc02d960",
+  "source_count": 2,
+  "sources": [
+    "CVEProject/cvelistV5",
+    "OSV API"
+  ],
+  "review_status": "Machine checks completed; human review pending; not benchmark gold",
+  "records": [
+    {
+      "cve_id": "CVE-2025-32434",
+      "product": "PyTorch",
+      "package": "torch",
+      "file": "CVE-2025-32434.json"
+    },
+    {
+      "cve_id": "CVE-2022-45907",
+      "product": "PyTorch",
+      "package": "torch",
+      "file": "CVE-2022-45907.json"
+    },
+    {
+      "cve_id": "CVE-2026-9540",
+      "product": "vLLM",
+      "package": "vllm",
+      "file": "CVE-2026-9540.json"
+    },
+    {
+      "cve_id": "CVE-2026-94626",
+      "product": "vLLM",
+      "package": "vllm",
+      "file": "CVE-2026-94626.json"
+    },
+    {
+      "cve_id": "CVE-2026-9856",
+      "product": "Transformers",
+      "package": "transformers",
+      "file": "CVE-2026-9856.json"
+    },
+    {
+      "cve_id": "CVE-2026-80047",
+      "product": "Transformers",
+      "package": "transformers",
+      "file": "CVE-2026-80047.json"
+    },
+    {
+      "cve_id": "CVE-2026-8147",
+      "product": "MLflow",
+      "package": "mlflow",
+      "file": "CVE-2026-8147.json"
+    },
+    {
+      "cve_id": "CVE-2026-71211",
+      "product": "MLflow",
+      "package": "mlflow",
+      "file": "CVE-2026-71211.json"
+    },
+    {
+      "cve_id": "CVE-2026-49119",
+      "product": "Gradio",
+      "package": "gradio",
+      "file": "CVE-2026-49119.json"
+    },
+    {
+      "cve_id": "CVE-2026-48545",
+      "product": "Gradio",
+      "package": "gradio",
+      "file": "CVE-2026-48545.json"
+    },
+    {
+      "cve_id": "CVE-2026-57516",
+      "product": "Ray",
+      "package": "ray",
+      "file": "CVE-2026-57516.json"
+    },
+    {
+      "cve_id": "CVE-2026-41486",
+      "product": "Ray",
+      "package": "ray",
+      "file": "CVE-2026-41486.json"
+    }
+  ]
+}

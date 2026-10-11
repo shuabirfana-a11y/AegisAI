@@ -1,0 +1,55 @@
+{
+  "full_name": "kurtmckee/feedparser",
+  "html_url": "https://github.com/kurtmckee/feedparser",
+  "homepage": "https://feedparser.readthedocs.io",
+  "description": "Parse feeds in Python",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 2433,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2010-11-26T02:53:24Z",
+  "updated_at": "2026-10-02T19:55:44Z",
+  "pushed_at": "2026-09-07T22:29:38Z",
+  "open_issues_count": 113,
+  "default_branch": "main",
+  "requested_repo": "kurtmckee/feedparser",
+  "commit": "a22c5521cbb109871f1a2318948581901bd47e26",
+  "commit_date": "2026-07-30T14:54:57Z",
+  "commit_message": "Remove module-level metadata attributes (#588)",
+  "checked_at_utc": "2026-10-03T03:34:50.175299+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/kurtmckee/feedparser/blob/a22c5521cbb109871f1a2318948581901bd47e26/README.rst",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/kurtmckee/feedparser/blob/a22c5521cbb109871f1a2318948581901bd47e26/LICENSE",
+  "latest_release": {
+    "tag_name": "v6.0.14",
+    "published_at": "2026-07-30T14:09:21Z",
+    "html_url": "https://github.com/kurtmckee/feedparser/releases/tag/v6.0.14",
+    "name": "v6.0.14"
+  },
+  "recent_issues": [
+    {
+      "number": 599,
+      "title": "parse() raises on some malformed feeds instead of setting bozo",
+      "state": "open",
+      "updated_at": "2026-09-22T14:21:46Z",
+      "html_url": "https://github.com/kurtmckee/feedparser/issues/599",
+      "comments": 0
+    },
+    {
+      "number": 595,
+      "title": "Security: requesting private vulnerability reporting be enabled",
+      "state": "open",
+      "updated_at": "2026-09-13T11:30:18Z",
+      "html_url": "https://github.com/kurtmckee/feedparser/issues/595",
+      "comments": 0
+    }
+  ]
+}

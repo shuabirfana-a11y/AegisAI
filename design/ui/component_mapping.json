@@ -1,0 +1,1562 @@
+{
+  "kind": "FRONTEND HANDOFF DESIGN / NOT IMPLEMENTED",
+  "mapping": [
+    {
+      "ui_id": "G01",
+      "page": "GLOBAL",
+      "component": "AppShell / GlobalSearch / ContextLink / Feedback",
+      "data_required": "实际开放能力、read/write权限、登录会话",
+      "interaction": "导航及可用动作",
+      "source_ids": [],
+      "backend": "能力与最小权限",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "G02",
+      "page": "GLOBAL",
+      "component": "AppShell / GlobalSearch / ContextLink / Feedback",
+      "data_required": "实体ID/类型、搜索范围、可访问产品/资产",
+      "interaction": "全局搜索/结果跳转",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "实体搜索与授权过滤",
+      "api_ids": [
+        "A02"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "G03",
+      "page": "GLOBAL",
+      "component": "AppShell / GlobalSearch / ContextLink / Feedback",
+      "data_required": "origin、filters、cursor、scroll、revision、as_of",
+      "interaction": "返回/面包屑/锚点",
+      "source_ids": [],
+      "backend": "本地路由上下文",
+      "api_ids": [],
+      "phase": "P0",
+      "status": "LOCAL ONLY"
+    },
+    {
+      "ui_id": "G04",
+      "page": "GLOBAL",
+      "component": "AppShell / GlobalSearch / ContextLink / Feedback",
+      "data_required": "请求ID、最新revision/coverage、旧快照",
+      "interaction": "请求重试/范围刷新",
+      "source_ids": [],
+      "backend": "统一错误与快照协议",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "G05",
+      "page": "GLOBAL",
+      "component": "AppShell / GlobalSearch / ContextLink / Feedback",
+      "data_required": "公共entity/revision/anchor；私有资产只在授权会话上下文",
+      "interaction": "复制分享链接",
+      "source_ids": [],
+      "backend": "本地URL构造及访问权限复核",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D01",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "window、as_of、覆盖产品/来源及快照",
+      "interaction": "时间窗与范围/刷新",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "一致快照与范围摘要",
+      "api_ids": [
+        "A03"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D02",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "首次发现distinct entity、新修订entity、knowledge type计数及过滤器",
+      "interaction": "新增/更新/知识计数及进入列表",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "去重后变化聚合",
+      "api_ids": [
+        "A03",
+        "A04"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D03",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "CVSS版本、PoC关联状态、KEV目录、EPSS日期、变化依据",
+      "interaction": "值得关注/风险信号及进入详情",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "可解释风险信号聚合",
+      "api_ids": [
+        "A03",
+        "A05"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D04",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "ID/类型、变化摘要、源日期和观测日期",
+      "interaction": "近期情报列表/时间线及类型跳转",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "类型化事件与知识聚合",
+      "api_ids": [
+        "A03",
+        "A04",
+        "A07",
+        "A10"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D05",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "实际启用数、类别、stale/failed、last_success_at",
+      "interaction": "来源摘要及异常跳转",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "运行状态聚合",
+      "api_ids": [
+        "A03",
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D06",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "受影响登记组件/漏洞distinct数，库存revision",
+      "interaction": "资产影响入口",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权Asset Matching",
+      "api_ids": [
+        "A03",
+        "A13"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "D07",
+      "page": "DASH",
+      "component": "MetricCard / IntelList / TrendChart / SourceSummary",
+      "data_required": "开放任务distinct数、风险及触发原因",
+      "interaction": "待复核入口",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review队列聚合",
+      "api_ids": [
+        "A03",
+        "A14"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C01",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "record_type、外部ID/关键词、各类型结果计数",
+      "interaction": "类型切换/搜索/清空",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "统一类型检索",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C02",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "产品生态、AI类别及依据、CVSS version、KEV/PoC/fixed/date/Claim状态、cursor",
+      "interaction": "基础及高级筛选/排序/分页",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "确定性筛选、未知桶及排序",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C03",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "身份、产品、评分出处、PoC关联、修复、KEV、字段核验、updated",
+      "interaction": "漏洞行及详情跳转",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "精简漏洞投影",
+      "api_ids": [
+        "A04",
+        "A05"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C04",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "作者/发布机关、ID/版次/状态、时间、related entities、证据",
+      "interaction": "论文/标准/政策/事件行及详情跳转",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "知识类型投影与详情",
+      "api_ids": [
+        "A04",
+        "A10"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C05",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "授权资产ID、affected/not_affected/unknown",
+      "interaction": "资产命中筛选",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产匹配筛选",
+      "api_ids": [
+        "A04",
+        "A13"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "C06",
+      "page": "CENTER",
+      "component": "TypeTabs / Filter / Table / Pagination",
+      "data_required": "本次已查范围/未接入范围、撤销记录、部分源失败",
+      "interaction": "结果范围/未知说明",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Coverage与查询执行摘要",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V01",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "CVE/GHSA别名、title、record_status、源语言/日期",
+      "interaction": "身份/描述/状态",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "实体详情与状态修订",
+      "api_ids": [
+        "A05"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V02",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "package/ecosystem/PURL、原range/events/explicit versions、explicit fixed、scope/ClaimID",
+      "interaction": "影响产品/包/版本/修复及查看证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "版本契约与字段provenance",
+      "api_ids": [
+        "A05",
+        "A08"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V03",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "cvss版本vector/base/provider；epss/date/model；KEV完整目录时间；SSVC scope",
+      "interaction": "CVSS/EPSS/KEV/利用状态及查看证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT"
+      ],
+      "backend": "风险字段独立保留与溯源",
+      "api_ids": [
+        "A05",
+        "A08"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V04",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "candidate/related、公开链接；独立核验记录/授权适用环境或unknown",
+      "interaction": "PoC关联/可用性及展开证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "GITHUB_CODE",
+        "TOB_BLOG"
+      ],
+      "backend": "PoC关系与可用性独立记录",
+      "api_ids": [
+        "A06",
+        "A08"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V05",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "explicit fixed、厂商建议及适用包分支、未提供原因",
+      "interaction": "处置建议/厂商链接/修复版本",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "修复事实/建议出处",
+      "api_ids": [
+        "A05",
+        "A06",
+        "A08"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V06",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "候选commit完整SHA/PR/branch、关联状态、Evidence",
+      "interaction": "Patch/Fix Commit",
+      "source_ids": [
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "GITHUB_CODE",
+        "OSV"
+      ],
+      "backend": "Patch关联（未实现时隐藏）",
+      "api_ids": [
+        "A06",
+        "A08"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V07",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "文献元数据、relation scope、关系候选依据",
+      "interaction": "论文/分析及知识关联跳转",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "关系检索与知识详情",
+      "api_ids": [
+        "A06",
+        "A10",
+        "A08"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V08",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "Claim scope/revision、EvidenceID、support/refute/context、lineage",
+      "interaction": "证据/Claim状态/差异",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Evidence Store与字段核验",
+      "api_ids": [
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V09",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "真实冲突ID、两候选、范围及review ID",
+      "interaction": "同范围冲突/进入复核",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "冲突检测与Review",
+      "api_ids": [
+        "A05",
+        "A14",
+        "A15"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V10",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "源发布/修改、系统首次发现、PoC关系/KEV/fix变化，事件证据",
+      "interaction": "时间线及事件证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "证据化事件时间线",
+      "api_ids": [
+        "A07",
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V11",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "entityID/revision、当前Claim及问题、授权上下文",
+      "interaction": "继续询问这个漏洞",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "受控问答任务",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "V12",
+      "page": "DETAIL",
+      "component": "DetailSection / RiskBadge / PocStatus / PatchStatus / EvidenceTrigger",
+      "data_required": "授权inventory revision、三态匹配和依据",
+      "interaction": "当前资产影响摘要/查看清单",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "Asset Matching",
+      "api_ids": [
+        "A13"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "E01",
+      "page": "EVIDENCE",
+      "component": "EvidenceDrawer / EvidenceCard / Citation",
+      "data_required": "publisher/sourceID、excerpt、published/retrieved、original URL",
+      "interaction": "来源/原文摘要/时间/URL",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "证据内容与许可/权限控制",
+      "api_ids": [
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "E02",
+      "page": "EVIDENCE",
+      "component": "EvidenceDrawer / EvidenceCard / Citation",
+      "data_required": "Claim/raw revision、scope、支持反驳关系、原始发布者与转录链",
+      "interaction": "范围/多来源/lineage比较",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Claim与来源链检索",
+      "api_ids": [
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "E03",
+      "page": "EVIDENCE",
+      "component": "EvidenceDrawer / EvidenceCard / Citation",
+      "data_required": "raw hash、JSON Pointer/页码/span、已取raw受限读取、permalink",
+      "interaction": "原始定位/历史证据/分享",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "不可变证据版本定位",
+      "api_ids": [
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "E04",
+      "page": "EVIDENCE",
+      "component": "EvidenceDrawer / EvidenceCard / Citation",
+      "data_required": "reviewID/读写权限，返回Claim anchor/revision",
+      "interaction": "进入对应复核/返回原字段",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review及导航上下文",
+      "api_ids": [
+        "A15",
+        "A01"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "K01",
+      "page": "KNOWLEDGE",
+      "component": "KnowledgeDetail / SourceBadge / Citation",
+      "data_required": "type、ID、版次/status、publisher/author、dates、links/ClaimID",
+      "interaction": "知识详情/原文/版本/关联/询问",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "共享知识详情及引用问答",
+      "api_ids": [
+        "A10",
+        "A08",
+        "A17"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "R01",
+      "page": "REVIEW",
+      "component": "ReviewPanel / ConflictAlert / Modal / AuditTimeline",
+      "data_required": "对象、问题类型、风险理由、候选、证据数及创建日期",
+      "interaction": "问题队列/筛选/进入任务",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review过滤及权限",
+      "api_ids": [
+        "A14",
+        "A15"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "R02",
+      "page": "REVIEW",
+      "component": "ReviewPanel / ConflictAlert / Modal / AuditTimeline",
+      "data_required": "原结论、候选、生态/版本/分支/date/CVSS version、lineage",
+      "interaction": "对照范围/候选A/B/证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "同scope事实对照",
+      "api_ids": [
+        "A15",
+        "A08",
+        "A09"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "R03",
+      "page": "REVIEW",
+      "component": "ReviewPanel / ConflictAlert / Modal / AuditTimeline",
+      "data_required": "选择值、理由、review revision、actor和幂等请求键",
+      "interaction": "确认A/B/证据不足/暂不判断/备注",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "权限、并发校验及决策审计",
+      "api_ids": [
+        "A16"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "R04",
+      "page": "REVIEW",
+      "component": "ReviewPanel / ConflictAlert / Modal / AuditTimeline",
+      "data_required": "原/后结论、actor/time/reason、证据版本、entity/anchor",
+      "interaction": "审计历史/回详情",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "不可覆盖审计与详情回链",
+      "api_ids": [
+        "A15",
+        "A05"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "R05",
+      "page": "REVIEW",
+      "component": "ReviewPanel / ConflictAlert / Modal / AuditTimeline",
+      "data_required": "409当前revision、草稿、差异及重新提交范围",
+      "interaction": "刷新后比较/恢复草稿",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "并发差异返回",
+      "api_ids": [
+        "A15",
+        "A16"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "S01",
+      "page": "ASSET",
+      "component": "AssetList / AssetMatchBadge / Form / Table",
+      "data_required": "授权名称、ecosystem/package、原始精确version与校验状态",
+      "interaction": "组件清单/查找/选择",
+      "source_ids": [],
+      "backend": "最小资产清单权限",
+      "api_ids": [
+        "A11"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "S02",
+      "page": "ASSET",
+      "component": "AssetList / AssetMatchBadge / Form / Table",
+      "data_required": "name/ecosystem/package/exact version、歧义原因、错误定位",
+      "interaction": "人工添加/确认登记",
+      "source_ids": [],
+      "backend": "资产登记校验与审计",
+      "api_ids": [
+        "A12"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "S03",
+      "page": "ASSET",
+      "component": "AssetList / AssetMatchBadge / Form / Table",
+      "data_required": "inventory revision、matched entity、range scope、reason/evidence",
+      "interaction": "影响三态/未知原因",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "生态版本匹配",
+      "api_ids": [
+        "A13",
+        "A08"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "S04",
+      "page": "ASSET",
+      "component": "AssetList / AssetMatchBadge / Form / Table",
+      "data_required": "匹配证据、KEV收录/目录时间、PoC状态、CVSS版本、明确fixed及用户业务关键性",
+      "interaction": "优先处置列表/排序解释/详情",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "可解释规则排序",
+      "api_ids": [
+        "A13",
+        "A05",
+        "A06"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "S05",
+      "page": "ASSET",
+      "component": "AssetList / AssetMatchBadge / Form / Table",
+      "data_required": "资产ID和inventory revision、漏洞/ClaimID；问题",
+      "interaction": "分析为什么影响我",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产上下文问答",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q01",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "question、会话、entity/Claim上下文、as_of/time zone/coverage",
+      "interaction": "问题输入/推荐问题/提交",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "问答任务接入与范围澄清",
+      "api_ids": [
+        "A17"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q02",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "工具名、参数范围/状态/结果数、过滤原因、query_id；取消结果",
+      "interaction": "任务过程/取消/重试",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "真实任务公开事件与生命周期",
+      "api_ids": [
+        "A18",
+        "A19",
+        "A17"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q03",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "有Claim引用的结论、适用范围、partial reason、snapshot revision",
+      "interaction": "回答/未知部分/引用",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "可核验证据回答",
+      "api_ids": [
+        "A18",
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q04",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "entityID/revision、相关产品与来源、匹配过滤条件",
+      "interaction": "相关漏洞列表/回详情",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "受控结果投影及详情回链",
+      "api_ids": [
+        "A18",
+        "A05"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q05",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "knowledgeID/type/edition、EvidenceID、source/provider",
+      "interaction": "相关知识/来源/跨文档引用",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "文档检索与关系工具",
+      "api_ids": [
+        "A18",
+        "A10",
+        "A09"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q06",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "授权assetID/inventory revision、影响三态、解释因子",
+      "interaction": "相关资产/为什么优先",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产工具",
+      "api_ids": [
+        "A18",
+        "A13"
+      ],
+      "phase": "P1",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Q07",
+      "page": "QA",
+      "component": "QuestionScope / AgentToolStep / Findings / Citation",
+      "data_required": "缺失参数、先前query_id与scope、明确新时间窗",
+      "interaction": "澄清/续问/原查询恢复",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "会话上下文及实际范围",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Y01",
+      "page": "SYSTEM",
+      "component": "SourceTable / StatusBadge / SyncRunDrawer",
+      "data_required": "注册SourceID、enabled、运行状态、类别及coverage",
+      "interaction": "来源表/筛选/查看最近失败",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "来源注册与真实运行聚合",
+      "api_ids": [
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Y02",
+      "page": "SYSTEM",
+      "component": "SourceTable / StatusBadge / SyncRunDrawer",
+      "data_required": "last_success/newest source date、fetched/normalized/new/updated/failed、retry/latency samples/next_scheduled",
+      "interaction": "来源时间/数量/延迟/下次计划",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "SyncRun统计与调度时间",
+      "api_ids": [
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Y03",
+      "page": "SYSTEM",
+      "component": "SourceTable / StatusBadge / SyncRunDrawer",
+      "data_required": "runID、source/time/status、范围、尝试、恢复关系",
+      "interaction": "任务历史/失败筛选/详情",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "SyncRun历史查询",
+      "api_ids": [
+        "A21",
+        "A22"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Y04",
+      "page": "SYSTEM",
+      "component": "SourceTable / StatusBadge / SyncRunDrawer",
+      "data_required": "错误码/request ID、checkpoint、重试权限/queued/new runID",
+      "interaction": "失败详情/脱敏错误/重试",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "失败隔离与受控重试",
+      "api_ids": [
+        "A22",
+        "A23"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "ui_id": "Y05",
+      "page": "SYSTEM",
+      "component": "SourceTable / StatusBadge / SyncRunDrawer",
+      "data_required": "已监测API/Collector/Queue及observed_at或NA",
+      "interaction": "实际健康摘要",
+      "source_ids": [],
+      "backend": "已有监控摘要",
+      "api_ids": [
+        "A24"
+      ],
+      "phase": "P0",
+      "status": "BACKEND REQUIRED"
+    }
+  ]
+}

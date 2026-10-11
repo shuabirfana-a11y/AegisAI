@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AegisAI — Phase 9 Skeleton</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>AegisAI · Phase 9</h1>
+    <p>最小功能框架 · 本地数据库与可审计执行摘要</p>
+    <nav aria-label="页面导航">
+      <a data-route href="/dashboard">Dashboard</a>
+      <a data-route href="/vulnerabilities">漏洞</a>
+      <a data-route href="/assets">资产</a>
+      <a data-route href="/reviews">复核</a>
+      <a data-route href="/assistant">Assistant</a>
+      <a data-route href="/system">系统</a>
+    </nav>
+    <form id="access-form">
+      <label for="access-token">本地资产访问令牌（AEGIS_ASSET_TOKEN）</label>
+      <input id="access-token" type="password" autocomplete="off" spellcheck="false" placeholder="手动输入，仅当前页面内存保存">
+      <button type="submit">使用令牌</button>
+      <button type="button" id="clear-token">清除令牌</button>
+      <span id="access-state" role="status">未设置；刷新页面后需要重新输入</span>
+    </form>
+  </header>
+  <main id="view" tabindex="-1"></main>
+  <noscript>此框架需要启用 JavaScript。</noscript>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "read_at_utc": "2026-10-03T05:14:34.451704+00:00",
+  "selected_original": "C:\\Users\\X\\Documents\\xwechat_files\\wxid_ivo2uldxz9mi22_49f9\\msg\\file\\2026-09\\9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）(3).pdf",
+  "saved_original": "requirements/sources/competition_problem_9.pdf",
+  "page_count": 4,
+  "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3",
+  "local_copies": [
+    {
+      "name": "9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）(1).pdf",
+      "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+    },
+    {
+      "name": "9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）(3).pdf",
+      "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+    },
+    {
+      "name": "9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）(4).pdf",
+      "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+    }
+  ],
+  "source_scope": "official problem PDF; attached prompt is user instruction, not the competition source",
+  "visual_reviewed_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "score_tables_checked_against_rendered_pages": true
+}

@@ -1,0 +1,55 @@
+{
+  "full_name": "OpenCTI-Platform/opencti",
+  "html_url": "https://github.com/OpenCTI-Platform/opencti",
+  "homepage": "https://opencti.io",
+  "description": "Open Cyber Threat Intelligence Platform",
+  "language": "TypeScript",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 10082,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2018-12-17T22:57:34Z",
+  "updated_at": "2026-10-03T02:01:25Z",
+  "pushed_at": "2026-10-03T02:01:19Z",
+  "open_issues_count": 2155,
+  "default_branch": "master",
+  "requested_repo": "OpenCTI-Platform/opencti",
+  "commit": "b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+  "commit_date": "2026-10-03T02:01:16Z",
+  "commit_message": "fix(deps): update dependency react-force-graph-2d to v1.29.2 (#18666)\n\nCo-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:34:00.271368+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/OpenCTI-Platform/opencti/blob/b97fbc534ec69ba374a2fe0e8665cf87b5e75b72/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/OpenCTI-Platform/opencti/blob/b97fbc534ec69ba374a2fe0e8665cf87b5e75b72/LICENSE",
+  "latest_release": {
+    "tag_name": "7.261002.0",
+    "published_at": "2026-10-02T09:57:15Z",
+    "html_url": "https://github.com/OpenCTI-Platform/opencti/releases/tag/7.261002.0",
+    "name": "Version 7.261002.0"
+  },
+  "recent_issues": [
+    {
+      "number": 18665,
+      "title": "fix(investigation): marking nodes disappear from the graph after adding a marking to an entity",
+      "state": "open",
+      "updated_at": "2026-10-02T16:01:36Z",
+      "html_url": "https://github.com/OpenCTI-Platform/opencti/issues/18665",
+      "comments": 0
+    },
+    {
+      "number": 18664,
+      "title": "fix(investigation): editing a selected label or marking node crashes the edit drawer",
+      "state": "open",
+      "updated_at": "2026-10-02T15:55:10Z",
+      "html_url": "https://github.com/OpenCTI-Platform/opencti/issues/18664",
+      "comments": 0
+    }
+  ]
+}

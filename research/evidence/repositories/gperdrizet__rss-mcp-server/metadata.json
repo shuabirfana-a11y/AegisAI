@@ -1,0 +1,38 @@
+{
+  "full_name": "gperdrizet/rss-mcp-server",
+  "html_url": "https://github.com/gperdrizet/rss-mcp-server",
+  "homepage": "https://huggingface.co/spaces/Agents-MCP-Hackathon/rss-mcp-server",
+  "description": "RSS feed reader Model Context Protocol server.",
+  "language": "Python",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0",
+    "node_id": "MDc6TGljZW5zZTk="
+  },
+  "stargazers_count": 2,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2025-06-03T16:21:25Z",
+  "updated_at": "2025-06-12T02:18:35Z",
+  "pushed_at": "2025-06-12T02:18:32Z",
+  "open_issues_count": 0,
+  "default_branch": "main",
+  "requested_repo": "gperdrizet/rss-mcp-server",
+  "commit": "2b63658953d76c5de7b2245a5d58b9ee90239b68",
+  "commit_date": "2025-06-12T02:18:32Z",
+  "commit_message": "Merge pull request #21 from gperdrizet/dev\n\nUpdated README",
+  "checked_at_utc": "2026-10-03T03:35:30.967713+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/gperdrizet/rss-mcp-server/blob/2b63658953d76c5de7b2245a5d58b9ee90239b68/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/gperdrizet/rss-mcp-server/blob/2b63658953d76c5de7b2245a5d58b9ee90239b68/LICENSE",
+  "latest_release": {
+    "tag_name": "1.0.0",
+    "published_at": "2025-06-12T01:30:14Z",
+    "html_url": "https://github.com/gperdrizet/rss-mcp-server/releases/tag/1.0.0",
+    "name": "Gradio Agents & MCP Hackathon Submission"
+  },
+  "recent_issues": []
+}

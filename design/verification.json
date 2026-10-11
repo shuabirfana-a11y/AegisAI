@@ -1,0 +1,18 @@
+{
+  "verified_at_utc": "2026-10-03T05:07:35.240566+00:00",
+  "passed": true,
+  "scope": "design and public seed data, not a running application",
+  "design_notes": 10,
+  "research_inputs_hash_verified": 12,
+  "research_dependency_decisions": 87,
+  "foundation_dependency_decisions": 9,
+  "seed_records": 12,
+  "literal_http_bodies": 24,
+  "evidence_locator_checks": 60,
+  "interval_boundary_checks": 16,
+  "missing_fixed_versions_preserved": 3,
+  "missing_cna_metrics_preserved": 2,
+  "human_review_pending": true,
+  "database_api_container_tests_run": false,
+  "output_secret_pattern_scan_passed": true
+}

@@ -1,0 +1,51 @@
+{
+  "full_name": "CVEProject/cvelistV5",
+  "html_url": "https://github.com/CVEProject/cvelistV5",
+  "homepage": "",
+  "description": "CVE cache of the official CVE List in CVE JSON 5 format",
+  "language": null,
+  "license": null,
+  "stargazers_count": 3026,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2022-02-08T16:11:00Z",
+  "updated_at": "2026-10-03T02:36:33Z",
+  "pushed_at": "2026-10-03T02:36:28Z",
+  "open_issues_count": 50,
+  "default_branch": "main",
+  "requested_repo": "CVEProject/cvelistV5",
+  "commit": "281e4a53d95c7e8cbc68e428a7469e67dc02d960",
+  "commit_date": "2026-10-03T02:36:25Z",
+  "commit_message": "7 changes (7 new | 0 updated):\n      - 7 new CVEs:  CVE-2026-100180, CVE-2026-92243, CVE-2026-93428, CVE-2026-94378, CVE-2026-94539, CVE-2026-95865, CVE-2026-96270\n      - 0 updated CVEs:",
+  "checked_at_utc": "2026-10-03T03:31:20.006566+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/CVEProject/cvelistV5/blob/281e4a53d95c7e8cbc68e428a7469e67dc02d960/README.md",
+  "license_status": {
+    "http_error": 404,
+    "path": "repos/CVEProject/cvelistV5/license?ref=281e4a53d95c7e8cbc68e428a7469e67dc02d960"
+  },
+  "latest_release": {
+    "tag_name": "cve_2026-10-03_0200Z",
+    "published_at": "2026-10-03T02:32:34Z",
+    "html_url": "https://github.com/CVEProject/cvelistV5/releases/tag/cve_2026-10-03_0200Z",
+    "name": "CVE 2026-10-03_0200Z"
+  },
+  "recent_issues": [
+    {
+      "number": 148,
+      "title": "OpenAPI server URL points to cve.org website instead of a machine-readable API",
+      "state": "open",
+      "updated_at": "2026-09-11T02:25:05Z",
+      "html_url": "https://github.com/CVEProject/cvelistV5/issues/148",
+      "comments": 0
+    },
+    {
+      "number": 145,
+      "title": "Inconsistent asset date naming in daily 0000Z releases",
+      "state": "open",
+      "updated_at": "2026-08-10T17:19:10Z",
+      "html_url": "https://github.com/CVEProject/cvelistV5/issues/145",
+      "comments": 0
+    }
+  ]
+}

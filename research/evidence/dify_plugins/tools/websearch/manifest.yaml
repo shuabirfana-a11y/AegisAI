@@ -1,0 +1,41 @@
+author: langgenius
+created_at: '2024-09-20T08:03:44.658609186Z'
+description:
+  en_US: Serply.io is a robust real-time SERP API delivering structured data from
+    a collection of search engines including Web Search, Jobs, News, and many more.
+  pt_BR: Serply.io is a robust real-time SERP API delivering structured data from
+    a collection of search engines including Web Search, Jobs, News, and many more.
+  zh_Hans: Serply.io 是一个强大的实时 SERP API，可提供来自 搜索 招聘 新闻等搜索引擎集合的结构化数据。
+icon: icon.svg
+label:
+  en_US: Serply.io
+  pt_BR: Serply.io
+  zh_Hans: Serply.io
+meta:
+  arch:
+  - amd64
+  - arm64
+  runner:
+    entrypoint: main
+    language: python
+    version: '3.12'
+  version: 0.0.1
+name: websearch
+plugins:
+  tools:
+  - provider/websearch.yaml
+resource:
+  memory: 1048576
+  permission:
+    model:
+      enabled: true
+      llm: true
+    tool:
+      enabled: true
+tags:
+- search
+- business
+- news
+- productivity
+type: plugin
+version: 0.0.8

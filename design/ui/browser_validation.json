@@ -1,0 +1,778 @@
+{
+  "kind": "OFFLINE UI PROTOTYPE CHECK / NOT PRODUCTION OR BENCHMARK",
+  "checked_at": "2026-10-03T07:10:28.734Z",
+  "passed": true,
+  "checks": [
+    {
+      "name": "overview no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "center no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "assets no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "reviews no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "assistant no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "system no page overflow at 1440",
+      "passed": true,
+      "detail": {
+        "scroll": 1440,
+        "width": 1440,
+        "body": 1440,
+        "main": 1224
+      }
+    },
+    {
+      "name": "overview no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "center no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "assets no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "reviews no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "assistant no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "system no page overflow at 1280",
+      "passed": true,
+      "detail": {
+        "scroll": 1280,
+        "width": 1280,
+        "body": 1280,
+        "main": 1080
+      }
+    },
+    {
+      "name": "overview no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "center no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "assets no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "reviews no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "assistant no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "system no page overflow at 1024",
+      "passed": true,
+      "detail": {
+        "scroll": 1024,
+        "width": 1024,
+        "body": 1024,
+        "main": 844
+      }
+    },
+    {
+      "name": "overview no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "center no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "assets no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "reviews no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "assistant no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "system no page overflow at 768",
+      "passed": true,
+      "detail": {
+        "scroll": 768,
+        "width": 768,
+        "body": 768,
+        "main": 704
+      }
+    },
+    {
+      "name": "overview loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "overview empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "overview error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "overview partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "overview stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "center loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "center empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "center error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "center partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "center stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "detail/CVE-XXXX-A001 stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assets loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assets empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assets error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assets partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assets stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviews loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviews empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviews error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviews partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "reviews stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assistant loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assistant empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assistant error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assistant partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "assistant stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "system loading visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "system empty visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "system error visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "system partial visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "system stale visible",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Severity metric opens same 3-item set",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Product filtering works",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Evidence has scoped source excerpt times locator",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Evidence closes and returns focus",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Return preserves product filter",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Global ID search opens exact detail",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Knowledge type has dedicated identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Ambiguous asset version requires clarification",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Added mock asset stays unknown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Not-affected is scoped and explained",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Review previews before write",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Review audit stores before after reason actor",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Review audit retains candidate values",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Review decision visible on detail",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Read-only Review cannot submit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Deferral remains distinct from confirmation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Timeout keeps partial evidence and explicit retry",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "QA citation opens Evidence",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Run retry is queued not fake success",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "All pages visibly label mock",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Tablet navigation retains accessible names",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Zero JavaScript/CSP errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Zero external requests",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "layouts": [
+    {
+      "route": "overview",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "center",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "detail/CVE-XXXX-A001",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "assets",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "reviews",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "assistant",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "system",
+      "width": 1440,
+      "scroll": 1440,
+      "body": 1440,
+      "main": 1224
+    },
+    {
+      "route": "overview",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "center",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "detail/CVE-XXXX-A001",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "assets",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "reviews",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "assistant",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "system",
+      "width": 1280,
+      "scroll": 1280,
+      "body": 1280,
+      "main": 1080
+    },
+    {
+      "route": "overview",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "center",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "detail/CVE-XXXX-A001",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "assets",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "reviews",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "assistant",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "system",
+      "width": 1024,
+      "scroll": 1024,
+      "body": 1024,
+      "main": 844
+    },
+    {
+      "route": "overview",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "center",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "detail/CVE-XXXX-A001",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "assets",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "reviews",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "assistant",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    },
+    {
+      "route": "system",
+      "width": 768,
+      "scroll": 768,
+      "body": 768,
+      "main": 704
+    }
+  ],
+  "errors": [],
+  "external": [],
+  "screenshot_count": 54
+}

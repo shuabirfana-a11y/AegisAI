@@ -1,0 +1,63 @@
+[
+  {
+    "source_id": "CVE_LIST",
+    "name": "CVE Program / cvelistV5",
+    "source_type": "漏洞目录",
+    "category": "漏洞目录",
+    "authority_level": "身份/状态权威；CNA内容依发布者",
+    "base_url": "https://github.com/CVEProject/cvelistV5",
+    "license": "CVE Terms of Use：保留MITRE版权与许可；不是schema的CC0",
+    "update_interval": 3600,
+    "acquisition_method": "Official Git",
+    "incremental": "Git commit diff；release baseline/hourly delta为备选",
+    "official_urls": [
+      "https://github.com/CVEProject/cvelistV5",
+      "https://github.com/CVEProject/cvelistV5",
+      "https://github.com/CVEProject/cvelistV5/blob/main/README.md",
+      "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/32xxx/CVE-2025-32434.json",
+      "https://www.cve.org/Legal/TermsOfUse"
+    ]
+  },
+  {
+    "source_id": "OSV",
+    "name": "OSV.dev",
+    "source_type": "漏洞目录/包生态",
+    "category": "漏洞目录/包生态",
+    "authority_level": "生态包版本；聚合来源需lineage",
+    "base_url": "https://api.osv.dev/v1",
+    "license": "记录继承上游：GHSA/PyPI CC-BY-4.0等；服务代码Apache-2.0不是数据许可",
+    "update_interval": 3600,
+    "acquisition_method": "Official Dataset + API",
+    "incremental": "PyPI modified_id.csv按时间及ID；changed ID→GET；query/page_token仅查询分页",
+    "official_urls": [
+      "https://api.osv.dev/v1",
+      "https://github.com/google/osv.dev",
+      "https://github.com/google/osv.dev/blob/master/README.md",
+      "https://github.com/google/osv.dev/blob/master/LICENSE",
+      "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+      "https://google.github.io/osv.dev/data/",
+      "https://google.github.io/osv.dev/api/",
+      "https://storage.googleapis.com/osv-vulnerabilities/PyPI/modified_id.csv",
+      "https://api.osv.dev/v1/query"
+    ]
+  },
+  {
+    "source_id": "CISA_KEV",
+    "name": "CISA Known Exploited Vulnerabilities",
+    "source_type": "漏洞目录/利用信号",
+    "category": "漏洞目录/利用信号",
+    "authority_level": "已知利用入目录的正证据",
+    "base_url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "license": "CC0-1.0（README和LICENSE文本；API元数据NOASSERTION不改结论）",
+    "update_interval": 3600,
+    "acquisition_method": "Official Dataset (official mirror)",
+    "incremental": "ETag条件获取；有变化才下载，按cveID/hash计算新增/更正/删除",
+    "official_urls": [
+      "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+      "https://github.com/cisagov/kev-data",
+      "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/README.md",
+      "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/LICENSE",
+      "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json"
+    ]
+  }
+]

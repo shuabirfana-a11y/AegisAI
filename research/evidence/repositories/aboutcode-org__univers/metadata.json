@@ -1,0 +1,51 @@
+{
+  "full_name": "aboutcode-org/univers",
+  "html_url": "https://github.com/aboutcode-org/univers",
+  "homepage": "",
+  "description": "Parse and compare package versions and ranges. From debian, npm, pypi, ruby and more. Process all the version range specs and expressions. This project is sponsored by an NLnet project https://nlnet.nl/project/vulnerabilitydatabase/ , the Google Summer of Code, nexB and others generous sponsors!",
+  "language": "Python",
+  "license": null,
+  "stargazers_count": 50,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2021-03-16T07:03:43Z",
+  "updated_at": "2026-08-25T08:56:51Z",
+  "pushed_at": "2026-05-01T16:39:15Z",
+  "open_issues_count": 82,
+  "default_branch": "main",
+  "requested_repo": "aboutcode-org/univers",
+  "commit": "92b1a2498e60779775ac9351fd7c38a035f97eb1",
+  "commit_date": "2026-05-01T16:36:05Z",
+  "commit_message": "Merge pull request #199 from aboutcode-org/fix-release-workflow\n\nfix(ci): quote python version to prevent incorrect yaml parsing",
+  "checked_at_utc": "2026-10-03T03:34:20.600181+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/aboutcode-org/univers/blob/92b1a2498e60779775ac9351fd7c38a035f97eb1/README.rst",
+  "license_status": {
+    "http_error": 404,
+    "path": "repos/aboutcode-org/univers/license?ref=92b1a2498e60779775ac9351fd7c38a035f97eb1"
+  },
+  "latest_release": {
+    "tag_name": "v32.0.1",
+    "published_at": "2026-05-01T16:39:54Z",
+    "html_url": "https://github.com/aboutcode-org/univers/releases/tag/v32.0.1",
+    "name": "v32.0.1"
+  },
+  "recent_issues": [
+    {
+      "number": 214,
+      "title": "VersionRange.invert() returns a complement that excludes versions outside an enumerated range",
+      "state": "open",
+      "updated_at": "2026-09-13T17:24:59Z",
+      "html_url": "https://github.com/aboutcode-org/univers/issues/214",
+      "comments": 0
+    },
+    {
+      "number": 213,
+      "title": "VersionRange.invert() returns a complement that excludes versions outside an enumerated range",
+      "state": "closed",
+      "updated_at": "2026-09-13T17:52:53Z",
+      "html_url": "https://github.com/aboutcode-org/univers/issues/213",
+      "comments": 0
+    }
+  ]
+}

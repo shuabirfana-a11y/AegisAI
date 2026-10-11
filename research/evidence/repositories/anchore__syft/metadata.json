@@ -1,0 +1,47 @@
+{
+  "full_name": "anchore/syft",
+  "html_url": "https://github.com/anchore/syft",
+  "homepage": "",
+  "description": "CLI tool and library for generating a Software Bill of Materials from container images and filesystems",
+  "language": "Go",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 9632,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2020-05-07T18:19:29Z",
+  "updated_at": "2026-10-03T03:23:43Z",
+  "pushed_at": "2026-10-02T20:50:41Z",
+  "open_issues_count": 646,
+  "default_branch": "main",
+  "requested_repo": "anchore/syft",
+  "commit": "bc68299565d1d2bc7f54159db2f1eb5567144aff",
+  "commit_date": "2026-10-02T13:30:02Z",
+  "commit_message": "chore(deps): bump github.com/klauspost/compress from 1.20.0 to 1.20.1 (#5369)\n\nBumps [github.com/klauspost/compress](https://github.com/klauspost/compress) from 1.20.0 to 1.20.1.\n- [Release notes](https://github.com/klauspost/compress/releases)\n- [Commits](https://github.com/klauspost/compress/compare/v1.20.0...v1.20.1)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/klauspost/compress\n  dependency-version: 1.20.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:31:36.267437+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/anchore/syft/blob/bc68299565d1d2bc7f54159db2f1eb5567144aff/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/anchore/syft/blob/bc68299565d1d2bc7f54159db2f1eb5567144aff/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.54.0",
+    "published_at": "2026-10-01T20:54:29Z",
+    "html_url": "https://github.com/anchore/syft/releases/tag/v1.54.0",
+    "name": "v1.54.0"
+  },
+  "recent_issues": [
+    {
+      "number": 5371,
+      "title": "Gradle lockfile comment line is catalogued as a package",
+      "state": "open",
+      "updated_at": "2026-10-02T18:48:05Z",
+      "html_url": "https://github.com/anchore/syft/issues/5371",
+      "comments": 0
+    }
+  ]
+}

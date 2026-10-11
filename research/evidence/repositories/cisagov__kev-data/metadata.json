@@ -1,0 +1,69 @@
+{
+  "full_name": "cisagov/kev-data",
+  "html_url": "https://github.com/cisagov/kev-data",
+  "homepage": null,
+  "description": "Mirror of cisa.gov/kev data files",
+  "language": "HTML",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 124,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2025-01-27T22:28:08Z",
+  "updated_at": "2026-10-02T20:23:45Z",
+  "pushed_at": "2026-10-02T20:23:41Z",
+  "open_issues_count": 0,
+  "default_branch": "develop",
+  "requested_repo": "cisagov/kev-data",
+  "commit": "7009facc2019306d41f6d6df6c8a057b99b4b468",
+  "commit_date": "2026-10-02T20:23:40Z",
+  "commit_message": "Add Updated KEV Files for 2026-10-02",
+  "checked_at_utc": "2026-10-03T03:31:27.366463+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/cisagov/kev-data/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 11,
+      "title": "Published JSON schema does not describe the forensicTriage field",
+      "state": "closed",
+      "updated_at": "2026-09-17T14:18:34Z",
+      "html_url": "https://github.com/cisagov/kev-data/issues/11",
+      "comments": 3
+    },
+    {
+      "number": 10,
+      "title": "Technical KEV Update: Correlation of CVE-2026-20675/20634 to Active Exploitation",
+      "state": "closed",
+      "updated_at": "2026-03-04T23:42:50Z",
+      "html_url": "https://github.com/cisagov/kev-data/issues/10",
+      "comments": 3
+    },
+    {
+      "number": 9,
+      "title": "CVE-2020-0601 typo",
+      "state": "closed",
+      "updated_at": "2025-12-17T16:30:52Z",
+      "html_url": "https://github.com/cisagov/kev-data/issues/9",
+      "comments": 3
+    },
+    {
+      "number": 8,
+      "title": "CVE-2025-66644 has trailing space on vendorProject",
+      "state": "closed",
+      "updated_at": "2025-12-12T15:14:15Z",
+      "html_url": "https://github.com/cisagov/kev-data/issues/8",
+      "comments": 1
+    }
+  ]
+}

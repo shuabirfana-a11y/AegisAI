@@ -1,0 +1,56 @@
+{
+  "kind": "VISUAL DESIGN REVIEW BY AGENT / NOT REAL USER TESTING",
+  "reviewed_at_utc": "2026-10-03T07:11:12.723735+00:00",
+  "method": "Actual screenshot images inspected using the image viewer; browser layout measurements are recorded separately.",
+  "inspected_files": [
+    "overview-1440.png",
+    "center-1440.png",
+    "detail-1440.png",
+    "assets-1440.png",
+    "reviews-1440.png",
+    "assistant-1440.png",
+    "system-1440.png",
+    "center-1280.png",
+    "reviews-1280.png",
+    "detail-1280-full.png",
+    "evidence-drawer.png",
+    "agent-timeout.png"
+  ],
+  "screenshot_sha256": {
+    "overview-1440.png": "cf27a7d256a5e39c20751d928d86ac2abc2fa0b8e49293248228afea2774a114",
+    "center-1440.png": "c2aca85cb43f4ee62606ea1dadb8a6684ab3dd43bcb8c7d956b3464a936e2831",
+    "detail-1440.png": "0276d12eab6cc1ab1c132bbacb2c072784f4004c9e1116487b0ebf131cf6d3f5",
+    "assets-1440.png": "3ea29d536b94312ad519f1447ec09f7650a88c1d43e4679ba45e0fbb6660206c",
+    "reviews-1440.png": "de3386725279949adf568edc119cc96a0d5de9a3691203db9ea5a95eaf010ab4",
+    "assistant-1440.png": "9e9c9224b893a0555835c9133d89a3164980862258aecd3ad30d00a3653922b7",
+    "system-1440.png": "bb27444c834a8f62376fee8db98fbe56887075ac84ee4d7f902e94dd7b50bcdc",
+    "center-1280.png": "f4be9a93b093acc21b947cd7367f7df1196b206c44ed481ddda315c983d08177",
+    "reviews-1280.png": "8c7d90bf88faccb8df605264b5d227947c9df419cb33c00f3af65d9adc002598",
+    "detail-1280-full.png": "003fe0c42a034bb5be1b336f4ff975acee5b6f7a339902667cc8141134c4bf9d",
+    "evidence-drawer.png": "dd1ef4ca687c9055af5e23f149fc46d8a67901cd3c2206ecc7dd653e8a20ed0f",
+    "agent-timeout.png": "a112e983c7e35d85f50e8224ce8bfcf5bc5eb16013c66fa21aea04c6cdda492b"
+  },
+  "observations": [
+    "All seven 1440x900 pages retain readable hierarchy, consistent navigation, neutral light surfaces and restrained teal actions.",
+    "Center at 1280 retains six information groups, visible filters and pagination; no full-page horizontal overflow.",
+    "Detail is a continuous investigation document: version, risk, remediation, evidence, relations and factual timeline. Long content scrolls naturally.",
+    "Review candidates remain side by side at 1280; scope, original excerpts, human choice and reason stay visible. Final submit is below the initial fold and accessible by vertical scroll.",
+    "Asset inventory shows affected, unknown and not-affected-for-one-vulnerability as distinct states.",
+    "Evidence drawer groups source excerpts, scope, published/retrieved time and lineage; abstract claim status stays separate from severity.",
+    "Assistant renders fixed mock results beside public tool summaries and clickable citations. Timeout retains partial results and an explicit retry.",
+    "All screens clearly label mock data. Source success/failure and historical last-success times are independent; no fake benchmark performance."
+  ],
+  "corrections": [
+    "Merged fragmented detail section cards into a continuous white document.",
+    "Replaced internal source IDs with readable names where appropriate.",
+    "Added candidate values and distinct deferred state to simulated review history.",
+    "Retained accessible navigation names at tablet width.",
+    "Waited for prior transient toast to disappear before capturing the timeout screenshot."
+  ],
+  "remaining": [
+    "No unresolved obvious desktop clipping found in inspected mock screenshots.",
+    "Real long evidence, source names, asset inventories and production density need another pass with live data.",
+    "Full multiselect/date popovers, screen-reader behavior, other browsers/fonts and zoom remain production frontend verification tasks.",
+    "Mobile and dark mode are not priority deliverables in this phase."
+  ]
+}

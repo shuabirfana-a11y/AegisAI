@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-contract-origin": "CURRENT_PYTHON_CODE",
+  "x-http-exposed": false,
+  "$defs": {
+    "TaskArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "title": "Task Id",
+          "type": "string"
+        },
+        "agent": {
+          "enum": [
+            "Investigation",
+            "Verification",
+            "SecurityAnalysis"
+          ],
+          "title": "Agent",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "partial",
+            "failed",
+            "blocked"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "result": {
+          "additionalProperties": true,
+          "title": "Result",
+          "type": "object"
+        },
+        "claims": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "evidence_refs": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "unresolved": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "title": "Finished At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_id",
+        "agent",
+        "status",
+        "result",
+        "trace_id",
+        "started_at",
+        "finished_at"
+      ],
+      "title": "TaskArtifact",
+      "type": "object"
+    },
+    "TaskContract": {
+      "additionalProperties": false,
+      "properties": {
+        "task_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Task Id",
+          "type": "string"
+        },
+        "goal": {
+          "maxLength": 500,
+          "title": "Goal",
+          "type": "string"
+        },
+        "task_type": {
+          "enum": [
+            "Investigation",
+            "Verification",
+            "SecurityAnalysis"
+          ],
+          "title": "Task Type",
+          "type": "string"
+        },
+        "inputs": {
+          "additionalProperties": true,
+          "title": "Inputs",
+          "type": "object"
+        },
+        "constraints": {
+          "additionalProperties": true,
+          "title": "Constraints",
+          "type": "object"
+        },
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "allowed_tools": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Allowed Tools",
+          "type": "array"
+        },
+        "expected_output": {
+          "additionalProperties": true,
+          "title": "Expected Output",
+          "type": "object"
+        },
+        "evidence_required": {
+          "default": false,
+          "title": "Evidence Required",
+          "type": "boolean"
+        },
+        "acceptance_criteria": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Acceptance Criteria",
+          "type": "array"
+        },
+        "timeout": {
+          "default": 30,
+          "maximum": 60,
+          "minimum": 1,
+          "title": "Timeout",
+          "type": "integer"
+        },
+        "retry_policy": {
+          "additionalProperties": true,
+          "title": "Retry Policy",
+          "type": "object"
+        },
+        "failure_policy": {
+          "default": "abstain",
+          "enum": [
+            "abstain",
+            "replan",
+            "human_review"
+          ],
+          "title": "Failure Policy",
+          "type": "string"
+        }
+      },
+      "required": [
+        "task_id",
+        "goal",
+        "task_type",
+        "inputs",
+        "allowed_tools"
+      ],
+      "title": "TaskContract",
+      "type": "object"
+    },
+    "ToolEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "tool": {
+          "title": "Tool",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "success",
+            "partial",
+            "no_result",
+            "failed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "data": {
+          "title": "Data"
+        },
+        "evidence_refs": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "retryable": {
+          "default": false,
+          "title": "Retryable",
+          "type": "boolean"
+        },
+        "trace_id": {
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "duration_ms": {
+          "minimum": 0,
+          "title": "Duration Ms",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "tool",
+        "status",
+        "trace_id",
+        "duration_ms"
+      ],
+      "title": "ToolEnvelope",
+      "type": "object"
+    }
+  },
+  "x-roots": {
+    "LegacyTaskContract": {
+      "$ref": "#/$defs/TaskContract"
+    },
+    "LegacyTaskArtifact": {
+      "$ref": "#/$defs/TaskArtifact"
+    },
+    "ToolEnvelope": {
+      "$ref": "#/$defs/ToolEnvelope"
+    }
+  }
+}

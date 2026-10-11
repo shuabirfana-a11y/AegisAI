@@ -1,0 +1,299 @@
+{
+  "kind": "DESIGN DOCUMENT VERIFICATION / NOT PRODUCT OR USABILITY TEST",
+  "checked_at_utc": "2026-10-03T06:37:42.854072+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "17 requested documents",
+      "passed": true,
+      "detail": [
+        "AI_ASSISTANT_UX",
+        "ASSET_RISK_UX",
+        "CORE_FLOWS",
+        "DASHBOARD_UX",
+        "DEMO_FLOW",
+        "EVIDENCE_INTERACTION",
+        "INFORMATION_ARCHITECTURE",
+        "NAVIGATION",
+        "PAGE_DATA_DEPENDENCIES",
+        "REVIEW_CENTER_UX",
+        "SYSTEM_STATUS_UX",
+        "USER_JOURNEYS",
+        "UX_STATES",
+        "UX_TERMINOLOGY",
+        "VULNERABILITY_CENTER_UX",
+        "VULNERABILITY_DETAIL_UX",
+        "WIREFRAMES"
+      ]
+    },
+    {
+      "check": "Substantive documents",
+      "passed": true,
+      "detail": {
+        "INFORMATION_ARCHITECTURE": 3179,
+        "USER_JOURNEYS": 3088,
+        "CORE_FLOWS": 4861,
+        "NAVIGATION": 1739,
+        "DASHBOARD_UX": 1887,
+        "VULNERABILITY_CENTER_UX": 2119,
+        "VULNERABILITY_DETAIL_UX": 3677,
+        "ASSET_RISK_UX": 2057,
+        "REVIEW_CENTER_UX": 2130,
+        "AI_ASSISTANT_UX": 2787,
+        "SYSTEM_STATUS_UX": 2185,
+        "EVIDENCE_INTERACTION": 1754,
+        "UX_STATES": 2096,
+        "UX_TERMINOLOGY": 1832,
+        "PAGE_DATA_DEPENDENCIES": 18491,
+        "DEMO_FLOW": 1980,
+        "WIREFRAMES": 5544
+      }
+    },
+    {
+      "check": "Six task-derived navigation entries",
+      "passed": true,
+      "detail": [
+        "情报总览",
+        "情报中心",
+        "资产风险",
+        "待复核",
+        "智能问答",
+        "系统运行"
+      ]
+    },
+    {
+      "check": "Seven unique core pages",
+      "passed": true,
+      "detail": [
+        "情报总览",
+        "情报中心（漏洞视图）",
+        "漏洞详情",
+        "资产风险",
+        "待复核",
+        "智能问答",
+        "系统运行"
+      ]
+    },
+    {
+      "check": "Unique element IDs",
+      "passed": true,
+      "detail": 57
+    },
+    {
+      "check": "Existing source IDs only",
+      "passed": true,
+      "detail": [
+        "ARXIV",
+        "ATLAS",
+        "CAC_POLICY",
+        "CISA_KEV",
+        "CVE_LIST",
+        "EPSS",
+        "GITHUB_CODE",
+        "GOOGLE_SECURITY_BLOG",
+        "NIST_AI",
+        "OSV",
+        "OWASP_GENAI",
+        "SAMR_AI_STANDARD",
+        "TOB_BLOG",
+        "VENDOR_MLFLOW",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VULNRICHMENT"
+      ]
+    },
+    {
+      "check": "APIs explicitly proposals",
+      "passed": true,
+      "detail": 24
+    },
+    {
+      "check": "API references resolve",
+      "passed": true,
+      "detail": "Every element reference checked"
+    },
+    {
+      "check": "All business elements BACKEND REQUIRED",
+      "passed": true,
+      "detail": "Local G03 is context only"
+    },
+    {
+      "check": "Matrix covers all elements and APIs",
+      "passed": true,
+      "detail": {
+        "elements": 57,
+        "apis": 24
+      }
+    },
+    {
+      "check": "Seven actual ASCII wireframes",
+      "passed": true,
+      "detail": 7
+    },
+    {
+      "check": "Wireframe IDs resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Wireframe covers every page module",
+      "passed": true,
+      "detail": [
+        "G04",
+        "G05"
+      ]
+    },
+    {
+      "check": "Page specifications contain element index",
+      "passed": true,
+      "detail": [
+        "DASHBOARD_UX.md",
+        "VULNERABILITY_CENTER_UX.md",
+        "VULNERABILITY_DETAIL_UX.md",
+        "ASSET_RISK_UX.md",
+        "REVIEW_CENTER_UX.md",
+        "AI_ASSISTANT_UX.md",
+        "SYSTEM_STATUS_UX.md"
+      ]
+    },
+    {
+      "check": "Asset and Review core pages retain P1",
+      "passed": true,
+      "detail": "Matches frozen requirements"
+    },
+    {
+      "check": "QA retains P0",
+      "passed": true,
+      "detail": "Actual Agent is M1 baseline"
+    },
+    {
+      "check": "JTBD 01-14 and frozen references",
+      "passed": true,
+      "detail": 14
+    },
+    {
+      "check": "All referenced frozen requirements exist",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Frozen inputs unchanged",
+      "passed": true,
+      "detail": 27
+    },
+    {
+      "check": "Phase 1 unchanged versus Phase 2 reading",
+      "passed": true,
+      "detail": "13 frozen requirement documents"
+    },
+    {
+      "check": "Original 4-page PDF preserved",
+      "passed": true,
+      "detail": "Original PDF fingerprint"
+    },
+    {
+      "check": "Phase 2 research registry remains unimplemented",
+      "passed": true,
+      "detail": "Research check timestamps are not SyncRuns"
+    },
+    {
+      "check": "Five core flows",
+      "passed": true,
+      "detail": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-04",
+        "FLOW-05"
+      ]
+    },
+    {
+      "check": "Flow edges resolve and all nodes reachable",
+      "passed": true,
+      "detail": "Normal and exception nodes"
+    },
+    {
+      "check": "Every flow state has a return path",
+      "passed": true,
+      "detail": "No forced decision or dead-end exception"
+    },
+    {
+      "check": "Recover at current step, no blanket workflow restart",
+      "passed": true,
+      "detail": "Per-step retry and cancel edges"
+    },
+    {
+      "check": "Five rendered flow diagrams",
+      "passed": true,
+      "detail": "Mermaid plus exceptions/roles/return text"
+    },
+    {
+      "check": "11 states by 7 pages",
+      "passed": true,
+      "detail": "All rows with applicable recovery or NA"
+    },
+    {
+      "check": "State table has exactly seven page cells per state",
+      "passed": true,
+      "detail": "One state label + seven page cells"
+    },
+    {
+      "check": "Only two core user roles",
+      "passed": true,
+      "detail": "R1 analyst and R2 AI developer/operator"
+    },
+    {
+      "check": "Evidence ambiguity and true conflict distinguished",
+      "passed": true,
+      "detail": "No false conflict demo"
+    },
+    {
+      "check": "Review permission concurrency audit and non-overwrite",
+      "passed": true,
+      "detail": "Manual walkthrough supported by concrete contracts"
+    },
+    {
+      "check": "QA read-only process with evidence return and timeout",
+      "passed": true,
+      "detail": "No private model reasoning; real tool progress"
+    },
+    {
+      "check": "Demo honest about P1 and historical window",
+      "passed": true,
+      "detail": "M1/M2 and live/replay distinct"
+    },
+    {
+      "check": "No formal implementation directories created",
+      "passed": true,
+      "detail": "Existing historical design files are preserved"
+    },
+    {
+      "check": "Local document links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "No unfinished template placeholders",
+      "passed": true,
+      "detail": "True runtime placeholders such as [真实数量] are intentional"
+    }
+  ],
+  "counts": {
+    "documents": 17,
+    "pages": 7,
+    "navigation": 6,
+    "flows": 5,
+    "jobs": 14,
+    "elements": 57,
+    "api_proposals": 24
+  },
+  "manual_review": [
+    "Task→flow→page mapping reviewed against frozen priorities and knowledge requirements.",
+    "Retry diagrams repaired to recover the current step rather than restart every flow.",
+    "Review concurrency, historical-window demo, PoC two-axis status, evidence lineage and P1 gating checked."
+  ],
+  "limits": [
+    "No deployed product, frontend interaction, user testing, benchmark or live Demo exists at this phase.",
+    "Latency and step budgets are future targets; API paths are proposals only."
+  ]
+}

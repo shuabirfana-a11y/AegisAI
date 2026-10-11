@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/j0yew/TyEJrgoDVRRhFrToC9BcE</id>
+  <title>arXiv Query: search_query=all:"prompt injection"&amp;id_list=&amp;start=0&amp;max_results=1</title>
+  <updated>2026-10-03T05:43:57Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=all:%22prompt+injection%22&amp;start=0&amp;max_results=1&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>1</opensearch:itemsPerPage>
+  <opensearch:totalResults>1019</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2502.13141v2</id>
+    <title>UniGuardian: A Unified Defense for Detecting Prompt Injection, Backdoor Attacks and Adversarial Attacks in Large Language Models</title>
+    <updated>2026-10-01T17:30:02Z</updated>
+    <link href="https://arxiv.org/abs/2502.13141v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2502.13141v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Large Language Models (LLMs) are vulnerable to attacks like prompt injection, backdoor attacks, and adversarial attacks, which manipulate prompts or models to generate harmful outputs. In this paper, departing from traditional deep learning attack paradigms, we explore their intrinsic relationship and collectively term them Prompt Trigger Attacks (PTA). This raises a key question: Given a prompt, can we tell whether a hidden trigger is steering the model's behavior? We propose UniGuardian, to the best of our knowledge the first training-free LLM detector to jointly detect successfully activated prompt injection, backdoor, and adversarial attacks without knowing the attack type. Its shared mechanism measures how structured prompt perturbations shift the model's output distribution. Additionally, we introduce a single-forward strategy to optimize the detection pipeline, enabling simultaneous attack detection and text generation within a shared batched forward pass at each decoding step. Our experiments confirm that UniGuardian accurately and efficiently identifies trigger-activated prompts in LLMs.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-02-18T18:59:00Z</published>
+    <arxiv:comment>25 Pages, 13 Figures, 11 Tables. Accepted to Findings of AACL-IJCNLP 2026. Keywords: Attack Defending, Security, Prompt Injection, Backdoor Attacks, Adversarial Attacks, Prompt Trigger Attacks</arxiv:comment>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Huawei Lin</name>
+    </author>
+    <author>
+      <name>Yingjie Lao</name>
+    </author>
+    <author>
+      <name>Tony Geng</name>
+    </author>
+    <author>
+      <name>Tan Yu</name>
+    </author>
+    <author>
+      <name>Weijie Zhao</name>
+    </author>
+  </entry>
+</feed>

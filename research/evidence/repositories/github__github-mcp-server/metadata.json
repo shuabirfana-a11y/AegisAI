@@ -1,0 +1,38 @@
+{
+  "full_name": "github/github-mcp-server",
+  "html_url": "https://github.com/github/github-mcp-server",
+  "homepage": "",
+  "description": "GitHub's official MCP Server",
+  "language": "Go",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 33332,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2025-03-04T16:42:04Z",
+  "updated_at": "2026-10-03T00:19:19Z",
+  "pushed_at": "2026-10-02T21:42:02Z",
+  "open_issues_count": 341,
+  "default_branch": "main",
+  "requested_repo": "github/github-mcp-server",
+  "commit": "f10e4e1f923d46b86f2e80e849aa74084c847184",
+  "commit_date": "2026-10-02T14:31:11Z",
+  "commit_message": "build(ui): migrate to React 19 and Primer React 38 (#3383)\n\n* build(ui): migrate to React 19 and Primer React 38\n\nReplace removed Box and sx APIs with native styles and CSS Modules, load Primer CSS tokens, use the CSS-based theme provider and Banner, and scope custom-element JSX types to the React runtime.\n\nCo-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>\n\n* fix(ui): use CSS token for reviewer label backgrounds\n\nReplace leftover canvas.inset theme paths with the CSS custom property in PR creation and editing. Keep the reviewed native gaps unchanged.\n\nCo-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>\n\n---------\n\nCo-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:31:20.557919+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/github/github-mcp-server/blob/f10e4e1f923d46b86f2e80e849aa74084c847184/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/github/github-mcp-server/blob/f10e4e1f923d46b86f2e80e849aa74084c847184/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.14.0",
+    "published_at": "2026-10-02T20:14:37Z",
+    "html_url": "https://github.com/github/github-mcp-server/releases/tag/v1.14.0",
+    "name": "GitHub MCP Server 1.14.0"
+  },
+  "recent_issues": []
+}

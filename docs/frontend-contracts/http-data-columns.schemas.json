@@ -1,0 +1,2981 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-contract-origin": "MANUAL_SQLALCHEMY_COLUMN_MAPPING_NOT_OPENAPI_RESPONSE_MODELS",
+  "x-warning": "Rows are column-shape building blocks only; HTTP exclusions and joined fields must be applied as specified in FRONTEND_HANDOFF.md. RawDocument payload columns must NEVER be returned as frontend DTO.",
+  "x-roots": {},
+  "$defs": {
+    "HttpSourceRow": {
+      "type": "object",
+      "properties": {
+        "source_key": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "source_type": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "authority_level": {
+          "enum": [
+            "official",
+            "authoritative",
+            "secondary",
+            "community"
+          ]
+        },
+        "authority_scope": {
+          "type": "string"
+        },
+        "acquisition_method": {
+          "type": "string"
+        },
+        "base_url": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "update_interval": {
+          "type": "integer"
+        },
+        "last_sync_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_success_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "deferred",
+            "running",
+            "succeeded",
+            "partial",
+            "failed",
+            "rate_limited",
+            "stale",
+            "need_review"
+          ]
+        },
+        "license_scope": {
+          "type": "string"
+        },
+        "checkpoint": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverage_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "source_key",
+        "name",
+        "source_type",
+        "category",
+        "authority_level",
+        "authority_scope",
+        "acquisition_method",
+        "base_url",
+        "enabled",
+        "update_interval",
+        "last_sync_at",
+        "last_success_at",
+        "status",
+        "license_scope",
+        "checkpoint",
+        "coverage_scope",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpSyncRunRow": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "succeeded",
+            "partial",
+            "failed",
+            "rate_limited",
+            "cancelled",
+            "need_review"
+          ]
+        },
+        "records_fetched": {
+          "type": "integer"
+        },
+        "records_created": {
+          "type": "integer"
+        },
+        "records_updated": {
+          "type": "integer"
+        },
+        "records_skipped": {
+          "type": "integer"
+        },
+        "records_failed": {
+          "type": "integer"
+        },
+        "cursor_before": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cursor_after": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mode": {
+          "type": "string"
+        },
+        "coverage_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "known_gaps": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error_summary": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retry_of_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "source_id",
+        "started_at",
+        "finished_at",
+        "status",
+        "records_fetched",
+        "records_created",
+        "records_updated",
+        "records_skipped",
+        "records_failed",
+        "cursor_before",
+        "cursor_after",
+        "mode",
+        "coverage_scope",
+        "known_gaps",
+        "error_summary",
+        "retry_of_id",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpVulnerabilityRow": {
+      "type": "object",
+      "properties": {
+        "canonical_id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modified_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "published",
+            "withdrawn",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "primary_severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info",
+            "unknown"
+          ]
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "deleted_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "canonical_id",
+        "title",
+        "description",
+        "published_at",
+        "modified_at",
+        "status",
+        "primary_severity",
+        "revision",
+        "deleted_at",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpExternalIdentifierRow": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string"
+        },
+        "identifier_type": {
+          "type": "string"
+        },
+        "identifier_value": {
+          "type": "string"
+        },
+        "normalized_value": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "namespace",
+        "identifier_type",
+        "identifier_value",
+        "normalized_value",
+        "source_id",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpRawDocumentRow": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "external_id": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modified_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_type": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        },
+        "completeness": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "license_scope": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "source_id",
+        "external_id",
+        "source_url",
+        "published_at",
+        "modified_at",
+        "retrieved_at",
+        "content_type",
+        "content_hash",
+        "completeness",
+        "publisher",
+        "license_scope",
+        "id",
+        "created_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAffectedVersionRangeRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "product_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "package_identifier_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "observation_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "introduced": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fixed": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_affected": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "limit_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "range_type": {
+          "type": "string"
+        },
+        "raw_expression": {
+          "type": "string"
+        },
+        "events": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "explicit_versions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "branch": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope_key": {
+          "type": "string"
+        },
+        "parse_status": {
+          "enum": [
+            "parsed",
+            "unsupported",
+            "failed"
+          ]
+        },
+        "parse_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parser_version": {
+          "type": "string"
+        },
+        "verification_status": {
+          "enum": [
+            "pending",
+            "confirmed",
+            "insufficient",
+            "conflict",
+            "rejected"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "product_id",
+        "package_identifier_id",
+        "source_id",
+        "observation_id",
+        "introduced",
+        "fixed",
+        "last_affected",
+        "limit_version",
+        "range_type",
+        "raw_expression",
+        "events",
+        "explicit_versions",
+        "branch",
+        "scope_key",
+        "parse_status",
+        "parse_reason",
+        "parser_version",
+        "verification_status",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpCvssAssessmentRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "observation_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "version": {
+          "enum": [
+            "2.0",
+            "3.0",
+            "3.1",
+            "4.0"
+          ]
+        },
+        "vector": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "base_score": {
+          "type": "number"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "info",
+            "unknown"
+          ]
+        },
+        "provider": {
+          "type": "string"
+        },
+        "assessment_kind": {
+          "type": "string"
+        },
+        "scope_key": {
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "source_id",
+        "observation_id",
+        "version",
+        "vector",
+        "base_score",
+        "severity",
+        "provider",
+        "assessment_kind",
+        "scope_key",
+        "published_at",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpProductRow": {
+      "type": "object",
+      "properties": {
+        "canonical_key": {
+          "type": "string"
+        },
+        "canonical_name": {
+          "type": "string"
+        },
+        "vendor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "product_type": {
+          "type": "string"
+        },
+        "homepage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "deleted_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "canonical_key",
+        "canonical_name",
+        "vendor",
+        "product_type",
+        "homepage",
+        "deleted_at",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpWeaknessRow": {
+      "type": "object",
+      "properties": {
+        "cwe_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "cwe_id",
+        "name",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpReferenceRow": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "canonical_url": {
+          "type": "string"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reference_type": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "url",
+        "canonical_url",
+        "title",
+        "reference_type",
+        "source_id",
+        "published_at",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAiRelevanceAssessmentRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "knowledge_document_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "method": {
+          "enum": [
+            "rule",
+            "product",
+            "package",
+            "llm",
+            "human"
+          ]
+        },
+        "result": {
+          "enum": [
+            "relevant",
+            "irrelevant",
+            "uncertain"
+          ]
+        },
+        "reason_summary": {
+          "type": "string"
+        },
+        "model_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observation_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "knowledge_document_id",
+        "method",
+        "result",
+        "reason_summary",
+        "model_version",
+        "evaluated_at",
+        "observation_id",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpEnrichmentJobRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "enrichment_type": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "success",
+            "partial",
+            "no_result",
+            "failed",
+            "conflict",
+            "cancelled"
+          ]
+        },
+        "scheduled_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "started_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempt": {
+          "type": "integer"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "trace_id": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "enrichment_type",
+        "status",
+        "scheduled_at",
+        "started_at",
+        "finished_at",
+        "attempt",
+        "error_code",
+        "retryable",
+        "trace_id",
+        "duration_ms",
+        "result",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpClaimRow": {
+      "type": "object",
+      "properties": {
+        "claim_key": {
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "knowledge_document_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "product_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "package_identifier_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "range_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "poc_candidate_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "patch_candidate_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "asset_component_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cvss_assessment_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claim_type": {
+          "type": "string"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "value_json": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "scope_key": {
+          "type": "string"
+        },
+        "branch": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cvss_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assessment_kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "as_of_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "CONFIRMED",
+            "PENDING",
+            "INSUFFICIENT_EVIDENCE",
+            "CONFLICT",
+            "REJECTED"
+          ]
+        },
+        "adopted": {
+          "type": "boolean"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "claim_key",
+        "vulnerability_id",
+        "knowledge_document_id",
+        "product_id",
+        "package_identifier_id",
+        "range_id",
+        "poc_candidate_id",
+        "patch_candidate_id",
+        "asset_component_id",
+        "cvss_assessment_id",
+        "claim_type",
+        "predicate",
+        "value_json",
+        "scope_key",
+        "branch",
+        "cvss_version",
+        "assessment_kind",
+        "as_of_date",
+        "verification_status",
+        "adopted",
+        "revision",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpEvidenceRow": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "raw_document_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "observation_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "scope_key": {
+          "type": "string"
+        },
+        "evidence_type": {
+          "type": "string"
+        },
+        "stance": {
+          "enum": [
+            "support",
+            "contradict",
+            "neutral"
+          ]
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "excerpt_hash": {
+          "type": "string"
+        },
+        "source_url": {
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "locator": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "locator_key": {
+          "type": "string"
+        },
+        "observed_value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "lineage_key": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        },
+        "claim_verification_status": {
+          "enum": [
+            "CONFIRMED",
+            "PENDING",
+            "INSUFFICIENT_EVIDENCE",
+            "CONFLICT",
+            "REJECTED"
+          ]
+        },
+        "source_key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "source_id",
+        "raw_document_id",
+        "observation_id",
+        "scope_key",
+        "evidence_type",
+        "stance",
+        "excerpt",
+        "excerpt_hash",
+        "source_url",
+        "published_at",
+        "retrieved_at",
+        "locator",
+        "locator_key",
+        "observed_value",
+        "publisher",
+        "lineage_key",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpPocCandidateRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "observation_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "url": {
+          "type": "string"
+        },
+        "canonical_url": {
+          "type": "string"
+        },
+        "repository": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "commit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "author": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidate_type": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "confirmed",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "usability_status": {
+          "enum": [
+            "not_evaluated",
+            "unknown",
+            "verified_usable",
+            "unusable"
+          ]
+        },
+        "first_seen_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_seen_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "source_id",
+        "observation_id",
+        "url",
+        "canonical_url",
+        "repository",
+        "commit",
+        "author",
+        "candidate_type",
+        "status",
+        "usability_status",
+        "first_seen_at",
+        "last_seen_at",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpPatchCandidateRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "product_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "observation_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "patch_type": {
+          "enum": [
+            "commit",
+            "pull_request",
+            "release",
+            "vendor_patch",
+            "fixed_version"
+          ]
+        },
+        "identity_key": {
+          "type": "string"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "commit_sha": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "release_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "branch": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "confirmed",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "first_seen_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "product_id",
+        "source_id",
+        "observation_id",
+        "patch_type",
+        "identity_key",
+        "url",
+        "commit_sha",
+        "release_version",
+        "branch",
+        "status",
+        "first_seen_at",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpIntelligenceEventRow": {
+      "type": "object",
+      "properties": {
+        "event_key": {
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "knowledge_document_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claim_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "occurred_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "detected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "event_key",
+        "vulnerability_id",
+        "knowledge_document_id",
+        "claim_id",
+        "evidence_id",
+        "source_id",
+        "event_type",
+        "occurred_at",
+        "detected_at",
+        "summary",
+        "payload",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpEpssSnapshotRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "raw_document_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "score": {
+          "type": "number"
+        },
+        "percentile": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "score_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "source_id",
+        "raw_document_id",
+        "score",
+        "percentile",
+        "score_date",
+        "observed_at",
+        "model_version",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpKnownExploitationRow": {
+      "type": "object",
+      "properties": {
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "source_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "raw_document_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "known_exploited": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "catalog_status": {
+          "enum": [
+            "listed",
+            "not_listed_as_of",
+            "unknown"
+          ]
+        },
+        "catalog_complete": {
+          "type": "boolean"
+        },
+        "catalog_version": {
+          "type": "string"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_added": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "due_date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "required_action": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "vulnerability_id",
+        "source_id",
+        "raw_document_id",
+        "known_exploited",
+        "catalog_status",
+        "catalog_complete",
+        "catalog_version",
+        "observed_at",
+        "date_added",
+        "due_date",
+        "required_action",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpConflictRecordRow": {
+      "type": "object",
+      "properties": {
+        "conflict_key": {
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "claim_a_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "claim_b_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "scope_key": {
+          "type": "string"
+        },
+        "conflict_type": {
+          "type": "string"
+        },
+        "detected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "resolved",
+            "deferred"
+          ]
+        },
+        "review_task_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolved_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolved_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "conflict_key",
+        "vulnerability_id",
+        "claim_a_id",
+        "claim_b_id",
+        "scope_key",
+        "conflict_type",
+        "detected_at",
+        "status",
+        "review_task_id",
+        "resolution",
+        "resolved_at",
+        "resolved_by",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpVerificationResultRow": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "claim_revision": {
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "CONFIRMED",
+            "PENDING",
+            "INSUFFICIENT_EVIDENCE",
+            "CONFLICT",
+            "REJECTED"
+          ]
+        },
+        "verification_method": {
+          "type": "string"
+        },
+        "reason_summary": {
+          "type": "string"
+        },
+        "verified_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "verified_by_type": {
+          "enum": [
+            "system",
+            "human"
+          ]
+        },
+        "verified_by_id": {
+          "type": "string"
+        },
+        "decision_key": {
+          "type": "string"
+        },
+        "adopted_value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_revision",
+        "status",
+        "verification_method",
+        "reason_summary",
+        "verified_at",
+        "verified_by_type",
+        "verified_by_id",
+        "decision_key",
+        "adopted_value",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpReviewTaskRow": {
+      "type": "object",
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "review_type": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "open",
+            "assigned",
+            "resolved",
+            "deferred",
+            "cancelled"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "assigned_to": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolved_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolution_note": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "after_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "claim_id",
+        "review_type",
+        "priority",
+        "status",
+        "reason",
+        "assigned_to",
+        "resolved_at",
+        "resolution",
+        "resolution_note",
+        "before_state",
+        "after_state",
+        "revision",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAuditLogRow": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "claim_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "review_task_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verification_result_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "before_state": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "after_state": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "request_key": {
+          "type": "string"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "actor",
+        "action",
+        "claim_id",
+        "review_task_id",
+        "verification_result_id",
+        "before_state",
+        "after_state",
+        "reason",
+        "occurred_at",
+        "request_key",
+        "request_hash",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAssetRow": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "asset_type": {
+          "type": "string"
+        },
+        "owner_principal": {
+          "type": "string"
+        },
+        "is_demo": {
+          "type": "boolean"
+        },
+        "deleted_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "environment": {
+          "enum": [
+            "production",
+            "staging",
+            "development",
+            "unknown"
+          ]
+        },
+        "exposure": {
+          "enum": [
+            "internet",
+            "internal",
+            "development",
+            "unknown"
+          ]
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "request_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "name",
+        "asset_type",
+        "owner_principal",
+        "is_demo",
+        "deleted_at",
+        "environment",
+        "exposure",
+        "description",
+        "request_key",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAssetComponentRow": {
+      "type": "object",
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "product_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "package_identifier_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "raw_package_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "enum": [
+            "manual",
+            "sbom",
+            "scanner"
+          ]
+        },
+        "inventory_revision": {
+          "type": "integer"
+        },
+        "identity_status": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "namespace": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "normalized_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resolution_method": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inventory_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "first_seen_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "last_seen_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "asset_id",
+        "product_id",
+        "package_identifier_id",
+        "version",
+        "raw_package_name",
+        "source",
+        "inventory_revision",
+        "identity_status",
+        "deleted_at",
+        "purl",
+        "ecosystem",
+        "namespace",
+        "normalized_version",
+        "resolution_method",
+        "inventory_key",
+        "first_seen_at",
+        "last_seen_at",
+        "id",
+        "created_at",
+        "metadata",
+        "updated_at"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAssetRiskChangeRow": {
+      "type": "object",
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "component_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "vulnerability_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "previous_snapshot_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "snapshot_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "event_key": {
+          "type": "string"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "before_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "after_state": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "asset_id",
+        "component_id",
+        "vulnerability_id",
+        "previous_snapshot_id",
+        "snapshot_id",
+        "event_type",
+        "event_key",
+        "occurred_at",
+        "before_state",
+        "after_state",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "HttpAssetInventoryEventRow": {
+      "type": "object",
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "event_type": {
+          "type": "string"
+        },
+        "actor": {
+          "type": "string"
+        },
+        "request_key": {
+          "type": "string"
+        },
+        "request_hash": {
+          "type": "string"
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "payload": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "content_trust_level": {
+          "const": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      },
+      "required": [
+        "asset_id",
+        "component_id",
+        "event_type",
+        "actor",
+        "request_key",
+        "request_hash",
+        "occurred_at",
+        "payload",
+        "id",
+        "created_at",
+        "metadata"
+      ],
+      "additionalProperties": false
+    },
+    "JsonValue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/JsonValue"
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          }
+        }
+      ]
+    }
+  }
+}

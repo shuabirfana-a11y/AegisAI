@@ -1,0 +1,120 @@
+<!doctype html><html class="api"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>FIRST.Org REST API: GET /epss</title><meta http-equiv="last-modified" content="Tue, 29 Sep 2026 18:40:40 GMT" /><meta name="viewport" content="initial-scale=1,maximum-scale=1.0,user-scalable=no" /><link rel="apple-touch-icon" sizes="128x128" href="/favicon.png" /><link rel="stylesheet" type="text/css" href="/_/api.css?20260929184153" /><link rel="stylesheet" type="text/css" href="/_/type.css?20260929184153" /></head><body><header><div id="header" data-studio="ep_Lx8yYVg"><div id="c2"><div id="socialnetworks"><a href="https://twitter.com/FIRSTdotOrg" target="_blank" alt="Twitter @FIRSTdotOrg" class="icon-tw"></a><a href="https://www.linkedin.com/company/firstdotorg" target="_blank" alt="FIRST.Org at LinkedIn" class="icon-linkedin"></a><a href="https://www.facebook.com/FIRSTdotorg" target="_blank" alt="FIRST.Org at Facebook" class="icon-fb"></a><a href="https://github.com/FIRSTdotorg" target="_blank" alt="FIRST.Org at Github" class="icon-github"></a><a href="https://www.youtube.com/c/FIRSTdotorg" target="_blank" alt="FIRST.Org at Youtube" class="icon-youtube"></a><a href="https://www.first.org/podcasts" alt="FIRST.Org Podcasts" class="icon-podcast"></a></div>
+<div class="nav">
+<h1 id="API"><a href="/"><img src="/_/img/first-90x45.png" alt="FIRST" /></a> API</h1><ul class="navbar"><li><a href="/">Documentation</a><ul><li><a href="/">FIRST.Org API v1</a><ul><li><a href="/#Overview">Overview</a></li><li><a href="/#Queries">Queries</a></li><li><a href="/#Rate-Limit">Rate Limit</a></li><li><a href="/#Global-parameters">Global parameters</a></li><li><a href="/#Response-object">Response object</a></li><li><a href="/#Public-methods">Public methods</a><ul><li><a href="/v1/get-teams">GET /teams</a></li><li><a href="/v1/get-news">GET /news</a></li><li><a href="/v1/get-channels">GET /channels</a></li><li><a href="/v1/get-countries">GET /countries</a></li><li><a href="/epss/">GET /epss</a></li></ul></li></ul></li><li><a href="/global-irt/v1">Global IRT API v1</a><ul><li><a href="/global-irt/v1#Overview">Overview</a></li><li><a href="/global-irt/v1#Global-parameters">Global parameters</a></li><li><a href="/global-irt/v1#Response-object">Response object</a></li><li><a href="/global-irt/v1#Methods">Methods</a><ul><li><a href="/global-irt/v1#GET-teams">GET /teams</a></li></ul></li></ul></li></ul></li><li><a href="https://www.first.org">FIRST.Org website</a></li></ul>
+</div></div></div></header><div id="body" data-studio="ep_Lx8yYVg"><div id="c1" class="user-input"><h1 id="GET-epss">GET /epss</h1>
+<p>The EPSS Data public information (see <a href="http://www.first.org/epss">http://www.first.org/epss</a>) is available for querying using the endpoint <code>/epss</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Endpoint URL</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/">FIRST API v1</a></strong></td>
+<td><a href="/data/v1/epss">https://api.first.org/data/v1/epss</a></td>
+<td>BETA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Additional-Parameters">Additional Parameters</h2>
+<p>These parameters may be added (in addition to the <a href="#Global-parameters">Global parameters</a>) to the query string to filter the results:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cve</strong></td>
+<td>string</td>
+<td>Filters by EPSS CVE ID. Multiple values are supported separated by commas. The maximum size accepted for this parameter is 2000 characters (including commas).</td>
+</tr>
+<tr>
+<td><strong>date</strong></td>
+<td>date</td>
+<td>Date in the format <code>YYYY-MM-DD</code> (since April 14, 2021), shows the historic values for <code>epss</code> and <code>percentile</code> attributes.</td>
+</tr>
+<tr>
+<td><strong>days</strong></td>
+<td>int</td>
+<td>Number of days since the EPSS score was added to the database (starting at 1, not affected by the <code>date</code> parameter).</td>
+</tr>
+<tr>
+<td><strong>epss-gt</strong></td>
+<td>decimal</td>
+<td>Only display CVEs with EPSS score greater or equal than the parameter.</td>
+</tr>
+<tr>
+<td><strong>percentile-gt</strong></td>
+<td>decimal</td>
+<td>Only display CVEs with percentile greater or equal than the parameter.</td>
+</tr>
+<tr>
+<td><strong>epss-lt</strong></td>
+<td>decimal</td>
+<td>Only display CVEs with EPSS score lower or equal than the parameter.</td>
+</tr>
+<tr>
+<td><strong>percentile-lt</strong></td>
+<td>decimal</td>
+<td>Only display CVEs with percentile lower or equal than the parameter.</td>
+</tr>
+<tr>
+<td><strong>q</strong></td>
+<td>string</td>
+<td>Free text search at the CVE ID (allows partial matches).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Scope">Scope</h2>
+<p>These are the allowed <strong>scope</strong> for the EPSS dataset:</p>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>public</strong> (default)</td>
+<td>Shows the basic EPSS data (<code>cve</code>, <code>epss</code>, <code>percentile</code>, <code>created</code>).</td>
+</tr>
+<tr>
+<td><strong>time-series</strong></td>
+<td>Shows the last 30 days (or what is available) of the EPSS score and percentile for any CVE.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Response">Response</h2>
+<p>The response object contains a list of matching CVEs and their EPSS scores:</p>
+<pre><code class="language-json">curl -X GET "https://api.first.org/data/v1/epss?cve=CVE-2021-40438,CVE-2019-16759&amp;date=2022-02-28&amp;pretty=true"
+{
+    "status": "OK",
+    "status-code": 200,
+    "version": "1.0",
+    "access": "private, no-cache",
+    "total": 2,
+    "offset": 0,
+    "limit": 100,
+    "data": [
+        {
+            "cve": "CVE-2021-40438",
+            "epss": "0.972240000",
+            "percentile": "1.000000000",
+            "date": "2022-02-28"
+        },
+        {
+            "cve": "CVE-2019-16759",
+            "epss": "0.968170000",
+            "percentile": "0.999990000",
+            "date": "2022-02-28"
+        }
+    ]
+}</code></pre></div></div><div id="navbar" data-studio="ep_Lx8yYVg"><div id="c3"><ul class="navbar"><li><a href="/">Documentation</a><ul><li><a href="/">FIRST.Org API v1</a><ul><li><a href="/#Overview">Overview</a></li><li><a href="/#Queries">Queries</a></li><li><a href="/#Rate-Limit">Rate Limit</a></li><li><a href="/#Global-parameters">Global parameters</a></li><li><a href="/#Response-object">Response object</a></li><li><a href="/#Public-methods">Public methods</a><ul><li><a href="/v1/get-teams">GET /teams</a></li><li><a href="/v1/get-news">GET /news</a></li><li><a href="/v1/get-channels">GET /channels</a></li><li><a href="/v1/get-countries">GET /countries</a></li><li><a href="/epss/">GET /epss</a></li></ul></li></ul></li><li><a href="/global-irt/v1">Global IRT API v1</a><ul><li><a href="/global-irt/v1#Overview">Overview</a></li><li><a href="/global-irt/v1#Global-parameters">Global parameters</a></li><li><a href="/global-irt/v1#Response-object">Response object</a></li><li><a href="/global-irt/v1#Methods">Methods</a><ul><li><a href="/global-irt/v1#GET-teams">GET /teams</a></li></ul></li></ul></li></ul></li></ul></div></div><footer><div id="footer"><div class="left-box"><a href="/"><img class="footer-logo" src="/_/img/first-org.svg" alt="FIRST.Org - Improving Security Together"></a></div><div class="right-box"></div><div class="middle-box smaller"><br /><p>Copyright © 2015—2026 by Forum of Incident Response and Security Teams, Inc. All Rights Reserved.</p></div></div></footer><script type="text/javascript" async="async" src="/_/s.js?20260929-184142"></script><script crossorigin="use-credentials" type="text/javascript" async="async" src="/_/api.js?20260929184153"></script></body></html>

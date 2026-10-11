@@ -1,0 +1,30 @@
+{
+  "verified_at_utc": "2026-10-03T04:01:33.109998+00:00",
+  "markdown_reports": 12,
+  "final_sections": 12,
+  "explicit_answers": 18,
+  "candidate_count": 87,
+  "counts_by_kind": {
+    "official_service_or_standard": 10,
+    "repository": 61,
+    "dify_plugin": 16
+  },
+  "counts_by_classification": {
+    "B": 44,
+    "D": 16,
+    "C": 9,
+    "A": 18
+  },
+  "checks": [
+    "required files and substantive content",
+    "all candidate fields and classification counts",
+    "12 required final sections",
+    "18 explicit question answers",
+    "relative artifact links",
+    "actual API sample hashes and ID/fix agreement",
+    "meaningful version boundary difference",
+    "credential pattern scan"
+  ],
+  "scope": "research artifacts only; no runtime integration or model benchmark claimed",
+  "passed": true
+}

@@ -1,0 +1,79 @@
+{
+  "full_name": "secureIT-project/CVEfixes",
+  "html_url": "https://github.com/secureIT-project/CVEfixes",
+  "homepage": null,
+  "description": "CVEfixes: Automated Collection of Vulnerabilities and Their Fixes from Open-Source Software ",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 366,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2021-07-17T10:21:03Z",
+  "updated_at": "2026-09-28T07:05:58Z",
+  "pushed_at": "2024-07-30T22:47:00Z",
+  "open_issues_count": 4,
+  "default_branch": "main",
+  "requested_repo": "secureIT-project/CVEfixes",
+  "commit": "9283b50b3f04e3c5b0a17fc419ab0feea23fc438",
+  "commit_date": "2024-07-29T09:46:09Z",
+  "commit_message": "Update README.md to announce latest release of dataset",
+  "checked_at_utc": "2026-10-03T03:34:56.029074+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/secureIT-project/CVEfixes/blob/9283b50b3f04e3c5b0a17fc419ab0feea23fc438/README.md",
+  "license_path": "LICENSE.txt",
+  "license_url": "https://github.com/secureIT-project/CVEfixes/blob/9283b50b3f04e3c5b0a17fc419ab0feea23fc438/LICENSE.txt",
+  "latest_release": {
+    "tag_name": "v1.0.8",
+    "published_at": "2024-07-30T22:47:00Z",
+    "html_url": "https://github.com/secureIT-project/CVEfixes/releases/tag/v1.0.8",
+    "name": ""
+  },
+  "recent_issues": [
+    {
+      "number": 23,
+      "title": "I imported all data to SQlite and compressed it",
+      "state": "closed",
+      "updated_at": "2025-09-25T05:31:25Z",
+      "html_url": "https://github.com/secureIT-project/CVEfixes/issues/23",
+      "comments": 2
+    },
+    {
+      "number": 22,
+      "title": "Regarding the size of the dataset.",
+      "state": "closed",
+      "updated_at": "2025-07-08T13:49:03Z",
+      "html_url": "https://github.com/secureIT-project/CVEfixes/issues/22",
+      "comments": 0
+    },
+    {
+      "number": 21,
+      "title": "method_change where before_change == false",
+      "state": "closed",
+      "updated_at": "2025-04-04T15:22:41Z",
+      "html_url": "https://github.com/secureIT-project/CVEfixes/issues/21",
+      "comments": 2
+    },
+    {
+      "number": 18,
+      "title": "Out of memory: Killed process python3",
+      "state": "open",
+      "updated_at": "2024-07-28T14:03:19Z",
+      "html_url": "https://github.com/secureIT-project/CVEfixes/issues/18",
+      "comments": 1
+    },
+    {
+      "number": 17,
+      "title": "DatabaseError",
+      "state": "closed",
+      "updated_at": "2024-07-23T13:47:56Z",
+      "html_url": "https://github.com/secureIT-project/CVEfixes/issues/17",
+      "comments": 1
+    }
+  ]
+}

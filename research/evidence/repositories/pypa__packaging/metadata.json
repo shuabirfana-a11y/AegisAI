@@ -1,0 +1,38 @@
+{
+  "full_name": "pypa/packaging",
+  "html_url": "https://github.com/pypa/packaging",
+  "homepage": "https://packaging.pypa.io/",
+  "description": "Core utilities for Python packages",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 751,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2014-05-15T22:49:43Z",
+  "updated_at": "2026-10-02T17:47:13Z",
+  "pushed_at": "2026-10-02T17:47:10Z",
+  "open_issues_count": 113,
+  "default_branch": "main",
+  "requested_repo": "pypa/packaging",
+  "commit": "4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+  "commit_date": "2026-10-02T17:47:07Z",
+  "commit_message": "chore(deps): bump the github-actions group with 4 updates (#1432)\n\n* chore(deps): bump the github-actions group with 4 updates\n\nBumps the github-actions group with 4 updates: [github/codeql-action/init](https://github.com/github/codeql-action), [github/codeql-action/autobuild](https://github.com/github/codeql-action), [github/codeql-action/analyze](https://github.com/github/codeql-action) and [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv).\n\n\nUpdates `github/codeql-action/init` from 4.37.8 to 4.38.2\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2)\n\nUpdates `github/codeql-action/autobuild` from 4.37.8 to 4.38.2\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2)\n\nUpdates `github/codeql-action/analyze` from 4.37.8 to 4.38.2\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/db488ddef3bf6cb639b32c2e9a7c0a7ea8271d28...2892aa5e19bbd11bc0cff5427e3b750a04d9e3c2)\n\nUpdates `astral-sh/setup-uv` from 10.0.1 to 10.2.0\n- [Release notes](https://github.com/astral-sh/setup-uv/releases)\n- [Commits](https://github.com/astral-sh/setup-uv/compare/20cfd1bf945f4377ade1205e4dbc17946fc9a30d...c18668ad3cf93ea998bef934396af7bb5c839dc7)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action/init\n  dependency-version: 4.38.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/autobuild\n  dependency-version: 4.38.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n- dependency-name: github/codeql-action/analyze\n  dependency-version: 4.38.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n- dependency-name: astral-sh/setup-uv\n  dependency-version: 10.2.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: github-actions\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\n\n* Fix CodeQL action version details\n\nIt looks like the numbers got out of sync, and so dependabot didn't know how to update the version comment.\n\n---------\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\nCo-authored-by: Brett Cannon <brett@python.org>",
+  "checked_at_utc": "2026-10-03T03:34:10.925849+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/pypa/packaging/blob/4a920d632a0e81ef2b06dc94d9048eee9e569c8d/README.rst",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/pypa/packaging/blob/4a920d632a0e81ef2b06dc94d9048eee9e569c8d/LICENSE",
+  "latest_release": {
+    "tag_name": "26.3",
+    "published_at": "2026-08-04T21:42:51Z",
+    "html_url": "https://github.com/pypa/packaging/releases/tag/26.3",
+    "name": "26.3"
+  },
+  "recent_issues": []
+}

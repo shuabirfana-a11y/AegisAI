@@ -1,0 +1,84 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/tools/dify_extractor/tools/helpers.py",
+    "cached": true,
+    "bytes": 4002
+  },
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/tools/firecrawl/README.md",
+    "cached": true,
+    "bytes": 3381
+  },
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/tools/github/provider/github.py",
+    "cached": true,
+    "bytes": 7909
+  },
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/tools/github/tools/github_repository_releases.yaml",
+    "cached": true,
+    "bytes": 2106
+  },
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/triggers/github_trigger/events/dependabot_alert/__init__.py",
+    "cached": true,
+    "bytes": 41
+  },
+  {
+    "url": "https://raw.githubusercontent.com/langgenius/dify-official-plugins/60fd178450bf76fa651f348113a9bc93783dd1ee/triggers/github_trigger/events/security_and_analysis/security_and_analysis.py",
+    "cached": true,
+    "bytes": 1088
+  },
+  {
+    "repo": "d3fend/d3fend-ontology",
+    "cached": true
+  },
+  {
+    "path": "repos/pytorch/pytorch/commits/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+    "error": null
+  },
+  {
+    "path": "advisories/GHSA-53q9-r3pm-6pq6",
+    "error": null
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/bdf8720c255290447ee5273457e02dd2431ca23f/2025/32xxx/CVE-2025-32434.json",
+    "cached": true,
+    "bytes": 4135
+  },
+  {
+    "url": "https://zenodo.org/api/records/20776007",
+    "cached": true,
+    "bytes": 9490
+  },
+  {
+    "url": "https://zenodo.org/api/records/13118970",
+    "cached": true,
+    "bytes": 8110
+  },
+  {
+    "url": "https://raw.githubusercontent.com/package-url/packageurl-python/c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4/mit.LICENSE",
+    "cached": true,
+    "bytes": 1054
+  },
+  {
+    "url": "https://raw.githubusercontent.com/aboutcode-org/univers/92b1a2498e60779775ac9351fd7c38a035f97eb1/apache-2.0.LICENSE",
+    "cached": true,
+    "bytes": 11357
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pypa/packaging/4a920d632a0e81ef2b06dc94d9048eee9e569c8d/LICENSE.BSD",
+    "cached": true,
+    "bytes": 1344
+  },
+  {
+    "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/172c1074069eb88ec834124272c1b1c4f8893445/README.md",
+    "status": 200,
+    "bytes": 7980
+  },
+  {
+    "url": "https://raw.githubusercontent.com/meta-llama/PurpleLlama/172c1074069eb88ec834124272c1b1c4f8893445/LICENSE",
+    "status": 200,
+    "bytes": 7669
+  }
+]

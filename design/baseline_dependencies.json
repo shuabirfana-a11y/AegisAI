@@ -1,0 +1,288 @@
+[
+  {
+    "full_name": "fastapi/fastapi",
+    "html_url": "https://github.com/fastapi/fastapi",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "5f9fc5c59a9bb54608aa35376715f3ba9708188e",
+    "commit_date": "2026-10-02T11:36:36Z",
+    "latest_release": {
+      "tag_name": "0.142.2",
+      "published_at": "2026-09-30T09:50:53Z",
+      "html_url": "https://github.com/fastapi/fastapi/releases/tag/0.142.2",
+      "name": "0.142.2"
+    },
+    "readme_url": "https://github.com/fastapi/fastapi/blob/5f9fc5c59a9bb54608aa35376715f3ba9708188e/README.md",
+    "license_url": "https://github.com/fastapi/fastapi/blob/5f9fc5c59a9bb54608aa35376715f3ba9708188e/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:25.360985+00:00",
+    "phase": "A",
+    "selected": "0.142.2安装候选，待隔离环境验证",
+    "why_now": "复用路由/输入校验/OpenAPI",
+    "alternative": "Flask",
+    "estimated_lines_if_not_used": "数百行协议与验证代码",
+    "added_complexity": "ASGI/Web依赖；输入认证需应用实现",
+    "security_risk": "ASGI/Web依赖；输入认证需应用实现",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "sqlalchemy/sqlalchemy",
+    "html_url": "https://github.com/sqlalchemy/sqlalchemy",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "3e4da2348053a45e5459e2660c493b22a4965e78",
+    "commit_date": "2026-10-02T22:57:14Z",
+    "latest_release": {
+      "tag_name": "rel_2_1_3",
+      "published_at": "2026-10-02T22:57:05Z",
+      "html_url": "https://github.com/sqlalchemy/sqlalchemy/releases/tag/rel_2_1_3",
+      "name": "2.1.3"
+    },
+    "readme_url": "https://github.com/sqlalchemy/sqlalchemy/blob/3e4da2348053a45e5459e2660c493b22a4965e78/README.rst",
+    "license_url": "https://github.com/sqlalchemy/sqlalchemy/blob/3e4da2348053a45e5459e2660c493b22a4965e78/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:26.397451+00:00",
+    "phase": "A",
+    "selected": "2.0系列，不自动追2.1",
+    "why_now": "复用事务与参数化ORM",
+    "alternative": "直接psycopg SQL",
+    "estimated_lines_if_not_used": "数百至千行持久化与映射代码",
+    "added_complexity": "session/事务与迁移约定；不可拼接外部SQL",
+    "security_risk": "session/事务与迁移约定；不可拼接外部SQL",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "sqlalchemy/alembic",
+    "html_url": "https://github.com/sqlalchemy/alembic",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "b42ebe1ff576e02b8bfc9ef1c3c3a5fd1ac41bf4",
+    "commit_date": "2026-09-18T17:44:55Z",
+    "latest_release": {
+      "tag_name": "rel_1_20_0",
+      "published_at": "2026-09-11T19:09:17Z",
+      "html_url": "https://github.com/sqlalchemy/alembic/releases/tag/rel_1_20_0",
+      "name": "1.20.0"
+    },
+    "readme_url": "https://github.com/sqlalchemy/alembic/blob/b42ebe1ff576e02b8bfc9ef1c3c3a5fd1ac41bf4/README.rst",
+    "license_url": "https://github.com/sqlalchemy/alembic/blob/b42ebe1ff576e02b8bfc9ef1c3c3a5fd1ac41bf4/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:26.398706+00:00",
+    "phase": "A",
+    "selected": "1.x兼容SQLAlchemy2.0",
+    "why_now": "显式迁移与schema版本",
+    "alternative": "手写版本化SQL迁移",
+    "estimated_lines_if_not_used": "数百行迁移工具与回滚控制",
+    "added_complexity": "迁移角色权限较高；仅管理员运行",
+    "security_risk": "迁移角色权限较高；仅管理员运行",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "encode/httpx",
+    "html_url": "https://github.com/encode/httpx",
+    "license": {
+      "key": "bsd-3-clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "spdx_id": "BSD-3-Clause",
+      "url": "https://api.github.com/licenses/bsd-3-clause",
+      "node_id": "MDc6TGljZW5zZTU="
+    },
+    "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+    "commit_date": "2026-02-23T10:40:42Z",
+    "latest_release": {
+      "tag_name": "0.28.1",
+      "published_at": "2024-12-06T15:36:24Z",
+      "html_url": "https://github.com/encode/httpx/releases/tag/0.28.1",
+      "name": "Version 0.28.1"
+    },
+    "readme_url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/README.md",
+    "license_url": "https://github.com/encode/httpx/blob/b5addb64f0161ff6bfe94c124ef76f6a1fba5254/LICENSE.md",
+    "checked_at_utc": "2026-10-03T04:03:32.215813+00:00",
+    "phase": "A",
+    "selected": "0.28.1",
+    "why_now": "统一timeout/transport/连接池",
+    "alternative": "urllib标准库",
+    "estimated_lines_if_not_used": "约百行请求重试与mock接口",
+    "added_complexity": "第三方网络输入；host和重试预算仍由应用控制",
+    "security_risk": "第三方网络输入；host和重试预算仍由应用控制",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "pydantic/pydantic",
+    "html_url": "https://github.com/pydantic/pydantic",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "e87e11b7a74068c2d8107e48ffed6102744abef8",
+    "commit_date": "2026-10-02T22:24:41Z",
+    "latest_release": {
+      "tag_name": "v2.13.5",
+      "published_at": "2026-08-28T14:06:45Z",
+      "html_url": "https://github.com/pydantic/pydantic/releases/tag/v2.13.5",
+      "name": "v2.13.5"
+    },
+    "readme_url": "https://github.com/pydantic/pydantic/blob/e87e11b7a74068c2d8107e48ffed6102744abef8/README.md",
+    "license_url": "https://github.com/pydantic/pydantic/blob/e87e11b7a74068c2d8107e48ffed6102744abef8/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:35.169829+00:00",
+    "phase": "A",
+    "selected": "2.13.5已用于设计probe",
+    "why_now": "数据契约与JSON Schema",
+    "alternative": "dataclass+手写验证",
+    "estimated_lines_if_not_used": "数百行字段/类型/错误校验",
+    "added_complexity": "schema升级需回归；原始扩展保留",
+    "security_risk": "schema升级需回归；原始扩展保留",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "pytest-dev/pytest",
+    "html_url": "https://github.com/pytest-dev/pytest",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "2887015cade4757385308e7a7d8083557fc637e2",
+    "commit_date": "2026-09-29T07:05:47Z",
+    "latest_release": {
+      "tag_name": "9.1.1",
+      "published_at": "2026-06-19T10:58:55Z",
+      "html_url": "https://github.com/pytest-dev/pytest/releases/tag/9.1.1",
+      "name": null
+    },
+    "readme_url": "https://github.com/pytest-dev/pytest/blob/2887015cade4757385308e7a7d8083557fc637e2/README.rst",
+    "license_url": "https://github.com/pytest-dev/pytest/blob/2887015cade4757385308e7a7d8083557fc637e2/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:37.703043+00:00",
+    "phase": "A",
+    "selected": "9.1系列",
+    "why_now": "离线fixture与失败断言",
+    "alternative": "unittest",
+    "estimated_lines_if_not_used": "约百行测试组织；用例成本不变",
+    "added_complexity": "仅开发依赖；不能自动运行外部repo测试",
+    "security_risk": "仅开发依赖；不能自动运行外部repo测试",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "astral-sh/ruff",
+    "html_url": "https://github.com/astral-sh/ruff",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "commit": "127e77ef8bee49f21c0e7c2ff1e38ccf27fb522a",
+    "commit_date": "2026-10-03T00:12:52Z",
+    "latest_release": {
+      "tag_name": "0.16.10",
+      "published_at": "2026-10-01T18:04:27Z",
+      "html_url": "https://github.com/astral-sh/ruff/releases/tag/0.16.10",
+      "name": "0.16.10"
+    },
+    "readme_url": "https://github.com/astral-sh/ruff/blob/127e77ef8bee49f21c0e7c2ff1e38ccf27fb522a/README.md",
+    "license_url": "https://github.com/astral-sh/ruff/blob/127e77ef8bee49f21c0e7c2ff1e38ccf27fb522a/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:38.403091+00:00",
+    "phase": "A",
+    "selected": "0.16系列",
+    "why_now": "静态检查与一致格式",
+    "alternative": "多工具或人工检查",
+    "estimated_lines_if_not_used": "不应自己实现静态分析",
+    "added_complexity": "仅开发依赖；规则版本锁定",
+    "security_risk": "仅开发依赖；规则版本锁定",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "psycopg/psycopg",
+    "html_url": "https://github.com/psycopg/psycopg",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0",
+      "node_id": "MDc6TGljZW5zZTEy"
+    },
+    "commit": "7b45cbc304e6a8a264f7dbc444a87cfae5b15064",
+    "commit_date": "2026-10-02T16:58:42Z",
+    "latest_release": {
+      "http_error": 404,
+      "path": "repos/psycopg/psycopg/releases/latest"
+    },
+    "readme_url": "https://github.com/psycopg/psycopg/blob/7b45cbc304e6a8a264f7dbc444a87cfae5b15064/README.rst",
+    "license_url": "https://github.com/psycopg/psycopg/blob/7b45cbc304e6a8a264f7dbc444a87cfae5b15064/LICENSE.txt",
+    "checked_at_utc": "2026-10-03T04:03:47.993407+00:00",
+    "phase": "A",
+    "selected": "3.x兼容版本待安装锁定",
+    "why_now": "成熟PostgreSQL协议驱动",
+    "alternative": "其他PG驱动",
+    "estimated_lines_if_not_used": "不应重写数据库驱动",
+    "added_complexity": "LGPL通知及libpq/binary分别登记；DSN不入日志",
+    "security_risk": "LGPL通知及libpq/binary分别登记；DSN不入日志",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  },
+  {
+    "full_name": "docker/compose",
+    "html_url": "https://github.com/docker/compose",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "commit": "42f48072bbf92ee9b0e43f9fdf2008d03546e7ca",
+    "commit_date": "2026-10-02T15:35:20Z",
+    "latest_release": {
+      "tag_name": "v5.6.0",
+      "published_at": "2026-10-02T16:07:06Z",
+      "html_url": "https://github.com/docker/compose/releases/tag/v5.6.0",
+      "name": "v5.6.0"
+    },
+    "readme_url": "https://github.com/docker/compose/blob/42f48072bbf92ee9b0e43f9fdf2008d03546e7ca/README.md",
+    "license_url": "https://github.com/docker/compose/blob/42f48072bbf92ee9b0e43f9fdf2008d03546e7ca/LICENSE",
+    "checked_at_utc": "2026-10-03T04:03:50.869523+00:00",
+    "phase": "A",
+    "selected": "Compose Specification，CLI版本随受支持宿主环境",
+    "why_now": "复现API/collector/DB运行环境",
+    "alternative": "手动服务配置",
+    "estimated_lines_if_not_used": "约百行部署配置，维护成本更高",
+    "added_complexity": "宿主Docker/WSL权限与Desktop条款；本机未安装Docker",
+    "security_risk": "宿主Docker/WSL权限与Desktop条款；本机未安装Docker",
+    "maintenance_risk": "以仓库提交/许可实查为基础；完整兼容lock尚未验证，安装时锁补丁并回归",
+    "single_point": "本地依赖，不增加外部服务单点；数据库与blob单点另由备份恢复覆盖",
+    "estimate_is_measured": false
+  }
+]

@@ -1,0 +1,5 @@
+# 风险因素与WhyNow
+
+结构化ASSET_MATCH、HIGH_SEVERITY、KEV、HIGH_EPSS、CONFIRMED_POC、PATCH_AVAILABLE、FIXED_VERSION_AVAILABLE、VENDOR_GUIDANCE_AVAILABLE、PRODUCTION、INTERNET_EXPOSED、INTELLIGENCE_CONFLICT，包含code/reason/value。WhyNow直接拼接这些结构化事实。
+
+KEV仅confirmed/adopted/current证据可作为确认因素，未在完整目录不等于从未利用；PoC关联确认与执行可用性分开，usability NOT_EVALUATED。EPSS来自真实带日期/model的Snapshot，超过7天保留observed_score但不触发highEPSS，缺失不填0。Severity保留源主投影，不包装成已经人工裁决的评分。

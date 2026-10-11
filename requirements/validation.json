@@ -1,0 +1,25 @@
+{
+  "verified_at_utc": "2026-10-03T05:29:35.348317+00:00",
+  "passed": true,
+  "scope": "stage-1 requirements documents only",
+  "requested_documents": 13,
+  "requirements": 64,
+  "priority_counts": {
+    "P0": 40,
+    "P1": 14,
+    "P2": 4,
+    "P3": 6
+  },
+  "groups": 11,
+  "source_pages_read_and_visually_checked": 4,
+  "official_score_rows": 20,
+  "preliminary_total": 100,
+  "final_total": 100,
+  "score_rows_traced": 20,
+  "all_required_fields_present": true,
+  "origin_tags_present": true,
+  "links_resolve": true,
+  "new_collection_database_ui_frontend_backend_dify_or_agent_implementation": false,
+  "human_benchmark_completed": false,
+  "source_sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+}

@@ -1,0 +1,85 @@
+{
+  "full_name": "jina-ai/reader",
+  "html_url": "https://github.com/jina-ai/reader",
+  "homepage": "https://jina.ai/reader",
+  "description": "Convert any URL to an LLM-friendly input with a simple prefix https://r.jina.ai/",
+  "language": "TypeScript",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 12091,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-04-10T04:05:06Z",
+  "updated_at": "2026-10-03T00:40:41Z",
+  "pushed_at": "2026-05-22T02:56:46Z",
+  "open_issues_count": 33,
+  "default_branch": "main",
+  "requested_repo": "jina-ai/reader",
+  "commit": "1574bfd380d249c86c82db4dace0d9c8fe17e2b1",
+  "commit_date": "2026-05-22T02:55:53Z",
+  "commit_message": "ci: alias docker image oss tag",
+  "checked_at_utc": "2026-10-03T03:34:39.777963+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/jina-ai/reader/blob/1574bfd380d249c86c82db4dace0d9c8fe17e2b1/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/jina-ai/reader/blob/1574bfd380d249c86c82db4dace0d9c8fe17e2b1/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/jina-ai/reader/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 1271,
+      "title": "Add Nano (XNO) as an optional pay-per-use settlement option for the Reader API",
+      "state": "open",
+      "updated_at": "2026-09-24T01:34:51Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1271",
+      "comments": 0
+    },
+    {
+      "number": 1270,
+      "title": "I pasted my api into deepseek chat its telling me I need to delete it??",
+      "state": "open",
+      "updated_at": "2026-09-23T17:37:14Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1270",
+      "comments": 0
+    },
+    {
+      "number": 1268,
+      "title": "Reader as a provider behind a self-hosted gateway: within terms?",
+      "state": "open",
+      "updated_at": "2026-09-23T07:15:25Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1268",
+      "comments": 5
+    },
+    {
+      "number": 1267,
+      "title": "HLTV fetching: 422 with target selectors, Cloudflare challenge without selectors, intermittent success with fresh HTML",
+      "state": "open",
+      "updated_at": "2026-09-18T08:34:08Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1267",
+      "comments": 0
+    },
+    {
+      "number": 1266,
+      "title": "CSOAI — AI governance MCP server for web content measurement",
+      "state": "closed",
+      "updated_at": "2026-10-02T03:02:06Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1266",
+      "comments": 0
+    },
+    {
+      "number": 1265,
+      "title": "cant use free API",
+      "state": "open",
+      "updated_at": "2026-09-11T03:23:39Z",
+      "html_url": "https://github.com/jina-ai/reader/issues/1265",
+      "comments": 0
+    }
+  ]
+}

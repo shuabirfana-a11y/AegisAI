@@ -1,0 +1,1574 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AegisAI Agent Safe Tool Gateway",
+    "version": "phase9.v1"
+  },
+  "servers": [
+    {
+      "url": "http://aegis_gateway:8080"
+    }
+  ],
+  "paths": {
+    "/api/v1/tools/search_vulnerabilities": {
+      "post": {
+        "operationId": "search_vulnerabilities",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "q": {
+                    "default": null,
+                    "title": "Q",
+                    "maxLength": 120,
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ai_relevance": {
+                    "default": null,
+                    "title": "Ai Relevance",
+                    "enum": [
+                      "relevant",
+                      "uncertain",
+                      "irrelevant"
+                    ],
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "days": {
+                    "default": null,
+                    "title": "Days",
+                    "maximum": 365,
+                    "minimum": 1,
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "title": "SearchInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_recent_intelligence": {
+      "post": {
+        "operationId": "get_recent_intelligence",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "q": {
+                    "default": null,
+                    "title": "Q",
+                    "maxLength": 120,
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "ai_relevance": {
+                    "default": null,
+                    "title": "Ai Relevance",
+                    "enum": [
+                      "relevant",
+                      "uncertain",
+                      "irrelevant"
+                    ],
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "days": {
+                    "default": null,
+                    "title": "Days",
+                    "maximum": 365,
+                    "minimum": 1,
+                    "type": "integer",
+                    "nullable": true
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "title": "SearchInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_vulnerability": {
+      "post": {
+        "operationId": "get_vulnerability",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "TargetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_claims": {
+      "post": {
+        "operationId": "get_claims",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "TargetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_evidence": {
+      "post": {
+        "operationId": "get_evidence",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "TargetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_timeline": {
+      "post": {
+        "operationId": "get_timeline",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "TargetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/relation_query": {
+      "post": {
+        "operationId": "relation_query",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "TargetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_product": {
+      "post": {
+        "operationId": "get_product",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "format": "uuid",
+                    "title": "Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "title": "IdInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/find_vendor_advisories": {
+      "post": {
+        "operationId": "find_vendor_advisories",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/find_poc_candidates": {
+      "post": {
+        "operationId": "find_poc_candidates",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/find_patch_candidates": {
+      "post": {
+        "operationId": "find_patch_candidates",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_epss": {
+      "post": {
+        "operationId": "get_epss",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_known_exploitation": {
+      "post": {
+        "operationId": "get_known_exploitation",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/investigate_vulnerability": {
+      "post": {
+        "operationId": "investigate_vulnerability",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "refresh": {
+                    "default": false,
+                    "title": "Refresh",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "target"
+                ],
+                "title": "RefreshInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_verification_result": {
+      "post": {
+        "operationId": "get_verification_result",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "claim_id": {
+                    "format": "uuid",
+                    "title": "Claim Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim_id"
+                ],
+                "title": "ClaimInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_evidence_for_claim": {
+      "post": {
+        "operationId": "get_evidence_for_claim",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "claim_id": {
+                    "format": "uuid",
+                    "title": "Claim Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "claim_id"
+                ],
+                "title": "ClaimInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/list_assets": {
+      "post": {
+        "operationId": "list_assets",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {},
+                "title": "EmptyInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_asset": {
+      "post": {
+        "operationId": "get_asset",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "asset_id": {
+                    "format": "uuid",
+                    "title": "Asset Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "asset_id"
+                ],
+                "title": "AssetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_asset_risk_changes": {
+      "post": {
+        "operationId": "get_asset_risk_changes",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "asset_id": {
+                    "format": "uuid",
+                    "title": "Asset Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "asset_id"
+                ],
+                "title": "AssetInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_asset_risks": {
+      "post": {
+        "operationId": "get_asset_risks",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "asset_id": {
+                    "default": null,
+                    "title": "Asset Id",
+                    "format": "uuid",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "limit": {
+                    "default": 100,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "title": "RisksInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/explain_asset_risk": {
+      "post": {
+        "operationId": "explain_asset_risk",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "asset_id": {
+                    "format": "uuid",
+                    "title": "Asset Id",
+                    "type": "string"
+                  },
+                  "snapshot_id": {
+                    "format": "uuid",
+                    "title": "Snapshot Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "asset_id",
+                  "snapshot_id"
+                ],
+                "title": "RiskInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/resolve_component": {
+      "post": {
+        "operationId": "resolve_component",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "maxLength": 200,
+                    "title": "Name",
+                    "type": "string"
+                  },
+                  "ecosystem": {
+                    "default": null,
+                    "title": "Ecosystem",
+                    "maxLength": 40,
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "package_name": {
+                    "default": null,
+                    "title": "Package Name",
+                    "maxLength": 200,
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "version": {
+                    "default": null,
+                    "title": "Version",
+                    "maxLength": 200,
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "purl": {
+                    "default": null,
+                    "title": "Purl",
+                    "maxLength": 500,
+                    "type": "string",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "title": "ResolutionInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_remediation": {
+      "post": {
+        "operationId": "get_remediation",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "target": {
+                    "maxLength": 80,
+                    "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+                    "title": "Target",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 20,
+                    "maximum": 100,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  },
+                  "package_id": {
+                    "format": "uuid",
+                    "title": "Package Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "target",
+                  "package_id"
+                ],
+                "title": "RemediationInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/semantic_search": {
+      "post": {
+        "operationId": "semantic_search",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "query": {
+                    "maxLength": 2000,
+                    "minLength": 1,
+                    "title": "Query",
+                    "type": "string"
+                  },
+                  "limit": {
+                    "default": 5,
+                    "maximum": 20,
+                    "minimum": 1,
+                    "title": "Limit",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "query"
+                ],
+                "title": "SemanticInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    },
+    "/api/v1/tools/get_system_status": {
+      "post": {
+        "operationId": "get_system_status",
+        "description": "Typed deterministic service; external text is data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": false,
+                "properties": {},
+                "title": "EmptyInput",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auditable ToolEnvelope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolEnvelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Backend credential missing or invalid"
+          },
+          "422": {
+            "description": "Input failed validation"
+          }
+        },
+        "security": [
+          {
+            "AegisBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ToolEnvelope": {
+        "type": "object",
+        "required": [
+          "tool",
+          "status",
+          "data",
+          "evidence_refs",
+          "warnings",
+          "errors",
+          "retryable",
+          "trace_id",
+          "duration_ms"
+        ],
+        "properties": {
+          "tool": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "success",
+              "partial",
+              "no_result",
+              "failed"
+            ]
+          },
+          "data": {
+            "description": "Structured data; shape depends on the individual tool."
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "retryable": {
+            "type": "boolean"
+          },
+          "trace_id": {
+            "type": "string"
+          },
+          "duration_ms": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "AegisBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "x-aegis-exported-at": "2026-10-04T04:45:09.282682+00:00",
+  "x-aegis-contract-provenance": "ACTUAL_BACKEND_SCHEMA_OFFLINE_SNAPSHOT"
+}

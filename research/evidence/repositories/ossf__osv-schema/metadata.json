@@ -1,0 +1,38 @@
+{
+  "full_name": "ossf/osv-schema",
+  "html_url": "https://github.com/ossf/osv-schema",
+  "homepage": "https://ossf.github.io/osv-schema/",
+  "description": "Open Source Vulnerability schema. ",
+  "language": "Go",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 272,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2021-07-26T21:55:15Z",
+  "updated_at": "2026-10-02T15:25:56Z",
+  "pushed_at": "2026-10-01T23:44:21Z",
+  "open_issues_count": 63,
+  "default_branch": "main",
+  "requested_repo": "ossf/osv-schema",
+  "commit": "2780d2ad3f897abc4e12ea62a724db5ff67e5b1a",
+  "commit_date": "2026-10-01T23:44:21Z",
+  "commit_message": "docs: update schema docs to clarify semantically neutral id guidance (#626)\n\nAs with #547 - update schema docs to clarify semantically neutral id\nguidance\n\nSigned-off-by: Jess Lowe <jesslowe@google.com>",
+  "checked_at_utc": "2026-10-03T03:37:03.384120+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/ossf/osv-schema/blob/2780d2ad3f897abc4e12ea62a724db5ff67e5b1a/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/ossf/osv-schema/blob/2780d2ad3f897abc4e12ea62a724db5ff67e5b1a/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.9.1",
+    "published_at": "2026-09-24T05:37:37Z",
+    "html_url": "https://github.com/ossf/osv-schema/releases/tag/v1.9.1",
+    "name": "v1.9.1"
+  },
+  "recent_issues": []
+}

@@ -1,0 +1,235 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-03T07:58:08.366005+00:00",
+  "exit_status": 0,
+  "passed": 45,
+  "failed": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/test_database.py::test_01_three_sources_one_vulnerability",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_02_one_vulnerability_two_products",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_03_product_multiple_ranges",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_04_scoped_conflict_retains_both_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_05_poc_url_does_not_confirm",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_06_unsupported_preserves_raw_expression",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_07_repeated_raw_write_is_idempotent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_08_asset_match_pins_range_and_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_09_review_produces_audit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_10_soft_delete_and_title_update_preserve_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_history_guards_installed[RawDocument]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_history_guards_installed[Evidence]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_history_guards_installed[VerificationResult]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_history_guards_installed[AuditLog]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_history_guards_installed[IntelligenceEvent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_raw_history_rejects_mutation[update]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_raw_history_rejects_mutation[delete]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_changed_raw_content_creates_revision",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_same_bytes_different_sources_keep_sources",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_review_retry_is_idempotent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_review_same_request_different_payload_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_review_stale_revision_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_defer_retains_conflict_and_value",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_confirm_without_evidence_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_cross_scope_evidence_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_wrong_product_package_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_match_wrong_package_range_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_advisory_can_link_two_distinct_vulnerabilities",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_one_cve_identifier_cannot_own_two_vulnerabilities",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_kev_absence_not_false_exploitation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_epss_out_of_bounds_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_cvss_versions_coexist_without_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_patch_short_sha_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_benchmark_draft_is_not_gold_and_isolated",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_timestamps_are_timezone_aware",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_source_last_success_not_fabricated",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_review_transaction_rolls_back_all_changes",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_wrong_raw_hash_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_unknown_component_can_persist_without_fake_range",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_agent_citation_pins_actual_claim_revision",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_database_rejects_noncanonical_cve_spelling",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_database.py::test_cve_identifier_cannot_hide_in_vendor_namespace",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_migration.py::test_actual_upgrade_downgrade_upgrade_matches_orm",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_schema_contract.py::test_phase5_has_43_explicit_domain_tables",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_schema_contract.py::test_composite_unique_constraint_names_do_not_collide",
+      "phase": "call",
+      "outcome": "passed"
+    }
+  ]
+}

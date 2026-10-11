@@ -1,0 +1,24 @@
+{
+  "frozen_at_utc": "2026-10-03T05:29:34.385558+00:00",
+  "stage": "1 requirements research and freeze",
+  "status": "requirements frozen; waiting for next-stage instruction",
+  "requirement_count": 64,
+  "priority_counts": {
+    "P0": 40,
+    "P1": 14,
+    "P2": 4,
+    "P3": 6
+  },
+  "official_score_rows": 20,
+  "preliminary_total": 100,
+  "final_total": 100,
+  "production_code_written": false,
+  "database_frontend_dify_or_new_intelligence_collection_started": false,
+  "official_source": "sources/competition_problem_9.pdf",
+  "open_official_details": [
+    "category/dimension recognition by actual school judges",
+    "latency/accuracy aggregation details not specified in problem",
+    "enterprise code review access process",
+    "organizer final PPT template delivery"
+  ]
+}

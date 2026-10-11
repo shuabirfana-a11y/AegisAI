@@ -1,0 +1,79 @@
+{
+  "full_name": "mitre-atlas/atlas-data",
+  "html_url": "https://github.com/mitre-atlas/atlas-data",
+  "homepage": "https://atlas.mitre.org",
+  "description": "ATLAS tactics, techniques, and case studies data",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 190,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2021-12-30T13:53:29Z",
+  "updated_at": "2026-10-02T15:26:24Z",
+  "pushed_at": "2026-09-15T15:03:16Z",
+  "open_issues_count": 21,
+  "default_branch": "main",
+  "requested_repo": "mitre-atlas/atlas-data",
+  "commit": "3259f388d19cbcca11bacf12a0ef97f4198f711b",
+  "commit_date": "2026-09-10T16:25:07Z",
+  "commit_message": "Release v2026.09\n\nThis version of ATLAS data contains 1 matrix, 16 tactics, 120 techniques, 88 sub-techniques, 40 mitigations, and 73 case studies.\n\n- Added new techniques\n\n  - Triggers in Multimodal Inputs (AML.T0129)\n  - AI Agent Response Biasing (AML.T0130)\n  - Crafted AI Assistant Links (AML.T0131)\n  - Misconfigured or Publicly Exposed AI Services (AML.T0132)\n  - Discover AI Agent Runtime Capabilities (AML.T0133)\n  - AI Targeted Cloaking (AML.T0134)\n  - Search Open Technical Databases: Scan Databases (AML.T0000.003)\n  - Active Scanning: Enumerate Hosted AI Resources (AML.T0006.000)\n  - Active Scanning: Query Platform Metadata APIs (AML.T0006.001)\n  - Active Scanning: Scan for Exposed AI Infrastructure (AML.T0006.002)\n  - Active Scanning: Probe AI Agent Trigger Channels (AML.T0006.003)\n\n- Updated existing techniques\n\n  - Search Open Technical Databases (AML.T0000)\n  - Search Open Website/Domains (AML.T0095)\n  - Active Scanning (AML.T0006)\n  - LLM Prompt Obfuscation (AML.T0068)\n  - LLM Prompt Injection: Indirect (AML.T0051.001)\n  - LLM Jailbreak (AML.T0054)\n  - LLM Response Rendering (AML.T0077)\n  - AI Agent Clickbait (AML.T0100)\n\n- Added new mitigations\n\n  - AI Honeypots (AML.M0039)\n\n- Updated existing mitigations\n\n  - Generative AI Guardrails (AML.M0020)\n\n- Added new case studies\n\n  - AI Recommendation Poisoning via Crafted AI Assistant Links (AML.CS0072)\n\n- Updated existing case studies\n\n  - ShadowRay: Hijacking Exposed Ray Clusters (AML.CS0023)\n  - Data Exfiltration via Agent Tools in Copilot Studio (AML.CS0037)\n  - Exposed ClawdBot Control Interfaces Leads to Credential Access and Execution (AML.CS0048)\n  - Threat Actor Uses a DeepSeek-Powered Hermes Agent in Langflow and n8n Exploitation Attempts (AML.CS0070)",
+  "checked_at_utc": "2026-10-03T03:31:30.849441+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/LICENSE",
+  "latest_release": {
+    "tag_name": "v2026.09",
+    "published_at": "2026-09-15T15:03:27Z",
+    "html_url": "https://github.com/mitre-atlas/atlas-data/releases/tag/v2026.09",
+    "name": "v2026.09"
+  },
+  "recent_issues": [
+    {
+      "number": 31,
+      "title": "Case study proposal: Behavioral Canarying for Prompt Injection (little-canary)",
+      "state": "open",
+      "updated_at": "2026-09-15T20:19:11Z",
+      "html_url": "https://github.com/mitre-atlas/atlas-data/issues/31",
+      "comments": 0
+    },
+    {
+      "number": 30,
+      "title": "Evaluation note: physical-world technique results need a stated benign control",
+      "state": "open",
+      "updated_at": "2026-09-12T15:50:53Z",
+      "html_url": "https://github.com/mitre-atlas/atlas-data/issues/30",
+      "comments": 0
+    },
+    {
+      "number": 29,
+      "title": "[Technique / case study] Instruction Injection into an Embodied Policy",
+      "state": "open",
+      "updated_at": "2026-09-12T10:57:49Z",
+      "html_url": "https://github.com/mitre-atlas/atlas-data/issues/29",
+      "comments": 0
+    },
+    {
+      "number": 27,
+      "title": "Gap: no embodied action-space techniques in the matrix",
+      "state": "open",
+      "updated_at": "2026-09-03T18:07:42Z",
+      "html_url": "https://github.com/mitre-atlas/atlas-data/issues/27",
+      "comments": 0
+    },
+    {
+      "number": 26,
+      "title": "Proposed mitigation: Tool-Contract Capture and Drift Verification (AML.T0109, AML.T0110.000, AML.T0115.002; in-place change of a served tool definition)",
+      "state": "open",
+      "updated_at": "2026-09-03T06:10:50Z",
+      "html_url": "https://github.com/mitre-atlas/atlas-data/issues/26",
+      "comments": 0
+    }
+  ]
+}

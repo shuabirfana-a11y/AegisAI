@@ -1,0 +1,71 @@
+{
+  "revision": "PHASE_12B_IMPLEMENTATION_PLAN_PENDING",
+  "http_implemented": false,
+  "operations": [
+    {
+      "capability": "submit",
+      "method": "POST",
+      "url": "/api/v1/investigations",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "history",
+      "method": "GET",
+      "url": "/api/v1/investigations/history",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "status",
+      "method": "GET",
+      "url": "/api/v1/investigations/{id}/status",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "trace",
+      "method": "GET",
+      "url": "/api/v1/investigations/{id}/trace",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "artifacts",
+      "method": "GET",
+      "url": "/api/v1/investigations/{id}/artifacts",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "integration",
+      "method": "GET",
+      "url": "/api/v1/investigations/{id}/integration",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "answer",
+      "method": "GET",
+      "url": "/api/v1/investigations/{id}/answer",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    },
+    {
+      "capability": "cancel",
+      "method": "POST",
+      "url": "/api/v1/investigations/{id}/cancel",
+      "api_status": "API_NOT_EXPOSED",
+      "proposal_status": "PROPOSED",
+      "http_implemented": false
+    }
+  ],
+  "notice": "Suggestions only. Public HTTP DTOs/error mapping must be frozen during implementation."
+}

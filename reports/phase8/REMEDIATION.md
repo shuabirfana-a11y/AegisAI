@@ -1,0 +1,5 @@
+# 处置证据
+
+PATCH_AVAILABLE、FIXED_VERSION_AVAILABLE、VENDOR_GUIDANCE_AVAILABLE、NO_PUBLIC_FIX_FOUND、UNKNOWN分开。只用已确认/采用/当前新鲜的Claim、同revision核验记录与对应证据；新反驳、新未审核证据或open conflict阻断确定处置。fixed必须显式版本，不从last_affected或affected上界推断。每项含ClaimID、EvidenceID和适用scope/branch。产品相关Patch仅列related_patches/applicability UNKNOWN；精确包且无未核验分支限制才计PATCH_AVAILABLE。公告也须匹配包scope。
+
+真实MLflow CVE-2026-64849明确fixed3.15.0以及已关联官方PR，来源范围冲突仍保留，建议验证具体部署/分支和兼容性，不能只凭候选commit保证可修复。没找到Patch不能说不存在；NO_PUBLIC_FIX_FOUND只针对完整成功的限定查找任务。

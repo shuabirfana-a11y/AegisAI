@@ -1,0 +1,38 @@
+{
+  "full_name": "cisco-foundation-ai/faith",
+  "html_url": "https://github.com/cisco-foundation-ai/faith",
+  "homepage": null,
+  "description": "The Foundation AI Testing Hub (FAITH) is a benchmarking tool used to assess LLMs competency on (cybersecurity) knowledge/tasks.",
+  "language": "Python",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 28,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2025-08-20T22:22:56Z",
+  "updated_at": "2026-09-23T16:04:52Z",
+  "pushed_at": "2026-09-28T11:06:11Z",
+  "open_issues_count": 3,
+  "default_branch": "main",
+  "requested_repo": "cisco-foundation-ai/faith",
+  "commit": "9471073caf8b48d78d7b21e3b45a4c51d32bc92c",
+  "commit_date": "2026-07-29T18:21:50Z",
+  "commit_message": "Cherry-pick Changes for v0.4.0 (#90)\n\n* Document cti-reasoning and cwe-prediction benchmarks in README (#535)\n\n* Fix incorrect package name in BigQuery install instructions (#536)\n\nThe BigQuery quick-setup used 'pip install faith[bigquery]'. 'faith' is the\nmodule/CLI name, not the distribution name, and an unrelated 'faith' package\nexists on PyPI -- so that command silently installs it (downgrading requests\nand urllib3) and only warns that the bigquery extra does not exist.\n\nFAITH is not published to PyPI yet (see the TODO in 'Installing the FAITH\nPackage'), so use the editable source install the rest of the README uses.\nVerified in a clean venv: the extra resolves, google.cloud.bigquery and\ngoogle.cloud.storage import, and the faith CLI runs.",
+  "checked_at_utc": "2026-10-03T03:35:36.562963+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/cisco-foundation-ai/faith/blob/9471073caf8b48d78d7b21e3b45a4c51d32bc92c/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/cisco-foundation-ai/faith/blob/9471073caf8b48d78d7b21e3b45a4c51d32bc92c/LICENSE",
+  "latest_release": {
+    "tag_name": "0.4.0",
+    "published_at": "2026-07-17T18:10:37Z",
+    "html_url": "https://github.com/cisco-foundation-ai/faith/releases/tag/0.4.0",
+    "name": "0.4.0"
+  },
+  "recent_issues": []
+}

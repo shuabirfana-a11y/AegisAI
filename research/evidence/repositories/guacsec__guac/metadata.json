@@ -1,0 +1,71 @@
+{
+  "full_name": "guacsec/guac",
+  "html_url": "https://github.com/guacsec/guac",
+  "homepage": "https://guac.sh",
+  "description": "GUAC aggregates software security metadata into a high fidelity graph database.",
+  "language": "Go",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 1548,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2022-06-10T17:28:07Z",
+  "updated_at": "2026-09-29T15:55:58Z",
+  "pushed_at": "2026-09-29T11:18:30Z",
+  "open_issues_count": 72,
+  "default_branch": "main",
+  "requested_repo": "guacsec/guac",
+  "commit": "fd86ccd19863ae5f6b019e151cb07444302c03cc",
+  "commit_date": "2026-09-29T11:18:26Z",
+  "commit_message": "build(deps): Bump github.com/neo4j/neo4j-go-driver/v5 (#3257)\n\nBumps [github.com/neo4j/neo4j-go-driver/v5](https://github.com/neo4j/neo4j-go-driver) from 5.28.4 to 5.28.5.\n- [Release notes](https://github.com/neo4j/neo4j-go-driver/releases)\n- [Commits](https://github.com/neo4j/neo4j-go-driver/compare/v5.28.4...v5.28.5)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/neo4j/neo4j-go-driver/v5\n  dependency-version: 5.28.5\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:33:48.338818+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/guacsec/guac/blob/fd86ccd19863ae5f6b019e151cb07444302c03cc/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/guacsec/guac/blob/fd86ccd19863ae5f6b019e151cb07444302c03cc/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.1.0",
+    "published_at": "2026-03-13T18:37:52Z",
+    "html_url": "https://github.com/guacsec/guac/releases/tag/v1.1.0",
+    "name": "v1.1.0"
+  },
+  "recent_issues": [
+    {
+      "number": 3266,
+      "title": "guacrest: add GET /v0/sbom/{id}/vulns",
+      "state": "open",
+      "updated_at": "2026-10-01T14:02:53Z",
+      "html_url": "https://github.com/guacsec/guac/issues/3266",
+      "comments": 0
+    },
+    {
+      "number": 3265,
+      "title": "guacrest: add GET /v0/sbom/{id}/download",
+      "state": "open",
+      "updated_at": "2026-10-01T13:56:49Z",
+      "html_url": "https://github.com/guacsec/guac/issues/3265",
+      "comments": 0
+    },
+    {
+      "number": 3264,
+      "title": "guacrest: add GET /v0/sbom/{id}",
+      "state": "open",
+      "updated_at": "2026-10-01T13:53:43Z",
+      "html_url": "https://github.com/guacsec/guac/issues/3264",
+      "comments": 0
+    },
+    {
+      "number": 3263,
+      "title": "guacrest: add GET /v0/sbom with optional ?package={purl} filter",
+      "state": "open",
+      "updated_at": "2026-10-02T14:38:24Z",
+      "html_url": "https://github.com/guacsec/guac/issues/3263",
+      "comments": 1
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "full_name": "modelcontextprotocol/servers",
+  "html_url": "https://github.com/modelcontextprotocol/servers",
+  "homepage": "https://modelcontextprotocol.io",
+  "description": "Model Context Protocol Servers",
+  "language": "TypeScript",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 90961,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-11-19T01:10:17Z",
+  "updated_at": "2026-10-03T03:17:04Z",
+  "pushed_at": "2026-10-01T15:33:30Z",
+  "open_issues_count": 551,
+  "default_branch": "main",
+  "requested_repo": "modelcontextprotocol/servers",
+  "commit": "f46d9578190b476b3501923ea8977d899e8db2cb",
+  "commit_date": "2026-09-22T14:30:15Z",
+  "commit_message": "fix(everything): clean up subscriptions on session disconnect (#4712)\n\nExport removeSubscriber() to drop a session from all URI subscriber sets\nwhen a transport session closes, and call it from cleanup() alongside\nthe existing interval and logging teardown.\n\nFixes #4710\n\nCo-authored-by: arimu1 <19286898+arimu1@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:35:18.858627+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/modelcontextprotocol/servers/blob/f46d9578190b476b3501923ea8977d899e8db2cb/LICENSE",
+  "latest_release": {
+    "tag_name": "2026.8.31",
+    "published_at": "2026-08-31T20:34:32Z",
+    "html_url": "https://github.com/modelcontextprotocol/servers/releases/tag/2026.8.31",
+    "name": "Release 2026.8.31"
+  },
+  "recent_issues": []
+}

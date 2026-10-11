@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-03T05:57:47.461065+00:00",
+  "records": [
+    {
+      "url": "https://www.cve.org/legal/termsofuse",
+      "method": "official web search indexed content; direct renderer is JS shell",
+      "finding": "CVE usage许可允许复制/衍生/分发，须保留MITRE版权与许可；非CC0"
+    },
+    {
+      "url": "https://api.first.org/",
+      "method": "official web open full documentation",
+      "finding": "公开API1000请求/分钟；429；通用参数与response；只读少量查询，批量遵循EPSs data页面指向"
+    },
+    {
+      "url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+      "method": "official web open + HTTP snapshot",
+      "finding": "无认证60/h；普通认证5000/h；secondary及response headers；不是search同额"
+    }
+  ]
+}

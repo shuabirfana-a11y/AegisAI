@@ -1,0 +1,47 @@
+{
+  "full_name": "package-url/purl-spec",
+  "html_url": "https://github.com/package-url/purl-spec",
+  "homepage": "https://packageurl.org/",
+  "description": "A minimal specification for purl aka. a package \"mostly universal\" URL, join the discussion at https://gitter.im/package-url/Lobby  ",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 1116,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2017-11-11T11:12:46Z",
+  "updated_at": "2026-10-03T03:16:51Z",
+  "pushed_at": "2026-09-29T22:26:06Z",
+  "open_issues_count": 231,
+  "default_branch": "main",
+  "requested_repo": "package-url/purl-spec",
+  "commit": "7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+  "commit_date": "2026-09-29T22:26:05Z",
+  "commit_message": "Update schema URL for Package-URL definition\n\nCorrected URL to packageurl.org/purl-schemas\n\nSigned-off-by: Michael Herzog <mjherzog@aboutcode.org>",
+  "checked_at_utc": "2026-10-03T03:33:37.453434+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/package-url/purl-spec/blob/7cd2d3442fb9c88155db17ada7c911b40ec22d41/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/package-url/purl-spec/blob/7cd2d3442fb9c88155db17ada7c911b40ec22d41/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.0.1",
+    "published_at": "2026-08-03T22:49:35Z",
+    "html_url": "https://github.com/package-url/purl-spec/releases/tag/v1.0.1",
+    "name": "v1.0.1"
+  },
+  "recent_issues": [
+    {
+      "number": 1015,
+      "title": "PURL type definition documentation files use codestyle (backticks) for notes",
+      "state": "closed",
+      "updated_at": "2026-09-20T17:48:00Z",
+      "html_url": "https://github.com/package-url/purl-spec/issues/1015",
+      "comments": 0
+    }
+  ]
+}

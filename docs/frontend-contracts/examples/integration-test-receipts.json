@@ -1,0 +1,255 @@
+{
+  "source": "work/integration/actual_chain_receipt.json",
+  "cases": [
+    {
+      "data_origin": "REAL_CODE_EXECUTION_SYNTHETIC_SEED_NOT_HTTP_CAPTURE",
+      "source_pointer": "/integration",
+      "result": {
+        "integration_id": "f73561e2-eb91-4883-be87-494497ac66b5",
+        "logical_investigation_id": "37a84a25-763c-5fd2-9c22-0471dd6d7c0b",
+        "trace_id": "f73561e2-eb91-4883-be87-494497ac66b5",
+        "run_id": "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+        "source_run_ids": [
+          "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+          "41edaa18-3ebb-491d-959e-519344f40988",
+          "646da5b6-2246-4c43-9b34-e1be69806900"
+        ],
+        "status": "PASS",
+        "objective_coverage": [
+          {
+            "outcome": "identity",
+            "status": "SATISFIED",
+            "references": [
+              "0c383b12-5fc9-4254-9e27-12b36f950ecc"
+            ]
+          },
+          {
+            "outcome": "asset",
+            "status": "SATISFIED",
+            "references": [
+              "d8508735-e7c0-4491-bbbe-c416c7ee394a"
+            ]
+          },
+          {
+            "outcome": "version_impact",
+            "status": "SATISFIED",
+            "references": [
+              "d8508735-e7c0-4491-bbbe-c416c7ee394a"
+            ]
+          },
+          {
+            "outcome": "remediation_status",
+            "status": "SATISFIED",
+            "references": [
+              "d8508735-e7c0-4491-bbbe-c416c7ee394a"
+            ]
+          }
+        ],
+        "task_completion_summary": [
+          {
+            "run_id": "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+            "task_id": "lookup",
+            "semantic_type": "vulnerability_lookup",
+            "status": "SUCCESS",
+            "run_status": "succeeded",
+            "required": true,
+            "dependencies": [],
+            "error_codes": []
+          },
+          {
+            "run_id": "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+            "task_id": "asset",
+            "semantic_type": "asset_lookup",
+            "status": "SUCCESS",
+            "run_status": "succeeded",
+            "required": true,
+            "dependencies": [],
+            "error_codes": []
+          },
+          {
+            "run_id": "41edaa18-3ebb-491d-959e-519344f40988",
+            "task_id": "verify",
+            "semantic_type": "evidence_verification",
+            "status": "SUCCESS",
+            "run_status": "succeeded",
+            "required": true,
+            "dependencies": [],
+            "error_codes": []
+          },
+          {
+            "run_id": "646da5b6-2246-4c43-9b34-e1be69806900",
+            "task_id": "analyze",
+            "semantic_type": "risk_analysis",
+            "status": "SUCCESS",
+            "run_status": "succeeded",
+            "required": true,
+            "dependencies": [],
+            "error_codes": []
+          }
+        ],
+        "checks": [
+          {
+            "gate": "completion",
+            "code": "COMPLETION_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          },
+          {
+            "gate": "integrity",
+            "code": "INTEGRITY_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          },
+          {
+            "gate": "evidence",
+            "code": "EVIDENCE_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          },
+          {
+            "gate": "consistency",
+            "code": "CONSISTENCY_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          },
+          {
+            "gate": "objective",
+            "code": "OBJECTIVE_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          },
+          {
+            "gate": "freshness",
+            "code": "FRESHNESS_OK",
+            "outcome": "PASS",
+            "blocking": "NONE",
+            "message": "All applicable constraints satisfied",
+            "refs": [],
+            "objective": null
+          }
+        ],
+        "passed_checks": [
+          "COMPLETION_OK",
+          "INTEGRITY_OK",
+          "EVIDENCE_OK",
+          "CONSISTENCY_OK",
+          "OBJECTIVE_OK",
+          "FRESHNESS_OK"
+        ],
+        "failed_checks": [],
+        "blocking_issues": [],
+        "warnings": [],
+        "unresolved_items": [],
+        "artifact_references": [
+          {
+            "run_id": "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+            "task_id": "lookup",
+            "artifact_id": "0c383b12-5fc9-4254-9e27-12b36f950ecc",
+            "schema_version": "investigation-artifact-v1"
+          },
+          {
+            "run_id": "41edaa18-3ebb-491d-959e-519344f40988",
+            "task_id": "verify",
+            "artifact_id": "8b952a55-866f-44e7-bfdd-f320259a8ec4",
+            "schema_version": "verification-artifact-v1"
+          },
+          {
+            "run_id": "646da5b6-2246-4c43-9b34-e1be69806900",
+            "task_id": "analyze",
+            "artifact_id": "d8508735-e7c0-4491-bbbe-c416c7ee394a",
+            "schema_version": "risk-analysis-artifact-v1"
+          }
+        ],
+        "evidence_references": [
+          {
+            "evidence_id": "701fbb5b-dce3-44f6-8895-27de6fcea948",
+            "claim_id": "0e908a7a-83e2-4ad1-98f6-5964f1f3bc61",
+            "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+            "reference": {
+              "url": "https://example.invalid/GATE_SYNTHETIC",
+              "locator": {
+                "line": 1
+              }
+            },
+            "lineage_key": "sha256:b90a0d608d0d6fb360c739e9d141303f77a8fea7cc9f863e5173b8bf7e438eb1",
+            "verification_artifact_id": "8b952a55-866f-44e7-bfdd-f320259a8ec4"
+          },
+          {
+            "evidence_id": "517c7a22-791f-42ab-8ff1-df27f9284849",
+            "claim_id": "8c166e91-d28b-4692-879a-6bff709a05dd",
+            "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+            "reference": {
+              "url": "https://example.invalid/GATE_SYNTHETIC",
+              "locator": {
+                "line": 2
+              }
+            },
+            "lineage_key": "sha256:b90a0d608d0d6fb360c739e9d141303f77a8fea7cc9f863e5173b8bf7e438eb1",
+            "verification_artifact_id": "8b952a55-866f-44e7-bfdd-f320259a8ec4"
+          },
+          {
+            "evidence_id": "bf8f8f27-da6d-451f-9759-fcb5bbc19efc",
+            "claim_id": "cd825ebc-9299-480f-a4e2-58ed4510b584",
+            "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+            "reference": {
+              "url": "https://example.invalid/SYNTHETIC/329faa7c1b814b4fbbdd3af95d0d5351",
+              "locator": {
+                "line": 1
+              }
+            },
+            "lineage_key": "sha256:2e7ff8c2b3056b8f57965b6ddc4274db09de32d87468c45f9417a6b55ac31987",
+            "verification_artifact_id": "8b952a55-866f-44e7-bfdd-f320259a8ec4"
+          }
+        ],
+        "replan_reasons": [],
+        "human_review_reasons": [],
+        "final_result_references": [
+          {
+            "run_id": "4cc40c6b-eaaa-443f-8f79-5810b22b7381",
+            "task_id": "lookup",
+            "artifact_id": "0c383b12-5fc9-4254-9e27-12b36f950ecc",
+            "schema_version": "investigation-artifact-v1"
+          },
+          {
+            "run_id": "41edaa18-3ebb-491d-959e-519344f40988",
+            "task_id": "verify",
+            "artifact_id": "8b952a55-866f-44e7-bfdd-f320259a8ec4",
+            "schema_version": "verification-artifact-v1"
+          },
+          {
+            "run_id": "646da5b6-2246-4c43-9b34-e1be69806900",
+            "task_id": "analyze",
+            "artifact_id": "d8508735-e7c0-4491-bbbe-c416c7ee394a",
+            "schema_version": "risk-analysis-artifact-v1"
+          }
+        ],
+        "partial_result_references": [],
+        "input_hash": "47f0537d9b1c6341cd77430347eae5a3e8ab36cb01b476a53b54b94a71aa02c2",
+        "objective_hash": "d9c0f091d71e25dae3182556be5d67bbb792c70605e578f933e8eb6bb1d6e256",
+        "policy_version": "integration-policy-v1",
+        "created_at": "2026-10-10T01:14:59.218506Z",
+        "evaluation_time": "2026-10-10T01:14:59.218506Z",
+        "historical_snapshot": true,
+        "persistence": "STORED"
+      }
+    }
+  ],
+  "api_status": "MOCK_ONLY",
+  "fixture_label": "DEMO",
+  "production_data": false
+}

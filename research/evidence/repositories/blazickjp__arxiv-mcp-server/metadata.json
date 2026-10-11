@@ -1,0 +1,55 @@
+{
+  "full_name": "blazickjp/arxiv-mcp-server",
+  "html_url": "https://github.com/blazickjp/arxiv-mcp-server",
+  "homepage": "https://www.pulsemcp.com/servers/blazickjp-arxiv-mcp-server",
+  "description": "A local MCP server for agent literature work. Original-LaTeX section reads, BibTeX from arXiv metadata, and topic watches. Papers stay on disk. Search is optional.",
+  "language": "Python",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 3187,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-11-29T16:34:00Z",
+  "updated_at": "2026-10-03T01:24:27Z",
+  "pushed_at": "2026-10-03T01:25:11Z",
+  "open_issues_count": 4,
+  "default_branch": "main",
+  "requested_repo": "blazickjp/arxiv-mcp-server",
+  "commit": "e477454fcda4e1ece0202a0cdeca0ad99d8d07df",
+  "commit_date": "2026-10-03T01:24:21Z",
+  "commit_message": "chore: bump version to 0.8.0 (#283)\n\nCo-authored-by: Cursor Agent <cursoragent@cursor.com>\nCo-authored-by: Joe Blazick <blazickjp@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:35:27.098239+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/blazickjp/arxiv-mcp-server/blob/e477454fcda4e1ece0202a0cdeca0ad99d8d07df/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/blazickjp/arxiv-mcp-server/blob/e477454fcda4e1ece0202a0cdeca0ad99d8d07df/LICENSE",
+  "latest_release": {
+    "tag_name": "v0.8.0",
+    "published_at": "2026-10-03T01:25:25Z",
+    "html_url": "https://github.com/blazickjp/arxiv-mcp-server/releases/tag/v0.8.0",
+    "name": "v0.8.0"
+  },
+  "recent_issues": [
+    {
+      "number": 281,
+      "title": "Most of the tool calls fail due to timeout",
+      "state": "closed",
+      "updated_at": "2026-10-03T01:30:03Z",
+      "html_url": "https://github.com/blazickjp/arxiv-mcp-server/issues/281",
+      "comments": 1
+    },
+    {
+      "number": 278,
+      "title": "get_abstract: any upstream HTTP error is reported as \"Paper <id> not found on arXiv\"",
+      "state": "closed",
+      "updated_at": "2026-09-30T03:34:10Z",
+      "html_url": "https://github.com/blazickjp/arxiv-mcp-server/issues/278",
+      "comments": 0
+    }
+  ]
+}

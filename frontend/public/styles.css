@@ -1,0 +1,17 @@
+body { font-family: system-ui, sans-serif; margin: 1.5rem; line-height: 1.5; }
+header, section { border-bottom: 1px solid #bbb; padding-bottom: 1rem; margin-bottom: 1rem; }
+nav, form { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1rem 0; }
+input, select, textarea, button { font: inherit; padding: .3rem; }
+textarea { width: min(100%, 48rem); min-height: 6rem; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; vertical-align: top; border: 1px solid #bbb; padding: .5rem; overflow-wrap: anywhere; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid #bbb; padding: .75rem; }
+.table-container { overflow-x: auto; }
+.message { border: 1px solid #bbb; padding: .75rem; }
+.assistant-form { display: block; }
+.assistant-form label { display: block; margin: .6rem 0; }
+dl { display: grid; grid-template-columns: minmax(8rem, auto) 1fr; gap: .4rem 1rem; }
+dt { font-weight: 600; }
+dd { margin: 0; overflow-wrap: anywhere; }
+button { cursor: pointer; }
+[aria-current="page"] { font-weight: 700; }

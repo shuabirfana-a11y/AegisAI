@@ -1,0 +1,360 @@
+[
+  {
+    "schema_version": "0.1-design",
+    "record_type": "vulnerability",
+    "external_ids": [
+      {
+        "namespace": "CVE",
+        "value": "CVE-2025-32434"
+      }
+    ],
+    "source": "CVE_LIST",
+    "external_id": "CVE-2025-32434",
+    "raw_document_id": "sha256:30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+    "title": "PyTorch: `torch.load` with `weights_only=True` leads to remote code execution",
+    "description": "PyTorch is a Python package that provides tensor computation with strong GPU acceleration and deep neural networks built on a tape-based autograd system. In version 2.5.1 and prior, a Remote Command Execution (RCE) vulnerability exists in PyTorch when loading a model using torch.load with weights_only=True. This issue has been patched in version 2.6.0.",
+    "language": null,
+    "published_at": "2025-04-18T15:48:18.851Z",
+    "modified_at": "2025-12-01T07:05:28.923Z",
+    "retrieved_at": "2026-10-03T05:43:13.739273+00:00",
+    "products": null,
+    "packages": null,
+    "affected_versions": null,
+    "fixed_versions": null,
+    "cvss": null,
+    "cwe": null,
+    "references": null,
+    "record_status": "published",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "external_ids": "/cveMetadata/cveId",
+      "description": "/containers/cna/descriptions/0/value"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/cve_sample.body"
+    }
+  },
+  {
+    "schema_version": "0.1-design",
+    "record_type": "advisory",
+    "external_ids": [
+      {
+        "namespace": "OSV",
+        "value": "GHSA-53q9-r3pm-6pq6"
+      },
+      {
+        "namespace": "alias",
+        "value": "BIT-pytorch-2025-32434"
+      },
+      {
+        "namespace": "alias",
+        "value": "CVE-2025-32434"
+      },
+      {
+        "namespace": "alias",
+        "value": "PYSEC-2025-41"
+      }
+    ],
+    "source": "OSV",
+    "external_id": "GHSA-53q9-r3pm-6pq6",
+    "raw_document_id": "sha256:947472b5268f4cac50d286799c8cda999812440fa085abbe49db503f1a08b5c2",
+    "title": "PyTorch: `torch.load` with `weights_only=True` leads to remote code execution",
+    "description": "# Description\nI found a Remote Command Execution (RCE) vulnerability in PyTorch. When loading model using torch.load with weights_only=True, it can still achieve RCE.  \n\n# Background knowledge\nhttps://github.com/pytorch/pytorch/security \n As you can see, the PyTorch official documentation considers using `torch.load()` with `weights_only=True` to be safe.\n![image](https://github.com/user-attachments/assets/fdaa8520-d66a-473a-ab1f-163d793de298)\nSince everyone knows that weights_only=False is unsafe, so they will use the  weights_only=True to mitigate the seucirty issue.\nBut now, I just proved that even if you use weights_only=True, it can still achieve RCE.\n\n# Credit\nThis vulnerability was found by Ji'an Zhou.",
+    "language": null,
+    "published_at": "2025-04-18T15:19:28Z",
+    "modified_at": "2026-08-07T08:12:20.395044060Z",
+    "retrieved_at": "2026-10-03T05:43:13.740275+00:00",
+    "products": null,
+    "packages": [
+      {
+        "name": "torch",
+        "ecosystem": "PyPI",
+        "purl": "pkg:pypi/torch"
+      }
+    ],
+    "affected_versions": [
+      {
+        "package": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/torch"
+        },
+        "ranges": [
+          {
+            "type": "ECOSYSTEM",
+            "events": [
+              {
+                "introduced": "0"
+              },
+              {
+                "fixed": "2.6.0"
+              }
+            ]
+          }
+        ],
+        "versions": [
+          "1.0.0",
+          "1.0.1",
+          "1.1.0",
+          "1.10.0",
+          "1.10.1",
+          "1.10.2",
+          "1.11.0",
+          "1.12.0",
+          "1.12.1",
+          "1.13.0",
+          "1.13.1",
+          "1.2.0",
+          "1.3.0",
+          "1.3.1",
+          "1.4.0",
+          "1.5.0",
+          "1.5.1",
+          "1.6.0",
+          "1.7.0",
+          "1.7.1",
+          "1.8.0",
+          "1.8.1",
+          "1.9.0",
+          "1.9.1",
+          "2.0.0",
+          "2.0.1",
+          "2.1.0",
+          "2.1.1",
+          "2.1.2",
+          "2.2.0",
+          "2.2.1",
+          "2.2.2",
+          "2.3.0",
+          "2.3.1",
+          "2.4.0",
+          "2.4.1",
+          "2.5.0",
+          "2.5.1"
+        ]
+      }
+    ],
+    "fixed_versions": [
+      {
+        "package": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "purl": "pkg:pypi/torch"
+        },
+        "version": "2.6.0"
+      }
+    ],
+    "cvss": null,
+    "cwe": null,
+    "references": [
+      {
+        "type": "WEB",
+        "url": "https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6"
+      },
+      {
+        "type": "ADVISORY",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-32434"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04"
+      },
+      {
+        "type": "WEB",
+        "url": "https://github.com/pypa/advisory-database/tree/main/vulns/torch/PYSEC-2025-41.yaml"
+      },
+      {
+        "type": "PACKAGE",
+        "url": "https://github.com/pytorch/pytorch"
+      }
+    ],
+    "record_status": "unknown",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "packages": "/affected",
+      "fixed_versions": "/affected/0/ranges/0/events",
+      "description": "/details"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/osv_sample.body"
+    }
+  },
+  {
+    "schema_version": "0.1-design",
+    "record_type": "paper",
+    "external_ids": [
+      {
+        "namespace": "source",
+        "value": "http://arxiv.org/abs/2502.13141v2"
+      }
+    ],
+    "source": "ARXIV",
+    "external_id": "http://arxiv.org/abs/2502.13141v2",
+    "raw_document_id": "sha256:3962aa3a4e8ab492476b6abe75871b3663885a882b1239e9455e3d87a54eb3f0",
+    "title": "UniGuardian: A Unified Defense for Detecting Prompt Injection, Backdoor Attacks and Adversarial Attacks in Large Language Models",
+    "description": "Large Language Models (LLMs) are vulnerable to attacks like prompt injection, backdoor attacks, and adversarial attacks, which manipulate prompts or models to generate harmful outputs. In this paper, departing from traditional deep learning attack paradigms, we explore their intrinsic relationship and collectively term them Prompt Trigger Attacks (PTA). This raises a key question: Given a prompt, can we tell whether a hidden trigger is steering the model's behavior? We propose UniGuardian, to the best of our knowledge the first training-free LLM detector to jointly detect successfully activated prompt injection, backdoor, and adversarial attacks without knowing the attack type. Its shared mechanism measures how structured prompt perturbations shift the model's output distribution. Additionally, we introduce a single-forward strategy to optimize the detection pipeline, enabling simultaneous attack detection and text generation within a shared batched forward pass at each decoding step. Our experiments confirm that UniGuardian accurately and efficiently identifies trigger-activated prompts in LLMs.",
+    "language": null,
+    "published_at": "2025-02-18T18:59:00Z",
+    "modified_at": "2026-10-01T17:30:02Z",
+    "retrieved_at": "2026-10-03T05:43:54.882258+00:00",
+    "products": null,
+    "packages": null,
+    "affected_versions": null,
+    "fixed_versions": null,
+    "cvss": null,
+    "cwe": null,
+    "references": null,
+    "record_status": "unknown",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "title": "/a:feed/a:entry/a:title",
+      "description": "/a:feed/a:entry/a:summary"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/arxiv_sample.body"
+    },
+    "document_metadata": {
+      "authors": [
+        "Huawei Lin",
+        "Yingjie Lao",
+        "Tony Geng",
+        "Tan Yu",
+        "Weijie Zhao"
+      ],
+      "fulltext_license": "UNKNOWN / NEED_VERIFY"
+    }
+  },
+  {
+    "schema_version": "0.1-design",
+    "record_type": "policy",
+    "external_ids": [
+      {
+        "namespace": "source",
+        "value": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm"
+      }
+    ],
+    "source": "CAC_POLICY",
+    "external_id": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+    "raw_document_id": "sha256:7fae988c064dde72c95e96e5727bf9abee4b3a5a1ea817606a9ca1f97ffac54b",
+    "title": "生成式人工智能服务管理暂行办法",
+    "description": null,
+    "language": null,
+    "published_at": "2023-07-13T07:00:00Z",
+    "modified_at": null,
+    "retrieved_at": "2026-10-03T05:44:18.627226+00:00",
+    "products": null,
+    "packages": null,
+    "affected_versions": null,
+    "fixed_versions": null,
+    "cvss": null,
+    "cwe": null,
+    "references": null,
+    "record_status": "unknown",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "title": "HTML title and official article heading",
+      "published_at": "article displayed date, Asia/Shanghai",
+      "document_metadata.effective_date": "official article preamble"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/cac_ai_policy.body"
+    },
+    "document_metadata": {
+      "date_original": "2023年07月13日 15:00",
+      "timezone": "Asia/Shanghai",
+      "effective_date": "2023-08-15",
+      "status": "original official text; current applicability not adjudicated"
+    }
+  },
+  {
+    "schema_version": "0.1-design",
+    "record_type": "standard",
+    "external_ids": [
+      {
+        "namespace": "source",
+        "value": "NIST.AI.100-1"
+      }
+    ],
+    "source": "NIST_AI",
+    "external_id": "NIST.AI.100-1",
+    "raw_document_id": "sha256:7eb5ec79f65d17c6483699cdfc2f6d3c07cf83c46347e729eca5e76ae9347aab",
+    "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+    "description": null,
+    "language": null,
+    "published_at": null,
+    "modified_at": null,
+    "retrieved_at": "2026-10-03T05:44:02.823421+00:00",
+    "products": null,
+    "packages": null,
+    "affected_versions": null,
+    "fixed_versions": null,
+    "cvss": null,
+    "cwe": null,
+    "references": null,
+    "record_status": "unknown",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "title": "publication heading",
+      "document_metadata.published_date": "publication Published date"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/nist_ai_publication.body"
+    },
+    "document_metadata": {
+      "published_date": "2023-01-26",
+      "date_precision": "day",
+      "kind": "voluntary technical framework",
+      "DOI": "10.6028/NIST.AI.100-1"
+    }
+  },
+  {
+    "schema_version": "0.1-design",
+    "record_type": "standard",
+    "external_ids": [
+      {
+        "namespace": "source",
+        "value": "GB 45438-2025"
+      }
+    ],
+    "source": "SAMR_AI_STANDARD",
+    "external_id": "GB 45438-2025",
+    "raw_document_id": "sha256:da4f0915c424e42194835324f3286a32592c75562985c8f6c06835d3f8ed6fdd",
+    "title": "网络安全技术 人工智能生成合成内容标识方法",
+    "description": null,
+    "language": null,
+    "published_at": null,
+    "modified_at": null,
+    "retrieved_at": "2026-10-03T05:53:47.851121+00:00",
+    "products": null,
+    "packages": null,
+    "affected_versions": null,
+    "fixed_versions": null,
+    "cvss": null,
+    "cwe": null,
+    "references": null,
+    "record_status": "unknown",
+    "upstream_lineage": [],
+    "field_provenance": {
+      "title": "standard heading",
+      "document_metadata.published_date": "基础信息/发布日期",
+      "document_metadata.effective_date": "基础信息/实施日期"
+    },
+    "extensions": {
+      "design_example": true,
+      "raw_file": "evidence/urls/samr_standard.body"
+    },
+    "document_metadata": {
+      "published_date": "2025-02-28",
+      "effective_date": "2025-09-01",
+      "date_precision": "day",
+      "language": "zh",
+      "kind": "national mandatory standard",
+      "status": "官方页面本轮显示现行；不作组织适用性法律判定"
+    }
+  }
+]

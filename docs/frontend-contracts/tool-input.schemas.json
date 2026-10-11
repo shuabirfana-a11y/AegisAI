@@ -1,0 +1,551 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-contract-origin": "CURRENT_PYTHON_CODE",
+  "x-http-exposed": false,
+  "$defs": {
+    "AnalysisSnapshotInput": {
+      "additionalProperties": false,
+      "properties": {
+        "context_id": {
+          "format": "uuid",
+          "title": "Context Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "context_id"
+      ],
+      "title": "AnalysisSnapshotInput",
+      "type": "object"
+    },
+    "AssetInput": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "format": "uuid",
+          "title": "Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id"
+      ],
+      "title": "AssetInput",
+      "type": "object"
+    },
+    "ClaimInput": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "format": "uuid",
+          "title": "Claim Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id"
+      ],
+      "title": "ClaimInput",
+      "type": "object"
+    },
+    "ComponentInput": {
+      "additionalProperties": false,
+      "properties": {
+        "component_id": {
+          "format": "uuid",
+          "title": "Component Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "component_id"
+      ],
+      "title": "ComponentInput",
+      "type": "object"
+    },
+    "EmptyInput": {
+      "additionalProperties": false,
+      "properties": {},
+      "title": "EmptyInput",
+      "type": "object"
+    },
+    "IdInput": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "format": "uuid",
+          "title": "Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "IdInput",
+      "type": "object"
+    },
+    "RefreshInput": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "refresh": {
+          "default": false,
+          "title": "Refresh",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "title": "RefreshInput",
+      "type": "object"
+    },
+    "RemediationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "package_id": {
+          "format": "uuid",
+          "title": "Package Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target",
+        "package_id"
+      ],
+      "title": "RemediationInput",
+      "type": "object"
+    },
+    "ResolutionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 200,
+          "title": "Name",
+          "type": "string"
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "maxLength": 40,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ecosystem"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purl"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ResolutionInput",
+      "type": "object"
+    },
+    "ReviewInput": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "format": "uuid",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "reason": {
+          "default": "Evidence requires human review",
+          "maxLength": 500,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id"
+      ],
+      "title": "ReviewInput",
+      "type": "object"
+    },
+    "RiskInput": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "format": "uuid",
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "snapshot_id": {
+          "format": "uuid",
+          "title": "Snapshot Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "snapshot_id"
+      ],
+      "title": "RiskInput",
+      "type": "object"
+    },
+    "RisksInput": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "limit": {
+          "default": 100,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "RisksInput",
+      "type": "object"
+    },
+    "SearchInput": {
+      "additionalProperties": false,
+      "properties": {
+        "q": {
+          "anyOf": [
+            {
+              "maxLength": 120,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Q"
+        },
+        "product": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Product"
+        },
+        "high_severity": {
+          "default": false,
+          "title": "High Severity",
+          "type": "boolean"
+        },
+        "ai_relevance": {
+          "anyOf": [
+            {
+              "enum": [
+                "relevant",
+                "irrelevant",
+                "uncertain"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ai Relevance"
+        },
+        "days": {
+          "anyOf": [
+            {
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Days"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "title": "SearchInput",
+      "type": "object"
+    },
+    "SemanticInput": {
+      "additionalProperties": false,
+      "properties": {
+        "query": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Query",
+          "type": "string"
+        },
+        "limit": {
+          "default": 5,
+          "maximum": 20,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "SemanticInput",
+      "type": "object"
+    },
+    "TargetInput": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "title": "TargetInput",
+      "type": "object"
+    },
+    "VerificationSnapshotInput": {
+      "additionalProperties": false,
+      "properties": {
+        "context_id": {
+          "format": "uuid",
+          "title": "Context Id",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Claim Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "context_id"
+      ],
+      "title": "VerificationSnapshotInput",
+      "type": "object"
+    },
+    "VersionInspectionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 200,
+          "title": "Name",
+          "type": "string"
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "maxLength": 40,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ecosystem"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Version",
+          "type": "string"
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purl"
+        },
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "target"
+      ],
+      "title": "VersionInspectionInput",
+      "type": "object"
+    }
+  },
+  "x-roots": {
+    "SearchInput": {
+      "$ref": "#/$defs/SearchInput"
+    },
+    "TargetInput": {
+      "$ref": "#/$defs/TargetInput"
+    },
+    "IdInput": {
+      "$ref": "#/$defs/IdInput"
+    },
+    "RefreshInput": {
+      "$ref": "#/$defs/RefreshInput"
+    },
+    "ClaimInput": {
+      "$ref": "#/$defs/ClaimInput"
+    },
+    "ReviewInput": {
+      "$ref": "#/$defs/ReviewInput"
+    },
+    "EmptyInput": {
+      "$ref": "#/$defs/EmptyInput"
+    },
+    "AssetInput": {
+      "$ref": "#/$defs/AssetInput"
+    },
+    "RisksInput": {
+      "$ref": "#/$defs/RisksInput"
+    },
+    "RiskInput": {
+      "$ref": "#/$defs/RiskInput"
+    },
+    "ResolutionInput": {
+      "$ref": "#/$defs/ResolutionInput"
+    },
+    "VersionInspectionInput": {
+      "$ref": "#/$defs/VersionInspectionInput"
+    },
+    "ComponentInput": {
+      "$ref": "#/$defs/ComponentInput"
+    },
+    "RemediationInput": {
+      "$ref": "#/$defs/RemediationInput"
+    },
+    "SemanticInput": {
+      "$ref": "#/$defs/SemanticInput"
+    },
+    "VerificationSnapshotInput": {
+      "$ref": "#/$defs/VerificationSnapshotInput"
+    },
+    "AnalysisSnapshotInput": {
+      "$ref": "#/$defs/AnalysisSnapshotInput"
+    }
+  }
+}

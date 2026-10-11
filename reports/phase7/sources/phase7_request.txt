@@ -1,0 +1,2578 @@
+你现在开始 AegisAI Phase 7。
+
+# Phase 7
+情报富化 + POC/Patch/Vendor/EPSS + Claim/Evidence + 多源核验
+
+Phase 1~6 已经完成。
+
+不要重新实现 Phase 6。
+不要大规模重构已经正常工作的 Collector / Normalizer / Dedup / Database。
+
+本阶段是在 Phase 6 已经形成的真实情报数据链路之上，
+建立 AegisAI 最核心的“可信安全情报”能力。
+
+==================================================
+0. 本阶段核心目标
+==================================================
+
+Phase 6 已经解决：
+
+“发生了什么漏洞？”
+
+Phase 7 要进一步解决：
+
+这个漏洞到底影响谁？
+影响哪些版本？
+有没有真实 POC？
+有没有 Patch？
+官方怎么说？
+是否已经被利用？
+不同来源说法是否一致？
+我们凭什么得出这个结论？
+如果证据不足，系统能不能明确说不知道？
+
+完整流程：
+
+Vulnerability
+↓
+Enrichment Planning
+↓
+Vendor / Advisory / EPSS / KEV / GitHub / Security Source
+↓
+Candidate Discovery
+↓
+POC / Patch / Fix / Version / Exploitation Enrichment
+↓
+Claim Generation
+↓
+Evidence Extraction
+↓
+Cross-source Verification
+↓
+Conflict Detection
+↓
+Verification Status
+↓
+Trusted Intelligence
+
+最终必须形成：
+
+“结论 + 证据 + 来源 + 时间 + 核验状态”
+
+而不是：
+
+“LLM说这是对的”。
+
+==================================================
+1. 开始前先读取已有工程
+==================================================
+
+完整阅读：
+
+requirements/
+research/data_sources/
+design/database/
+reports/phase6/
+docs/tooling/
+
+以及：
+
+backend/
+tests/
+README
+THIRD_PARTY.md
+
+重点检查 Phase 6：
+
+真实实现的数据源
+RawDocument
+Normalized Record
+Vulnerability
+Product
+Version
+Source
+SyncRun
+Service Layer
+API
+Tool Contracts
+真实跨源去重案例
+测试结果
+Known Issues
+
+先生成：
+
+reports/phase7/PREFLIGHT.md
+
+记录：
+
+Phase 6哪些能力可以直接复用
+
+哪些能力Phase 7需要扩展
+
+哪些Phase 6 Known Issues会影响Phase 7
+
+禁止因为代码风格不喜欢就重写Phase 6。
+
+==================================================
+2. 先检查Phase 6真实性
+==================================================
+
+不要默认Phase 6报告一定正确。
+
+实际运行必要检查：
+
+数据库能否启动
+
+Migration能否运行
+
+Backend能否启动
+
+已有Tests是否通过
+
+真实Vulnerability是否存在
+
+Source / RawDocument关系是否存在
+
+Dedup结果是否正确
+
+如果发现Phase 6存在阻塞Phase 7的问题：
+
+只修复阻塞项。
+
+记录：
+
+PHASE6_FIXES.md
+
+不要重做Phase 6。
+
+==================================================
+3. 本阶段严格范围
+==================================================
+
+Phase 7实现：
+
+① Enrichment Framework
+
+② Vendor Advisory关联
+
+③ EPSS富化
+
+④ KEV / Known Exploitation信息整合
+
+⑤ POC Candidate Discovery
+
+⑥ POC Verification
+
+⑦ Patch Candidate Discovery
+
+⑧ Fix Commit / Release关联
+
+⑨ Version信息进一步富化
+
+⑩ Claim
+
+⑪ Evidence
+
+⑫ Verification
+
+⑬ Conflict Detection
+
+⑭ Intelligence Timeline扩展
+
+⑮ Review Task触发
+
+⑯ 对应API
+
+⑰ Tests
+
+⑱ 真实案例验证
+
+本阶段暂时不实现：
+
+Dify
+
+Multi-Agent
+
+Orchestrator
+
+RAG完整问答
+
+资产风险完整模块
+
+正式前端联调
+
+自动执行POC
+
+漏洞利用
+
+攻击模拟
+
+==================================================
+4. 设计Enrichment Framework
+==================================================
+
+不要写成：
+
+enrich_everything.py
+
+建立可扩展的Enricher机制。
+
+例如概念：
+
+BaseEnricher
+
+具体：
+
+VendorEnricher
+EpssEnricher
+KevEnricher
+PocEnricher
+PatchEnricher
+VersionEnricher
+
+每个Enricher必须有明确：
+
+Input
+
+Output
+
+Dependencies
+
+Data Sources
+
+Error Codes
+
+Retry Policy
+
+Evidence Produced
+
+Side Effects
+
+这就是以后Agent Task Contract的基础。
+
+==================================================
+5. Enrichment Result Contract
+==================================================
+
+统一结构化输出。
+
+例如概念：
+
+EnrichmentResult
+
+至少：
+
+task_id
+
+enrichment_type
+
+target_id
+
+status
+
+claims_created
+
+evidence_created
+
+candidates_created
+
+sources_checked
+
+warnings
+
+errors
+
+retryable
+
+started_at
+
+finished_at
+
+duration_ms
+
+trace_id
+
+禁止只返回：
+
+true / false
+
+或者：
+
+一大段自然语言。
+
+==================================================
+6. Enrichment状态
+==================================================
+
+至少区分：
+
+SUCCESS
+
+PARTIAL
+
+NO_RESULT
+
+FAILED
+
+CONFLICT
+
+注意：
+
+NO_RESULT
+
+不等于：
+
+FAILED。
+
+例如：
+
+没有发现公开POC
+
+属于：
+
+NO_RESULT
+
+不是系统报错。
+
+==================================================
+7. Claim模型真正投入使用
+==================================================
+
+Phase 5已经设计Claim。
+
+现在正式使用。
+
+Claim代表：
+
+系统中的“可验证结论”。
+
+例如：
+
+C1：
+
+vLLM < 0.8.4受到CVE-X影响。
+
+C2：
+
+GitHub Repository X是该漏洞POC。
+
+C3：
+
+vLLM 0.8.4修复该漏洞。
+
+C4：
+
+该漏洞已被CISA列为Known Exploited。
+
+每一个重要安全结论都应该尽可能结构化。
+
+==================================================
+8. Claim Type
+==================================================
+
+建立明确Claim Type。
+
+至少研究：
+
+AFFECTS_PRODUCT
+
+AFFECTS_VERSION
+
+FIXED_VERSION
+
+POC_EXISTS
+
+POC_ASSOCIATION
+
+PATCH_EXISTS
+
+FIX_COMMIT
+
+KNOWN_EXPLOITED
+
+VENDOR_CONFIRMED
+
+EXPLOIT_CONDITION
+
+REMEDIATION
+
+不要所有Claim都变成：
+
+claim_text。
+
+结构化字段优先。
+
+==================================================
+9. Claim不能脱离Evidence
+==================================================
+
+对于关键Claim：
+
+必须能够回答：
+
+“为什么？”
+
+例如：
+
+Claim：
+
+Fixed Version = 0.8.4
+
+Evidence：
+
+Vendor Advisory
+GitHub Release
+Fix Commit
+OSV
+
+不能出现：
+
+Claim存在，
+
+但系统完全不知道来源。
+
+==================================================
+10. Evidence
+==================================================
+
+正式实现Evidence Service。
+
+Evidence至少关联：
+
+Claim
+
+Source
+
+RawDocument
+
+URL
+
+Evidence Type
+
+Stance
+
+Excerpt / Structured Data
+
+Published At
+
+Retrieved At
+
+支持：
+
+SUPPORT
+
+CONTRADICT
+
+NEUTRAL
+
+==================================================
+11. Evidence必须保留原始出处
+==================================================
+
+禁止：
+
+只保存LLM总结。
+
+Evidence必须尽可能指向：
+
+RawDocument
+
+或者：
+
+原始URL / API Record。
+
+这样评委点击Evidence时：
+
+可以追溯。
+
+==================================================
+12. Evidence不是Citation字符串
+==================================================
+
+不要简单：
+
+sources = ["url1", "url2"]
+
+必须是真正的数据实体。
+
+因为后续需要：
+
+冲突
+
+核验
+
+人工复核
+
+Timeline
+
+Agent引用
+
+Benchmark
+
+==================================================
+13. Vendor Advisory Enrichment
+==================================================
+
+根据Phase 2已经确定的AI生态范围，
+
+建立Vendor Advisory关联机制。
+
+优先：
+
+官方Security Advisory
+
+官方Release
+
+官方GitHub Security Advisory
+
+官方公告
+
+不要一开始爬几十个Vendor网站。
+
+先覆盖：
+
+当前真实数据中最重要的一批AI组件。
+
+==================================================
+14. Vendor关联策略
+==================================================
+
+优先确定性：
+
+CVE ID
+
+GHSA ID
+
+Package
+
+Repository
+
+Vendor Advisory ID
+
+明确URL
+
+不要：
+
+仅因为文章里出现产品名称就认定关联。
+
+输出：
+
+MATCHED
+
+CANDIDATE
+
+UNRESOLVED
+
+==================================================
+15. EPSS
+==================================================
+
+如果Phase 6已经接入EPSS：
+
+扩展为历史Snapshot。
+
+如果没有：
+
+本阶段正式接入。
+
+保存：
+
+score
+
+percentile
+
+observed_at
+
+source
+
+不要只覆盖最新值。
+
+这样可以支持：
+
+EPSS变化Timeline。
+
+==================================================
+16. KEV
+==================================================
+
+如果Phase 6已有KEV：
+
+不要重复Collector。
+
+把它真正转化为：
+
+Claim + Evidence + KnownExploitation
+
+例如：
+
+Claim：
+
+KNOWN_EXPLOITED = true
+
+Evidence：
+
+CISA KEV record
+
+同时保存：
+
+date_added
+
+required_action
+
+due_date
+
+如果数据存在。
+
+==================================================
+17. POC Discovery
+==================================================
+
+这是本阶段重点。
+
+建立：
+
+PocDiscoveryService
+
+第一版优先搜索：
+
+GitHub
+
+以及Phase 2明确选定的安全来源。
+
+不要无限搜索互联网。
+
+候选发现可以基于：
+
+CVE ID
+
+GHSA ID
+
+Product + Vulnerability ID
+
+明确Advisory引用
+
+Repository README
+
+Issue / Commit引用
+
+==================================================
+18. GitHub访问
+==================================================
+
+优先：
+
+官方GitHub API
+
+必要时：
+
+GitHub Search API
+
+尊重：
+
+Rate Limit
+
+Authentication
+
+Terms
+
+禁止：
+
+暴力爬GitHub网页。
+
+==================================================
+19. POC Candidate
+==================================================
+
+发现Repository后：
+
+状态只能先是：
+
+CANDIDATE
+
+不能：
+
+因为Repository名字包含CVE
+
+就：
+
+CONFIRMED。
+
+保存：
+
+repository
+
+URL
+
+owner
+
+created_at
+
+updated_at
+
+description
+
+README reference
+
+CVE reference
+
+first_seen
+
+last_seen
+
+source
+
+==================================================
+20. POC验证
+==================================================
+
+建立：
+
+PocVerificationService
+
+使用可解释特征。
+
+例如：
+
+是否明确引用CVE
+
+是否描述漏洞机制
+
+是否匹配Product
+
+是否匹配Affected Version
+
+是否包含复现说明
+
+是否被其他来源引用
+
+是否只是Scanner
+
+是否只是漏洞列表
+
+是否只是复制别人的README
+
+是否明显无关
+
+输出：
+
+CONFIRMED
+
+CANDIDATE
+
+REJECTED
+
+INSUFFICIENT_EVIDENCE
+
+==================================================
+21. 禁止执行未知POC
+==================================================
+
+这是硬规则。
+
+Phase 7：
+
+禁止：
+
+git clone后直接运行
+
+pip install未知requirements
+
+npm install未知包
+
+docker run未知镜像
+
+执行exploit.py
+
+执行shell script
+
+访问攻击目标
+
+扫描公网
+
+利用漏洞
+
+POC验证只做：
+
+静态信息和多源Evidence核验。
+
+==================================================
+22. POC不能只看Star
+==================================================
+
+GitHub Star：
+
+只能是辅助信息。
+
+不能：
+
+star多 = POC可信。
+
+同样：
+
+仓库创建时间
+
+Fork数
+
+Owner
+
+都不能单独证明真实性。
+
+==================================================
+23. Patch Discovery
+==================================================
+
+建立：
+
+PatchDiscoveryService
+
+寻找：
+
+Vendor Advisory
+
+Git Commit
+
+Pull Request
+
+Release
+
+Fixed Version
+
+Security Advisory
+
+优先依据：
+
+官方来源。
+
+==================================================
+24. Fix Commit关联
+==================================================
+
+候选Commit必须说明为什么关联。
+
+例如：
+
+Commit Message包含CVE
+
+Advisory直接链接
+
+PR引用Security Issue
+
+Release Note明确提及
+
+代码路径与受影响组件一致
+
+输出：
+
+CONFIRMED
+
+CANDIDATE
+
+REJECTED
+
+INSUFFICIENT
+
+==================================================
+25. Fixed Version
+==================================================
+
+Fixed Version是关键Claim。
+
+例如：
+
+Claim：
+
+FIXED_VERSION = 0.8.4
+
+必须至少保存：
+
+来源
+
+raw expression
+
+normalized version
+
+Evidence
+
+verification status
+
+禁止LLM推算：
+
+“看起来0.8.4应该修了”。
+
+==================================================
+26. Version Range一致性检查
+==================================================
+
+建立确定性Consistency Check。
+
+例如：
+
+Affected：
+
+<0.8.5
+
+Fixed：
+
+0.8.4
+
+出现潜在逻辑冲突。
+
+系统必须发现。
+
+不要直接合并结果。
+
+生成：
+
+VERSION_CONFLICT
+
+进入Verification。
+
+==================================================
+27. 多源核验
+==================================================
+
+建立：
+
+VerificationService
+
+输入：
+
+Claim
+
+Evidence[]
+
+输出：
+
+VerificationResult
+
+至少：
+
+status
+
+reason_summary
+
+supporting_evidence
+
+contradicting_evidence
+
+sources_considered
+
+verified_at
+
+method
+
+==================================================
+28. Verification状态统一
+==================================================
+
+统一使用：
+
+CONFIRMED
+
+PENDING
+
+INSUFFICIENT_EVIDENCE
+
+CONFLICT
+
+REJECTED
+
+与Phase 3 UX术语对应。
+
+不要出现：
+
+high confidence
+probably true
+maybe verified
+trusted-ish
+
+等模糊状态。
+
+==================================================
+29. 不做伪精确Confidence
+==================================================
+
+禁止设计：
+
+confidence = 0.9372
+
+除非有经过验证的统计模型。
+
+优先：
+
+状态
+
++
+
+Evidence
+
++
+
+Reason Summary
+
+例如：
+
+CONFIRMED
+
+理由：
+
+Vendor Advisory与OSV均明确给出Fixed Version 0.8.4。
+
+==================================================
+30. Source Authority
+==================================================
+
+允许考虑Source类型：
+
+Official Vendor
+
+CVE Authority
+
+Government
+
+Package Advisory
+
+Security Research
+
+Community
+
+但：
+
+Source Authority只是核验因素之一。
+
+不能：
+
+官方来源永远覆盖其他来源。
+
+因为官方信息也可能：
+
+滞后
+
+更新
+
+存在版本差异。
+
+冲突仍然必须保留。
+
+==================================================
+31. Conflict Detection
+==================================================
+
+建立：
+
+ConflictDetectionService
+
+至少识别：
+
+Affected Version Conflict
+
+Fixed Version Conflict
+
+Severity Conflict
+
+POC Status Conflict
+
+Patch Status Conflict
+
+Known Exploitation Conflict
+
+Vendor vs Third-party Conflict
+
+==================================================
+32. 冲突不能被覆盖
+==================================================
+
+例如：
+
+Source A：
+
+Affected <0.8.4
+
+Source B：
+
+Affected <=0.8.5
+
+禁止：
+
+选一个写数据库然后丢掉另一个。
+
+应该：
+
+Claim A
+
+Claim B
+
+Evidence A
+
+Evidence B
+
+Conflict
+
+VerificationResult
+
+==================================================
+33. Conflict Record
+==================================================
+
+如果Phase 5没有独立Conflict模型，
+
+判断：
+
+是否需要增加。
+
+至少能够记录：
+
+conflict_type
+
+target
+
+claim_a
+
+claim_b
+
+detected_at
+
+status
+
+resolution
+
+resolved_at
+
+resolved_by
+
+如果已有模型：
+
+复用。
+
+==================================================
+34. 自动核验边界
+==================================================
+
+自动处理：
+
+明确一致的高质量来源
+
+确定性Identifier关联
+
+确定性版本逻辑
+
+明确官方Patch
+
+明确KEV
+
+进入人工复核：
+
+来源冲突
+
+POC不确定
+
+Patch不确定
+
+版本解析异常
+
+高风险但证据不足
+
+资产相关的重要冲突（后续使用）
+
+==================================================
+35. ReviewTask自动生成
+==================================================
+
+对于需要人工处理的情况：
+
+自动创建：
+
+ReviewTask。
+
+例如：
+
+POC_VERIFICATION
+
+VERSION_CONFLICT
+
+PATCH_VERIFICATION
+
+SOURCE_CONFLICT
+
+INSUFFICIENT_EVIDENCE
+
+不要要求人工查看所有情报。
+
+只把真正需要判断的送入Review。
+
+==================================================
+36. 人工处理结果
+==================================================
+
+人工Review以后：
+
+必须生成：
+
+VerificationResult
+
+AuditLog
+
+不能直接：
+
+UPDATE vulnerability SET ...
+
+而没有历史。
+
+==================================================
+37. Intelligence Timeline
+==================================================
+
+本阶段扩展Timeline。
+
+至少支持事件：
+
+VULNERABILITY_DISCOVERED
+
+VENDOR_ADVISORY_FOUND
+
+POC_CANDIDATE_FOUND
+
+POC_CONFIRMED
+
+PATCH_FOUND
+
+FIX_VERSION_FOUND
+
+KEV_ADDED
+
+EPSS_CHANGED
+
+CONFLICT_DETECTED
+
+REVIEW_CREATED
+
+REVIEW_RESOLVED
+
+VERIFICATION_CHANGED
+
+==================================================
+38. Timeline必须来自真实事件
+==================================================
+
+不要前端临时拼Timeline。
+
+后端真正保存：
+
+IntelligenceEvent。
+
+以后：
+
+漏洞详情直接查询。
+
+==================================================
+39. Enrichment Scheduler
+==================================================
+
+建立最小调度逻辑。
+
+新Vulnerability进入后：
+
+判断需要哪些Enrichment。
+
+例如：
+
+Vendor
+
+EPSS
+
+KEV
+
+POC
+
+Patch
+
+不要：
+
+每分钟对所有历史漏洞全部重新跑。
+
+==================================================
+40. Re-enrichment
+==================================================
+
+安全情报会变化。
+
+需要支持：
+
+首次调查
+
++
+
+定期重新检查
+
++
+
+事件触发重新调查
+
+例如：
+
+之前：
+
+NO POC FOUND
+
+7天后：
+
+出现POC。
+
+系统应该能发现变化。
+
+==================================================
+41. “未发现”必须有时间语义
+==================================================
+
+不要保存：
+
+has_poc = false
+
+然后永远不变。
+
+应该表达：
+
+截至：
+
+2026-XX-XX
+
+在已检查来源中：
+
+未发现公开POC。
+
+这样后续可以重新调查。
+
+==================================================
+42. Enrichment Job
+==================================================
+
+如果数据库还没有：
+
+设计轻量：
+
+EnrichmentJob
+
+记录：
+
+target
+
+type
+
+status
+
+scheduled_at
+
+started_at
+
+finished_at
+
+attempt
+
+error_code
+
+retryable
+
+trace_id
+
+不要现在上复杂分布式任务系统。
+
+==================================================
+43. 并行准备
+==================================================
+
+注意：
+
+这里开始借鉴多Agent图片中的“依赖关系”。
+
+对于一个Vulnerability：
+
+Vendor调查
+
+POC调查
+
+Patch调查
+
+EPSS查询
+
+KEV查询
+
+在满足依赖的情况下：
+
+可以并行。
+
+但是：
+
+Verification
+
+必须依赖前面结果。
+
+逻辑上表达：
+
+Vulnerability
+      ↓
+┌─────┼─────┬─────┬─────┐
+↓     ↓     ↓     ↓     ↓
+Vendor POC Patch EPSS KEV
+└─────┴─────┴─────┴─────┘
+              ↓
+         Verification
+              ↓
+       Conflict Detection
+              ↓
+          Trusted Result
+
+本阶段可以：
+
+并发执行Service
+
+但不要：
+
+创建5个Agent。
+
+==================================================
+44. Dependency定义
+==================================================
+
+为Enricher声明：
+
+depends_on
+
+例如：
+
+PocVerification
+
+依赖：
+
+PocDiscovery
+
+Verification
+
+依赖：
+
+Evidence
+
+这样未来Agent阶段可以直接转换成：
+
+Dependency Graph。
+
+==================================================
+45. Handoff思想提前落实
+==================================================
+
+虽然现在没有Agent，
+
+但每个Service之间禁止：
+
+“返回一段话”。
+
+必须返回结构化Artifact。
+
+例如：
+
+PocInvestigationArtifact
+
+PatchInvestigationArtifact
+
+VerificationArtifact
+
+至少包含：
+
+task_id
+
+target
+
+result
+
+claims
+
+evidence
+
+unresolved
+
+errors
+
+dependencies
+
+trace_id
+
+==================================================
+46. 验收条件
+==================================================
+
+每个Enrichment任务声明：
+
+Acceptance Criteria。
+
+例如：
+
+POC Investigation完成条件：
+
+搜索指定来源完成
+
+候选完成分类
+
+候选Evidence保存
+
+状态明确
+
+未解决问题记录
+
+只有：
+
+“我查完了”
+
+不算完成。
+
+==================================================
+47. Integration Gate预留
+==================================================
+
+增加：
+
+IntelligenceIntegrationService
+
+作用：
+
+在多个Enrichment结果准备写入最终可信情报前检查：
+
+Schema
+
+Identifier一致性
+
+Version一致性
+
+Evidence完整性
+
+Conflict
+
+时间新鲜度
+
+只有通过：
+
+Integration Gate
+
+才能成为：
+
+adopted / trusted result。
+
+失败：
+
+进入：
+
+Recheck
+
+或：
+
+ReviewTask。
+
+==================================================
+48. 不是所有数据都必须Confirmed
+==================================================
+
+允许：
+
+PENDING
+
+INSUFFICIENT_EVIDENCE
+
+CONFLICT
+
+这不是系统失败。
+
+这是可信系统的重要能力。
+
+==================================================
+49. Abstention
+==================================================
+
+实现明确的：
+
+Abstain机制。
+
+例如：
+
+“当前证据不足，无法确认该Repository是否为有效POC。”
+
+比：
+
+硬猜一个结果
+
+更好。
+
+记录：
+
+abstention_reason。
+
+==================================================
+50. API扩展
+==================================================
+
+在Phase 6 API基础上扩展。
+
+至少考虑：
+
+GET /api/v1/vulnerabilities/{id}/enrichment
+
+GET /api/v1/vulnerabilities/{id}/claims
+
+GET /api/v1/vulnerabilities/{id}/evidence
+
+GET /api/v1/vulnerabilities/{id}/pocs
+
+GET /api/v1/vulnerabilities/{id}/patches
+
+GET /api/v1/vulnerabilities/{id}/timeline
+
+GET /api/v1/reviews
+
+GET /api/v1/reviews/{id}
+
+不要为了REST漂亮过度拆接口。
+
+==================================================
+51. Vulnerability Detail聚合
+==================================================
+
+同时提供适合UI的：
+
+Detail Aggregate。
+
+一次能够得到：
+
+漏洞基本信息
+
+Affected Product
+
+Affected Version
+
+CVSS
+
+EPSS
+
+KEV
+
+POC
+
+Patch
+
+Fixed Version
+
+Verification
+
+Evidence摘要
+
+Timeline
+
+避免前端加载详情时：
+
+请求20个API。
+
+==================================================
+52. Evidence API
+==================================================
+
+前端必须可以：
+
+从Claim
+
+点击查看Evidence。
+
+返回：
+
+Source
+
+URL
+
+Excerpt
+
+Published
+
+Retrieved
+
+Stance
+
+RawDocument reference
+
+Verification status
+
+==================================================
+53. Review API
+==================================================
+
+本阶段只实现必要后端。
+
+至少：
+
+查看Review
+
+提交Resolution
+
+保存Reason
+
+生成AuditLog
+
+不要现在做完整权限系统。
+
+==================================================
+54. Tool-ready能力
+==================================================
+
+Phase 7结束后，
+
+以下能力应该可以未来直接封装成Agent Tool：
+
+investigate_vulnerability
+
+find_vendor_advisories
+
+find_poc_candidates
+
+verify_poc_candidate
+
+find_patch_candidates
+
+get_epss
+
+get_known_exploitation
+
+get_claims
+
+get_evidence
+
+verify_claim
+
+detect_conflicts
+
+get_vulnerability_timeline
+
+不要现在接Dify。
+
+==================================================
+55. 更新Tool Contracts
+==================================================
+
+更新：
+
+docs/tooling/TOOL_CONTRACTS_V1.md
+
+每个Tool定义：
+
+Name
+
+Purpose
+
+Input
+
+Output
+
+Dependencies
+
+Evidence Produced
+
+Error Codes
+
+Retryable
+
+Side Effects
+
+Timeout
+
+Acceptance Criteria
+
+这一步很重要。
+
+以后多Agent直接使用。
+
+==================================================
+56. 测试：POC
+==================================================
+
+至少：
+
+TEST-POC-01
+
+Repository名字包含CVE
+
+但内容无关。
+
+→ 不得Confirmed。
+
+TEST-POC-02
+
+README明确描述漏洞并匹配Product。
+
+→ Candidate或Confirmed，按证据规则判断。
+
+TEST-POC-03
+
+Scanner仓库提到CVE。
+
+→ 不得误判为Exploit POC。
+
+TEST-POC-04
+
+无候选。
+
+→ NO_RESULT
+
+不是FAILED。
+
+==================================================
+57. 测试：Patch
+==================================================
+
+TEST-PATCH-01
+
+Vendor Advisory明确给出Fixed Version。
+
+→ 建立Claim + Evidence。
+
+TEST-PATCH-02
+
+Commit Message只模糊提及Security。
+
+→ 不得直接Confirmed。
+
+TEST-PATCH-03
+
+Official Advisory直接链接Commit。
+
+→ 可以形成强关联Evidence。
+
+==================================================
+58. 测试：Conflict
+==================================================
+
+TEST-CONFLICT-01
+
+Source A：
+
+Affected <0.8.4
+
+Source B：
+
+Affected <=0.8.5
+
+→ CONFLICT
+
+TEST-CONFLICT-02
+
+两个Source内容一致。
+
+→ 不应创建Conflict。
+
+TEST-CONFLICT-03
+
+旧Source与更新后的Vendor Advisory不同。
+
+→ 保留历史Evidence，并考虑时间因素。
+
+==================================================
+59. 测试：Evidence
+==================================================
+
+TEST-EVIDENCE-01
+
+每个Confirmed关键Claim至少存在Evidence。
+
+TEST-EVIDENCE-02
+
+删除/更新Claim不能删除历史Evidence。
+
+TEST-EVIDENCE-03
+
+Evidence可以追溯到RawDocument或原始Source。
+
+==================================================
+60. 测试：Verification
+==================================================
+
+TEST-VERIFY-01
+
+两个独立高质量Source一致。
+
+→ CONFIRMED。
+
+TEST-VERIFY-02
+
+只有一个低信息候选Source。
+
+→ PENDING或INSUFFICIENT。
+
+TEST-VERIFY-03
+
+来源明确矛盾。
+
+→ CONFLICT。
+
+TEST-VERIFY-04
+
+没有证据。
+
+→ INSUFFICIENT。
+
+禁止猜。
+
+==================================================
+61. 测试：Review
+==================================================
+
+Conflict
+
+→ 自动ReviewTask
+
+人工Resolution
+
+→ VerificationResult更新
+
+→ AuditLog存在
+
+→ Timeline存在
+
+整个链路必须测试。
+
+==================================================
+62. 测试：Re-enrichment
+==================================================
+
+第一次：
+
+未发现POC。
+
+第二次：
+
+Source出现新POC。
+
+系统应该：
+
+发现变化
+
+创建Candidate
+
+生成Event
+
+重新Verification
+
+而不是：
+
+因为以前false就永远跳过。
+
+==================================================
+63. 真实案例要求
+==================================================
+
+不要只做Unit Test。
+
+至少选3个真实AI生态安全案例。
+
+Case A：
+
+多源一致。
+
+Case B：
+
+存在POC或Patch。
+
+Case C：
+
+存在信息差异、证据不足或可以展示核验过程。
+
+尽量来自：
+
+Phase 6真实数据库。
+
+不要为了Demo编漏洞。
+
+==================================================
+64. 每个真实案例输出
+==================================================
+
+记录：
+
+Vulnerability
+
+Products
+
+Affected Version
+
+Sources Checked
+
+Vendor Advisory
+
+EPSS
+
+KEV
+
+POC Candidates
+
+POC Verification
+
+Patch
+
+Fixed Version
+
+Claims
+
+Evidence
+
+Conflicts
+
+Final Verification
+
+Timeline
+
+不要伪造缺失数据。
+
+==================================================
+65. 真实案例页面数据
+==================================================
+
+确认后端已经能够支撑Phase 4设计中的：
+
+漏洞详情
+
+POC状态
+
+Patch状态
+
+Evidence
+
+Conflict
+
+Timeline
+
+Review
+
+如果UI要求的字段没有真实数据来源：
+
+记录：
+
+BACKEND_GAP
+
+不要Mock成后端能力。
+
+==================================================
+66. 基础准确率测试集
+==================================================
+
+开始建立：
+
+tests/evaluation/
+
+但不要现在声称最终Benchmark。
+
+至少人工标注小规模：
+
+POC Candidate
+
+Patch
+
+Version
+
+用于发现明显误判。
+
+例如：
+
+20~50条小样本。
+
+样本量根据真实时间决定。
+
+报告：
+
+sample size
+
+correct
+
+incorrect
+
+uncertain
+
+error categories
+
+不要拿小样本包装成：
+
+“系统准确率99%”。
+
+==================================================
+67. Error Taxonomy
+==================================================
+
+建立错误分类：
+
+ENTITY_ERROR
+
+VERSION_ERROR
+
+POC_FALSE_POSITIVE
+
+POC_FALSE_NEGATIVE
+
+PATCH_FALSE_POSITIVE
+
+SOURCE_CONFLICT
+
+STALE_DATA
+
+MISSING_EVIDENCE
+
+PARSER_ERROR
+
+UNKNOWN
+
+后面Benchmark继续使用。
+
+==================================================
+68. Prompt Injection防护预留
+==================================================
+
+虽然本阶段还没LLM Agent，
+
+但外部Source已经包含：
+
+README
+Blog
+Advisory
+HTML
+
+统一标记：
+
+UNTRUSTED_EXTERNAL_CONTENT。
+
+未来任何LLM处理：
+
+必须把：
+
+System Instruction
+
+和：
+
+External Content
+
+分开。
+
+现在在数据模型/Tool Contract中保留：
+
+content_trust_level
+
+或等价设计。
+
+==================================================
+69. 不要复制大型CTI平台
+==================================================
+
+如果参考：
+
+OpenCTI
+
+IntelOwl
+
+MISP
+
+cve-search
+
+只能学习：
+
+数据模型
+
+Analyzer
+
+Enrichment
+
+Connector
+
+不要：
+
+Fork后改Logo
+
+不要把AegisAI做成：
+
+另一个OpenCTI皮肤。
+
+==================================================
+70. 第三方代码
+==================================================
+
+如果使用新的GitHub项目/Library：
+
+检查License。
+
+更新：
+
+THIRD_PARTY.md
+
+核心能力：
+
+POC关联
+
+Patch关联
+
+Verification
+
+Conflict
+
+尽量自己实现逻辑。
+
+通用Client/Parser可以复用成熟库。
+
+==================================================
+71. 性能
+==================================================
+
+记录：
+
+单漏洞Enrichment时间
+
+POC Search时间
+
+Patch Search时间
+
+Verification时间
+
+API Detail时间
+
+现在不要为了速度牺牲正确性。
+
+后面会有Fast Path / Deep Path。
+
+==================================================
+72. Structured Logging
+==================================================
+
+所有Enrichment记录：
+
+trace_id
+
+task_id
+
+target_id
+
+enrichment_type
+
+source
+
+status
+
+duration
+
+claims_created
+
+evidence_created
+
+error_code
+
+retryable
+
+以后Agent可以直接沿用。
+
+==================================================
+73. 本阶段不要做LLM万能判断
+==================================================
+
+优先：
+
+ID Match
+
+Version Logic
+
+Source Metadata
+
+Structured API
+
+Explicit Reference
+
+Rule
+
+只有未来真正需要处理：
+
+复杂自然语言语义
+
+再引入LLM。
+
+不要：
+
+“把README丢给LLM问是不是POC”
+
+作为核心判断方法。
+
+==================================================
+74. 输出目录
+==================================================
+
+建立：
+
+reports/phase7/
+
+至少输出：
+
+PREFLIGHT.md
+
+ENRICHMENT_ARCHITECTURE.md
+
+VENDOR_ENRICHMENT.md
+
+EPSS_ENRICHMENT.md
+
+KEV_INTEGRATION.md
+
+POC_DISCOVERY.md
+
+POC_VERIFICATION.md
+
+PATCH_DISCOVERY.md
+
+VERSION_ENRICHMENT.md
+
+CLAIM_MODEL_IMPLEMENTATION.md
+
+EVIDENCE_IMPLEMENTATION.md
+
+VERIFICATION_ENGINE.md
+
+CONFLICT_DETECTION.md
+
+REVIEW_WORKFLOW.md
+
+INTELLIGENCE_TIMELINE.md
+
+INTEGRATION_GATE.md
+
+REAL_CASES.md
+
+EVALUATION_SAMPLE.md
+
+ERROR_ANALYSIS.md
+
+TEST_RESULTS.md
+
+KNOWN_ISSUES.md
+
+更新：
+
+docs/tooling/TOOL_CONTRACTS_V1.md
+
+==================================================
+75. 必须实际运行
+==================================================
+
+完成代码后：
+
+实际启动数据库
+
+实际运行Migration
+
+实际启动Backend
+
+实际选择真实Vulnerability
+
+执行：
+
+Vendor Enrichment
+
+EPSS
+
+KEV
+
+POC Discovery
+
+Patch Discovery
+
+Verification
+
+Conflict Detection
+
+查询API
+
+运行Tests
+
+不能只：
+
+生成代码。
+
+==================================================
+76. 最终Demo级真实案例
+==================================================
+
+至少选一个最适合展示的真实漏洞。
+
+输出完整链路：
+
+Vulnerability
+↓
+Sources
+↓
+Affected Version
+↓
+Vendor
+↓
+POC
+↓
+Patch
+↓
+EPSS / KEV
+↓
+Claims
+↓
+Evidence
+↓
+Verification
+↓
+Timeline
+
+如果存在Conflict：
+
+更好。
+
+如果没有真实Conflict：
+
+禁止人工伪造生产案例。
+
+可以在测试环境用Fixture演示Conflict逻辑，
+但必须明确标注：
+
+TEST SCENARIO。
+
+==================================================
+77. Phase 7完成标准
+==================================================
+
+只有以下满足才能PASS：
+
+[ ] Vendor Enrichment可运行
+
+[ ] EPSS可运行
+
+[ ] KEV可运行
+
+[ ] POC Discovery可运行
+
+[ ] POC Verification可运行
+
+[ ] Patch Discovery可运行
+
+[ ] Version Enrichment可运行
+
+[ ] Claim真正入库
+
+[ ] Evidence真正入库
+
+[ ] Evidence可追溯Source
+
+[ ] Verification可运行
+
+[ ] Conflict Detection可运行
+
+[ ] ReviewTask可自动生成
+
+[ ] Timeline可运行
+
+[ ] Integration Gate存在
+
+[ ] Tool Contracts V1完成
+
+[ ] 至少3个真实案例
+
+[ ] Tests实际执行
+
+[ ] 没有执行未知POC
+
+[ ] 没有伪造准确率
+
+==================================================
+78. 最终汇报
+==================================================
+
+完成后输出：
+
+=== AegisAI Phase 7 Trusted Intelligence Complete ===
+
+Phase 6 Verification:
+PASS / PARTIAL / FAIL
+
+Enrichment:
+
+Vendor:
+PASS / PARTIAL / FAIL
+
+EPSS:
+PASS / PARTIAL / FAIL
+
+KEV:
+PASS / PARTIAL / FAIL
+
+POC Discovery:
+PASS / PARTIAL / FAIL
+
+POC Verification:
+PASS / PARTIAL / FAIL
+
+Patch Discovery:
+PASS / PARTIAL / FAIL
+
+Version Enrichment:
+PASS / PARTIAL / FAIL
+
+Trusted Intelligence:
+
+Claims:
+...
+
+Evidence:
+...
+
+Verification Results:
+...
+
+Conflicts:
+...
+
+Review Tasks:
+...
+
+Real Cases:
+
+Case 1:
+...
+
+Case 2:
+...
+
+Case 3:
+...
+
+Demo Candidate:
+...
+
+Evaluation Sample:
+
+Sample Size:
+Correct:
+Incorrect:
+Uncertain:
+
+Tests:
+
+Passed:
+Failed:
+Skipped:
+
+Tool-ready Services:
+
+...
+
+Known Issues:
+
+...
+
+Phase 7 Status:
+
+PASS / PARTIAL / FAIL
+
+Next Phase:
+
+Phase 8
+资产接入 + SBOM/组件标准化 + 版本命中 +
+资产风险变化 + 可解释处置优先级
+
+完成后停止。
+
+不要自行进入Phase 8。

@@ -1,0 +1,141 @@
+{
+  "as_of_utc": "2026-10-03T06:37:06.172217+00:00",
+  "input_policy": "Reuse previously fully read frozen Phase 1/2 documents in this session; key task/selection/field/matrix documents and original PDF text re-read for Phase 3; content hashes preserve input versions.",
+  "inputs": [
+    {
+      "file": "requirements/AI_PROGRAM_HUMAN_BOUNDARY.md",
+      "sha256": "a5a3d959df382b080a89aa82dd52497099b29847cd3c43e8cde11a8008a60732",
+      "characters": 1111
+    },
+    {
+      "file": "requirements/BUSINESS_FLOW.md",
+      "sha256": "57f2f572269fdc59e96c1f1b7f67d5ba90083855bcef38d8ff1b38852d5b8936",
+      "characters": 1297
+    },
+    {
+      "file": "requirements/CORE_ENTITIES.md",
+      "sha256": "8c6846b4cf9903613b3ee367d127294e6d42ed39e099e292edc999f060080c79",
+      "characters": 2109
+    },
+    {
+      "file": "requirements/DEMO_REQUIREMENTS.md",
+      "sha256": "2fa8800af4668738196d734e8f38c1feaa7d87be7c68cfa9c9e7db13af310e30",
+      "characters": 1486
+    },
+    {
+      "file": "requirements/EVALUATION_REQUIREMENTS.md",
+      "sha256": "01c9e2d02f17897c92bb84eb9d6fce04337b8edc05b8738d22145a083a336857",
+      "characters": 2716
+    },
+    {
+      "file": "requirements/FEATURE_LIST.md",
+      "sha256": "cec368a4151da3937aa3c2b12b21a119e109547aa9279d39b6ebf7ca847ff711",
+      "characters": 22678
+    },
+    {
+      "file": "requirements/NON_FUNCTIONAL_REQUIREMENTS.md",
+      "sha256": "50d27299ff18409c13ea3ef69d92e9436ae9c09e9c01ce7ed7fa3bde3471fe88",
+      "characters": 1170
+    },
+    {
+      "file": "requirements/OUT_OF_SCOPE.md",
+      "sha256": "a6b406664c8001bbb3d77bb085871da5af0de54d96a18d2d89780cbf15d89139",
+      "characters": 960
+    },
+    {
+      "file": "requirements/PAGE_REQUIREMENTS.md",
+      "sha256": "4036d48093813610c2d65d154c638a7296953c717924d09e7f82bed074afd2af",
+      "characters": 960
+    },
+    {
+      "file": "requirements/PRD.md",
+      "sha256": "e1acea19f977d528a0536e0473b266da63d5069bd3f3b1f77788357da66f17a1",
+      "characters": 7732
+    },
+    {
+      "file": "requirements/SCORE_MAPPING.md",
+      "sha256": "4616b4b38ecd0471dcf9d1db16b37d209dfc831daf80e2e8b4bd6c4d357e3a0c",
+      "characters": 10826
+    },
+    {
+      "file": "requirements/USER_ROLES.md",
+      "sha256": "e9b39f1dc4a04f61dcbcd837dca05e161410f1af938d969d107d2f7770c8b0e6",
+      "characters": 610
+    },
+    {
+      "file": "requirements/USER_TASKS.md",
+      "sha256": "46765287cd84058ed41767a7eae9e7adf194cbc34e200a172b856f7c94eea983",
+      "characters": 1555
+    },
+    {
+      "file": "research/data_sources/ACQUISITION_METHODS.md",
+      "sha256": "a0f6d72aecf57bff71ac258a6e6ff880f0cd7d7556f73ce278f3fae5e9e26367",
+      "characters": 1721
+    },
+    {
+      "file": "research/data_sources/DATA_SOURCE_CANDIDATES.md",
+      "sha256": "ade43be33b90481eef917147b43198ab66158a76d5cc25b1499e777c66c6bebc",
+      "characters": 34377
+    },
+    {
+      "file": "research/data_sources/DATA_SOURCE_MATRIX.md",
+      "sha256": "1408933af22848d6b2b245df01d265ea26a7adef8f3cfca5384ad69a901d2aa9",
+      "characters": 13384
+    },
+    {
+      "file": "research/data_sources/DATA_SOURCE_REQUIREMENTS.md",
+      "sha256": "ea651dd46a354b571781f3063d6504ad232ef59f59add0527524a06274af7447",
+      "characters": 2014
+    },
+    {
+      "file": "research/data_sources/DATA_SOURCE_SECURITY.md",
+      "sha256": "9e196aaf913c2297c6124de6cc382b49d8469002428188c45a5dc6ed9bdce7d1",
+      "characters": 1164
+    },
+    {
+      "file": "research/data_sources/DEDUP_DESIGN.md",
+      "sha256": "e7a71da1f8156358b3019a921be3a30bc4c5e37f80653bf84f436aaa565f9e10",
+      "characters": 1255
+    },
+    {
+      "file": "research/data_sources/FINAL_DATA_SOURCE_SELECTION.md",
+      "sha256": "158c13c7bd033bdadc2f405920e95a15f2562f3b5f18bc5015e9209222a9d0c9",
+      "characters": 2474
+    },
+    {
+      "file": "research/data_sources/INCREMENTAL_SYNC_DESIGN.md",
+      "sha256": "f7ed0e23a818bc1bf4fa5ec79b267776c62dd88be6d993f01bd1647d7ab4d2bb",
+      "characters": 2773
+    },
+    {
+      "file": "research/data_sources/NORMALIZED_RECORD_DESIGN.md",
+      "sha256": "49b538ae8a1224f0ca91cdc05e6939581154d3c5646364b08cc6f401337f7b74",
+      "characters": 2005
+    },
+    {
+      "file": "research/data_sources/RAW_DATA_STRATEGY.md",
+      "sha256": "92a4860a5651ca78be096eec989832c4d97b79d2d2a93724ec82a61cbebc920e",
+      "characters": 1686
+    },
+    {
+      "file": "research/data_sources/SOURCE_FIELD_MAPPING.md",
+      "sha256": "7e83fe814521a76c9de3533c2e20aa7501b40c643d9fc073cc03ef44785e4928",
+      "characters": 3651
+    },
+    {
+      "file": "research/data_sources/SOURCE_REGISTRY_DESIGN.md",
+      "sha256": "e45644b804055f7c16a6c89e88a4ca71cbf6b25e639d851e2d21c4e5ad817160",
+      "characters": 1371
+    },
+    {
+      "file": "research/data_sources/THIRD_PARTY_DATA_COMPONENTS.md",
+      "sha256": "8c4119e40d27b7b90948d834279b2ae515a13ec35d8bbd520fee091650dde963",
+      "characters": 4309
+    },
+    {
+      "file": "requirements/sources/competition_problem_9.pdf",
+      "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+    }
+  ],
+  "user_request": "C:/Users/X/.codex/attachments/eb9182aa-0a7e-467f-87c1-22633ad8b295/Pasted text.txt"
+}

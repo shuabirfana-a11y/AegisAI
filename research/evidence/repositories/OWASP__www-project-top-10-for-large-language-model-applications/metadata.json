@@ -1,0 +1,71 @@
+{
+  "full_name": "OWASP/www-project-top-10-for-large-language-model-applications",
+  "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications",
+  "homepage": "http://genai.owasp.org",
+  "description": "OWASP Top 10 for Large Language Model Apps (Part of the GenAI Security Project)",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 1432,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2023-05-16T15:12:44Z",
+  "updated_at": "2026-10-01T11:53:29Z",
+  "pushed_at": "2026-08-05T19:19:48Z",
+  "open_issues_count": 87,
+  "default_branch": "main",
+  "requested_repo": "OWASP/www-project-top-10-for-large-language-model-applications",
+  "commit": "99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+  "commit_date": "2026-08-05T19:19:47Z",
+  "commit_message": "Fix Pages build for archived release tab (#865)\n\n* Fix Pages build for archived release tab\n\nRename the tab file and use a Liquid-safe title so the OWASP theme can include it during the Pages build.\n\n* Remove the invalid legacy tab include\n\nComplete the archive-tab rename by deleting tab_example.md so the OWASP theme no longer attempts to include its invalid title-derived path.",
+  "checked_at_utc": "2026-10-03T03:31:33.323621+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/99f4395589bdbd120ae961f9cd179e79d7f9b27f/README.md",
+  "license_path": "LICENSE.md",
+  "license_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/99f4395589bdbd120ae961f9cd179e79d7f9b27f/LICENSE.md",
+  "latest_release": {
+    "tag_name": "2024",
+    "published_at": "2024-11-18T00:35:51Z",
+    "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/releases/tag/2024",
+    "name": "OWASP Top 10 for Large Language Model Applications - 2025"
+  },
+  "recent_issues": [
+    {
+      "number": 872,
+      "title": "CSOAI — OWASP LLM Top10 AI governance",
+      "state": "closed",
+      "updated_at": "2026-10-02T02:53:20Z",
+      "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/issues/872",
+      "comments": 0
+    },
+    {
+      "number": 871,
+      "title": "CSOAI — OWASP LLM Top10 measurement with signed receipts",
+      "state": "closed",
+      "updated_at": "2026-10-02T03:00:29Z",
+      "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/issues/871",
+      "comments": 0
+    },
+    {
+      "number": 870,
+      "title": "Repudiation & Untraceability: was this deliberately excluded from Sprint 1?",
+      "state": "open",
+      "updated_at": "2026-09-14T04:12:28Z",
+      "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/issues/870",
+      "comments": 2
+    },
+    {
+      "number": 866,
+      "title": "ASI07 (Insecure Inter-Agent Communication): offer to author the Sprint 1 entry — is the slot open?",
+      "state": "open",
+      "updated_at": "2026-08-30T15:48:02Z",
+      "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/issues/866",
+      "comments": 1
+    }
+  ]
+}

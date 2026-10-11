@@ -1,0 +1,102 @@
+{
+  "checked_at_utc": "2026-10-03T03:43:56.741862+00:00",
+  "probe_type": "real-public-data-and-local-library",
+  "packaging_version": "26.3",
+  "boundary_tests": [
+    {
+      "version": "0.7.9",
+      "less_than_0_8_4": true,
+      "less_equal_0_8_3": true
+    },
+    {
+      "version": "0.8.3",
+      "less_than_0_8_4": true,
+      "less_equal_0_8_3": true
+    },
+    {
+      "version": "0.8.3.post1",
+      "less_than_0_8_4": true,
+      "less_equal_0_8_3": false
+    },
+    {
+      "version": "0.8.4rc1",
+      "less_than_0_8_4": false,
+      "less_equal_0_8_3": false
+    },
+    {
+      "version": "0.8.4",
+      "less_than_0_8_4": false,
+      "less_equal_0_8_3": false
+    },
+    {
+      "version": "0.8.4+local",
+      "less_than_0_8_4": false,
+      "less_equal_0_8_3": false
+    }
+  ],
+  "canonical_names": {
+    "PyTorch": "pytorch",
+    "torch": "torch",
+    "pytorch": "pytorch",
+    "vLLM": "vllm",
+    "vllm-project": "vllm-project",
+    "VLLM_PROJECT": "vllm-project"
+  },
+  "real_vulnerability": {
+    "cve": "CVE-2025-32434",
+    "cna": "GitHub_M",
+    "osv_alias_match": true,
+    "package": {
+      "name": "torch",
+      "ecosystem": "PyPI",
+      "purl": "pkg:pypi/torch"
+    },
+    "fixed": {
+      "fixed": "2.6.0"
+    },
+    "nvd_records": 1,
+    "nvd_cvss_sources": [
+      {
+        "version": "cvssMetricV40",
+        "source": "security-advisories@github.com",
+        "score": 9.3
+      },
+      {
+        "version": "cvssMetricV31",
+        "source": "nvd@nist.gov",
+        "score": 9.8
+      }
+    ],
+    "cisa_adp_present": true,
+    "kev_catalogVersion": "2026.10.02",
+    "kev_dateReleased": "2026-10-02T15:19:38.2945Z",
+    "kev_included": false,
+    "epss": {
+      "cve": "CVE-2025-32434",
+      "epss": "0.021870000",
+      "percentile": "0.817710000",
+      "date": "2026-10-02"
+    },
+    "ghsa_cve_match": true,
+    "commit_sha": "8d4b8a920a2172523deb95bf20e8e52d50649c04",
+    "commit_message": "Prevent legacy_load when weights_only=True (correctly) (#145111)\n\nPrevent legacy_load when weights_only=True (correctly) (#145020)\r\n\r\nOnly prevent `legacy_load` (.tar format removed in https://github.com/pytorch/pytorch/pull/713), not the whole of `_legacy_load` (.tar format + _use_new_zipfile_serialization=False)\r\n\r\nDifferential Revision: [D68301405](https://our.internmc.facebook.com/intern/diff/D68301405)\r\nPull Request resolved: https://github.com/pytorch/pytorch/pull/145020\r\nApproved by: https://github.com/kit1980, https://github.com/albanD\r\n\r\n(cherry picked from commit 0eda02a94c754e2256ff1701bcc03c40ece2bbef)\r\n\r\nCo-authored-by: Mikayla Gawarecki <mikaylagawarecki@gmail.com>",
+    "commit_files": [
+      "test/test_serialization.py",
+      "torch/serialization.py"
+    ],
+    "commit_verified_scope": "Fetched public diff; did not execute vulnerable software or PoC"
+  },
+  "snapshot_hashes": {
+    "cve.json": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+    "cvefixes_zenodo.json": "991a705f735dc7b42784bbac64bb3253cfef630486e2f9a11de1d4217344006c",
+    "epss.json": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+    "ghsa.json": "517f5cb4159abefb17e6c88b5519541bd667530ba4364da3b65cb83c00310b4b",
+    "kev.json": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+    "morefixes_zenodo.json": "eac43f95517b0e121d4c0b05cfa0a56bba23a0c50811ebda732ac40d2f6b9f6e",
+    "nvd.json": "33cc253b7f32f6fa03e32a43220dd348dff16cd441274d1a13a6465bf0bf38c6",
+    "osv.json": "71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383",
+    "osv_torch_query.json": "1d17c0c2e0dc931ad4d7849d985554e7f7676e2c9acb281318ab3b9ca578639d",
+    "torch_fix_commit.json": "59100d09deff04d78eb113289d72b54192fde037a5b7e0b4d4fb577958eb1be7",
+    "vulnrichment.json": "723c73e10b9255f19d794a28a242e82c57b96a34415d04370ed1881515cb154c"
+  }
+}

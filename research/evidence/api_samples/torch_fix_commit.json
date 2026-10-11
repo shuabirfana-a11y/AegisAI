@@ -1,0 +1,113 @@
+{
+  "sha": "8d4b8a920a2172523deb95bf20e8e52d50649c04",
+  "node_id": "C_kwDOA-j9z9oAKDhkNGI4YTkyMGEyMTcyNTIzZGViOTViZjIwZThlNTJkNTA2NDljMDQ",
+  "commit": {
+    "author": {
+      "name": "pytorchbot",
+      "email": "soumith+bot@pytorch.org",
+      "date": "2025-01-17T23:02:28Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2025-01-17T23:02:28Z"
+    },
+    "message": "Prevent legacy_load when weights_only=True (correctly) (#145111)\n\nPrevent legacy_load when weights_only=True (correctly) (#145020)\r\n\r\nOnly prevent `legacy_load` (.tar format removed in https://github.com/pytorch/pytorch/pull/713), not the whole of `_legacy_load` (.tar format + _use_new_zipfile_serialization=False)\r\n\r\nDifferential Revision: [D68301405](https://our.internmc.facebook.com/intern/diff/D68301405)\r\nPull Request resolved: https://github.com/pytorch/pytorch/pull/145020\r\nApproved by: https://github.com/kit1980, https://github.com/albanD\r\n\r\n(cherry picked from commit 0eda02a94c754e2256ff1701bcc03c40ece2bbef)\r\n\r\nCo-authored-by: Mikayla Gawarecki <mikaylagawarecki@gmail.com>",
+    "tree": {
+      "sha": "79fafd84bf7426090b40429df9d2ec763c3c9973",
+      "url": "https://api.github.com/repos/pytorch/pytorch/git/trees/79fafd84bf7426090b40429df9d2ec763c3c9973"
+    },
+    "url": "https://api.github.com/repos/pytorch/pytorch/git/commits/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJniuGECRC1aQ7uu5UhlAAAURgQAA42ehjNyvH6k4PDLBmBZucd\n05KlI1CsR8GdY3BEAKzahc+kjKIKHmMtyqd+YizGgHYQjqR+kmSHZgcP4b5TfKGS\nTv0xRwOiK99Eu204IncRb7TvB1Ilr/hP3nfbH5aLiK/fACwub7yXExqOj0dNVDZE\n6QmtlLmOQiSowGMOh5JC9hf203B5a5oJIH2g9VoeAFCsRYkAUXpuHDa+q0O92OD/\nwAzbqLQclEYqKVK0J20sxtA4yM9jOW3bYKBOEnz8m/lzsvv5FWUg4VJDnJsIffJv\nX5HdKePK5ZiZJqFBoHiTzpl2Kbjxxf/BPM/I4TAOeuL1uLe2AwwzsvlIHm5w/iSk\ne4VKD855LZqD2rppAeoKy1GhV+bof7Ga2YaGCSUc35buC9yDE9CyMZUnDKC74BLX\netLbtZjWNYxzQz/Pl79Xd1IcVdwxuC5RxDC5ZAX/TLkiLBNuzp/z9F47M6anpbcb\nVFsvEzb/LxSJCLngkXvaLreay9p27XHV3eH5/N3qMPy/kVeWSxlWrQu/xyvZkgLC\nARQBW7cn/cb1TZj+keOzZT4fPrbDd4ZvbQLO2PVgiRNiUcS930pEXTNzh8K95urk\nctJQ3bHrh/NHMgK3LTx6rWelg5zglQ8m3nmqnGALKJYITBvX/ZpnRfElUWBvmfIn\nH17I4pg8V7FfKbLXS+5h\n=7Dsa\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 79fafd84bf7426090b40429df9d2ec763c3c9973\nparent 9c34a2076b37c040b1b9a48b729656fe9e992949\nauthor pytorchbot <soumith+bot@pytorch.org> 1737154948 -0600\ncommitter GitHub <noreply@github.com> 1737154948 -0800\n\nPrevent legacy_load when weights_only=True (correctly) (#145111)\n\nPrevent legacy_load when weights_only=True (correctly) (#145020)\r\n\r\nOnly prevent `legacy_load` (.tar format removed in https://github.com/pytorch/pytorch/pull/713), not the whole of `_legacy_load` (.tar format + _use_new_zipfile_serialization=False)\r\n\r\nDifferential Revision: [D68301405](https://our.internmc.facebook.com/intern/diff/D68301405)\r\nPull Request resolved: https://github.com/pytorch/pytorch/pull/145020\r\nApproved by: https://github.com/kit1980, https://github.com/albanD\r\n\r\n(cherry picked from commit 0eda02a94c754e2256ff1701bcc03c40ece2bbef)\r\n\r\nCo-authored-by: Mikayla Gawarecki <mikaylagawarecki@gmail.com>",
+      "verified_at": "2025-01-17T23:02:31Z"
+    }
+  },
+  "url": "https://api.github.com/repos/pytorch/pytorch/commits/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+  "html_url": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+  "comments_url": "https://api.github.com/repos/pytorch/pytorch/commits/8d4b8a920a2172523deb95bf20e8e52d50649c04/comments",
+  "author": {
+    "login": "pytorchbot",
+    "id": 21957446,
+    "node_id": "MDQ6VXNlcjIxOTU3NDQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/21957446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pytorchbot",
+    "html_url": "https://github.com/pytorchbot",
+    "followers_url": "https://api.github.com/users/pytorchbot/followers",
+    "following_url": "https://api.github.com/users/pytorchbot/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pytorchbot/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pytorchbot/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pytorchbot/subscriptions",
+    "organizations_url": "https://api.github.com/users/pytorchbot/orgs",
+    "repos_url": "https://api.github.com/users/pytorchbot/repos",
+    "events_url": "https://api.github.com/users/pytorchbot/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pytorchbot/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "9c34a2076b37c040b1b9a48b729656fe9e992949",
+      "url": "https://api.github.com/repos/pytorch/pytorch/commits/9c34a2076b37c040b1b9a48b729656fe9e992949",
+      "html_url": "https://github.com/pytorch/pytorch/commit/9c34a2076b37c040b1b9a48b729656fe9e992949"
+    }
+  ],
+  "stats": {
+    "total": 24,
+    "additions": 17,
+    "deletions": 7
+  },
+  "files": [
+    {
+      "sha": "4a661f98a034fd939e4e7742337d998683292312",
+      "filename": "test/test_serialization.py",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "blob_url": "https://github.com/pytorch/pytorch/blob/8d4b8a920a2172523deb95bf20e8e52d50649c04/test%2Ftest_serialization.py",
+      "raw_url": "https://github.com/pytorch/pytorch/raw/8d4b8a920a2172523deb95bf20e8e52d50649c04/test%2Ftest_serialization.py",
+      "contents_url": "https://api.github.com/repos/pytorch/pytorch/contents/test%2Ftest_serialization.py?ref=8d4b8a920a2172523deb95bf20e8e52d50649c04",
+      "patch": "@@ -462,7 +462,11 @@ def _test_serialization_backwards_compat(self, weights_only):\n         b += [a[0].storage()]\n         b += [a[0].reshape(-1)[1:4].clone().storage()]\n         path = download_file('https://download.pytorch.org/test_data/legacy_serialized.pt')\n-        c = torch.load(path, weights_only=weights_only)\n+        if weights_only:\n+            with self.assertRaisesRegex(RuntimeError,\n+                                        \"Cannot use ``weights_only=True`` with files saved in the legacy .tar format.\"):\n+                c = torch.load(path, weights_only=weights_only)\n+        c = torch.load(path, weights_only=False)\n         self.assertEqual(b, c, atol=0, rtol=0)\n         self.assertTrue(isinstance(c[0], torch.FloatTensor))\n         self.assertTrue(isinstance(c[1], torch.FloatTensor))"
+    },
+    {
+      "sha": "ad23e92cc83ae558886ab96abff2adf262d019e1",
+      "filename": "torch/serialization.py",
+      "status": "modified",
+      "additions": 12,
+      "deletions": 6,
+      "changes": 18,
+      "blob_url": "https://github.com/pytorch/pytorch/blob/8d4b8a920a2172523deb95bf20e8e52d50649c04/torch%2Fserialization.py",
+      "raw_url": "https://github.com/pytorch/pytorch/raw/8d4b8a920a2172523deb95bf20e8e52d50649c04/torch%2Fserialization.py",
+      "contents_url": "https://api.github.com/repos/pytorch/pytorch/contents/torch%2Fserialization.py?ref=8d4b8a920a2172523deb95bf20e8e52d50649c04",
+      "patch": "@@ -85,6 +85,13 @@\n \n IS_WINDOWS = sys.platform == \"win32\"\n \n+UNSAFE_MESSAGE = (\n+    \"In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` \"\n+    \"from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, \"\n+    \"but it can result in arbitrary code execution. Do it only if you got the file from a \"\n+    \"trusted source.\"\n+)\n+\n if not IS_WINDOWS:\n     from mmap import MAP_PRIVATE, MAP_SHARED\n else:\n@@ -1324,12 +1331,6 @@ def load(\n         >>> torch.load(\"module.pt\", encoding=\"ascii\", weights_only=False)\n     \"\"\"\n     torch._C._log_api_usage_once(\"torch.load\")\n-    UNSAFE_MESSAGE = (\n-        \"In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` \"\n-        \"from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, \"\n-        \"but it can result in arbitrary code execution. Do it only if you got the file from a \"\n-        \"trusted source.\"\n-    )\n     DOCS_MESSAGE = (\n         \"\\n\\nCheck the documentation of torch.load to learn more about types accepted by default with \"\n         \"weights_only https://pytorch.org/docs/stable/generated/torch.load.html.\"\n@@ -1592,6 +1593,11 @@ def persistent_load(saved_id):\n         with closing(\n             tarfile.open(fileobj=f, mode=\"r:\", format=tarfile.PAX_FORMAT)\n         ) as tar, mkdtemp() as tmpdir:\n+            if pickle_module is _weights_only_unpickler:\n+                raise RuntimeError(\n+                    \"Cannot use ``weights_only=True`` with files saved in the \"\n+                    \"legacy .tar format. \" + UNSAFE_MESSAGE\n+                )\n             tar.extract(\"storages\", path=tmpdir)\n             with open(os.path.join(tmpdir, \"storages\"), \"rb\", 0) as f:\n                 num_storages = pickle_module.load(f, **pickle_load_args)"
+    }
+  ]
+}

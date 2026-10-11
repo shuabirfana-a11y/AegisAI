@@ -1,0 +1,165 @@
+[
+  {
+    "path": "tools/github",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/github/README.md",
+      "tools/github/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/firecrawl",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/firecrawl/README.md",
+      "tools/firecrawl/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/jina",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/jina/README.md",
+      "tools/jina/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/duckduckgo",
+    "last_commit_sha": "09aaaba74c56abe64810e9f8c5d7552f683620a8",
+    "last_commit_date": "2026-09-15T02:44:52Z",
+    "commit_message": "fix(duckduckgo): rate limit errors, and add new search engines option (#3829)\n\n* fix(duckduckgo): throttle, back off and expose backend to survive rate limits\n\nWorkflows that loop over several search nodes fire dozens of scrapes from\none host within a minute. ddgs then gets non-200 or captcha pages from\nevery engine and surfaces it as \"No results found.\", which aborts the run.\n\n- Wrap DDGS calls in search_with_retry: 3 attempts with a fresh DDGS()\n  each time (new fingerprint, reshuffled engines), exponential backoff\n  2s/4s plus jitter, and a process-wide 2s throttle so parallel nodes\n  queue instead of bursting.\n- Raise the ddgs timeout from 5s to 10s so slower engines are not dropped\n  before they answer, leaving only the ones most likely to be blocked.\n- Add an optional `backend` parameter to text and image search so users\n  can pin engines that still answer from their host.\n- Re-raise with a message that says the host was likely blocked and how\n  to work around it instead of the misleading upstream text.\n- Document rate limiting and mitigations in the README.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01N5g7Ac5MwrDtHJFAGcnyhi\n\n* test(duckduckgo): cover retry, backoff and throttle spacing\n\nAdd regression tests for the shared ddgs retry helper, mocking the DDGS\nclient, the clock and the jitter source so no test touches the network:\ntransient failure then success, attempt exhaustion with exact backoff\ndelays, both final-error message branches, proxy/backend forwarding, and\nsearch-slot spacing for parallel and looped callers.\n\nAlso qualify the message raised when every attempt returns \"No results\nfound.\". ddgs collapses an upstream block and a genuinely empty result\nset into the same exception and discards the status code, so the helper\ncannot distinguish them; the message now says a block is the likely\ncause rather than asserting it, and keeps the workarounds.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01GMMc1xxBx6EwADxtHQfhyA\n\n* chore(duckduckgo): bump plugin version to 0.0.13 after merging main\n\nMain independently bumped duckduckgo to 0.0.12 for an icon/dependency\nrefresh, colliding with this branch's own bump. Bump once more so the\nrate-limit fix stays a distinct, installable version.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HTVkHb8tWqz3qoaP6aVqV7\n\n* duckduckgo: harden ddgs scraping against blocked engines and unparsed page layouts\n\nUnder parallel search, most \"No results found.\" failures were not empty\nresults. ddgs sends a random browser+OS fingerprint per request; with a\nmobile fingerprint Yahoo serves a mobile page layout the ddgs parser\ncannot read. Yahoo also drops connections under concurrency, and engines\nthat have already rate-limited us keep being retried.\n\nAdd tools/ddgs_hardening.py, applied at import by ddgs_utils, with five\nmeasures, each switchable by env var (default on):\n\n- DDG_DESKTOP_FINGERPRINT: pin the imitated OS to windows/macos\n- DDG_YAHOO_MOBILE_PARSER: fallback parser for Yahoo's mobile layout\n- DDG_ENGINE_DIAGNOSTICS: log per-engine status and page class, and\n  include them in the final error message\n- DDG_ENGINE_COOLDOWN_SECONDS: skip engines that just rate-limited or\n  blocked us on the next auto-mode attempts\n- DDG_TRANSPORT_RETRIES: resend a request whose connection the engine\n  dropped instead of losing the whole attempt\n\nsearch_with_retry now picks healthy engines per attempt (unless the\ncaller pinned a backend) and appends the per-attempt engine responses\nto the raised DDGSException.\n\nTests in tests/test_ddgs_hardening.py.\n\n---------\n\nCo-authored-by: Claude Fable 5.1 <noreply@anthropic.com>\nCo-authored-by: emilychoi-dev <emily.choi@thinkcol.com>",
+    "files": [
+      "tools/duckduckgo/README.md",
+      "tools/duckduckgo/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/dify_extractor",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/dify_extractor/README.md",
+      "tools/dify_extractor/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/arxiv",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/arxiv/README.md",
+      "tools/arxiv/manifest.yaml"
+    ]
+  },
+  {
+    "path": "tools/crossref",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/crossref/README.md",
+      "tools/crossref/manifest.yaml"
+    ]
+  },
+  {
+    "path": "agent-strategies/cot_agent",
+    "last_commit_sha": "3b4e77c0be57dfcdde48183243fef411664e8755",
+    "last_commit_date": "2026-09-28T02:36:05Z",
+    "commit_message": "fix(cot_agent): parser edge cases: stale JSON flush, spurious flags, final-answer variants, dropped EOF prefixes (#3952)\n\n- Reset the prefix matcher state after a completed JSON blob flush so\n  a prefix right after a blob ({...}Action: / {...}FinalAnswer:) is no\n  longer leaked as thought text or blocks live answer streaming\n  ({, }, tab and CR are now accepted as prefix delimiters).\n- Only flag JSON blobs as parse failures when they are action-shaped\n  (emitted after Action: or carrying action-ish keys); innocent JSON\n  such as citations, markdown links or arbitrary objects is now plain\n  thought text, so the round is no longer killed by a spurious\n  \"Action parse failed\".\n- Accept the compact \"FinalAnswer\" and underscore \"final_answer\" JSON\n  action names as final answers via a shared is_final_action()\n  predicate used by the strategy (the SDK AgentScratchpadUnit.is_final\n  spellings remain covered).\n- Flush partial prefix matcher caches at stream end so a response cut\n  mid-prefix no longer silently drops those characters.\n- Coerce malformed (non-dict/str) action_input to a JSON string so a\n  list/scalar input never raises out of the parser.\n\nCo-authored-by: hpiclaranet <hpiclaranet@users.noreply.github.com>",
+    "files": [
+      "agent-strategies/cot_agent/README.md",
+      "agent-strategies/cot_agent/manifest.yaml"
+    ]
+  },
+  {
+    "path": "triggers/rsshub_trigger",
+    "last_commit_sha": "2f7fb36e2338bd87b4944dd65d110c072941cdb4",
+    "last_commit_date": "2026-09-22T09:03:34Z",
+    "commit_message": "fix(deps): refresh dependencies for 25 model and trigger plugins (#3912)",
+    "files": [
+      "triggers/rsshub_trigger/README.md",
+      "triggers/rsshub_trigger/manifest.yaml"
+    ]
+  },
+  {
+    "path": "triggers/github_trigger",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "triggers/github_trigger/README.md",
+      "triggers/github_trigger/manifest.yaml"
+    ]
+  },
+  {
+    "path": "datasources/github",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "datasources/github/README.md",
+      "datasources/github/manifest.yaml",
+      "datasources/github/datasources/github.py",
+      "datasources/github/main.py",
+      "datasources/github/provider/github.py"
+    ]
+  },
+  {
+    "path": "datasources/firecrawl_datasource",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "datasources/firecrawl_datasource/README.md",
+      "datasources/firecrawl_datasource/manifest.yaml",
+      "datasources/firecrawl_datasource/datasources/crawl.py",
+      "datasources/firecrawl_datasource/datasources/firecrawl_app.py",
+      "datasources/firecrawl_datasource/main.py",
+      "datasources/firecrawl_datasource/provider/firecrawl_datasource.py",
+      "datasources/firecrawl_datasource/tests/test_firecrawl_v2.py"
+    ]
+  },
+  {
+    "path": "tools/sqlite",
+    "last_commit_sha": "a6371bbb8f37efb305fb0fe230129abf5f5bceb4",
+    "last_commit_date": "2026-09-22T09:14:26Z",
+    "commit_message": "fix(deps): refresh dependencies for 43 tool plugins (#3911)\n\n* fix(deps): refresh dependencies for 43 tool plugins\n\n* fix(dingo): align metadata with registered tools",
+    "files": [
+      "tools/sqlite/README.md",
+      "tools/sqlite/manifest.yaml",
+      "tools/sqlite/main.py",
+      "tools/sqlite/provider/sqlite_plugin.py",
+      "tools/sqlite/tools/create_table.py",
+      "tools/sqlite/tools/delete_sql.py",
+      "tools/sqlite/tools/insert_json.py",
+      "tools/sqlite/tools/insert_sql.py",
+      "tools/sqlite/tools/select_sql.py",
+      "tools/sqlite/tools/update_json.py"
+    ]
+  },
+  {
+    "path": "tools/websearch",
+    "last_commit_sha": "0ec510844e5a8ce594fde911a144e2b0485a59eb",
+    "last_commit_date": "2026-09-09T19:57:04Z",
+    "commit_message": "chore(plugins): refresh verified icons and dependencies, fix CI (#3850)",
+    "files": [
+      "tools/websearch/README.md",
+      "tools/websearch/manifest.yaml",
+      "tools/websearch/main.py",
+      "tools/websearch/provider/websearch.py",
+      "tools/websearch/tools/get_markdown.py",
+      "tools/websearch/tools/job_search.py",
+      "tools/websearch/tools/news_search.py",
+      "tools/websearch/tools/scholar_search.py",
+      "tools/websearch/tools/web_search.py"
+    ]
+  }
+]

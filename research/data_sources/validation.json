@@ -1,0 +1,101 @@
+{
+  "phase": 2,
+  "verified_at_utc": "2026-10-03T05:57:48.612494+00:00",
+  "passed": true,
+  "errors": [],
+  "markdown_files": [
+    "DATA_SOURCE_REQUIREMENTS",
+    "DATA_SOURCE_CANDIDATES",
+    "DATA_SOURCE_MATRIX",
+    "FINAL_DATA_SOURCE_SELECTION",
+    "SOURCE_FIELD_MAPPING",
+    "ACQUISITION_METHODS",
+    "INCREMENTAL_SYNC_DESIGN",
+    "RAW_DATA_STRATEGY",
+    "NORMALIZED_RECORD_DESIGN",
+    "DEDUP_DESIGN",
+    "SOURCE_REGISTRY_DESIGN",
+    "THIRD_PARTY_DATA_COMPONENTS",
+    "DATA_SOURCE_SECURITY"
+  ],
+  "candidate_sources": 35,
+  "selected_sources": 17,
+  "repositories_checked": 38,
+  "http_attempt_records": 224,
+  "raw_response_files_hashed": 210,
+  "actual_kev_entries": 1733,
+  "core": [
+    "CVE_LIST",
+    "OSV",
+    "CISA_KEV"
+  ],
+  "design_examples": 6,
+  "criteria": [
+    {
+      "check": "信息需求映射",
+      "result": "PASS",
+      "evidence": "24类信息已登记，22核心及标准/政策映射检查"
+    },
+    {
+      "check": "采用源存在",
+      "result": "PASS",
+      "evidence": "17个有限采用入口均有本轮官方HTTP/仓库证据；空/202源不采用"
+    },
+    {
+      "check": "官方获取方式",
+      "result": "PASS",
+      "evidence": "官方文档/README/API响应及URL留存；HTML例外与使用范围明确"
+    },
+    {
+      "check": "无虚构API",
+      "result": "PASS",
+      "evidence": "核心样本与官方docs已核；未知NVD规则/厂商接口不编造"
+    },
+    {
+      "check": "首批3源冻结",
+      "result": "PASS",
+      "evidence": "CVE_LIST、OSV、CISA_KEV且无第四源"
+    },
+    {
+      "check": "第二批优先级",
+      "result": "PASS",
+      "evidence": "8组顺序；M1必须知识类别明确"
+    },
+    {
+      "check": "增量",
+      "result": "PASS",
+      "evidence": "Git/OSV索引/KEV条件快照，断点/失败/撤销与缺口"
+    },
+    {
+      "check": "Raw",
+      "result": "PASS",
+      "evidence": "原字节hash、revision、transport与parsed hash边界"
+    },
+    {
+      "check": "重复",
+      "result": "PASS",
+      "evidence": "主体/raw/来源三层，alias一对多，不转载投票"
+    },
+    {
+      "check": "Evidence",
+      "result": "PASS",
+      "evidence": "Raw→Record→Evidence→Claim和字段位置/时间/scope"
+    },
+    {
+      "check": "License",
+      "result": "PASS",
+      "evidence": "实际LICENSE/官方条款检查；unknown保留且限制获取/再分发"
+    },
+    {
+      "check": "安全",
+      "result": "PASS",
+      "evidence": "UNTRUSTED、固定地址/权限、未知POC与下载脚本不执行"
+    }
+  ],
+  "limits": [
+    "当前仅完成调研/设计和少量官方接口probe，未部署Collector/DB/UI/Dify/Agent",
+    "未知许可/服务限制未视为已确认；只按声明metadata/link模式采用",
+    "条件304、生产事务/恢复与性能留实现阶段实测",
+    "类别认定与评审规则对照；不宣称已得分/准确率/全域覆盖"
+  ]
+}

@@ -1,0 +1,69 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+______ test_cve_partial_diff_resume_does_not_rediscover_completed_paths _______
+
+tmp_path = WindowsPath('C:/Users/X/AppData/Local/Temp/pytest-of-X/pytest-17/test_cve_partial_diff_resume_d0')
+
+    def test_cve_partial_diff_resume_does_not_rediscover_completed_paths(tmp_path):
+        cache=tmp_path/'git_metadata';(cache/'.git').mkdir(parents=True)
+        http=HttpClient(Settings(request_interval=0),transport=httpx.MockTransport(lambda req:httpx.Response(200,content=(F/'cve.json').read_bytes())))
+        collector=CVECollector(Settings(cve_cache=cache),http);collector.bootstrap=[]
+        a='cves/2025/32xxx/CVE-2025-32001.json';b='cves/2025/32xxx/CVE-2025-32002.json';sha='a'*40
+        def git(*args,check=True):
+            if args[0]=='remote':value='https://github.com/CVEProject/cvelistV5.git\n'
+            elif args[0]=='ls-remote':value=sha+'\trefs/heads/main\n'
+            elif args[0]=='ls-tree':value=a+'\n'+b+'\n'
+            elif args[0] in ('cat-file','merge-base'):value=''
+            elif args[0]=='diff':value='' if args[2]==args[3] else a+'\n'+b+'\n'
+            else:raise AssertionError(args)
+            return SimpleNamespace(returncode=0,stdout=value.encode())
+        collector.git=git;before={'commit':'b'*40,'covered_paths':[a,b],'pending_paths':[]}
+        first=collector.collect(before,1,lambda e:None)
+        checkpoint=collector.finalize_checkpoint(before,first.checkpoint,['CVE-2025-32002'],False)
+        second=collector.collect(checkpoint,1,lambda e:None)
+>       assert second.pending==['CVE-2025-32002']
+E       AssertionError: assert ['CVE-2025-32...E-2025-32001'] == ['CVE-2025-32002']
+E         
+E         Left contains one more item: 'CVE-2025-32001'
+E         Use -v to get more diff
+
+backend\tests\test_collectors_sync.py:193: AssertionError
+______ test_osv_partial_window_resumes_without_requeueing_completed_ids _______
+
+    def test_osv_partial_window_resumes_without_requeueing_completed_ids():
+        index=b'2026-10-03T00:00:00Z,TEST-A\n2026-10-03T00:00:00Z,TEST-B\n'
+        http=HttpClient(Settings(request_interval=0),transport=httpx.MockTransport(lambda req:httpx.Response(200,content=index)))
+        collector=OSVCollector(http,bootstrap_ids=[]);raw=SimpleNamespace(id=uuid4())
+        before={'baseline_bound':2,'watermark':'2026-10-02T00:00:00Z','pending':[]}
+        first=collector.collect(before,1,lambda e:raw)
+        checkpoint=collector.finalize_checkpoint(before,first.checkpoint,['TEST-B'],False)
+        assert checkpoint['watermark']==before['watermark']
+        second=collector.collect(checkpoint,1,lambda e:raw)
+>       assert second.pending==['TEST-B']
+E       AssertionError: assert ['TEST-B', 'TEST-A'] == ['TEST-B']
+E         
+E         Left contains one more item: 'TEST-A'
+E         Use -v to get more diff
+
+backend\tests\test_collectors_sync.py:206: AssertionError
+__________ test_osv_recheck_preserves_newly_discovered_window_items ___________
+
+    def test_osv_recheck_preserves_newly_discovered_window_items():
+        index=b'2026-10-03T00:00:00Z,TEST-A\n2026-10-03T00:00:00Z,TEST-B\n'
+        http=HttpClient(Settings(request_interval=0),transport=httpx.MockTransport(lambda req:httpx.Response(200,content=index)))
+        collector=OSVCollector(http,bootstrap_ids=[]);raw=SimpleNamespace(id=uuid4())
+        before={'baseline_bound':2,'watermark':'2026-10-02T00:00:00Z','pending':[],'last_processed_ids':['TEST-A'],'recheck':True}
+        batch=collector.collect(before,1,lambda e:raw)
+>       assert set(batch.pending)=={'TEST-A','TEST-B'}
+E       AssertionError: assert {'TEST-A'} == {'TEST-A', 'TEST-B'}
+E         
+E         Extra items in the right set:
+E         'TEST-B'
+E         Use -v to get more diff
+
+backend\tests\test_collectors_sync.py:217: AssertionError
+=========================== short test summary info ===========================
+FAILED backend\tests\test_collectors_sync.py::test_cve_partial_diff_resume_does_not_rediscover_completed_paths
+FAILED backend\tests\test_collectors_sync.py::test_osv_partial_window_resumes_without_requeueing_completed_ids
+FAILED backend\tests\test_collectors_sync.py::test_osv_recheck_preserves_newly_discovered_window_items
+3 failed, 14 deselected in 0.61s

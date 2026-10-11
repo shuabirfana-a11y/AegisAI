@@ -1,0 +1,4862 @@
+{
+  "kind": "IMPLEMENTED PERSISTENCE MODELS; BUSINESS SERVICES NOT IMPLEMENTED",
+  "tables": [
+    {
+      "model": "AgentRun",
+      "table": "app.agent_runs",
+      "purpose": "用户请求与可审计摘要/状态/时延，尚未连接Agent",
+      "columns": [
+        {
+          "name": "actor_principal",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：actor_principal；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "user_request",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：user_request；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "agent_type",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：agent_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "context",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：context；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "started_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：started_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "finished_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：finished_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "duration_ms",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：duration_ms；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "result_summary",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：result_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "error_summary",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：error_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "Asset",
+      "table": "app.assets",
+      "purpose": "授权资产的轻量身份、owner和演示标识，未实现扫描器",
+      "columns": [
+        {
+          "name": "name",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "asset_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：asset_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "owner_principal",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：owner_principal；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "is_demo",
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": "false",
+          "foreign_keys": [],
+          "meaning": "领域字段：is_demo；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "deleted_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：deleted_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "AiSecurityCategory",
+      "table": "core.ai_security_categories",
+      "purpose": "解释性AI风险分类目录，无伪造分类评分",
+      "columns": [
+        {
+          "name": "category_key",
+          "type": "VARCHAR(80)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：category_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "name",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "Product",
+      "table": "core.products",
+      "purpose": "面向用户的产品身份，与分发生态包分开",
+      "columns": [
+        {
+          "name": "canonical_key",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：canonical_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "canonical_name",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：canonical_name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "vendor",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：vendor；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "product_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "software",
+          "foreign_keys": [],
+          "meaning": "领域字段：product_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "homepage",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：homepage；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "deleted_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：deleted_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "Vulnerability",
+      "table": "core.vulnerabilities",
+      "purpose": "去重后的问题主体，不承载全部富化字段",
+      "columns": [
+        {
+          "name": "canonical_id",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：canonical_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：title；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：description；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "modified_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源修改时间，可未知"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "primary_severity",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：primary_severity；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "领域字段：revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "deleted_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：deleted_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "Weakness",
+      "table": "core.weaknesses",
+      "purpose": "CWE身份；不猜缺失分类",
+      "columns": [
+        {
+          "name": "cwe_id",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：cwe_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "name",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "EvaluationDataset",
+      "table": "evaluation.datasets",
+      "purpose": "隔离评测集合、split/as_of/rubric和冻结hash",
+      "columns": [
+        {
+          "name": "dataset_key",
+          "type": "VARCHAR(120)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：dataset_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "revision_hash",
+          "type": "VARCHAR(64)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：revision_hash；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "task_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：task_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "split",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：split；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "as_of",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：as_of；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "frozen_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：frozen_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "rubric_version",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：rubric_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：description；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "Source",
+      "table": "raw.sources",
+      "purpose": "注册来源/类别/权威范围/覆盖与checkpoint，研究检查时间不充当运行成功",
+      "columns": [
+        {
+          "name": "source_key",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：source_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "name",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：source_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "category",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：category；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "authority_level",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：authority_level；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "authority_scope",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：authority_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "acquisition_method",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：acquisition_method；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "base_url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：base_url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": "false",
+          "foreign_keys": [],
+          "meaning": "领域字段：enabled；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "update_interval",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "3600",
+          "foreign_keys": [],
+          "meaning": "领域字段：update_interval；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "last_sync_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：last_sync_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "last_success_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：last_success_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "planned",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "license_scope",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：license_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "checkpoint",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：checkpoint；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "coverage_scope",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：coverage_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "ToolCallRecord",
+      "table": "app.tool_call_records",
+      "purpose": "完成/失败/timeout工具事件，结构化输入输出摘要，不保存私有思维",
+      "columns": [
+        {
+          "name": "agent_run_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "app.agent_runs.id"
+          ],
+          "meaning": "领域字段：agent_run_id；按本模型语义保存原值/明确结果；FK app.agent_runs.id"
+        },
+        {
+          "name": "sequence_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：sequence_no；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "attempt",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "领域字段：attempt；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "tool_name",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：tool_name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "input_summary",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：input_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "output_summary",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：output_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "started_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：started_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "finished_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：finished_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "duration_ms",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：duration_ms；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "error_summary",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：error_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "ExternalIdentifier",
+      "table": "core.external_identifiers",
+      "purpose": "命名空间内唯一的外部身份，公告身份不等于单一漏洞",
+      "columns": [
+        {
+          "name": "namespace",
+          "type": "VARCHAR(120)",
+          "nullable": false,
+          "default": "global",
+          "foreign_keys": [],
+          "meaning": "领域字段：namespace；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "identifier_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：identifier_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "identifier_value",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：identifier_value；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "normalized_value",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：normalized_value；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "PackageIdentifier",
+      "table": "core.package_identifiers",
+      "purpose": "生态/namespace/包名/PURL的分发身份，CPE/repository作为补充",
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.products.id"
+        },
+        {
+          "name": "ecosystem",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：ecosystem；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "namespace",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "",
+          "foreign_keys": [],
+          "meaning": "领域字段：namespace；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "package_name",
+          "type": "VARCHAR(300)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：package_name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "purl",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：purl；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "cpe",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：cpe；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "repository",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：repository；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "ProductAlias",
+      "table": "core.product_aliases",
+      "purpose": "有来源的名称候选；重名可歧义，未审别名不授权自动合并",
+      "columns": [
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.products.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "alias",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：alias；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "normalized_alias",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：normalized_alias；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "alias_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：alias_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "namespace",
+          "type": "VARCHAR(80)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：namespace；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verification_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "pending",
+          "foreign_keys": [],
+          "meaning": "四态当前投影/源候选态，严重度独立"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "Reference",
+      "table": "core.references",
+      "purpose": "原始URL及经明确规则形成的canonical URL",
+      "columns": [
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "canonical_url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：canonical_url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：title；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reference_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：reference_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "EvaluationCase",
+      "table": "evaluation.cases",
+      "purpose": "输入、真值状态、来源快照、lineage分组，draft不是gold",
+      "columns": [
+        {
+          "name": "dataset_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "evaluation.datasets.id"
+          ],
+          "meaning": "领域字段：dataset_id；按本模型语义保存原值/明确结果；FK evaluation.datasets.id"
+        },
+        {
+          "name": "case_key",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：case_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "input_json",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：input_json；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "ground_truth",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "人工确认真值，可unknown/null"
+        },
+        {
+          "name": "ground_truth_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "draft",
+          "foreign_keys": [],
+          "meaning": "draft/validated/unknown；draft不得算gold"
+        },
+        {
+          "name": "adjudicator",
+          "type": "VARCHAR(150)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：adjudicator；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "ground_truth_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：ground_truth_reason；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "evidence_snapshot",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：evidence_snapshot；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "lineage_group",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：lineage_group；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "EvaluationRun",
+      "table": "evaluation.runs",
+      "purpose": "固定数据集/代码/模型/配置与环境的一次已结束评测",
+      "columns": [
+        {
+          "name": "dataset_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "evaluation.datasets.id"
+          ],
+          "meaning": "领域字段：dataset_id；按本模型语义保存原值/明确结果；FK evaluation.datasets.id"
+        },
+        {
+          "name": "started_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：started_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "finished_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：finished_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "code_revision",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：code_revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "model_version",
+          "type": "VARCHAR(150)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：model_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "configuration",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：configuration；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "environment",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：environment；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "RawDocument",
+      "table": "raw.raw_documents",
+      "purpose": "不可变源内容修订与准确字节hash，未知字段和原始出版时间并存",
+      "columns": [
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "external_id",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：external_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source_url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：source_url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "modified_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源修改时间，可未知"
+        },
+        {
+          "name": "retrieved_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "成功取得原文/当前观察UTC"
+        },
+        {
+          "name": "content_type",
+          "type": "VARCHAR(100)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：content_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "raw_payload",
+          "type": "BYTEA",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "准确entity字节BYTEA，最大16MiB；不执行内容"
+        },
+        {
+          "name": "parsed_payload",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "可选JSON解析缓存，不用于计算原文字节hash"
+        },
+        {
+          "name": "content_hash",
+          "type": "VARCHAR(64)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "准确raw字节SHA256；不证明发布者或事实真伪"
+        },
+        {
+          "name": "completeness",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：completeness；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "publisher",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：publisher；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "license_scope",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：license_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "SyncRun",
+      "table": "raw.sync_runs",
+      "purpose": "一次真实同步及分类计数/游标/缺口，失败不推进完整成功",
+      "columns": [
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "started_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：started_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "finished_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：finished_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "queued",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "records_fetched",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "0",
+          "foreign_keys": [],
+          "meaning": "领域字段：records_fetched；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "records_created",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "0",
+          "foreign_keys": [],
+          "meaning": "领域字段：records_created；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "records_updated",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "0",
+          "foreign_keys": [],
+          "meaning": "领域字段：records_updated；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "records_skipped",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "0",
+          "foreign_keys": [],
+          "meaning": "领域字段：records_skipped；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "records_failed",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "0",
+          "foreign_keys": [],
+          "meaning": "领域字段：records_failed；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "cursor_before",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：cursor_before；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "cursor_after",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：cursor_after；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "mode",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "incremental",
+          "foreign_keys": [],
+          "meaning": "领域字段：mode；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "coverage_scope",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：coverage_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "known_gaps",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：known_gaps；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "error_summary",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：error_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "retry_of_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sync_runs.id"
+          ],
+          "meaning": "领域字段：retry_of_id；按本模型语义保存原值/明确结果；FK raw.sync_runs.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "AssetComponent",
+      "table": "app.asset_components",
+      "purpose": "精确/原始版本、包身份及库存修订；歧义可null",
+      "columns": [
+        {
+          "name": "asset_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "app.assets.id"
+          ],
+          "meaning": "领域字段：asset_id；按本模型语义保存原值/明确结果；FK app.assets.id"
+        },
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.package_identifiers.product_id",
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.package_identifiers.product_id, core.products.id"
+        },
+        {
+          "name": "package_identifier_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.package_identifiers.id"
+          ],
+          "meaning": "已解析生态包身份外键；FK core.package_identifiers.id"
+        },
+        {
+          "name": "version",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "raw_package_name",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：raw_package_name；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "manual",
+          "foreign_keys": [],
+          "meaning": "领域字段：source；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "inventory_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "组件库存乐观修订"
+        },
+        {
+          "name": "identity_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：identity_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "deleted_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：deleted_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "EvaluationResult",
+      "table": "evaluation.results",
+      "purpose": "每题prediction/correct/status/完整latency与rubric，失败不移除分母",
+      "columns": [
+        {
+          "name": "dataset_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "evaluation.cases.dataset_id",
+            "evaluation.datasets.id",
+            "evaluation.runs.dataset_id"
+          ],
+          "meaning": "领域字段：dataset_id；按本模型语义保存原值/明确结果；FK evaluation.cases.dataset_id, evaluation.datasets.id, evaluation.runs.dataset_id"
+        },
+        {
+          "name": "run_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "evaluation.runs.id"
+          ],
+          "meaning": "领域字段：run_id；按本模型语义保存原值/明确结果；FK evaluation.runs.id"
+        },
+        {
+          "name": "case_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "evaluation.cases.id"
+          ],
+          "meaning": "领域字段：case_id；按本模型语义保存原值/明确结果；FK evaluation.cases.id"
+        },
+        {
+          "name": "prediction",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：prediction；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "correct",
+          "type": "BOOLEAN",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "逐题判定，可未知；不能把timeout默认为正确"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "latency_ms",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "完整测量时延毫秒，非首token时间"
+        },
+        {
+          "name": "rubric_score",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：rubric_score；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "error_summary",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：error_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "EpssSnapshot",
+      "table": "intel.epss_snapshots",
+      "purpose": "每日分数/percentile/model及更正raw修订，缺失不填0",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id"
+        },
+        {
+          "name": "score",
+          "type": "NUMERIC(9, 8)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：score；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "percentile",
+          "type": "NUMERIC(9, 8)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：percentile；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "score_date",
+          "type": "DATE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：score_date；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "observed_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "源声明的观察/模型日期上下文，UTC"
+        },
+        {
+          "name": "model_version",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：model_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "KnowledgeDocument",
+      "table": "intel.knowledge_documents",
+      "purpose": "论文/公告/分析/事件/标准/政策，保留类型/版次/发布机关/许可",
+      "columns": [
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id"
+        },
+        {
+          "name": "external_id",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：external_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "document_type",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：document_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：title；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：content；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "edition",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：edition；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "authors",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：authors；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "publisher",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：publisher；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "language",
+          "type": "VARCHAR(20)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：language；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "publication_status",
+          "type": "VARCHAR(30)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：publication_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "modified_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源修改时间，可未知"
+        },
+        {
+          "name": "effective_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：effective_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "license_scope",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "unknown",
+          "foreign_keys": [],
+          "meaning": "领域字段：license_scope；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "领域字段：revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "deleted_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：deleted_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "KnownExploitation",
+      "table": "intel.known_exploitation",
+      "purpose": "完整目录下的收录/未在该次目录/未知，不以false宣告没被利用",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id"
+        },
+        {
+          "name": "known_exploited",
+          "type": "BOOLEAN",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：known_exploited；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "catalog_status",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：catalog_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "catalog_complete",
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": "false",
+          "foreign_keys": [],
+          "meaning": "领域字段：catalog_complete；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "catalog_version",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：catalog_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "observed_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "源声明的观察/模型日期上下文，UTC"
+        },
+        {
+          "name": "date_added",
+          "type": "DATE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：date_added；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "due_date",
+          "type": "DATE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：due_date；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "required_action",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：required_action；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "SourceObservation",
+      "table": "raw.source_observations",
+      "purpose": "某次获取或标准化完成观察，源/原文/locator/lineage/normalizer独立保留",
+      "columns": [
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.source_id",
+            "raw.sources.id",
+            "raw.sync_runs.source_id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.raw_documents.source_id, raw.sources.id, raw.sync_runs.source_id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id"
+        },
+        {
+          "name": "sync_run_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sync_runs.id"
+          ],
+          "meaning": "领域字段：sync_run_id；按本模型语义保存原值/明确结果；FK raw.sync_runs.id"
+        },
+        {
+          "name": "external_id",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：external_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "record_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：record_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "retrieved_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "成功取得原文/当前观察UTC"
+        },
+        {
+          "name": "http_status",
+          "type": "INTEGER",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：http_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "raw_locator",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：raw_locator；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "lineage_key",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "原发布依赖组，镜像/转载不能增加独立票"
+        },
+        {
+          "name": "publisher",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：publisher；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "upstream_observation_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "领域字段：upstream_observation_id；按本模型语义保存原值/明确结果；FK raw.source_observations.id"
+        },
+        {
+          "name": "normalizer_version",
+          "type": "VARCHAR(60)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：normalizer_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "normalized_payload",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：normalized_payload；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "parse_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "pending",
+          "foreign_keys": [],
+          "meaning": "parsed/unsupported/failed，非确定性猜测"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "AffectedVersionRange",
+      "table": "core.affected_version_ranges",
+      "purpose": "某源/包/分支的原范围和机器表示，失败/unsupported保持原文",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.package_identifiers.product_id",
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.package_identifiers.product_id, core.products.id"
+        },
+        {
+          "name": "package_identifier_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.package_identifiers.id"
+          ],
+          "meaning": "已解析生态包身份外键；FK core.package_identifiers.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "introduced",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "起点；OSV 0为无已知下界标记，不是软件0.0.0"
+        },
+        {
+          "name": "fixed",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "明确修复边界，不从last_affected推断"
+        },
+        {
+          "name": "last_affected",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "最后受影响，包含上界，与fixed不同"
+        },
+        {
+          "name": "limit_version",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "limit排他边界，与已修复断言不同"
+        },
+        {
+          "name": "range_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：range_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "raw_expression",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "完整原始版本表达，不因解析失败丢弃"
+        },
+        {
+          "name": "events",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "规范事件序列；introduced=0等原始语义保留"
+        },
+        {
+          "name": "explicit_versions",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "源明确列举版本；null未知，[]只用于观测空集"
+        },
+        {
+          "name": "branch",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：branch；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "scope_key",
+          "type": "VARCHAR(128)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "确定性范围标识，比较前核对生态包/分支/评分版本/日期"
+        },
+        {
+          "name": "parse_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "parsed/unsupported/failed，非确定性猜测"
+        },
+        {
+          "name": "parse_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：parse_reason；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "parser_version",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：parser_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verification_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "pending",
+          "foreign_keys": [],
+          "meaning": "四态当前投影/源候选态，严重度独立"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "AiRelevanceAssessment",
+      "table": "core.ai_relevance_assessments",
+      "purpose": "relevant/irrelevant/uncertain、方法/版本/理由及时间",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "knowledge_document_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.knowledge_documents.id"
+          ],
+          "meaning": "领域字段：knowledge_document_id；按本模型语义保存原值/明确结果；FK intel.knowledge_documents.id"
+        },
+        {
+          "name": "method",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：method；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "result",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：result；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reason_summary",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "可审计结论理由，不是模型私有Chain-of-Thought"
+        },
+        {
+          "name": "model_version",
+          "type": "VARCHAR(100)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：model_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "evaluated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：evaluated_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "CvssAssessment",
+      "table": "core.cvss_assessments",
+      "purpose": "来源/评估版本/范围独立评分，选择由typed Claim表达",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "version",
+          "type": "VARCHAR(10)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "vector",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：vector；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "base_score",
+          "type": "NUMERIC(3, 1)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：base_score；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "severity",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：severity；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "provider",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：provider；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "assessment_kind",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "base",
+          "foreign_keys": [],
+          "meaning": "领域字段：assessment_kind；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "scope_key",
+          "type": "VARCHAR(128)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "确定性范围标识，比较前核对生态包/分支/评分版本/日期"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "VulnerabilityIdentifier",
+      "table": "core.vulnerability_identifiers",
+      "purpose": "精确身份关联；CVE单一归属，公告可连接多个漏洞",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "identifier_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.external_identifiers.id"
+          ],
+          "meaning": "领域字段：identifier_id；按本模型语义保存原值/明确结果；FK core.external_identifiers.id"
+        },
+        {
+          "name": "identifier_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.external_identifiers.identifier_type"
+          ],
+          "meaning": "领域字段：identifier_type；按本模型语义保存原值/明确结果；FK core.external_identifiers.identifier_type"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "VulnerabilityReference",
+      "table": "core.vulnerability_references",
+      "purpose": "公告/引用对多漏洞的关联和原始观察",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "reference_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.references.id"
+          ],
+          "meaning": "领域字段：reference_id；按本模型语义保存原值/明确结果；FK core.references.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "VulnerabilityWeakness",
+      "table": "core.vulnerability_weaknesses",
+      "purpose": "多CWE及各自来源观察",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "weakness_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.weaknesses.id"
+          ],
+          "meaning": "领域字段：weakness_id；按本模型语义保存原值/明确结果；FK core.weaknesses.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "KnowledgeChunk",
+      "table": "intel.knowledge_chunks",
+      "purpose": "冻结文档revision/chunker/index与原文定位，尚未切块或生成向量",
+      "columns": [
+        {
+          "name": "document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.knowledge_documents.id"
+          ],
+          "meaning": "领域字段：document_id；按本模型语义保存原值/明确结果；FK intel.knowledge_documents.id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id"
+        },
+        {
+          "name": "document_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：document_revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "chunk_index",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：chunk_index；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "chunker_version",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：chunker_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "content",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：content；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "content_hash",
+          "type": "VARCHAR(64)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "准确raw字节SHA256；不证明发布者或事实真伪"
+        },
+        {
+          "name": "locator",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "对当前raw版本有效的JSON Pointer/page/span等结构化定位"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "PatchCandidate",
+      "table": "intel.patch_candidates",
+      "purpose": "完整commit/PR/release/fixed候选及包/分支适用关系",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.products.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "patch_type",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：patch_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "identity_key",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：identity_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "commit_sha",
+          "type": "VARCHAR(64)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：commit_sha；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "release_version",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：release_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "branch",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "",
+          "foreign_keys": [],
+          "meaning": "领域字段：branch；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "candidate",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "first_seen_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：first_seen_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "PocCandidate",
+      "table": "intel.poc_candidates",
+      "purpose": "PoC线索；关联可信度与可用性分别保存，不执行代码",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "canonical_url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：canonical_url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "repository",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：repository；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "commit",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：commit；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "author",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：author；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "candidate_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：candidate_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "candidate",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "usability_status",
+          "type": "VARCHAR(30)",
+          "nullable": false,
+          "default": "not_evaluated",
+          "foreign_keys": [],
+          "meaning": "领域字段：usability_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "first_seen_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：first_seen_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "last_seen_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：last_seen_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "VulnerabilityAiCategory",
+      "table": "core.vulnerability_ai_categories",
+      "purpose": "多类别关系及评估依据",
+      "columns": [
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "category_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.ai_security_categories.id"
+          ],
+          "meaning": "领域字段：category_id；按本模型语义保存原值/明确结果；FK core.ai_security_categories.id"
+        },
+        {
+          "name": "assessment_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.ai_relevance_assessments.id"
+          ],
+          "meaning": "领域字段：assessment_id；按本模型语义保存原值/明确结果；FK core.ai_relevance_assessments.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "Claim",
+      "table": "intel.claims",
+      "purpose": "带scope的结构化候选/采用结论，当前投影与历史核验分开",
+      "columns": [
+        {
+          "name": "claim_key",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：claim_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.cvss_assessments.vulnerability_id",
+            "core.vulnerabilities.id",
+            "intel.patch_candidates.vulnerability_id",
+            "intel.poc_candidates.vulnerability_id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.cvss_assessments.vulnerability_id, core.vulnerabilities.id, intel.patch_candidates.vulnerability_id, intel.poc_candidates.vulnerability_id"
+        },
+        {
+          "name": "knowledge_document_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.knowledge_documents.id"
+          ],
+          "meaning": "领域字段：knowledge_document_id；按本模型语义保存原值/明确结果；FK intel.knowledge_documents.id"
+        },
+        {
+          "name": "product_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.products.id"
+          ],
+          "meaning": "产品外键，生态包另分；FK core.products.id"
+        },
+        {
+          "name": "package_identifier_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.package_identifiers.id"
+          ],
+          "meaning": "已解析生态包身份外键；FK core.package_identifiers.id"
+        },
+        {
+          "name": "range_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.affected_version_ranges.id"
+          ],
+          "meaning": "领域字段：range_id；按本模型语义保存原值/明确结果；FK core.affected_version_ranges.id"
+        },
+        {
+          "name": "poc_candidate_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.poc_candidates.id"
+          ],
+          "meaning": "领域字段：poc_candidate_id；按本模型语义保存原值/明确结果；FK intel.poc_candidates.id"
+        },
+        {
+          "name": "patch_candidate_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.patch_candidates.id"
+          ],
+          "meaning": "领域字段：patch_candidate_id；按本模型语义保存原值/明确结果；FK intel.patch_candidates.id"
+        },
+        {
+          "name": "asset_component_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "app.asset_components.id"
+          ],
+          "meaning": "领域字段：asset_component_id；按本模型语义保存原值/明确结果；FK app.asset_components.id"
+        },
+        {
+          "name": "cvss_assessment_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.cvss_assessments.id"
+          ],
+          "meaning": "领域字段：cvss_assessment_id；按本模型语义保存原值/明确结果；FK core.cvss_assessments.id"
+        },
+        {
+          "name": "claim_type",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：claim_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "predicate",
+          "type": "VARCHAR(80)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：predicate；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "value_json",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "结构化命题值；不得由LLM补未知事实"
+        },
+        {
+          "name": "scope_key",
+          "type": "VARCHAR(128)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "确定性范围标识，比较前核对生态包/分支/评分版本/日期"
+        },
+        {
+          "name": "branch",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：branch；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "cvss_version",
+          "type": "VARCHAR(10)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：cvss_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "assessment_kind",
+          "type": "VARCHAR(40)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：assessment_kind；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "as_of_date",
+          "type": "DATE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：as_of_date；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verification_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "pending",
+          "foreign_keys": [],
+          "meaning": "四态当前投影/源候选态，严重度独立"
+        },
+        {
+          "name": "adopted",
+          "type": "BOOLEAN",
+          "nullable": false,
+          "default": "false",
+          "foreign_keys": [],
+          "meaning": "当前展示选择，非删除其他来源"
+        },
+        {
+          "name": "revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "领域字段：revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "AssetVulnerabilityMatch",
+      "table": "app.asset_vulnerability_matches",
+      "purpose": "三态影响、版本/库存/Claim/范围快照与理由，旧结果不可覆盖",
+      "columns": [
+        {
+          "name": "asset_component_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "app.asset_components.id"
+          ],
+          "meaning": "领域字段：asset_component_id；按本模型语义保存原值/明确结果；FK app.asset_components.id"
+        },
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.affected_version_ranges.vulnerability_id",
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.affected_version_ranges.vulnerability_id, core.vulnerabilities.id"
+        },
+        {
+          "name": "package_identifier_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "app.asset_components.package_identifier_id",
+            "core.affected_version_ranges.package_identifier_id",
+            "core.package_identifiers.id"
+          ],
+          "meaning": "已解析生态包身份外键；FK app.asset_components.package_identifier_id, core.affected_version_ranges.package_identifier_id, core.package_identifiers.id"
+        },
+        {
+          "name": "matched_range_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.affected_version_ranges.id"
+          ],
+          "meaning": "领域字段：matched_range_id；按本模型语义保存原值/明确结果；FK core.affected_version_ranges.id"
+        },
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "match_status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：match_status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "version_at_evaluation",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "当时组件版本快照，非当前版本自动替换"
+        },
+        {
+          "name": "component_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "计算时库存修订，变化后旧match须标陈旧"
+        },
+        {
+          "name": "claim_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "被核验/回答/匹配采用的结论修订"
+        },
+        {
+          "name": "matcher_version",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：matcher_version；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reason_summary",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "可审计结论理由，不是模型私有Chain-of-Thought"
+        },
+        {
+          "name": "detected_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "系统首次发现本事件时间，历史回补单列"
+        },
+        {
+          "name": "last_evaluated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：last_evaluated_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "ReviewTask",
+      "table": "app.review_tasks",
+      "purpose": "围绕Claim的人工复核，P1工作状态、乐观revision和前后决定",
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "review_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：review_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "priority",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "2",
+          "foreign_keys": [],
+          "meaning": "领域字段：priority；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "open",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：reason；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "assigned_to",
+          "type": "VARCHAR(150)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：assigned_to；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "resolved_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：resolved_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "resolution",
+          "type": "VARCHAR(30)",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：resolution；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "resolution_note",
+          "type": "TEXT",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：resolution_note；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "before_state",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：before_state；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "after_state",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：after_state；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "1",
+          "foreign_keys": [],
+          "meaning": "领域字段：revision；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        },
+        {
+          "name": "updated_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "当前投影更新时间，ORM维护；直接SQL调用者必须显式更新"
+        }
+      ]
+    },
+    {
+      "model": "Evidence",
+      "table": "intel.evidence",
+      "purpose": "Claim支持/反驳/中立原文、immutable raw/observation、定位和lineage",
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.source_id",
+            "raw.source_observations.source_id",
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.raw_documents.source_id, raw.source_observations.source_id, raw.sources.id"
+        },
+        {
+          "name": "raw_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.raw_documents.id",
+            "raw.source_observations.raw_document_id"
+          ],
+          "meaning": "不可变原文版本外键；FK raw.raw_documents.id, raw.source_observations.raw_document_id"
+        },
+        {
+          "name": "observation_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "raw.source_observations.id"
+          ],
+          "meaning": "当前字段来源/标准化观察外键；FK raw.source_observations.id"
+        },
+        {
+          "name": "scope_key",
+          "type": "VARCHAR(128)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.scope_key"
+          ],
+          "meaning": "确定性范围标识，比较前核对生态包/分支/评分版本/日期；FK intel.claims.scope_key"
+        },
+        {
+          "name": "evidence_type",
+          "type": "VARCHAR(40)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：evidence_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "stance",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "support/contradict/neutral；范围不同不能填contradict"
+        },
+        {
+          "name": "excerpt",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "源原文允许片段，不能由摘要替换"
+        },
+        {
+          "name": "excerpt_hash",
+          "type": "VARCHAR(64)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：excerpt_hash；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "source_url",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：source_url；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "published_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "来源发布日期，可未知"
+        },
+        {
+          "name": "retrieved_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "成功取得原文/当前观察UTC"
+        },
+        {
+          "name": "locator",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "对当前raw版本有效的JSON Pointer/page/span等结构化定位"
+        },
+        {
+          "name": "locator_key",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "定位幂等键，应由canonical locator构造"
+        },
+        {
+          "name": "observed_value",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "该Evidence原生候选值，不覆盖Claim采用层"
+        },
+        {
+          "name": "publisher",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：publisher；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "lineage_key",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "原发布依赖组，镜像/转载不能增加独立票"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "KnowledgeVulnerabilityRelation",
+      "table": "intel.knowledge_vulnerability_relations",
+      "purpose": "知识到漏洞的typed关系及Claim，不以相似度直接确认",
+      "columns": [
+        {
+          "name": "knowledge_document_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.knowledge_documents.id"
+          ],
+          "meaning": "领域字段：knowledge_document_id；按本模型语义保存原值/明确结果；FK intel.knowledge_documents.id"
+        },
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "relation_type",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：relation_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "VerificationResult",
+      "table": "intel.verification_results",
+      "purpose": "不可变核验修订，记录四态、理由、执行者和采用值",
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "claim_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "被核验/回答/匹配采用的结论修订"
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：status；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verification_method",
+          "type": "VARCHAR(80)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：verification_method；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reason_summary",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "可审计结论理由，不是模型私有Chain-of-Thought"
+        },
+        {
+          "name": "verified_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：verified_at；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verified_by_type",
+          "type": "VARCHAR(20)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：verified_by_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "verified_by_id",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：verified_by_id；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "decision_key",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：decision_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "adopted_value",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：adopted_value；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "AgentCitation",
+      "table": "app.agent_citations",
+      "purpose": "回答断言对应Evidence及真实Claim核验revision，旧引用不漂移",
+      "columns": [
+        {
+          "name": "agent_run_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "app.agent_runs.id"
+          ],
+          "meaning": "领域字段：agent_run_id；按本模型语义保存原值/明确结果；FK app.agent_runs.id"
+        },
+        {
+          "name": "evidence_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.evidence.id"
+          ],
+          "meaning": "领域字段：evidence_id；按本模型语义保存原值/明确结果；FK intel.evidence.id"
+        },
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id",
+            "intel.evidence.claim_id",
+            "intel.verification_results.claim_id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id, intel.evidence.claim_id, intel.verification_results.claim_id"
+        },
+        {
+          "name": "citation_index",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：citation_index；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "claim_revision",
+          "type": "INTEGER",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.verification_results.claim_revision"
+          ],
+          "meaning": "被核验/回答/匹配采用的结论修订；FK intel.verification_results.claim_revision"
+        },
+        {
+          "name": "assertion_summary",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：assertion_summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "AuditLog",
+      "table": "app.audit_logs",
+      "purpose": "actor/action/before/after/reason/request指纹的追加审计",
+      "columns": [
+        {
+          "name": "actor",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：actor；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "action",
+          "type": "VARCHAR(60)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：action；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "review_task_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "app.review_tasks.id"
+          ],
+          "meaning": "领域字段：review_task_id；按本模型语义保存原值/明确结果；FK app.review_tasks.id"
+        },
+        {
+          "name": "verification_result_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.verification_results.id"
+          ],
+          "meaning": "领域字段：verification_result_id；按本模型语义保存原值/明确结果；FK intel.verification_results.id"
+        },
+        {
+          "name": "before_state",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：before_state；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "after_state",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：after_state；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：reason；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "occurred_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "业务发生/审计时间，原事件未知可null"
+        },
+        {
+          "name": "request_key",
+          "type": "VARCHAR(150)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "actor范围幂等键"
+        },
+        {
+          "name": "request_hash",
+          "type": "VARCHAR(64)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "同键完整请求指纹，不同载荷拒绝"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "IntelligenceEvent",
+      "table": "intel.intelligence_events",
+      "purpose": "有主体与证据的业务变化，源发生时间与系统发现时间分开",
+      "columns": [
+        {
+          "name": "event_key",
+          "type": "VARCHAR(200)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：event_key；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "vulnerability_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "core.vulnerabilities.id"
+          ],
+          "meaning": "问题主体外键，非一份源记录；FK core.vulnerabilities.id"
+        },
+        {
+          "name": "knowledge_document_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.knowledge_documents.id"
+          ],
+          "meaning": "领域字段：knowledge_document_id；按本模型语义保存原值/明确结果；FK intel.knowledge_documents.id"
+        },
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id"
+        },
+        {
+          "name": "evidence_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "intel.evidence.id"
+          ],
+          "meaning": "领域字段：evidence_id；按本模型语义保存原值/明确结果；FK intel.evidence.id"
+        },
+        {
+          "name": "source_id",
+          "type": "UUID",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [
+            "raw.sources.id"
+          ],
+          "meaning": "注册Source外键，原publisher另存；FK raw.sources.id"
+        },
+        {
+          "name": "event_type",
+          "type": "VARCHAR(50)",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：event_type；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "occurred_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "业务发生/审计时间，原事件未知可null"
+        },
+        {
+          "name": "detected_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "系统首次发现本事件时间，历史回补单列"
+        },
+        {
+          "name": "summary",
+          "type": "TEXT",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：summary；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "payload",
+          "type": "JSONB",
+          "nullable": true,
+          "default": "—",
+          "foreign_keys": [],
+          "meaning": "领域字段：payload；按本模型语义保存原值/明确结果"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    },
+    {
+      "model": "VerificationEvidence",
+      "table": "intel.verification_evidence",
+      "purpose": "某次核验确实使用哪些同Claim Evidence，FK防串证据",
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.claims.id",
+            "intel.evidence.claim_id",
+            "intel.verification_results.claim_id"
+          ],
+          "meaning": "带范围的命题外键；FK intel.claims.id, intel.evidence.claim_id, intel.verification_results.claim_id"
+        },
+        {
+          "name": "verification_result_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.verification_results.id"
+          ],
+          "meaning": "领域字段：verification_result_id；按本模型语义保存原值/明确结果；FK intel.verification_results.id"
+        },
+        {
+          "name": "evidence_id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "—",
+          "foreign_keys": [
+            "intel.evidence.id"
+          ],
+          "meaning": "领域字段：evidence_id；按本模型语义保存原值/明确结果；FK intel.evidence.id"
+        },
+        {
+          "name": "id",
+          "type": "UUID",
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "foreign_keys": [],
+          "meaning": "UUID主键，客户端/数据库均可生成；不代表来源原生ID"
+        },
+        {
+          "name": "created_at",
+          "type": "TIMESTAMP WITH TIME ZONE",
+          "nullable": false,
+          "default": "now()",
+          "foreign_keys": [],
+          "meaning": "本系统入库时间UTC，不能冒充发布"
+        },
+        {
+          "name": "metadata",
+          "type": "JSONB",
+          "nullable": false,
+          "default": "'{}'::jsonb",
+          "foreign_keys": [],
+          "meaning": "非核心扩展；不得存Secret或模型隐藏思维"
+        }
+      ]
+    }
+  ],
+  "versions": {
+    "SQLAlchemy": "2.0.54",
+    "alembic": "1.20.0",
+    "psycopg": "3.3.6",
+    "pytest": "9.1.1"
+  },
+  "table_count": 43
+}

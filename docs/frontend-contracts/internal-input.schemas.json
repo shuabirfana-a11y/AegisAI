@@ -1,0 +1,779 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-contract-origin": "CURRENT_PYTHON_CODE",
+  "x-http-exposed": false,
+  "$defs": {
+    "AnalysisRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "investigation_run_id": {
+          "format": "uuid",
+          "title": "Investigation Run Id",
+          "type": "string"
+        },
+        "investigation_task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Investigation Task Id",
+          "type": "string"
+        },
+        "investigation_artifact_id": {
+          "format": "uuid",
+          "title": "Investigation Artifact Id",
+          "type": "string"
+        },
+        "verification_run_id": {
+          "format": "uuid",
+          "title": "Verification Run Id",
+          "type": "string"
+        },
+        "verification_task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Verification Task Id",
+          "type": "string"
+        },
+        "verification_artifact_id": {
+          "format": "uuid",
+          "title": "Verification Artifact Id",
+          "type": "string"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
+        },
+        "task_type": {
+          "default": "risk_analysis",
+          "enum": [
+            "risk_analysis",
+            "asset_impact_analysis",
+            "remediation_prioritization"
+          ],
+          "title": "Task Type",
+          "type": "string"
+        },
+        "request_key": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Request Key",
+          "type": "string"
+        },
+        "model_assistance": {
+          "default": false,
+          "title": "Model Assistance",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "investigation_run_id",
+        "investigation_task_id",
+        "investigation_artifact_id",
+        "verification_run_id",
+        "verification_task_id",
+        "verification_artifact_id",
+        "request_key"
+      ],
+      "title": "AnalysisRequest",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "enum": [
+            "investigation-artifact-v1",
+            "verification-artifact-v1",
+            "risk-analysis-artifact-v1"
+          ],
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "artifact_id",
+        "schema_version"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "IntegrationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "request_key": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Request Key",
+          "type": "string"
+        },
+        "run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run Id"
+        },
+        "planner_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Planner Run Id"
+        },
+        "objective_source": {
+          "default": "stored_planner_request",
+          "enum": [
+            "stored_planner_request",
+            "new_structured_request"
+          ],
+          "title": "Objective Source",
+          "type": "string"
+        },
+        "objective_profile": {
+          "default": "asset_impact_v1",
+          "enum": [
+            "overview_v1",
+            "asset_impact_v1",
+            "asset_risk_v1"
+          ],
+          "title": "Objective Profile",
+          "type": "string"
+        },
+        "explicit_objective": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObjectiveContract"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "investigation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "verification": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "analysis": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "optional_tasks": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/OptionalTask"
+          },
+          "maxItems": 16,
+          "title": "Optional Tasks",
+          "type": "array"
+        },
+        "policy_version": {
+          "const": "integration-policy-v1",
+          "default": "integration-policy-v1",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "request_key"
+      ],
+      "title": "IntegrationRequest",
+      "type": "object"
+    },
+    "InvestigationOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "objective_profile": {
+          "anyOf": [
+            {
+              "enum": [
+                "overview_v1",
+                "asset_impact_v1",
+                "asset_risk_v1"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Objective Profile"
+        },
+        "timeout_seconds": {
+          "default": 300,
+          "maximum": 300,
+          "minimum": 1,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        }
+      },
+      "title": "InvestigationOptions",
+      "type": "object"
+    },
+    "InvestigationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "investigation-request-v1",
+          "default": "investigation-request-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "request_id": {
+          "format": "uuid",
+          "title": "Request Id",
+          "type": "string"
+        },
+        "planner_input": {
+          "$ref": "#/$defs/PlannerInput"
+        },
+        "time_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TimeScope"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "user_context": {
+          "$ref": "#/$defs/UserContext"
+        },
+        "investigation_options": {
+          "$ref": "#/$defs/InvestigationOptions"
+        }
+      },
+      "required": [
+        "planner_input"
+      ],
+      "title": "InvestigationRequest",
+      "type": "object"
+    },
+    "ObjectiveContract": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "targets": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Targets",
+          "type": "array"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 300,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "required_outcomes": {
+          "default": [
+            "identity",
+            "overview"
+          ],
+          "items": {
+            "enum": [
+              "identity",
+              "overview",
+              "asset",
+              "version_impact",
+              "remediation_status",
+              "precise_remediation",
+              "risk",
+              "priority",
+              "verified_exploitation"
+            ],
+            "type": "string"
+          },
+          "maxItems": 9,
+          "minItems": 1,
+          "title": "Required Outcomes",
+          "type": "array"
+        },
+        "window_days": {
+          "anyOf": [
+            {
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Days"
+        },
+        "requires_current": {
+          "default": false,
+          "title": "Requires Current",
+          "type": "boolean"
+        },
+        "scope_gaps": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Scope Gaps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "question"
+      ],
+      "title": "ObjectiveContract",
+      "type": "object"
+    },
+    "OptionalTask": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id"
+      ],
+      "title": "OptionalTask",
+      "type": "object"
+    },
+    "PlannerInput": {
+      "additionalProperties": false,
+      "properties": {
+        "query": {
+          "$ref": "#/$defs/QueryRequest"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
+        },
+        "snapshot_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot Id"
+        },
+        "component": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResolutionInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "PlannerInput",
+      "type": "object"
+    },
+    "QueryRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        },
+        "mode": {
+          "default": "auto",
+          "enum": [
+            "auto",
+            "fast",
+            "deep"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "request_key": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Request Key",
+          "type": "string"
+        },
+        "realtime": {
+          "default": false,
+          "title": "Realtime",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "question",
+        "request_key"
+      ],
+      "title": "QueryRequest",
+      "type": "object"
+    },
+    "ResolutionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 200,
+          "title": "Name",
+          "type": "string"
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "maxLength": 40,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ecosystem"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purl"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ResolutionInput",
+      "type": "object"
+    },
+    "TimeScope": {
+      "additionalProperties": false,
+      "properties": {
+        "window_days": {
+          "anyOf": [
+            {
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Days"
+        },
+        "requires_current": {
+          "default": false,
+          "title": "Requires Current",
+          "type": "boolean"
+        }
+      },
+      "title": "TimeScope",
+      "type": "object"
+    },
+    "UserContext": {
+      "additionalProperties": false,
+      "properties": {
+        "display_language": {
+          "const": "zh-CN",
+          "default": "zh-CN",
+          "title": "Display Language",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 1000,
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "title": "UserContext",
+      "type": "object"
+    },
+    "VerificationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "source_run_id": {
+          "format": "uuid",
+          "title": "Source Run Id",
+          "type": "string"
+        },
+        "source_task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Source Task Id",
+          "type": "string"
+        },
+        "source_artifact_id": {
+          "format": "uuid",
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "task_type": {
+          "default": "evidence_verification",
+          "enum": [
+            "evidence_verification",
+            "claim_validation",
+            "conflict_detection"
+          ],
+          "title": "Task Type",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "request_key": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Request Key",
+          "type": "string"
+        },
+        "model_assistance": {
+          "default": false,
+          "title": "Model Assistance",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "source_run_id",
+        "source_task_id",
+        "source_artifact_id",
+        "request_key"
+      ],
+      "title": "VerificationRequest",
+      "type": "object"
+    }
+  },
+  "x-roots": {
+    "InvestigationRequest": {
+      "$ref": "#/$defs/InvestigationRequest"
+    },
+    "VerificationRequest": {
+      "$ref": "#/$defs/VerificationRequest"
+    },
+    "AnalysisRequest": {
+      "$ref": "#/$defs/AnalysisRequest"
+    },
+    "IntegrationRequest": {
+      "$ref": "#/$defs/IntegrationRequest"
+    }
+  }
+}

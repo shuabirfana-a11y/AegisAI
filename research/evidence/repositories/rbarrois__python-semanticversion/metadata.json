@@ -1,0 +1,69 @@
+{
+  "full_name": "rbarrois/python-semanticversion",
+  "html_url": "https://github.com/rbarrois/python-semanticversion",
+  "homepage": null,
+  "description": "Semantic version comparison for Python (see http://semver.org/)",
+  "language": "Python",
+  "license": {
+    "key": "bsd-2-clause",
+    "name": "BSD 2-Clause \"Simplified\" License",
+    "spdx_id": "BSD-2-Clause",
+    "url": "https://api.github.com/licenses/bsd-2-clause",
+    "node_id": "MDc6TGljZW5zZTQ="
+  },
+  "stargazers_count": 293,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2012-05-14T16:39:40Z",
+  "updated_at": "2026-06-22T21:10:31Z",
+  "pushed_at": "2024-04-04T18:44:57Z",
+  "open_issues_count": 44,
+  "default_branch": "master",
+  "requested_repo": "rbarrois/python-semanticversion",
+  "commit": "2cbbee3154d9011cee873ae3a020cd17c669f6df",
+  "commit_date": "2023-02-28T10:51:59Z",
+  "commit_message": "Simplify subclassing Version\n\nFixes: #112",
+  "checked_at_utc": "2026-10-03T03:36:48.067189+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/rbarrois/python-semanticversion/blob/2cbbee3154d9011cee873ae3a020cd17c669f6df/README.rst",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/rbarrois/python-semanticversion/blob/2cbbee3154d9011cee873ae3a020cd17c669f6df/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/rbarrois/python-semanticversion/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 158,
+      "title": "Semantic_version 2.10.0 is not compatible with Python version 2",
+      "state": "open",
+      "updated_at": "2024-12-05T22:50:29Z",
+      "html_url": "https://github.com/rbarrois/python-semanticversion/issues/158",
+      "comments": 0
+    },
+    {
+      "number": 157,
+      "title": "Django model fields do not raise the correct error",
+      "state": "open",
+      "updated_at": "2024-06-27T11:57:36Z",
+      "html_url": "https://github.com/rbarrois/python-semanticversion/issues/157",
+      "comments": 0
+    },
+    {
+      "number": 156,
+      "title": "Equivalent of coerce for SimpleSpec ?",
+      "state": "open",
+      "updated_at": "2024-06-05T17:54:52Z",
+      "html_url": "https://github.com/rbarrois/python-semanticversion/issues/156",
+      "comments": 0
+    },
+    {
+      "number": 153,
+      "title": "leading zeroes can fail to be coerced",
+      "state": "open",
+      "updated_at": "2024-03-13T14:03:57Z",
+      "html_url": "https://github.com/rbarrois/python-semanticversion/issues/153",
+      "comments": 1
+    }
+  ]
+}

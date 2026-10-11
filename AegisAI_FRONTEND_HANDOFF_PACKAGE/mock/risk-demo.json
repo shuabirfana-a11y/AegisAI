@@ -1,0 +1,488 @@
+{
+  "api_status": "MOCK_ONLY",
+  "fixture_label": "DEMO",
+  "production_data": false,
+  "default_scenario": "PASS",
+  "data_origin": "REAL_CODE_EXECUTION_WITH_SYNTHETIC_TEST_SEED_NOT_HTTP_CAPTURE_NOT_BENCHMARK",
+  "source": "api/reference/examples/orchestration-test-receipts.json",
+  "captured_at": "2026-10-10T01:20:51.064608+00:00",
+  "notice": "Historical synthetic test receipts, not live responses or real vulnerability advisories. Select the same scenario across all five demo files.",
+  "schema_model": "ANSWER_ENVELOPE_RISK_PROJECTION_NOT_FULL_ARTIFACT",
+  "field_models": {
+    "risk_assessment": "RiskView | null",
+    "affected_assets": "AssetView[]",
+    "recommended_actions": "ActionView[]"
+  },
+  "scenarios": {
+    "PASS": {
+      "logical_investigation_id": "df1a055d-1e72-4b8e-9a98-24c0abdf2016",
+      "answer_id": "616e193c-5b44-5b7b-ab70-7ae2a5bfb279",
+      "integration_result_id": "792110ae-d688-4f2f-ae42-fa9349033040",
+      "generated_at": "2026-10-10T01:18:32.807932Z",
+      "historical_snapshot": true,
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "priority": "P2",
+        "affected": true,
+        "verification_status": "CONFIRMED",
+        "source_artifact": {
+          "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+          "task_id": "analyze",
+          "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "MATCHED",
+        "version_match_status": "AFFECTED",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "CONFIRMED_PRESENT",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "ACCEPTED"
+      },
+      "affected_assets": [
+        {
+          "asset_id": "f7a8639a-5c0c-4908-b6ae-84f15827dcbb",
+          "component_id": "d9668d54-95d2-4835-9050-08e2d9e4277a",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": [
+            "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3"
+          ]
+        }
+      ],
+      "recommended_actions": [
+        {
+          "action_id": "fix:604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+          "action_type": "UPGRADE_VERIFIED_RELEASE",
+          "summary": "依据核验来源核对修复方案及适用条件。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": "0.7.0",
+          "patch_reference": null,
+          "claim_ids": [
+            "604ab987-e98f-4438-9e7b-e2f219fd5b9a"
+          ],
+          "evidence_ids": [
+            "e03fa204-710d-48b1-a535-8d83ce0f1d86"
+          ],
+          "action_provenance": "VERIFIED_CLAIM",
+          "applicability": "CONFIRMED",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "EVALUATE_EXPOSURE_RESTRICTION",
+          "action_type": "EVALUATE_EXPOSURE_RESTRICTION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        }
+      ]
+    },
+    "ORCHESTRATION_FAILED": {
+      "logical_investigation_id": "4a84e54f-379b-4d54-b0f1-b4681b76aad1",
+      "answer_id": "c8ccf363-3575-5d2d-825f-8c5a98d8d3ca",
+      "integration_result_id": null,
+      "generated_at": "2026-10-10T01:18:16.611626Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "SYNTHETIC_STOP": {
+      "logical_investigation_id": "b42e79ba-8dda-4c67-97c0-8b703300e716",
+      "answer_id": "7c1c22d9-44f1-5060-a0b2-471c3f46ed71",
+      "integration_result_id": null,
+      "generated_at": "2026-10-10T01:17:31.307635Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "CANCELLED": {
+      "logical_investigation_id": "0139bcb8-6806-4ba6-a763-8e7ac7832e02",
+      "answer_id": "66f43ea7-70a6-51f4-88c6-ea6909e93e80",
+      "integration_result_id": null,
+      "generated_at": "2026-10-10T01:17:31.155594Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "DEADLINE_EXCEEDED": {
+      "logical_investigation_id": "4082a434-4576-4e45-bb24-d1bda5cff861",
+      "answer_id": "096b37e6-db62-50e4-a07b-dca96cfb9a5e",
+      "integration_result_id": null,
+      "generated_at": "2026-10-10T01:17:24.951275Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "FAILED": {
+      "logical_investigation_id": "380557e7-efd4-4d1c-b615-6ac26d1bce2e",
+      "answer_id": "8b7af278-c13e-5960-8f17-3f5867175184",
+      "integration_result_id": "7e5142a8-77a0-45c6-bc08-44e2308d6487",
+      "generated_at": "2026-10-10T01:17:21.028072Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "REPLAN_REQUIRED": {
+      "logical_investigation_id": "697e5139-784d-455f-958e-d4096d88fd99",
+      "answer_id": "ae865723-28ba-5450-9113-b47768b229f7",
+      "integration_result_id": "6d3a8a1c-a12a-4a88-a3a4-36fbafe9ad4a",
+      "generated_at": "2026-10-10T01:17:08.639997Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "PLANNING_FAILED": {
+      "logical_investigation_id": "a7203321-1886-44a8-a8a6-86c6b26b276b",
+      "answer_id": "15049587-5832-5068-8fb0-4bec3c6a246e",
+      "integration_result_id": null,
+      "generated_at": "2026-10-10T01:16:24.245479Z",
+      "historical_snapshot": true,
+      "risk_assessment": null,
+      "affected_assets": [],
+      "recommended_actions": []
+    },
+    "HUMAN_REVIEW_REQUIRED": {
+      "logical_investigation_id": "3225d7ec-994f-41c2-ac3b-5bfd7b5298fb",
+      "answer_id": "04fe144f-5efa-55d6-8452-6cd70a803b2d",
+      "integration_result_id": "08a8c2ba-61df-4b09-badc-5a5d2d1ce930",
+      "generated_at": "2026-10-10T01:16:01.008199Z",
+      "historical_snapshot": true,
+      "risk_assessment": {
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED",
+        "affected": null,
+        "verification_status": "CONFLICT",
+        "source_artifact": {
+          "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+          "task_id": "analyze",
+          "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "UNKNOWN",
+        "version_match_status": "UNKNOWN",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "UNCONFIRMED",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "OBSERVATION"
+      },
+      "affected_assets": [
+        {
+          "asset_id": "dfea5901-23e3-4955-a59f-bb42c2a8dce2",
+          "component_id": "c78fc9b4-94d3-4439-a664-abfa3fdc9fbf",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": []
+        }
+      ],
+      "recommended_actions": [
+        {
+          "action_id": "REQUEST_REVIEW",
+          "action_type": "REQUEST_REVIEW",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "FURTHER_INVESTIGATION",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "action_id": "TRACK_REMEDIATION",
+          "action_type": "TRACK_REMEDIATION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "FURTHER_INVESTIGATION",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ]
+    },
+    "PASS_WITH_WARNINGS": {
+      "logical_investigation_id": "b424b1e9-a1fc-4452-9a47-e9f287ad2b2b",
+      "answer_id": "e0732cbf-c401-565d-9884-90122a3a2aa3",
+      "integration_result_id": "c7cbf8ba-2447-431b-af53-6941073594d1",
+      "generated_at": "2026-10-10T01:15:41.927879Z",
+      "historical_snapshot": true,
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "priority": "P2",
+        "affected": true,
+        "verification_status": "CONFIRMED",
+        "source_artifact": {
+          "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+          "task_id": "analyze",
+          "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "MATCHED",
+        "version_match_status": "AFFECTED",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "CONFIRMED_PRESENT",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "ACCEPTED"
+      },
+      "affected_assets": [
+        {
+          "asset_id": "417eea5e-4c08-4672-9c83-938fa1be38ec",
+          "component_id": "baf8c09e-9a34-4d66-b4fc-2f559ae0dce8",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": [
+            "9f0b2275-b6a2-4918-baad-53bf8897739e"
+          ]
+        }
+      ],
+      "recommended_actions": [
+        {
+          "action_id": "fix:98a9d0c2-6464-4984-be24-0b12cd63b557",
+          "action_type": "UPGRADE_VERIFIED_RELEASE",
+          "summary": "依据核验来源核对修复方案及适用条件。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": "0.7.0",
+          "patch_reference": null,
+          "claim_ids": [
+            "98a9d0c2-6464-4984-be24-0b12cd63b557"
+          ],
+          "evidence_ids": [
+            "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec"
+          ],
+          "action_provenance": "VERIFIED_CLAIM",
+          "applicability": "CONFIRMED",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "EVALUATE_EXPOSURE_RESTRICTION",
+          "action_type": "EVALUATE_EXPOSURE_RESTRICTION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        }
+      ]
+    }
+  },
+  "artifact_examples": {
+    "analysis": {
+      "scenario_id": "INDEPENDENT_ABSTENTION_SCHEMA_MOCK",
+      "api_status": "MOCK_ONLY",
+      "fixture_label": "MOCK",
+      "production_data": false,
+      "data_origin": "MOCK_SCHEMA_VALIDATED_NOT_EXECUTED_NOT_HTTP_CAPTURE",
+      "schema_model": "RiskAnalysisArtifact",
+      "payload": {
+        "verification_status": "INSUFFICIENT_EVIDENCE",
+        "asset_id": null,
+        "component": null,
+        "version": null,
+        "asset_match_status": "UNKNOWN",
+        "version_match_status": "UNKNOWN",
+        "asset_match_result": {
+          "status": "UNKNOWN",
+          "reason": "Asset identity is unresolved",
+          "claim_ids": [],
+          "package_identifier_id": null
+        },
+        "version_match_result": {
+          "status": "UNKNOWN",
+          "affected": null,
+          "reason": "Version impact is unresolved",
+          "claim_ids": [],
+          "comparisons": [],
+          "normalization": {}
+        },
+        "exploitation_signal": {
+          "status": "UNKNOWN",
+          "usability": "NOT_EVALUATED",
+          "claim_ids": [],
+          "evidence_ids": [],
+          "epss": []
+        },
+        "patch_availability": {
+          "status": "UNKNOWN",
+          "claim_ids": [],
+          "evidence_ids": [],
+          "applied": "UNKNOWN",
+          "applicability": "UNKNOWN"
+        },
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED",
+        "affected": null,
+        "risk_factors": [],
+        "mitigating_factors": [],
+        "recommended_actions": [],
+        "evidence_refs": [],
+        "reasoning_summary": "依据不足，需要复核；未知不等于不受影响。",
+        "claim_dispositions": [],
+        "confidence": 0.0,
+        "confidence_kind": "uncalibrated_heuristic",
+        "warnings": [],
+        "unresolved_items": [],
+        "rule_ids": [
+          "R0_ABSTAIN"
+        ],
+        "rules_version": "analysis-rules-v1",
+        "priority_details": {},
+        "partial_result": true,
+        "coverage_complete": false,
+        "model_assist_used": false,
+        "model_assist_status": "DISABLED",
+        "model_calls": [],
+        "artifact_id": "00000000-0000-4000-8000-000000000005",
+        "task_id": "analyze",
+        "agent_id": "security_analysis_agent",
+        "run_id": "00000000-0000-4000-8000-000000000006",
+        "schema_version": "risk-analysis-artifact-v1",
+        "context_id": "00000000-0000-4000-8000-000000000007",
+        "input_artifact_ids": [
+          "00000000-0000-4000-8000-000000000001",
+          "00000000-0000-4000-8000-000000000003"
+        ],
+        "input_snapshot_hash": "241208087b5fdc0df873cfd13b61865035ca1aed2fd0182266891b7462d99d66",
+        "evaluation_time": "2026-10-10T00:00:00Z",
+        "source_verification_time": "2026-10-10T00:00:00Z",
+        "inventory_revision": null,
+        "execution_status": "WAITING_REVIEW",
+        "tool_calls": [],
+        "historical_snapshot": true,
+        "scope_notice": "仅针对本次固定漏洞、所选组件和库存版本；不表示整个资产实时安全。"
+      },
+      "notice": "Independent abstention example. Do not join with any execution-receipt scenario; hashes are synthetic placeholders."
+    }
+  }
+}

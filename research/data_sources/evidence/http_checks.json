@@ -1,0 +1,554 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/32xxx/CVE-2025-32434.json",
+    "checked_at_utc": "2026-10-03T05:43:13.739273+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2025/32xxx/CVE-2025-32434.json",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"3c96d6dc825a855e867374d074a271f2d7197fcdf4a30def21b071e3b82b4448\""
+    },
+    "truncated": false,
+    "bytes": 5411,
+    "sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+    "file": "research/data_sources/evidence/urls/cve_sample.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+    "checked_at_utc": "2026-10-03T05:43:13.740275+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "truncated": false,
+    "bytes": 2435,
+    "sha256": "947472b5268f4cac50d286799c8cda999812440fa085abbe49db503f1a08b5c2",
+    "file": "research/data_sources/evidence/urls/osv_sample.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://google.github.io/osv.dev/data/",
+    "checked_at_utc": "2026-10-03T05:43:13.741271+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://google.github.io/osv.dev/data/",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8",
+      "Last-Modified": "Fri, 02 Oct 2026 04:18:03 GMT",
+      "ETag": "\"6abf307b-641c\""
+    },
+    "truncated": false,
+    "bytes": 25628,
+    "sha256": "24267952baa3dcabc5e17b3a15708506583386c240ccf8becba332702c768535",
+    "file": "research/data_sources/evidence/urls/osv_data_docs.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://google.github.io/osv.dev/api/",
+    "checked_at_utc": "2026-10-03T05:43:22.418740+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://google.github.io/osv.dev/api/",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8",
+      "Last-Modified": "Fri, 02 Oct 2026 04:18:03 GMT",
+      "ETag": "\"6abf307b-3b9e\""
+    },
+    "truncated": false,
+    "bytes": 15262,
+    "sha256": "2adc2ca07f98ac574eb05852178613a9e7a19316cc9ed02e7ec2425c69e05e0a",
+    "file": "research/data_sources/evidence/urls/osv_api_docs.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/modified_id.csv",
+    "checked_at_utc": "2026-10-03T05:43:22.440797+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/modified_id.csv",
+    "headers": {
+      "Content-Type": "text/csv",
+      "Last-Modified": "Sat, 03 Oct 2026 05:32:31 GMT",
+      "ETag": "\"31f3ad74b5921c9dde5c4932dff4014c\""
+    },
+    "truncated": true,
+    "bytes": 32768,
+    "sha256": "cf35ddcc5f0496ed9cd8d33f280db6867ca98311441ec2e5e5b8622e2444cc62",
+    "file": "research/data_sources/evidence/urls/osv_increment_index.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "checked_at_utc": "2026-10-03T05:43:30.223422+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/cisagov/kev-data/develop/known_exploited_vulnerabilities.json",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"a5e1cc601c5a61ee8c332309ab11a8b1346f6cf087781217fc93d4370666d515\""
+    },
+    "truncated": false,
+    "bytes": 1765906,
+    "sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+    "file": "research/data_sources/evidence/urls/kev_sample.body"
+  },
+  {
+    "url": "https://api.first.org/data/v1/epss?cve=CVE-2025-32434",
+    "checked_at_utc": "2026-10-03T05:43:30.470704+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.first.org/data/v1/epss?cve=CVE-2025-32434",
+    "headers": {
+      "content-type": "application/json; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 203,
+    "sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+    "file": "research/data_sources/evidence/urls/epss_sample.body"
+  },
+  {
+    "url": "https://www.first.org/epss/data.html",
+    "checked_at_utc": "2026-10-03T05:43:32.410003+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.first.org/epss/data.html",
+    "headers": {
+      "last-modified": "Wed, 29 Jul 2026 12:13:04 GMT",
+      "content-type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 27713,
+    "sha256": "dcd93c01cb8bc43879efb314d30ef7524b5ba2fb9b54603139d65c3ae680672b",
+    "file": "research/data_sources/evidence/urls/epss_docs.body"
+  },
+  {
+    "url": "https://www.first.org/epss/api",
+    "checked_at_utc": "2026-10-03T05:43:35.842419+00:00",
+    "method": "GET",
+    "status": 404,
+    "error": "HTTP 404"
+  },
+  {
+    "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+    "checked_at_utc": "2026-10-03T05:43:37.678938+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "truncated": false,
+    "bytes": 4233,
+    "sha256": "82688ff70e35d9e8e4235a1c9364e1840bf740ef62aa43d80e7a56416dd20697",
+    "file": "research/data_sources/evidence/urls/nvd_sample.body"
+  },
+  {
+    "url": "https://nvd.nist.gov/developers/start-here",
+    "checked_at_utc": "2026-10-03T05:43:38.211641+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://nvd.nist.gov/developers/start-here",
+    "headers": {
+      "Content-Type": "text/html",
+      "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+    },
+    "truncated": false,
+    "bytes": 2092,
+    "sha256": "5c0e6a29f4e80fdf61906fa4dbc138dae02641d65c5fe94ad74906273776c291",
+    "file": "research/data_sources/evidence/urls/nvd_docs.body"
+  },
+  {
+    "url": "https://nvd.nist.gov/developers/vulnerabilities",
+    "checked_at_utc": "2026-10-03T05:43:39.097171+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://nvd.nist.gov/developers/vulnerabilities",
+    "headers": {
+      "Content-Type": "text/html",
+      "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+    },
+    "truncated": false,
+    "bytes": 2092,
+    "sha256": "6d93d9556157716f9ebcfd63dab1cd55c7dc5659668a9b1192187417e97c7af9",
+    "file": "research/data_sources/evidence/urls/nvd_vuln_docs.body"
+  },
+  {
+    "url": "https://nvd.nist.gov/general/legal-disclaimer",
+    "checked_at_utc": "2026-10-03T05:43:41.093548+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://nvd.nist.gov/general/legal-disclaimer",
+    "headers": {
+      "Content-Type": "text/html",
+      "last-modified": "Wed, 23 Sep 2026 15:29:20 GMT"
+    },
+    "truncated": false,
+    "bytes": 2092,
+    "sha256": "3bc9553e80382e86e73d69d572349b02cee9f861fb33f2fa771021f5dcf5eb5e",
+    "file": "research/data_sources/evidence/urls/nvd_legal.body"
+  },
+  {
+    "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+    "checked_at_utc": "2026-10-03T05:43:41.295597+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "ETag": "\"7597085d9ee951fbdc90f5dedbf9db10a30aadd1b69feb4ff1cff843b330709c\"",
+      "Last-Modified": "Fri, 29 Aug 2025 19:45:47 GMT",
+      "X-RateLimit-Limit": "5000",
+      "X-RateLimit-Remaining": "4945",
+      "X-RateLimit-Reset": "1791007569"
+    },
+    "truncated": false,
+    "bytes": 4338,
+    "sha256": "7d9abb97b1d515b560245d64e2919faefae4da3659dabf5b82b7b1a58f7d931c",
+    "file": "research/data_sources/evidence/urls/ghsa_sample.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/security-advisories/global-advisories",
+    "checked_at_utc": "2026-10-03T05:43:42.681550+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/security-advisories/global-advisories",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 326236,
+    "sha256": "74d39644a3aecca60f057a0f6dc42770af459e107db50c6b3f8b0fdc61a26ce4",
+    "file": "research/data_sources/evidence/urls/github_advisory_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/security-advisories/repository-advisories",
+    "checked_at_utc": "2026-10-03T05:43:43.207113+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/security-advisories/repository-advisories",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 850844,
+    "sha256": "ea00a4cbea13bdaaf8bcdddb12f312bf8fe228d9c26871a244514b8207aaee2d",
+    "file": "research/data_sources/evidence/urls/github_repository_advisory_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+    "checked_at_utc": "2026-10-03T05:43:45.603307+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 335423,
+    "sha256": "57e60bb105f82450fdd08ae87af21e3ba081c76086c4626da73e8f476f08aa55",
+    "file": "research/data_sources/evidence/urls/github_rate_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api",
+    "checked_at_utc": "2026-10-03T05:43:46.813674+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 326395,
+    "sha256": "7e4636f9d1feab53cdb3c35e0b57b3df6efa07f04174df1abe7598c0f8010c6f",
+    "file": "research/data_sources/evidence/urls/github_best_docs.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cisagov/vulnrichment/main/2025/32xxx/CVE-2025-32434.json",
+    "checked_at_utc": "2026-10-03T05:43:49.085677+00:00",
+    "method": "GET",
+    "status": 404,
+    "error": "HTTP 404"
+  },
+  {
+    "url": "https://www.cve.org/Legal/TermsOfUse",
+    "checked_at_utc": "2026-10-03T05:43:49.978327+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.cve.org/Legal/TermsOfUse",
+    "headers": {
+      "Content-Type": "text/html",
+      "Last-Modified": "Wed, 30 Sep 2026 19:58:38 GMT",
+      "ETag": "\"72f5d9ee8cc3fe071aca2c9720500d89\""
+    },
+    "truncated": false,
+    "bytes": 880,
+    "sha256": "d197581a64b46db213eb2d7cea664d2f7947ecbc315c5a21048cb7b627ec4c88",
+    "file": "research/data_sources/evidence/urls/cve_terms.body"
+  },
+  {
+    "url": "https://www.nvidia.com/en-us/security/",
+    "checked_at_utc": "2026-10-03T05:43:50.113744+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.nvidia.com/en-us/security/",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Last-Modified": "Wed, 30 Sep 2026 16:01:38 GMT",
+      "ETag": "W/\"90aa8-65cb56a0d8442\""
+    },
+    "truncated": false,
+    "bytes": 592552,
+    "sha256": "d86cbfaa87c75064e2a5824ca285b22f0f6f0d698c9fd3c68024a6bde7d6629e",
+    "file": "research/data_sources/evidence/urls/nvidia_security.body"
+  },
+  {
+    "url": "https://kubernetes.io/docs/reference/issues-security/security/",
+    "checked_at_utc": "2026-10-03T05:43:50.532433+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://kubernetes.io/docs/reference/issues-security/security/",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Etag": "\"904c4bc82abc3087837a47e410e1fd94-ssl\""
+    },
+    "truncated": false,
+    "bytes": 503599,
+    "sha256": "6a34b0fc3087dda7e83a68bbdd5dae2faa0d0e66a0ea1fb9b5b83a1622619d8f",
+    "file": "research/data_sources/evidence/urls/kubernetes_security.body"
+  },
+  {
+    "url": "https://info.arxiv.org/help/api/user-manual.html",
+    "checked_at_utc": "2026-10-03T05:43:52.089602+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://info.arxiv.org/help/api/user-manual.html",
+    "headers": {
+      "last-modified": "Fri, 02 Oct 2026 17:19:30 GMT",
+      "ETag": "\"5a45ac5ac9a0fd0b14d9bdb7885f2b34\"",
+      "Content-Type": "text/html"
+    },
+    "truncated": false,
+    "bytes": 147746,
+    "sha256": "a4f8c339c191e35addd5a658114015f3a44000de89ec15ba633836a6c5db57b9",
+    "file": "research/data_sources/evidence/urls/arxiv_docs.body"
+  },
+  {
+    "url": "https://info.arxiv.org/help/api/tou.html",
+    "checked_at_utc": "2026-10-03T05:43:53.897280+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://info.arxiv.org/help/api/tou.html",
+    "headers": {
+      "Last-Modified": "Fri, 02 Oct 2026 17:19:30 GMT",
+      "ETag": "\"25af20de6a7d700d24c2d88225bdd637\"",
+      "Content-Type": "text/html"
+    },
+    "truncated": false,
+    "bytes": 85062,
+    "sha256": "badbec1e87aa317038c3a519a3fad3c4a855ebe019f0e681772d72f6a14f4e49",
+    "file": "research/data_sources/evidence/urls/arxiv_terms.body"
+  },
+  {
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22prompt%20injection%22&start=0&max_results=1&sortBy=lastUpdatedDate&sortOrder=descending",
+    "checked_at_utc": "2026-10-03T05:43:54.882258+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22prompt%20injection%22&start=0&max_results=1&sortBy=lastUpdatedDate&sortOrder=descending",
+    "headers": {
+      "content-type": "application/atom+xml; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 3114,
+    "sha256": "3962aa3a4e8ab492476b6abe75871b3663885a882b1239e9455e3d87a54eb3f0",
+    "file": "research/data_sources/evidence/urls/arxiv_sample.body"
+  },
+  {
+    "url": "https://security.googleblog.com/feeds/posts/default?alt=atom",
+    "checked_at_utc": "2026-10-03T05:43:54.949981+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "http://feeds.feedburner.com/GoogleOnlineSecurityBlog",
+    "headers": {
+      "Content-Type": "text/xml; charset=utf-8",
+      "Last-Modified": "Thu, 24 Sep 2026 18:56:01 GMT"
+    },
+    "truncated": false,
+    "bytes": 514319,
+    "sha256": "862433217a26e75e997d051acf894dcf1e52f50fdeab4828a2dfae062e9a369f",
+    "file": "research/data_sources/evidence/urls/google_security_feed.body"
+  },
+  {
+    "url": "https://blog.trailofbits.com/feed/",
+    "checked_at_utc": "2026-10-03T05:43:55.380794+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://blog.trailofbits.com/index.xml",
+    "headers": {
+      "Content-Type": "application/xml",
+      "etag": "W/\"c7afdb73f327a5902d1149ba30cf97e9-ssl-df\""
+    },
+    "truncated": false,
+    "bytes": 951556,
+    "sha256": "9498f6e8f05fe43de47111761f8b8952ff3d48a8d5ac35438750845a651c4a9b",
+    "file": "research/data_sources/evidence/urls/trailofbits_feed.body"
+  },
+  {
+    "url": "https://genai.owasp.org/llm-top-10/",
+    "checked_at_utc": "2026-10-03T05:43:58.273658+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://genai.owasp.org/llm-top-10/",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Last-Modified": "Sat, 03 Oct 2026 05:24:44 GMT"
+    },
+    "truncated": false,
+    "bytes": 906251,
+    "sha256": "eb8296ed72d88ec8e1673f3e2d1e894979018336508917a9107dcc55f6a5096d",
+    "file": "research/data_sources/evidence/urls/owasp_genai.body"
+  },
+  {
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+    "checked_at_utc": "2026-10-03T05:44:01.309639+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.nist.gov/itl/ai-risk-management-framework",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Last-Modified": "Sat, 03 Oct 2026 04:00:03 GMT"
+    },
+    "truncated": false,
+    "bytes": 93432,
+    "sha256": "5ac3404a129c06357a7d4f670f736d890344daaa18d2460cb918b3655092b05a",
+    "file": "research/data_sources/evidence/urls/nist_ai_index.body"
+  },
+  {
+    "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+    "checked_at_utc": "2026-10-03T05:44:02.823421+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Last-Modified": "Sat, 03 Oct 2026 04:02:15 GMT"
+    },
+    "truncated": false,
+    "bytes": 81373,
+    "sha256": "7eb5ec79f65d17c6483699cdfc2f6d3c07cf83c46347e729eca5e76ae9347aab",
+    "file": "research/data_sources/evidence/urls/nist_ai_publication.body"
+  },
+  {
+    "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+    "checked_at_utc": "2026-10-03T05:44:04.979002+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+    "headers": {
+      "Content-Type": "application/pdf",
+      "last-modified": "Wed, 04 Jun 2025 17:14:26 GMT",
+      "etag": "\"327b21f74d5db1:0\""
+    },
+    "truncated": false,
+    "bytes": 1946127,
+    "sha256": "7576edb531d9848825814ee88e28b1795d3a84b435b4b797d3670eafdc4a89f1",
+    "file": "research/data_sources/evidence/urls/nist_ai_pdf.body"
+  },
+  {
+    "url": "https://www.nist.gov/open/license",
+    "checked_at_utc": "2026-10-03T05:44:05.890443+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8",
+      "Last-Modified": "Sat, 03 Oct 2026 04:00:39 GMT"
+    },
+    "truncated": false,
+    "bytes": 93555,
+    "sha256": "3c9418a6e353d34a8b5ab269d445b0b72bc2f772c81f80712cf0a6add4eb8f6d",
+    "file": "research/data_sources/evidence/urls/nist_copyright.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe",
+    "checked_at_utc": "2026-10-03T05:44:06.636182+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 57574,
+    "sha256": "3ad6b5ab5dc9c08bb43e4f84c6e3be8329492773cec76b65a1e4de4cdb44d0b2",
+    "file": "research/data_sources/evidence/urls/cpe_standard.body"
+  },
+  {
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+    "checked_at_utc": "2026-10-03T05:44:11.775301+00:00",
+    "method": "GET",
+    "status": 202,
+    "final_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file": "research/data_sources/evidence/urls/eurlex_ai_act.body"
+  },
+  {
+    "url": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+    "checked_at_utc": "2026-10-03T05:44:14.726753+00:00",
+    "method": "GET",
+    "error": "URLError",
+    "status": 202,
+    "final_url": "https://eur-lex.europa.eu/content/legal-notice/legal-notice.html",
+    "headers": {
+      "Content-Type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file": "research/data_sources/evidence/urls/eurlex_reuse.body"
+  },
+  {
+    "url": "https://www.cac.gov.cn/zcfg/index.htm",
+    "checked_at_utc": "2026-10-03T05:44:18.292120+00:00",
+    "method": "GET",
+    "status": 404,
+    "error": "HTTP 404"
+  },
+  {
+    "url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+    "checked_at_utc": "2026-10-03T05:44:18.627226+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 29431,
+    "sha256": "7fae988c064dde72c95e96e5727bf9abee4b3a5a1ea817606a9ca1f97ffac54b",
+    "file": "research/data_sources/evidence/urls/cac_ai_policy.body"
+  },
+  {
+    "url": "https://api.osv.dev/v1/query",
+    "checked_at_utc": "2026-10-03T05:44:21.224048+00:00",
+    "method": "POST",
+    "status": 200,
+    "final_url": "https://api.osv.dev/v1/query",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "truncated": false,
+    "bytes": 41600,
+    "sha256": "23e38b4d192f29737672778b2eebcbcca20bc9cacea028b71e88d96b5d32d317",
+    "file": "research/data_sources/evidence/urls/osv_query.body"
+  }
+]

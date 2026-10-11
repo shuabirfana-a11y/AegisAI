@@ -1,0 +1,206 @@
+{
+  "kind": "DATABASE DESIGN / REAL POSTGRESQL PERSISTENCE VERIFICATION; NOT COMPETITION BENCHMARK",
+  "checked_at_utc": "2026-10-03T08:03:10.676511+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "16 required plus 3 handoff documents",
+      "passed": true,
+      "detail": [
+        "ASSET_MODEL",
+        "CONSTRAINTS",
+        "DATABASE_ARCHITECTURE",
+        "DATABASE_REVIEW",
+        "DOMAIN_MODEL",
+        "ER_DIAGRAM",
+        "EVALUATION_MODEL",
+        "EVIDENCE_MODEL",
+        "INDEX_STRATEGY",
+        "MIGRATION_STRATEGY",
+        "PAGE_STORAGE_MAPPING",
+        "RAW_DATA_MODEL",
+        "RELATIONSHIPS",
+        "RETENTION_POLICY",
+        "REVIEW_MODEL",
+        "SCORE_STORAGE_MAPPING",
+        "TABLE_SPECIFICATIONS",
+        "VECTOR_DATA_PLAN",
+        "VERSION_MODEL"
+      ]
+    },
+    {
+      "check": "Requested documents have substantive content",
+      "passed": true,
+      "detail": {
+        "DATABASE_ARCHITECTURE": 2186,
+        "DOMAIN_MODEL": 4454,
+        "ER_DIAGRAM": 13622,
+        "TABLE_SPECIFICATIONS": 48449,
+        "RELATIONSHIPS": 12321,
+        "CONSTRAINTS": 32848,
+        "INDEX_STRATEGY": 2936,
+        "RAW_DATA_MODEL": 1266,
+        "EVIDENCE_MODEL": 1374,
+        "VERSION_MODEL": 1153,
+        "ASSET_MODEL": 917,
+        "REVIEW_MODEL": 1218,
+        "EVALUATION_MODEL": 1337,
+        "VECTOR_DATA_PLAN": 1020,
+        "RETENTION_POLICY": 2322,
+        "MIGRATION_STRATEGY": 1211
+      }
+    },
+    {
+      "check": "43 explicit ORM tables and matching dictionary",
+      "passed": true,
+      "detail": 43
+    },
+    {
+      "check": "Every documented column matches ORM",
+      "passed": true,
+      "detail": "All tables checked"
+    },
+    {
+      "check": "Five schemas implement four layers plus isolated evaluation",
+      "passed": true,
+      "detail": "No additional stores"
+    },
+    {
+      "check": "No giant vulnerability table",
+      "passed": true,
+      "detail": 13
+    },
+    {
+      "check": "All foreign keys resolve",
+      "passed": true,
+      "detail": "Typed FKs including scoped references"
+    },
+    {
+      "check": "No cascading deletion of evidence",
+      "passed": true,
+      "detail": "All FK deletions RESTRICT"
+    },
+    {
+      "check": "Frozen migration matches table list",
+      "passed": true,
+      "detail": "0001 fixed DDL"
+    },
+    {
+      "check": "Migration does not deploy mutable current metadata",
+      "passed": true,
+      "detail": "JSON DDL snapshot only"
+    },
+    {
+      "check": "Four Mermaid ER diagrams",
+      "passed": true,
+      "detail": "Full plus core/evidence/asset"
+    },
+    {
+      "check": "All 57 UI elements mapped",
+      "passed": true,
+      "detail": 57
+    },
+    {
+      "check": "UI priorities and implementation status preserved",
+      "passed": true,
+      "detail": "Storage support is not API completion"
+    },
+    {
+      "check": "Storage mappings reference real tables",
+      "passed": true,
+      "detail": "All referenced table names resolve"
+    },
+    {
+      "check": "Auth and health monitoring gaps explicit",
+      "passed": true,
+      "detail": "No false online/capabilities claims"
+    },
+    {
+      "check": "58 frozen Phase 1-4 inputs unchanged",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Phase 4 original frozen inputs unchanged",
+      "passed": true,
+      "detail": 44
+    },
+    {
+      "check": "Current original instruction archived unchanged",
+      "passed": true,
+      "detail": "design/database/sources/phase5_request.docx"
+    },
+    {
+      "check": "Local document links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Full test suite actually passes without skips",
+      "passed": true,
+      "detail": {
+        "passed": 45,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "check": "43 checks use actual PostgreSQL",
+      "passed": true,
+      "detail": "2 additional ORM metadata checks"
+    },
+    {
+      "check": "Migration upgrade downgrade re-upgrade and ORM drift passed",
+      "passed": true,
+      "detail": [
+        "initial upgrade 0001",
+        "downgrade base",
+        "verify all five schemas absent",
+        "upgrade 0001",
+        "ORM metadata comparison"
+      ]
+    },
+    {
+      "check": "Synthetic seed never described as gold",
+      "passed": true,
+      "detail": "Fixture business data rolled back per test"
+    },
+    {
+      "check": "Production-only phase scope respected",
+      "passed": true,
+      "detail": "No API/Collector/Agent/RAG/frontend integration"
+    },
+    {
+      "check": "Locked dependencies available",
+      "passed": true,
+      "detail": "Installed versions pinned"
+    },
+    {
+      "check": "Database risks explicitly recorded",
+      "passed": true,
+      "detail": "No product/SLA claims"
+    }
+  ],
+  "tables": 43,
+  "test_summary": {
+    "total": 45,
+    "passed": 45,
+    "postgresql_checks": 43,
+    "metadata_checks": 2
+  },
+  "scope": "No production API/collector/matching/Agent/RAG/auth or live UI integration.",
+  "artifacts": {
+    "migration_sha256": "6af68a9e2de2bbf10b30eda88a75f16187474e28ddc3a4ad61104453c8f10be9",
+    "dependencies_sha256": "d5c0118c222b43bdea022c2184cf2333750417b70008250043df44ec73511b0f"
+  },
+  "test_environment_shutdown": {
+    "checked_at_utc": "2026-10-03T08:04:17.545949+00:00",
+    "cluster": "C:\\Users\\X\\Documents\\Codex\\2026-10-03\\files-mentioned-by-the-user-9\\work\\database_cluster",
+    "port": 55435,
+    "stopped": true,
+    "pid_file_exists": false,
+    "listener_open": false,
+    "windows_service_installed": false,
+    "scope": "Dedicated Phase 5 test cluster only; existing UI preview left running."
+  }
+}

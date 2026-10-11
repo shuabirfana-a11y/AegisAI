@@ -1,0 +1,43 @@
+{
+  "full_name": "package-url/packageurl-python",
+  "html_url": "https://github.com/package-url/packageurl-python",
+  "homepage": "",
+  "description": "Python implementation of the package url spec.  This project is sponsored by NLnet project https://nlnet.nl/project/vulnerabilitydatabase/ , the Google Summer of Code, nexB and other generous sponsors.",
+  "language": "Python",
+  "license": null,
+  "stargazers_count": 91,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2017-11-14T15:40:59Z",
+  "updated_at": "2026-08-04T07:08:03Z",
+  "pushed_at": "2026-03-11T23:55:06Z",
+  "open_issues_count": 68,
+  "default_branch": "main",
+  "requested_repo": "package-url/packageurl-python",
+  "commit": "c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4",
+  "commit_date": "2026-03-11T23:54:36Z",
+  "commit_message": "Set explicit workflow permissions and pin down actions (#227)\n\nSigned-off-by: tdruez <tdruez@aboutcode.org>",
+  "checked_at_utc": "2026-10-03T03:33:45.526903+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/package-url/packageurl-python/blob/c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4/README.rst",
+  "license_status": {
+    "http_error": 404,
+    "path": "repos/package-url/packageurl-python/license?ref=c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4"
+  },
+  "latest_release": {
+    "tag_name": "v0.17.6",
+    "published_at": "2025-11-24T15:20:20Z",
+    "html_url": "https://github.com/package-url/packageurl-python/releases/tag/v0.17.6",
+    "name": "v0.17.6"
+  },
+  "recent_issues": [
+    {
+      "number": 234,
+      "title": "Upgrade crates.io URL from \"api/v1\" to \"static\" in purl2url",
+      "state": "open",
+      "updated_at": "2026-08-28T10:43:17Z",
+      "html_url": "https://github.com/package-url/packageurl-python/issues/234",
+      "comments": 0
+    }
+  ]
+}

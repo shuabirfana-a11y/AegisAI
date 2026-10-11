@@ -1,0 +1,205 @@
+{
+  "source": "sources/competition_problem_9.pdf",
+  "scores": [
+    {
+      "id": "PRE-MON",
+      "stage": "初赛",
+      "name": "情报监测功能完整性",
+      "max_points": 15,
+      "source_ref": "p2 §7.1.2",
+      "qualified": "3类以上数据源：9分",
+      "good": "5类以上：12分",
+      "excellent": "7类以上且含实时监测：15分"
+    },
+    {
+      "id": "PRE-ENR",
+      "stage": "初赛",
+      "name": "情报富化功能完整性",
+      "max_points": 15,
+      "source_ref": "p2—3 §7.1.2",
+      "qualified": "至少3种富化维度：9分",
+      "good": "5种以上：12分",
+      "excellent": "富化准确且自动关联推理：15分"
+    },
+    {
+      "id": "PRE-QA",
+      "stage": "初赛",
+      "name": "情报问答功能完整性",
+      "max_points": 15,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "基础关键词检索问答：9分",
+      "good": "语义理解与多轮：12分",
+      "excellent": "跨文档推理与深度分析：15分"
+    },
+    {
+      "id": "PRE-TIME",
+      "stage": "初赛",
+      "name": "监测时效性",
+      "max_points": 5,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "延迟≤24h：3分",
+      "good": "≤12h：4分",
+      "excellent": "≤6h：5分"
+    },
+    {
+      "id": "PRE-ENR-ACC",
+      "stage": "初赛",
+      "name": "富化准确率",
+      "max_points": 5,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "≥70%：3分",
+      "good": "≥85%：4分",
+      "excellent": "≥95%：5分"
+    },
+    {
+      "id": "PRE-QA-ACC",
+      "stage": "初赛",
+      "name": "问答深度与准确率",
+      "max_points": 5,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "基础问答准确率≥70%：3分",
+      "good": "深度问答含推理链：4分",
+      "excellent": "多跳推理准确率≥85%：5分"
+    },
+    {
+      "id": "PRE-AGENT",
+      "stage": "初赛",
+      "name": "智能体架构设计",
+      "max_points": 15,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "基本使用Agent框架：9分",
+      "good": "多角色协作与自主编排：12分",
+      "excellent": "精良且可扩展：15分"
+    },
+    {
+      "id": "PRE-AUTO",
+      "stage": "初赛",
+      "name": "系统自动化程度",
+      "max_points": 10,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "核心自动化：6分",
+      "good": "全流程自动化且异常处理：8分",
+      "excellent": "全流程自动化+自愈：10分"
+    },
+    {
+      "id": "PRE-DOC",
+      "stage": "初赛",
+      "name": "文档质量",
+      "max_points": 15,
+      "source_ref": "p3 §7.1.2",
+      "qualified": "完整清晰：9—12分",
+      "good": "未单列",
+      "excellent": "详细设计/流程图、逻辑严谨：12—15分"
+    },
+    {
+      "id": "FIN-MON",
+      "stage": "决赛",
+      "name": "情报监测功能完整性",
+      "max_points": 10,
+      "source_ref": "p3 §7.2.2",
+      "qualified": "多源自动采集：6分",
+      "good": "广泛覆盖+增量：8分",
+      "excellent": "全自动+实时+去重：10分"
+    },
+    {
+      "id": "FIN-ENR",
+      "stage": "决赛",
+      "name": "情报富化功能完整性",
+      "max_points": 10,
+      "source_ref": "p3 §7.2.2",
+      "qualified": "基本富化：6分",
+      "good": "多维自动富化：8分",
+      "excellent": "精准富化+智能关联：10分"
+    },
+    {
+      "id": "FIN-QA",
+      "stage": "决赛",
+      "name": "情报问答功能完整性",
+      "max_points": 10,
+      "source_ref": "p3 §7.2.2",
+      "qualified": "语义问答：6分",
+      "good": "多轮+推理：8分",
+      "excellent": "深度推理+个性化推荐：10分"
+    },
+    {
+      "id": "FIN-TIME",
+      "stage": "决赛",
+      "name": "监测时效性与稳定性",
+      "max_points": 5,
+      "source_ref": "p3—4 §7.2.2",
+      "qualified": "延迟≤24h：3分",
+      "good": "≤12h：4分",
+      "excellent": "≤6h：5分"
+    },
+    {
+      "id": "FIN-ENR-ACC",
+      "stage": "决赛",
+      "name": "富化准确率与召回率",
+      "max_points": 5,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "准确率≥80%且召回率≥70%：3分",
+      "good": "两者均≥90%：4分",
+      "excellent": "两者均≥95%：5分"
+    },
+    {
+      "id": "FIN-QA-QUAL",
+      "stage": "决赛",
+      "name": "问答质量",
+      "max_points": 10,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "准确率≥75%且响应≤5s：6分",
+      "good": "准确率≥90%且支持多跳：8分",
+      "excellent": "准确率≥95%且推理链可解释：10分"
+    },
+    {
+      "id": "FIN-AGENT",
+      "stage": "决赛",
+      "name": "智能体运用水平",
+      "max_points": 15,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "有效运用Agent：9分",
+      "good": "多Agent协作编排：12分",
+      "excellent": "架构创新且效果显著：15分"
+    },
+    {
+      "id": "FIN-ENG",
+      "stage": "决赛",
+      "name": "系统自动化与工程化",
+      "max_points": 10,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "可部署运行：6分",
+      "good": "容器化+日志监控：8分",
+      "excellent": "完整DevOps+自动运维：10分"
+    },
+    {
+      "id": "FIN-DOC",
+      "stage": "决赛",
+      "name": "技术文档完整性与规范性",
+      "max_points": 10,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "完整规范：6—8分",
+      "good": "未单列",
+      "excellent": "精良、可作技术参考：8—10分"
+    },
+    {
+      "id": "FIN-DEMO",
+      "stage": "决赛",
+      "name": "答辩表现",
+      "max_points": 10,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "清晰、回答基础问题：6—8分",
+      "good": "未单列",
+      "excellent": "严密、深入、回答精准：8—10分"
+    },
+    {
+      "id": "FIN-OTHER",
+      "stage": "决赛",
+      "name": "创新性、系统性、实用性、团队协作",
+      "max_points": 5,
+      "source_ref": "p4 §7.2.2",
+      "qualified": "综合主观评分，未设量化合格档",
+      "good": "未单列",
+      "excellent": "综合主观评分，未设量化优秀档"
+    }
+  ]
+}

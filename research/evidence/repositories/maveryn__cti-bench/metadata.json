@@ -1,0 +1,53 @@
+{
+  "full_name": "maveryn/cti-bench",
+  "html_url": "https://github.com/maveryn/cti-bench",
+  "homepage": "",
+  "description": "[NeurIPS'24, Spotlight] CTIBench: A Benchmark for Evaluating LLMs in Cyber Threat Intelligence",
+  "language": "Jupyter Notebook",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 94,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-06-06T07:05:23Z",
+  "updated_at": "2026-09-15T21:58:21Z",
+  "pushed_at": "2026-05-07T10:45:24Z",
+  "open_issues_count": 1,
+  "default_branch": "main",
+  "requested_repo": "maveryn/cti-bench",
+  "commit": "4543e5b6560d3204e1205ced4fa286adc7452d07",
+  "commit_date": "2026-05-07T10:45:22Z",
+  "commit_message": "Add project page",
+  "checked_at_utc": "2026-10-03T03:35:19.170730+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/maveryn/cti-bench/blob/4543e5b6560d3204e1205ced4fa286adc7452d07/README.md",
+  "license_path": "LICENSE.txt",
+  "license_url": "https://github.com/maveryn/cti-bench/blob/4543e5b6560d3204e1205ced4fa286adc7452d07/LICENSE.txt",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/maveryn/cti-bench/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 2,
+      "title": "labels for the TAA dataset is missing",
+      "state": "closed",
+      "updated_at": "2025-04-15T10:50:14Z",
+      "html_url": "https://github.com/maveryn/cti-bench/issues/2",
+      "comments": 1
+    },
+    {
+      "number": 1,
+      "title": "computing the Micro F1 score for CTI-ATE",
+      "state": "open",
+      "updated_at": "2025-03-06T04:48:46Z",
+      "html_url": "https://github.com/maveryn/cti-bench/issues/1",
+      "comments": 0
+    }
+  ]
+}

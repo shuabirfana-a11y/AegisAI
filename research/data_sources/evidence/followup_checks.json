@@ -1,0 +1,192 @@
+[
+  {
+    "url": "https://www.cac.gov.cn/wxzw/zcfg/bmgz/A09370303index_1.htm",
+    "checked_at_utc": "2026-10-03T05:45:49.132531+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.cac.gov.cn/wxzw/zcfg/bmgz/A09370303index_1.htm",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 16316,
+    "sha256": "6197b8473b55e3518b37127409a9cbcf7e439b09446e8a9063fc5d1952011117",
+    "file": "research/data_sources/evidence/urls/cac_policy_index_verified.body"
+  },
+  {
+    "url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+    "checked_at_utc": "2026-10-03T05:45:49.133531+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 23354,
+    "sha256": "3686321b6f2fca2e245e210209dff4af75b5adc3be36d912695d28b5a681f642",
+    "file": "research/data_sources/evidence/urls/cac_policy_notice.body"
+  },
+  {
+    "url": "https://feeds.feedburner.com/GoogleOnlineSecurityBlog",
+    "checked_at_utc": "2026-10-03T05:45:49.134531+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://feeds.feedburner.com/GoogleOnlineSecurityBlog",
+    "headers": {
+      "Content-Type": "text/xml; charset=utf-8",
+      "Last-Modified": "Thu, 24 Sep 2026 18:56:01 GMT"
+    },
+    "truncated": false,
+    "bytes": 514319,
+    "sha256": "862433217a26e75e997d051acf894dcf1e52f50fdeab4828a2dfae062e9a369f",
+    "file": "research/data_sources/evidence/urls/google_security_feed_https.body"
+  },
+  {
+    "url": "https://api.first.org/epss/",
+    "checked_at_utc": "2026-10-03T05:45:49.404027+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.first.org/epss/",
+    "headers": {
+      "last-modified": "Tue, 29 Sep 2026 18:40:40 GMT",
+      "content-type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 7761,
+    "sha256": "cdf5c184708ebea9f5bb3e70d8bf26f90aa241ecb29e49714ec9e7b88e9282d6",
+    "file": "research/data_sources/evidence/urls/epss_current_docs.body"
+  },
+  {
+    "url": "https://www.first.org/epss/",
+    "checked_at_utc": "2026-10-03T05:45:49.422300+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://www.first.org/epss/",
+    "headers": {
+      "last-modified": "Thu, 30 Jul 2026 13:48:13 GMT",
+      "content-type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 26804,
+    "sha256": "e8fdcc2a1416d24a53940bc553cf6d233a427a2d561e06e6aa781578413ffd43",
+    "file": "research/data_sources/evidence/urls/epss_license.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://google.github.io/osv.dev/api/#rate-limits",
+    "checked_at_utc": "2026-10-03T05:45:51.519653+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://google.github.io/osv.dev/api/#rate-limits",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8",
+      "Last-Modified": "Fri, 02 Oct 2026 04:18:03 GMT",
+      "ETag": "\"6abf307b-3b9e\""
+    },
+    "truncated": false,
+    "bytes": 15262,
+    "sha256": "2adc2ca07f98ac574eb05852178613a9e7a19316cc9ed02e7ec2425c69e05e0a",
+    "file": "research/data_sources/evidence/urls/osv_limits_docs.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/package-url/packageurl-python/main/NOTICE",
+    "checked_at_utc": "2026-10-03T05:45:55.896489+00:00",
+    "method": "GET",
+    "status": 404,
+    "error": "HTTP 404"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/package-url/packageurl-python/main/mit.LICENSE",
+    "checked_at_utc": "2026-10-03T05:45:55.932885+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/package-url/packageurl-python/main/mit.LICENSE",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"1b26832fbb35f3db9f89d6c8feb9b11a6a5929a714f7c0b77ad10cf739eb7760\""
+    },
+    "truncated": false,
+    "bytes": 1054,
+    "sha256": "8e442c79545ac0c0a1a2cf0cf213312a45826acd6cdc6af223447dd5f708ee5d",
+    "file": "research/data_sources/evidence/urls/purl_python_license_alternative.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://api.github.com/repos/package-url/packageurl-python/contents",
+    "checked_at_utc": "2026-10-03T05:45:58.033176+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.github.com/repos/package-url/packageurl-python/contents",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "ETag": "\"b9b41821acf5e2ef2687dfe3df5fe58d6f6c6393\"",
+      "Last-Modified": "Tue, 04 Aug 2026 07:08:03 GMT",
+      "X-RateLimit-Limit": "5000",
+      "X-RateLimit-Remaining": "4823",
+      "X-RateLimit-Reset": "1791007569"
+    },
+    "truncated": false,
+    "bytes": 13369,
+    "sha256": "9d4dd984e501111283364d9d68b17d5d5fb85c3d6f1c82a18a411316c8485846",
+    "file": "research/data_sources/evidence/urls/purl_python_license_directory.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/vehemont/nvdlib/master/nvdlib/cve.py",
+    "checked_at_utc": "2026-10-03T05:46:00.206603+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/vehemont/nvdlib/master/nvdlib/cve.py",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"2d2d86fdc133a53549947f2c1925ae01ef01ab5de7039bc6fea4f92fc8433631\""
+    },
+    "truncated": false,
+    "bytes": 30251,
+    "sha256": "20c436a2d84859be78e179170ed34451f952380ddab90d82f8b52af28bbf251d",
+    "file": "research/data_sources/evidence/urls/nvdlib_code.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/kurtmckee/feedparser/develop/feedparser/api.py",
+    "checked_at_utc": "2026-10-03T05:46:02.293468+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/kurtmckee/feedparser/develop/feedparser/api.py",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"5cc63b12250f0117c69727c70d7dc011245611ad655d57379f1680bdc7d77174\""
+    },
+    "truncated": false,
+    "bytes": 14432,
+    "sha256": "9176ec41c9b09ee1f255ca1790ca0a250585c221efe5ee17e41627f23de81d88",
+    "file": "research/data_sources/evidence/urls/feedparser_code.body"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/main/dist/ATLAS.yaml",
+    "checked_at_utc": "2026-10-03T05:46:03.829898+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/mitre-atlas/atlas-data/main/dist/ATLAS.yaml",
+    "headers": {
+      "Content-Type": "text/plain; charset=utf-8",
+      "ETag": "\"c5bb8c3edaec567c2966302feb7153422ac7b8e2a292f4637500e68cca7fcfaf\""
+    },
+    "truncated": false,
+    "bytes": 452399,
+    "sha256": "c9c23971d0db07e2782423d795a20e78d5c2c9bcdc78fc67e24530657daaec41",
+    "file": "research/data_sources/evidence/urls/atlas_data.body"
+  },
+  {
+    "url": "https://policies.google.com/terms",
+    "checked_at_utc": "2026-10-03T05:46:04.420908+00:00",
+    "method": "GET",
+    "error": "URLError"
+  },
+  {
+    "url": "https://www.trailofbits.com/terms-of-use/",
+    "checked_at_utc": "2026-10-03T05:46:07.178826+00:00",
+    "method": "GET",
+    "status": 404,
+    "error": "HTTP 404"
+  }
+]

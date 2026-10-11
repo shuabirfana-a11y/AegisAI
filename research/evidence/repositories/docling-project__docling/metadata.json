@@ -1,0 +1,63 @@
+{
+  "full_name": "docling-project/docling",
+  "html_url": "https://github.com/docling-project/docling",
+  "homepage": "https://docling-project.github.io/docling",
+  "description": "Get your documents ready for gen AI",
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 68316,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-07-09T07:50:26Z",
+  "updated_at": "2026-10-03T03:21:01Z",
+  "pushed_at": "2026-10-02T15:10:27Z",
+  "open_issues_count": 987,
+  "default_branch": "main",
+  "requested_repo": "docling-project/docling",
+  "commit": "a1c5ff2a8c5ab2bf87d7c1eb896b5bc351f51220",
+  "commit_date": "2026-10-02T15:10:24Z",
+  "commit_message": "feat(ocr): Allow configuring RapidOCR model size (#4500)\n\n* feat(ocr): allow configuring RapidOCR model size\n\n* DCO Remediation Commit for anupamkr1708 <anupraj1620@gmail.com>\n\nI, anupamkr1708 <anupraj1620@gmail.com>, hereby add my Signed-off-by to this commit: 096ef7849c65581739df10440698792eb41ab65b\n\nSigned-off-by: anupamkr1708 <anupraj1620@gmail.com>\n\n* fix(html): reduce _handle_list complexity below the C901 threshold\n\nMove the collection of <dt>/<dd> elements of a description list into a\nhelper, so ruff no longer fails on main after #4390.\n\nSigned-off-by: Nikos Livathinos <nli@zurich.ibm.com>\n\n---------\n\nSigned-off-by: anupamkr1708 <anupraj1620@gmail.com>\nSigned-off-by: Nikos Livathinos <nli@zurich.ibm.com>\nCo-authored-by: anupamkr1708 <anupraj1620@gmail.com>",
+  "checked_at_utc": "2026-10-03T03:34:23.541925+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/docling-project/docling/blob/a1c5ff2a8c5ab2bf87d7c1eb896b5bc351f51220/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/docling-project/docling/blob/a1c5ff2a8c5ab2bf87d7c1eb896b5bc351f51220/LICENSE",
+  "latest_release": {
+    "tag_name": "v2.132.0",
+    "published_at": "2026-10-01T09:44:36Z",
+    "html_url": "https://github.com/docling-project/docling/releases/tag/v2.132.0",
+    "name": null
+  },
+  "recent_issues": [
+    {
+      "number": 4516,
+      "title": "LaTeX backend drops the term of description list items (\\item[Term])",
+      "state": "open",
+      "updated_at": "2026-10-03T01:52:01Z",
+      "html_url": "https://github.com/docling-project/docling/issues/4516",
+      "comments": 0
+    },
+    {
+      "number": 4515,
+      "title": "LaTeX backend converts enumerate lists to unordered (bullet) lists",
+      "state": "open",
+      "updated_at": "2026-10-03T01:52:49Z",
+      "html_url": "https://github.com/docling-project/docling/issues/4515",
+      "comments": 0
+    },
+    {
+      "number": 4514,
+      "title": "LaTeX backend drops accents and special letters in body text",
+      "state": "open",
+      "updated_at": "2026-10-03T01:51:09Z",
+      "html_url": "https://github.com/docling-project/docling/issues/4514",
+      "comments": 0
+    }
+  ]
+}

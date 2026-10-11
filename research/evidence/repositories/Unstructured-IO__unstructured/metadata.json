@@ -1,0 +1,38 @@
+{
+  "full_name": "Unstructured-IO/unstructured",
+  "html_url": "https://github.com/Unstructured-IO/unstructured",
+  "homepage": "https://www.unstructured.io/",
+  "description": "Convert documents to structured data effortlessly. Unstructured is open-source ETL solution for transforming complex documents into clean, structured formats for language models.  Visit our website to learn more about our enterprise grade Platform product for production grade workflows, partitioning, enrichments, chunking and embedding.",
+  "language": "HTML",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 15524,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2022-09-26T21:53:41Z",
+  "updated_at": "2026-10-03T02:19:36Z",
+  "pushed_at": "2026-10-02T22:26:23Z",
+  "open_issues_count": 332,
+  "default_branch": "main",
+  "requested_repo": "Unstructured-IO/unstructured",
+  "commit": "0242693483896008daf80e4c324205d31dce1de8",
+  "commit_date": "2026-10-02T21:07:27Z",
+  "commit_message": "fix(image): reject images whose frames decode to too many pixels (#4520)\n\n## Summary\n\nEvery frame of a multi-frame image (e.g. TIFF) is decoded to RGB, and\nhi_res (`DocumentLayout.from_image_file` in unstructured-inference)\nholds every frame in memory at once. Blank frames compress to almost\nnothing, and PIL's per-frame limit (raised to 5e8 in `pdf.py`) does not\nbound the total.\n\n- **Check before partitioning, without decoding pixels.** Once the\nstrategy is resolved, `partition_pdf_or_image(is_image=True)` measures\nthe image and raises `UnprocessableEntityError` above\n`IMAGE_MAX_TOTAL_PIXELS` (new env setting, default 500,000,000, matching\nthe per-frame limit `pdf.py` already sets).\n- With hi_res, which decodes every frame, every frame is charged,\nwithout allocating or decoding any. Some formats' `seek()` allocates or\ndecodes the frame (pi-heif allocates it; APNG and GIF load it), so\nframes are visited only where `seek()` is metadata-only:\n- TIFF and MPO frames, which can differ in size, are summed from each\nframe's header (IFD or MP entry).\n- HEIF images are summed from the sizes pi-heif reads from the container\nwhen opening it.\n- Canvas-composited frames (APNG, animated WebP, GIF) are charged canvas\nsize × the frame count Pillow reads from metadata, computed in constant\ntime. That count can be one the file merely declares (APNG's `acTL`\nallows 2^31), so it is never iterated; the work is bounded by the frames\nphysically in the file.\n- Instrumenting PIL's allocator (`Image.core.new`, `ImageFile.load`)\nconfirms none of these measurements allocates a pixel buffer or loads a\nframe. That instrumentation can't see allocations inside native\ndecoders: libwebp, for example, may allocate its canvas when the file is\nopened, exactly as it does on `main`.\n- This bounds the pixels partitioning will decode. It is not a limit on\nprocess-wide memory or concurrency.\n- ocr_only uses only the first frame, so only the first frame is\ncharged, from the size `Image.open()` reads from the header. It still\ntouches only the first frame, as before.\n- It accepts a filename, a file or bytes, and leaves a borrowed file\nopen at its read position, including when it rejects the image.\n- **Errors.** PIL's own `DecompressionBombError` for a single oversized\nframe is reported as `UnprocessableEntityError`. A file PIL can't\nidentify is left to the existing error paths.\n\n## Measurements (blank group4 TIFF frames, 10,000 × 10,000 each)\n\n| File | Before | After |\n|---|---|---|\n| 19 KB, 3 frames (3e8 px) | hi_res: 3.5 GiB peak, 12s | unchanged\n(under the limit) |\n| 195 KB, 30 frames (3e9 px) | ~9 GB of RGB decoded before inference\nstarts | rejected in <10 ms |\n\nhi_res measured about 11 B per pixel including the model, so the 5e8\ndefault bounds a single image to roughly 6 GB. That's about 59 pages of\na 300-DPI letter-size scan.\n\n## Tests\n\n- Pixels are summed across TIFF frames, from a filename, a file and\nbytes (exact-limit pass, one-under fail).\n- Measuring a mixed-size TIFF, an APNG, an animated WebP, a GIF, an MPO\nand a two-image HEIF (committed 867-byte fixture) charges every frame\nexactly and allocates no pixel buffer.\n- The scan stops at the frame that passes the limit, without reading the\nnext frame's header.\n- A rejected borrowed file stays open at its position.\n- A 1×1 APNG whose `acTL` declares 2^31 − 1 frames is rejected in\nconstant time (it took 14 s on the previous commit), allocating nothing.\n- A borrowed file stays open at its position when PIL fails while\nreading a frame header.\n- Dispatch: hi_res and auto measure every frame and ocr_only only the\nfirst, including when a missing dependency makes hi_res fall back to\nocr_only or ocr_only fall back to hi_res; PDFs bypass the image limit.\n- `partition_image(strategy=\"hi_res\")` rejects a 6-frame file before any\nframe is converted.\n- A decompression-bomb frame is reported as unprocessable, and non-image\nbytes are ignored.\n\nFull `test_image.py`: 53 passed, 2 skipped (48 passed, 2 skipped on\n`main`).\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\n\n<!-- This is an auto-generated description by cubic. -->\n<a\nhref=\"https://cubic.dev/pr/Unstructured-IO/unstructured/pull/4520?utm_source=github\"\ntarget=\"_blank\" rel=\"noopener noreferrer\"\ndata-no-image-dialog=\"true\"><picture><source\nmedia=\"(prefers-color-scheme: dark)\"\nsrcset=\"https://www.cubic.dev/buttons/review-in-cubic-dark.svg\"><source\nmedia=\"(prefers-color-scheme: light)\"\nsrcset=\"https://www.cubic.dev/buttons/review-in-cubic-light.svg\"><img\nalt=\"Review in cubic\"\nsrc=\"https://www.cubic.dev/buttons/review-in-cubic-dark.svg\"></picture></a>\n<!-- End of auto-generated description by cubic. -->\n\n---------\n\nCo-authored-by: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+  "checked_at_utc": "2026-10-03T03:32:02.908515+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/Unstructured-IO/unstructured/blob/0242693483896008daf80e4c324205d31dce1de8/README.md",
+  "license_path": "LICENSE.md",
+  "license_url": "https://github.com/Unstructured-IO/unstructured/blob/0242693483896008daf80e4c324205d31dce1de8/LICENSE.md",
+  "latest_release": {
+    "tag_name": "0.27.10",
+    "published_at": "2026-09-27T19:10:55Z",
+    "html_url": "https://github.com/Unstructured-IO/unstructured/releases/tag/0.27.10",
+    "name": "0.27.10"
+  },
+  "recent_issues": []
+}

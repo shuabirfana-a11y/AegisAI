@@ -1,0 +1,63 @@
+{
+  "full_name": "protectai/modelscan",
+  "html_url": "https://github.com/protectai/modelscan",
+  "homepage": "http://modelscan.ai",
+  "description": "Protection against Model Serialization Attacks",
+  "language": "Python",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 777,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2023-07-25T16:37:05Z",
+  "updated_at": "2026-09-28T16:45:53Z",
+  "pushed_at": "2026-09-28T23:10:13Z",
+  "open_issues_count": 84,
+  "default_branch": "main",
+  "requested_repo": "protectai/modelscan",
+  "commit": "61fcec9c2a37c24c1fb12d84ede30fe248a364bd",
+  "commit_date": "2026-02-18T21:05:38Z",
+  "commit_message": "Remove unnecessary setuptools dependency pin (#332)\n\nCo-authored-by: Aditya Borikar <adborikar@paloaltonetworks.com>",
+  "checked_at_utc": "2026-10-03T03:31:32.151928+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/protectai/modelscan/blob/61fcec9c2a37c24c1fb12d84ede30fe248a364bd/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/protectai/modelscan/blob/61fcec9c2a37c24c1fb12d84ede30fe248a364bd/LICENSE",
+  "latest_release": {
+    "tag_name": "v0.8.8",
+    "published_at": "2026-02-18T21:14:19Z",
+    "html_url": "https://github.com/protectai/modelscan/releases/tag/v0.8.8",
+    "name": "v0.8.8"
+  },
+  "recent_issues": [
+    {
+      "number": 372,
+      "title": "EvalPort: portable interchange for scan Issue/Issues results",
+      "state": "open",
+      "updated_at": "2026-09-27T01:25:34Z",
+      "html_url": "https://github.com/protectai/modelscan/issues/372",
+      "comments": 0
+    },
+    {
+      "number": 369,
+      "title": "[BUG] Security Vulnerability",
+      "state": "open",
+      "updated_at": "2026-08-16T20:00:36Z",
+      "html_url": "https://github.com/protectai/modelscan/issues/369",
+      "comments": 0
+    },
+    {
+      "number": 368,
+      "title": "[BUG] Security Vulnerability",
+      "state": "open",
+      "updated_at": "2026-07-31T19:59:45Z",
+      "html_url": "https://github.com/protectai/modelscan/issues/368",
+      "comments": 0
+    }
+  ]
+}

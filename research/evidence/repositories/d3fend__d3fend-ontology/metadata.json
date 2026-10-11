@@ -1,0 +1,61 @@
+{
+  "full_name": "d3fend/d3fend-ontology",
+  "html_url": "https://github.com/d3fend/d3fend-ontology",
+  "homepage": "https://d3fend.mitre.org",
+  "description": "This repository holds the necessary content to produce the D3FEND ontology distribution.",
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 116,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2022-02-10T18:04:46Z",
+  "updated_at": "2026-09-23T17:23:40Z",
+  "pushed_at": "2026-10-01T18:14:22Z",
+  "open_issues_count": 223,
+  "default_branch": "develop",
+  "requested_repo": "d3fend/d3fend-ontology",
+  "commit": "c102eefe2a158dfb73a61c6637c4df175ec8680a",
+  "commit_date": "2026-09-23T17:23:35Z",
+  "commit_message": "Add D3FEND artifact restrictions for ATLAS AML.T0037 (Data from Local System) (#618)",
+  "checked_at_utc": "2026-10-03T03:42:03.972905+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/d3fend/d3fend-ontology/blob/c102eefe2a158dfb73a61c6637c4df175ec8680a/README.md",
+  "license_path": "LICENSE.md",
+  "license_url": "https://github.com/d3fend/d3fend-ontology/blob/c102eefe2a158dfb73a61c6637c4df175ec8680a/LICENSE.md",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/d3fend/d3fend-ontology/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 705,
+      "title": "Community Tool: D3FEND Matrix Navigator (React/Client-Side)",
+      "state": "open",
+      "updated_at": "2026-10-02T16:39:02Z",
+      "html_url": "https://github.com/d3fend/d3fend-ontology/issues/705",
+      "comments": 0
+    },
+    {
+      "number": 703,
+      "title": "`ExecutableAllowlisting` declared as a type of `PlatformHardening`",
+      "state": "open",
+      "updated_at": "2026-10-01T20:44:04Z",
+      "html_url": "https://github.com/d3fend/d3fend-ontology/issues/703",
+      "comments": 0
+    },
+    {
+      "number": 701,
+      "title": "Modularize d3fend-protege.ttl",
+      "state": "open",
+      "updated_at": "2026-10-01T18:00:14Z",
+      "html_url": "https://github.com/d3fend/d3fend-ontology/issues/701",
+      "comments": 0
+    }
+  ]
+}

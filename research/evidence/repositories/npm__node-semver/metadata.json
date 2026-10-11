@@ -1,0 +1,55 @@
+{
+  "full_name": "npm/node-semver",
+  "html_url": "https://github.com/npm/node-semver",
+  "homepage": "https://semver.npmjs.com/",
+  "description": "The semver parser for node (the one npm uses)",
+  "language": "JavaScript",
+  "license": {
+    "key": "isc",
+    "name": "ISC License",
+    "spdx_id": "ISC",
+    "url": "https://api.github.com/licenses/isc",
+    "node_id": "MDc6TGljZW5zZTEw"
+  },
+  "stargazers_count": 5465,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2011-02-12T00:06:03Z",
+  "updated_at": "2026-10-02T15:14:29Z",
+  "pushed_at": "2026-09-10T19:52:15Z",
+  "open_issues_count": 68,
+  "default_branch": "main",
+  "requested_repo": "npm/node-semver",
+  "commit": "6e05b7637396ac66522cff8731f07cfe0ef49a29",
+  "commit_date": "2026-06-19T18:28:50Z",
+  "commit_message": "chore: release 7.8.5 (#879)\n\n:robot: I have created a release *beep* *boop*\n---\n\n\n## [7.8.5](https://github.com/npm/node-semver/compare/v7.8.4...v7.8.5)\n(2026-06-19)\n### Bug Fixes\n*\n[`9c8692a`](https://github.com/npm/node-semver/commit/9c8692ae05416e9dbe88d95ffe2b80e6964550fe)\n[#878](https://github.com/npm/node-semver/pull/878) include prereleases\nin tilde range lower bound with includePrerelease (#878)\n(@chatman-media)\n\n---\nThis PR was generated with [Release\nPlease](https://github.com/googleapis/release-please). See\n[documentation](https://github.com/googleapis/release-please#release-please).\n\nCo-authored-by: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:34:32.113186+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/npm/node-semver/blob/6e05b7637396ac66522cff8731f07cfe0ef49a29/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/npm/node-semver/blob/6e05b7637396ac66522cff8731f07cfe0ef49a29/LICENSE",
+  "latest_release": {
+    "tag_name": "v7.8.5",
+    "published_at": "2026-06-19T18:32:05Z",
+    "html_url": "https://github.com/npm/node-semver/releases/tag/v7.8.5",
+    "name": "v7.8.5"
+  },
+  "recent_issues": [
+    {
+      "number": 909,
+      "title": "[BUG] intersects() still returns true for an empty range against \"*\" (follow-up to #521)",
+      "state": "open",
+      "updated_at": "2026-09-29T02:24:15Z",
+      "html_url": "https://github.com/npm/node-semver/issues/909",
+      "comments": 0
+    },
+    {
+      "number": 908,
+      "title": "[BUG] new Range(comparator).test() throws TypeError for a prerelease version",
+      "state": "open",
+      "updated_at": "2026-09-29T02:22:37Z",
+      "html_url": "https://github.com/npm/node-semver/issues/908",
+      "comments": 0
+    }
+  ]
+}

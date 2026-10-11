@@ -1,0 +1,31 @@
+{
+  "kind": "Identifiers only from Phase2 research; actual records fetched at runtime",
+  "cve": [
+    "CVE-2025-32434",
+    "CVE-2022-45907",
+    "CVE-2026-41486",
+    "CVE-2026-48545",
+    "CVE-2026-49119",
+    "CVE-2026-57516",
+    "CVE-2026-71211",
+    "CVE-2026-80047",
+    "CVE-2026-8147",
+    "CVE-2026-94626",
+    "CVE-2026-9540",
+    "CVE-2026-9856"
+  ],
+  "osv": [
+    "GHSA-53q9-r3pm-6pq6",
+    "GHSA-47fc-vmwq-366v",
+    "GHSA-mw35-8rx3-xf9r",
+    "GHSA-7hp7-4p35-3cx2",
+    "GHSA-j36p-7w88-g82j",
+    "GHSA-hhrp-gw25-jr43",
+    "GHSA-h7x2-h6g9-p789",
+    "GHSA-x9r9-c232-4q39",
+    "GHSA-2cm6-r77w-6g96",
+    "PYSEC-2026-4008",
+    "GHSA-98f3-hwg4-4rf7",
+    "GHSA-xrqw-3rrv-vx5w"
+  ]
+}

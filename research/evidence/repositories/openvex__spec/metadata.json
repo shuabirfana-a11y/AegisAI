@@ -1,0 +1,63 @@
+{
+  "full_name": "openvex/spec",
+  "html_url": "https://github.com/openvex/spec",
+  "homepage": null,
+  "description": "OpenVEX Specification",
+  "language": null,
+  "license": {
+    "key": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "spdx_id": "CC0-1.0",
+    "url": "https://api.github.com/licenses/cc0-1.0",
+    "node_id": "MDc6TGljZW5zZTY="
+  },
+  "stargazers_count": 192,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2023-01-08T21:55:31Z",
+  "updated_at": "2026-09-24T19:59:39Z",
+  "pushed_at": "2026-09-09T19:51:21Z",
+  "open_issues_count": 24,
+  "default_branch": "main",
+  "requested_repo": "openvex/spec",
+  "commit": "61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+  "commit_date": "2026-09-09T19:51:21Z",
+  "commit_message": "Merge pull request #65 from ryru/main\n\nMerged by miniprow\n\nSigned-off-by: miniprow <3418766+miniprow[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:33:50.853441+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/openvex/spec/blob/61b5f885d0f481f48683c93345e49ef1a6e9fdff/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/openvex/spec/blob/61b5f885d0f481f48683c93345e49ef1a6e9fdff/LICENSE",
+  "latest_release": {
+    "tag_name": "v0.2.0",
+    "published_at": "2023-08-22T18:29:58Z",
+    "html_url": "https://github.com/openvex/spec/releases/tag/v0.2.0",
+    "name": "OpenVEX Spec v0.2.0"
+  },
+  "recent_issues": [
+    {
+      "number": 63,
+      "title": "$",
+      "state": "closed",
+      "updated_at": "2026-08-31T18:55:08Z",
+      "html_url": "https://github.com/openvex/spec/issues/63",
+      "comments": 0
+    },
+    {
+      "number": 62,
+      "title": "Context URLs are redirects to GitHub and do not return context files.",
+      "state": "open",
+      "updated_at": "2026-03-03T14:31:31Z",
+      "html_url": "https://github.com/openvex/spec/issues/62",
+      "comments": 0
+    },
+    {
+      "number": 61,
+      "title": "proposal: add `partially_mitigated` status label",
+      "state": "open",
+      "updated_at": "2026-03-17T21:43:12Z",
+      "html_url": "https://github.com/openvex/spec/issues/61",
+      "comments": 4
+    }
+  ]
+}

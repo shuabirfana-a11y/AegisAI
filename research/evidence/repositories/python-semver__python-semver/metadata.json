@@ -1,0 +1,55 @@
+{
+  "full_name": "python-semver/python-semver",
+  "html_url": "https://github.com/python-semver/python-semver",
+  "homepage": "https://python-semver.readthedocs.io/en/latest/",
+  "description": "Python package to work with Semantic Versioning (https://semver.org/)",
+  "language": "Python",
+  "license": {
+    "key": "bsd-3-clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "spdx_id": "BSD-3-Clause",
+    "url": "https://api.github.com/licenses/bsd-3-clause",
+    "node_id": "MDc6TGljZW5zZTU="
+  },
+  "stargazers_count": 524,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2012-02-07T08:46:16Z",
+  "updated_at": "2026-10-01T19:58:13Z",
+  "pushed_at": "2026-10-01T19:58:07Z",
+  "open_issues_count": 14,
+  "default_branch": "master",
+  "requested_repo": "python-semver/python-semver",
+  "commit": "1d515915d50b31f23fd1fb0f572ef608453e80e3",
+  "commit_date": "2026-10-01T19:58:07Z",
+  "commit_message": "Compare long numeric prerelease identifiers without integer conversion (#488)\n\nProblem: Large numeric prereleases (~5,000 digits) parsed successfully\nbut triggered a ValueError during comparison due to Python's\ninteger-conversion limits.\n\nSolution: Numeric prereleases are now compared using normalized\ndigit counts and text matching instead of integer conversion,\npreserving numeric-before-text ordering.\n\nUnchanged Behavior: Retains constructor leading-zero comparisons,\nlegacy Unicode handling, eager validation, core version parsing, and\nrelease/build precedence.\n\nDeliverables: Includes regression tests and a changelog update.",
+  "checked_at_utc": "2026-10-03T03:34:13.067353+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/python-semver/python-semver/blob/1d515915d50b31f23fd1fb0f572ef608453e80e3/README.rst",
+  "license_path": "LICENSE.txt",
+  "license_url": "https://github.com/python-semver/python-semver/blob/1d515915d50b31f23fd1fb0f572ef608453e80e3/LICENSE.txt",
+  "latest_release": {
+    "tag_name": "3.1.0",
+    "published_at": "2026-09-12T18:36:00Z",
+    "html_url": "https://github.com/python-semver/python-semver/releases/tag/3.1.0",
+    "name": "3.1.0"
+  },
+  "recent_issues": [
+    {
+      "number": 487,
+      "title": "is_valid() accepts versions that compare() cannot order (int_max_str_digits)",
+      "state": "closed",
+      "updated_at": "2026-10-01T19:58:08Z",
+      "html_url": "https://github.com/python-semver/python-semver/issues/487",
+      "comments": 0
+    },
+    {
+      "number": 484,
+      "title": "New prerelease bump behaviour breaks consistency with old RC numbering",
+      "state": "closed",
+      "updated_at": "2026-09-24T15:40:11Z",
+      "html_url": "https://github.com/python-semver/python-semver/issues/484",
+      "comments": 3
+    }
+  ]
+}

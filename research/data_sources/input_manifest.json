@@ -1,0 +1,77 @@
+{
+  "read_at_utc": "2026-10-03T05:57:47.461065+00:00",
+  "requirements": [
+    {
+      "file": "requirements/AI_PROGRAM_HUMAN_BOUNDARY.md",
+      "sha256": "a5a3d959df382b080a89aa82dd52497099b29847cd3c43e8cde11a8008a60732",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/BUSINESS_FLOW.md",
+      "sha256": "57f2f572269fdc59e96c1f1b7f67d5ba90083855bcef38d8ff1b38852d5b8936",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/CORE_ENTITIES.md",
+      "sha256": "8c6846b4cf9903613b3ee367d127294e6d42ed39e099e292edc999f060080c79",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/DEMO_REQUIREMENTS.md",
+      "sha256": "2fa8800af4668738196d734e8f38c1feaa7d87be7c68cfa9c9e7db13af310e30",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/EVALUATION_REQUIREMENTS.md",
+      "sha256": "01c9e2d02f17897c92bb84eb9d6fce04337b8edc05b8738d22145a083a336857",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/FEATURE_LIST.md",
+      "sha256": "cec368a4151da3937aa3c2b12b21a119e109547aa9279d39b6ebf7ca847ff711",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/NON_FUNCTIONAL_REQUIREMENTS.md",
+      "sha256": "50d27299ff18409c13ea3ef69d92e9436ae9c09e9c01ce7ed7fa3bde3471fe88",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/OUT_OF_SCOPE.md",
+      "sha256": "a6b406664c8001bbb3d77bb085871da5af0de54d96a18d2d89780cbf15d89139",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/PAGE_REQUIREMENTS.md",
+      "sha256": "4036d48093813610c2d65d154c638a7296953c717924d09e7f82bed074afd2af",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/PRD.md",
+      "sha256": "e1acea19f977d528a0536e0473b266da63d5069bd3f3b1f77788357da66f17a1",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/SCORE_MAPPING.md",
+      "sha256": "4616b4b38ecd0471dcf9d1db16b37d209dfc831daf80e2e8b4bd6c4d357e3a0c",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/USER_ROLES.md",
+      "sha256": "e9b39f1dc4a04f61dcbcd837dca05e161410f1af938d969d107d2f7770c8b0e6",
+      "fully_read": true
+    },
+    {
+      "file": "requirements/USER_TASKS.md",
+      "sha256": "46765287cd84058ed41767a7eae9e7adf194cbc34e200a172b856f7c94eea983",
+      "fully_read": true
+    }
+  ],
+  "competition_pdf": {
+    "file": "requirements/sources/competition_problem_9.pdf",
+    "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3",
+    "pages": 4,
+    "text_rechecked": true
+  },
+  "user_instruction": "C:/Users/X/.codex/attachments/0b6b84a1-3106-4a46-aff5-8f3f910c605f/Pasted text.txt"
+}

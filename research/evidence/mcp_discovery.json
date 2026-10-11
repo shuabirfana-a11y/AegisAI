@@ -1,0 +1,132 @@
+{
+  "atlas_mcp": {
+    "total": 35,
+    "repositories": [
+      {
+        "name": "UPinar/contrastapi",
+        "description": "MCP server with 55 security intelligence tools — CVE/KEV, MITRE ATLAS+D3FEND, Sigma detection rules, email security posture (SPF/DMARC), domain & web intel, threat intel.",
+        "url": "https://github.com/UPinar/contrastapi"
+      },
+      {
+        "name": "josephManzambi/model-trust-gate",
+        "description": "A seven-layer, fail-fast gate for deciding whether to adopt an AI model for one specific use, ending in a signed Model Trust Record. Composes NIST AI RMF, ISO/IEC 42001, CSA AICM, OWASP and MITRE ATLAS. Working draft v0.2.2.",
+        "url": "https://github.com/josephManzambi/model-trust-gate"
+      },
+      {
+        "name": "Shurtug4l/sec-recon-agent",
+        "description": "Type-safe LLM vulnerability triage on Pydantic AI + MCP. Ten typed tools (NVD, OSV, KEV, EPSS, Exploit-DB, ATT&CK, SBOM, Nmap) ground a validated TriageReport with a deterministic SSVC verdict. Red-team battery (MITRE ATLAS), reproducible scorecard, OWASP LLM + ISO 42001 mapping. Next.js frontend.",
+        "url": "https://github.com/Shurtug4l/sec-recon-agent"
+      },
+      {
+        "name": "tachyonic-sh/taxonomy",
+        "description": "Open taxonomy of 168 AI/LLM attack vectors with versioned, source-pinned relations to the OWASP LLM, Agentic and MCP Top 10s and MITRE ATLAS — ESF Phases 1-3 reference implementation",
+        "url": "https://github.com/tachyonic-sh/taxonomy"
+      }
+    ],
+    "error": null
+  },
+  "attack_mcp": {
+    "total": 26,
+    "repositories": [
+      {
+        "name": "tachyonic-sh/taxonomy",
+        "description": "Open taxonomy of 168 AI/LLM attack vectors with versioned, source-pinned relations to the OWASP LLM, Agentic and MCP Top 10s and MITRE ATLAS — ESF Phases 1-3 reference implementation",
+        "url": "https://github.com/tachyonic-sh/taxonomy"
+      },
+      {
+        "name": "SiteQ8/Mirqab",
+        "description": "Open source LNG plant cyber range for Qatar: live process simulation, IEC 62443 controls, MITRE ATT&CK for ICS attack paths, NCSA incident playbooks and an MCP server.",
+        "url": "https://github.com/SiteQ8/Mirqab"
+      },
+      {
+        "name": "SalehKamil/mcp-mitre-attack",
+        "description": null,
+        "url": "https://github.com/SalehKamil/mcp-mitre-attack"
+      },
+      {
+        "name": "camaleon2016/SAFE-MCP-skill",
+        "description": "Security analysis engine for MCP tool definitions, server configs, and agent architectures. Evaluates against 85 SAFE-MCP attack techniques across 14 MITRE ATT&CK-aligned tactics. Callable via MCP (stdio/HTTP), OpenAI function calling, REST API, or C# Semantic Kernel.",
+        "url": "https://github.com/camaleon2016/SAFE-MCP-skill"
+      }
+    ],
+    "error": null
+  },
+  "arxiv_mcp": {
+    "total": 580,
+    "repositories": [
+      {
+        "name": "KimJiSeong1994/PaperReview",
+        "description": "AI-powered academic research platform for paper search, multi-agent reviews, knowledge graphs, and personalized research workflows",
+        "url": "https://github.com/KimJiSeong1994/PaperReview"
+      },
+      {
+        "name": "Sulcate-whipcord611/arxiv-reader-mcp",
+        "description": "Search and extract research papers from arXiv using this Model Context Protocol server.",
+        "url": "https://github.com/Sulcate-whipcord611/arxiv-reader-mcp"
+      },
+      {
+        "name": "blazickjp/arxiv-mcp-server",
+        "description": "A local MCP server for agent literature work. Original-LaTeX section reads, BibTeX from arXiv metadata, and topic watches. Papers stay on disk. Search is optional.",
+        "url": "https://github.com/blazickjp/arxiv-mcp-server"
+      },
+      {
+        "name": "datavilleorg/dataville-mcp",
+        "description": "MCP server for Dataville — query Wikipedia, arXiv, SEC EDGAR, US Census, OpenAlex, PyPI and more from Claude and other MCP clients.",
+        "url": "https://github.com/datavilleorg/dataville-mcp"
+      }
+    ],
+    "error": null
+  },
+  "rss_mcp": {
+    "total": 486,
+    "repositories": [
+      {
+        "name": "api-evangelist/philadelphia-inquirer",
+        "description": "The Philadelphia Inquirer — independent third-party profile of a public API surface, by API Evangelist. The Philadelphia Inquirer is the largest newspaper in Pennsylvania, owned by the nonprofit Lenfest Institute for Journalism. Inquirer.com publishes Philadelphia, regional, national, and world news, sports, business, opinion, arts, food, and obitu",
+        "url": "https://github.com/api-evangelist/philadelphia-inquirer"
+      },
+      {
+        "name": "api-evangelist/newsblur",
+        "description": "NewsBlur — independent third-party profile of a public API surface, by API Evangelist. NewsBlur is a personal news reader that brings people together to talk about the world. It is an RSS/Atom feed aggregator with training-based intelligence (hide or highlight stories per feed), original-site and original-text views, saved (starred) stories, folder",
+        "url": "https://github.com/api-evangelist/newsblur"
+      },
+      {
+        "name": "appropriate-mixup116/TrendFollowingSystems",
+        "description": "Calculate expected returns and risk metrics for trend-following systems under various price processes with complete Python implementations and historical data.",
+        "url": "https://github.com/appropriate-mixup116/TrendFollowingSystems"
+      },
+      {
+        "name": "muhib-karim/bounty-radar",
+        "description": "Live verified open-source bounties, jobs & challenges — Algora, Opire, GitHub. Spam & dead-repo filtered. RSS + JSON + MCP for agents. Zero servers.",
+        "url": "https://github.com/muhib-karim/bounty-radar"
+      }
+    ],
+    "error": null
+  },
+  "security_mcp": {
+    "total": 16,
+    "repositories": [
+      {
+        "name": "san3ncrypt3d/vulnometry",
+        "description": "Measure what a vulnerability is worth to your business, not how severe it is in the abstract. Business Exposure Index scoring over NVD, EPSS, CISA KEV, OSV and GHSA.",
+        "url": "https://github.com/san3ncrypt3d/vulnometry"
+      },
+      {
+        "name": "NullSpace-BitCradle/Threat_Intelligence_Pipeline",
+        "description": "Correlates every NVD CVE with CWE, CAPEC, ATT&CK, D3FEND, OWASP, CISA KEV, Vulnrichment SSVC, and EPSS, with APT links only where MITRE ATT&CK cites the CVE. Search-first web app, MCP server, daily fail-closed updates via GitHub Actions.",
+        "url": "https://github.com/NullSpace-BitCradle/Threat_Intelligence_Pipeline"
+      },
+      {
+        "name": "mukul975/cve-mcp-server",
+        "description": "Production-grade MCP server giving Claude 27 security intelligence tools across 21 APIs — CVE lookup, EPSS scoring, CISA KEV, MITRE ATT&CK, Shodan, VirusTotal, and more.",
+        "url": "https://github.com/mukul975/cve-mcp-server"
+      },
+      {
+        "name": "mez-0/vulnify",
+        "description": "CVE ingestion + enrichment pipeline with an MCP server for AI agents.",
+        "url": "https://github.com/mez-0/vulnify"
+      }
+    ],
+    "error": null
+  }
+}

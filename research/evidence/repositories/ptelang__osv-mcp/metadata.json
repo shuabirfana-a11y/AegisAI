@@ -1,0 +1,36 @@
+{
+  "full_name": "ptelang/osv-mcp",
+  "html_url": "https://github.com/ptelang/osv-mcp",
+  "homepage": null,
+  "description": "MCP Server for Vulnerabilities based on OSV API",
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 1,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2025-04-22T16:28:13Z",
+  "updated_at": "2026-01-16T05:30:53Z",
+  "pushed_at": "2025-04-22T16:39:59Z",
+  "open_issues_count": 0,
+  "default_branch": "main",
+  "requested_repo": "ptelang/osv-mcp",
+  "commit": "b28952fd5a1b470ee38b5e6f5ba0ee34b061febd",
+  "commit_date": "2025-04-22T16:39:47Z",
+  "commit_message": "Added Claude desktop screenshot",
+  "checked_at_utc": "2026-10-03T03:35:24.810781+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/ptelang/osv-mcp/blob/b28952fd5a1b470ee38b5e6f5ba0ee34b061febd/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/ptelang/osv-mcp/blob/b28952fd5a1b470ee38b5e6f5ba0ee34b061febd/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/ptelang/osv-mcp/releases/latest"
+  },
+  "recent_issues": []
+}

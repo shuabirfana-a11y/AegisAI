@@ -1,0 +1,71 @@
+=== AegisAI Phase 6 Backend Ingestion Complete ===
+
+Implemented Sources:
+1. CVE_LIST
+2. OSV (PyPI)
+3. CISA_KEV
+
+Real Sync Results:
+All committed live runs, including initial failures, recovery and rechecks.
+Counts are logical source records, not unique entities.
+
+Source 1: CVE_LIST
+Fetched: 290
+Created: 100
+Updated: 0
+Skipped: 185
+Failed: 5
+Operation Errors: 2
+
+Source 2: OSV
+Fetched: 321
+Created: 100
+Updated: 145
+Skipped: 66
+Failed: 10
+Operation Errors: 1
+
+Source 3: CISA_KEV
+Fetched: 211
+Created: 111
+Updated: 0
+Skipped: 100
+Failed: 0
+Operation Errors: 1
+
+Cross-source Dedup Example:
+Vulnerability: CVE-2025-32434 (3df70d68-c31e-43a4-9c86-23485eb4e6f4)
+Sources: CVE_LIST + OSV
+Raw Documents: 3
+OSV: 714d2299-ecc3-46df-9199-bb2f8085456a / SHA256 71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383
+OSV: 1a839cab-e567-4f29-a611-1c7ad0aaf7a0 / SHA256 2daa1a178f3e85b312d8e1b19fb68dd8c9d88193bf587a4db072dc118c85377f
+CVE_LIST: 27916639-e61c-4eac-b300-e4c866db8926 / SHA256 30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc
+
+Database:
+Vulnerabilities: 278
+Raw Documents: 347
+Products: 198
+Sync Runs: 19
+
+Tests:
+131 / 131 passed (1 upstream deprecation warning)
+
+API:
+http://127.0.0.1:8000
+/health
+/api/v1/sources
+/api/v1/sync-runs
+/api/v1/vulnerabilities
+/api/v1/vulnerabilities/{id}
+
+Known Issues:
+Finite CVE/OSV scope; OSV pending50, KEV pending1622 (full1733-item raw catalog retained).
+OSV key-order variations may create byte revisions; updated does not mean new security facts.
+Initial network/format/constraint failures retained; latest100 rechecks have no record failures.
+Loopback development only; no auth/production deployment. Docker runtime unavailable.
+No Benchmark, POC execution or Phase7 implementation. See reports/phase6/KNOWN_ISSUES.md.
+
+Next Phase:
+情报富化 + POC/Patch/Vendor/EPSS + Evidence + 多源核验
+
+STOPPED AFTER PHASE 6. PHASE 7 NOT STARTED.

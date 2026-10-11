@@ -1,0 +1,47 @@
+{
+  "full_name": "firecrawl/firecrawl",
+  "html_url": "https://github.com/firecrawl/firecrawl",
+  "homepage": "https://firecrawl.dev",
+  "description": "🔥 Supercharge your AI agents with data from the web and beyond. A web data API to search, scrape, and access more sources.",
+  "language": "TypeScript",
+  "license": {
+    "key": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "spdx_id": "AGPL-3.0",
+    "url": "https://api.github.com/licenses/agpl-3.0",
+    "node_id": "MDc6TGljZW5zZTE="
+  },
+  "stargazers_count": 187992,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-04-15T21:02:29Z",
+  "updated_at": "2026-10-03T03:33:17Z",
+  "pushed_at": "2026-10-03T03:10:00Z",
+  "open_issues_count": 512,
+  "default_branch": "main",
+  "requested_repo": "firecrawl/firecrawl",
+  "commit": "66ebd15b5da3f75e6e3ebccdfe9aef5ddc6e4449",
+  "commit_date": "2026-10-03T00:03:37Z",
+  "commit_message": "In-app notifications for monitor changes and dashboard crawls (#4928)\n\n* Write in-app notifications for monitor changes and dashboard crawls\n\nCo-authored-by: Cursor <cursoragent@cursor.com>\n\n* Harden in-app notifications: exact dashboard origin, dedupe per crawl, skip empty runs, write before other monitor channels\n\nCo-authored-by: Cursor <cursoragent@cursor.com>\n\n---------\n\nCo-authored-by: Cursor <cursoragent@cursor.com>",
+  "checked_at_utc": "2026-10-03T03:34:27.790949+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/firecrawl/firecrawl/blob/66ebd15b5da3f75e6e3ebccdfe9aef5ddc6e4449/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/firecrawl/firecrawl/blob/66ebd15b5da3f75e6e3ebccdfe9aef5ddc6e4449/LICENSE",
+  "latest_release": {
+    "tag_name": "v2.11.0",
+    "published_at": "2026-06-19T15:09:30Z",
+    "html_url": "https://github.com/firecrawl/firecrawl/releases/tag/v2.11.0",
+    "name": "Firecrawl v2.11.0"
+  },
+  "recent_issues": [
+    {
+      "number": 4927,
+      "title": "[Bug] @mendable/firecrawl-js@4.42.4 still installs vulnerable axios@1.18.0 through an unused firecrawl@4.30.1 dependency",
+      "state": "open",
+      "updated_at": "2026-10-02T21:28:36Z",
+      "html_url": "https://github.com/firecrawl/firecrawl/issues/4927",
+      "comments": 0
+    }
+  ]
+}

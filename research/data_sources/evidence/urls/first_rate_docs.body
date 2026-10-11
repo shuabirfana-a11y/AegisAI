@@ -1,0 +1,218 @@
+<!doctype html><html class="api"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>FIRST.Org API v1</title><meta http-equiv="last-modified" content="Tue, 29 Sep 2026 18:40:40 GMT" /><meta name="viewport" content="initial-scale=1,maximum-scale=1.0,user-scalable=no" /><link rel="apple-touch-icon" sizes="128x128" href="/favicon.png" /><link rel="stylesheet" type="text/css" href="/_/api.css?20260929184153" /><link rel="stylesheet" type="text/css" href="/_/type.css?20260929184153" /></head><body><header><div id="header" data-studio="ep_Lx8yYVg"><div id="c2"><div id="socialnetworks"><a href="https://twitter.com/FIRSTdotOrg" target="_blank" alt="Twitter @FIRSTdotOrg" class="icon-tw"></a><a href="https://www.linkedin.com/company/firstdotorg" target="_blank" alt="FIRST.Org at LinkedIn" class="icon-linkedin"></a><a href="https://www.facebook.com/FIRSTdotorg" target="_blank" alt="FIRST.Org at Facebook" class="icon-fb"></a><a href="https://github.com/FIRSTdotorg" target="_blank" alt="FIRST.Org at Github" class="icon-github"></a><a href="https://www.youtube.com/c/FIRSTdotorg" target="_blank" alt="FIRST.Org at Youtube" class="icon-youtube"></a><a href="https://www.first.org/podcasts" alt="FIRST.Org Podcasts" class="icon-podcast"></a></div>
+<div class="nav">
+<h1 id="API"><a href="/"><img src="/_/img/first-90x45.png" alt="FIRST" /></a> API</h1><ul class="navbar"><li><a href="/">Documentation</a><ul><li><a href="/">FIRST.Org API v1</a><ul><li><a href="/#Overview">Overview</a></li><li><a href="/#Queries">Queries</a></li><li><a href="/#Rate-Limit">Rate Limit</a></li><li><a href="/#Global-parameters">Global parameters</a></li><li><a href="/#Response-object">Response object</a></li><li><a href="/#Public-methods">Public methods</a><ul><li><a href="/v1/get-teams">GET /teams</a></li><li><a href="/v1/get-news">GET /news</a></li><li><a href="/v1/get-channels">GET /channels</a></li><li><a href="/v1/get-countries">GET /countries</a></li><li><a href="/epss/">GET /epss</a></li></ul></li></ul></li><li><a href="/global-irt/v1">Global IRT API v1</a><ul><li><a href="/global-irt/v1#Overview">Overview</a></li><li><a href="/global-irt/v1#Global-parameters">Global parameters</a></li><li><a href="/global-irt/v1#Response-object">Response object</a></li><li><a href="/global-irt/v1#Methods">Methods</a><ul><li><a href="/global-irt/v1#GET-teams">GET /teams</a></li></ul></li></ul></li></ul></li><li><a href="https://www.first.org">FIRST.Org website</a></li></ul>
+</div></div></div></header><div id="body" data-studio="ep_Lx8yYVg"><div id="c1" class="user-input"><h1 id="FIRST-API-v1">FIRST API v1</h1>
+<ul>
+<li><strong>FIRST API v1.0</strong> is currently available at <a href="/data/v1/teams">https://api.first.org/data/v1/teams</a>.</li>
+</ul>
+<h2 id="Overview">Overview</h2>
+<p>FIRST API is a simple way to query FIRST database in order to build web apps or integrate to other CSIRT databases. It currently doesn't support authentication, so only public information is available. One sample application is the <a href="https://www.first.org/members/map">Members around the world</a> map.</p>
+<p>This documentation refers to the <strong>FIRST API</strong>, which endpoint URL is be located at: <a href="https://api.first.org/data/v1">https://api.first.org/data/v1</a>.</p>
+<h2 id="Queries">Queries</h2>
+<p>The queries at FIRST APIs should follow this URL scheme:</p>
+<pre><code>[Endpoint URL][method][.format]?[parameters]</code></pre>
+<p>The <strong><code>Endpoint URL</code></strong> contains the collection and the version of the API under the endpoint. Current endpoints URL is:</p>
+<table>
+<thead>
+<tr>
+<th>Repository (sourcename)</th>
+<th>Endpoint URL</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FIRST API v1</strong></td>
+<td><a href="https://api.first.org/data/v1">https://api.first.org/data/v1</a></td>
+<td>Stable</td>
+</tr>
+</tbody>
+</table>
+<p>In order to query FIRST API, use the following URL pattern:</p>
+<pre><code>https://api.first.org/data/v1[method][.format]?[parameters]</code></pre>
+<p>The available methods and parameters are described in this document. </p>
+<p>Each <strong><code>method</code></strong> is an available dataset, like <em>Teams</em>, <em>Countries</em>, <em>Events</em> and so on. The URLs listed in this document are prefixed by the HTTP method required to use them, followed by the method address relative to the Endpoint URL. Take for example the teams listing, which uses the address <code>GET /teams</code>. It must be read as a <code>GET</code> request to the <code>[Endpoint URL]/teams</code> — to query FIRST API you should then use <code>curl -X GET https://api.first.org/data/v1/teams</code>.</p>
+<p>The <strong><code>.format</code></strong> is optional, it's the content type expected for the response. The default output format is <code>application/json</code>. Additional formats (see table) are supported when properly requested. The output format should be requested either as a <code>Accept:</code> header or as an extension to the requested URL. These are the additional formats supported:</p>
+<table>
+<thead>
+<tr>
+<th>HTTP Accept</th>
+<th>Extension</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>application/json</td>
+<td><strong>.json</strong> (default)</td>
+<td>JSON. This will be the format used if no extension or <code>Accept:</code> header is provided.</td>
+</tr>
+<tr>
+<td>application/yaml</td>
+<td><strong>.yml</strong></td>
+<td>YAML, a more human-readable format. Applications should use two spaces as indentation and maximum column width of 80 characters.</td>
+</tr>
+<tr>
+<td>application/xml</td>
+<td><strong>.xml</strong></td>
+<td>XML. Should not contain namespaces and different encodings.</td>
+</tr>
+<tr>
+<td>application/csv</td>
+<td><strong>.csv</strong></td>
+<td>Comma-separated values. The first line contains the column names.</td>
+</tr>
+<tr>
+<td>application/xls</td>
+<td><strong>.xls</strong></td>
+<td>Microsoft Excel format (legacy).</td>
+</tr>
+<tr>
+<td>application/xlsx</td>
+<td><strong>.xlsx</strong></td>
+<td>Microsoft Excel 2007 and Excel 97/2000/XP/2003 binary file.</td>
+</tr>
+</tbody>
+</table>
+<p> <br />
+<strong>Please note:</strong> the API uses UTF8 as its encoding. This means that when importing this information in other applications, like spreadsheet applications, you must set the encoding to UTF8 (or Unicode if this one is missing).</p>
+<p>The result will also be compressed with Gzip if the request header <code>Accept-Encoding: compress, gzip</code> is present.</p>
+<p>The <strong><code>parameters</code></strong> are also optional, they are used to filter and change the scope of the displayed data. </p>
+<p>Parameters must be keypair values assigned with an <code>=</code> (equal sign): <code>key=value</code>. The values must be URL encoded (RFC 3986), and multiple parameters must be separated by <code>&amp;</code> (ampersand sign). As an example, <code>param1=foo%20bar&amp;param2=bar</code> translates into:</p>
+<ul>
+<li><strong>param1</strong>: <code>foo bar</code></li>
+<li><strong>param2</strong>: <code>bar</code></li>
+</ul>
+<h2 id="Rate-Limit">Rate Limit</h2>
+<p>Public endpoints without authentication are limited to 1000 requests per minute. Abusive behavior might be temporarily blocked to all API endpoints without further notice. In the event you receive the response <code>429 Too many requests</code> you have exceeded this limit and have been temporarily blocked.</p>
+<p>When looping through large datasets to fetch all records, please consider an appropriate <code>limit</code> to reduce the number of requests sent and avoid concurrent requests.</p>
+<p>If you are a FIRST Member and require increased limits, please reach out the infrastructure team using the <a href="https://support.first.org/tech">Support Portal</a> explaining your requirements.</p>
+<h2 id="Global-parameters">Global parameters</h2>
+<p>There are some parameters that are reserved for pagination and output control. These parameters are eligible for several methods and should not be used for a method-specific purpose.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fields</strong></td>
+<td>string</td>
+<td>Comma-separated list of fieldnames to be retrieved. Used only for limiting the available resultset.</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>integer</td>
+<td>Limits the maximun number of records to be shown. Should be an integer number between 0 and 10,000.</td>
+</tr>
+<tr>
+<td><strong>offset</strong></td>
+<td>integer</td>
+<td>Offsets the list of records by this number. The first item is 0.</td>
+</tr>
+<tr>
+<td><strong>sort</strong></td>
+<td>string</td>
+<td>Comma-separated list of fieldnames to be used to sort the resultset. Fields starting with <code>-</code> (minus sign) indicate a descending order. Each application should define its default sorting options.</td>
+</tr>
+<tr>
+<td><strong>envelope</strong></td>
+<td>boolean</td>
+<td>Use <code>true</code>, <code>false</code>, <code>0</code> or <code>1</code>. If set to true will add an object wrapping the resultset, with details on the status, total records found, offset and limit. When <code>false</code> this information is returned at the response header. Defaults to <code>true</code>.</td>
+</tr>
+<tr>
+<td><strong>pretty</strong></td>
+<td>boolean</td>
+<td>Use <code>true</code>, <code>false</code>, <code>0</code> or <code>1</code>. If the result should be pretty-printed or no. Defaults to <code>false</code>.</td>
+</tr>
+<tr>
+<td><strong>callback</strong></td>
+<td>string</td>
+<td>Only for JSONP resultsets, adds the <code>callback</code>  as a function call. Only alphanumerical characters are allowed.</td>
+</tr>
+<tr>
+<td><strong>scope</strong></td>
+<td>string</td>
+<td>Collection of fieldnames to retrieve. Affects the resultset and the possible options for the parameter <code>fields</code>. Each data model can specify multiple available scopes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Response-object">Response object</h2>
+<p>The response structure is uniform, it first shows the status and length of the data, and then the data itself.</p>
+<pre><code class="language-json">curl -i "https://api.first.org/data/v1/teams?country=br&amp;scope=country&amp;fields=team&amp;pretty=true"
+HTTP/1.1 200 OK
+Date: Fri, 22 Jul 2016 21:07:55 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 394
+Last-Modified: Thu, 21 Jul 2016 19:02:52 GMT
+
+{
+    "status": 200,
+    "status-code": "OK",
+    "version": "1",
+    "last-modified": "Thu, 21 Jul 2016 19:02:52 GMT",
+    "total-count": 4,
+    "access": "public",
+    "data": [
+        {
+            "team": "Axur"
+        },
+        {
+            "team": "CAIS/RNP"
+        },
+        {
+            "team": "CERT.br"
+        },
+        {
+            "team": "Defenda CERT"
+        }
+    ]
+}</code></pre>
+<p>The response status can be ommitted from the response body, and be properly set at the response headers with the <code>envelope=false</code> parameter:</p>
+<pre><code class="language-json">curl -i "https://api.first.org/data/v1/teams?country=br&amp;scope=country&amp;fields=team&amp;envelope=false&amp;pretty=true"
+HTTP/1.1 200 OK
+Date: Fri, 22 Jul 2016 21:30:55 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 162
+Last-Modified: Thu, 21 Jul 2016 19:02:52 GMT
+X-Status: OK
+X-Status-Code: 200
+X-Version: 1
+X-Total: 4
+X-Access: public
+
+[
+    {
+        "team": "Axur"
+    },
+    {
+        "team": "CAIS/RNP"
+    },
+    {
+        "team": "CERT.br"
+    },
+    {
+        "team": "Defenda CERT"
+    }
+]</code></pre>
+<p>The <code>[Response body].status</code> and <code>[Response body].status-code</code> correspond to the HTTP status message. When errors occur, the status code should be different than <strong>2XX</strong>. Additionally, a <code>[Response body].message</code> or <code>X-Message</code> header may provide additional information about the error.</p>
+<p>The <code>Last-Modified</code> is always present at the response header, it will refer to the last time the resultset that corresponds to this URL was modified. This information can be used for caching (browsers would request the <code>If-Modified-Since</code> header to check if it was modified).</p>
+<p>The <code>[Response body].version</code> or <code>X-Version</code> header points out the actual API version used.</p>
+<p>The <code>[Response body].total</code> or <code>X-Total</code> header indicates how many fields were matched for this request. Using the parameters <code>offset</code> and <code>limit</code> is possible to paginate the results properly.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>When a search is valid but renders no results, the <code>status</code> is still <strong>200</strong>, with no data (empty array or empty downloaded file). </li>
+<li>using a <code>limit</code> of "0" (zero) will still return a valid response object with the proper count of matches. </li>
+</ul>
+<h2 id="Public-methods">Public methods</h2>
+<ul>
+<li><a href="/v1/get-teams">GET /teams</a></li>
+<li><a href="/v1/get-news">GET /news</a> </li>
+<li><a href="/v1/get-channels">GET /channels</a> </li>
+<li><a href="/v1/get-countries">GET /countries</a> </li>
+<li><a href="/epss">GET /epss</a> </li>
+</ul>
+<p>Additional methods should be added to query available options in lists, such as Countries, Constituency Sources, Services etc.</p></div></div><div id="navbar" data-studio="ep_Lx8yYVg"><div id="c3"><ul class="navbar"><li><a href="/">Documentation</a><ul><li><a href="/">FIRST.Org API v1</a><ul><li><a href="/#Overview">Overview</a></li><li><a href="/#Queries">Queries</a></li><li><a href="/#Rate-Limit">Rate Limit</a></li><li><a href="/#Global-parameters">Global parameters</a></li><li><a href="/#Response-object">Response object</a></li><li><a href="/#Public-methods">Public methods</a><ul><li><a href="/v1/get-teams">GET /teams</a></li><li><a href="/v1/get-news">GET /news</a></li><li><a href="/v1/get-channels">GET /channels</a></li><li><a href="/v1/get-countries">GET /countries</a></li><li><a href="/epss/">GET /epss</a></li></ul></li></ul></li><li><a href="/global-irt/v1">Global IRT API v1</a><ul><li><a href="/global-irt/v1#Overview">Overview</a></li><li><a href="/global-irt/v1#Global-parameters">Global parameters</a></li><li><a href="/global-irt/v1#Response-object">Response object</a></li><li><a href="/global-irt/v1#Methods">Methods</a><ul><li><a href="/global-irt/v1#GET-teams">GET /teams</a></li></ul></li></ul></li></ul></li></ul></div></div><footer><div id="footer"><div class="left-box"><a href="/"><img class="footer-logo" src="/_/img/first-org.svg" alt="FIRST.Org - Improving Security Together"></a></div><div class="right-box"></div><div class="middle-box smaller"><br /><p>Copyright © 2015—2026 by Forum of Incident Response and Security Teams, Inc. All Rights Reserved.</p></div></div></footer><script type="text/javascript" async="async" src="/_/s.js?20260929-184142"></script><script crossorigin="use-credentials" type="text/javascript" async="async" src="/_/api.js?20260929184153"></script></body></html>

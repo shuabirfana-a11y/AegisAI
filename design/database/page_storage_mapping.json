@@ -1,0 +1,1132 @@
+{
+  "kind": "STORAGE SUPPORT / APIs NOT IMPLEMENTED",
+  "mapping": [
+    {
+      "ui_id": "G01",
+      "page": "GLOBAL",
+      "data_required": "实际开放能力、read/write权限、登录会话",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.products",
+        "core.package_identifiers",
+        "intel.knowledge_documents",
+        "app.assets"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "认证/能力策略由Phase 6服务或外部identity提供；本阶段不建完整用户/RBAC子系统"
+    },
+    {
+      "ui_id": "G02",
+      "page": "GLOBAL",
+      "data_required": "实体ID/类型、搜索范围、可访问产品/资产",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.products",
+        "core.package_identifiers",
+        "intel.knowledge_documents",
+        "app.assets"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "G03",
+      "page": "GLOBAL",
+      "data_required": "origin、filters、cursor、scroll、revision、as_of",
+      "tables": [],
+      "phase": "P0",
+      "backend_status": "LOCAL ONLY",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "LOCAL ONLY，无DB依赖"
+    },
+    {
+      "ui_id": "G04",
+      "page": "GLOBAL",
+      "data_required": "请求ID、最新revision/coverage、旧快照",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.products",
+        "core.package_identifiers",
+        "intel.knowledge_documents",
+        "app.assets"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "G05",
+      "page": "GLOBAL",
+      "data_required": "公共entity/revision/anchor；私有资产只在授权会话上下文",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.products",
+        "core.package_identifiers",
+        "intel.knowledge_documents",
+        "app.assets"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D01",
+      "page": "DASH",
+      "data_required": "window、as_of、覆盖产品/来源及快照",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D02",
+      "page": "DASH",
+      "data_required": "首次发现distinct entity、新修订entity、knowledge type计数及过滤器",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D03",
+      "page": "DASH",
+      "data_required": "CVSS版本、PoC关联状态、KEV目录、EPSS日期、变化依据",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D04",
+      "page": "DASH",
+      "data_required": "ID/类型、变化摘要、源日期和观测日期",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D05",
+      "page": "DASH",
+      "data_required": "实际启用数、类别、stale/failed、last_success_at",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D06",
+      "page": "DASH",
+      "data_required": "受影响登记组件/漏洞distinct数，库存revision",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "D07",
+      "page": "DASH",
+      "data_required": "开放任务distinct数、风险及触发原因",
+      "tables": [
+        "core.vulnerabilities",
+        "intel.intelligence_events",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "raw.sources",
+        "raw.sync_runs",
+        "app.review_tasks",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C01",
+      "page": "CENTER",
+      "data_required": "record_type、外部ID/关键词、各类型结果计数",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C02",
+      "page": "CENTER",
+      "data_required": "产品生态、AI类别及依据、CVSS version、KEV/PoC/fixed/date/Claim状态、cursor",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C03",
+      "page": "CENTER",
+      "data_required": "身份、产品、评分出处、PoC关联、修复、KEV、字段核验、updated",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C04",
+      "page": "CENTER",
+      "data_required": "作者/发布机关、ID/版次/状态、时间、related entities、证据",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C05",
+      "page": "CENTER",
+      "data_required": "授权资产ID、affected/not_affected/unknown",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "C06",
+      "page": "CENTER",
+      "data_required": "本次已查范围/未接入范围、撤销记录、部分源失败",
+      "tables": [
+        "core.vulnerabilities",
+        "core.vulnerability_identifiers",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "core.ai_relevance_assessments",
+        "core.vulnerability_ai_categories",
+        "intel.claims",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.knowledge_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V01",
+      "page": "DETAIL",
+      "data_required": "CVE/GHSA别名、title、record_status、源语言/日期",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V02",
+      "page": "DETAIL",
+      "data_required": "package/ecosystem/PURL、原range/events/explicit versions、explicit fixed、scope/ClaimID",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V03",
+      "page": "DETAIL",
+      "data_required": "cvss版本vector/base/provider；epss/date/model；KEV完整目录时间；SSVC scope",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V04",
+      "page": "DETAIL",
+      "data_required": "candidate/related、公开链接；独立核验记录/授权适用环境或unknown",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V05",
+      "page": "DETAIL",
+      "data_required": "explicit fixed、厂商建议及适用包分支、未提供原因",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V06",
+      "page": "DETAIL",
+      "data_required": "候选commit完整SHA/PR/branch、关联状态、Evidence",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V07",
+      "page": "DETAIL",
+      "data_required": "文献元数据、relation scope、关系候选依据",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V08",
+      "page": "DETAIL",
+      "data_required": "Claim scope/revision、EvidenceID、support/refute/context、lineage",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V09",
+      "page": "DETAIL",
+      "data_required": "真实冲突ID、两候选、范围及review ID",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V10",
+      "page": "DETAIL",
+      "data_required": "源发布/修改、系统首次发现、PoC关系/KEV/fix变化，事件证据",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V11",
+      "page": "DETAIL",
+      "data_required": "entityID/revision、当前Claim及问题、授权上下文",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "V12",
+      "page": "DETAIL",
+      "data_required": "授权inventory revision、三态匹配和依据",
+      "tables": [
+        "core.vulnerabilities",
+        "core.external_identifiers",
+        "core.vulnerability_identifiers",
+        "core.affected_version_ranges",
+        "core.cvss_assessments",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.poc_candidates",
+        "intel.patch_candidates",
+        "intel.epss_snapshots",
+        "intel.known_exploitation",
+        "intel.intelligence_events",
+        "intel.knowledge_vulnerability_relations",
+        "app.asset_vulnerability_matches"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "E01",
+      "page": "EVIDENCE",
+      "data_required": "publisher/sourceID、excerpt、published/retrieved、original URL",
+      "tables": [
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence",
+        "raw.raw_documents",
+        "raw.source_observations",
+        "raw.sources",
+        "app.review_tasks",
+        "app.audit_logs"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "E02",
+      "page": "EVIDENCE",
+      "data_required": "Claim/raw revision、scope、支持反驳关系、原始发布者与转录链",
+      "tables": [
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence",
+        "raw.raw_documents",
+        "raw.source_observations",
+        "raw.sources",
+        "app.review_tasks",
+        "app.audit_logs"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "E03",
+      "page": "EVIDENCE",
+      "data_required": "raw hash、JSON Pointer/页码/span、已取raw受限读取、permalink",
+      "tables": [
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence",
+        "raw.raw_documents",
+        "raw.source_observations",
+        "raw.sources",
+        "app.review_tasks",
+        "app.audit_logs"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "E04",
+      "page": "EVIDENCE",
+      "data_required": "reviewID/读写权限，返回Claim anchor/revision",
+      "tables": [
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence",
+        "raw.raw_documents",
+        "raw.source_observations",
+        "raw.sources",
+        "app.review_tasks",
+        "app.audit_logs"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "K01",
+      "page": "KNOWLEDGE",
+      "data_required": "type、ID、版次/status、publisher/author、dates、links/ClaimID",
+      "tables": [
+        "intel.knowledge_documents",
+        "intel.knowledge_chunks",
+        "intel.knowledge_vulnerability_relations",
+        "intel.claims",
+        "intel.evidence",
+        "raw.raw_documents"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "R01",
+      "page": "REVIEW",
+      "data_required": "对象、问题类型、风险理由、候选、证据数及创建日期",
+      "tables": [
+        "app.review_tasks",
+        "app.audit_logs",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "R02",
+      "page": "REVIEW",
+      "data_required": "原结论、候选、生态/版本/分支/date/CVSS version、lineage",
+      "tables": [
+        "app.review_tasks",
+        "app.audit_logs",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "R03",
+      "page": "REVIEW",
+      "data_required": "选择值、理由、review revision、actor和幂等请求键",
+      "tables": [
+        "app.review_tasks",
+        "app.audit_logs",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "R04",
+      "page": "REVIEW",
+      "data_required": "原/后结论、actor/time/reason、证据版本、entity/anchor",
+      "tables": [
+        "app.review_tasks",
+        "app.audit_logs",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "R05",
+      "page": "REVIEW",
+      "data_required": "409当前revision、草稿、差异及重新提交范围",
+      "tables": [
+        "app.review_tasks",
+        "app.audit_logs",
+        "intel.claims",
+        "intel.evidence",
+        "intel.verification_results",
+        "intel.verification_evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "S01",
+      "page": "ASSET",
+      "data_required": "授权名称、ecosystem/package、原始精确version与校验状态",
+      "tables": [
+        "app.assets",
+        "app.asset_components",
+        "app.asset_vulnerability_matches",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "intel.claims",
+        "intel.evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "S02",
+      "page": "ASSET",
+      "data_required": "name/ecosystem/package/exact version、歧义原因、错误定位",
+      "tables": [
+        "app.assets",
+        "app.asset_components",
+        "app.asset_vulnerability_matches",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "intel.claims",
+        "intel.evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "S03",
+      "page": "ASSET",
+      "data_required": "inventory revision、matched entity、range scope、reason/evidence",
+      "tables": [
+        "app.assets",
+        "app.asset_components",
+        "app.asset_vulnerability_matches",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "intel.claims",
+        "intel.evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "S04",
+      "page": "ASSET",
+      "data_required": "匹配证据、KEV收录/目录时间、PoC状态、CVSS版本、明确fixed及用户业务关键性",
+      "tables": [
+        "app.assets",
+        "app.asset_components",
+        "app.asset_vulnerability_matches",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "intel.claims",
+        "intel.evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "S05",
+      "page": "ASSET",
+      "data_required": "资产ID和inventory revision、漏洞/ClaimID；问题",
+      "tables": [
+        "app.assets",
+        "app.asset_components",
+        "app.asset_vulnerability_matches",
+        "core.package_identifiers",
+        "core.affected_version_ranges",
+        "intel.claims",
+        "intel.evidence"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q01",
+      "page": "QA",
+      "data_required": "question、会话、entity/Claim上下文、as_of/time zone/coverage",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q02",
+      "page": "QA",
+      "data_required": "工具名、参数范围/状态/结果数、过滤原因、query_id；取消结果",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q03",
+      "page": "QA",
+      "data_required": "有Claim引用的结论、适用范围、partial reason、snapshot revision",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q04",
+      "page": "QA",
+      "data_required": "entityID/revision、相关产品与来源、匹配过滤条件",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q05",
+      "page": "QA",
+      "data_required": "knowledgeID/type/edition、EvidenceID、source/provider",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q06",
+      "page": "QA",
+      "data_required": "授权assetID/inventory revision、影响三态、解释因子",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P1",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Q07",
+      "page": "QA",
+      "data_required": "缺失参数、先前query_id与scope、明确新时间窗",
+      "tables": [
+        "app.agent_runs",
+        "app.tool_call_records",
+        "app.agent_citations",
+        "intel.claims",
+        "intel.evidence",
+        "intel.knowledge_documents",
+        "core.vulnerabilities"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Y01",
+      "page": "SYSTEM",
+      "data_required": "注册SourceID、enabled、运行状态、类别及coverage",
+      "tables": [
+        "raw.sources",
+        "raw.sync_runs",
+        "raw.source_observations"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Y02",
+      "page": "SYSTEM",
+      "data_required": "last_success/newest source date、fetched/normalized/new/updated/failed、retry/latency samples/next_scheduled",
+      "tables": [
+        "raw.sources",
+        "raw.sync_runs",
+        "raw.source_observations"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Y03",
+      "page": "SYSTEM",
+      "data_required": "runID、source/time/status、范围、尝试、恢复关系",
+      "tables": [
+        "raw.sources",
+        "raw.sync_runs",
+        "raw.source_observations"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Y04",
+      "page": "SYSTEM",
+      "data_required": "错误码/request ID、checkpoint、重试权限/queued/new runID",
+      "tables": [
+        "raw.sources",
+        "raw.sync_runs",
+        "raw.source_observations"
+      ],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "实际读取/聚合/权限/业务服务未实现"
+    },
+    {
+      "ui_id": "Y05",
+      "page": "SYSTEM",
+      "data_required": "已监测API/Collector/Queue及observed_at或NA",
+      "tables": [],
+      "phase": "P0",
+      "backend_status": "BACKEND REQUIRED",
+      "query_rule": "按授权scope/revision/as_of查询；null/unknown保留；不存在业务能力不启用",
+      "gap": "没有实际API/Collector/Queue监测记录；返回NA，后续监控接口提供，不靠表名伪装健康"
+    }
+  ]
+}

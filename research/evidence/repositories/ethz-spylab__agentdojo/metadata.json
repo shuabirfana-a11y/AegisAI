@@ -1,0 +1,79 @@
+{
+  "full_name": "ethz-spylab/agentdojo",
+  "html_url": "https://github.com/ethz-spylab/agentdojo",
+  "homepage": "https://agentdojo.spylab.ai/",
+  "description": "A Dynamic Environment to Evaluate Attacks and Defenses for LLM Agents.",
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 889,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-02-29T10:47:28Z",
+  "updated_at": "2026-10-02T20:31:57Z",
+  "pushed_at": "2026-06-02T10:01:31Z",
+  "open_issues_count": 70,
+  "default_branch": "main",
+  "requested_repo": "ethz-spylab/agentdojo",
+  "commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+  "commit_date": "2026-06-02T09:59:58Z",
+  "commit_message": "Add openai-compatible provider for arbitrary OpenAI-compatible endpoints (#147)\n\nAdds a new `openai-compatible` model option that allows using any\nOpenAI-compatible API endpoint (e.g., vLLM, LiteLLM, Ollama) by\nsetting OPENAI_COMPATIBLE_BASE_URL and OPENAI_COMPATIBLE_API_KEY\nenvironment variables. The actual model name is specified via --model-id.\n\nThis enables benchmarking models served behind custom endpoints without\nrequiring code changes to agentdojo.\n\nCo-authored-by: Claude Opus 4.6 <noreply@anthropic.com>",
+  "checked_at_utc": "2026-10-03T03:36:31.435644+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/ethz-spylab/agentdojo/blob/089ed468cf3ed0322acc66b0211f26d9d90dbf60/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/ethz-spylab/agentdojo/blob/089ed468cf3ed0322acc66b0211f26d9d90dbf60/LICENSE",
+  "latest_release": {
+    "tag_name": "v0.1.35",
+    "published_at": "2025-10-27T18:09:56Z",
+    "html_url": "https://github.com/ethz-spylab/agentdojo/releases/tag/v0.1.35",
+    "name": "v0.1.35"
+  },
+  "recent_issues": [
+    {
+      "number": 214,
+      "title": "Non-ASCII tool results are passed to the model as \\uXXXX escapes (yaml.safe_dump / json.dumps defaults)",
+      "state": "open",
+      "updated_at": "2026-10-02T14:45:12Z",
+      "html_url": "https://github.com/ethz-spylab/agentdojo/issues/214",
+      "comments": 0
+    },
+    {
+      "number": 213,
+      "title": "workspace injection_task_6..13 have an empty ground truth (check_suites reports them as unsolved)",
+      "state": "open",
+      "updated_at": "2026-10-02T14:45:11Z",
+      "html_url": "https://github.com/ethz-spylab/agentdojo/issues/213",
+      "comments": 0
+    },
+    {
+      "number": 212,
+      "title": "--max-workers > 1 crashes: Pool.starmap passes arguments to benchmark_suite in the wrong order",
+      "state": "open",
+      "updated_at": "2026-09-30T15:52:20Z",
+      "html_url": "https://github.com/ethz-spylab/agentdojo/issues/212",
+      "comments": 0
+    },
+    {
+      "number": 211,
+      "title": "Detector-level results on AgentDojo tool outputs: 10 open-source injection classifiers, incl. the default transformers_pi_detector model",
+      "state": "open",
+      "updated_at": "2026-09-28T11:11:32Z",
+      "html_url": "https://github.com/ethz-spylab/agentdojo/issues/211",
+      "comments": 1
+    },
+    {
+      "number": 209,
+      "title": "tool_filter produces zero tool calls with a local model that tool-calls normally without it",
+      "state": "open",
+      "updated_at": "2026-09-23T19:50:45Z",
+      "html_url": "https://github.com/ethz-spylab/agentdojo/issues/209",
+      "comments": 1
+    }
+  ]
+}

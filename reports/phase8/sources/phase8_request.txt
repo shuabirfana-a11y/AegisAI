@@ -1,0 +1,1958 @@
+你现在开始 AegisAI Phase 8。
+
+# Phase 8
+资产接入 + SBOM/组件标准化 + 漏洞版本命中 + 风险变化 + 可解释处置优先级
+
+Phase 1~7 已完成。
+
+不要重新实现 Phase 6 的采集链路。
+不要重新实现 Phase 7 的 POC / Patch / Evidence / Verification。
+
+本阶段建立：
+
+“安全情报”
+
+和
+
+“用户真实AI资产”
+
+之间的连接。
+
+最终系统必须能够回答：
+
+我有哪些AI组件？
+当前是什么版本？
+哪些漏洞真正影响我的版本？
+哪些只是产品相关但版本不命中？
+哪些无法确定？
+有没有POC？
+有没有Known Exploitation？
+有没有Patch？
+应该先处理什么？
+为什么？
+
+==================================================
+0. 核心原则
+==================================================
+
+Phase 8必须坚持：
+
+资产是否受影响
+≠
+LLM判断。
+
+核心匹配必须来自：
+
+Canonical Product
+
+Package Identifier
+
+PURL
+
+Ecosystem
+
+Version
+
+Affected Version Range
+
+确定性Version Matcher
+
+Evidence
+
+LLM未来只能：
+
+解释结果
+
+不能决定：
+
+0.8.2是否属于<0.8.4。
+
+==================================================
+1. 开始前读取
+==================================================
+
+完整阅读：
+
+requirements/
+research/data_sources/
+design/database/
+design/ux/
+design/ui/
+reports/phase6/
+reports/phase7/
+docs/tooling/
+
+重点：
+
+ASSET_MODEL.md
+
+VERSION_MODEL.md
+
+DOMAIN_MODEL.md
+
+PAGE_DATA_DEPENDENCIES.md
+
+ASSET_RISK_UX.md
+
+VULNERABILITY_DETAIL_UX.md
+
+PHASE 6：
+Product Canonicalization
+Version Parser
+Version Matcher
+
+PHASE 7：
+POC
+Patch
+EPSS
+KEV
+Claim
+Evidence
+Verification
+Conflict
+Integration Gate
+
+以及：
+
+TOOL_CONTRACTS_V1.md
+
+==================================================
+2. Phase 8 Preflight
+==================================================
+
+先生成：
+
+reports/phase8/PREFLIGHT.md
+
+检查：
+
+Product Canonicalization是否真的可用
+
+PackageIdentifier是否存在
+
+PURL是否支持
+
+Version Parser是否可用
+
+Version Matcher是否可用
+
+AffectedVersionRange是否有真实数据
+
+Fixed Version是否有真实数据
+
+POC/KEV/EPSS/Patch是否可以查询
+
+Asset相关数据库表是否已在Phase 5建立
+
+如果Phase 5已有：
+
+Asset
+AssetComponent
+AssetVulnerabilityMatch
+
+优先复用。
+
+只修改阻塞问题。
+
+==================================================
+3. 本阶段范围
+==================================================
+
+实现：
+
+① Asset
+
+② Asset Component
+
+③ 手工资产录入
+
+④ SBOM导入基础能力
+
+⑤ CycloneDX支持
+
+⑥ SPDX支持（若实现成本合理）
+
+⑦ PURL标准化
+
+⑧ Component → Product Resolution
+
+⑨ Version Normalization
+
+⑩ Vulnerability Matching
+
+⑪ Match Explanation
+
+⑫ Asset Risk Context
+
+⑬ Remediation Availability
+
+⑭ Risk Priority Explanation
+
+⑮ Risk Change Event
+
+⑯ Asset相关API
+
+⑰ Tool Contracts V2
+
+⑱ Tests
+
+⑲ 真实案例
+
+暂时不要：
+
+公网资产扫描
+
+自动漏洞利用
+
+Agent
+
+Dify
+
+完整RAG
+
+大型CMDB
+
+Kubernetes资产发现
+
+云平台全量接入
+
+==================================================
+4. Asset模型
+==================================================
+
+复用Phase 5设计。
+
+Asset可以表示：
+
+AI推理服务
+
+AI训练环境
+
+AI应用
+
+开发项目
+
+服务器
+
+容器环境
+
+第一版不要复杂化。
+
+例如：
+
+Asset:
+
+production-vllm
+
+Environment:
+
+production
+
+Description:
+
+Production inference service
+
+==================================================
+5. AssetComponent
+==================================================
+
+资产真正参与漏洞匹配的是：
+
+Component。
+
+例如：
+
+Asset：
+
+Production Inference Server
+
+Components：
+
+vLLM 0.8.2
+
+PyTorch 2.6.0
+
+transformers 4.x
+
+组件至少考虑：
+
+name
+
+canonical_product_id
+
+package_identifier
+
+purl
+
+ecosystem
+
+version
+
+source
+
+manual / sbom / scanner
+
+first_seen_at
+
+last_seen_at
+
+metadata
+
+==================================================
+6. 手工资产录入
+==================================================
+
+第一版必须支持：
+
+用户手动添加。
+
+例如：
+
+Asset：
+
+Inference-Prod-01
+
+Component：
+
+vLLM
+
+Version：
+
+0.8.2
+
+不要要求比赛Demo必须先安装扫描器。
+
+手工输入是可靠Fallback。
+
+==================================================
+7. SBOM导入
+==================================================
+
+支持SBOM作为增强输入。
+
+优先：
+
+CycloneDX JSON
+
+如果合理：
+
+SPDX JSON
+
+输入：
+
+SBOM
+
+↓
+
+Parser
+
+↓
+
+Component
+
+↓
+
+Package Identifier
+
+↓
+
+PURL
+
+↓
+
+Canonical Product
+
+↓
+
+Version
+
+↓
+
+AssetComponent
+
+==================================================
+8. 不要自己重新发明SBOM标准
+==================================================
+
+研究官方：
+
+CycloneDX
+
+SPDX
+
+PURL
+
+根据真实规范实现。
+
+可以使用成熟开源Parser。
+
+必须检查License。
+
+更新：
+
+THIRD_PARTY.md
+
+==================================================
+9. Syft
+==================================================
+
+研究是否使用Syft作为：
+
+SBOM生成工具。
+
+例如未来：
+
+项目目录 / Container
+
+↓
+
+Syft
+
+↓
+
+CycloneDX
+
+↓
+
+AegisAI Import
+
+但是：
+
+Syft不是AegisAI核心逻辑。
+
+核心仍然是：
+
+SBOM Import
+
+Component Normalize
+
+Vulnerability Match。
+
+如果当前环境安装成本较高：
+
+把Syft做成可选增强。
+
+不要阻塞Phase 8。
+
+==================================================
+10. Component Identity
+==================================================
+
+建立：
+
+ComponentResolutionService。
+
+匹配优先级：
+
+PURL精确匹配
+
+↓
+
+Package Identifier
+
+↓
+
+Ecosystem + Package Name
+
+↓
+
+明确Product Alias
+
+↓
+
+Unresolved
+
+禁止：
+
+模糊字符串相似度很高
+
+就自动合并。
+
+==================================================
+11. Resolution结果
+==================================================
+
+统一返回：
+
+RESOLVED
+
+AMBIGUOUS
+
+UNRESOLVED
+
+以及：
+
+method
+
+matched_product
+
+matched_identifier
+
+reason_summary
+
+禁止偷偷猜Product。
+
+==================================================
+12. Version Normalization
+==================================================
+
+输入版本可能：
+
+v0.8.2
+
+0.8.2
+
+0.8.2+cu124
+
+2.6.0.dev
+
+不同ecosystem语义不同。
+
+不要写一个万能：
+
+split(".")。
+
+根据：
+
+ecosystem
+
+选择正确Version Strategy。
+
+无法比较：
+
+UNKNOWN。
+
+==================================================
+13. Ecosystem-aware Version
+==================================================
+
+至少研究当前数据实际涉及的：
+
+PyPI
+
+npm（如果存在）
+
+SemVer
+
+Git
+
+其他Phase 7真实出现的生态。
+
+不要为了未来可能支持：
+
+一次实现几十种包管理器。
+
+==================================================
+14. Vulnerability Matching Pipeline
+==================================================
+
+建立核心：
+
+AssetVulnerabilityMatcher
+
+流程：
+
+AssetComponent
+↓
+Resolve Product / Package
+↓
+Normalize Version
+↓
+Find Candidate Vulnerabilities
+↓
+Load Affected Version Ranges
+↓
+Deterministic Version Match
+↓
+Verification Status Check
+↓
+Produce Match Result
+
+==================================================
+15. Match Status
+==================================================
+
+至少：
+
+AFFECTED
+
+NOT_AFFECTED
+
+UNCERTAIN
+
+NOT_EVALUATED
+
+不要只有：
+
+true / false。
+
+==================================================
+16. UNCERTAIN非常重要
+==================================================
+
+例如：
+
+组件版本：
+
+0.8.2-custom
+
+Affected Range：
+
+复杂Git commit range
+
+系统无法可靠比较。
+
+必须：
+
+UNCERTAIN
+
+不能：
+
+让LLM猜Affected。
+
+==================================================
+17. Match Explanation
+==================================================
+
+每个AFFECTED结果必须能解释：
+
+Asset Component:
+
+vLLM 0.8.2
+
+Vulnerability:
+
+CVE-X
+
+Affected Range:
+
+<0.8.4
+
+Comparison:
+
+0.8.2 < 0.8.4
+
+Result:
+
+AFFECTED
+
+Evidence:
+
+Vendor / OSV / ...
+
+这样评委可以直接看到：
+
+不是AI拍脑袋。
+
+==================================================
+18. Match必须考虑Verification
+==================================================
+
+Affected Version本身可能：
+
+CONFIRMED
+
+PENDING
+
+CONFLICT
+
+因此资产匹配不能隐藏这个事实。
+
+例如：
+
+Version Match：
+
+AFFECTED
+
+Intelligence Verification：
+
+CONFLICT
+
+最终：
+
+Asset Match Status：
+
+UNCERTAIN
+
+或者：
+
+AFFECTED_WITH_CONFLICT
+
+根据现有模型选择合理表达。
+
+==================================================
+19. Fixed Version
+==================================================
+
+如果存在：
+
+Confirmed Fixed Version
+
+资产风险结果必须展示：
+
+Current:
+
+0.8.2
+
+Affected:
+
+<0.8.4
+
+Fixed:
+
+0.8.4
+
+Recommended Action:
+
+Upgrade to >=0.8.4
+
+但是：
+
+只有Evidence支持Fixed Version时才能这样说。
+
+==================================================
+20. Remediation状态
+==================================================
+
+至少区分：
+
+PATCH_AVAILABLE
+
+FIXED_VERSION_AVAILABLE
+
+VENDOR_GUIDANCE_AVAILABLE
+
+NO_PUBLIC_FIX_FOUND
+
+UNKNOWN
+
+不要：
+
+没有找到Patch
+
+就写：
+
+“No Patch Exists”。
+
+==================================================
+21. 风险优先级不是CVSS排序
+==================================================
+
+资产风险不能：
+
+ORDER BY CVSS DESC
+
+就结束。
+
+至少考虑：
+
+Severity
+
+Asset Match
+
+KEV
+
+EPSS
+
+Confirmed POC
+
+Patch Availability
+
+Exposure / Environment
+
+Verification Status
+
+==================================================
+22. 不要搞神秘AI风险分
+==================================================
+
+第一版优先使用：
+
+Priority Tier
+
+例如：
+
+P0
+P1
+P2
+P3
+
+或者：
+
+Immediate
+High
+Medium
+Low
+
+但必须规则透明。
+
+不要：
+
+AI Risk Score = 94.73
+
+而无法解释。
+
+==================================================
+23. Priority Rules
+==================================================
+
+设计可解释规则。
+
+例如概念：
+
+资产确定命中
++
+KEV
+→ 极高优先
+
+资产确定命中
++
+Confirmed POC
++
+高Severity
+→ 高优先
+
+资产命中
++
+Patch Available
+→ 提醒尽快修复
+
+Version不确定
+→ 人工确认
+
+具体规则必须：
+
+文档化
+
+可测试
+
+可调整
+
+不要把例子直接当最终规则。
+
+==================================================
+24. Why Now
+==================================================
+
+这是UI重点。
+
+每个高优先风险提供：
+
+Why Now。
+
+例如：
+
+“该漏洞影响当前部署的vLLM 0.8.2；
+已发现经过核验的公开POC；
+CISA已将其列入KEV；
+官方已发布0.8.4修复版本。”
+
+这段内容必须来自：
+
+结构化事实。
+
+不是LLM自由发挥。
+
+==================================================
+25. Risk Factor
+==================================================
+
+建立结构化：
+
+RiskFactor。
+
+例如：
+
+ASSET_MATCH
+
+HIGH_SEVERITY
+
+KEV
+
+HIGH_EPSS
+
+CONFIRMED_POC
+
+PATCH_AVAILABLE
+
+NO_FIX
+
+INTELLIGENCE_CONFLICT
+
+用于：
+
+UI解释
+
+排序
+
+Agent未来分析。
+
+==================================================
+26. Exposure Context
+==================================================
+
+第一版资产可以允许用户标记：
+
+Internet Exposed
+
+Internal
+
+Development
+
+Unknown
+
+但是：
+
+不要自动扫描公网。
+
+这个字段用于：
+
+风险上下文。
+
+如果用户没填：
+
+UNKNOWN。
+
+==================================================
+27. Environment
+==================================================
+
+支持：
+
+Production
+
+Staging
+
+Development
+
+Unknown
+
+用于优先级解释。
+
+不要硬编码：
+
+Production一定P0。
+
+只是风险因素之一。
+
+==================================================
+28. Asset Risk Snapshot
+==================================================
+
+风险会变化。
+
+设计：
+
+AssetRiskSnapshot
+
+或者利用现有Event模型。
+
+记录：
+
+某时间点：
+
+Asset
+
+Component
+
+Vulnerability
+
+Match Status
+
+Priority
+
+Factors
+
+Remediation
+
+这样可以看到：
+
+昨天P2
+
+今天POC出现
+
+→ P1。
+
+==================================================
+29. Risk Change Event
+==================================================
+
+建立：
+
+RiskChangeEvent。
+
+例如：
+
+POC_CONFIRMED
+
+KEV_ADDED
+
+EPSS_INCREASED
+
+PATCH_RELEASED
+
+ASSET_VERSION_CHANGED
+
+MATCH_CHANGED
+
+VERIFICATION_CHANGED
+
+==================================================
+30. 持续重新计算
+==================================================
+
+以下事件发生时：
+
+重新计算受影响资产：
+
+Affected Version更新
+
+POC状态变化
+
+KEV加入
+
+EPSS变化
+
+Patch出现
+
+Asset Version变化
+
+Verification变化
+
+不要每天暴力重算全部资产。
+
+==================================================
+31. Event-driven基础设计
+==================================================
+
+第一版不需要Kafka。
+
+可以：
+
+Domain Event
+
++
+
+Background Job
+
++
+
+Database Queue
+
+或当前已有任务机制。
+
+保持简单。
+
+==================================================
+32. Asset Change
+==================================================
+
+例如：
+
+用户升级：
+
+vLLM
+
+0.8.2
+
+→
+
+0.8.4
+
+重新匹配后：
+
+CVE-X
+
+AFFECTED
+
+→
+
+NOT_AFFECTED
+
+保存变化历史。
+
+==================================================
+33. SBOM更新
+==================================================
+
+同一Asset再次导入新SBOM：
+
+不要简单创建：
+
+另一份完全独立Asset。
+
+应该：
+
+识别Asset
+
+更新Component Inventory
+
+记录：
+
+added
+
+removed
+
+updated
+
+==================================================
+34. Component History
+==================================================
+
+至少能追踪：
+
+什么时候发现组件
+
+什么时候版本变化
+
+什么时候移除
+
+方便解释：
+
+风险为什么消失。
+
+==================================================
+35. Asset API
+==================================================
+
+至少实现：
+
+GET /api/v1/assets
+
+POST /api/v1/assets
+
+GET /api/v1/assets/{id}
+
+POST /api/v1/assets/{id}/components
+
+POST /api/v1/assets/{id}/sbom
+
+GET /api/v1/assets/{id}/risks
+
+GET /api/v1/assets/{id}/risk-changes
+
+根据现有API风格调整。
+
+==================================================
+36. Asset Risk Detail
+==================================================
+
+单条风险至少返回：
+
+Asset
+
+Component
+
+Installed Version
+
+Vulnerability
+
+Affected Range
+
+Match Status
+
+Severity
+
+EPSS
+
+KEV
+
+POC
+
+Patch
+
+Fixed Version
+
+Priority
+
+Risk Factors
+
+Why Now
+
+Evidence References
+
+Verification Status
+
+==================================================
+37. Asset Overview
+==================================================
+
+聚合：
+
+Assets
+
+Components
+
+Affected Components
+
+Critical / High
+
+Confirmed POC
+
+KEV
+
+Patch Available
+
+Uncertain Matches
+
+但所有统计：
+
+必须来自真实数据库查询。
+
+==================================================
+38. Review integration
+==================================================
+
+如果出现：
+
+AMBIGUOUS COMPONENT
+
+UNSUPPORTED VERSION
+
+VERSION CONFLICT
+
+UNCERTAIN MATCH
+
+重要Production资产
+
+可以根据规则创建：
+
+ReviewTask。
+
+不要：
+
+所有UNCERTAIN都疯狂创建Review。
+
+需要优先级。
+
+==================================================
+39. Evidence继续贯穿
+==================================================
+
+Asset Match也必须可以追溯：
+
+为什么说这个组件受影响？
+
+最终能一路查看：
+
+AssetComponent
+
+↓
+
+AffectedVersionRange
+
+↓
+
+Claim
+
+↓
+
+Evidence
+
+↓
+
+Source
+
+这条链必须完整。
+
+==================================================
+40. Tool-ready Services
+==================================================
+
+Phase 8完成后必须形成：
+
+create_asset
+
+add_asset_component
+
+import_sbom
+
+resolve_component
+
+normalize_version
+
+match_component_vulnerabilities
+
+get_asset_risks
+
+explain_asset_risk
+
+get_remediation
+
+get_asset_risk_changes
+
+未来Agent直接调用。
+
+现在不要接Dify。
+
+==================================================
+41. Tool Contract V2
+==================================================
+
+生成：
+
+docs/tooling/TOOL_CONTRACTS_V2.md
+
+每个Tool：
+
+Purpose
+
+Input Schema
+
+Output Schema
+
+Dependencies
+
+Evidence References
+
+Error Codes
+
+Retryable
+
+Side Effects
+
+Acceptance Criteria
+
+==================================================
+42. 为未来Multi-Agent准备
+==================================================
+
+未来一个问题：
+
+“最近90天影响我的AI推理组件、
+已经出现POC的高危漏洞有哪些？”
+
+执行依赖大致：
+
+Query Vulnerabilities
+        ↓
+Asset Match
+        ↓
+┌──────────────┬──────────────┐
+↓              ↓              ↓
+POC            KEV           Patch
+Check          Check         Check
+└──────────────┴──────────────┘
+               ↓
+         Risk Analysis
+               ↓
+        Verification Gate
+
+Phase 8只负责：
+
+Asset Match
+
+Risk Analysis的确定性底层能力。
+
+不要现在创建Agent。
+
+==================================================
+43. Tests：Component
+==================================================
+
+TEST-COMP-01
+
+PURL完全一致
+
+→ RESOLVED
+
+TEST-COMP-02
+
+明确Alias
+
+→ RESOLVED
+
+TEST-COMP-03
+
+同名不同ecosystem
+
+→ 不得错误合并
+
+TEST-COMP-04
+
+无法判断
+
+→ UNRESOLVED
+
+==================================================
+44. Tests：Version
+==================================================
+
+TEST-VERSION-01
+
+Installed 0.8.2
+
+Affected <0.8.4
+
+→ AFFECTED
+
+TEST-VERSION-02
+
+Installed 0.8.4
+
+Affected <0.8.4
+
+→ NOT_AFFECTED
+
+TEST-VERSION-03
+
+无法解析
+
+→ UNCERTAIN
+
+TEST-VERSION-04
+
+Version Range存在Conflict
+
+→ 不得输出确定性安全结论
+
+==================================================
+45. Tests：Risk
+==================================================
+
+TEST-RISK-01
+
+Affected + KEV
+
+→ 高优先级因素存在
+
+TEST-RISK-02
+
+Affected + Confirmed POC
+
+→ POC因素存在
+
+TEST-RISK-03
+
+Affected + Patch
+
+→ Remediation可展示
+
+TEST-RISK-04
+
+Product相关但Version不命中
+
+→ NOT_AFFECTED
+
+不能因为产品名一样就报警。
+
+==================================================
+46. Tests：Risk Change
+==================================================
+
+第一次：
+
+POC = NO_RESULT
+
+第二次：
+
+POC = CONFIRMED
+
+→ Risk Change Event
+
+重新计算Priority。
+
+--------------------------------
+
+资产：
+
+0.8.2
+
+→
+
+0.8.4
+
+如果0.8.4已修复：
+
+风险状态发生变化。
+
+==================================================
+47. Tests：SBOM
+==================================================
+
+准备真实格式的小型CycloneDX Fixture。
+
+测试：
+
+导入
+
+组件解析
+
+PURL
+
+Version
+
+Dedup
+
+重复导入
+
+更新导入
+
+不得：
+
+重复创建大量Component。
+
+==================================================
+48. 真实案例
+==================================================
+
+至少准备：
+
+Case 1：
+
+手工资产。
+
+例如：
+
+AI inference environment。
+
+Case 2：
+
+SBOM导入。
+
+Case 3：
+
+升级前后风险变化。
+
+必须尽可能使用：
+
+Phase 7真实Vulnerability。
+
+==================================================
+49. Demo Candidate
+==================================================
+
+找一个最适合展示的真实场景：
+
+Asset：
+
+某AI推理组件
+
+Version：
+
+真实受影响版本
+
+↓
+
+匹配真实漏洞
+
+↓
+
+展示：
+
+Affected Range
+
+POC
+
+KEV/EPSS
+
+Patch
+
+Fixed Version
+
+Evidence
+
+↓
+
+升级组件版本
+
+↓
+
+风险解除/下降
+
+这个Demo非常重要。
+
+禁止：
+
+为了效果修改漏洞事实。
+
+==================================================
+50. Benchmark准备
+==================================================
+
+开始建立：
+
+Asset Match Evaluation。
+
+人工准备一批：
+
+Asset Component
+
+Installed Version
+
+Affected Range
+
+Ground Truth
+
+测试：
+
+Match Accuracy
+
+Unknown Handling
+
+False Positive
+
+False Negative
+
+尤其关注：
+
+False Positive。
+
+因为：
+
+“产品相关”
+
+不能等于：
+
+“资产受影响”。
+
+==================================================
+51. Error Taxonomy扩展
+==================================================
+
+增加：
+
+COMPONENT_RESOLUTION_ERROR
+
+PACKAGE_ID_MISMATCH
+
+VERSION_NORMALIZATION_ERROR
+
+VERSION_MATCH_ERROR
+
+AMBIGUOUS_COMPONENT
+
+SBOM_PARSE_ERROR
+
+STALE_ASSET
+
+RISK_RULE_ERROR
+
+==================================================
+52. Security
+==================================================
+
+SBOM也是外部输入。
+
+视为：
+
+UNTRUSTED。
+
+防止：
+
+超大文件
+
+恶意JSON
+
+Path Traversal
+
+异常嵌套
+
+恶意字段
+
+设置：
+
+文件大小限制
+
+解析超时
+
+Schema Validation。
+
+==================================================
+53. 不要自动上传用户代码
+==================================================
+
+如果使用Syft：
+
+优先本地生成SBOM。
+
+不要未经用户同意：
+
+把项目源代码上传第三方服务。
+
+==================================================
+54. 性能
+==================================================
+
+实际记录：
+
+100 Components导入时间
+
+100 Components匹配时间
+
+单Asset风险查询时间
+
+Risk Recompute时间
+
+先记录。
+
+不要伪造。
+
+==================================================
+55. UI数据核对
+==================================================
+
+对照：
+
+ASSET_RISK_UX.md
+
+确保后端可以真实提供：
+
+资产
+
+组件
+
+版本
+
+受影响漏洞
+
+风险因素
+
+Why Now
+
+POC
+
+KEV
+
+Patch
+
+Fixed Version
+
+Evidence
+
+Risk Changes
+
+Uncertain
+
+如果缺：
+
+记录：
+
+BACKEND_GAP。
+
+==================================================
+56. 输出
+==================================================
+
+建立：
+
+reports/phase8/
+
+输出：
+
+PREFLIGHT.md
+
+ASSET_ARCHITECTURE.md
+
+ASSET_COMPONENT_MODEL.md
+
+SBOM_IMPORT.md
+
+COMPONENT_RESOLUTION.md
+
+VERSION_NORMALIZATION.md
+
+VULNERABILITY_MATCHING.md
+
+MATCH_EXPLANATION.md
+
+RISK_PRIORITY.md
+
+RISK_FACTORS.md
+
+RISK_CHANGE.md
+
+REMEDIATION.md
+
+REVIEW_INTEGRATION.md
+
+API_IMPLEMENTATION.md
+
+REAL_CASES.md
+
+ASSET_MATCH_EVALUATION.md
+
+TEST_RESULTS.md
+
+KNOWN_ISSUES.md
+
+并生成：
+
+docs/tooling/TOOL_CONTRACTS_V2.md
+
+==================================================
+57. 实际运行
+==================================================
+
+必须真正：
+
+启动Database
+
+运行Migration
+
+启动Backend
+
+创建Asset
+
+添加真实Component
+
+运行Vulnerability Match
+
+查看Risk
+
+导入一次CycloneDX SBOM
+
+再次匹配
+
+修改Component Version
+
+重新匹配
+
+检查Risk Change
+
+查询API
+
+运行Tests
+
+不要只生成代码。
+
+==================================================
+58. Phase 8完成门槛
+==================================================
+
+只有以下满足才能PASS：
+
+[ ] Asset可创建
+
+[ ] Component可创建
+
+[ ] Manual Input可用
+
+[ ] CycloneDX可导入
+
+[ ] Component Resolution可用
+
+[ ] PURL可处理
+
+[ ] Version Normalize可用
+
+[ ] Version Match确定性运行
+
+[ ] AFFECTED / NOT_AFFECTED / UNCERTAIN可区分
+
+[ ] Risk Factors存在
+
+[ ] Why Now可解释
+
+[ ] Patch/Fixed Version可关联
+
+[ ] Evidence可追溯
+
+[ ] Risk Change可记录
+
+[ ] Review Integration存在
+
+[ ] Tool Contracts V2存在
+
+[ ] 真实案例存在
+
+[ ] Tests实际执行
+
+[ ] 没有使用LLM猜版本
+
+[ ] 没有伪造风险指标
+
+==================================================
+59. 最终汇报
+==================================================
+
+最终输出：
+
+=== AegisAI Phase 8 Asset Risk Complete ===
+
+Phase 7 Dependency Check:
+PASS / PARTIAL / FAIL
+
+Asset:
+
+Manual Input:
+PASS / PARTIAL / FAIL
+
+CycloneDX:
+PASS / PARTIAL / FAIL
+
+SPDX:
+PASS / PARTIAL / NOT IMPLEMENTED
+
+Component Resolution:
+PASS / PARTIAL / FAIL
+
+Version Matching:
+PASS / PARTIAL / FAIL
+
+Risk Analysis:
+PASS / PARTIAL / FAIL
+
+Risk Change:
+PASS / PARTIAL / FAIL
+
+Real Asset Cases:
+
+Case 1:
+...
+
+Case 2:
+...
+
+Case 3:
+...
+
+Demo Candidate:
+...
+
+Asset Match Evaluation:
+
+Sample Size:
+Correct:
+Incorrect:
+Uncertain:
+False Positive:
+False Negative:
+
+Performance:
+
+SBOM Import:
+...
+
+Matching:
+...
+
+Risk Query:
+...
+
+Tests:
+
+Passed:
+Failed:
+Skipped:
+
+Tool-ready Services:
+...
+
+Known Issues:
+...
+
+Phase 8 Status:
+PASS / PARTIAL / FAIL
+
+Next Phase:
+
+Phase 9
+Dify接入 + Hybrid Retrieval +
+Orchestrator + Multi-Agent协作 +
+Task Contract / Dependency Graph /
+Handoff / Integration Gate / Retry-Replan
+
+完成后停止。
+
+不要自行进入Phase 9。

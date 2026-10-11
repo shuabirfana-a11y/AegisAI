@@ -1,0 +1,3 @@
+# Preserve the current bytes of existing source/fixtures and frozen hash baselines.
+# Line-ending normalization would invalidate the historical compatibility checks.
+* -text

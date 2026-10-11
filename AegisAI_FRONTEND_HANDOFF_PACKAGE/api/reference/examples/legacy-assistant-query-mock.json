@@ -1,0 +1,25 @@
+{
+  "data_origin": "MOCK_SCHEMA_VALIDATED_NOT_HTTP_CAPTURE",
+  "request": {
+    "question": "查询 CVE-2099-0001 的公开情报（模拟数据）",
+    "asset_id": null,
+    "target": "CVE-2099-0001",
+    "mode": "auto",
+    "request_key": "frontend-mock-query-001",
+    "realtime": false
+  },
+  "response": {
+    "run_id": "00000000-0000-4000-8000-000000000008",
+    "trace_id": "00000000-0000-4000-8000-000000000009",
+    "status": "PLANNING",
+    "route": null,
+    "result": null,
+    "warnings": [],
+    "started_at": "2026-10-10T00:00:00Z",
+    "finished_at": null,
+    "duration_ms": null
+  },
+  "api_status": "MOCK_ONLY",
+  "fixture_label": "MOCK",
+  "production_data": false
+}

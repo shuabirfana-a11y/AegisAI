@@ -1,0 +1,308 @@
+{
+  "kind": "UI DESIGN / STATIC PROTOTYPE VERIFICATION; NOT PRODUCTION OR BENCHMARK",
+  "checked_at_utc": "2026-10-03T07:11:14.038146+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "14 requested UI documents",
+      "passed": true,
+      "detail": [
+        "CHART_GUIDELINES",
+        "COMPONENT_DATA_MAPPING",
+        "COMPONENT_SPEC",
+        "CONFLICT_UI",
+        "DESIGN_SYSTEM",
+        "DESIGN_TOKENS",
+        "EVIDENCE_UI",
+        "PAGE_SPECS",
+        "RESPONSIVE_RULES",
+        "STATUS_SYSTEM",
+        "UI_REFERENCE_RESEARCH",
+        "UI_REVIEW",
+        "UX_ISSUES_FOUND",
+        "VISUAL_DIRECTION"
+      ]
+    },
+    {
+      "check": "Substantive specifications",
+      "passed": true,
+      "detail": {
+        "UI_REFERENCE_RESEARCH": 1127,
+        "VISUAL_DIRECTION": 957,
+        "DESIGN_SYSTEM": 1872,
+        "DESIGN_TOKENS": 2631,
+        "COMPONENT_SPEC": 3038,
+        "STATUS_SYSTEM": 1486,
+        "EVIDENCE_UI": 981,
+        "CONFLICT_UI": 752,
+        "CHART_GUIDELINES": 777,
+        "RESPONSIVE_RULES": 867,
+        "PAGE_SPECS": 3883,
+        "COMPONENT_DATA_MAPPING": 11636,
+        "UX_ISSUES_FOUND": 819,
+        "UI_REVIEW": 1437
+      }
+    },
+    {
+      "check": "44 frozen inputs preserved",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Original request archived unchanged",
+      "passed": true,
+      "detail": "design/ui/sources/phase4_request.docx"
+    },
+    {
+      "check": "57 unique UX elements mapped",
+      "passed": true,
+      "detail": 57
+    },
+    {
+      "check": "Frozen priorities and backend status preserved",
+      "passed": true,
+      "detail": "Assets and Review P1; real Agent P0"
+    },
+    {
+      "check": "Sources and API proposal references resolve",
+      "passed": true,
+      "detail": "Research and UX identifiers"
+    },
+    {
+      "check": "Components have data interactions and dependencies",
+      "passed": true,
+      "detail": 57
+    },
+    {
+      "check": "Tokens match actual CSS",
+      "passed": true,
+      "detail": 42
+    },
+    {
+      "check": "Seven route renderers present",
+      "passed": true,
+      "detail": "Six navigation entries plus detail"
+    },
+    {
+      "check": "Static prototype cannot connect to APIs",
+      "passed": true,
+      "detail": "CSP and source audit"
+    },
+    {
+      "check": "No gradients or decorative animations",
+      "passed": true,
+      "detail": "Light surfaces and semantic accents"
+    },
+    {
+      "check": "Production implementation not introduced",
+      "passed": true,
+      "detail": "Separate prototype only"
+    },
+    {
+      "check": "Startup includes installed Python path",
+      "passed": true,
+      "detail": "No installation required"
+    },
+    {
+      "check": "Document links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Specified text and status pairs meet 4.5 contrast",
+      "passed": true,
+      "detail": {
+        "pairs": 24,
+        "minimum": 4.621
+      }
+    },
+    {
+      "check": "All 86 browser checks pass",
+      "passed": true,
+      "detail": {
+        "checks": 86,
+        "errors": [],
+        "external": []
+      }
+    },
+    {
+      "check": "Seven pages at four widths have no full-page overflow",
+      "passed": true,
+      "detail": "1440 / 1280 / 1024 / 768, height 900"
+    },
+    {
+      "check": "54 layout state and overlay screenshots saved",
+      "passed": true,
+      "detail": 54
+    },
+    {
+      "check": "Final desktop screenshots visually reviewed",
+      "passed": true,
+      "detail": [
+        "overview-1440.png",
+        "center-1440.png",
+        "detail-1440.png",
+        "assets-1440.png",
+        "reviews-1440.png",
+        "assistant-1440.png",
+        "system-1440.png",
+        "center-1280.png",
+        "reviews-1280.png",
+        "detail-1280-full.png",
+        "evidence-drawer.png",
+        "agent-timeout.png"
+      ]
+    }
+  ],
+  "contrast_token_pairs": [
+    {
+      "foreground": "text",
+      "background": "surface",
+      "ratio": 14.629,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "text",
+      "background": "bg",
+      "ratio": 13.631,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "text",
+      "background": "sidebar",
+      "ratio": 13.144,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "secondary",
+      "background": "surface",
+      "ratio": 6.333,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "secondary",
+      "background": "bg",
+      "ratio": 5.9,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "secondary",
+      "background": "sidebar",
+      "ratio": 5.69,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 5.143,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "muted",
+      "background": "bg",
+      "ratio": 4.793,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "muted",
+      "background": "sidebar",
+      "ratio": 4.621,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "primary",
+      "background": "surface",
+      "ratio": 5.473,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "primary",
+      "background": "bg",
+      "ratio": 5.1,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "primary",
+      "background": "sidebar",
+      "ratio": 4.918,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "critical",
+      "background": "critical-bg",
+      "ratio": 6.276,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "high",
+      "background": "high-bg",
+      "ratio": 5.344,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "medium",
+      "background": "medium-bg",
+      "ratio": 5.69,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "low",
+      "background": "low-bg",
+      "ratio": 5.964,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "success",
+      "background": "success-bg",
+      "ratio": 6.118,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "warning",
+      "background": "warning-bg",
+      "ratio": 5.69,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "error",
+      "background": "error-bg",
+      "ratio": 6.276,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "pending",
+      "background": "pending-bg",
+      "ratio": 5.629,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "conflict",
+      "background": "conflict-bg",
+      "ratio": 6.254,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "info",
+      "background": "info-bg",
+      "ratio": 6.169,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "surface",
+      "background": "primary",
+      "ratio": 5.473,
+      "passes_4_5": true
+    },
+    {
+      "foreground": "primary",
+      "background": "primary-soft",
+      "ratio": 4.812,
+      "passes_4_5": true
+    }
+  ],
+  "limitations": [
+    "Mock data and fixed tool events only; no real services.",
+    "No full accessibility certification, cross-browser audit or real-user study.",
+    "Backend mapping denotes requirements, not implemented endpoints."
+  ]
+}

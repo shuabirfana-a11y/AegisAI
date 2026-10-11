@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en-us" xml:lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <title>Security Content Automation Protocol | CSRC</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-config" content="/CSRC/Media/images/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="google-site-verification" content="xbrnrVYDgLD-Bd64xHLCt4XsPXzUhQ-4lGMj4TdUUTA" />
+    
+
+        <meta name="description" content="Common Platform Enumeration (CPE) is a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&#39;s computing assets. CPE names product classes rather than specific..." />
+
+    <!-- dcterms meta information -->
+    <meta name="dcterms.title" content="Common Platform Enumeration (CPE) - Security Content Automation Protocol | CSRC | CSRC" />
+    <meta name="dcterms.description" content="Common Platform Enumeration (CPE) is a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&#39;s computing assets. CPE names product classes rather than specific..." />
+    <meta name="dcterms.creator" content="Computer Security Division, Information Technology Laboratory, National Institute of Standards and Technology, U.S. Department of Commerce" />
+    <meta name="dcterms.date.created" scheme="ISO8601" content="2016-12-07" />
+    <meta name="dcterms.date.reviewed" scheme="ISO8601" content="2026-06-09" />
+    <meta name="dcterms.language" scheme="DCTERMS.RFC1766" content="EN-US" />
+
+    <!-- Facebook OpenGraph Tags -->
+    <meta name="og:site_name" content="CSRC | NIST" />
+    <meta name="og:type" content="article" />
+    <meta name="og:url" content="https://csrc.nist.gov/projects/security-content-automation-protocol/specifications/cpe" />
+    <meta name="og:title" content="Common Platform Enumeration (CPE) - Security Content Automation Protocol | CSRC | CSRC" />
+    <meta name="og:description" content="Common Platform Enumeration (CPE) is a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise&#39;s computing assets. CPE names product classes rather than specific installed instances, which lets security tools make consistent, automated decisions for asset management, vulnerability management, and configuration management.  This page is the entry point for the CPE specification. It gives a high-level overview of the CPE versions and the work now under way on the next major revision. Each version has its own page with the full detail.  CPE versions  CPE has a current published version, CPE 2.3, and a next major revision now in early development, CPE 3.0. Follow the links for the full detail on each.   	 		 			Version 			Status 			Summary 		 	 	 		 			CPE 3.0 			In early development 			The next major revision of CPE. The work is at an early stage: no specification text exists yet, and no technical changes are final...." />
+
+    <meta name="article:tag" content="configuration management; patch management; security automation; security measurement; vulnerability management" />
+    <meta name="article:published_time" content="2016-12-07" />
+        <meta name="article:modified_time" content="2026-06-09" />
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/images/icons/manifest.json" />
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#000000" />
+    <link href="/CSRC/Media/images/favicons/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link href="/CSRC/Media/images/favicons/favicon.ico" type="image/x-icon" rel="icon" />
+    <link href="/dist/app.css" rel="stylesheet" />
+    
+    <!-- Highlight.js -->
+    <link href="/dist/highlight-js/github.css" rel="stylesheet" />
+    
+    <!-- USWDS Top -->
+    <link href="/dist/uswds/css/uswds.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/dist/uswds/js/uswds-init.min.js"></script>
+
+    <!-- reCAPTCHA v3 -->
+    <style>
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+    </style>
+
+    
+
+
+    <script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=nist&subagency=csrc&pua=UA-66610693-15&yt=true&exts=xsd,xml,wav,mpg,mpeg,avi,rtf,webm,ogg,ogv,oga,map,otf,eot,svg,ttf,woff"></script>
+    <style id="antiClickjackCss">
+        body > * {
+            display: none !important;
+        }
+        #antiClickjack {
+            display: block !important;
+        }
+    </style>
+    <noscript>
+        <style id="antiClickjackNoScript">
+            body > * { display: block !important; }
+            #antiClickjack {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+    <script type="text/javascript" id="antiClickjackScript">
+        if (self === top) {
+            // no clickjacking
+            var antiClickjack = document.getElementById("antiClickjackCss"); antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            setTimeout(tryForward(), 5000);
+        }
+        function tryForward() {
+            top.location = self.location;
+        }
+    </script>
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSQ0PLGJZP"></script> 
+    <script>   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-TSQ0PLGJZP'); </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MZQC4NCJ');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZQC4NCJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="antiClickjack" style="display: none;">
+        <strong style="font-size: 1.6rem;">You are viewing this page in an unauthorized frame window.</strong>
+        <p>This is a potential security issue, you are being redirected to <a href="https://csrc.nist.gov">https://csrc.nist.gov</a>.</p>
+    </div>
+
+    <section
+    class="usa-banner"
+    aria-label="Official website of the United States government">
+    <div class="usa-accordion">
+        <header class="usa-banner__header">
+            <noscript>
+                <p style="font-size: 0.85rem; font-weight: bold;">You have JavaScript disabled. This site requires JavaScript to be enabled for complete site functionality.</p>
+            </noscript>
+            <div class="usa-banner__inner">
+                <div class="grid-col-auto">
+                    <img
+                        aria-hidden="true"
+                        class="usa-banner__header-flag"
+                        src="/dist/uswds/img/us_flag_small.png"
+                        alt=""/>
+                </div>
+                <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
+                    <p class="usa-banner__header-text">
+                        An official website of the United States government
+                    </p>
+                    <p class="usa-banner__header-action">Here’s how you know</p>
+                </div>
+                <button
+                    type="button"
+                    class="usa-accordion__button usa-banner__button"
+                    aria-expanded="false"
+                    aria-controls="gov-banner-default">
+                    <span class="usa-banner__button-text">Here’s how you know</span>
+                </button>
+            </div>
+        </header>
+        <div
+            class="usa-banner__content usa-accordion__content"
+            id="gov-banner-default">
+            <div class="grid-row grid-gap-lg">
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img
+                        class="usa-banner__icon usa-media-block__img"
+                        src="/dist/uswds/img/icon-dot-gov.svg"
+                        role="img"
+                        alt=""
+                        aria-hidden="true"/>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Official websites use .gov</strong><br/>A
+                            <strong>.gov</strong> website belongs to an official government
+                            organization in the United States.
+                        </p>
+                    </div>
+                </div>
+                <div class="usa-banner__guidance tablet:grid-col-6">
+                    <img
+                        class="usa-banner__icon usa-media-block__img"
+                        src="/dist/uswds/img/icon-https.svg"
+                        role="img"
+                        alt=""
+                        aria-hidden="true"/>
+                    <div class="usa-media-block__body">
+                        <p>
+                            <strong>Secure .gov websites use HTTPS</strong><br/>A
+                            <strong>lock</strong> (
+                            <span class="icon-lock">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="52"
+                                    height="64"
+                                    viewBox="0 0 52 64"
+                                    class="usa-banner__lock-image"
+                                    role="img"
+                                    aria-labelledby="banner-lock-description-default"
+                                    focusable="false">
+                                    <title id="banner-lock-title-default">Lock</title>
+                                    <desc id="banner-lock-description-default">Locked padlock icon</desc>
+                                    <path
+                                        fill="#000000"
+                                        fill-rule="evenodd"
+                                        d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"/>
+                                </svg>
+                            </span
+                            >) or <strong>https://</strong> means you’ve safely connected to
+                            the .gov website. Share sensitive information only on official,
+                            secure websites.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <nav id="navbar" class="navbar">
+    <div id="nist-menu-container" class="container">
+        <div class="row">
+            <!-- Brand -->
+            <div class="col-xs-6 col-md-4 navbar-header">
+                <a class="navbar-brand" href="https://www.nist.gov" target='_blank' rel="noopener noreferrer" id="navbar-brand-image">
+                    <img src="/CSRC/media/images/svg/nist-logo.svg" alt="National Institute of Standards and Technology" width="110" height="30">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-8 navbar-nist-logo">
+                <div class="form-inline hidden-sm hidden-xs">
+                    <form name="site-search" id="site-search-form" action="/search" method="GET">
+                        <label for="search-csrc-query" class="element-invisible">Search</label>
+                        <input autocomplete="off" class="form-control" id="search-csrc-query" name="keywords" type="text" size="15" maxlength="128" placeholder="Search CSRC" />
+                        <input type="hidden" name="ipp" value="25" />
+                        <input type="hidden" name="sortBy" value="relevance" />
+                        <input type="hidden" name="showOnly" value="publications,projects,news,events,presentations,glossary,topics" />
+                        <input type="hidden" name="topicsMatch" value="ANY" />
+                        <input type="hidden" name="status" value="Final,Draft" />
+                        <button type="submit" id="search-csrc-submit-btn" class="form-submit">
+                            <span class="element-invisible">Search</span>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <span id="nvd-menu-button" class="pull-right">
+                    <a href="#" id="nvd-menu-button-link">
+                        <span class="fa fa-bars"></span>
+                        <span id="nvd-menu-full-text">CSRC MENU</span>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-inline hidden-md hidden-lg">
+        <form name="site-search-mobile" id="site-search-form-mobile" action="/search" method="GET">
+            <label for="search-csrc-query-mobile" class="element-invisible">Search</label>
+            <input autocomplete="off" class="form-control" id="search-csrc-query-mobile" name="keywords" type="text" size="15" maxlength="128" placeholder="Search CSRC" />
+            <button type="submit" id="search-csrc-submit-btn-mobile" class="form-submit">
+                <span class="element-invisible">Search</span>
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+    <div class="main-menu-row container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="main-menu-drop" class="col-lg-12" style="display: none;">
+            <ul>
+                <li><a href="/projects">Projects</a></li>
+                <li>
+                    <a href="/publications">
+                        Publications
+                        <span class="expander fa fa-plus" id="main-menu-pubs-expander" data-expander-name="publications" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="publications" id="main-menu-pubs-expanded">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p><a href="/publications/drafts-open-for-comment">Drafts for Public Comment</a></p>
+                                <p><a href="/publications/draft-pubs">All Public Drafts</a></p>
+                                <p><a href="/publications/final-pubs">Final Pubs</a></p>
+                                <p><a href="/publications/fips">FIPS <small>(standards)</small></a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/publications/sp">Special Publications (SP<small>s</small>)</a></p>
+                                <p><a href="/publications/ir">IR <small>(interagency/internal reports)</small></a></p>
+                                <p><a href="/publications/cswp">CSWP <small>(cybersecurity white papers)</small></a></p>
+                                <p><a href="/publications/itl-bulletin">ITL Bulletins</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/publications/project-description">Project Descriptions</a></p>
+                                <p><a href="/publications/journal-article">Journal Articles</a></p>
+                                <p><a href="/publications/conference-paper">Conference Papers</a></p>
+                                <p><a href="/publications/book">Books</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="/topics">
+                        Topics
+                        <span class="expander fa fa-plus" id="main-menu-topics-expander" data-expander-name="topics" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="topics" id="main-menu-topics-expanded">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Security-and-Privacy">Security & Privacy</a></p>
+                                <p><a href="/Topics/Applications">Applications</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Technologies">Technologies</a></p>
+                                <p><a href="/Topics/Sectors">Sectors</a></p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p><a href="/Topics/Laws-and-Regulations">Laws & Regulations</a></p>
+                                <p><a href="/Topics/Activities-and-Products">Activities & Products</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/news">News & Updates</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/glossary">Glossary</a></li>
+                <li>
+                    <a href="/about">
+                        About CSRC
+                        <span class="expander fa fa-plus" id="main-menu-about-expander" data-expander-name="about" data-expanded="false">
+                            <span class="element-invisible">Expand or Collapse</span>
+                        </span>
+                    </a>
+                    <div style="display: none;" class="sub-menu" data-expander-trigger="about" id="main-menu-about-expanded">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p>
+                                    <strong><a href="/Groups/Computer-Security-Division">Computer Security Division</a></strong><br />
+                                    <ul>
+                                        <li><a href="/Groups/Computer-Security-Division/Cryptographic-Technology">Cryptographic Technology</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/software-security-group">Software Security Group</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/hardware-security-group">Hardware Security Group</a></li>
+                                        <li><a href="/Groups/Computer-Security-Division/Security-Engineering-and-Risk-Management">Security Engineering and Risk Management</a></li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p>
+                                    <strong><a href="/Groups/Applied-Cybersecurity-Division">Applied Cybersecurity Division</a></strong><br />
+                                    <ul>
+                                        <li><a href="/Groups/Applied-Cybersecurity-Division/Cybersecurity-and-Privacy-Applications">Cybersecurity and Privacy Applications</a></li>
+                                        <li><a href="/Groups/Applied-Cybersecurity-Division/National-Cybersecurity-Center-of-Excellence">National Cybersecurity Center of Excellence (NCCoE)</a></li>
+                                        <li><a href="https://www.nist.gov/nice/">National Initiative for Cybersecurity Education (NICE)</a></li>
+                                    </ul>
+                                </p>
+                                <p>
+                                    <a href="/contact">
+                                        Contact Us
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- /#mobile-nav-container -->
+    </div>
+
+</nav>
+
+    <section id="itl-header" class="has-menu">
+        <div class="itl-background"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="hidden-xs hidden-sm" id="itl-header-lg">
+                            <a href="https://www.nist.gov/itl" target='_blank' rel="noopener noreferrer" id="itl-header-link">Information Technology Laboratory</a>
+                        </div>
+                        <div class="hidden-xs hidden-sm" id="csrc-header-lg">
+                            <a href="/" id="csrc-header-link-lg">Computer Security Resource Center</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="hidden-xs hidden-sm hidden-md">
+                            <a id="logo-csrc-lg" href="/"><img id="img-logo-csrc-lg" src="/CSRC/Media/images/nist-logo-csrc-white.svg" alt="CSRC Logo" class="csrc-header-logo"></a>
+                        </div>
+                        <div class="hidden-lg">
+                            <a id="logo-csrc-sm" href="/"><img id="img-logo-csrc-sm" src="/CSRC/Media/images/nist-logo-csrc-white.svg" alt="CSRC Logo" class="csrc-header-logo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <div id="body-section" class="container">
+        
+        
+
+
+
+
+<div class="breadcrumb">
+        <a href="/projects" class="breadcrumb-link">Projects</a>
+        <a href="/projects/security-content-automation-protocol" class="breadcrumb-link">Security Content Automation Protocol</a>
+        <a href="/projects/security-content-automation-protocol/specifications" class="breadcrumb-link">SCAP Specifications</a>
+</div>
+
+
+    <h1 id="projectName">Security Content Automation Protocol <small id="project-acronym">SCAP</small></h1>
+
+
+<div class="page-social-buttons" id=&quot;news-social-buttons&quot;>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fsecurity-content-automation-protocol%2Fspecifications%2Fcpe" class="social-facebook"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i><span class="sr-only">Share to Facebook</span></a>
+    <a href="https://x.com/share?url=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fsecurity-content-automation-protocol%2Fspecifications%2Fcpe" class="social-twitter"><i class="fa-brands fa-x-twitter"></i><span class="sr-only">Share to X</span></a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcsrc.nist.gov%2Fprojects%2Fsecurity-content-automation-protocol%2Fspecifications%2Fcpe&amp;source=csrc.nist.gov" class="social-linked-in"><i class="fa fa-linkedin fa-fw" aria-hidden="true"></i><span class="sr-only">Share to LinkedIn</span></a>
+    <a href="/cdn-cgi/l/email-protection#ccf3bfb9aea6a9afb8f1afbfbeafe2a2a5bfb8e2aba3baeaada1bcf7aea3a8b5f18fa4a9afa7eca3b9b8ecb8a4a5bfecbfa5b8a9eca4b8b8bcbff6e3e3afbfbeafe2a2a5bfb8e2aba3bae3bcbea3a6a9afb8bfe3bfa9afb9bea5b8b5e1afa3a2b8a9a2b8e1adb9b8a3a1adb8a5a3a2e1bcbea3b8a3afa3a0e3bfbca9afa5aaa5afadb8a5a3a2bfe3afbca9" class="social-email"><i class="fa fa-envelope fa-fw" aria-hidden="true"></i><span class="sr-only">Share ia Email</span></a>
+</div>
+
+<div class="row visible-sm visible-xs visible-md">
+	<div class="col-sm-12">
+        <div class="bs-callout bs-callout-subnav" id="projectLinksContainer-sm">
+            <h4><i class="fa fa-link"></i> Project Links</h4>
+            <div class="project-icons-container">
+                <span>
+                    <a href="/projects/security-content-automation-protocol" id="NavOverviewLink-sm">
+                        <i class="fa fa-info-circle"></i> Overview
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/security-content-automation-protocol/news" id="NavNewsLink-sm" data-count="8">
+                        <i class="fa fa-newspaper-o"></i> News &amp; Updates
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/security-content-automation-protocol/events" id="NavEventsLink-sm" data-count="3">
+                        <i class="fa fa-calendar-o"></i> Events
+                    </a>
+                </span>
+                                <span>
+                    <a href="/Projects/security-content-automation-protocol/publications" id="NavPubsLink-sm" data-count="17">
+                        <i class="fa fa-file-text"></i> Publications
+                    </a>
+                </span>
+                            </div>
+        </div>
+	</div>
+</div>
+<div class="row">
+
+
+        <div class="col-lg-8 col-sm-12">
+<h3 id="pageName">Common Platform Enumeration (CPE)</h3>
+
+
+<p id="content">
+    <p>Common Platform Enumeration (CPE) is a standardized method of describing and identifying classes of applications, operating systems, and hardware devices present among an enterprise's computing assets. CPE names product classes rather than specific installed instances, which lets security tools make consistent, automated decisions for asset management, vulnerability management, and configuration management.</p>
+
+<p>This page is the entry point for the CPE specification. It gives a high-level overview of the CPE versions and the work now under way on the next major revision. Each version has its own page with the full detail.</p>
+
+<h2>CPE versions</h2>
+
+<p>CPE has a current published version, CPE 2.3, and a next major revision now in early development, CPE 3.0. Follow the links for the full detail on each.</p>
+
+<table class="cpe-version-table table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th scope="col">Version</th>
+			<th scope="col">Status</th>
+			<th scope="col">Summary</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="/projects/security-content-automation-protocol/specifications/cpe-3-0">CPE 3.0</a></td>
+			<td>In early development</td>
+			<td>The next major revision of CPE. The work is at an early stage: no specification text exists yet, and no technical changes are final.</td>
+		</tr>
+		<tr>
+			<td><a href="/projects/security-content-automation-protocol/specifications/cpe-2-3">CPE 2.3</a></td>
+			<td>Current published version</td>
+			<td>The version of CPE in production use today. CPE 2.3 is defined by a stack of four specifications. The CPE 3.0 effort does not change or retire it.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>The CPE 3.x effort</h2>
+
+<p>NIST is beginning work on the next major revision of CPE. The first release of that work is being developed as CPE 3.0. The effort addresses implementation experience accumulated with CPE 2.3 over more than a decade, together with current security automation needs – including how hardware devices are represented.</p>
+
+<p>The effort will evaluate how platforms and products are identified for current security automation use cases, such as vulnerability management, configuration management, and software inventory. It draws on documented implementation experience with CPE 2.3, analysis of how CPE is used in practice, and feedback from the community.</p>
+
+<p>This work is at an early stage. No CPE 3.0 specification text exists yet, and no technical changes are final. NIST will post draft material for public review as the effort develops, and community input will shape the requirements before any specification is drafted. Information on this page describes planned and potential changes, not finished work.</p>
+
+<div aria-label="Workshop announcement" class="alert-info" role="region"><strong>NIST Workshop on Hardware CPE and CVSS Updates</strong><br>
+June 22, 2026 · National Cybersecurity Center of Excellence (NCCoE), Rockville, MD · In person and virtual<br>
+Community input on potential CPE changes and related CVSS updates. <a href="https://www.nist.gov/news-events/events/2026/06/nist-workshop-hardware-cpe-and-cvss-updates">Workshop details and registration</a>.</div>
+
+<p>&nbsp;</p>
+
+<p>See <a href="/projects/security-content-automation-protocol/specifications/cpe-3-0">CPE 3.0</a> for the full status, the June 22, 2026 workshop, and how to get involved, including the public CPE mailing list.</p>
+
+</p>
+
+
+        </div>
+
+
+        <div class="col-lg-4 hidden-xs hidden-sm hidden-md">
+
+            <div class="project-nav-container">
+                <div class="bs-callout bs-callout-subnav" id="projectLinksContainer-lg">
+<h4><i class="fa fa-link"></i> Project Links</h4>
+<div class="project-icons-container">
+    <span>
+        <a href="/projects/security-content-automation-protocol" id="SideNavOverviewLink">
+            <i class="fa fa-info-circle"></i> Overview
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/security-content-automation-protocol/news" id="SideNavNewsLink" data-count="8">
+            <i class="fa fa-newspaper-o"></i> News &amp; Updates
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/security-content-automation-protocol/events" id="SideNavEventsLink" data-count="3">
+            <i class="fa fa-calendar-o"></i> Events
+        </a>
+    </span>
+        <span>
+        <a href="/Projects/security-content-automation-protocol/publications" id="SideNavPubsLink" data-count="17">
+            <i class="fa fa-file-text"></i> Publications
+        </a>
+    </span>
+    </div>
+
+    <h4>Additional Pages</h4>
+    <div id="projectPagesCallout-lg">
+
+<a class="csrc-add-page" data-node-level="0" data-node-order="3" href="/Projects/security-content-automation-protocol/SCAP-Content" id="projPage0" style="border-left: solid 0rem transparent;">SCAP Content</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="4" href="/Projects/security-content-automation-protocol/scap-releases" id="projPage1" style="border-left: solid 0rem transparent;">SCAP Releases</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="1" href="/Projects/security-content-automation-protocol/scap-releases/scap-1-4" id="projPage2" style="border-left: solid 1rem transparent;">SCAP 1.4</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="2" href="/Projects/security-content-automation-protocol/scap-releases/scap-1-3" id="projPage3" style="border-left: solid 1rem transparent;">SCAP 1.3</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="3" href="/Projects/security-content-automation-protocol/scap-releases/SCAP-1-2" id="projPage4" style="border-left: solid 1rem transparent;">SCAP 1.2</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="4" href="/Projects/security-content-automation-protocol/scap-releases/SCAP-1-1" id="projPage5" style="border-left: solid 1rem transparent;">SCAP 1.1</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="5" href="/Projects/security-content-automation-protocol/Specifications" id="projPage6" style="border-left: solid 0rem transparent;">SCAP Specifications</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="1" href="/Projects/security-content-automation-protocol/Specifications/aid" id="projPage7" style="border-left: solid 1rem transparent;">Asset Identification</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="2" href="/Projects/security-content-automation-protocol/Specifications/arf" id="projPage8" style="border-left: solid 1rem transparent;">Asset Reporting Format (ARF)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="3" href="/Projects/security-content-automation-protocol/Specifications/common-configuration-enumeration-cce" id="projPage9" style="border-left: solid 1rem transparent;">Common Configuration Enumeration (CCE)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="4" href="/Projects/security-content-automation-protocol/Specifications/cpe" id="projPage10" style="border-left: solid 1rem transparent;">Common Platform Enumeration (CPE)</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="1" href="/Projects/security-content-automation-protocol/Specifications/cpe/applicability-language" id="projPage11" style="border-left: solid 2rem transparent;">Applicability Language</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="2" href="/Projects/security-content-automation-protocol/Specifications/cpe/dictionary" id="projPage12" style="border-left: solid 2rem transparent;">Dictionary</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="3" href="/Projects/security-content-automation-protocol/Specifications/cpe/name-matching" id="projPage13" style="border-left: solid 2rem transparent;">Name Matching</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="4" href="/Projects/security-content-automation-protocol/Specifications/cpe/naming" id="projPage14" style="border-left: solid 2rem transparent;">Naming</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="5" href="/Projects/security-content-automation-protocol/Specifications/cpe-2-3" id="projPage15" style="border-left: solid 1rem transparent;">CPE 2.3</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="6" href="/Projects/security-content-automation-protocol/Specifications/cpe-3-0" id="projPage16" style="border-left: solid 1rem transparent;">CPE 3.0</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="7" href="/Projects/security-content-automation-protocol/Specifications/Open-Vulnerability-Assessment-Language" id="projPage17" style="border-left: solid 1rem transparent;">Open Vulnerability Assessment Language (OVAL)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="8" href="/Projects/security-content-automation-protocol/Specifications/ocil" id="projPage18" style="border-left: solid 1rem transparent;">Open Checklist Interactive Language (OCIL)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="9" href="/Projects/security-content-automation-protocol/Specifications/tmsad" id="projPage19" style="border-left: solid 1rem transparent;">Trust Model for Security Automation Data (TMSAD)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="10" href="/Projects/security-content-automation-protocol/Specifications/xccdf" id="projPage20" style="border-left: solid 1rem transparent;">Extensible Configuration Checklist Description Format (XCCDF)</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="7" href="/Projects/security-content-automation-protocol/scap-community" id="projPage21" style="border-left: solid 0rem transparent;">SCAP Community</a>
+
+
+    </div>
+
+                </div>
+            </div>
+
+    <div class="bs-callout bs-callout-success" id="contactsCallout-lg">
+        <h4><i class="fa fa-user"></i> Contacts</h4>
+            <p id="projContact0"><span class='contact-display'><strong data-field='full-name'> <span data-field='firstname'>SCAP</span>   <span data-field='lastname'>Inquiries</span> </strong><br/><a href="/cdn-cgi/l/email-protection#dba8b8baab9bb5b2a8aff5bcb4ad" data-field='email'><span class="__cf_email__" data-cfemail="e390808293a38d8a9097cd848c95">[email&#160;protected]</span></a><br/></span></p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="owningGroupCallout-lg">
+        <h4><i class="fa fa-sitemap"></i> Group</h4>
+        <a href="/Groups/Computer-Security-Division/Software-Security-Group">Software Security Group</a>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="topicsCallout-lg">
+        <h4><i class="fa fa-tag"></i> Topics</h4>
+
+            <p>
+                <strong id="catName0-lg">Security and Privacy:</strong>
+                    <a id="catTopLink0-0-lg" href="/Topics/Security-and-Privacy/security-programs-and-operations/configuration-management">configuration management</a>,                     <a id="catTopLink0-1-lg" href="/Topics/Security-and-Privacy/security-programs-and-operations/patch-management">patch management</a>,                     <a id="catTopLink0-2-lg" href="/Topics/Security-and-Privacy/security-programs-and-operations/security-automation">security automation</a>,                     <a id="catTopLink0-3-lg" href="/Topics/Security-and-Privacy/security-measurement">security measurement</a>,                     <a id="catTopLink0-4-lg" href="/Topics/Security-and-Privacy/risk-management/vulnerabilities/vulnerability-management">vulnerability management</a>            </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-warning" id="relatedProjectsCallout-lg">
+        <h4>Related Projects</h4>
+            <a href="/Projects/devsecops" id="relProjLink0">DevSecOps | NCCoE</a><br/>
+            <a href="/Projects/macos-security" id="relProjLink1">macOS Security</a><br/>
+            <a href="/Projects/national-checklist-program" id="relProjLink2">National Checklist Program</a><br/>
+            <a href="/Projects/open-security-controls-assessment-language" id="relProjLink3">Open Security Controls Assessment Language</a><br/>
+            <a href="/Projects/security-content-automation-protocol-v2" id="relProjLink4">SCAP v2</a><br/>
+            <a href="/Projects/scap-validation-program" id="relProjLink5">SCAP Validation Program</a><br/>
+            <a href="/Projects/software-identification-swid" id="relProjLink6">Software Identification Tagging</a><br/>
+            <a href="/Projects/testing-laboratories" id="relProjLink7">Testing Laboratories</a><br/>
+            <a href="/Projects/united-states-government-configuration-baseline" id="relProjLink8">U.S. Government Configuration Baseline</a><br/>
+    </div>
+
+
+        </div>
+
+</div>
+    <div class="row visible-sm visible-xs visible-md">
+
+        <div class="col-sm-12">
+
+<div class="bs-callout bs-callout-subnav" id="projectPagesCallout-sm">
+    <h4>Additional Pages</h4>
+    <p>
+
+<a class="csrc-add-page" data-node-level="0" data-node-order="3" href="/Projects/security-content-automation-protocol/SCAP-Content" id="projPage0-sm" style="border-left: solid 0rem transparent;">SCAP Content</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="4" href="/Projects/security-content-automation-protocol/scap-releases" id="projPage1-sm" style="border-left: solid 0rem transparent;">SCAP Releases</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="1" href="/Projects/security-content-automation-protocol/scap-releases/scap-1-4" id="projPage2-sm" style="border-left: solid 1rem transparent;">SCAP 1.4</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="2" href="/Projects/security-content-automation-protocol/scap-releases/scap-1-3" id="projPage3-sm" style="border-left: solid 1rem transparent;">SCAP 1.3</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="3" href="/Projects/security-content-automation-protocol/scap-releases/SCAP-1-2" id="projPage4-sm" style="border-left: solid 1rem transparent;">SCAP 1.2</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="4" href="/Projects/security-content-automation-protocol/scap-releases/SCAP-1-1" id="projPage5-sm" style="border-left: solid 1rem transparent;">SCAP 1.1</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="5" href="/Projects/security-content-automation-protocol/Specifications" id="projPage6-sm" style="border-left: solid 0rem transparent;">SCAP Specifications</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="1" href="/Projects/security-content-automation-protocol/Specifications/aid" id="projPage7-sm" style="border-left: solid 1rem transparent;">Asset Identification</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="2" href="/Projects/security-content-automation-protocol/Specifications/arf" id="projPage8-sm" style="border-left: solid 1rem transparent;">Asset Reporting Format (ARF)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="3" href="/Projects/security-content-automation-protocol/Specifications/common-configuration-enumeration-cce" id="projPage9-sm" style="border-left: solid 1rem transparent;">Common Configuration Enumeration (CCE)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="4" href="/Projects/security-content-automation-protocol/Specifications/cpe" id="projPage10-sm" style="border-left: solid 1rem transparent;">Common Platform Enumeration (CPE)</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="1" href="/Projects/security-content-automation-protocol/Specifications/cpe/applicability-language" id="projPage11-sm" style="border-left: solid 2rem transparent;">Applicability Language</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="2" href="/Projects/security-content-automation-protocol/Specifications/cpe/dictionary" id="projPage12-sm" style="border-left: solid 2rem transparent;">Dictionary</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="3" href="/Projects/security-content-automation-protocol/Specifications/cpe/name-matching" id="projPage13-sm" style="border-left: solid 2rem transparent;">Name Matching</a>
+<a class="csrc-add-page" data-node-level="2" data-node-order="4" href="/Projects/security-content-automation-protocol/Specifications/cpe/naming" id="projPage14-sm" style="border-left: solid 2rem transparent;">Naming</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="5" href="/Projects/security-content-automation-protocol/Specifications/cpe-2-3" id="projPage15-sm" style="border-left: solid 1rem transparent;">CPE 2.3</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="6" href="/Projects/security-content-automation-protocol/Specifications/cpe-3-0" id="projPage16-sm" style="border-left: solid 1rem transparent;">CPE 3.0</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="7" href="/Projects/security-content-automation-protocol/Specifications/Open-Vulnerability-Assessment-Language" id="projPage17-sm" style="border-left: solid 1rem transparent;">Open Vulnerability Assessment Language (OVAL)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="8" href="/Projects/security-content-automation-protocol/Specifications/ocil" id="projPage18-sm" style="border-left: solid 1rem transparent;">Open Checklist Interactive Language (OCIL)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="9" href="/Projects/security-content-automation-protocol/Specifications/tmsad" id="projPage19-sm" style="border-left: solid 1rem transparent;">Trust Model for Security Automation Data (TMSAD)</a>
+<a class="csrc-add-page" data-node-level="1" data-node-order="10" href="/Projects/security-content-automation-protocol/Specifications/xccdf" id="projPage20-sm" style="border-left: solid 1rem transparent;">Extensible Configuration Checklist Description Format (XCCDF)</a>
+<a class="csrc-add-page" data-node-level="0" data-node-order="7" href="/Projects/security-content-automation-protocol/scap-community" id="projPage21-sm" style="border-left: solid 0rem transparent;">SCAP Community</a>
+
+
+    </p>
+</div>
+
+
+    <div class="bs-callout bs-callout-subnav" id="contactsCallout-sm">
+        <h4><i class="fa fa-user"></i> Contacts</h4>
+        <p style="padding-left: 15px;">
+            <span id="projContact0-sm"><span class='contact-display'><strong data-field='full-name'> <span data-field='firstname'>SCAP</span>   <span data-field='lastname'>Inquiries</span> </strong><br/><a href="/cdn-cgi/l/email-protection#86f5e5e7f6c6e8eff5f2a8e1e9f0" data-field='email'><span class="__cf_email__" data-cfemail="f685959786b6989f8582d8919980">[email&#160;protected]</span></a><br/></span></span><br/>
+        </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="owningGroupCallout-sm">
+        <h4><i class="fa fa-sitemap"></i> Group</h4>
+        <a href="/Groups/Computer-Security-Division/Software-Security-Group">Software Security Group</a>
+    </div>
+
+
+    <div class="bs-callout bs-callout-danger" id="topicsCallout-sm">
+        <h4><i class="fa fa-tag"></i> Topics</h4>
+
+            <p>
+                <strong id="catName0-sm">Security and Privacy:</strong>
+                    <a id="catTopLink0-0-sm" href="/Topics/Security-and-Privacy/security-programs-and-operations/configuration-management">configuration management</a>,                     <a id="catTopLink0-1-sm" href="/Topics/Security-and-Privacy/security-programs-and-operations/patch-management">patch management</a>,                     <a id="catTopLink0-2-sm" href="/Topics/Security-and-Privacy/security-programs-and-operations/security-automation">security automation</a>,                     <a id="catTopLink0-3-sm" href="/Topics/Security-and-Privacy/security-measurement">security measurement</a>,                     <a id="catTopLink0-4-sm" href="/Topics/Security-and-Privacy/risk-management/vulnerabilities/vulnerability-management">vulnerability management</a>            </p>
+    </div>
+
+
+    <div class="bs-callout bs-callout-warning" id="relatedProjectsCallout-sm">
+        <h4>Related Projects</h4>
+        <p>
+            <a href="/Projects/devsecops" id="relProjLink0-sm">DevSecOps | NCCoE</a><br/>
+            <a href="/Projects/macos-security" id="relProjLink1-sm">macOS Security</a><br/>
+            <a href="/Projects/national-checklist-program" id="relProjLink2-sm">National Checklist Program</a><br/>
+            <a href="/Projects/open-security-controls-assessment-language" id="relProjLink3-sm">Open Security Controls Assessment Language</a><br/>
+            <a href="/Projects/security-content-automation-protocol-v2" id="relProjLink4-sm">SCAP v2</a><br/>
+            <a href="/Projects/scap-validation-program" id="relProjLink5-sm">SCAP Validation Program</a><br/>
+            <a href="/Projects/software-identification-swid" id="relProjLink6-sm">Software Identification Tagging</a><br/>
+            <a href="/Projects/testing-laboratories" id="relProjLink7-sm">Testing Laboratories</a><br/>
+            <a href="/Projects/united-states-government-configuration-baseline" id="relProjLink8-sm">U.S. Government Configuration Baseline</a><br/>
+        </p>
+    </div>
+
+
+        </div>
+
+    </div>
+
+<div class="row">
+    <div class="col-md-12 historical-data-area" id="historical-data-area">
+
+            <span>Created <span id="page-created-date">December 07, 2016</span>, Updated <span id="page-updated-date">June 09, 2026</span></span>
+    </div>
+</div>
+
+
+
+
+
+
+        <div id="footer-pusher"></div>
+
+    </div>
+
+    
+
+    <footer id="footer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <span class="hidden-xs">
+                    <a href="https://www.nist.gov" title="National Institute of Standards and Technology" rel="home" target='_blank' rel="noopener noreferrer" class="footer-nist-logo" id="footer-nist-logo-link">
+                        <img src="/CSRC/Media/images/nist-logo-brand-white.svg" alt="National Institute of Standards and Technology logo" id="footer-nist-logo" />
+                    </a>
+                </span>
+
+                <div class="row footer-contact-container">
+                    <div class="col-sm-12" id="footer-address">
+                        <strong>HEADQUARTERS</strong><br>
+                        100 Bureau Drive<br>
+                        Gaithersburg, MD 20899
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <ul class="social-list text-right" style="display: block;">
+                    <li class="field-item service-twitter list-horiz">
+                        <a href="https://x.com/NISTCyber" class="social-btn social-btn--large extlink ext" id="footer-social-twitter-link">
+                            <i class="fa-brands fa-x-twitter fa-fw"><span class="element-invisible">X</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+                    </li>
+                    <li class="field-item service-facebook list-horiz">
+                        <a href="https://www.facebook.com/NIST" class="social-btn social-btn--large extlink ext" id="footer-social-facebook-link">
+                            <i class="fa fa-facebook fa-fw"><span class="element-invisible">facebook</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+
+                    </li>
+                    <li class="field-item service-linkedin list-horiz">
+                        <a href="https://www.linkedin.com/company/nist" class="social-btn social-btn--large extlink ext" id="footer-social-linkedin-link">
+                            <i class="fa fa-linkedin fa-fw"><span class="element-invisible">linkedin</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+
+                    </li>
+                    <li class="field-item service-instagram list-horiz">
+                        <a href="https://www.instagram.com/usnistgov/" class="social-btn social-btn--large extlink ext" id="footer-social-instagram-link">
+                            <i class="fa fa-instagram fa-fw"><span class="element-invisible">instagram</span></i>
+                            <span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+
+                    </li>
+                    <li class="field-item service-youtube list-horiz">
+                        <a href="https://www.youtube.com/user/USNISTGOV" class="social-btn social-btn--large extlink ext" id="footer-social-youtube-link">
+                            <i class="fa fa-youtube fa-fw"><span class="element-invisible">youtube</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+
+                    </li>
+                    <li class="field-item service-rss list-horiz">
+                        <a href="https://www.nist.gov/news-events/nist-rss-feeds" class="social-btn social-btn--large extlink" id="footer-social-rss-link">
+                            <i class="fa fa-rss fa-fw"><span class="element-invisible">rss</span></i>
+                        </a>
+
+                    </li>
+                    <li class="field-item service-govdelivery list-horiz last">
+                        <a href="https://public.govdelivery.com/accounts/USNIST/subscriber/new?qsp=USNIST_3" class="social-btn social-btn--large extlink ext" title="Subscribe to CSRC and publication updates, and other NIST cybersecurity news" id="footer-social-govdelivery-link">
+                            <i class="fa fa-envelope fa-fw"><span class="element-invisible">govdelivery</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text-right">
+                    Want updates about CSRC and our publications?
+                    <a href="https://public.govdelivery.com/accounts/USNIST/subscriber/new?qsp=USNIST_3" class="btn btn-lg btn-primary" style="background-color: #12659c!important; border-color: #12659c!important;" id="footer-subscribe-link">Subscribe</a>
+                </p>
+            </div>
+        </div>
+        <div class="row hidden-sm hidden-md hidden-lg">
+            <div class="col-sm-12">
+                <a href="https://www.nist.gov" title="National Institute of Standards and Technology" rel="home" target='_blank' rel="noopener noreferrer" class="footer-nist-logo" id="footer-bottom-nist-logo-link">
+                    <img src="/CSRC/Media/images/logo_rev.png" alt="National Institute of Standards and Technology logo" id="footer-bottom-nist-logo" />
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <p>
+                    <a href="/about/contact" id="footer-contact-us-link">Contact Us</a> |
+                    <a href="https://www.nist.gov/about-nist/visit" style="display: inline-block;" id="footer-org-link">Our Other Offices</a>
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <span class="pull-right text-right">
+                    Send inquiries to <a href="/cdn-cgi/l/email-protection#fd9e8e8f9ed094938c88948f84bd93948e89d39a928bc28e889f97989e89c0beaeafbeddb4938c88948f84" style="display: inline-block;" id="footer-inquiries-link"><span class="__cf_email__" data-cfemail="26455554450b4f4857534f545f66484f555208414950">[email&#160;protected]</span></a>
+                </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="footer-bottom-links-container" id="footer-bottom-links-container">
+                <ul>
+                  <li><a href="https://www.nist.gov/privacy-policy">Site Privacy</a></li>
+                  <li><a href="https://www.nist.gov/oism/accessibility">Accessibility</a></li>
+                  <li><a href="https://www.nist.gov/privacy">Privacy Program</a></li>
+                  <li><a href="https://www.nist.gov/oism/copyrights">Copyrights</a></li>
+                  <li><a href="https://www.commerce.gov/vulnerability-disclosure-policy">Vulnerability Disclosure</a></li>
+                  <li><a href="https://www.nist.gov/no-fear-act-policy">No Fear Act Policy</a></li>
+                  <li><a href="https://www.nist.gov/foia">FOIA</a></li>
+                  <li><a href="https://www.nist.gov/environmental-policy-statement">Environmental Policy</a></li>
+                  <li><a href="https://www.nist.gov/summary-report-scientific-integrity">Scientific Integrity</a></li>
+                  <li><a href="https://www.nist.gov/nist-information-quality-standards">Information Quality Standards</a></li>
+                  <li><a href="https://www.commerce.gov/">Commerce.gov</a></li>
+                  <li><a href="https://www.science.gov/">Science.gov</a></li>
+                  <li><a href="https://www.usa.gov/">USA.gov</a></li>
+                  <li><a href="https://vote.gov/">Vote.gov</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="/dist/js/quick-collapse.js"></script>
+<script type="text/javascript" src="/dist/app.bundle.js"></script>
+<!-- USWDS Bottom -->
+<script type="text/javascript" src="/dist/uswds/js/uswds.min.js"></script>
+
+    
+    <script type="text/javascript" src="/dist/projects.bundle.js"></script>
+
+    
+
+
+    <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a449a2226b591601',t:'MTc5MTAwNjI0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

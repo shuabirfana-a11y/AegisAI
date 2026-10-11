@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "package": "AegisAI_FRONTEND_HANDOFF_PACKAGE",
+  "verified_at_utc": "2026-10-10T15:44:21.280576+00:00",
+  "scope": "Portable documentation, types and synthetic fixtures only. No business implementation.",
+  "required_requested_files": 27,
+  "current_python_schema_groups": {
+    "http-input": {
+      "models": 5,
+      "definitions": 5,
+      "matched_current_python": true
+    },
+    "tool-input": {
+      "models": 17,
+      "definitions": 17,
+      "matched_current_python": true
+    },
+    "internal-input": {
+      "models": 4,
+      "definitions": 13,
+      "matched_current_python": true
+    },
+    "internal-output": {
+      "models": 26,
+      "definitions": 60,
+      "matched_current_python": true
+    },
+    "legacy-output": {
+      "models": 3,
+      "definitions": 3,
+      "matched_current_python": true
+    }
+  },
+  "schema_documents_checked": 6,
+  "openapi_matches_current_fastapi": true,
+  "http_operations": 34,
+  "http_paths": 33,
+  "empty_success_response_schemas": 34,
+  "browser_transport_allowed": 27,
+  "browser_proxy_blocked": 7,
+  "proposed_not_implemented_operations": 8,
+  "typescript_files_syntax_checked": 19,
+  "type_export_references_checked": 124,
+  "type_only_entry_import_exit_code": 0,
+  "no_typescript_any": true,
+  "tsc_executed": false,
+  "typescript_check_method": "Node24 native TypeScript syntax, local import/export reference checks and current Schema comparisons; not tsc semantic checking.",
+  "fixture_scenarios": 10,
+  "pydantic_fixture_objects_validated": 87,
+  "json_schema_fixture_objects_validated": 87,
+  "cross_file_fixture_references_consistent": true,
+  "fixture_sensitive_fields_or_patterns": [],
+  "fixture_credential_urls": [],
+  "local_markdown_links_checked": 54,
+  "business_files_checked": 258,
+  "business_source_changes": [],
+  "business_source_missing": [],
+  "original_handoff_artifacts_checked": 46,
+  "original_handoff_artifacts_changed": [],
+  "historical_1261_tests_rerun": false,
+  "live_http_capture": false,
+  "new_api_implemented": false,
+  "frontend_business_modified": false,
+  "limitations": [
+    "All model evidence samples are synthetic fixtures, not production findings.",
+    "No real model invocation, database connection or online HTTP end-to-end test.",
+    "Phase12B is planned only; full investigation HTTP remains API_NOT_EXPOSED.",
+    "TypeScript semantic compiler not installed or executed."
+  ],
+  "errors": []
+}

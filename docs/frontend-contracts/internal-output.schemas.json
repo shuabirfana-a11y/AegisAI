@@ -1,0 +1,5569 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-contract-origin": "CURRENT_PYTHON_CODE",
+  "x-http-exposed": false,
+  "$defs": {
+    "ActionView": {
+      "additionalProperties": false,
+      "properties": {
+        "action_id": {
+          "title": "Action Id",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "IMMEDIATE",
+            "FURTHER_INVESTIGATION",
+            "LONG_TERM_HARDENING"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "fixed_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixed Version"
+        },
+        "patch_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Patch Reference"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "action_provenance": {
+          "enum": [
+            "VERIFIED_CLAIM",
+            "GENERAL_PRECAUTION"
+          ],
+          "title": "Action Provenance",
+          "type": "string"
+        },
+        "applicability": {
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ],
+          "title": "Applicability",
+          "type": "string"
+        },
+        "source_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "conclusion_scope": {
+          "enum": [
+            "ACCEPTED",
+            "OBSERVATION"
+          ],
+          "title": "Conclusion Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action_id",
+        "action_type",
+        "summary",
+        "category",
+        "action_provenance",
+        "applicability",
+        "source_artifact",
+        "conclusion_scope"
+      ],
+      "title": "ActionView",
+      "type": "object"
+    },
+    "AgentContract": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "agent_type": {
+          "enum": [
+            "investigation",
+            "verification",
+            "security_analysis"
+          ],
+          "title": "Agent Type",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "supported_tasks": {
+          "items": {
+            "anyOf": [
+              {
+                "enum": [
+                  "vulnerability_lookup",
+                  "version_match",
+                  "evidence_search",
+                  "patch_analysis",
+                  "risk_analysis"
+                ],
+                "type": "string"
+              },
+              {
+                "enum": [
+                  "asset_lookup",
+                  "evidence_verification",
+                  "claim_validation",
+                  "conflict_detection",
+                  "asset_impact_analysis",
+                  "remediation_prioritization"
+                ],
+                "type": "string"
+              }
+            ]
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "title": "Supported Tasks",
+          "type": "array"
+        },
+        "allowed_tools": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 8,
+          "title": "Allowed Tools",
+          "type": "array"
+        },
+        "input_schema": {
+          "const": "ProfessionalAgentInput-v1",
+          "default": "ProfessionalAgentInput-v1",
+          "title": "Input Schema",
+          "type": "string"
+        },
+        "output_schema": {
+          "const": "AgentArtifact-v1",
+          "default": "AgentArtifact-v1",
+          "title": "Output Schema",
+          "type": "string"
+        },
+        "timeout_seconds": {
+          "default": 30,
+          "maximum": 60,
+          "minimum": 1,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agent_id",
+        "agent_type",
+        "description",
+        "supported_tasks",
+        "allowed_tools"
+      ],
+      "title": "AgentContract",
+      "type": "object"
+    },
+    "AgentRunTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "agent_type": {
+          "enum": [
+            "investigation",
+            "verification",
+            "security_analysis"
+          ],
+          "title": "Agent Type",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "input_artifact": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactReference"
+          },
+          "title": "Input Artifact",
+          "type": "array"
+        },
+        "output_artifact": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArtifactReference"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "execution_time": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Execution Time"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "attempted": {
+          "title": "Attempted",
+          "type": "boolean"
+        },
+        "capability_state": {
+          "enum": [
+            "interface_only",
+            "implementation_registered"
+          ],
+          "title": "Capability State",
+          "type": "string"
+        },
+        "errors": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Errors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "agent_id",
+        "agent_type",
+        "task_id",
+        "run_id",
+        "status",
+        "attempted",
+        "capability_state"
+      ],
+      "title": "AgentRunTrace",
+      "type": "object"
+    },
+    "AgentTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "artifact_references": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Artifact References",
+          "type": "array"
+        },
+        "task_statuses": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Task Statuses",
+          "type": "object"
+        },
+        "tool_calls": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToolSummary"
+          },
+          "maxItems": 32,
+          "title": "Tool Calls",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "status",
+        "artifact_references",
+        "task_statuses"
+      ],
+      "title": "AgentTrace",
+      "type": "object"
+    },
+    "AnalysisRun": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "const": "security_analysis_agent",
+          "default": "security_analysis_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "actor": {
+          "title": "Actor",
+          "type": "string"
+        },
+        "input_artifact_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "input_snapshot_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Snapshot Hash",
+          "type": "string"
+        },
+        "asset_match_result": {
+          "$ref": "#/$defs/AssetMatchResult"
+        },
+        "version_match_result": {
+          "$ref": "#/$defs/VersionMatchResult"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "claim_dispositions": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Claim Dispositions",
+          "type": "array"
+        },
+        "risk_factors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RiskFactor"
+          },
+          "title": "Risk Factors",
+          "type": "array"
+        },
+        "mitigating_factors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RiskFactor"
+          },
+          "title": "Mitigating Factors",
+          "type": "array"
+        },
+        "risk_level": {
+          "enum": [
+            "CRITICAL",
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ],
+          "title": "Risk Level",
+          "type": "string"
+        },
+        "priority": {
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3",
+            "DEFER",
+            "REVIEW_REQUIRED"
+          ],
+          "title": "Priority",
+          "type": "string"
+        },
+        "rule_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Rule Ids",
+          "type": "array"
+        },
+        "model_assist_used": {
+          "title": "Model Assist Used",
+          "type": "boolean"
+        },
+        "model_assist_status": {
+          "title": "Model Assist Status",
+          "type": "string"
+        },
+        "output_artifact_id": {
+          "format": "uuid",
+          "title": "Output Artifact Id",
+          "type": "string"
+        },
+        "execution_time": {
+          "minimum": 0,
+          "title": "Execution Time",
+          "type": "integer"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Time"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "tools_called": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tools Called",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "actor",
+        "input_artifact_ids",
+        "input_snapshot_hash",
+        "asset_match_result",
+        "version_match_result",
+        "verification_status",
+        "risk_level",
+        "priority",
+        "rule_ids",
+        "model_assist_used",
+        "model_assist_status",
+        "output_artifact_id",
+        "execution_time",
+        "status"
+      ],
+      "title": "AnalysisRun",
+      "type": "object"
+    },
+    "AnalysisRunResult": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "runtime_status": {
+          "title": "Runtime Status",
+          "type": "string"
+        },
+        "artifacts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RiskAnalysisArtifact"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "traces": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/AnalysisRun"
+          },
+          "title": "Traces",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "runtime_status"
+      ],
+      "title": "AnalysisRunResult",
+      "type": "object"
+    },
+    "AnswerEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "answer-envelope-v1",
+          "default": "answer-envelope-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "answer_id": {
+          "format": "uuid",
+          "title": "Answer Id",
+          "type": "string"
+        },
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "original_question": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Original Question",
+          "type": "string"
+        },
+        "answer_status": {
+          "enum": [
+            "COMPLETE",
+            "COMPLETE_WITH_WARNINGS",
+            "INCOMPLETE",
+            "REVIEW_REQUIRED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Answer Status",
+          "type": "string"
+        },
+        "integration_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "PASS",
+                "PASS_WITH_WARNINGS",
+                "REPLAN_REQUIRED",
+                "HUMAN_REVIEW_REQUIRED",
+                "FAILED"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Integration Status"
+        },
+        "summary": {
+          "maxLength": 2400,
+          "title": "Summary",
+          "type": "string"
+        },
+        "key_findings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Key Findings",
+          "type": "array"
+        },
+        "affected_assets": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/AssetView"
+          },
+          "maxItems": 1,
+          "title": "Affected Assets",
+          "type": "array"
+        },
+        "risk_assessment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RiskView"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "recommended_actions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ActionView"
+          },
+          "maxItems": 32,
+          "title": "Recommended Actions",
+          "type": "array"
+        },
+        "verified_claims": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerifiedFact"
+          },
+          "maxItems": 32,
+          "title": "Verified Claims",
+          "type": "array"
+        },
+        "disputed_claims": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/DisputedClaim"
+          },
+          "maxItems": 32,
+          "title": "Disputed Claims",
+          "type": "array"
+        },
+        "citations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Citation"
+          },
+          "maxItems": 128,
+          "title": "Citations",
+          "type": "array"
+        },
+        "evidence_observations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EvidenceObservation"
+          },
+          "maxItems": 128,
+          "title": "Evidence Observations",
+          "type": "array"
+        },
+        "evidence_references": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Evidence References",
+          "type": "array"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "integration_result_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Integration Result Id"
+        },
+        "agent_run_references": {
+          "default": [],
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Agent Run References",
+          "type": "array"
+        },
+        "accepted_source_run_references": {
+          "default": [],
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Accepted Source Run References",
+          "type": "array"
+        },
+        "trace_reference": {
+          "format": "uuid",
+          "title": "Trace Reference",
+          "type": "string"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "title": "Generated At",
+          "type": "string"
+        },
+        "historical_snapshot": {
+          "const": true,
+          "default": true,
+          "title": "Historical Snapshot",
+          "type": "boolean"
+        },
+        "fact_origin": {
+          "const": "FROZEN_GATE_CONTEXT",
+          "default": "FROZEN_GATE_CONTEXT",
+          "title": "Fact Origin",
+          "type": "string"
+        },
+        "explanation_provider": {
+          "const": "DETERMINISTIC_TEMPLATE",
+          "default": "DETERMINISTIC_TEMPLATE",
+          "title": "Explanation Provider",
+          "type": "string"
+        }
+      },
+      "required": [
+        "answer_id",
+        "logical_investigation_id",
+        "original_question",
+        "answer_status",
+        "summary",
+        "trace_reference",
+        "generated_at"
+      ],
+      "title": "AnswerEnvelope",
+      "type": "object"
+    },
+    "ArtifactRef": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "enum": [
+            "investigation-artifact-v1",
+            "verification-artifact-v1",
+            "risk-analysis-artifact-v1"
+          ],
+          "title": "Schema Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "artifact_id",
+        "schema_version"
+      ],
+      "title": "ArtifactRef",
+      "type": "object"
+    },
+    "ArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "agent_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "artifact_type": {
+          "enum": [
+            "investigation_result",
+            "verification_result",
+            "security_analysis_result"
+          ],
+          "title": "Artifact Type",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "agent_id",
+        "task_id",
+        "run_id",
+        "artifact_type",
+        "status"
+      ],
+      "title": "ArtifactReference",
+      "type": "object"
+    },
+    "AssetMatchResult": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "MATCHED",
+            "NOT_MATCHED",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "reason": {
+          "default": "Asset identity is unresolved",
+          "title": "Reason",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "package_identifier_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Identifier Id"
+        }
+      },
+      "title": "AssetMatchResult",
+      "type": "object"
+    },
+    "AssetView": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Asset Id"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Component Id"
+        },
+        "deployed_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Deployed Version"
+        },
+        "provenance": {
+          "const": "USER_INVENTORY_NOT_SCANNED",
+          "default": "USER_INVENTORY_NOT_SCANNED",
+          "title": "Provenance",
+          "type": "string"
+        },
+        "source_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "component_id",
+        "deployed_version",
+        "source_artifact"
+      ],
+      "title": "AssetView",
+      "type": "object"
+    },
+    "Citation": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Hash",
+          "type": "string"
+        },
+        "source_id": {
+          "format": "uuid",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "raw_document_id": {
+          "format": "uuid",
+          "title": "Raw Document Id",
+          "type": "string"
+        },
+        "observation_id": {
+          "format": "uuid",
+          "title": "Observation Id",
+          "type": "string"
+        },
+        "reference": {
+          "additionalProperties": true,
+          "title": "Reference",
+          "type": "object"
+        },
+        "verification_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "claim_id",
+        "hash",
+        "source_id",
+        "raw_document_id",
+        "observation_id",
+        "reference",
+        "verification_artifact"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "ClaimType": {
+      "enum": [
+        "AFFECTS_PRODUCT",
+        "AFFECTS_VERSION",
+        "FIXED_VERSION",
+        "POC_EXISTS",
+        "POC_ASSOCIATION",
+        "PATCH_EXISTS",
+        "FIX_COMMIT",
+        "KNOWN_EXPLOITED",
+        "VENDOR_CONFIRMED",
+        "EXPLOIT_CONDITION",
+        "REMEDIATION",
+        "CVSS_SCORE"
+      ],
+      "title": "ClaimType",
+      "type": "string"
+    },
+    "ClaimVerification": {
+      "additionalProperties": false,
+      "properties": {
+        "claim": {
+          "$ref": "#/$defs/VerificationClaim"
+        },
+        "status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "supporting_evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Supporting Evidence Ids",
+          "type": "array"
+        },
+        "conflicting_evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Conflicting Evidence Ids",
+          "type": "array"
+        },
+        "reason_code": {
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "reason_summary": {
+          "title": "Reason Summary",
+          "type": "string"
+        },
+        "rules_applied": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Rules Applied",
+          "type": "array"
+        },
+        "score_components": {
+          "additionalProperties": true,
+          "title": "Score Components",
+          "type": "object"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim",
+        "status",
+        "confidence",
+        "reason_code",
+        "reason_summary"
+      ],
+      "title": "ClaimVerification",
+      "type": "object"
+    },
+    "DisputedClaim": {
+      "additionalProperties": false,
+      "description": "A preserved assessment, never a confirmed answer fact.",
+      "properties": {
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ClaimType"
+        },
+        "verification_status": {
+          "enum": [
+            "PENDING",
+            "CONFLICT",
+            "INSUFFICIENT_EVIDENCE",
+            "REJECTED"
+          ],
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "value": {
+          "additionalProperties": true,
+          "title": "Value",
+          "type": "object"
+        },
+        "scope_key": {
+          "maxLength": 256,
+          "title": "Scope Key",
+          "type": "string"
+        },
+        "supporting_evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Supporting Evidence Ids",
+          "type": "array"
+        },
+        "conflicting_evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Conflicting Evidence Ids",
+          "type": "array"
+        },
+        "verification_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "conclusion_scope": {
+          "const": "OBSERVATION",
+          "default": "OBSERVATION",
+          "title": "Conclusion Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_type",
+        "verification_status",
+        "value",
+        "scope_key",
+        "verification_artifact"
+      ],
+      "title": "DisputedClaim",
+      "type": "object"
+    },
+    "EvidenceObservation": {
+      "additionalProperties": false,
+      "description": "Audit pointers include rejected/conflicting evidence without endorsing it.",
+      "properties": {
+        "evidence_id": {
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "scope_key": {
+          "maxLength": 256,
+          "title": "Scope Key",
+          "type": "string"
+        },
+        "hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hash"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "raw_document_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Document Id"
+        },
+        "observation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observation Id"
+        },
+        "reference": {
+          "additionalProperties": true,
+          "title": "Reference",
+          "type": "object"
+        },
+        "stance": {
+          "enum": [
+            "support",
+            "contradict",
+            "neutral"
+          ],
+          "title": "Stance",
+          "type": "string"
+        },
+        "directness": {
+          "enum": [
+            "direct",
+            "mention",
+            "unknown"
+          ],
+          "title": "Directness",
+          "type": "string"
+        },
+        "integrity_status": {
+          "enum": [
+            "VALID",
+            "MISSING",
+            "INVALID"
+          ],
+          "title": "Integrity Status",
+          "type": "string"
+        },
+        "is_current": {
+          "title": "Is Current",
+          "type": "boolean"
+        },
+        "verification_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "conclusion_scope": {
+          "const": "OBSERVATION",
+          "default": "OBSERVATION",
+          "title": "Conclusion Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "claim_id",
+        "verification_status",
+        "scope_key",
+        "reference",
+        "stance",
+        "directness",
+        "integrity_status",
+        "is_current",
+        "verification_artifact"
+      ],
+      "title": "EvidenceObservation",
+      "type": "object"
+    },
+    "ExploitationSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "KNOWN_EXPLOITED",
+            "VERIFIED_POC_ASSOCIATION",
+            "POC_CANDIDATE",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "usability": {
+          "const": "NOT_EVALUATED",
+          "default": "NOT_EVALUATED",
+          "title": "Usability",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "epss": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Epss",
+          "type": "array"
+        }
+      },
+      "title": "ExploitationSignal",
+      "type": "object"
+    },
+    "GateCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "gate": {
+          "enum": [
+            "completion",
+            "integrity",
+            "evidence",
+            "consistency",
+            "objective",
+            "freshness"
+          ],
+          "title": "Gate",
+          "type": "string"
+        },
+        "code": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "outcome": {
+          "default": "PASS",
+          "enum": [
+            "PASS",
+            "WARNING",
+            "BLOCKED",
+            "ERROR",
+            "NOT_APPLICABLE"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "blocking": {
+          "default": "NONE",
+          "enum": [
+            "NONE",
+            "REPLAN",
+            "HUMAN",
+            "FATAL"
+          ],
+          "title": "Blocking",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 2000,
+          "title": "Message",
+          "type": "string"
+        },
+        "refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 256,
+          "title": "Refs",
+          "type": "array"
+        },
+        "objective": {
+          "anyOf": [
+            {
+              "enum": [
+                "identity",
+                "overview",
+                "asset",
+                "version_impact",
+                "remediation_status",
+                "precise_remediation",
+                "risk",
+                "priority",
+                "verified_exploitation"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Objective"
+        }
+      },
+      "required": [
+        "gate",
+        "code",
+        "message"
+      ],
+      "title": "GateCheck",
+      "type": "object"
+    },
+    "IntegrationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "integration_id": {
+          "format": "uuid",
+          "title": "Integration Id",
+          "type": "string"
+        },
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "format": "uuid",
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run Id"
+        },
+        "source_run_ids": {
+          "default": [],
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Source Run Ids",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNINGS",
+            "REPLAN_REQUIRED",
+            "HUMAN_REVIEW_REQUIRED",
+            "FAILED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "objective_coverage": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ObjectiveCoverage"
+          },
+          "title": "Objective Coverage",
+          "type": "array"
+        },
+        "task_completion_summary": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/TaskExecution"
+          },
+          "title": "Task Completion Summary",
+          "type": "array"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/GateCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "passed_checks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Passed Checks",
+          "type": "array"
+        },
+        "failed_checks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Failed Checks",
+          "type": "array"
+        },
+        "blocking_issues": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocking Issues",
+          "type": "array"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "artifact_references": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Artifact References",
+          "type": "array"
+        },
+        "evidence_references": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "maxItems": 128,
+          "title": "Evidence References",
+          "type": "array"
+        },
+        "replan_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Replan Reasons",
+          "type": "array"
+        },
+        "human_review_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Human Review Reasons",
+          "type": "array"
+        },
+        "final_result_references": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Final Result References",
+          "type": "array"
+        },
+        "partial_result_references": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Partial Result References",
+          "type": "array"
+        },
+        "input_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Hash",
+          "type": "string"
+        },
+        "objective_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Objective Hash",
+          "type": "string"
+        },
+        "policy_version": {
+          "const": "integration-policy-v1",
+          "default": "integration-policy-v1",
+          "title": "Policy Version",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "evaluation_time": {
+          "format": "date-time",
+          "title": "Evaluation Time",
+          "type": "string"
+        },
+        "historical_snapshot": {
+          "const": true,
+          "default": true,
+          "title": "Historical Snapshot",
+          "type": "boolean"
+        },
+        "persistence": {
+          "default": "STORED",
+          "enum": [
+            "STORED",
+            "NOT_STORED"
+          ],
+          "title": "Persistence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "integration_id",
+        "logical_investigation_id",
+        "trace_id",
+        "status",
+        "checks",
+        "input_hash",
+        "objective_hash",
+        "created_at",
+        "evaluation_time"
+      ],
+      "title": "IntegrationResult",
+      "type": "object"
+    },
+    "IntegrationTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "integration_id": {
+          "format": "uuid",
+          "title": "Integration Id",
+          "type": "string"
+        },
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "source_run_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Source Run Ids",
+          "type": "array"
+        },
+        "artifact_references": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "title": "Artifact References",
+          "type": "array"
+        },
+        "rule_version": {
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "checks": {
+          "items": {
+            "$ref": "#/$defs/GateCheck"
+          },
+          "title": "Checks",
+          "type": "array"
+        },
+        "evidence_references": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Evidence References",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNINGS",
+            "REPLAN_REQUIRED",
+            "HUMAN_REVIEW_REQUIRED",
+            "FAILED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "blocking_issues": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocking Issues",
+          "type": "array"
+        },
+        "execution_time_ms": {
+          "minimum": 0,
+          "title": "Execution Time Ms",
+          "type": "integer"
+        },
+        "error_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Error Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "integration_id",
+        "logical_investigation_id",
+        "source_run_ids",
+        "artifact_references",
+        "rule_version",
+        "checks",
+        "evidence_references",
+        "status",
+        "blocking_issues",
+        "execution_time_ms"
+      ],
+      "title": "IntegrationTrace",
+      "type": "object"
+    },
+    "InvestigationArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "agent_id": {
+          "const": "investigation_agent",
+          "default": "investigation_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "investigation-artifact-v1",
+          "default": "investigation-artifact-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "CONFLICT",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "runtime_status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "partial_result": {
+          "default": false,
+          "title": "Partial Result",
+          "type": "boolean"
+        },
+        "information_status": {
+          "default": "CANDIDATE",
+          "enum": [
+            "CONFIRMED",
+            "CANDIDATE",
+            "CONFLICT",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "title": "Information Status",
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vulnerability Id"
+        },
+        "canonical_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Canonical Id"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "component": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component"
+        },
+        "asset": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset"
+        },
+        "affected_versions": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Affected Versions",
+          "type": "array"
+        },
+        "fixed_versions": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Fixed Versions",
+          "type": "array"
+        },
+        "version_match": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version Match"
+        },
+        "cvss": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Cvss",
+          "type": "array"
+        },
+        "cwe": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Cwe",
+          "type": "array"
+        },
+        "poc_candidates": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Poc Candidates",
+          "type": "array"
+        },
+        "patch_information": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Patch Information",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "uncertainties": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Uncertainties",
+          "type": "array"
+        },
+        "conflicts": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        },
+        "failed_tools": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Failed Tools",
+          "type": "array"
+        },
+        "tool_calls": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        },
+        "dependency_artifact_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependency Artifact Ids",
+          "type": "array"
+        },
+        "evidence_storage": {
+          "default": "artifact",
+          "enum": [
+            "artifact",
+            "tool_receipts"
+          ],
+          "title": "Evidence Storage",
+          "type": "string"
+        },
+        "receipt_references": {
+          "additionalProperties": true,
+          "title": "Receipt References",
+          "type": "object"
+        },
+        "findings": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Findings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "task_id",
+        "run_id",
+        "status",
+        "runtime_status"
+      ],
+      "title": "InvestigationArtifact",
+      "type": "object"
+    },
+    "InvestigationContext": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "investigation-context-v1",
+          "default": "investigation-context-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "owner": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Owner",
+          "type": "string"
+        },
+        "original_request": {
+          "$ref": "#/$defs/InvestigationRequest"
+        },
+        "request_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "resolved_scope": {
+          "$ref": "#/$defs/ResolvedScope"
+        },
+        "current_stage": {
+          "default": "CREATED",
+          "enum": [
+            "CREATED",
+            "PLANNING",
+            "INVESTIGATING",
+            "VERIFYING",
+            "ANALYZING",
+            "INTEGRATING",
+            "COMPOSING",
+            "COMPLETED",
+            "WAITING_REVIEW",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Current Stage",
+          "type": "string"
+        },
+        "overall_status": {
+          "default": "RUNNING",
+          "enum": [
+            "RUNNING",
+            "SUCCEEDED",
+            "SUCCEEDED_WITH_WARNINGS",
+            "INCOMPLETE",
+            "REVIEW_REQUIRED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Overall Status",
+          "type": "string"
+        },
+        "planner_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Planner Run Id"
+        },
+        "investigation_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Investigation Run Id"
+        },
+        "verification_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verification Run Id"
+        },
+        "analysis_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analysis Run Id"
+        },
+        "artifact_references": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ArtifactRef"
+          },
+          "maxItems": 3,
+          "title": "Artifact References",
+          "type": "array"
+        },
+        "integration_result_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Integration Result Id"
+        },
+        "gate_logical_investigation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gate Logical Investigation Id"
+        },
+        "gate_input_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gate Input Hash"
+        },
+        "objective_hash": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Objective Hash"
+        },
+        "answer_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer Id"
+        },
+        "stage_keys": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Stage Keys",
+          "type": "object"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "events": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/StageEvent"
+          },
+          "maxItems": 128,
+          "title": "Events",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Updated At",
+          "type": "string"
+        },
+        "deadline_at": {
+          "format": "date-time",
+          "title": "Deadline At",
+          "type": "string"
+        },
+        "cancel_requested_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cancel Requested At"
+        },
+        "cancel_observed_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cancel Observed At"
+        },
+        "finished_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Finished At"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error Code"
+        },
+        "revision": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "policy_version": {
+          "const": "orchestration-policy-v1",
+          "default": "orchestration-policy-v1",
+          "title": "Policy Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "logical_investigation_id",
+        "owner",
+        "original_request",
+        "request_hash",
+        "resolved_scope",
+        "created_at",
+        "updated_at",
+        "deadline_at"
+      ],
+      "title": "InvestigationContext",
+      "type": "object"
+    },
+    "InvestigationOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "objective_profile": {
+          "anyOf": [
+            {
+              "enum": [
+                "overview_v1",
+                "asset_impact_v1",
+                "asset_risk_v1"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Objective Profile"
+        },
+        "timeout_seconds": {
+          "default": 300,
+          "maximum": 300,
+          "minimum": 1,
+          "title": "Timeout Seconds",
+          "type": "integer"
+        }
+      },
+      "title": "InvestigationOptions",
+      "type": "object"
+    },
+    "InvestigationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "investigation-request-v1",
+          "default": "investigation-request-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "request_id": {
+          "format": "uuid",
+          "title": "Request Id",
+          "type": "string"
+        },
+        "planner_input": {
+          "$ref": "#/$defs/PlannerInput"
+        },
+        "time_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TimeScope"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "user_context": {
+          "$ref": "#/$defs/UserContext"
+        },
+        "investigation_options": {
+          "$ref": "#/$defs/InvestigationOptions"
+        }
+      },
+      "required": [
+        "planner_input"
+      ],
+      "title": "InvestigationRequest",
+      "type": "object"
+    },
+    "InvestigationResult": {
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/InvestigationContext"
+        },
+        "status": {
+          "$ref": "#/$defs/InvestigationStatus"
+        },
+        "answer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnswerEnvelope"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "persistence": {
+          "default": "STORED",
+          "enum": [
+            "STORED",
+            "NOT_STORED"
+          ],
+          "title": "Persistence",
+          "type": "string"
+        },
+        "delivery_error": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Delivery Error"
+        }
+      },
+      "required": [
+        "context",
+        "status"
+      ],
+      "title": "InvestigationResult",
+      "type": "object"
+    },
+    "InvestigationRunResult": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "runtime_status": {
+          "title": "Runtime Status",
+          "type": "string"
+        },
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/InvestigationArtifact"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "blocked_tasks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Blocked Tasks",
+          "type": "array"
+        },
+        "input_required_tasks": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Input Required Tasks",
+          "type": "array"
+        },
+        "traces": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/InvestigationTaskTrace"
+          },
+          "title": "Traces",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "runtime_status",
+        "artifacts"
+      ],
+      "title": "InvestigationRunResult",
+      "type": "object"
+    },
+    "InvestigationStatus": {
+      "additionalProperties": false,
+      "properties": {
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "current_stage": {
+          "enum": [
+            "CREATED",
+            "PLANNING",
+            "INVESTIGATING",
+            "VERIFYING",
+            "ANALYZING",
+            "INTEGRATING",
+            "COMPOSING",
+            "COMPLETED",
+            "WAITING_REVIEW",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Current Stage",
+          "type": "string"
+        },
+        "overall_status": {
+          "enum": [
+            "RUNNING",
+            "SUCCEEDED",
+            "SUCCEEDED_WITH_WARNINGS",
+            "INCOMPLETE",
+            "REVIEW_REQUIRED",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Overall Status",
+          "type": "string"
+        },
+        "planner_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Planner Run Id"
+        },
+        "investigation_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Investigation Run Id"
+        },
+        "verification_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verification Run Id"
+        },
+        "analysis_run_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Analysis Run Id"
+        },
+        "cancel_requested": {
+          "default": false,
+          "title": "Cancel Requested",
+          "type": "boolean"
+        },
+        "recovery_required": {
+          "default": false,
+          "title": "Recovery Required",
+          "type": "boolean"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Error Code"
+        },
+        "revision": {
+          "title": "Revision",
+          "type": "integer"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Updated At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "logical_investigation_id",
+        "current_stage",
+        "overall_status",
+        "revision",
+        "updated_at"
+      ],
+      "title": "InvestigationStatus",
+      "type": "object"
+    },
+    "InvestigationTaskTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "const": "investigation_agent",
+          "default": "investigation_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "tools_called": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tools Called",
+          "type": "array"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Time"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "artifact_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Id"
+        },
+        "attempted": {
+          "title": "Attempted",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "task_id",
+        "status",
+        "attempted"
+      ],
+      "title": "InvestigationTaskTrace",
+      "type": "object"
+    },
+    "InvestigationTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "default": "investigation-trace-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "logical_investigation_id": {
+          "format": "uuid",
+          "title": "Logical Investigation Id",
+          "type": "string"
+        },
+        "original_question": {
+          "title": "Original Question",
+          "type": "string"
+        },
+        "planner": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PlannerSummary"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "events": {
+          "items": {
+            "$ref": "#/$defs/StageEvent"
+          },
+          "title": "Events",
+          "type": "array"
+        },
+        "agent_runs": {
+          "items": {
+            "$ref": "#/$defs/AgentTrace"
+          },
+          "maxItems": 3,
+          "title": "Agent Runs",
+          "type": "array"
+        },
+        "integration_result_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Integration Result Id"
+        },
+        "integration_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "PASS",
+                "PASS_WITH_WARNINGS",
+                "REPLAN_REQUIRED",
+                "HUMAN_REVIEW_REQUIRED",
+                "FAILED"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Integration Status"
+        },
+        "answer_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Answer Id"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Code"
+        },
+        "historical_snapshot": {
+          "default": true,
+          "title": "Historical Snapshot",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "logical_investigation_id",
+        "original_question",
+        "planner",
+        "events",
+        "agent_runs",
+        "integration_result_id",
+        "integration_status",
+        "answer_id",
+        "warnings",
+        "unresolved_items",
+        "error_code"
+      ],
+      "title": "InvestigationTrace",
+      "type": "object"
+    },
+    "ObjectiveContract": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "targets": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Targets",
+          "type": "array"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 300,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "required_outcomes": {
+          "default": [
+            "identity",
+            "overview"
+          ],
+          "items": {
+            "enum": [
+              "identity",
+              "overview",
+              "asset",
+              "version_impact",
+              "remediation_status",
+              "precise_remediation",
+              "risk",
+              "priority",
+              "verified_exploitation"
+            ],
+            "type": "string"
+          },
+          "maxItems": 9,
+          "minItems": 1,
+          "title": "Required Outcomes",
+          "type": "array"
+        },
+        "window_days": {
+          "anyOf": [
+            {
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Days"
+        },
+        "requires_current": {
+          "default": false,
+          "title": "Requires Current",
+          "type": "boolean"
+        },
+        "scope_gaps": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Scope Gaps",
+          "type": "array"
+        }
+      },
+      "required": [
+        "question"
+      ],
+      "title": "ObjectiveContract",
+      "type": "object"
+    },
+    "ObjectiveCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome": {
+          "enum": [
+            "identity",
+            "overview",
+            "asset",
+            "version_impact",
+            "remediation_status",
+            "precise_remediation",
+            "risk",
+            "priority",
+            "verified_exploitation"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "SATISFIED",
+            "ABSTAINED",
+            "MISSING",
+            "CONFLICT"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "references": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "References",
+          "type": "array"
+        }
+      },
+      "required": [
+        "outcome",
+        "status"
+      ],
+      "title": "ObjectiveCoverage",
+      "type": "object"
+    },
+    "PatchAvailability": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "CONFIRMED_PRESENT",
+            "UNCONFIRMED",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "applied": {
+          "const": "UNKNOWN",
+          "default": "UNKNOWN",
+          "title": "Applied",
+          "type": "string"
+        },
+        "applicability": {
+          "default": "UNKNOWN",
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN"
+          ],
+          "title": "Applicability",
+          "type": "string"
+        }
+      },
+      "title": "PatchAvailability",
+      "type": "object"
+    },
+    "PlannerInput": {
+      "additionalProperties": false,
+      "properties": {
+        "query": {
+          "$ref": "#/$defs/QueryRequest"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
+        },
+        "snapshot_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Snapshot Id"
+        },
+        "component": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ResolutionInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "PlannerInput",
+      "type": "object"
+    },
+    "PlannerSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "planner_run_id": {
+          "format": "uuid",
+          "title": "Planner Run Id",
+          "type": "string"
+        },
+        "validation_status": {
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "retry_count": {
+          "title": "Retry Count",
+          "type": "integer"
+        },
+        "prompt_version": {
+          "title": "Prompt Version",
+          "type": "string"
+        },
+        "task_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Task Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "planner_run_id",
+        "validation_status",
+        "retry_count",
+        "prompt_version"
+      ],
+      "title": "PlannerSummary",
+      "type": "object"
+    },
+    "QueryRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "question": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        },
+        "mode": {
+          "default": "auto",
+          "enum": [
+            "auto",
+            "fast",
+            "deep"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "request_key": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Request Key",
+          "type": "string"
+        },
+        "realtime": {
+          "default": false,
+          "title": "Realtime",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "question",
+        "request_key"
+      ],
+      "title": "QueryRequest",
+      "type": "object"
+    },
+    "RecommendedAction": {
+      "additionalProperties": false,
+      "properties": {
+        "action_id": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Action Id",
+          "type": "string"
+        },
+        "action_type": {
+          "title": "Action Type",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "IMMEDIATE",
+            "FURTHER_INVESTIGATION",
+            "LONG_TERM_HARDENING"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "summary": {
+          "maxLength": 2400,
+          "title": "Summary",
+          "type": "string"
+        },
+        "target_component": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Component"
+        },
+        "fixed_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixed Version"
+        },
+        "patch_reference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Patch Reference"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "preconditions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Preconditions",
+          "type": "array"
+        },
+        "action_provenance": {
+          "enum": [
+            "VERIFIED_CLAIM",
+            "GENERAL_PRECAUTION"
+          ],
+          "title": "Action Provenance",
+          "type": "string"
+        },
+        "applicability": {
+          "default": "UNKNOWN",
+          "enum": [
+            "CONFIRMED",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ],
+          "title": "Applicability",
+          "type": "string"
+        }
+      },
+      "required": [
+        "action_id",
+        "action_type",
+        "category",
+        "summary",
+        "action_provenance"
+      ],
+      "title": "RecommendedAction",
+      "type": "object"
+    },
+    "ResolutionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 200,
+          "title": "Name",
+          "type": "string"
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "maxLength": 40,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ecosystem"
+        },
+        "package_name": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Name"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 200,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "purl": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Purl"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "ResolutionInput",
+      "type": "object"
+    },
+    "ResolvedScope": {
+      "additionalProperties": false,
+      "properties": {
+        "planner_input": {
+          "$ref": "#/$defs/PlannerInput"
+        },
+        "targets": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "Targets",
+          "type": "array"
+        },
+        "component_origin": {
+          "enum": [
+            "EXPLICIT",
+            "QUESTION_EXTRACTED",
+            "MISSING"
+          ],
+          "title": "Component Origin",
+          "type": "string"
+        },
+        "objective_profile": {
+          "enum": [
+            "overview_v1",
+            "asset_impact_v1",
+            "asset_risk_v1"
+          ],
+          "title": "Objective Profile",
+          "type": "string"
+        },
+        "objective_source": {
+          "enum": [
+            "stored_planner_request",
+            "new_structured_request"
+          ],
+          "title": "Objective Source",
+          "type": "string"
+        },
+        "objective": {
+          "$ref": "#/$defs/ObjectiveContract"
+        },
+        "route": {
+          "additionalProperties": true,
+          "title": "Route",
+          "type": "object"
+        }
+      },
+      "required": [
+        "planner_input",
+        "targets",
+        "component_origin",
+        "objective_profile",
+        "objective_source",
+        "objective",
+        "route"
+      ],
+      "title": "ResolvedScope",
+      "type": "object"
+    },
+    "RiskAnalysisArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "component": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        },
+        "asset_match_status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "MATCHED",
+            "NOT_MATCHED",
+            "UNKNOWN"
+          ],
+          "title": "Asset Match Status",
+          "type": "string"
+        },
+        "version_match_status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "AFFECTED",
+            "NOT_AFFECTED",
+            "UNKNOWN"
+          ],
+          "title": "Version Match Status",
+          "type": "string"
+        },
+        "asset_match_result": {
+          "$ref": "#/$defs/AssetMatchResult"
+        },
+        "version_match_result": {
+          "$ref": "#/$defs/VersionMatchResult"
+        },
+        "exploitation_signal": {
+          "$ref": "#/$defs/ExploitationSignal"
+        },
+        "patch_availability": {
+          "$ref": "#/$defs/PatchAvailability"
+        },
+        "risk_level": {
+          "default": "UNKNOWN",
+          "enum": [
+            "CRITICAL",
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ],
+          "title": "Risk Level",
+          "type": "string"
+        },
+        "priority": {
+          "default": "REVIEW_REQUIRED",
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3",
+            "DEFER",
+            "REVIEW_REQUIRED"
+          ],
+          "title": "Priority",
+          "type": "string"
+        },
+        "affected": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Affected"
+        },
+        "risk_factors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RiskFactor"
+          },
+          "maxItems": 128,
+          "title": "Risk Factors",
+          "type": "array"
+        },
+        "mitigating_factors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RiskFactor"
+          },
+          "maxItems": 128,
+          "title": "Mitigating Factors",
+          "type": "array"
+        },
+        "recommended_actions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RecommendedAction"
+          },
+          "maxItems": 32,
+          "title": "Recommended Actions",
+          "type": "array"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "maxItems": 128,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reasoning_summary": {
+          "default": "依据不足，需要复核；未知不等于不受影响。",
+          "maxLength": 8000,
+          "title": "Reasoning Summary",
+          "type": "string"
+        },
+        "claim_dispositions": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "maxItems": 32,
+          "title": "Claim Dispositions",
+          "type": "array"
+        },
+        "confidence": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "confidence_kind": {
+          "const": "uncalibrated_heuristic",
+          "default": "uncalibrated_heuristic",
+          "title": "Confidence Kind",
+          "type": "string"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "rule_ids": {
+          "default": [
+            "R0_ABSTAIN"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "title": "Rule Ids",
+          "type": "array"
+        },
+        "rules_version": {
+          "const": "analysis-rules-v1",
+          "default": "analysis-rules-v1",
+          "title": "Rules Version",
+          "type": "string"
+        },
+        "priority_details": {
+          "additionalProperties": true,
+          "title": "Priority Details",
+          "type": "object"
+        },
+        "partial_result": {
+          "default": false,
+          "title": "Partial Result",
+          "type": "boolean"
+        },
+        "coverage_complete": {
+          "default": true,
+          "title": "Coverage Complete",
+          "type": "boolean"
+        },
+        "model_assist_used": {
+          "default": false,
+          "title": "Model Assist Used",
+          "type": "boolean"
+        },
+        "model_assist_status": {
+          "default": "DISABLED",
+          "enum": [
+            "DISABLED",
+            "SUCCEEDED",
+            "FAILED",
+            "SKIPPED"
+          ],
+          "title": "Model Assist Status",
+          "type": "string"
+        },
+        "model_calls": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Model Calls",
+          "type": "array"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "agent_id": {
+          "const": "security_analysis_agent",
+          "default": "security_analysis_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "risk-analysis-artifact-v1",
+          "default": "risk-analysis-artifact-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "context_id": {
+          "format": "uuid",
+          "title": "Context Id",
+          "type": "string"
+        },
+        "input_artifact_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Input Artifact Ids",
+          "type": "array"
+        },
+        "input_snapshot_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Input Snapshot Hash",
+          "type": "string"
+        },
+        "evaluation_time": {
+          "format": "date-time",
+          "title": "Evaluation Time",
+          "type": "string"
+        },
+        "source_verification_time": {
+          "format": "date-time",
+          "title": "Source Verification Time",
+          "type": "string"
+        },
+        "inventory_revision": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Inventory Revision"
+        },
+        "execution_status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "tool_calls": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        },
+        "historical_snapshot": {
+          "const": true,
+          "default": true,
+          "title": "Historical Snapshot",
+          "type": "boolean"
+        },
+        "scope_notice": {
+          "default": "仅针对本次固定漏洞、所选组件和库存版本；不表示整个资产实时安全。",
+          "title": "Scope Notice",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verification_status",
+        "artifact_id",
+        "task_id",
+        "run_id",
+        "context_id",
+        "input_artifact_ids",
+        "input_snapshot_hash",
+        "evaluation_time",
+        "source_verification_time",
+        "execution_status"
+      ],
+      "title": "RiskAnalysisArtifact",
+      "type": "object"
+    },
+    "RiskFactor": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "maxLength": 150,
+          "minLength": 1,
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "reason": {
+          "maxLength": 2400,
+          "title": "Reason",
+          "type": "string"
+        },
+        "value": {
+          "default": null,
+          "title": "Value"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "provenance": {
+          "enum": [
+            "verified_claim",
+            "asset_inventory",
+            "candidate",
+            "source_assertion"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "influences_decision": {
+          "default": false,
+          "title": "Influences Decision",
+          "type": "boolean"
+        },
+        "rejected_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rejected Reason"
+        }
+      },
+      "required": [
+        "factor_id",
+        "code",
+        "reason",
+        "provenance"
+      ],
+      "title": "RiskFactor",
+      "type": "object"
+    },
+    "RiskView": {
+      "additionalProperties": false,
+      "properties": {
+        "risk_level": {
+          "enum": [
+            "CRITICAL",
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ],
+          "title": "Risk Level",
+          "type": "string"
+        },
+        "priority": {
+          "enum": [
+            "P0",
+            "P1",
+            "P2",
+            "P3",
+            "DEFER",
+            "REVIEW_REQUIRED"
+          ],
+          "title": "Priority",
+          "type": "string"
+        },
+        "affected": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Affected"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "source_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "asset_match_status": {
+          "enum": [
+            "MATCHED",
+            "NOT_MATCHED",
+            "UNKNOWN"
+          ],
+          "title": "Asset Match Status",
+          "type": "string"
+        },
+        "version_match_status": {
+          "enum": [
+            "AFFECTED",
+            "NOT_AFFECTED",
+            "UNKNOWN"
+          ],
+          "title": "Version Match Status",
+          "type": "string"
+        },
+        "exploitation_status": {
+          "enum": [
+            "KNOWN_EXPLOITED",
+            "VERIFIED_POC_ASSOCIATION",
+            "POC_CANDIDATE",
+            "UNKNOWN"
+          ],
+          "title": "Exploitation Status",
+          "type": "string"
+        },
+        "usability": {
+          "const": "NOT_EVALUATED",
+          "default": "NOT_EVALUATED",
+          "title": "Usability",
+          "type": "string"
+        },
+        "patch_status": {
+          "enum": [
+            "CONFIRMED_PRESENT",
+            "UNCONFIRMED",
+            "UNKNOWN"
+          ],
+          "title": "Patch Status",
+          "type": "string"
+        },
+        "patch_applied": {
+          "const": "UNKNOWN",
+          "default": "UNKNOWN",
+          "title": "Patch Applied",
+          "type": "string"
+        },
+        "conclusion_scope": {
+          "enum": [
+            "ACCEPTED",
+            "OBSERVATION"
+          ],
+          "title": "Conclusion Scope",
+          "type": "string"
+        }
+      },
+      "required": [
+        "risk_level",
+        "priority",
+        "affected",
+        "verification_status",
+        "source_artifact",
+        "asset_match_status",
+        "version_match_status",
+        "exploitation_status",
+        "patch_status",
+        "conclusion_scope"
+      ],
+      "title": "RiskView",
+      "type": "object"
+    },
+    "RunSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "format": "uuid",
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "result": {
+          "anyOf": [
+            {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Result"
+        }
+      },
+      "required": [
+        "run_id",
+        "trace_id",
+        "status"
+      ],
+      "title": "RunSnapshot",
+      "type": "object"
+    },
+    "StageEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "enum": [
+            "CREATED",
+            "PLANNING",
+            "INVESTIGATING",
+            "VERIFYING",
+            "ANALYZING",
+            "INTEGRATING",
+            "COMPOSING",
+            "COMPLETED",
+            "WAITING_REVIEW",
+            "FAILED",
+            "CANCELLED"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "code": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "at": {
+          "format": "date-time",
+          "title": "At",
+          "type": "string"
+        },
+        "overall_status": {
+          "anyOf": [
+            {
+              "enum": [
+                "RUNNING",
+                "SUCCEEDED",
+                "SUCCEEDED_WITH_WARNINGS",
+                "INCOMPLETE",
+                "REVIEW_REQUIRED",
+                "FAILED",
+                "CANCELLED"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overall Status"
+        },
+        "references": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "References",
+          "type": "object"
+        }
+      },
+      "required": [
+        "stage",
+        "code"
+      ],
+      "title": "StageEvent",
+      "type": "object"
+    },
+    "TaskArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "result": {
+          "additionalProperties": true,
+          "title": "Result",
+          "type": "object"
+        },
+        "evidence": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "tool_calls": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        },
+        "unresolved_questions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Questions",
+          "type": "array"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Errors",
+          "type": "array"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "format": "date-time",
+          "title": "End Time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "status",
+        "end_time"
+      ],
+      "title": "TaskArtifact",
+      "type": "object"
+    },
+    "TaskExecution": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "semantic_type": {
+          "title": "Semantic Type",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "run_status": {
+          "title": "Run Status",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "dependencies": {
+          "default": [],
+          "items": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "error_codes": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Error Codes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "semantic_type",
+        "status",
+        "run_status"
+      ],
+      "title": "TaskExecution",
+      "type": "object"
+    },
+    "TaskState": {
+      "enum": [
+        "CREATED",
+        "PENDING",
+        "READY",
+        "RUNNING",
+        "SUCCESS",
+        "FAILED",
+        "WAITING_REVIEW",
+        "BLOCKED"
+      ],
+      "title": "TaskState",
+      "type": "string"
+    },
+    "TaskTrace": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "task_type": {
+          "title": "Task Type",
+          "type": "string"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Time"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState",
+          "default": "CREATED"
+        },
+        "tools_called": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tools Called",
+          "type": "array"
+        },
+        "model_called": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Model Called",
+          "type": "array"
+        },
+        "error": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Error",
+          "type": "array"
+        },
+        "artifact_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Artifact Id"
+        },
+        "dependencies": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependencies",
+          "type": "array"
+        },
+        "transitions": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Transitions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "task_type"
+      ],
+      "title": "TaskTrace",
+      "type": "object"
+    },
+    "TimeScope": {
+      "additionalProperties": false,
+      "properties": {
+        "window_days": {
+          "anyOf": [
+            {
+              "maximum": 365,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Window Days"
+        },
+        "requires_current": {
+          "default": false,
+          "title": "Requires Current",
+          "type": "boolean"
+        }
+      },
+      "title": "TimeScope",
+      "type": "object"
+    },
+    "ToolSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "record_id": {
+          "format": "uuid",
+          "title": "Record Id",
+          "type": "string"
+        },
+        "task_id": {
+          "title": "Task Id",
+          "type": "string"
+        },
+        "tool": {
+          "title": "Tool",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        },
+        "duration_ms": {
+          "title": "Duration Ms",
+          "type": "number"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "record_id",
+        "task_id",
+        "tool",
+        "status",
+        "duration_ms"
+      ],
+      "title": "ToolSummary",
+      "type": "object"
+    },
+    "TraceSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "trace_id": {
+          "format": "uuid",
+          "title": "Trace Id",
+          "type": "string"
+        },
+        "tasks": {
+          "items": {
+            "$ref": "#/$defs/TaskTrace"
+          },
+          "title": "Tasks",
+          "type": "array"
+        },
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/TaskArtifact"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "trace_id",
+        "tasks",
+        "artifacts"
+      ],
+      "title": "TraceSnapshot",
+      "type": "object"
+    },
+    "UserContext": {
+      "additionalProperties": false,
+      "properties": {
+        "display_language": {
+          "const": "zh-CN",
+          "default": "zh-CN",
+          "title": "Display Language",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "maxLength": 1000,
+          "title": "Notes",
+          "type": "string"
+        }
+      },
+      "title": "UserContext",
+      "type": "object"
+    },
+    "VerificationArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ClaimVerification"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "verification_status": {
+          "$ref": "#/$defs/VerificationStatus"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "supporting_evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerificationEvidence"
+          },
+          "title": "Supporting Evidence",
+          "type": "array"
+        },
+        "conflicting_evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerificationEvidence"
+          },
+          "title": "Conflicting Evidence",
+          "type": "array"
+        },
+        "conflicts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerificationConflict"
+          },
+          "title": "Conflicts",
+          "type": "array"
+        },
+        "warnings": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "unresolved_items": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Items",
+          "type": "array"
+        },
+        "partial_result": {
+          "default": false,
+          "title": "Partial Result",
+          "type": "boolean"
+        },
+        "model_calls": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Model Calls",
+          "type": "array"
+        },
+        "model_hints": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Model Hints",
+          "type": "array"
+        },
+        "rules_version": {
+          "const": "verification-rules-v1",
+          "default": "verification-rules-v1",
+          "title": "Rules Version",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "agent_id": {
+          "const": "verification_agent",
+          "default": "verification_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": "verification-artifact-v1",
+          "default": "verification-artifact-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "source_run_id": {
+          "format": "uuid",
+          "title": "Source Run Id",
+          "type": "string"
+        },
+        "source_artifact_id": {
+          "format": "uuid",
+          "title": "Source Artifact Id",
+          "type": "string"
+        },
+        "source_snapshot_hash": {
+          "pattern": "^[a-f0-9]{64}$",
+          "title": "Source Snapshot Hash",
+          "type": "string"
+        },
+        "evaluation_time": {
+          "format": "date-time",
+          "title": "Evaluation Time",
+          "type": "string"
+        },
+        "execution_status": {
+          "$ref": "#/$defs/TaskState",
+          "default": "WAITING_REVIEW"
+        },
+        "tool_calls": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        }
+      },
+      "required": [
+        "verification_status",
+        "confidence",
+        "artifact_id",
+        "task_id",
+        "run_id",
+        "source_run_id",
+        "source_artifact_id",
+        "source_snapshot_hash",
+        "evaluation_time"
+      ],
+      "title": "VerificationArtifact",
+      "type": "object"
+    },
+    "VerificationClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "statement": {
+          "maxLength": 2400,
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ClaimType"
+        },
+        "source_task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Source Task Id",
+          "type": "string"
+        },
+        "related_entities": {
+          "additionalProperties": true,
+          "title": "Related Entities",
+          "type": "object"
+        },
+        "status": {
+          "$ref": "#/$defs/VerificationStatus",
+          "default": "PENDING"
+        },
+        "value": {
+          "additionalProperties": true,
+          "title": "Value",
+          "type": "object"
+        },
+        "scope_key": {
+          "maxLength": 256,
+          "minLength": 1,
+          "title": "Scope Key",
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Vulnerability Id",
+          "type": "string"
+        },
+        "package_identifier_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Package Identifier Id"
+        },
+        "branch": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Branch"
+        },
+        "claim_revision": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim Revision"
+        },
+        "origin": {
+          "default": "derived",
+          "enum": [
+            "stored",
+            "derived"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "source_field": {
+          "anyOf": [
+            {
+              "maxLength": 500,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Field"
+        },
+        "evidence_ids": {
+          "default": [],
+          "items": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 16,
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_id",
+        "statement",
+        "claim_type",
+        "source_task_id",
+        "value",
+        "scope_key",
+        "vulnerability_id"
+      ],
+      "title": "VerificationClaim",
+      "type": "object"
+    },
+    "VerificationConflict": {
+      "additionalProperties": false,
+      "properties": {
+        "conflict_type": {
+          "title": "Conflict Type",
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "scope_key": {
+          "title": "Scope Key",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "conflict_type",
+        "claim_ids",
+        "evidence_ids",
+        "scope_key",
+        "reason"
+      ],
+      "title": "VerificationConflict",
+      "type": "object"
+    },
+    "VerificationEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "claim_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "source_key": {
+          "default": "unknown",
+          "maxLength": 100,
+          "title": "Source Key",
+          "type": "string"
+        },
+        "source_type": {
+          "default": "unknown",
+          "maxLength": 80,
+          "title": "Source Type",
+          "type": "string"
+        },
+        "source_name": {
+          "default": "Unknown source",
+          "maxLength": 300,
+          "title": "Source Name",
+          "type": "string"
+        },
+        "source_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Time"
+        },
+        "content": {
+          "maxLength": 2400,
+          "title": "Content",
+          "type": "string"
+        },
+        "reference": {
+          "additionalProperties": true,
+          "title": "Reference",
+          "type": "object"
+        },
+        "hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hash"
+        },
+        "authority_score": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Authority Score",
+          "type": "number"
+        },
+        "directness_score": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Directness Score",
+          "type": "number"
+        },
+        "authority_level": {
+          "anyOf": [
+            {
+              "enum": [
+                "official",
+                "authoritative",
+                "secondary",
+                "community"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authority Level"
+        },
+        "authority_scope": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authority Scope"
+        },
+        "lineage_key": {
+          "anyOf": [
+            {
+              "maxLength": 1000,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lineage Key"
+        },
+        "observation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observation Id"
+        },
+        "raw_document_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Document Id"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "retrieved_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Retrieved At"
+        },
+        "excerpt_hash": {
+          "anyOf": [
+            {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Excerpt Hash"
+        },
+        "observed_value": {
+          "additionalProperties": true,
+          "title": "Observed Value",
+          "type": "object"
+        },
+        "scope_key": {
+          "title": "Scope Key",
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vulnerability Id"
+        },
+        "stance": {
+          "default": "neutral",
+          "enum": [
+            "support",
+            "contradict",
+            "neutral"
+          ],
+          "title": "Stance",
+          "type": "string"
+        },
+        "directness": {
+          "default": "unknown",
+          "enum": [
+            "direct",
+            "mention",
+            "unknown"
+          ],
+          "title": "Directness",
+          "type": "string"
+        },
+        "evidence_type": {
+          "default": "source_excerpt",
+          "title": "Evidence Type",
+          "type": "string"
+        },
+        "is_current": {
+          "default": false,
+          "title": "Is Current",
+          "type": "boolean"
+        },
+        "integrity_status": {
+          "default": "MISSING",
+          "enum": [
+            "VALID",
+            "MISSING",
+            "INVALID"
+          ],
+          "title": "Integrity Status",
+          "type": "string"
+        },
+        "exclusion_reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Exclusion Reasons",
+          "type": "array"
+        },
+        "details": {
+          "additionalProperties": true,
+          "title": "Details",
+          "type": "object"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "claim_id",
+        "content",
+        "reference",
+        "scope_key"
+      ],
+      "title": "VerificationEvidence",
+      "type": "object"
+    },
+    "VerificationRun": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_id": {
+          "const": "verification_agent",
+          "default": "verification_agent",
+          "title": "Agent Id",
+          "type": "string"
+        },
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "input_artifact": {
+          "additionalProperties": true,
+          "title": "Input Artifact",
+          "type": "object"
+        },
+        "output_artifact": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Artifact"
+        },
+        "claims_checked": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claims Checked",
+          "type": "array"
+        },
+        "evidence_used": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Used",
+          "type": "array"
+        },
+        "verification_result": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/VerificationStatus"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "confidence": {
+          "default": 0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "execution_time": {
+          "minimum": 0,
+          "title": "Execution Time",
+          "type": "integer"
+        },
+        "start_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start Time"
+        },
+        "end_time": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End Time"
+        },
+        "status": {
+          "$ref": "#/$defs/TaskState"
+        },
+        "tools_called": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Tools Called",
+          "type": "array"
+        },
+        "rules_version": {
+          "default": "verification-rules-v1",
+          "title": "Rules Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "input_artifact",
+        "execution_time",
+        "status"
+      ],
+      "title": "VerificationRun",
+      "type": "object"
+    },
+    "VerificationRunResult": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "runtime_status": {
+          "title": "Runtime Status",
+          "type": "string"
+        },
+        "artifacts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerificationArtifact"
+          },
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "traces": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/VerificationRun"
+          },
+          "title": "Traces",
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "runtime_status"
+      ],
+      "title": "VerificationRunResult",
+      "type": "object"
+    },
+    "VerificationStatus": {
+      "enum": [
+        "CONFIRMED",
+        "PENDING",
+        "INSUFFICIENT_EVIDENCE",
+        "CONFLICT",
+        "REJECTED"
+      ],
+      "title": "VerificationStatus",
+      "type": "string"
+    },
+    "VerifiedFact": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "claim_type": {
+          "$ref": "#/$defs/ClaimType"
+        },
+        "verification_status": {
+          "const": "CONFIRMED",
+          "default": "CONFIRMED",
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "value": {
+          "additionalProperties": true,
+          "title": "Value",
+          "type": "object"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "minItems": 1,
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "source_artifact": {
+          "$ref": "#/$defs/ArtifactRef"
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_type",
+        "value",
+        "evidence_ids",
+        "source_artifact"
+      ],
+      "title": "VerifiedFact",
+      "type": "object"
+    },
+    "VersionMatchResult": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "default": "UNKNOWN",
+          "enum": [
+            "AFFECTED",
+            "NOT_AFFECTED",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "affected": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Affected"
+        },
+        "reason": {
+          "default": "Version impact is unresolved",
+          "title": "Reason",
+          "type": "string"
+        },
+        "claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        },
+        "comparisons": {
+          "default": [],
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Comparisons",
+          "type": "array"
+        },
+        "normalization": {
+          "additionalProperties": true,
+          "title": "Normalization",
+          "type": "object"
+        }
+      },
+      "title": "VersionMatchResult",
+      "type": "object"
+    }
+  },
+  "x-roots": {
+    "InvestigationStatus": {
+      "$ref": "#/$defs/InvestigationStatus"
+    },
+    "InvestigationResult": {
+      "$ref": "#/$defs/InvestigationResult"
+    },
+    "AnswerEnvelope": {
+      "$ref": "#/$defs/AnswerEnvelope"
+    },
+    "IntegrationResult": {
+      "$ref": "#/$defs/IntegrationResult"
+    },
+    "InvestigationTrace": {
+      "$ref": "#/$defs/InvestigationTrace"
+    },
+    "AgentContract": {
+      "$ref": "#/$defs/AgentContract"
+    },
+    "AgentRunTrace": {
+      "$ref": "#/$defs/AgentRunTrace"
+    },
+    "RuntimeTaskArtifact": {
+      "$ref": "#/$defs/TaskArtifact"
+    },
+    "RuntimeTaskTrace": {
+      "$ref": "#/$defs/TaskTrace"
+    },
+    "RuntimeRunSnapshot": {
+      "$ref": "#/$defs/RunSnapshot"
+    },
+    "RuntimeTraceSnapshot": {
+      "$ref": "#/$defs/TraceSnapshot"
+    },
+    "InvestigationArtifact": {
+      "$ref": "#/$defs/InvestigationArtifact"
+    },
+    "InvestigationRunResult": {
+      "$ref": "#/$defs/InvestigationRunResult"
+    },
+    "VerificationArtifact": {
+      "$ref": "#/$defs/VerificationArtifact"
+    },
+    "VerificationClaim": {
+      "$ref": "#/$defs/VerificationClaim"
+    },
+    "VerificationEvidence": {
+      "$ref": "#/$defs/VerificationEvidence"
+    },
+    "VerificationRun": {
+      "$ref": "#/$defs/VerificationRun"
+    },
+    "VerificationRunResult": {
+      "$ref": "#/$defs/VerificationRunResult"
+    },
+    "RiskAnalysisArtifact": {
+      "$ref": "#/$defs/RiskAnalysisArtifact"
+    },
+    "AnalysisRun": {
+      "$ref": "#/$defs/AnalysisRun"
+    },
+    "AnalysisRunResult": {
+      "$ref": "#/$defs/AnalysisRunResult"
+    },
+    "IntegrationTrace": {
+      "$ref": "#/$defs/IntegrationTrace"
+    },
+    "ArtifactRef": {
+      "$ref": "#/$defs/ArtifactRef"
+    },
+    "EvidenceReference": {
+      "$ref": "#/$defs/Citation"
+    },
+    "EvidenceObservation": {
+      "$ref": "#/$defs/EvidenceObservation"
+    },
+    "StageEvent": {
+      "$ref": "#/$defs/StageEvent"
+    }
+  }
+}

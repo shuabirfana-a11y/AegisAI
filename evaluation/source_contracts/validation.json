@@ -1,0 +1,332 @@
+{
+  "checked_at_utc": "2026-10-03T05:06:53.189912+00:00",
+  "passed": true,
+  "scope": "source planning and offline field mapping; no production collector/DB/API run",
+  "registry_entries": 13,
+  "first_batch_independent_feeds": 3,
+  "minimal_slice_feeds": 2,
+  "container_parsers": 1,
+  "reused_public_snapshots": 6,
+  "json_pointer_checks": 21,
+  "kev_catalog_version": "2026.10.02",
+  "kev_count_verified": 1733,
+  "kev_seed_joins": 12,
+  "kev_positive_parser_control": "CVE-2026-102490",
+  "positive_control_is_ai_seed": false,
+  "cisa_provider_located_without_fixed_index": true,
+  "nvd_cvss_versions_preserved": [
+    "3.1",
+    "4.0"
+  ],
+  "epss_snapshot_date": "2026-10-02",
+  "human_gold": false,
+  "snapshots": [
+    {
+      "source_snapshot": "cve",
+      "file": "evaluation/source_contracts/cve.json",
+      "sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:34:43.859840+00:00"
+    },
+    {
+      "source_snapshot": "osv",
+      "file": "evaluation/source_contracts/osv.json",
+      "sha256": "71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:34:50.918565+00:00"
+    },
+    {
+      "source_snapshot": "kev",
+      "file": "evaluation/source_contracts/kev.json",
+      "sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:34:44.354895+00:00"
+    },
+    {
+      "source_snapshot": "nvd",
+      "file": "evaluation/source_contracts/nvd.json",
+      "sha256": "33cc253b7f32f6fa03e32a43220dd348dff16cd441274d1a13a6465bf0bf38c6",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:34:42.948107+00:00"
+    },
+    {
+      "source_snapshot": "ghsa",
+      "file": "evaluation/source_contracts/ghsa.json",
+      "sha256": "517f5cb4159abefb17e6c88b5519541bd667530ba4364da3b65cb83c00310b4b",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:43:41.495085+00:00"
+    },
+    {
+      "source_snapshot": "epss",
+      "file": "evaluation/source_contracts/epss.json",
+      "sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+      "reuse": "previous research HTTP response, no new network call",
+      "retrieved_at_basis": "original saved-response file write completion",
+      "retrieved_at": "2026-10-03T03:34:42.479248+00:00"
+    }
+  ],
+  "field_locators": [
+    {
+      "snapshot": "evaluation/source_contracts/cve.json",
+      "raw_sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+      "locator_type": "JSON_POINTER",
+      "locator": "/cveMetadata/cveId",
+      "excerpt_sha256": "2316c0a3d89984e2543145132eae3ee69bbd4c938fdc6b12d612e3ef55cf8a94"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/osv.json",
+      "raw_sha256": "71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383",
+      "locator_type": "JSON_POINTER",
+      "locator": "/aliases",
+      "excerpt_sha256": "b6b98905406ac2d413de5e0df6ac02dc655f1f0909b9b9898f6d68d929c42ac4"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/osv.json",
+      "raw_sha256": "71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383",
+      "locator_type": "JSON_POINTER",
+      "locator": "/affected/0/package/name",
+      "excerpt_sha256": "b88e3adb9a592d85a9a4fd1cc4ee6e0f15410d574c4a9962a5c6b25dfae00675"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/osv.json",
+      "raw_sha256": "71feddaab4e509c7a048bcff4dd5aa967b0bfacfdf394fbbf7f84ac23969e383",
+      "locator_type": "JSON_POINTER",
+      "locator": "/affected/0/ranges/0/events/1/fixed",
+      "excerpt_sha256": "8ddeee406ee7bde896ac7887a9cba3f083fe173f6e6e508fbb0f26ea71abe47d"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/cve.json",
+      "raw_sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+      "locator_type": "JSON_POINTER",
+      "locator": "/containers/adp/0/providerMetadata/shortName",
+      "excerpt_sha256": "1d08fcf0e364dae8c77b124be917afa0ea3d70d2bcb4095ce6b46e32c627ac01"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/cve.json",
+      "raw_sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+      "locator_type": "JSON_POINTER",
+      "locator": "/containers/adp/0/metrics/0/other/content/id",
+      "excerpt_sha256": "2316c0a3d89984e2543145132eae3ee69bbd4c938fdc6b12d612e3ef55cf8a94"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/cve.json",
+      "raw_sha256": "30fbe6efbcd0dab9a72c086d498dac09fdd888fd70ab5145ef2c630281470ccc",
+      "locator_type": "JSON_POINTER",
+      "locator": "/containers/adp/0/metrics/0/other/content/timestamp",
+      "excerpt_sha256": "ba615fca7032fd317a03a689528ae5129c3c87b028d01516f220245e3f2433b6"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/kev.json",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator_type": "JSON_POINTER",
+      "locator": "/vulnerabilities",
+      "excerpt_sha256": "e1bb624a9cfadb2ef3cc92766fb9206490ca781c3f90fbef5c9a01df71c98474"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/kev.json",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator_type": "JSON_POINTER",
+      "locator": "/count",
+      "excerpt_sha256": "8b0ae2d638c19a4186bd51d80e80aa645d81af9cbc68bc87048d5a5c43d48a9a"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/kev.json",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator_type": "JSON_POINTER",
+      "locator": "/catalogVersion",
+      "excerpt_sha256": "86d0177e4b315ced04b5de3306e557b782b658523e19886c099a293cc3cb128e"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/kev.json",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator_type": "JSON_POINTER",
+      "locator": "/dateReleased",
+      "excerpt_sha256": "0168c59d6bb9863787dbd9604e0521c582c4a034ed853ea89b146330223b6802"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/kev.json",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator_type": "JSON_POINTER",
+      "locator": "/vulnerabilities/0/cveID",
+      "excerpt_sha256": "5d4ec4f9cea84d7406597936166b2303ce9c5e484cf9da6cc5eede1c2e9d5cdc"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/nvd.json",
+      "raw_sha256": "33cc253b7f32f6fa03e32a43220dd348dff16cd441274d1a13a6465bf0bf38c6",
+      "locator_type": "JSON_POINTER",
+      "locator": "/vulnerabilities/0/cve/id",
+      "excerpt_sha256": "2316c0a3d89984e2543145132eae3ee69bbd4c938fdc6b12d612e3ef55cf8a94"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/nvd.json",
+      "raw_sha256": "33cc253b7f32f6fa03e32a43220dd348dff16cd441274d1a13a6465bf0bf38c6",
+      "locator_type": "JSON_POINTER",
+      "locator": "/vulnerabilities/0/cve/metrics",
+      "excerpt_sha256": "61f5e9dc71510cbf13c460e235cc84ea2454a745ea429254e42c01ef8c8a52d8"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/ghsa.json",
+      "raw_sha256": "517f5cb4159abefb17e6c88b5519541bd667530ba4364da3b65cb83c00310b4b",
+      "locator_type": "JSON_POINTER",
+      "locator": "/cve_id",
+      "excerpt_sha256": "2316c0a3d89984e2543145132eae3ee69bbd4c938fdc6b12d612e3ef55cf8a94"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/ghsa.json",
+      "raw_sha256": "517f5cb4159abefb17e6c88b5519541bd667530ba4364da3b65cb83c00310b4b",
+      "locator_type": "JSON_POINTER",
+      "locator": "/ghsa_id",
+      "excerpt_sha256": "fe863d782d7c54139d6e36a6c218d68f6af05ac9218708c780b24d5f6c40077d"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/ghsa.json",
+      "raw_sha256": "517f5cb4159abefb17e6c88b5519541bd667530ba4364da3b65cb83c00310b4b",
+      "locator_type": "JSON_POINTER",
+      "locator": "/vulnerabilities",
+      "excerpt_sha256": "e79cb0e60b88143cf24010edaa586446a19388fabf5b032cd69bd00ee8e18686"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/epss.json",
+      "raw_sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+      "locator_type": "JSON_POINTER",
+      "locator": "/data/0/cve",
+      "excerpt_sha256": "2316c0a3d89984e2543145132eae3ee69bbd4c938fdc6b12d612e3ef55cf8a94"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/epss.json",
+      "raw_sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+      "locator_type": "JSON_POINTER",
+      "locator": "/data/0/epss",
+      "excerpt_sha256": "25d23fc878b002871c3aa2732e3a88da55cb1da66f0e9a44d075dac3e32195b5"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/epss.json",
+      "raw_sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+      "locator_type": "JSON_POINTER",
+      "locator": "/data/0/percentile",
+      "excerpt_sha256": "1b471624d95ded0e8d5a045ec46824f66323b21764fa09f00899b184ed3d7038"
+    },
+    {
+      "snapshot": "evaluation/source_contracts/epss.json",
+      "raw_sha256": "58c3489f2f02461449a22e9a883d532c79ff11f0d2fd158c183bbbd129c25bd3",
+      "locator_type": "JSON_POINTER",
+      "locator": "/data/0/date",
+      "excerpt_sha256": "7d70432a4276451c06b93a93a2bed457ba2a09f3d81df9a8cbb0d74bbdd294bb"
+    }
+  ],
+  "seed_kev_observations": [
+    {
+      "cve_id": "CVE-2025-32434",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2022-45907",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-9540",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-94626",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-9856",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-80047",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-8147",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-71211",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-49119",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-48545",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-57516",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    },
+    {
+      "cve_id": "CVE-2026-41486",
+      "membership": "NOT_IN_CATALOG",
+      "catalog_version": "2026.10.02",
+      "as_of": "2026-10-02T15:19:38.2945Z",
+      "raw_sha256": "d2c8c6cb23291b46ff2b086197641a6b1fa35e6b746bba714cc280a1778f9e48",
+      "locator": "/vulnerabilities",
+      "basis": "full validated catalog membership, absence is not proof of non-exploitation"
+    }
+  ]
+}

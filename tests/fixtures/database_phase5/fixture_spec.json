@@ -1,0 +1,29 @@
+{
+  "kind": "SYNTHETIC DATABASE FIXTURE; NOT REAL INTELLIGENCE OR BENCHMARK GOLD",
+  "canonical_id": "CVE-2099-9999001",
+  "sources": [
+    "TEST_CVE",
+    "TEST_OSV",
+    "TEST_VENDOR"
+  ],
+  "products": [
+    "vLLM",
+    "PyTorch"
+  ],
+  "packages": [
+    "pkg:pypi/vllm",
+    "pkg:pypi/torch"
+  ],
+  "range_examples": [
+    ">=0.8.0,<0.8.4",
+    ">=2.5.0,<2.5.2"
+  ],
+  "asset_component": "vllm 0.8.2",
+  "evidence_stances": [
+    "support",
+    "neutral",
+    "contradict"
+  ],
+  "fixture_impl": "backend/tests/conftest.py::seed",
+  "is_test": true
+}

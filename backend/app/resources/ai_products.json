@@ -1,0 +1,18 @@
+{
+  "version": "ai-registry-v0.1",
+  "scope": "Explicit PyPI packages and reviewed names only; no substring alias merging",
+  "products": [
+    {"key":"pytorch","name":"PyTorch","packages":["torch"],"aliases":["pytorch","torch"],"reference":"https://github.com/pytorch/pytorch"},
+    {"key":"vllm","name":"vLLM","packages":["vllm"],"aliases":["vllm"],"reference":"https://github.com/vllm-project/vllm"},
+    {"key":"tensorflow","name":"TensorFlow","packages":["tensorflow","tensorflow-cpu"],"aliases":["tensorflow"],"reference":"https://github.com/tensorflow/tensorflow"},
+    {"key":"transformers","name":"Transformers","packages":["transformers"],"aliases":["transformers"],"reference":"https://github.com/huggingface/transformers"},
+    {"key":"huggingface-hub","name":"Hugging Face Hub","packages":["huggingface-hub"],"aliases":["hugging face hub","huggingface-hub"],"reference":"https://github.com/huggingface/huggingface_hub"},
+    {"key":"langchain","name":"LangChain","packages":["langchain","langchain-core","langchain-community"],"aliases":["langchain"],"reference":"https://github.com/langchain-ai/langchain"},
+    {"key":"llamaindex","name":"LlamaIndex","packages":["llama-index","llama-index-core"],"aliases":["llamaindex","llama index"],"reference":"https://github.com/run-llama/llama_index"},
+    {"key":"ray","name":"Ray","packages":["ray"],"aliases":[],"reference":"https://github.com/ray-project/ray"},
+    {"key":"mlflow","name":"MLflow","packages":["mlflow","mlflow-skinny"],"aliases":["mlflow"],"reference":"https://github.com/mlflow/mlflow"},
+    {"key":"gradio","name":"Gradio","packages":["gradio"],"aliases":["gradio"],"reference":"https://github.com/gradio-app/gradio"},
+    {"key":"ollama-client","name":"Ollama Python client","packages":["ollama"],"aliases":[],"reference":"https://github.com/ollama/ollama-python"},
+    {"key":"triton-lang","name":"Triton compiler","packages":["triton"],"aliases":[],"reference":"https://github.com/triton-lang/triton"}
+  ]
+}

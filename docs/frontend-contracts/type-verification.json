@@ -1,0 +1,83 @@
+{
+  "method": "Node24 native TypeScript syntax; declared import/export cross-reference checks; no tsc semantic checking",
+  "typescript_files": 18,
+  "syntax_checks": [
+    {
+      "file": "frontend/contracts/AgentTrace.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/AnswerEnvelope.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/Claim.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/EvidenceReference.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/HttpContracts.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/index.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/IntegrationResult.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/InvestigationRequest.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/InvestigationStatus.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/RiskAnalysis.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/VerificationResult.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/http-data-columns.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/http-input.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/http-responses.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/internal-input.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/internal-output.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/legacy-output.ts",
+      "syntax_exit_code": 0
+    },
+    {
+      "file": "frontend/contracts/generated/tool-input.ts",
+      "syntax_exit_code": 0
+    }
+  ],
+  "cross_references_checked": 118,
+  "all_named_exports_exist": true,
+  "no_any": true,
+  "type_only_entry_import_exit_code": 0,
+  "errors": []
+}

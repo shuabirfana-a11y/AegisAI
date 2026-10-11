@@ -1,0 +1,50 @@
+# Local secrets; keep the documented configuration template.
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Installed runtimes, caches and generated local files.
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.playwright-cli/
+*.log
+*.pid
+*.dump
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+Thumbs.db
+
+# Machine-local services, downloaded data and intermediate work.
+/outputs/
+/work/*
+!/work/orchestration/
+/work/orchestration/*
+!/work/orchestration/baseline_hashes.json
+
+# Superseded intermediate execution receipts are not collaboration inputs.
+/reports/**/*.pre-review.*
+
+# Cloud account/sms/billing screenshots and original chat attachments are local records.
+/reports/cloud/
+**/sources/*.docx
+
+# Large raw HTTP/execution captures and machine input inventories remain local.
+/reports/**/*.json
+/reports/**/*.jsonl

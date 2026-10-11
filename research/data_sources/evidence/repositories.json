@@ -1,0 +1,3966 @@
+[
+  {
+    "full_name": "CVEProject/cvelistV5",
+    "html_url": "https://github.com/CVEProject/cvelistV5",
+    "homepage": "",
+    "stargazers_count": 3026,
+    "license": null,
+    "archived": false,
+    "pushed_at": "2026-10-03T05:36:26Z",
+    "default_branch": "main",
+    "requested_repo": "CVEProject/cvelistV5",
+    "commit": "main",
+    "checked_at_utc": "2026-10-03T05:43:03.689732+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/CVEProject/cvelistV5/blob/main/README.md",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/CVEProject/cvelistV5",
+        "checked_at_utc": "2026-10-03T05:43:03.689732+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cvelistV5",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"43d83df8e3106394bd29c6af85deb1d32f067450770c16de907c58dddc26043e\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:36:33 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4985",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6317,
+        "sha256": "8d26171a644c05fd01eeae8c51f0ccd0f615d08aac644a01e89e100ddfd0d0d9",
+        "file": "research/data_sources/evidence/repos/CVEProject__cvelistV5/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cvelistV5/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:08.644616+00:00",
+        "method": "GET",
+        "error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cvelistV5/readme?ref=main",
+        "checked_at_utc": "2026-10-03T05:43:19.087033+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cvelistV5/readme?ref=main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"8e817e29e3ab513dd8aeb5fde9d6823ef8bc2f8d\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:36:23 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4982",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17603,
+        "sha256": "00b78c71c283cf3ed044d7da7d625e1f726fb0c9935c90f452356277109511be",
+        "file": "research/data_sources/evidence/repos/CVEProject__cvelistV5/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cvelistV5/license?ref=main",
+        "checked_at_utc": "2026-10-03T05:43:23.474872+00:00",
+        "method": "GET",
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    ]
+  },
+  {
+    "full_name": "CVEProject/cve-schema",
+    "html_url": "https://github.com/CVEProject/cve-schema",
+    "homepage": "",
+    "stargazers_count": 446,
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "spdx_id": "CC0-1.0",
+      "url": "https://api.github.com/licenses/cc0-1.0",
+      "node_id": "MDc6TGljZW5zZTY="
+    },
+    "archived": false,
+    "pushed_at": "2026-01-30T20:57:39Z",
+    "default_branch": "main",
+    "requested_repo": "CVEProject/cve-schema",
+    "commit": "ce5f5c865f14dc40a6548d36b74751abca1c588a",
+    "checked_at_utc": "2026-10-03T05:43:03.691731+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/CVEProject/cve-schema/blob/ce5f5c865f14dc40a6548d36b74751abca1c588a/README.md",
+    "license_path": "LICENSE.txt",
+    "license_url": "https://github.com/CVEProject/cve-schema/blob/ce5f5c865f14dc40a6548d36b74751abca1c588a/LICENSE.txt",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/CVEProject/cve-schema",
+        "checked_at_utc": "2026-10-03T05:43:03.691731+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cve-schema",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e5bf90a82316389316f6d2081332c38879f5d81e0caa409b57c06e7e6f339c33\"",
+          "Last-Modified": "Sat, 03 Oct 2026 00:22:23 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4984",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6681,
+        "sha256": "20a9cd5ce0e650063ad0581fe484af190773bd42c86e0ae13cb5f6b70a083310",
+        "file": "research/data_sources/evidence/repos/CVEProject__cve-schema/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cve-schema/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:13.258634+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cve-schema/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f0ab6ab05d87c9a0738f0ef5b0e1e552b39bd18471f5a9228b51ca2afafd5916\"",
+          "Last-Modified": "Wed, 29 Oct 2025 14:07:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4980",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 116731,
+        "sha256": "a1e35ff1279bb8195093c302084c168b16d9ca533dedc9ad6c1516b4c8f0128b",
+        "file": "research/data_sources/evidence/repos/CVEProject__cve-schema/commit.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cve-schema/readme?ref=ce5f5c865f14dc40a6548d36b74751abca1c588a",
+        "checked_at_utc": "2026-10-03T05:43:24.168704+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cve-schema/readme?ref=ce5f5c865f14dc40a6548d36b74751abca1c588a",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"697129efd285332c9db338c9f374696d6e73a96a\"",
+          "Last-Modified": "Wed, 29 Oct 2025 14:07:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4977",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8307,
+        "sha256": "19ec18088c854140b8111a0d9aafec6acecbdc1587a37510bb9597ea0a9a5ad3",
+        "file": "research/data_sources/evidence/repos/CVEProject__cve-schema/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CVEProject/cve-schema/license?ref=ce5f5c865f14dc40a6548d36b74751abca1c588a",
+        "checked_at_utc": "2026-10-03T05:43:25.335133+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CVEProject/cve-schema/license?ref=ce5f5c865f14dc40a6548d36b74751abca1c588a",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"9a871ea2e3f5aad48d9dde8cfb9a14cdfb8118af7551467ab1ae415348507f33\"",
+          "Last-Modified": "Wed, 29 Oct 2025 14:07:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4975",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 10868,
+        "sha256": "911d4aa946666574e9e983a52d776326617d56c5defd7804494a8ef8a3be0033",
+        "file": "research/data_sources/evidence/repos/CVEProject__cve-schema/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "google/osv.dev",
+    "html_url": "https://github.com/google/osv.dev",
+    "homepage": "https://osv.dev",
+    "stargazers_count": 2956,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T04:17:36Z",
+    "default_branch": "master",
+    "requested_repo": "google/osv.dev",
+    "commit": "master",
+    "checked_at_utc": "2026-10-03T05:43:03.692734+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/google/osv.dev/blob/master/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/google/osv.dev/blob/master/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/google/osv.dev",
+        "checked_at_utc": "2026-10-03T05:43:03.692734+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv.dev",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"714ebf0c56867a7c18a96c85aee2876ea8de01eb5ef86b3b1e31869bf22a9ebb\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:39:22 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4986",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6432,
+        "sha256": "211fd7b4954ae03fd25d3b698aa3e0ff25f0da28d51a11f179601c389f4c3bc9",
+        "file": "research/data_sources/evidence/repos/google__osv.dev/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv.dev/commits/master",
+        "checked_at_utc": "2026-10-03T05:43:08.643609+00:00",
+        "method": "GET",
+        "error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv.dev/readme?ref=master",
+        "checked_at_utc": "2026-10-03T05:43:19.071795+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv.dev/readme?ref=master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"92003dc707979c6881dece7566b75d14aa469b41\"",
+          "Last-Modified": "Fri, 02 Oct 2026 04:17:35 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4983",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6836,
+        "sha256": "388759659792b68fad226c8d89f826206901ac31069929c343c6c4482f28decc",
+        "file": "research/data_sources/evidence/repos/google__osv.dev/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv.dev/license?ref=master",
+        "checked_at_utc": "2026-10-03T05:43:22.474336+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv.dev/license?ref=master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"9f4b821abccd5d6c3fdb70ef6a509350c46b3a9cae635d897b47ce822a2bf459\"",
+          "Last-Modified": "Fri, 02 Oct 2026 04:17:35 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4979",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16549,
+        "sha256": "81f6b2899f13424530eeaed7aef9022eaa8f07279bbf62380bcb6a942504e67f",
+        "file": "research/data_sources/evidence/repos/google__osv.dev/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "github/advisory-database",
+    "html_url": "https://github.com/github/advisory-database",
+    "homepage": null,
+    "stargazers_count": 2482,
+    "license": {
+      "key": "cc-by-4.0",
+      "name": "Creative Commons Attribution 4.0 International",
+      "spdx_id": "CC-BY-4.0",
+      "url": "https://api.github.com/licenses/cc-by-4.0",
+      "node_id": "MDc6TGljZW5zZTI1"
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T05:32:13Z",
+    "default_branch": "main",
+    "requested_repo": "github/advisory-database",
+    "commit": "507dc0b177fc5ea3834af147c1f06f3d1d9b8f19",
+    "checked_at_utc": "2026-10-03T05:43:23.932081+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/github/advisory-database/blob/507dc0b177fc5ea3834af147c1f06f3d1d9b8f19/README.md",
+    "license_path": "LICENSE.md",
+    "license_url": "https://github.com/github/advisory-database/blob/507dc0b177fc5ea3834af147c1f06f3d1d9b8f19/LICENSE.md",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/github/advisory-database",
+        "checked_at_utc": "2026-10-03T05:43:23.932081+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/github/advisory-database",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"859db85ad042a6c6b06e15274c1bbf2a1eb856c87ff769d140cec70cb7a477d8\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:17:51 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4973",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6978,
+        "sha256": "f440afac2f9ab5eca63b0ff38aa8a661fb7b71f4d2182d5229413bad8069d785",
+        "file": "research/data_sources/evidence/repos/github__advisory-database/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/github/advisory-database/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:28.232722+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/github/advisory-database/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"926692b868a39cc4803c08654a2ebfee097244edcddac1405244e24ef1b3efe6\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:17:43 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4970",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4902,
+        "sha256": "cf573428c64cf42c99582eb1c3564207b87db9d2e2d58a6351d182454b651420",
+        "file": "research/data_sources/evidence/repos/github__advisory-database/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/github/advisory-database/readme?ref=507dc0b177fc5ea3834af147c1f06f3d1d9b8f19",
+        "checked_at_utc": "2026-10-03T05:43:29.645906+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/github/advisory-database/readme?ref=507dc0b177fc5ea3834af147c1f06f3d1d9b8f19",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"55953843e49d9e4596d5d4784f2124678618cfdb\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:17:43 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4967",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 14995,
+        "sha256": "cb0a06073cc3a53f335c7b8503462c51b6108dba475ecad1f1439e6d0eaa5ef3",
+        "file": "research/data_sources/evidence/repos/github__advisory-database/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/github/advisory-database/license?ref=507dc0b177fc5ea3834af147c1f06f3d1d9b8f19",
+        "checked_at_utc": "2026-10-03T05:43:31.621182+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/github/advisory-database/license?ref=507dc0b177fc5ea3834af147c1f06f3d1d9b8f19",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"87d4ef790a068ccf1584e93e47ae3be427eb0475da8addac4a87e05be97e723a\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:17:43 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4965",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 26891,
+        "sha256": "8b37f8ae6990926408dfc5b78f7fb93788b7b209e16fc548f6aaad422dd913a7",
+        "file": "research/data_sources/evidence/repos/github__advisory-database/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "cisagov/kev-data",
+    "html_url": "https://github.com/cisagov/kev-data",
+    "homepage": null,
+    "stargazers_count": 124,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T20:23:41Z",
+    "default_branch": "develop",
+    "requested_repo": "cisagov/kev-data",
+    "commit": "7009facc2019306d41f6d6df6c8a057b99b4b468",
+    "checked_at_utc": "2026-10-03T05:43:24.537345+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/cisagov/kev-data/blob/7009facc2019306d41f6d6df6c8a057b99b4b468/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/cisagov/kev-data",
+        "checked_at_utc": "2026-10-03T05:43:24.537345+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/kev-data",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f8008947e23a1428f53b06d4cdcb48896da3cf04a02e21ae399e922c22a04529\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:23:45 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4976",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6133,
+        "sha256": "1c186559c8f260ddd9b55a8c0af458d38d813768e8798aea601f0892b25acc16",
+        "file": "research/data_sources/evidence/repos/cisagov__kev-data/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/kev-data/commits/develop",
+        "checked_at_utc": "2026-10-03T05:43:25.882232+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/kev-data/commits/develop",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ee710956ac7b9e4bd7413fa336b8261a1adf799fd1018d37f036dfe383ec0869\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:23:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4974",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 15363,
+        "sha256": "77d7e2531f2aa9c1424bc1eaf5ff5a3d63818373719a667e16f83233f4221fdd",
+        "file": "research/data_sources/evidence/repos/cisagov__kev-data/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/kev-data/readme?ref=7009facc2019306d41f6d6df6c8a057b99b4b468",
+        "checked_at_utc": "2026-10-03T05:43:27.126076+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/kev-data/readme?ref=7009facc2019306d41f6d6df6c8a057b99b4b468",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"bd28b8984b27cdce130412234de7ebec46deaabe\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:23:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4972",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5506,
+        "sha256": "f62b741e9ae0b505c2b5c130c03ad79cf5a919229c718106b8cf06b00f54bd91",
+        "file": "research/data_sources/evidence/repos/cisagov__kev-data/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/kev-data/license?ref=7009facc2019306d41f6d6df6c8a057b99b4b468",
+        "checked_at_utc": "2026-10-03T05:43:28.389625+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/kev-data/license?ref=7009facc2019306d41f6d6df6c8a057b99b4b468",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e9399ba5e5bd37f87aecd84dcdd52507437c5893088a8c27350c81992aa734e1\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:23:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4969",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11317,
+        "sha256": "0320cac07c04fb94b89876b83295486a8d7d09d686b6126ddb849ab350ed88b2",
+        "file": "research/data_sources/evidence/repos/cisagov__kev-data/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "cisagov/vulnrichment",
+    "html_url": "https://github.com/cisagov/vulnrichment",
+    "homepage": "",
+    "stargazers_count": 866,
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "spdx_id": "CC0-1.0",
+      "url": "https://api.github.com/licenses/cc0-1.0",
+      "node_id": "MDc6TGljZW5zZTY="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T04:16:41Z",
+    "default_branch": "develop",
+    "requested_repo": "cisagov/vulnrichment",
+    "commit": "e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85",
+    "checked_at_utc": "2026-10-03T05:43:27.621051+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/cisagov/vulnrichment/blob/e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/cisagov/vulnrichment/blob/e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/cisagov/vulnrichment",
+        "checked_at_utc": "2026-10-03T05:43:27.621051+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/vulnrichment",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"247e2b03c96e9a8dd51c7cf88aecda3c18f187b644385e5c0f9eb2e36d4a983a\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:16:45 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4971",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6387,
+        "sha256": "173b4c59cbee897c2a86455c8bed4a7c6e8104c54a89f4c90ff4a68833b03cb5",
+        "file": "research/data_sources/evidence/repos/cisagov__vulnrichment/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/vulnrichment/commits/develop",
+        "checked_at_utc": "2026-10-03T05:43:29.160911+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/vulnrichment/commits/develop",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f4d1318561da31e861576847d2858c7016f5a1834ca9a78cfe8e9389a1a905d4\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:16:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4966",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 9381,
+        "sha256": "ec59a3d4209a27beb0d28115031a76332ceda4b07fc6bbe31310c24d0486a56f",
+        "file": "research/data_sources/evidence/repos/cisagov__vulnrichment/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/vulnrichment/readme?ref=e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85",
+        "checked_at_utc": "2026-10-03T05:43:31.895736+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/vulnrichment/readme?ref=e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ce41a36451ceec84768ea6174208a2d4435f31c8\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:16:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4963",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 12676,
+        "sha256": "238bc6ea223bea623b643c005bd6deb032c56ebd9ffba25e571bc88a96c3a70c",
+        "file": "research/data_sources/evidence/repos/cisagov__vulnrichment/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cisagov/vulnrichment/license?ref=e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85",
+        "checked_at_utc": "2026-10-03T05:43:34.303647+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cisagov/vulnrichment/license?ref=e35b475b1f73d3e6e43f8c246cfc65bac6e9ce85",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"8b59924f93f3ddc910e6d7705d4979475df4b99081054e093c0682ac104c2b61\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:16:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4956",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 10833,
+        "sha256": "df1b4ebfcf7afb701a2bd5b785d49e2319ac012c7821f2a1f6b2a071d2999da0",
+        "file": "research/data_sources/evidence/repos/cisagov__vulnrichment/license.body",
+        "earlier_attempt_error": "URLError"
+      }
+    ]
+  },
+  {
+    "full_name": "mitre-atlas/atlas-data",
+    "html_url": "https://github.com/mitre-atlas/atlas-data",
+    "homepage": "https://atlas.mitre.org",
+    "stargazers_count": 190,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-15T15:03:16Z",
+    "default_branch": "main",
+    "requested_repo": "mitre-atlas/atlas-data",
+    "commit": "3259f388d19cbcca11bacf12a0ef97f4198f711b",
+    "checked_at_utc": "2026-10-03T05:43:30.034959+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/mitre-atlas/atlas-data/blob/3259f388d19cbcca11bacf12a0ef97f4198f711b/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/mitre-atlas/atlas-data",
+        "checked_at_utc": "2026-10-03T05:43:30.034959+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mitre-atlas/atlas-data",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"82fe484cb6660f06fea5fb16f97edf6dd44276c4c46e52f3a2c43406fa5ed3cd\"",
+          "Last-Modified": "Fri, 02 Oct 2026 15:26:24 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4968",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6558,
+        "sha256": "aa3965cb2abbcc59f4cbd7534162e7b123e1faded9be1e8625bb52537e27debb",
+        "file": "research/data_sources/evidence/repos/mitre-atlas__atlas-data/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mitre-atlas/atlas-data/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:32.817939+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mitre-atlas/atlas-data/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"15c8748b1835685016ca156357a3afb20e5d10a11a3fc7baa6282edb0c2455fa\"",
+          "Last-Modified": "Thu, 10 Sep 2026 16:25:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4964",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 10116,
+        "sha256": "be2a878468f7ae0e04feea70c712b13114017dbf9e8a1b33a70e318311c0b2b3",
+        "file": "research/data_sources/evidence/repos/mitre-atlas__atlas-data/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mitre-atlas/atlas-data/readme?ref=3259f388d19cbcca11bacf12a0ef97f4198f711b",
+        "checked_at_utc": "2026-10-03T05:43:34.210422+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mitre-atlas/atlas-data/readme?ref=3259f388d19cbcca11bacf12a0ef97f4198f711b",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"12e7bb872df83fa751115dcff1c1aed8ba285a7d\"",
+          "Last-Modified": "Thu, 10 Sep 2026 16:25:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4962",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 10794,
+        "sha256": "091810ef7ce9399164d8348ccb921eda15449f4cc11be519e545862a0f6efc0e",
+        "file": "research/data_sources/evidence/repos/mitre-atlas__atlas-data/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mitre-atlas/atlas-data/license?ref=3259f388d19cbcca11bacf12a0ef97f4198f711b",
+        "checked_at_utc": "2026-10-03T05:43:35.466300+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mitre-atlas/atlas-data/license?ref=3259f388d19cbcca11bacf12a0ef97f4198f711b",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0a6783dbf586eb523d2d14c0f3cd9b969d2ca56c5bc08a8121e96a324029d396\"",
+          "Last-Modified": "Thu, 10 Sep 2026 16:25:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4961",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 1828,
+        "sha256": "1ddac1794922edd597e1a8116cd82f44f02096a3b3a2b256c4c4bdf65e7d0bfd",
+        "file": "research/data_sources/evidence/repos/mitre-atlas__atlas-data/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "OWASP/www-project-top-10-for-large-language-model-applications",
+    "html_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications",
+    "homepage": "http://genai.owasp.org",
+    "stargazers_count": 1432,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-08-05T19:19:48Z",
+    "default_branch": "main",
+    "requested_repo": "OWASP/www-project-top-10-for-large-language-model-applications",
+    "commit": "99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+    "checked_at_utc": "2026-10-03T05:43:34.471032+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/99f4395589bdbd120ae961f9cd179e79d7f9b27f/README.md",
+    "license_path": "LICENSE.md",
+    "license_url": "https://github.com/OWASP/www-project-top-10-for-large-language-model-applications/blob/99f4395589bdbd120ae961f9cd179e79d7f9b27f/LICENSE.md",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications",
+        "checked_at_utc": "2026-10-03T05:43:34.471032+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"cc50ad216236d4a17ed3f6a01050fbe7dcf34e587620291625604b0c3bd179dc\"",
+          "Last-Modified": "Thu, 01 Oct 2026 11:53:29 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4960",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8212,
+        "sha256": "6e9e2394d1f58139c910f4401e5f88bc1b6050d7997b322b5d56a424532aadbb",
+        "file": "research/data_sources/evidence/repos/OWASP__www-project-top-10-for-large-language-model-applications/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:37.217781+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"bdf33129aad42ba443f970060dd751696e1cbe788256b8d238d70c511dfa71eb\"",
+          "Last-Modified": "Wed, 05 Aug 2026 19:19:47 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4959",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6279,
+        "sha256": "61fdcf6c4c84df96e1876a82b320872eed590a48afedc2358d3d2f4b7b0bb179",
+        "file": "research/data_sources/evidence/repos/OWASP__www-project-top-10-for-large-language-model-applications/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/readme?ref=99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+        "checked_at_utc": "2026-10-03T05:43:39.092391+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/readme?ref=99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4fcff09b318d46394fd5b15d506000165937f8d7\"",
+          "Last-Modified": "Wed, 05 Aug 2026 19:19:47 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4958",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6712,
+        "sha256": "3835c86943892ebf7b21a7e557b677083d2ae7df57143b1a205b3b0cc6e1e6ec",
+        "file": "research/data_sources/evidence/repos/OWASP__www-project-top-10-for-large-language-model-applications/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/license?ref=99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+        "checked_at_utc": "2026-10-03T05:43:40.243246+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OWASP/www-project-top-10-for-large-language-model-applications/license?ref=99f4395589bdbd120ae961f9cd179e79d7f9b27f",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ef025ecd6acf876294554fa16fac59be74c4b427d63cd7556703b4e1ae48136b\"",
+          "Last-Modified": "Wed, 05 Aug 2026 19:19:47 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4954",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3312,
+        "sha256": "c31a7348f22bc4d3fb27f7710a416f99881a6590f821bf7232ff65b2ceb1cb65",
+        "file": "research/data_sources/evidence/repos/OWASP__www-project-top-10-for-large-language-model-applications/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "pytorch/pytorch",
+    "html_url": "https://github.com/pytorch/pytorch",
+    "homepage": "https://pytorch.org",
+    "stargazers_count": 103632,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T05:40:03Z",
+    "default_branch": "main",
+    "requested_repo": "pytorch/pytorch",
+    "commit": "0fbc42e05edb6a418b1ef124530767eead77e337",
+    "checked_at_utc": "2026-10-03T05:43:36.688638+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/pytorch/pytorch/blob/0fbc42e05edb6a418b1ef124530767eead77e337/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/pytorch/pytorch/blob/0fbc42e05edb6a418b1ef124530767eead77e337/LICENSE",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/pytorch/pytorch",
+        "checked_at_utc": "2026-10-03T05:43:36.688638+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pytorch/pytorch",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d21debfc6e7bc7659cc806da488150cad0b123a0537cc42c16108e645d9daee4\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:38:34 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4957",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6300,
+        "sha256": "0885574cf44244adb7e2c9b0d5091d834a80ac869c0530b1690165480c3860dd",
+        "file": "research/data_sources/evidence/repos/pytorch__pytorch/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/pytorch/pytorch/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:40.564679+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pytorch/pytorch/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1845fa06f711ac049742ad66ffd6933df11a68ca5c0ebc123da529fafdf6b423\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:38:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4952",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 23891,
+        "sha256": "dcc19b89c9ab9caea8df5a5598085ebfdde3400c1638018e36792eaf08e77e0e",
+        "file": "research/data_sources/evidence/repos/pytorch__pytorch/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/pytorch/pytorch/readme?ref=0fbc42e05edb6a418b1ef124530767eead77e337",
+        "checked_at_utc": "2026-10-03T05:43:43.606574+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pytorch/pytorch/readme?ref=0fbc42e05edb6a418b1ef124530767eead77e337",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"5193d54bdfcbd6cbb46bca9ba6cd9410744996af\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:38:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4949",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 42468,
+        "sha256": "bdbf49e6035072eee40abaf310abc575e40943bdd399f2c76957281cd1c59351",
+        "file": "research/data_sources/evidence/repos/pytorch__pytorch/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/pytorch/pytorch/license?ref=0fbc42e05edb6a418b1ef124530767eead77e337",
+        "checked_at_utc": "2026-10-03T05:43:45.259098+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pytorch/pytorch/license?ref=0fbc42e05edb6a418b1ef124530767eead77e337",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"29a0d8666ad9ed43aa98977d715d493f14af58e45cad7b50f27216d7534bc12f\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:38:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4943",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5792,
+        "sha256": "cf66d6eead6c9b657ff36de7dbc824739b1ef3ce5b3af7183e77a9bb51c8d5c8",
+        "file": "research/data_sources/evidence/repos/pytorch__pytorch/license.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/pytorch/pytorch/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:43:51.819355+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pytorch/pytorch/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"829fbb917eb6eed06deb86eec1da6b63b95679d3f9b0517995179ff2287edf07\"",
+          "Last-Modified": "Mon, 26 Jan 2026 21:25:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4941",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4019,
+        "sha256": "e91654698b604dceea52a7970b22e7fde1a230e32e80f544797c661509d88959",
+        "file": "research/data_sources/evidence/repos/pytorch__pytorch/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "tensorflow/tensorflow",
+    "html_url": "https://github.com/tensorflow/tensorflow",
+    "homepage": "https://tensorflow.org",
+    "stargazers_count": 200668,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T05:41:45Z",
+    "default_branch": "master",
+    "requested_repo": "tensorflow/tensorflow",
+    "commit": "6b749b04976aabfce8bf2fc60138cf932cd6721b",
+    "checked_at_utc": "2026-10-03T05:43:40.802895+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/tensorflow/tensorflow/blob/6b749b04976aabfce8bf2fc60138cf932cd6721b/README.md",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "checked_at_utc": "2026-10-03T05:43:40.802895+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1a2e0fb9023c7c4e6bf40729f8a4e34f6fc6679784cc01454abfd729f25a98dc\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:24:59 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4955",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6900,
+        "sha256": "93939b8f6e6b19cbf66c57327452dd382343090203b431b90c4e7374c93400a9",
+        "file": "research/data_sources/evidence/repos/tensorflow__tensorflow/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/tensorflow/tensorflow/commits/master",
+        "checked_at_utc": "2026-10-03T05:43:41.987057+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/tensorflow/tensorflow/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"b1b16366bae93a208780805e1df256ab3a2ebe6cb587056fb25496676a4fa325\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:24:25 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4953",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4617,
+        "sha256": "c1a28b8af1513e57731cf488f245c68fedf8525d2d77b60e8f2907b384656852",
+        "file": "research/data_sources/evidence/repos/tensorflow__tensorflow/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/tensorflow/tensorflow/readme?ref=6b749b04976aabfce8bf2fc60138cf932cd6721b",
+        "checked_at_utc": "2026-10-03T05:43:43.091095+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/tensorflow/tensorflow/readme?ref=6b749b04976aabfce8bf2fc60138cf932cd6721b",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"2ada91b134b2bc6daa60ca6265f1290f38a748c1\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:24:25 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4951",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11633,
+        "sha256": "58de1ce837864513fb11a997ae111bd6ef0252625942e7545698ac69fcb4e312",
+        "file": "research/data_sources/evidence/repos/tensorflow__tensorflow/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/tensorflow/tensorflow/license?ref=6b749b04976aabfce8bf2fc60138cf932cd6721b",
+        "checked_at_utc": "2026-10-03T05:43:44.795721+00:00",
+        "method": "GET",
+        "error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/tensorflow/tensorflow/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:43:55.204002+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/tensorflow/tensorflow/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"22f162a13cf95e979c5188f5eddd408d32775b8e3d6468b50f7ab82165c2c2c4\"",
+          "Last-Modified": "Tue, 30 Jul 2024 18:58:39 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4937",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3791,
+        "sha256": "4158dd535bdef6fdae8dfbdf802670789977d049cb8b61726a5b759d6ff11d24",
+        "file": "research/data_sources/evidence/repos/tensorflow__tensorflow/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "vllm-project/vllm",
+    "html_url": "https://github.com/vllm-project/vllm",
+    "homepage": "https://vllm.ai",
+    "stargazers_count": 93088,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T04:43:07Z",
+    "default_branch": "main",
+    "requested_repo": "vllm-project/vllm",
+    "commit": "1a001d584244bd21829a5e5bd4a376ea141c0ce3",
+    "checked_at_utc": "2026-10-03T05:43:43.019197+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/vllm-project/vllm/blob/1a001d584244bd21829a5e5bd4a376ea141c0ce3/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/vllm-project/vllm/blob/1a001d584244bd21829a5e5bd4a376ea141c0ce3/LICENSE",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/vllm-project/vllm",
+        "checked_at_utc": "2026-10-03T05:43:43.019197+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vllm-project/vllm",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"727d6bfc9c649141cd09c0631396c9e91905fe35f1ee94291faea4611731e121\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:40:01 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4950",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6580,
+        "sha256": "7a6659ee55163cb3a130e1321f7751a716b83082722e6bdafd000cce09b24c7e",
+        "file": "research/data_sources/evidence/repos/vllm-project__vllm/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/vllm-project/vllm/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:45.530214+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vllm-project/vllm/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"db5f001bd6fa0138aa522e6d2cf17404b222313193ce414f10fe53b20c666e88\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:43:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4948",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6447,
+        "sha256": "133ca9bbc6ae00027ffc5fe123edaf0719cb4e6543247e3ecb4016ffa8625be6",
+        "file": "research/data_sources/evidence/repos/vllm-project__vllm/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/vllm-project/vllm/readme?ref=1a001d584244bd21829a5e5bd4a376ea141c0ce3",
+        "checked_at_utc": "2026-10-03T05:43:46.968711+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vllm-project/vllm/readme?ref=1a001d584244bd21829a5e5bd4a376ea141c0ce3",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ca31a8cce94d828b38dbb9d206c12e4c69a92052\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:43:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4947",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8807,
+        "sha256": "e3de2cc7875f37e00fe28085cd196c78f60038f7a46cae2c463930808f65008c",
+        "file": "research/data_sources/evidence/repos/vllm-project__vllm/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/vllm-project/vllm/license?ref=1a001d584244bd21829a5e5bd4a376ea141c0ce3",
+        "checked_at_utc": "2026-10-03T05:43:48.189548+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vllm-project/vllm/license?ref=1a001d584244bd21829a5e5bd4a376ea141c0ce3",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"cd949beb3386574a61686461887d11bb09c3035fdd9f153d099f21f429cdb7d9\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:43:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4946",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16740,
+        "sha256": "81a766053eaa1969309e70bc456df7367d2308e3fdc77efd27aab1d043ce78ac",
+        "file": "research/data_sources/evidence/repos/vllm-project__vllm/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:43:49.681158+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vllm-project/vllm/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"7d654d0466e95d5f16a5d3f30a5b899ded2ae7fef808029f8de78e28317bf876\"",
+          "Last-Modified": "Wed, 23 Sep 2026 10:25:42 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4944",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17145,
+        "sha256": "0972605ece55124a2bdd1ed308d0d601f80bcdd50663802053cc1d3a725438fd",
+        "file": "research/data_sources/evidence/repos/vllm-project__vllm/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "ollama/ollama",
+    "html_url": "https://github.com/ollama/ollama",
+    "homepage": "https://ollama.com",
+    "stargazers_count": 182073,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T04:09:34Z",
+    "default_branch": "main",
+    "requested_repo": "ollama/ollama",
+    "commit": "42e911bc3d05798cad729cb474bf62f378cb2e26",
+    "checked_at_utc": "2026-10-03T05:43:52.004638+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/ollama/ollama/blob/42e911bc3d05798cad729cb474bf62f378cb2e26/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/ollama/ollama",
+        "checked_at_utc": "2026-10-03T05:43:52.004638+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ollama/ollama",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c3392110c154ca81dbde646639037edd05814468012b4130fbe2cfea43f6ab82\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:29:12 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4942",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6194,
+        "sha256": "6f98b36f6e7e484a404e09c5ef401e4e851cb0826b0f14fe33b7cf8599b408c1",
+        "file": "research/data_sources/evidence/repos/ollama__ollama/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ollama/ollama/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:53.258055+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ollama/ollama/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"5c88810441ca1da6fb944e712e8da844a4b1a4d99000ab69df217751a708e5f4\"",
+          "Last-Modified": "Fri, 02 Oct 2026 18:52:27 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4939",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7169,
+        "sha256": "ad906b8ae6b9b23ebd1b0a1830f6475146044183b66011c42eb4e4fdddb5b110",
+        "file": "research/data_sources/evidence/repos/ollama__ollama/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ollama/ollama/readme?ref=42e911bc3d05798cad729cb474bf62f378cb2e26",
+        "checked_at_utc": "2026-10-03T05:43:55.100441+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ollama/ollama/readme?ref=42e911bc3d05798cad729cb474bf62f378cb2e26",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e511fbe3fd3e73fc6d7cfb5393d827cf70f0a2f6\"",
+          "Last-Modified": "Fri, 02 Oct 2026 18:52:27 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4936",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 27406,
+        "sha256": "bfe11839b854bb2f09aa2743ca52f2c55b1704f056b69886c920d16246ffbef2",
+        "file": "research/data_sources/evidence/repos/ollama__ollama/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ollama/ollama/license?ref=42e911bc3d05798cad729cb474bf62f378cb2e26",
+        "checked_at_utc": "2026-10-03T05:43:57.236978+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ollama/ollama/license?ref=42e911bc3d05798cad729cb474bf62f378cb2e26",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"fff00f3b22c3fc5e3e849afba7ba378c3d4272cae0e0fde4fd0375f565663a9e\"",
+          "Last-Modified": "Fri, 02 Oct 2026 18:52:27 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4934",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2493,
+        "sha256": "a46c5335aa0fe67494367412181ba72fa7d6eb262d51752485fbd96d9dc80310",
+        "file": "research/data_sources/evidence/repos/ollama__ollama/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ollama/ollama/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:43:58.469369+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ollama/ollama/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4927",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/ollama__ollama/public_advisory.body",
+        "earlier_attempt_error": "URLError"
+      }
+    ]
+  },
+  {
+    "full_name": "huggingface/transformers",
+    "html_url": "https://github.com/huggingface/transformers",
+    "homepage": "https://huggingface.co/transformers",
+    "stargazers_count": 166912,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T03:54:50Z",
+    "default_branch": "main",
+    "requested_repo": "huggingface/transformers",
+    "commit": "02d8fb9784e8f14a1251e4c992cd82a5762417c6",
+    "checked_at_utc": "2026-10-03T05:43:53.232870+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/huggingface/transformers/blob/02d8fb9784e8f14a1251e4c992cd82a5762417c6/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/huggingface/transformers/blob/02d8fb9784e8f14a1251e4c992cd82a5762417c6/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/huggingface/transformers",
+        "checked_at_utc": "2026-10-03T05:43:53.232870+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/huggingface/transformers",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d18de72caabf611844800871ed0e0207eaac3b627422cf8d9d5a57b60bc14b4f\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:05:26 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4940",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7104,
+        "sha256": "2eb050d886fdae7e47f9a5ed7d2b1dc26080f0b23d4c5fe66be980a6f2e9f0f3",
+        "file": "research/data_sources/evidence/repos/huggingface__transformers/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/huggingface/transformers/commits/main",
+        "checked_at_utc": "2026-10-03T05:43:54.461955+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/huggingface/transformers/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0230b5d897d8860fdead52ba542c885ad853e3f44d78b616fe2725f21cc9507f\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:59:34 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4938",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6916,
+        "sha256": "cb373a91bada9f475f772e22e7a426b9c3518ab47f008318b4c8c5b9fc668c87",
+        "file": "research/data_sources/evidence/repos/huggingface__transformers/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/huggingface/transformers/readme?ref=02d8fb9784e8f14a1251e4c992cd82a5762417c6",
+        "checked_at_utc": "2026-10-03T05:43:55.864373+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/huggingface/transformers/readme?ref=02d8fb9784e8f14a1251e4c992cd82a5762417c6",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"730084a5a55486821a1d600d8084beb9069f805b\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:59:34 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4935",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 24667,
+        "sha256": "c5decbf4876eeae7e274639ff01f6d938f2d2c0af06c2a3d101e1340dfbc01e4",
+        "file": "research/data_sources/evidence/repos/huggingface__transformers/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/huggingface/transformers/license?ref=02d8fb9784e8f14a1251e4c992cd82a5762417c6",
+        "checked_at_utc": "2026-10-03T05:43:58.858959+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/huggingface/transformers/license?ref=02d8fb9784e8f14a1251e4c992cd82a5762417c6",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d7e94b5ee244719aa21bdf4dbb99fb9d7584c759c70785a57e9990e7304f01cd\"",
+          "Last-Modified": "Fri, 02 Oct 2026 20:59:34 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4933",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16871,
+        "sha256": "4343084f4a9bda213890c8ef579d755ca89638aca8a4fdb45fe662f6f59392b6",
+        "file": "research/data_sources/evidence/repos/huggingface__transformers/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/huggingface/transformers/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:00.935669+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/huggingface/transformers/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4932",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/huggingface__transformers/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "langchain-ai/langchain",
+    "html_url": "https://github.com/langchain-ai/langchain",
+    "homepage": "https://docs.langchain.com/langchain/",
+    "stargazers_count": 147390,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T22:57:27Z",
+    "default_branch": "master",
+    "requested_repo": "langchain-ai/langchain",
+    "commit": "57236d55d9ffc8634bda987861e6fce460aff268",
+    "checked_at_utc": "2026-10-03T05:43:56.350934+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/langchain-ai/langchain/blob/57236d55d9ffc8634bda987861e6fce460aff268/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/langchain-ai/langchain/blob/57236d55d9ffc8634bda987861e6fce460aff268/LICENSE",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/langchain-ai/langchain",
+        "checked_at_utc": "2026-10-03T05:43:56.350934+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/langchain-ai/langchain",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"6818e946bcd4ee66d2e53046db59da518eac787651f83132e71159393c7da2ba\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:05:56 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4931",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6780,
+        "sha256": "a815f03b26a0aab599c0c0433e60d8975d86626a51d610d678c4019a4b5e03ba",
+        "file": "research/data_sources/evidence/repos/langchain-ai__langchain/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/commits/master",
+        "checked_at_utc": "2026-10-03T05:44:03.320083+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/langchain-ai/langchain/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1eb401dd997e0bf036a94d70b19fe5a487ad3e52ec649a9c18951221f0f581b3\"",
+          "Last-Modified": "Fri, 02 Oct 2026 19:35:20 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4928",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 18651,
+        "sha256": "c1ed90663ff45e6076087e410f9858aa65dfadfa59051057f01b4a134baf51bf",
+        "file": "research/data_sources/evidence/repos/langchain-ai__langchain/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/readme?ref=57236d55d9ffc8634bda987861e6fce460aff268",
+        "checked_at_utc": "2026-10-03T05:44:04.564546+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/langchain-ai/langchain/readme?ref=57236d55d9ffc8634bda987861e6fce460aff268",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"aeea8c38765f4a33c777e8755ac2f439132ffbb0\"",
+          "Last-Modified": "Fri, 02 Oct 2026 19:35:20 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4920",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 9156,
+        "sha256": "6912f7522c0db14fec51b8171856826c576d041d5f70f1d578416a938d00c99d",
+        "file": "research/data_sources/evidence/repos/langchain-ai__langchain/readme.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=57236d55d9ffc8634bda987861e6fce460aff268",
+        "checked_at_utc": "2026-10-03T05:44:11.007371+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=57236d55d9ffc8634bda987861e6fce460aff268",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ac7e08d5b8a5da0c3582a461175ba69ca1029c10fc2c4e51251e74bda0e90428\"",
+          "Last-Modified": "Fri, 02 Oct 2026 19:35:20 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4918",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2568,
+        "sha256": "9432a4fd46fee83a5af91a6013790a380a25eacd686a24233490a7c8bc480453",
+        "file": "research/data_sources/evidence/repos/langchain-ai__langchain/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/langchain-ai/langchain/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:12.166811+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/langchain-ai/langchain/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"cb7f80596e41201c2f88178802b616ace9aa55fbec37d806e2e29ae3fa74a056\"",
+          "Last-Modified": "Tue, 16 Jun 2026 22:21:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4915",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7516,
+        "sha256": "7c7adbf28327cb4581da5c91c2d2abd90ea7f81c2adc9a3069218a638756bac9",
+        "file": "research/data_sources/evidence/repos/langchain-ai__langchain/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "run-llama/llama_index",
+    "html_url": "https://github.com/run-llama/llama_index",
+    "homepage": "https://developers.llamaindex.ai",
+    "stargazers_count": 52389,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "archived": false,
+    "pushed_at": "2026-10-01T18:39:47Z",
+    "default_branch": "main",
+    "requested_repo": "run-llama/llama_index",
+    "commit": "962940ddc079cc21701d28d1237c84c82a7c5164",
+    "checked_at_utc": "2026-10-03T05:44:01.982853+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/run-llama/llama_index/blob/962940ddc079cc21701d28d1237c84c82a7c5164/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/run-llama/llama_index/blob/962940ddc079cc21701d28d1237c84c82a7c5164/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/run-llama/llama_index",
+        "checked_at_utc": "2026-10-03T05:44:01.982853+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/run-llama/llama_index",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"bc1e2d2eb1f24c82b57df946eea2f0319ce24c6229e816826d0fb815431a39b1\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:29:01 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4930",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6611,
+        "sha256": "3abedab995fe1036fadcd3a3f805362bbcca800ce1c66be9610648036f29137c",
+        "file": "research/data_sources/evidence/repos/run-llama__llama_index/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/run-llama/llama_index/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:03.089109+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/run-llama/llama_index/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"53e99356199b677d08130d4fd37ea2ab5c368e09892d8e13f2b0e8a6549e9886\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:39:46 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4929",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8059,
+        "sha256": "de61893b5d57fe7ecfcc0fffb0ae45657acfa9b566cbc45c85f64b2b167422c3",
+        "file": "research/data_sources/evidence/repos/run-llama__llama_index/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/run-llama/llama_index/readme?ref=962940ddc079cc21701d28d1237c84c82a7c5164",
+        "checked_at_utc": "2026-10-03T05:44:04.410076+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/run-llama/llama_index/readme?ref=962940ddc079cc21701d28d1237c84c82a7c5164",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"572527a8f5293bcf001366da01e51549280ff2e0\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:39:46 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4926",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16950,
+        "sha256": "7563e9567ebacc316a9bd8c9489c04bb464563749d06c02be0236c9d4a98b230",
+        "file": "research/data_sources/evidence/repos/run-llama__llama_index/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/run-llama/llama_index/license?ref=962940ddc079cc21701d28d1237c84c82a7c5164",
+        "checked_at_utc": "2026-10-03T05:44:06.392903+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/run-llama/llama_index/license?ref=962940ddc079cc21701d28d1237c84c82a7c5164",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e39c0b1158111070c6c6fd6a4f690c349e202c3be108c590062b1e06f1da36f2\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:39:46 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4924",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2557,
+        "sha256": "b202646288aea7f4ca047e0f0362dc79570ebd8c38f8c0b9735229c0c6a7c959",
+        "file": "research/data_sources/evidence/repos/run-llama__llama_index/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/run-llama/llama_index/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:07.822485+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/run-llama/llama_index/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4923",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/run-llama__llama_index/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "triton-inference-server/server",
+    "html_url": "https://github.com/triton-inference-server/server",
+    "homepage": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+    "stargazers_count": 11042,
+    "license": {
+      "key": "bsd-3-clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "spdx_id": "BSD-3-Clause",
+      "url": "https://api.github.com/licenses/bsd-3-clause",
+      "node_id": "MDc6TGljZW5zZTU="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T18:14:50Z",
+    "default_branch": "main",
+    "requested_repo": "triton-inference-server/server",
+    "commit": "eb74dea5d400b92f54eacbd5f3f84903c786e4cd",
+    "checked_at_utc": "2026-10-03T05:44:04.951916+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/triton-inference-server/server/blob/eb74dea5d400b92f54eacbd5f3f84903c786e4cd/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/triton-inference-server/server/blob/eb74dea5d400b92f54eacbd5f3f84903c786e4cd/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/triton-inference-server/server",
+        "checked_at_utc": "2026-10-03T05:44:04.951916+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/triton-inference-server/server",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1c77baff896962bb5b59036d2f3aa1273600ab5573282afa865a7a8f868dadd7\"",
+          "Last-Modified": "Sat, 03 Oct 2026 01:56:25 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4925",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7463,
+        "sha256": "1e5aab82e739df22c75080f97dfb13f3181b3b1d0b55070e4e580181eec2692e",
+        "file": "research/data_sources/evidence/repos/triton-inference-server__server/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/triton-inference-server/server/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:06.974643+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/triton-inference-server/server/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c52ee21937edd44b06e502692ad2d85e6291a3dd3ac719fae4945f3f4a1f5ff6\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:15:55 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4922",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 36659,
+        "sha256": "935343fdee55bb576485649a2313360c73a1ec291690cdff11546386b5d37929",
+        "file": "research/data_sources/evidence/repos/triton-inference-server__server/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/triton-inference-server/server/readme?ref=eb74dea5d400b92f54eacbd5f3f84903c786e4cd",
+        "checked_at_utc": "2026-10-03T05:44:09.792627+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/triton-inference-server/server/readme?ref=eb74dea5d400b92f54eacbd5f3f84903c786e4cd",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ce27a7d6db1770e78d5c098cf9dd57bdae768e44\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:15:55 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4921",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 21307,
+        "sha256": "f2e36099d47c32db54c9e8e8c0effebfff7a6fd7491605c9249db40041a3deac",
+        "file": "research/data_sources/evidence/repos/triton-inference-server__server/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/triton-inference-server/server/license?ref=eb74dea5d400b92f54eacbd5f3f84903c786e4cd",
+        "checked_at_utc": "2026-10-03T05:44:11.232996+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/triton-inference-server/server/license?ref=eb74dea5d400b92f54eacbd5f3f84903c786e4cd",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"9993c44f8f475b6df3f99692408f4f9b34e03cf22160762dd8195c4abc241d82\"",
+          "Last-Modified": "Thu, 01 Oct 2026 18:15:55 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4917",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3179,
+        "sha256": "145740807ba5ebf14ae04becee8335fd8792a31214f4f7bdd9316295eeb67856",
+        "file": "research/data_sources/evidence/repos/triton-inference-server__server/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/triton-inference-server/server/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:13.724215+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/triton-inference-server/server/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4912",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/triton-inference-server__server/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "ray-project/ray",
+    "html_url": "https://github.com/ray-project/ray",
+    "homepage": "https://ray.io",
+    "stargazers_count": 43965,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T05:30:40Z",
+    "default_branch": "master",
+    "requested_repo": "ray-project/ray",
+    "commit": "de9feace338285782b1b5aacb1420748f551124d",
+    "checked_at_utc": "2026-10-03T05:44:10.223968+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/ray-project/ray/blob/de9feace338285782b1b5aacb1420748f551124d/README.rst",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/ray-project/ray/blob/de9feace338285782b1b5aacb1420748f551124d/LICENSE",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/ray-project/ray",
+        "checked_at_utc": "2026-10-03T05:44:10.223968+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ray-project/ray",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"242d127569e1371f8178afc91c46f7f7086401027a5b0964f95afce1c2f0f31f\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:30:46 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4919",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6684,
+        "sha256": "e885946796e74d70dfb09a391b0714c54ab321a6afa9a5a7186cfc9b42edc364",
+        "file": "research/data_sources/evidence/repos/ray-project__ray/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ray-project/ray/commits/master",
+        "checked_at_utc": "2026-10-03T05:44:11.442215+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ray-project/ray/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1e3d38a513d6e1ac40a02fb6c8ebed8ba64fc20babba5829211534159f75c2c6\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:30:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4916",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16478,
+        "sha256": "e990038494438aa4a17e705e7f2fb9dc1c0a5c7795224eff3ad31d4388183f0d",
+        "file": "research/data_sources/evidence/repos/ray-project__ray/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ray-project/ray/readme?ref=de9feace338285782b1b5aacb1420748f551124d",
+        "checked_at_utc": "2026-10-03T05:44:15.039418+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ray-project/ray/readme?ref=de9feace338285782b1b5aacb1420748f551124d",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"978e713e61f916c19320022fcb318ecca216c064\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:30:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4914",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 9900,
+        "sha256": "ee336da348abcccfc6f21c9af2c4ac6c42917867ab192be3cf5d842d6ad9d995",
+        "file": "research/data_sources/evidence/repos/ray-project__ray/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ray-project/ray/license?ref=de9feace338285782b1b5aacb1420748f551124d",
+        "checked_at_utc": "2026-10-03T05:44:16.195764+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ray-project/ray/license?ref=de9feace338285782b1b5aacb1420748f551124d",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f136c9cbb057fefc1587e103e0f93624b67713b97a054fe7647dd661a7f4c902\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:30:40 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4913",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 38620,
+        "sha256": "6995299bcc4ef5e1d19df3d985d3919393773f5626569c09faba487ebf512913",
+        "file": "research/data_sources/evidence/repos/ray-project__ray/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/ray-project/ray/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:17.777608+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/ray-project/ray/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"18572d38c80bab4b06207618f28cd2366820e878b01b23752fc1fbbc1402ece7\"",
+          "Last-Modified": "Wed, 01 Jul 2026 16:39:01 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4911",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 15218,
+        "sha256": "d95e1dd9bc2c473816df4d5bd8e02a5a7539edde3d4e5fd5e1da605a2555b21b",
+        "file": "research/data_sources/evidence/repos/ray-project__ray/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "mlflow/mlflow",
+    "html_url": "https://github.com/mlflow/mlflow",
+    "homepage": "https://mlflow.org",
+    "stargazers_count": 28239,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T05:42:54Z",
+    "default_branch": "master",
+    "requested_repo": "mlflow/mlflow",
+    "commit": "10653cab3ee7e1b80737e770e9adc5059c72bf22",
+    "checked_at_utc": "2026-10-03T05:44:14.489003+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/mlflow/mlflow/blob/10653cab3ee7e1b80737e770e9adc5059c72bf22/README.md",
+    "license_path": "LICENSE.txt",
+    "license_url": "https://github.com/mlflow/mlflow/blob/10653cab3ee7e1b80737e770e9adc5059c72bf22/LICENSE.txt",
+    "public_advisory_count_in_probe": 1,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/mlflow/mlflow",
+        "checked_at_utc": "2026-10-03T05:44:14.489003+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mlflow/mlflow",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"12f26aeec8ca812fce710f14134ff09cbf11a05f9281fb9a739a3ce847078faa\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:42:57 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4910",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6532,
+        "sha256": "f6783517e2db9f86d047d88116077d0259c2b5634bfd91d6b0da8d7478046166",
+        "file": "research/data_sources/evidence/repos/mlflow__mlflow/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/mlflow/mlflow/commits/master",
+        "checked_at_utc": "2026-10-03T05:44:21.124270+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mlflow/mlflow/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"3ac74ba3aa54d5937399892b606211a0cdb34c3e78667df3de794ceb391b428e\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:40:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4909",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11719,
+        "sha256": "8a56b2e39a17da25cad3161557d3b2fbb0ee7bc2e1aaa0f80b6c05c6f9a28f88",
+        "file": "research/data_sources/evidence/repos/mlflow__mlflow/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mlflow/mlflow/readme?ref=10653cab3ee7e1b80737e770e9adc5059c72bf22",
+        "checked_at_utc": "2026-10-03T05:44:22.845585+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mlflow/mlflow/readme?ref=10653cab3ee7e1b80737e770e9adc5059c72bf22",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"deda29106b45462e1464e53b9f2af09358b86475\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:40:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4908",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 46530,
+        "sha256": "86bac34d22e38308f916b7d88f7d9f4e8575227e8d6b417b582a2c4fa6a145f9",
+        "file": "research/data_sources/evidence/repos/mlflow__mlflow/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mlflow/mlflow/license?ref=10653cab3ee7e1b80737e770e9adc5059c72bf22",
+        "checked_at_utc": "2026-10-03T05:44:24.624002+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mlflow/mlflow/license?ref=10653cab3ee7e1b80737e770e9adc5059c72bf22",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"321ad4edeabbcba8df883c11652f7f66edc7938bff3118ede3865722f58ce90c\"",
+          "Last-Modified": "Sat, 03 Oct 2026 05:40:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4905",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16772,
+        "sha256": "f1fb7586b5c051744ed96a86775db942c2d5048a18c01ccaac73a316c67c29bc",
+        "file": "research/data_sources/evidence/repos/mlflow__mlflow/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/mlflow/mlflow/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:26.378052+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/mlflow/mlflow/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"bb84724bd3253a7022e83fe8af36b2b679da0008a9eb64ba98588b169bbad706\"",
+          "Last-Modified": "Wed, 16 Sep 2026 09:20:15 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4902",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16602,
+        "sha256": "a7bab92ca3d4f1683cd6e01f5431053955509e9e7a22802a5c2679cccf8b489d",
+        "file": "research/data_sources/evidence/repos/mlflow__mlflow/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "jupyter/security",
+    "html_url": "https://github.com/jupyter/security",
+    "homepage": null,
+    "stargazers_count": 27,
+    "license": {
+      "key": "bsd-3-clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "spdx_id": "BSD-3-Clause",
+      "url": "https://api.github.com/licenses/bsd-3-clause",
+      "node_id": "MDc6TGljZW5zZTU="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-21T16:04:57Z",
+    "default_branch": "main",
+    "requested_repo": "jupyter/security",
+    "commit": "6e04eff4318ef3ae28f70512d6e857d44f7ce37b",
+    "checked_at_utc": "2026-10-03T05:44:17.834329+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/jupyter/security/blob/6e04eff4318ef3ae28f70512d6e857d44f7ce37b/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/jupyter/security/blob/6e04eff4318ef3ae28f70512d6e857d44f7ce37b/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/jupyter/security",
+        "checked_at_utc": "2026-10-03T05:44:17.834329+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/jupyter/security",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"3da392a07835348501cb6ff84b0f11201b96eb814a6a15d1773423a4441ef0cb\"",
+          "Last-Modified": "Mon, 21 Sep 2026 16:05:02 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4907",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6213,
+        "sha256": "ec3ba295a9b95cc4c4851f4d61bc4debc6754e88b054012e79e322cf9209a263",
+        "file": "research/data_sources/evidence/repos/jupyter__security/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/jupyter/security/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:24.443401+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/jupyter/security/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"922487bc873f629e23e652abc47b70fe911b462d145dbf00954d0fb6c47c00a1\"",
+          "Last-Modified": "Mon, 21 Sep 2026 16:04:56 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4906",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6412,
+        "sha256": "52f6ed56559a09b47cee7cf586852fcd2bb2b7cc2142209acc76ceb374ce874b",
+        "file": "research/data_sources/evidence/repos/jupyter__security/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/jupyter/security/readme?ref=6e04eff4318ef3ae28f70512d6e857d44f7ce37b",
+        "checked_at_utc": "2026-10-03T05:44:25.985924+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/jupyter/security/readme?ref=6e04eff4318ef3ae28f70512d6e857d44f7ce37b",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1cfdb624f580dbdb586ad07de8e2bfbc3e3d2fec\"",
+          "Last-Modified": "Mon, 21 Sep 2026 16:04:56 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4903",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2542,
+        "sha256": "eb968d0ae5845babb5ff75f2296730165abaf0700fa02725aab008472bdf5cbb",
+        "file": "research/data_sources/evidence/repos/jupyter__security/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/jupyter/security/license?ref=6e04eff4318ef3ae28f70512d6e857d44f7ce37b",
+        "checked_at_utc": "2026-10-03T05:44:28.155448+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/jupyter/security/license?ref=6e04eff4318ef3ae28f70512d6e857d44f7ce37b",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0fe0d7df0d819d88422aeb2e91af51e481af83103a8e4c4149b2c70409a702c8\"",
+          "Last-Modified": "Mon, 21 Sep 2026 16:04:56 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4900",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3213,
+        "sha256": "9f904fee2d8cb4b5b3c3a30b8b650886553c20f6117f58f6d7551c4e2c4d46d8",
+        "file": "research/data_sources/evidence/repos/jupyter__security/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/jupyter/security/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:29.393978+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/jupyter/security/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4898",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/jupyter__security/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "kubernetes/kubernetes",
+    "html_url": "https://github.com/kubernetes/kubernetes",
+    "homepage": "https://kubernetes.io",
+    "stargazers_count": 128168,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T23:37:18Z",
+    "default_branch": "master",
+    "requested_repo": "kubernetes/kubernetes",
+    "commit": "99a4ea72fe6fe258d2e2875e7f83223bfbd50463",
+    "checked_at_utc": "2026-10-03T05:44:19.769315+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/kubernetes/kubernetes/blob/99a4ea72fe6fe258d2e2875e7f83223bfbd50463/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/kubernetes/kubernetes/blob/99a4ea72fe6fe258d2e2875e7f83223bfbd50463/LICENSE",
+    "public_advisory_count_in_probe": 0,
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes",
+        "checked_at_utc": "2026-10-03T05:44:19.769315+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kubernetes/kubernetes",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"42a90d751937ced43c2c60e6e1945972147c54245e90c3d0bb6a8470a55f686c\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:57:59 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4904",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6601,
+        "sha256": "bd0c0af7020eb532bdc3aef2c1f6b0b7356756753288f00e3313a1b1ca73db5c",
+        "file": "research/data_sources/evidence/repos/kubernetes__kubernetes/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/commits/master",
+        "checked_at_utc": "2026-10-03T05:44:27.216007+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kubernetes/kubernetes/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"eb06dfede39d9a52b8c081ac2f870781ea40ab2641e7bf4c9e62ed13e9d463de\"",
+          "Last-Modified": "Fri, 02 Oct 2026 23:37:18 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4901",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6378,
+        "sha256": "1a9109d2782c1a01c29295ad6a5bc90db5b054a425e3a0d8a6bd4d63f1875e28",
+        "file": "research/data_sources/evidence/repos/kubernetes__kubernetes/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/readme?ref=99a4ea72fe6fe258d2e2875e7f83223bfbd50463",
+        "checked_at_utc": "2026-10-03T05:44:28.358047+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kubernetes/kubernetes/readme?ref=99a4ea72fe6fe258d2e2875e7f83223bfbd50463",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"831bf0164f8e625d70c35a99ae23fd3522870f52\"",
+          "Last-Modified": "Fri, 02 Oct 2026 23:37:18 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4893",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6807,
+        "sha256": "a80b4377e939a88cc4f5ae74b44ef1b82191efb8b78ecfb40a04b960cfb9d09c",
+        "file": "research/data_sources/evidence/repos/kubernetes__kubernetes/readme.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/license?ref=99a4ea72fe6fe258d2e2875e7f83223bfbd50463",
+        "checked_at_utc": "2026-10-03T05:44:35.256939+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kubernetes/kubernetes/license?ref=99a4ea72fe6fe258d2e2875e7f83223bfbd50463",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d606f74a8f96492301df7e2cfcd0b356d3729654c16a75037ee2ba27686fb992\"",
+          "Last-Modified": "Fri, 02 Oct 2026 23:37:18 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4891",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16768,
+        "sha256": "f21e4d1e9272e380c021d16cd6aad3a0c934b22c97a19f895294633c8475321e",
+        "file": "research/data_sources/evidence/repos/kubernetes__kubernetes/license.body"
+      },
+      {
+        "url": "https://api.github.com/repos/kubernetes/kubernetes/security-advisories?per_page=1",
+        "checked_at_utc": "2026-10-03T05:44:36.590140+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kubernetes/kubernetes/security-advisories?per_page=1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4e3f88af7ef53cbea4dde94250d7fcc01d4c4dc80dfa1b99d378ea8040cedfd2\"",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4887",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2,
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "file": "research/data_sources/evidence/repos/kubernetes__kubernetes/public_advisory.body"
+      }
+    ]
+  },
+  {
+    "full_name": "package-url/purl-spec",
+    "html_url": "https://github.com/package-url/purl-spec",
+    "homepage": "https://packageurl.org/",
+    "stargazers_count": 1116,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-29T22:26:06Z",
+    "default_branch": "main",
+    "requested_repo": "package-url/purl-spec",
+    "commit": "7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+    "checked_at_utc": "2026-10-03T05:44:28.477112+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/package-url/purl-spec/blob/7cd2d3442fb9c88155db17ada7c911b40ec22d41/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/package-url/purl-spec/blob/7cd2d3442fb9c88155db17ada7c911b40ec22d41/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/package-url/purl-spec",
+        "checked_at_utc": "2026-10-03T05:44:28.477112+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/purl-spec",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0fed8c4b2b02d5de4d0e21113a5b4f949b0e717fb6dabfd54ed1f7ac7e0bb99a\"",
+          "Last-Modified": "Sat, 03 Oct 2026 03:16:51 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4899",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6694,
+        "sha256": "fb9e85484961fb8a43408ce210e915dd24a7065668ee9051fce56002eaa20d8d",
+        "file": "research/data_sources/evidence/repos/package-url__purl-spec/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/purl-spec/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:29.774033+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/purl-spec/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"361a333bde4718fb3e2efef4db7425c8718db169a8281639b627e3d0b3d4eca8\"",
+          "Last-Modified": "Tue, 29 Sep 2026 22:26:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4897",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5703,
+        "sha256": "6bffc91a071939b629ab4bc23922af9b3904d6e53fef6ec0311e5fa25de50a17",
+        "file": "research/data_sources/evidence/repos/package-url__purl-spec/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/purl-spec/readme?ref=7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+        "checked_at_utc": "2026-10-03T05:44:30.965088+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/purl-spec/readme?ref=7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"753e334ebe9ab89fb6ecaa1accf7e7aa98332449\"",
+          "Last-Modified": "Tue, 29 Sep 2026 22:26:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4896",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11799,
+        "sha256": "9659aa7a420e33f8948c2e669f3c4e2b926c6b3c875a9dd8b7cc31f379af16a3",
+        "file": "research/data_sources/evidence/repos/package-url__purl-spec/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/purl-spec/license?ref=7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+        "checked_at_utc": "2026-10-03T05:44:32.785481+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/purl-spec/license?ref=7cd2d3442fb9c88155db17ada7c911b40ec22d41",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"98151e4321b4617b5e8082826d9328ec43af4a7c6f6575a1487c169a4c54eaac\"",
+          "Last-Modified": "Tue, 29 Sep 2026 22:26:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4894",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2726,
+        "sha256": "a004b41603390fa52e7e695b4a28c24f421da640df045e2bfc59509d997b4f2f",
+        "file": "research/data_sources/evidence/repos/package-url__purl-spec/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "CycloneDX/specification",
+    "html_url": "https://github.com/CycloneDX/specification",
+    "homepage": "https://cyclonedx.org/",
+    "stargazers_count": 556,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T15:54:19Z",
+    "default_branch": "master",
+    "requested_repo": "CycloneDX/specification",
+    "commit": "1ce97b2a7b8cf2429da248560d2aa671c6bce74a",
+    "checked_at_utc": "2026-10-03T05:44:30.521151+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/CycloneDX/specification/blob/1ce97b2a7b8cf2429da248560d2aa671c6bce74a/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/CycloneDX/specification/blob/1ce97b2a7b8cf2429da248560d2aa671c6bce74a/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/CycloneDX/specification",
+        "checked_at_utc": "2026-10-03T05:44:30.521151+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CycloneDX/specification",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"737574eeb05f8dfe5f5879f0f6876dd8d2a16a59756a97da98492bb5f69c06a7\"",
+          "Last-Modified": "Thu, 01 Oct 2026 13:04:19 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4895",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6977,
+        "sha256": "53f41cf09465925b84f5cd45f7891a384dc99398f3fa6e0f1f97544051b6f333",
+        "file": "research/data_sources/evidence/repos/CycloneDX__specification/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CycloneDX/specification/commits/master",
+        "checked_at_utc": "2026-10-03T05:44:33.199901+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CycloneDX/specification/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4d0f8cecdb30006b76bce9552cf3e16388592551a2ea064782e5f8d14bc7c05d\"",
+          "Last-Modified": "Thu, 24 Sep 2026 16:01:39 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4892",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8929,
+        "sha256": "86f5b40d4d1d42632ec56bfda190c0cb36a1b487734942588d90b6335f9aaa75",
+        "file": "research/data_sources/evidence/repos/CycloneDX__specification/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CycloneDX/specification/readme?ref=1ce97b2a7b8cf2429da248560d2aa671c6bce74a",
+        "checked_at_utc": "2026-10-03T05:44:36.264444+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CycloneDX/specification/readme?ref=1ce97b2a7b8cf2429da248560d2aa671c6bce74a",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"473e2444b5edaa6a8eeb6cb39a1bd5c91873822f\"",
+          "Last-Modified": "Thu, 24 Sep 2026 16:01:39 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4889",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8267,
+        "sha256": "6828073a9b714c8be7ab33e0bf87d270a6286735bd3be692ea475d87f636f54f",
+        "file": "research/data_sources/evidence/repos/CycloneDX__specification/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/CycloneDX/specification/license?ref=1ce97b2a7b8cf2429da248560d2aa671c6bce74a",
+        "checked_at_utc": "2026-10-03T05:44:37.943686+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/CycloneDX/specification/license?ref=1ce97b2a7b8cf2429da248560d2aa671c6bce74a",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0aed93596ee89ad70f13b7f4c45772de631b33045d0cbfc74b3fee6f771ea689\"",
+          "Last-Modified": "Thu, 24 Sep 2026 16:01:39 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4886",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16762,
+        "sha256": "14c7a093bf1a08fecbca4d02d85957d208dd4857ae9224b0908996a3e61c00f3",
+        "file": "research/data_sources/evidence/repos/CycloneDX__specification/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "spdx/spdx-spec",
+    "html_url": "https://github.com/spdx/spdx-spec",
+    "homepage": "https://spdx.github.io/spdx-spec/",
+    "stargazers_count": 386,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T01:02:08Z",
+    "default_branch": "develop",
+    "requested_repo": "spdx/spdx-spec",
+    "commit": "b0f290ffdb31b5682ff90bd99636d1d29e79d3b2",
+    "checked_at_utc": "2026-10-03T05:44:34.866586+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/spdx/spdx-spec/blob/b0f290ffdb31b5682ff90bd99636d1d29e79d3b2/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/spdx/spdx-spec/blob/b0f290ffdb31b5682ff90bd99636d1d29e79d3b2/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/spdx/spdx-spec",
+        "checked_at_utc": "2026-10-03T05:44:34.866586+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/spdx/spdx-spec",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c385c2ffa21eb75b58ccf7d8adfb3ae6eac1eae9b4bfead98946b60495fc5a74\"",
+          "Last-Modified": "Wed, 23 Sep 2026 05:11:53 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4890",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6264,
+        "sha256": "adc501e6303a5d96d2bb8ade88d6d855e99dd40305cadb011a006448c314a156",
+        "file": "research/data_sources/evidence/repos/spdx__spdx-spec/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/spdx/spdx-spec/commits/develop",
+        "checked_at_utc": "2026-10-03T05:44:36.808114+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/spdx/spdx-spec/commits/develop",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4baf46673fad8875d0b412a2bfab1abc11e017b277292a1b93722ed5b0140ed4\"",
+          "Last-Modified": "Wed, 23 Sep 2026 05:11:48 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4888",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5710,
+        "sha256": "588c210de91b9afca728b855281027f8efb6aa088c138524d6982938c615c984",
+        "file": "research/data_sources/evidence/repos/spdx__spdx-spec/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/spdx/spdx-spec/readme?ref=b0f290ffdb31b5682ff90bd99636d1d29e79d3b2",
+        "checked_at_utc": "2026-10-03T05:44:37.976579+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/spdx/spdx-spec/readme?ref=b0f290ffdb31b5682ff90bd99636d1d29e79d3b2",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"08f2cbff782c026df6947470c97cc604eb394f04\"",
+          "Last-Modified": "Wed, 23 Sep 2026 05:11:48 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4885",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 9746,
+        "sha256": "8e26f852bf4c02ba0345e8f0e03f393d85e625bb7a7b58f643d976e769f9240c",
+        "file": "research/data_sources/evidence/repos/spdx__spdx-spec/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/spdx/spdx-spec/license?ref=b0f290ffdb31b5682ff90bd99636d1d29e79d3b2",
+        "checked_at_utc": "2026-10-03T05:44:39.154050+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/spdx/spdx-spec/license?ref=b0f290ffdb31b5682ff90bd99636d1d29e79d3b2",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"b7ab3df515bf5435bd5e4ade596b80a6dfd1d3d62ceff70f2abac8a001a37898\"",
+          "Last-Modified": "Wed, 23 Sep 2026 05:11:48 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4883",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 50460,
+        "sha256": "1e03d79bb8b2dd3885f99679e72aecfe344b57a19923d99339e11e1a73473e58",
+        "file": "research/data_sources/evidence/repos/spdx__spdx-spec/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "openvex/spec",
+    "html_url": "https://github.com/openvex/spec",
+    "homepage": null,
+    "stargazers_count": 192,
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "spdx_id": "CC0-1.0",
+      "url": "https://api.github.com/licenses/cc0-1.0",
+      "node_id": "MDc6TGljZW5zZTY="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-09T19:51:21Z",
+    "default_branch": "main",
+    "requested_repo": "openvex/spec",
+    "commit": "61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+    "checked_at_utc": "2026-10-03T05:44:39.289184+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/openvex/spec/blob/61b5f885d0f481f48683c93345e49ef1a6e9fdff/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/openvex/spec/blob/61b5f885d0f481f48683c93345e49ef1a6e9fdff/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/openvex/spec",
+        "checked_at_utc": "2026-10-03T05:44:39.289184+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/openvex/spec",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"5942b3144415eb895c28e51c1c648d324dcfb994704ac822f4f2610e7a486cd1\"",
+          "Last-Modified": "Thu, 24 Sep 2026 19:59:39 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4884",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5970,
+        "sha256": "29b6268342d782b17ed1daadf3ce5303c9cbf14918bd4cdfc98597aea7accae8",
+        "file": "research/data_sources/evidence/repos/openvex__spec/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/openvex/spec/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:41.475636+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/openvex/spec/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0df4a13d46fa975759e13aac43382541f419342340196e8f01b449c77b1e5cc9\"",
+          "Last-Modified": "Wed, 09 Sep 2026 19:51:21 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4879",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6570,
+        "sha256": "68d98ac68dcce265592b8741cd7a25df6e8081e0d65f99c84e7e258f441c24cc",
+        "file": "research/data_sources/evidence/repos/openvex__spec/commit.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/openvex/spec/readme?ref=61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+        "checked_at_utc": "2026-10-03T05:44:49.294335+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/openvex/spec/readme?ref=61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"59d720a5190cd79087d77da54e4909383e2bcccd\"",
+          "Last-Modified": "Wed, 09 Sep 2026 19:51:21 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4873",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 9830,
+        "sha256": "d1ab6f98b95ee874bff1dfe3510a133a64bd63ddbecaaf3b31d21d298db8a239",
+        "file": "research/data_sources/evidence/repos/openvex__spec/readme.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/openvex/spec/license?ref=61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+        "checked_at_utc": "2026-10-03T05:44:57.652437+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/openvex/spec/license?ref=61b5f885d0f481f48683c93345e49ef1a6e9fdff",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"dd17f505fdf14a146129d0eada7285d282efe1abac13e79a972932f020c94bf4\"",
+          "Last-Modified": "Wed, 09 Sep 2026 19:51:21 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4871",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 10777,
+        "sha256": "94e2b1da1d9ccac464fd798aeaf28c58219a947280b796c914d83fe731815f10",
+        "file": "research/data_sources/evidence/repos/openvex__spec/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "pypa/packaging",
+    "html_url": "https://github.com/pypa/packaging",
+    "homepage": "https://packaging.pypa.io/",
+    "stargazers_count": 751,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T17:47:10Z",
+    "default_branch": "main",
+    "requested_repo": "pypa/packaging",
+    "commit": "4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+    "checked_at_utc": "2026-10-03T05:44:40.011788+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/pypa/packaging/blob/4a920d632a0e81ef2b06dc94d9048eee9e569c8d/README.rst",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/pypa/packaging/blob/4a920d632a0e81ef2b06dc94d9048eee9e569c8d/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/pypa/packaging",
+        "checked_at_utc": "2026-10-03T05:44:40.011788+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pypa/packaging",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c6190c4a44a37ea5338eb5fe7e8f9f1b6f83a90ce8d638080c1e115907eb6010\"",
+          "Last-Modified": "Fri, 02 Oct 2026 17:47:13 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4882",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6020,
+        "sha256": "dc14d98a45f300c626ac4178dd01824ab2631b5434a20602cf62bdc45c608882",
+        "file": "research/data_sources/evidence/repos/pypa__packaging/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/pypa/packaging/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:41.210720+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pypa/packaging/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0accd7a34d973d18bb91b9e0ac4bde461d11901a667a322bed658faac9cae204\"",
+          "Last-Modified": "Fri, 02 Oct 2026 17:47:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4881",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 18395,
+        "sha256": "93ed85f0c11c98c042aaea192d9a8c5910c95d0f1c1701c2a39f6b317787d155",
+        "file": "research/data_sources/evidence/repos/pypa__packaging/commit.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/pypa/packaging/readme?ref=4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+        "checked_at_utc": "2026-10-03T05:44:48.018748+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pypa/packaging/readme?ref=4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c39830e124f24f2329cfb7fb963062aa6cb9237a\"",
+          "Last-Modified": "Fri, 02 Oct 2026 17:47:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4878",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4037,
+        "sha256": "f8232af0edfd471b51bc33d711d294b7d01adce0a110697bebe7c146d3e615b4",
+        "file": "research/data_sources/evidence/repos/pypa__packaging/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/pypa/packaging/license?ref=4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+        "checked_at_utc": "2026-10-03T05:44:49.140204+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/pypa/packaging/license?ref=4a920d632a0e81ef2b06dc94d9048eee9e569c8d",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"92c35f5ec33b081edaed31132887e6032537391167595103df11ee57deed0d09\"",
+          "Last-Modified": "Fri, 02 Oct 2026 17:47:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4877",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 1284,
+        "sha256": "6cf585d7a8c1f3b41bd10e950786c2d2402a9cb4c023f8e4590d5f47514ce3d2",
+        "file": "research/data_sources/evidence/repos/pypa__packaging/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "package-url/packageurl-python",
+    "html_url": "https://github.com/package-url/packageurl-python",
+    "homepage": "",
+    "stargazers_count": 91,
+    "license": null,
+    "archived": false,
+    "pushed_at": "2026-03-11T23:55:06Z",
+    "default_branch": "main",
+    "requested_repo": "package-url/packageurl-python",
+    "commit": "c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4",
+    "checked_at_utc": "2026-10-03T05:44:41.280391+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/package-url/packageurl-python/blob/c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4/README.rst",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/package-url/packageurl-python",
+        "checked_at_utc": "2026-10-03T05:44:41.280391+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/packageurl-python",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"2c0b3f6214c6d5c628d228d061c43b5c382e1fc30dbd3c49586d27968c797961\"",
+          "Last-Modified": "Tue, 04 Aug 2026 07:08:03 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4880",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6947,
+        "sha256": "f4a3810da2229f621b7b57d7d521e84738b20f67079e4a6dc90aa348f02bb753",
+        "file": "research/data_sources/evidence/repos/package-url__packageurl-python/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/packageurl-python/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:47.820059+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/packageurl-python/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"1e6f0693214874b3217818fe9d9feccde07a930b5876ebe61fd9b554e6bc2636\"",
+          "Last-Modified": "Wed, 11 Mar 2026 23:54:36 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4876",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 12838,
+        "sha256": "89e649ba9e3081a96e8cc5583c07d0b07767f1c8cbafd22008f0a3034ce577dc",
+        "file": "research/data_sources/evidence/repos/package-url__packageurl-python/commit.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/packageurl-python/readme?ref=c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4",
+        "checked_at_utc": "2026-10-03T05:44:55.711086+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/package-url/packageurl-python/readme?ref=c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"906dbe58de24afe068ac5c746cd28db029beef2e\"",
+          "Last-Modified": "Wed, 11 Mar 2026 23:54:36 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4874",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6158,
+        "sha256": "6e71a7cc1c4b752d933289a70c60b20b281819b3fa0dc3b51140d6a52e09b6b8",
+        "file": "research/data_sources/evidence/repos/package-url__packageurl-python/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/package-url/packageurl-python/license?ref=c7c7b46346eebcd86ec61d4ee7c6a84c3fe5fcc4",
+        "checked_at_utc": "2026-10-03T05:44:57.101390+00:00",
+        "method": "GET",
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    ]
+  },
+  {
+    "full_name": "kurtmckee/feedparser",
+    "html_url": "https://github.com/kurtmckee/feedparser",
+    "homepage": "https://feedparser.readthedocs.io",
+    "stargazers_count": 2433,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-07T22:29:38Z",
+    "default_branch": "main",
+    "requested_repo": "kurtmckee/feedparser",
+    "commit": "a22c5521cbb109871f1a2318948581901bd47e26",
+    "checked_at_utc": "2026-10-03T05:44:51.605924+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/kurtmckee/feedparser/blob/a22c5521cbb109871f1a2318948581901bd47e26/README.rst",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/kurtmckee/feedparser/blob/a22c5521cbb109871f1a2318948581901bd47e26/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/kurtmckee/feedparser",
+        "checked_at_utc": "2026-10-03T05:44:51.605924+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kurtmckee/feedparser",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"70221026d9b3b29241b348e0c6b214a28d8292babd634ec6bdc06967c9e282f5\"",
+          "Last-Modified": "Fri, 02 Oct 2026 19:55:44 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4875",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5400,
+        "sha256": "20f33fe4a4bce359b9504065eeaafe2dbce19a793862da9a8cb12c3980fc7a22",
+        "file": "research/data_sources/evidence/repos/kurtmckee__feedparser/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/kurtmckee/feedparser/commits/main",
+        "checked_at_utc": "2026-10-03T05:44:55.576150+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kurtmckee/feedparser/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"3eb2c78224452aaaa00c4a5cf58bd51373411f66fda7164e644336c7854ce819\"",
+          "Last-Modified": "Thu, 30 Jul 2026 14:54:57 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4868",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7398,
+        "sha256": "f8f08221009bd4b498598b7509434c7f07bae726d9f1d27bde440960dd502fba",
+        "file": "research/data_sources/evidence/repos/kurtmckee__feedparser/commit.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/kurtmckee/feedparser/readme?ref=a22c5521cbb109871f1a2318948581901bd47e26",
+        "checked_at_utc": "2026-10-03T05:45:02.664087+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kurtmckee/feedparser/readme?ref=a22c5521cbb109871f1a2318948581901bd47e26",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d0d4c41c828a9229c8bb339a9778a54537fc16f2\"",
+          "Last-Modified": "Thu, 30 Jul 2026 14:54:57 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4866",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2359,
+        "sha256": "ccd38038d7adbe68e06d24c0b32743201af723c2d936b5b5a8b61e993c1ce03b",
+        "file": "research/data_sources/evidence/repos/kurtmckee__feedparser/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/kurtmckee/feedparser/license?ref=a22c5521cbb109871f1a2318948581901bd47e26",
+        "checked_at_utc": "2026-10-03T05:45:03.863348+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/kurtmckee/feedparser/license?ref=a22c5521cbb109871f1a2318948581901bd47e26",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e53245adb163846f3475148ec97913c241fdc2bdc91236801b69db19a1c8996e\"",
+          "Last-Modified": "Thu, 30 Jul 2026 14:54:57 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4863",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5419,
+        "sha256": "64272f0389c5a6459750a3a0d59ccb0205b919f176d57559db6b4748a81c2bb9",
+        "file": "research/data_sources/evidence/repos/kurtmckee__feedparser/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "vehemont/nvdlib",
+    "html_url": "https://github.com/vehemont/nvdlib",
+    "homepage": "https://nvdlib.com",
+    "stargazers_count": 117,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "archived": false,
+    "pushed_at": "2026-09-27T16:26:37Z",
+    "default_branch": "main",
+    "requested_repo": "vehemont/nvdlib",
+    "commit": "main",
+    "checked_at_utc": "2026-10-03T05:44:58.157757+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/vehemont/nvdlib/blob/main/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/vehemont/nvdlib/blob/main/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/vehemont/nvdlib",
+        "checked_at_utc": "2026-10-03T05:44:58.157757+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vehemont/nvdlib",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e6cf0c09b5e36e704c56c02d00271250d6558660843287cc7fe2e973681a7531\"",
+          "Last-Modified": "Sun, 27 Sep 2026 16:21:24 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4865",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5261,
+        "sha256": "164a789bd6e4eae6f328da9c9dfa612a41d416e6cd52b0a6dd0b081bf7e77b29",
+        "file": "research/data_sources/evidence/repos/vehemont__nvdlib/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/vehemont/nvdlib/commits/main",
+        "checked_at_utc": "2026-10-03T05:45:06.010792+00:00",
+        "method": "GET",
+        "error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/vehemont/nvdlib/readme?ref=main",
+        "checked_at_utc": "2026-10-03T05:45:16.419667+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vehemont/nvdlib/readme?ref=main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"931a746fc6a17cab81e2de2bf0d8e4ec790612ad\"",
+          "Last-Modified": "Sun, 27 Sep 2026 16:21:15 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4853",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4419,
+        "sha256": "61c81ae482e5ab5a53e614e8445bee60d3366ced1e1f3a91a9cd62c28aa7b7fa",
+        "file": "research/data_sources/evidence/repos/vehemont__nvdlib/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/vehemont/nvdlib/license?ref=main",
+        "checked_at_utc": "2026-10-03T05:45:17.637213+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/vehemont/nvdlib/license?ref=main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"ea020a50fe6c1195313dd5d83ab05a16c03c43b64efdc89313593b9e6b6e9547\"",
+          "Last-Modified": "Sun, 27 Sep 2026 16:21:15 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4851",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2323,
+        "sha256": "ab1c5eeb64bf66f26702d97d5185c2c3bf2bbdbd71bb5d26d8715f5a951a305f",
+        "file": "research/data_sources/evidence/repos/vehemont__nvdlib/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "cve-search/cve-search",
+    "html_url": "https://github.com/cve-search/cve-search",
+    "homepage": "https://www.cve-search.org/",
+    "stargazers_count": 2653,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "archived": false,
+    "pushed_at": "2026-09-30T07:54:31Z",
+    "default_branch": "master",
+    "requested_repo": "cve-search/cve-search",
+    "commit": "57f1bf6684b71d04711e7e11aea7e9ea964a1067",
+    "checked_at_utc": "2026-10-03T05:44:59.110038+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/cve-search/cve-search/blob/57f1bf6684b71d04711e7e11aea7e9ea964a1067/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/cve-search/cve-search/blob/57f1bf6684b71d04711e7e11aea7e9ea964a1067/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/cve-search/cve-search",
+        "checked_at_utc": "2026-10-03T05:44:59.110038+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cve-search/cve-search",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"74e52be5acc60128fbf9848bb56cc8bad1a1874740259e085e21fbf94214b821\"",
+          "Last-Modified": "Thu, 01 Oct 2026 03:00:44 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4870",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6743,
+        "sha256": "753d9ecc3e5e26101186d16566da46f5d84480801e6a536a58aaa9c26ced09a3",
+        "file": "research/data_sources/evidence/repos/cve-search__cve-search/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cve-search/cve-search/commits/master",
+        "checked_at_utc": "2026-10-03T05:45:00.397284+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cve-search/cve-search/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"306c7336b4549b29b91a7070336054c31abc6d9c59924fde85b6fb0deaa5743e\"",
+          "Last-Modified": "Wed, 02 Sep 2026 10:26:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4869",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5552,
+        "sha256": "75f2f0668bea0ed7c53146b59ba4f572bc54f03ad86337d8ab387f08a6dbf87c",
+        "file": "research/data_sources/evidence/repos/cve-search__cve-search/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cve-search/cve-search/readme?ref=57f1bf6684b71d04711e7e11aea7e9ea964a1067",
+        "checked_at_utc": "2026-10-03T05:45:02.461155+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cve-search/cve-search/readme?ref=57f1bf6684b71d04711e7e11aea7e9ea964a1067",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"5369c0e513905e3cc4f69b3403b773cb27ebdd76\"",
+          "Last-Modified": "Wed, 02 Sep 2026 10:26:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4867",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17958,
+        "sha256": "6b82b362ec8f1eacb7992ed8a0fb1955bf847a962a435081c1b150dd4782d4bd",
+        "file": "research/data_sources/evidence/repos/cve-search__cve-search/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/cve-search/cve-search/license?ref=57f1bf6684b71d04711e7e11aea7e9ea964a1067",
+        "checked_at_utc": "2026-10-03T05:45:05.118346+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/cve-search/cve-search/license?ref=57f1bf6684b71d04711e7e11aea7e9ea964a1067",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"7d757ecddc5970ccebecc13adcdbe51c513f8ed0e52165747bddd31bba14ecd3\"",
+          "Last-Modified": "Wed, 02 Sep 2026 10:26:41 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4864",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 48700,
+        "sha256": "1efe2692c182d7a89d9e0784cb06c3d0a2d7530a11ade286b7c5df44ae4302ac",
+        "file": "research/data_sources/evidence/repos/cve-search__cve-search/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "oasis-open/cti-python-stix2",
+    "html_url": "https://github.com/oasis-open/cti-python-stix2",
+    "homepage": "https://stix2.readthedocs.io/",
+    "stargazers_count": 438,
+    "license": {
+      "key": "bsd-3-clause",
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "spdx_id": "BSD-3-Clause",
+      "url": "https://api.github.com/licenses/bsd-3-clause",
+      "node_id": "MDc6TGljZW5zZTU="
+    },
+    "archived": false,
+    "pushed_at": "2026-02-12T06:21:36Z",
+    "default_branch": "master",
+    "requested_repo": "oasis-open/cti-python-stix2",
+    "commit": "2270361774215de49717c1a6028a80c91075b400",
+    "checked_at_utc": "2026-10-03T05:45:07.097155+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/oasis-open/cti-python-stix2/blob/2270361774215de49717c1a6028a80c91075b400/README.rst",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/oasis-open/cti-python-stix2/blob/2270361774215de49717c1a6028a80c91075b400/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/oasis-open/cti-python-stix2",
+        "checked_at_utc": "2026-10-03T05:45:07.097155+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/oasis-open/cti-python-stix2",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"a9e88e43150d2b94cbac4d042dff9d3bef70e046a13e909b2629e9ad8efc8eff\"",
+          "Last-Modified": "Tue, 29 Sep 2026 14:39:44 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4862",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6914,
+        "sha256": "4a9aa957a79e86d21a2660305768816b2a3cf988f0582db901cc9d6db64173e9",
+        "file": "research/data_sources/evidence/repos/oasis-open__cti-python-stix2/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/oasis-open/cti-python-stix2/commits/master",
+        "checked_at_utc": "2026-10-03T05:45:08.743887+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/oasis-open/cti-python-stix2/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"2b30a8c23ddc0e7bc0bfafb73a34d3fd490c524d905c3d1b84bf844c1ccd2d46\"",
+          "Last-Modified": "Thu, 12 Feb 2026 06:19:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4861",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17359,
+        "sha256": "f1b3111983fd95f715a539dbe5b0eb7c901459b80d6b253808966ec65feb8c3e",
+        "file": "research/data_sources/evidence/repos/oasis-open__cti-python-stix2/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/oasis-open/cti-python-stix2/readme?ref=2270361774215de49717c1a6028a80c91075b400",
+        "checked_at_utc": "2026-10-03T05:45:10.776283+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/oasis-open/cti-python-stix2/readme?ref=2270361774215de49717c1a6028a80c91075b400",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"538fbe439e4c6566e0a2d1c35b1eff062df52687\"",
+          "Last-Modified": "Thu, 12 Feb 2026 06:19:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4860",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 13432,
+        "sha256": "7f357b6d9d0883844ada2f624749eaf6845b8848c74815193b56eb84edbf0151",
+        "file": "research/data_sources/evidence/repos/oasis-open__cti-python-stix2/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/oasis-open/cti-python-stix2/license?ref=2270361774215de49717c1a6028a80c91075b400",
+        "checked_at_utc": "2026-10-03T05:45:13.472104+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/oasis-open/cti-python-stix2/license?ref=2270361774215de49717c1a6028a80c91075b400",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"52fd75d5512039834fd6310a0b1cf2a11a312b8a83ffe7892bce321e7df9221e\"",
+          "Last-Modified": "Thu, 12 Feb 2026 06:19:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4858",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3246,
+        "sha256": "76b9a4c72366aaf20d333c6f7e4d63c1f2d3e8a8e670f8d3e25eaf6942040bea",
+        "file": "research/data_sources/evidence/repos/oasis-open__cti-python-stix2/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "OpenCTI-Platform/opencti",
+    "html_url": "https://github.com/OpenCTI-Platform/opencti",
+    "homepage": "https://opencti.io",
+    "stargazers_count": 10082,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T02:01:19Z",
+    "default_branch": "master",
+    "requested_repo": "OpenCTI-Platform/opencti",
+    "commit": "b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+    "checked_at_utc": "2026-10-03T05:45:07.708052+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/OpenCTI-Platform/opencti/blob/b97fbc534ec69ba374a2fe0e8665cf87b5e75b72/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/OpenCTI-Platform/opencti/blob/b97fbc534ec69ba374a2fe0e8665cf87b5e75b72/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/opencti",
+        "checked_at_utc": "2026-10-03T05:45:07.708052+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/opencti",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d558717248d7fdf96b708ca4355e67f80744eff67d8b763a58f6ec7a86e5fc22\"",
+          "Last-Modified": "Sat, 03 Oct 2026 04:59:37 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4859",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6870,
+        "sha256": "17181904f4093f887843827494a903b9c193cbde3b6ea859f309d7c400417504",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__opencti/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/opencti/commits/master",
+        "checked_at_utc": "2026-10-03T05:45:14.359281+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/opencti/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"8df6ae9e949d96cfb873c4fd38265864e6b267224ebf21dfd8b602ecb220debb\"",
+          "Last-Modified": "Sat, 03 Oct 2026 02:01:16 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4857",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 8715,
+        "sha256": "5d0e33412d7766b377714cd680621a7e355618672e453cecf93201c314be4547",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__opencti/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/opencti/readme?ref=b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+        "checked_at_utc": "2026-10-03T05:45:15.698203+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/opencti/readme?ref=b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"dbfa0d77be75ab2bab2e507cce59e24df1abb5fd\"",
+          "Last-Modified": "Sat, 03 Oct 2026 02:01:16 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4855",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11784,
+        "sha256": "6b186281b8d48b1210f46f0686e22bb74daebf2fd2e3f3b6553bd779c99694e5",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__opencti/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/opencti/license?ref=b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+        "checked_at_utc": "2026-10-03T05:45:16.961585+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/opencti/license?ref=b97fbc534ec69ba374a2fe0e8665cf87b5e75b72",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c1c094c8e3acf1efc271d8174deb9bb1e3a90097d5d427adee026e7fecea560a\"",
+          "Last-Modified": "Sat, 03 Oct 2026 02:01:16 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4849",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 28772,
+        "sha256": "82db87f509ccafecfc98550ff159781a745311bb2d48f82ce07e56facdd4cb2e",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__opencti/license.body",
+        "earlier_attempt_error": "URLError"
+      }
+    ]
+  },
+  {
+    "full_name": "OpenCTI-Platform/connectors",
+    "html_url": "https://github.com/OpenCTI-Platform/connectors",
+    "homepage": "https://www.opencti.io",
+    "stargazers_count": 582,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-03T02:48:26Z",
+    "default_branch": "master",
+    "requested_repo": "OpenCTI-Platform/connectors",
+    "commit": "4cc0ea22561541dddd22c32dc83347f5a376c909",
+    "checked_at_utc": "2026-10-03T05:45:14.694741+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/OpenCTI-Platform/connectors/blob/4cc0ea22561541dddd22c32dc83347f5a376c909/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/OpenCTI-Platform/connectors/blob/4cc0ea22561541dddd22c32dc83347f5a376c909/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/connectors",
+        "checked_at_utc": "2026-10-03T05:45:14.694741+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/connectors",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"d658642152caccc7d38581928115b359e141cbc7fe0a073817e8e3763948485f\"",
+          "Last-Modified": "Fri, 02 Oct 2026 16:00:14 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4856",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7007,
+        "sha256": "f601e9e6038847e7cc996856fdcbfa3995340cd354b9c91eb4758129eb9f4d59",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__connectors/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/connectors/commits/master",
+        "checked_at_utc": "2026-10-03T05:45:15.856721+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/connectors/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"25c8a89c812233d9291d1242f4222050ce45397896c06d1a3bcffd159ad765e6\"",
+          "Last-Modified": "Fri, 02 Oct 2026 14:05:13 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4854",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 41292,
+        "sha256": "3ac894e798bfc687c26c99223c210fa63cee3af908035056070a034c23e6b34c",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__connectors/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/connectors/readme?ref=4cc0ea22561541dddd22c32dc83347f5a376c909",
+        "checked_at_utc": "2026-10-03T05:45:17.144422+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/connectors/readme?ref=4cc0ea22561541dddd22c32dc83347f5a376c909",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"61cb99b1118bf05872760cbb4479117090b1e316\"",
+          "Last-Modified": "Fri, 02 Oct 2026 14:05:13 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4852",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 3855,
+        "sha256": "ff77a43f4c983bb3a92c9f3c0dc8e40c58d61b5ed2910a5577f3b4345f7b5203",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__connectors/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/OpenCTI-Platform/connectors/license?ref=4cc0ea22561541dddd22c32dc83347f5a376c909",
+        "checked_at_utc": "2026-10-03T05:45:19.961115+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/OpenCTI-Platform/connectors/license?ref=4cc0ea22561541dddd22c32dc83347f5a376c909",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"58296c9ec8075e8e8ac08cd3745d1cc2a7591f9b1b92e384e049e752852a7367\"",
+          "Last-Modified": "Fri, 02 Oct 2026 14:05:13 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4850",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16810,
+        "sha256": "e4960d3340daf08c8b577a3497eb0546d3e337fde516c6f19fbfe36d5ad59137",
+        "file": "research/data_sources/evidence/repos/OpenCTI-Platform__connectors/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "intelowlproject/IntelOwl",
+    "html_url": "https://github.com/intelowlproject/IntelOwl",
+    "homepage": "https://intelowlproject.github.io",
+    "stargazers_count": 4737,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-01T08:30:19Z",
+    "default_branch": "master",
+    "requested_repo": "intelowlproject/IntelOwl",
+    "commit": "bf75e8b2f465f27c590cd0d7fea61d65fb6aab56",
+    "checked_at_utc": "2026-10-03T05:45:20.452078+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/intelowlproject/IntelOwl/blob/bf75e8b2f465f27c590cd0d7fea61d65fb6aab56/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/intelowlproject/IntelOwl/blob/bf75e8b2f465f27c590cd0d7fea61d65fb6aab56/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/intelowlproject/IntelOwl",
+        "checked_at_utc": "2026-10-03T05:45:20.452078+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/intelowlproject/IntelOwl",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"465a6203d76ae7e2e92908ce70e7a21243b4c8822ef4153e3d2322d78d18dd31\"",
+          "Last-Modified": "Fri, 02 Oct 2026 15:23:45 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4844",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7120,
+        "sha256": "ff40c98d7d3985a921278602595a1975170d973078dd38d60cb5f2a01087cc2a",
+        "file": "research/data_sources/evidence/repos/intelowlproject__IntelOwl/metadata.body",
+        "earlier_attempt_error": "URLError"
+      },
+      {
+        "url": "https://api.github.com/repos/intelowlproject/IntelOwl/commits/master",
+        "checked_at_utc": "2026-10-03T05:45:28.455478+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/intelowlproject/IntelOwl/commits/master",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"0a10f5d5bfd0a27fb813822b86b54c301be2d5a2f6e5d6f91df6c6f7f814a91c\"",
+          "Last-Modified": "Wed, 02 Sep 2026 04:33:26 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4841",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 388852,
+        "sha256": "41c99ce8f55d2821c4e410390744b80ec6c71ba519027283d7bb3c6b19fb19ea",
+        "file": "research/data_sources/evidence/repos/intelowlproject__IntelOwl/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/intelowlproject/IntelOwl/readme?ref=bf75e8b2f465f27c590cd0d7fea61d65fb6aab56",
+        "checked_at_utc": "2026-10-03T05:45:31.422719+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/intelowlproject/IntelOwl/readme?ref=bf75e8b2f465f27c590cd0d7fea61d65fb6aab56",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"7b613795a25673f2fd886f6cce2d8a1fc1d46354\"",
+          "Last-Modified": "Wed, 02 Sep 2026 04:33:26 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4837",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17025,
+        "sha256": "63896b38e640fdf41e91c4c3f381d75333b48fe129f29d5525e8a62889bf2247",
+        "file": "research/data_sources/evidence/repos/intelowlproject__IntelOwl/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/intelowlproject/IntelOwl/license?ref=bf75e8b2f465f27c590cd0d7fea61d65fb6aab56",
+        "checked_at_utc": "2026-10-03T05:45:33.960371+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/intelowlproject/IntelOwl/license?ref=bf75e8b2f465f27c590cd0d7fea61d65fb6aab56",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"23ef9a0b7defb6ee403949c201f347223d854d7f04b8eb4370013b288fa3a446\"",
+          "Last-Modified": "Wed, 02 Sep 2026 04:33:26 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4832",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 48721,
+        "sha256": "7d89a5842ffcdd1edfc355e4c25070cfd2e636d4245fa5c676dae627cf9c9b5c",
+        "file": "research/data_sources/evidence/repos/intelowlproject__IntelOwl/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "MISP/MISP",
+    "html_url": "https://github.com/MISP/MISP",
+    "homepage": "https://www.misp-project.org/",
+    "stargazers_count": 6563,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T15:53:38Z",
+    "default_branch": "2.5",
+    "requested_repo": "MISP/MISP",
+    "commit": "fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+    "checked_at_utc": "2026-10-03T05:45:23.014749+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/MISP/MISP/blob/fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/MISP/MISP/blob/fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/MISP/MISP",
+        "checked_at_utc": "2026-10-03T05:45:23.014749+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MISP/MISP",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"4656142bf9078a1e1c26ee0b565135d203e1367223509fb7bf040bca2de4df88\"",
+          "Last-Modified": "Fri, 02 Oct 2026 13:58:01 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4848",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6256,
+        "sha256": "247ef7acfa1191a6d4e612429c574f6cb502a369bccd1ffe4a8802b2c41c6eb4",
+        "file": "research/data_sources/evidence/repos/MISP__MISP/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/MISP/MISP/commits/2.5",
+        "checked_at_utc": "2026-10-03T05:45:24.173543+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MISP/MISP/commits/2.5",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"c3a66b29f63eb260bf6365a6bee99a6612ee37d2964f82de67caa92a08148003\"",
+          "Last-Modified": "Tue, 29 Sep 2026 14:57:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4847",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11492,
+        "sha256": "f24ba52f0215b883c97d834699ee6400bc5b337b6cab0f3dced3bd50b7591f9d",
+        "file": "research/data_sources/evidence/repos/MISP__MISP/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/MISP/MISP/readme?ref=fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+        "checked_at_utc": "2026-10-03T05:45:26.033760+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MISP/MISP/readme?ref=fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"238d18884b7a7fb789c48ec99ada71fc1183f3c4\"",
+          "Last-Modified": "Tue, 29 Sep 2026 14:57:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4845",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 23794,
+        "sha256": "44f3fce94425a353ec5134bd6d8fbe9ffd9a0db63c2c61ded6b5b647e3f924a5",
+        "file": "research/data_sources/evidence/repos/MISP__MISP/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/MISP/MISP/license?ref=fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+        "checked_at_utc": "2026-10-03T05:45:28.038878+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/MISP/MISP/license?ref=fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"81c0fabea9fc60af86b31ca5cb823dea757c7ae900fc62bcd4df88d40f0d2a8c\"",
+          "Last-Modified": "Tue, 29 Sep 2026 14:57:07 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4842",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 48612,
+        "sha256": "9386418619a3730dd98b545443333f2b6118f34ed019f5b8a0271599df2a8c34",
+        "file": "research/data_sources/evidence/repos/MISP__MISP/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "aboutcode-org/univers",
+    "html_url": "https://github.com/aboutcode-org/univers",
+    "homepage": "",
+    "stargazers_count": 50,
+    "license": null,
+    "archived": false,
+    "pushed_at": "2026-05-01T16:39:15Z",
+    "default_branch": "main",
+    "requested_repo": "aboutcode-org/univers",
+    "commit": "92b1a2498e60779775ac9351fd7c38a035f97eb1",
+    "checked_at_utc": "2026-10-03T05:45:24.915318+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/aboutcode-org/univers/blob/92b1a2498e60779775ac9351fd7c38a035f97eb1/README.rst",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/aboutcode-org/univers",
+        "checked_at_utc": "2026-10-03T05:45:24.915318+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/aboutcode-org/univers",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"2febe285ea84794563c0ce122dec248324a675f5cb85025fc299b44076df9ea8\"",
+          "Last-Modified": "Tue, 25 Aug 2026 08:56:51 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4846",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 12115,
+        "sha256": "287544a453ac7718ebcfceb7720eb7e467dcfd5ed1f627c951a23c55407314c1",
+        "file": "research/data_sources/evidence/repos/aboutcode-org__univers/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/aboutcode-org/univers/commits/main",
+        "checked_at_utc": "2026-10-03T05:45:26.602080+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/aboutcode-org/univers/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"7427592f3172b76978c8c0335c47a5ef79b18c76d6f8f47745e426d97f72862f\"",
+          "Last-Modified": "Fri, 01 May 2026 16:36:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4843",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 7296,
+        "sha256": "b77aae635c4757b2cc1377b1a0aa010482ecd8ed590213317699dce6d00d358e",
+        "file": "research/data_sources/evidence/repos/aboutcode-org__univers/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/aboutcode-org/univers/readme?ref=92b1a2498e60779775ac9351fd7c38a035f97eb1",
+        "checked_at_utc": "2026-10-03T05:45:28.562410+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/aboutcode-org/univers/readme?ref=92b1a2498e60779775ac9351fd7c38a035f97eb1",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e4a88b6a02e3787cd9f6bc9fc6c458648e19e91d\"",
+          "Last-Modified": "Fri, 01 May 2026 16:36:05 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4840",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 17585,
+        "sha256": "bc894f616c6c90ed27d76d435f98e7e2c3c2b69b090e3c547d0b03b758049ac7",
+        "file": "research/data_sources/evidence/repos/aboutcode-org__univers/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/aboutcode-org/univers/license?ref=92b1a2498e60779775ac9351fd7c38a035f97eb1",
+        "checked_at_utc": "2026-10-03T05:45:30.831236+00:00",
+        "method": "GET",
+        "status": 404,
+        "error": "HTTP 404"
+      }
+    ]
+  },
+  {
+    "full_name": "nilp0inter/cpe",
+    "html_url": "https://github.com/nilp0inter/cpe",
+    "homepage": "",
+    "stargazers_count": 95,
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0",
+      "node_id": "MDc6TGljZW5zZTEy"
+    },
+    "archived": false,
+    "pushed_at": "2025-09-23T08:44:07Z",
+    "default_branch": "main",
+    "requested_repo": "nilp0inter/cpe",
+    "commit": "50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce",
+    "checked_at_utc": "2026-10-03T05:45:29.509411+00:00",
+    "readme_path": "README.rst",
+    "readme_url": "https://github.com/nilp0inter/cpe/blob/50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce/README.rst",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/nilp0inter/cpe/blob/50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/nilp0inter/cpe",
+        "checked_at_utc": "2026-10-03T05:45:29.509411+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/nilp0inter/cpe",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"3b7c82b88ca679bd8bd713fb8bca8c095968993a4f5c452869e0f2df9c0b6003\"",
+          "Last-Modified": "Tue, 29 Sep 2026 11:34:19 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4839",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 5173,
+        "sha256": "f95c97d8c274a43d41ed04dfe59feb9a82991a18ba87cf06ed364e8244aad314",
+        "file": "research/data_sources/evidence/repos/nilp0inter__cpe/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/nilp0inter/cpe/commits/main",
+        "checked_at_utc": "2026-10-03T05:45:31.593638+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/nilp0inter/cpe/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"397aae76a7557a3e26406d7abacd709e8e9de7918aa9a44e496ffc8f56ff617f\"",
+          "Last-Modified": "Wed, 02 Oct 2024 07:54:04 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4836",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4710,
+        "sha256": "dcdcdc0941e5824d05b7c18ad8867f59f58e5e9ec47371a730c9b785f851d18f",
+        "file": "research/data_sources/evidence/repos/nilp0inter__cpe/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/nilp0inter/cpe/readme?ref=50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce",
+        "checked_at_utc": "2026-10-03T05:45:33.850559+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/nilp0inter/cpe/readme?ref=50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"5b3c08b85ac4c021ed3ed7fe969b0149d74f7904\"",
+          "Last-Modified": "Wed, 02 Oct 2024 07:54:04 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4834",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 4585,
+        "sha256": "9ae59c3ddd6232e29a39cc91d97089a3134b6b8f734c5f8b7924954581d40b3e",
+        "file": "research/data_sources/evidence/repos/nilp0inter__cpe/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/nilp0inter/cpe/license?ref=50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce",
+        "checked_at_utc": "2026-10-03T05:45:35.001595+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/nilp0inter/cpe/license?ref=50ba2ee28b5d6b24fa2c5b1493de9de953ca7dce",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"130674d5b94391bf28d4afe081fbf46c48496eedd05cf56bc1f3eed5bf763119\"",
+          "Last-Modified": "Wed, 02 Oct 2024 07:54:04 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4830",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 11628,
+        "sha256": "cdee0d65a2097571675b9121ee1640cb1b4b75c825b6c9a411030bb44162793f",
+        "file": "research/data_sources/evidence/repos/nilp0inter__cpe/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "FIRSTdotorg/epss",
+    "html_url": "https://github.com/FIRSTdotorg/epss",
+    "homepage": null,
+    "stargazers_count": 31,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "archived": false,
+    "pushed_at": "2022-06-01T13:23:43Z",
+    "default_branch": "main",
+    "requested_repo": "FIRSTdotorg/epss",
+    "commit": "8753b3978446a68f5bac3c3a15c5d9102e4494a3",
+    "checked_at_utc": "2026-10-03T05:45:32.828169+00:00",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/FIRSTdotorg/epss/blob/8753b3978446a68f5bac3c3a15c5d9102e4494a3/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/FIRSTdotorg/epss",
+        "checked_at_utc": "2026-10-03T05:45:32.828169+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/FIRSTdotorg/epss",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"888654ff03f08aabc4331e0bb4f88931fe12287905454cf75c4c81cfb947c81e\"",
+          "Last-Modified": "Wed, 17 Dec 2025 21:47:16 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4835",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6262,
+        "sha256": "50ba339fdf86331e855b4a3e4512082190c45ec7abcb32762ac444bf70434dc7",
+        "file": "research/data_sources/evidence/repos/FIRSTdotorg__epss/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/FIRSTdotorg/epss/commits/main",
+        "checked_at_utc": "2026-10-03T05:45:34.264604+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/FIRSTdotorg/epss/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e8ef3d138d9ccae12b924909ee00ce22252963aec921261be929ec503d018202\"",
+          "Last-Modified": "Mon, 02 May 2022 20:23:29 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4833",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 105537,
+        "sha256": "9dcb3ad3ab19b2d99b4f13180d98b2924b5fea85e5bca5c6911d4f5821ad2fc0",
+        "file": "research/data_sources/evidence/repos/FIRSTdotorg__epss/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/FIRSTdotorg/epss/readme?ref=8753b3978446a68f5bac3c3a15c5d9102e4494a3",
+        "checked_at_utc": "2026-10-03T05:45:36.695958+00:00",
+        "method": "GET",
+        "status": 404,
+        "error": "HTTP 404"
+      },
+      {
+        "url": "https://api.github.com/repos/FIRSTdotorg/epss/license?ref=8753b3978446a68f5bac3c3a15c5d9102e4494a3",
+        "checked_at_utc": "2026-10-03T05:45:40.948684+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/FIRSTdotorg/epss/license?ref=8753b3978446a68f5bac3c3a15c5d9102e4494a3",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f516458dd1fcf85b361f2d6e626cec0e8ba8993cfd7c105ccb8676ec4afda89d\"",
+          "Last-Modified": "Mon, 02 May 2022 20:23:29 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4827",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 2534,
+        "sha256": "c82873a7d569a54186ebe08064e259df0d7b8e35323434586a4c457570ce4259",
+        "file": "research/data_sources/evidence/repos/FIRSTdotorg__epss/license.body"
+      }
+    ]
+  },
+  {
+    "full_name": "google/osv-scanner",
+    "html_url": "https://github.com/google/osv-scanner",
+    "homepage": "https://google.github.io/osv-scanner/",
+    "stargazers_count": 11133,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "archived": false,
+    "pushed_at": "2026-10-02T20:58:00Z",
+    "default_branch": "main",
+    "requested_repo": "google/osv-scanner",
+    "commit": "1b86129be1f0285c403616cb362ac188de676c6e",
+    "checked_at_utc": "2026-10-03T05:45:38.089253+00:00",
+    "readme_path": "README.md",
+    "readme_url": "https://github.com/google/osv-scanner/blob/1b86129be1f0285c403616cb362ac188de676c6e/README.md",
+    "license_path": "LICENSE",
+    "license_url": "https://github.com/google/osv-scanner/blob/1b86129be1f0285c403616cb362ac188de676c6e/LICENSE",
+    "checks": [
+      {
+        "url": "https://api.github.com/repos/google/osv-scanner",
+        "checked_at_utc": "2026-10-03T05:45:38.089253+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv-scanner",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"e0b969617a79ca9820e2578b7b59a839f6856924b424d450b3f441ead434e7c6\"",
+          "Last-Modified": "Fri, 02 Oct 2026 22:27:51 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4829",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 6592,
+        "sha256": "f37b1f34b2f06300a0afa826838495f629f516807386ad4cd8f626a881ef3279",
+        "file": "research/data_sources/evidence/repos/google__osv-scanner/metadata.body"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv-scanner/commits/main",
+        "checked_at_utc": "2026-10-03T05:45:40.303465+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv-scanner/commits/main",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f7eb323d86ee85f73a44dfcad6959713575ee8adfd947250fa1fab215778cfee\"",
+          "Last-Modified": "Fri, 02 Oct 2026 05:16:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4828",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 77725,
+        "sha256": "49d4079917c1a1d861d4aeac04aea2aa08de959e317b6e709648d4fe0ddbc502",
+        "file": "research/data_sources/evidence/repos/google__osv-scanner/commit.body"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv-scanner/readme?ref=1b86129be1f0285c403616cb362ac188de676c6e",
+        "checked_at_utc": "2026-10-03T05:45:43.030033+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv-scanner/readme?ref=1b86129be1f0285c403616cb362ac188de676c6e",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f3e9346be71885ee20e438c62e237dbdd1d21433\"",
+          "Last-Modified": "Fri, 02 Oct 2026 05:16:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4826",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16207,
+        "sha256": "669e43bf1ad580b43ab1c11dbbd4a1d3c96a8e6a182010f4387e9cca2c7827b6",
+        "file": "research/data_sources/evidence/repos/google__osv-scanner/readme.body"
+      },
+      {
+        "url": "https://api.github.com/repos/google/osv-scanner/license?ref=1b86129be1f0285c403616cb362ac188de676c6e",
+        "checked_at_utc": "2026-10-03T05:45:44.875732+00:00",
+        "method": "GET",
+        "status": 200,
+        "final_url": "https://api.github.com/repos/google/osv-scanner/license?ref=1b86129be1f0285c403616cb362ac188de676c6e",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "ETag": "\"f0e1923ac533db3275867ea2710d5db2ccf1bcb08b0688fa82181a15e3316e31\"",
+          "Last-Modified": "Fri, 02 Oct 2026 05:16:32 GMT",
+          "X-RateLimit-Limit": "5000",
+          "X-RateLimit-Remaining": "4825",
+          "X-RateLimit-Reset": "1791007569"
+        },
+        "truncated": false,
+        "bytes": 16747,
+        "sha256": "a5e9063e01bfb0bd7ae464e486d99293153054f14048fef68b0798cc5cd01cf6",
+        "file": "research/data_sources/evidence/repos/google__osv-scanner/license.body"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2365 @@
+{
+  "kind": "UX DESIGN ONLY / NOT IMPLEMENTED",
+  "created_at_utc": "2026-10-03T06:37:06.172217+00:00",
+  "nav": [
+    "情报总览",
+    "情报中心",
+    "资产风险",
+    "待复核",
+    "智能问答",
+    "系统运行"
+  ],
+  "pages": [
+    {
+      "id": "DASH",
+      "title": "情报总览",
+      "route": "/overview",
+      "phase": "P0",
+      "file": "DASHBOARD_UX.md",
+      "purpose": "30秒了解变化、关注项和更新可靠性"
+    },
+    {
+      "id": "CENTER",
+      "title": "情报中心（漏洞视图）",
+      "route": "/intelligence",
+      "phase": "P0",
+      "file": "VULNERABILITY_CENTER_UX.md",
+      "purpose": "筛选漏洞及浏览事件、论文、标准、政策"
+    },
+    {
+      "id": "DETAIL",
+      "title": "漏洞详情",
+      "route": "/vulnerabilities/{id}",
+      "phase": "P0",
+      "file": "VULNERABILITY_DETAIL_UX.md",
+      "purpose": "判断影响、风险、处置及证据"
+    },
+    {
+      "id": "ASSET",
+      "title": "资产风险",
+      "route": "/assets",
+      "phase": "P1",
+      "file": "ASSET_RISK_UX.md",
+      "purpose": "登记组件并解释当前版本的影响"
+    },
+    {
+      "id": "REVIEW",
+      "title": "待复核",
+      "route": "/reviews",
+      "phase": "P1",
+      "file": "REVIEW_CENTER_UX.md",
+      "purpose": "对具体争议事实作人工判断并留审计"
+    },
+    {
+      "id": "QA",
+      "title": "智能问答",
+      "route": "/assistant",
+      "phase": "P0",
+      "file": "AI_ASSISTANT_UX.md",
+      "purpose": "完成有工具记录和出处的安全调查"
+    },
+    {
+      "id": "SYSTEM",
+      "title": "系统运行",
+      "route": "/system",
+      "phase": "P0",
+      "file": "SYSTEM_STATUS_UX.md",
+      "purpose": "判断采集是否正常及定位失败任务"
+    }
+  ],
+  "elements": [
+    {
+      "id": "G01",
+      "page": "GLOBAL",
+      "module": "导航及可用动作",
+      "data": "实际开放能力、read/write权限、登录会话",
+      "source_ids": [],
+      "backend": "能力与最小权限",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "G02",
+      "page": "GLOBAL",
+      "module": "全局搜索/结果跳转",
+      "data": "实体ID/类型、搜索范围、可访问产品/资产",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "实体搜索与授权过滤",
+      "api_ids": [
+        "A02"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "G03",
+      "page": "GLOBAL",
+      "module": "返回/面包屑/锚点",
+      "data": "origin、filters、cursor、scroll、revision、as_of",
+      "source_ids": [],
+      "backend": "本地路由上下文",
+      "api_ids": [],
+      "phase": "P0",
+      "action": "读取",
+      "status": "LOCAL ONLY"
+    },
+    {
+      "id": "G04",
+      "page": "GLOBAL",
+      "module": "请求重试/范围刷新",
+      "data": "请求ID、最新revision/coverage、旧快照",
+      "source_ids": [],
+      "backend": "统一错误与快照协议",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "G05",
+      "page": "GLOBAL",
+      "module": "复制分享链接",
+      "data": "公共entity/revision/anchor；私有资产只在授权会话上下文",
+      "source_ids": [],
+      "backend": "本地URL构造及访问权限复核",
+      "api_ids": [
+        "A01"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D01",
+      "page": "DASH",
+      "module": "时间窗与范围/刷新",
+      "data": "window、as_of、覆盖产品/来源及快照",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "一致快照与范围摘要",
+      "api_ids": [
+        "A03"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D02",
+      "page": "DASH",
+      "module": "新增/更新/知识计数及进入列表",
+      "data": "首次发现distinct entity、新修订entity、knowledge type计数及过滤器",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "去重后变化聚合",
+      "api_ids": [
+        "A03",
+        "A04"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D03",
+      "page": "DASH",
+      "module": "值得关注/风险信号及进入详情",
+      "data": "CVSS版本、PoC关联状态、KEV目录、EPSS日期、变化依据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "可解释风险信号聚合",
+      "api_ids": [
+        "A03",
+        "A05"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D04",
+      "page": "DASH",
+      "module": "近期情报列表/时间线及类型跳转",
+      "data": "ID/类型、变化摘要、源日期和观测日期",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "类型化事件与知识聚合",
+      "api_ids": [
+        "A03",
+        "A04",
+        "A07",
+        "A10"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D05",
+      "page": "DASH",
+      "module": "来源摘要及异常跳转",
+      "data": "实际启用数、类别、stale/failed、last_success_at",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "运行状态聚合",
+      "api_ids": [
+        "A03",
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D06",
+      "page": "DASH",
+      "module": "资产影响入口",
+      "data": "受影响登记组件/漏洞distinct数，库存revision",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权Asset Matching",
+      "api_ids": [
+        "A03",
+        "A13"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "D07",
+      "page": "DASH",
+      "module": "待复核入口",
+      "data": "开放任务distinct数、风险及触发原因",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review队列聚合",
+      "api_ids": [
+        "A03",
+        "A14"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C01",
+      "page": "CENTER",
+      "module": "类型切换/搜索/清空",
+      "data": "record_type、外部ID/关键词、各类型结果计数",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "统一类型检索",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C02",
+      "page": "CENTER",
+      "module": "基础及高级筛选/排序/分页",
+      "data": "产品生态、AI类别及依据、CVSS version、KEV/PoC/fixed/date/Claim状态、cursor",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "确定性筛选、未知桶及排序",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C03",
+      "page": "CENTER",
+      "module": "漏洞行及详情跳转",
+      "data": "身份、产品、评分出处、PoC关联、修复、KEV、字段核验、updated",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "精简漏洞投影",
+      "api_ids": [
+        "A04",
+        "A05"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C04",
+      "page": "CENTER",
+      "module": "论文/标准/政策/事件行及详情跳转",
+      "data": "作者/发布机关、ID/版次/状态、时间、related entities、证据",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "知识类型投影与详情",
+      "api_ids": [
+        "A04",
+        "A10"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C05",
+      "page": "CENTER",
+      "module": "资产命中筛选",
+      "data": "授权资产ID、affected/not_affected/unknown",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产匹配筛选",
+      "api_ids": [
+        "A04",
+        "A13"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "C06",
+      "page": "CENTER",
+      "module": "结果范围/未知说明",
+      "data": "本次已查范围/未接入范围、撤销记录、部分源失败",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Coverage与查询执行摘要",
+      "api_ids": [
+        "A04"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V01",
+      "page": "DETAIL",
+      "module": "身份/描述/状态",
+      "data": "CVE/GHSA别名、title、record_status、源语言/日期",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "实体详情与状态修订",
+      "api_ids": [
+        "A05"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V02",
+      "page": "DETAIL",
+      "module": "影响产品/包/版本/修复及查看证据",
+      "data": "package/ecosystem/PURL、原range/events/explicit versions、explicit fixed、scope/ClaimID",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "版本契约与字段provenance",
+      "api_ids": [
+        "A05",
+        "A08"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V03",
+      "page": "DETAIL",
+      "module": "CVSS/EPSS/KEV/利用状态及查看证据",
+      "data": "cvss版本vector/base/provider；epss/date/model；KEV完整目录时间；SSVC scope",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT"
+      ],
+      "backend": "风险字段独立保留与溯源",
+      "api_ids": [
+        "A05",
+        "A08"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V04",
+      "page": "DETAIL",
+      "module": "PoC关联/可用性及展开证据",
+      "data": "candidate/related、公开链接；独立核验记录/授权适用环境或unknown",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "GITHUB_CODE",
+        "TOB_BLOG"
+      ],
+      "backend": "PoC关系与可用性独立记录",
+      "api_ids": [
+        "A06",
+        "A08"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V05",
+      "page": "DETAIL",
+      "module": "处置建议/厂商链接/修复版本",
+      "data": "explicit fixed、厂商建议及适用包分支、未提供原因",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "修复事实/建议出处",
+      "api_ids": [
+        "A05",
+        "A06",
+        "A08"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V06",
+      "page": "DETAIL",
+      "module": "Patch/Fix Commit",
+      "data": "候选commit完整SHA/PR/branch、关联状态、Evidence",
+      "source_ids": [
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "GITHUB_CODE",
+        "OSV"
+      ],
+      "backend": "Patch关联（未实现时隐藏）",
+      "api_ids": [
+        "A06",
+        "A08"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V07",
+      "page": "DETAIL",
+      "module": "论文/分析及知识关联跳转",
+      "data": "文献元数据、relation scope、关系候选依据",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "关系检索与知识详情",
+      "api_ids": [
+        "A06",
+        "A10",
+        "A08"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V08",
+      "page": "DETAIL",
+      "module": "证据/Claim状态/差异",
+      "data": "Claim scope/revision、EvidenceID、support/refute/context、lineage",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Evidence Store与字段核验",
+      "api_ids": [
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V09",
+      "page": "DETAIL",
+      "module": "同范围冲突/进入复核",
+      "data": "真实冲突ID、两候选、范围及review ID",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "冲突检测与Review",
+      "api_ids": [
+        "A05",
+        "A14",
+        "A15"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V10",
+      "page": "DETAIL",
+      "module": "时间线及事件证据",
+      "data": "源发布/修改、系统首次发现、PoC关系/KEV/fix变化，事件证据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "证据化事件时间线",
+      "api_ids": [
+        "A07",
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V11",
+      "page": "DETAIL",
+      "module": "继续询问这个漏洞",
+      "data": "entityID/revision、当前Claim及问题、授权上下文",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "受控问答任务",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "V12",
+      "page": "DETAIL",
+      "module": "当前资产影响摘要/查看清单",
+      "data": "授权inventory revision、三态匹配和依据",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "Asset Matching",
+      "api_ids": [
+        "A13"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "E01",
+      "page": "EVIDENCE",
+      "module": "来源/原文摘要/时间/URL",
+      "data": "publisher/sourceID、excerpt、published/retrieved、original URL",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "证据内容与许可/权限控制",
+      "api_ids": [
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "E02",
+      "page": "EVIDENCE",
+      "module": "范围/多来源/lineage比较",
+      "data": "Claim/raw revision、scope、支持反驳关系、原始发布者与转录链",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Claim与来源链检索",
+      "api_ids": [
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "E03",
+      "page": "EVIDENCE",
+      "module": "原始定位/历史证据/分享",
+      "data": "raw hash、JSON Pointer/页码/span、已取raw受限读取、permalink",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "不可变证据版本定位",
+      "api_ids": [
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "E04",
+      "page": "EVIDENCE",
+      "module": "进入对应复核/返回原字段",
+      "data": "reviewID/读写权限，返回Claim anchor/revision",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review及导航上下文",
+      "api_ids": [
+        "A15",
+        "A01"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "K01",
+      "page": "KNOWLEDGE",
+      "module": "知识详情/原文/版本/关联/询问",
+      "data": "type、ID、版次/status、publisher/author、dates、links/ClaimID",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "共享知识详情及引用问答",
+      "api_ids": [
+        "A10",
+        "A08",
+        "A17"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "R01",
+      "page": "REVIEW",
+      "module": "问题队列/筛选/进入任务",
+      "data": "对象、问题类型、风险理由、候选、证据数及创建日期",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "Review过滤及权限",
+      "api_ids": [
+        "A14",
+        "A15"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "R02",
+      "page": "REVIEW",
+      "module": "对照范围/候选A/B/证据",
+      "data": "原结论、候选、生态/版本/分支/date/CVSS version、lineage",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "同scope事实对照",
+      "api_ids": [
+        "A15",
+        "A08",
+        "A09"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "R03",
+      "page": "REVIEW",
+      "module": "确认A/B/证据不足/暂不判断/备注",
+      "data": "选择值、理由、review revision、actor和幂等请求键",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "权限、并发校验及决策审计",
+      "api_ids": [
+        "A16"
+      ],
+      "phase": "P1",
+      "action": "人工写入",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "R04",
+      "page": "REVIEW",
+      "module": "审计历史/回详情",
+      "data": "原/后结论、actor/time/reason、证据版本、entity/anchor",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "不可覆盖审计与详情回链",
+      "api_ids": [
+        "A15",
+        "A05"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "R05",
+      "page": "REVIEW",
+      "module": "刷新后比较/恢复草稿",
+      "data": "409当前revision、草稿、差异及重新提交范围",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "并发差异返回",
+      "api_ids": [
+        "A15",
+        "A16"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "S01",
+      "page": "ASSET",
+      "module": "组件清单/查找/选择",
+      "data": "授权名称、ecosystem/package、原始精确version与校验状态",
+      "source_ids": [],
+      "backend": "最小资产清单权限",
+      "api_ids": [
+        "A11"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "S02",
+      "page": "ASSET",
+      "module": "人工添加/确认登记",
+      "data": "name/ecosystem/package/exact version、歧义原因、错误定位",
+      "source_ids": [],
+      "backend": "资产登记校验与审计",
+      "api_ids": [
+        "A12"
+      ],
+      "phase": "P1",
+      "action": "人工写入",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "S03",
+      "page": "ASSET",
+      "module": "影响三态/未知原因",
+      "data": "inventory revision、matched entity、range scope、reason/evidence",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "生态版本匹配",
+      "api_ids": [
+        "A13",
+        "A08"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "S04",
+      "page": "ASSET",
+      "module": "优先处置列表/排序解释/详情",
+      "data": "匹配证据、KEV收录/目录时间、PoC状态、CVSS版本、明确fixed及用户业务关键性",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "CISA_KEV",
+        "EPSS",
+        "VULNRICHMENT",
+        "GITHUB_CODE"
+      ],
+      "backend": "可解释规则排序",
+      "api_ids": [
+        "A13",
+        "A05",
+        "A06"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "S05",
+      "page": "ASSET",
+      "module": "分析为什么影响我",
+      "data": "资产ID和inventory revision、漏洞/ClaimID；问题",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产上下文问答",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q01",
+      "page": "QA",
+      "module": "问题输入/推荐问题/提交",
+      "data": "question、会话、entity/Claim上下文、as_of/time zone/coverage",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "问答任务接入与范围澄清",
+      "api_ids": [
+        "A17"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q02",
+      "page": "QA",
+      "module": "任务过程/取消/重试",
+      "data": "工具名、参数范围/状态/结果数、过滤原因、query_id；取消结果",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "真实任务公开事件与生命周期",
+      "api_ids": [
+        "A18",
+        "A19",
+        "A17"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q03",
+      "page": "QA",
+      "module": "回答/未知部分/引用",
+      "data": "有Claim引用的结论、适用范围、partial reason、snapshot revision",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "可核验证据回答",
+      "api_ids": [
+        "A18",
+        "A08",
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q04",
+      "page": "QA",
+      "module": "相关漏洞列表/回详情",
+      "data": "entityID/revision、相关产品与来源、匹配过滤条件",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "受控结果投影及详情回链",
+      "api_ids": [
+        "A18",
+        "A05"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q05",
+      "page": "QA",
+      "module": "相关知识/来源/跨文档引用",
+      "data": "knowledgeID/type/edition、EvidenceID、source/provider",
+      "source_ids": [
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "文档检索与关系工具",
+      "api_ids": [
+        "A18",
+        "A10",
+        "A09"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q06",
+      "page": "QA",
+      "module": "相关资产/为什么优先",
+      "data": "授权assetID/inventory revision、影响三态、解释因子",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW"
+      ],
+      "backend": "授权资产工具",
+      "api_ids": [
+        "A18",
+        "A13"
+      ],
+      "phase": "P1",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Q07",
+      "page": "QA",
+      "module": "澄清/续问/原查询恢复",
+      "data": "缺失参数、先前query_id与scope、明确新时间窗",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "会话上下文及实际范围",
+      "api_ids": [
+        "A17",
+        "A18"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Y01",
+      "page": "SYSTEM",
+      "module": "来源表/筛选/查看最近失败",
+      "data": "注册SourceID、enabled、运行状态、类别及coverage",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "来源注册与真实运行聚合",
+      "api_ids": [
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Y02",
+      "page": "SYSTEM",
+      "module": "来源时间/数量/延迟/下次计划",
+      "data": "last_success/newest source date、fetched/normalized/new/updated/failed、retry/latency samples/next_scheduled",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "SyncRun统计与调度时间",
+      "api_ids": [
+        "A20",
+        "A21"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Y03",
+      "page": "SYSTEM",
+      "module": "任务历史/失败筛选/详情",
+      "data": "runID、source/time/status、范围、尝试、恢复关系",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "SyncRun历史查询",
+      "api_ids": [
+        "A21",
+        "A22"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Y04",
+      "page": "SYSTEM",
+      "module": "失败详情/脱敏错误/重试",
+      "data": "错误码/request ID、checkpoint、重试权限/queued/new runID",
+      "source_ids": [
+        "CVE_LIST",
+        "OSV",
+        "CISA_KEV",
+        "VENDOR_PYTORCH",
+        "VENDOR_VLLM",
+        "VENDOR_MLFLOW",
+        "EPSS",
+        "GITHUB_CODE",
+        "VULNRICHMENT",
+        "ARXIV",
+        "TOB_BLOG",
+        "GOOGLE_SECURITY_BLOG",
+        "SAMR_AI_STANDARD",
+        "NIST_AI",
+        "CAC_POLICY",
+        "ATLAS",
+        "OWASP_GENAI"
+      ],
+      "backend": "失败隔离与受控重试",
+      "api_ids": [
+        "A22",
+        "A23"
+      ],
+      "phase": "P0",
+      "action": "运维写入",
+      "status": "BACKEND REQUIRED"
+    },
+    {
+      "id": "Y05",
+      "page": "SYSTEM",
+      "module": "实际健康摘要",
+      "data": "已监测API/Collector/Queue及observed_at或NA",
+      "source_ids": [],
+      "backend": "已有监控摘要",
+      "api_ids": [
+        "A24"
+      ],
+      "phase": "P0",
+      "action": "读取",
+      "status": "BACKEND REQUIRED"
+    }
+  ],
+  "apis": {
+    "A01": {
+      "proposal": "GET /capabilities",
+      "contract": "开放页面/读取与写入动作、当前用户权限、实际接入范围；无实现的功能不可启用",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A02": {
+      "proposal": "GET /search",
+      "contract": "按ID、包/产品、知识标题、授权资产名称分组返回；实体ID/类型/访问权限",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A03": {
+      "proposal": "GET /overview",
+      "contract": "同一as_of/revision下计数、时间窗、coverage及可复现筛选条件",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A04": {
+      "proposal": "GET /intelligence",
+      "contract": "类型/过滤/排序/游标、查询语义、可访问条目、总量与覆盖状态",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A05": {
+      "proposal": "GET /vulnerabilities/{id}",
+      "contract": "身份/原文/范围/风险/建议/Claim引用、按字段状态与快照版本",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A06": {
+      "proposal": "GET /vulnerabilities/{id}/relations",
+      "contract": "公告/论文/分析/PoC/Patch候选、关系依据、关联和可用性分别返回",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A07": {
+      "proposal": "GET /vulnerabilities/{id}/timeline",
+      "contract": "有依据的业务事件、源发布/修改/系统观察时间分开",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A08": {
+      "proposal": "GET /claims/{id}/evidence",
+      "contract": "Claim适用范围、support/refute/context、lineage与核验历史",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A09": {
+      "proposal": "GET /evidence/{id}",
+      "contract": "原文片段、raw版本/hash/locator、原始出处、权限/许可限制",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A10": {
+      "proposal": "GET /knowledge/{id}",
+      "contract": "非CVE知识类型/作者或发布机关/版次/发布日期/生效日/原文与关联证据",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A11": {
+      "proposal": "GET /assets",
+      "contract": "仅当前用户授权清单、生态/包/原版本/规范状态、库存修订号",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A12": {
+      "proposal": "POST /assets",
+      "contract": "人工登记名称/生态/包/精确版本；校验错误定位；幂等请求键；不接SBOM",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A13": {
+      "proposal": "GET /assets/{id}/impacts",
+      "contract": "版本判断三态、范围与依据、排序理由、库存及情报revision",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A14": {
+      "proposal": "GET /reviews",
+      "contract": "待办对象/同scope冲突或缺证原因/候选/风险/创建及处理时间",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A15": {
+      "proposal": "GET /reviews/{id}",
+      "contract": "候选原值/原结论/适用范围/evidence/当前review revision/审计",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A16": {
+      "proposal": "POST /reviews/{id}/decisions",
+      "contract": "人工选择与理由、actor、expected_revision、idempotency_key；409不覆盖",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A17": {
+      "proposal": "POST /assistant/queries",
+      "contract": "问题、授权实体上下文、日期/快照、会话ID；返回真实query_id",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A18": {
+      "proposal": "GET /assistant/queries/{id}",
+      "contract": "queued/running/completed/partial/failed/cancelled；公开工具摘要、引用与结果",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A19": {
+      "proposal": "POST /assistant/queries/{id}/cancel",
+      "contract": "取消自己的活动查询；已完成任务返回实际状态，不删历史",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A20": {
+      "proposal": "GET /sources",
+      "contract": "enabled/运行状态、最后成功、源内容日期、coverage/延迟样本与计算范围",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A21": {
+      "proposal": "GET /sync-runs",
+      "contract": "source/status/time筛选、游标、采集/处理数量、失败/重试关联",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A22": {
+      "proposal": "GET /sync-runs/{id}",
+      "contract": "单次run的范围、时间、数量、脱敏错误、检查点与恢复情况",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A23": {
+      "proposal": "POST /sync-runs/{id}/retry",
+      "contract": "运维权限、同任务范围、去重幂等、限额检查；202表示排队而非成功",
+      "status": "API PROPOSAL 未实现"
+    },
+    "A24": {
+      "proposal": "GET /health-summary",
+      "contract": "仅已经接入监测的API/Collector/Queue状态及测量时间；没有监控则NA",
+      "status": "API PROPOSAL 未实现"
+    }
+  },
+  "jobs": [
+    {
+      "id": "JTBD-01",
+      "requirement": "REQ-MON-001",
+      "elements": [
+        "D02",
+        "C01"
+      ]
+    },
+    {
+      "id": "JTBD-02",
+      "requirement": "REQ-DATA-005",
+      "elements": [
+        "C02",
+        "C03"
+      ]
+    },
+    {
+      "id": "JTBD-03",
+      "requirement": "REQ-UI-001",
+      "elements": [
+        "V01",
+        "V08"
+      ]
+    },
+    {
+      "id": "JTBD-04",
+      "requirement": "REQ-DATA-004",
+      "elements": [
+        "V02"
+      ]
+    },
+    {
+      "id": "JTBD-05",
+      "requirement": "REQ-ENRICH-004",
+      "elements": [
+        "V04"
+      ]
+    },
+    {
+      "id": "JTBD-06",
+      "requirement": "REQ-ENRICH-005",
+      "elements": [
+        "V05",
+        "V06"
+      ]
+    },
+    {
+      "id": "JTBD-07",
+      "requirement": "REQ-VERIFY-001",
+      "elements": [
+        "E01",
+        "E02",
+        "E03"
+      ]
+    },
+    {
+      "id": "JTBD-08",
+      "requirement": "REQ-VERIFY-004",
+      "elements": [
+        "V09",
+        "E02"
+      ]
+    },
+    {
+      "id": "JTBD-09",
+      "requirement": "REQ-VERIFY-005",
+      "elements": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "id": "JTBD-10",
+      "requirement": "REQ-ASSET-001",
+      "elements": [
+        "S01",
+        "S03"
+      ]
+    },
+    {
+      "id": "JTBD-11",
+      "requirement": "REQ-ENRICH-002",
+      "elements": [
+        "D03",
+        "S04"
+      ]
+    },
+    {
+      "id": "JTBD-12",
+      "requirement": "REQ-QA-003",
+      "elements": [
+        "Q01",
+        "Q02",
+        "Q03",
+        "Q04"
+      ]
+    },
+    {
+      "id": "JTBD-13",
+      "requirement": "REQ-MON-005",
+      "elements": [
+        "D05",
+        "Y03",
+        "Y04"
+      ]
+    },
+    {
+      "id": "JTBD-14",
+      "requirement": "REQ-MON-002",
+      "elements": [
+        "C04",
+        "K01",
+        "Q05"
+      ]
+    }
+  ],
+  "flow_graphs": {
+    "FLOW-01": {
+      "entry": "FLOW-01-N1",
+      "nodes": [
+        "FLOW-01-N1",
+        "FLOW-01-N2",
+        "FLOW-01-N3",
+        "FLOW-01-N4",
+        "FLOW-01-E1",
+        "FLOW-01-E2",
+        "FLOW-01-E3",
+        "FLOW-01-E4",
+        "FLOW-01-BACK",
+        "FLOW-01-DONE"
+      ],
+      "edges": [
+        [
+          "FLOW-01-N1",
+          "FLOW-01-N2"
+        ],
+        [
+          "FLOW-01-N2",
+          "FLOW-01-N3"
+        ],
+        [
+          "FLOW-01-N3",
+          "FLOW-01-N4"
+        ],
+        [
+          "FLOW-01-N4",
+          "FLOW-01-DONE"
+        ],
+        [
+          "FLOW-01-DONE",
+          "FLOW-01-BACK"
+        ],
+        [
+          "FLOW-01-N1",
+          "FLOW-01-E1"
+        ],
+        [
+          "FLOW-01-E1",
+          "FLOW-01-N1"
+        ],
+        [
+          "FLOW-01-E1",
+          "FLOW-01-BACK"
+        ],
+        [
+          "FLOW-01-N2",
+          "FLOW-01-E2"
+        ],
+        [
+          "FLOW-01-E2",
+          "FLOW-01-N2"
+        ],
+        [
+          "FLOW-01-E2",
+          "FLOW-01-BACK"
+        ],
+        [
+          "FLOW-01-N3",
+          "FLOW-01-E3"
+        ],
+        [
+          "FLOW-01-E3",
+          "FLOW-01-N3"
+        ],
+        [
+          "FLOW-01-E3",
+          "FLOW-01-BACK"
+        ],
+        [
+          "FLOW-01-N4",
+          "FLOW-01-E4"
+        ],
+        [
+          "FLOW-01-E4",
+          "FLOW-01-N4"
+        ],
+        [
+          "FLOW-01-E4",
+          "FLOW-01-BACK"
+        ]
+      ],
+      "return": "FLOW-01-BACK",
+      "budget": 4,
+      "phase": "P0"
+    },
+    "FLOW-02": {
+      "entry": "FLOW-02-N1",
+      "nodes": [
+        "FLOW-02-N1",
+        "FLOW-02-N2",
+        "FLOW-02-N3",
+        "FLOW-02-N4",
+        "FLOW-02-N5",
+        "FLOW-02-N6",
+        "FLOW-02-E1",
+        "FLOW-02-E2",
+        "FLOW-02-E3",
+        "FLOW-02-E4",
+        "FLOW-02-E5",
+        "FLOW-02-E6",
+        "FLOW-02-BACK",
+        "FLOW-02-DONE"
+      ],
+      "edges": [
+        [
+          "FLOW-02-N1",
+          "FLOW-02-N2"
+        ],
+        [
+          "FLOW-02-N2",
+          "FLOW-02-N3"
+        ],
+        [
+          "FLOW-02-N3",
+          "FLOW-02-N4"
+        ],
+        [
+          "FLOW-02-N4",
+          "FLOW-02-N5"
+        ],
+        [
+          "FLOW-02-N5",
+          "FLOW-02-N6"
+        ],
+        [
+          "FLOW-02-N6",
+          "FLOW-02-DONE"
+        ],
+        [
+          "FLOW-02-DONE",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N1",
+          "FLOW-02-E1"
+        ],
+        [
+          "FLOW-02-E1",
+          "FLOW-02-N1"
+        ],
+        [
+          "FLOW-02-E1",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N2",
+          "FLOW-02-E2"
+        ],
+        [
+          "FLOW-02-E2",
+          "FLOW-02-N2"
+        ],
+        [
+          "FLOW-02-E2",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N3",
+          "FLOW-02-E3"
+        ],
+        [
+          "FLOW-02-E3",
+          "FLOW-02-N3"
+        ],
+        [
+          "FLOW-02-E3",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N4",
+          "FLOW-02-E4"
+        ],
+        [
+          "FLOW-02-E4",
+          "FLOW-02-N4"
+        ],
+        [
+          "FLOW-02-E4",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N5",
+          "FLOW-02-E5"
+        ],
+        [
+          "FLOW-02-E5",
+          "FLOW-02-N5"
+        ],
+        [
+          "FLOW-02-E5",
+          "FLOW-02-BACK"
+        ],
+        [
+          "FLOW-02-N6",
+          "FLOW-02-E6"
+        ],
+        [
+          "FLOW-02-E6",
+          "FLOW-02-N6"
+        ],
+        [
+          "FLOW-02-E6",
+          "FLOW-02-BACK"
+        ]
+      ],
+      "return": "FLOW-02-BACK",
+      "budget": 6,
+      "phase": "P1"
+    },
+    "FLOW-03": {
+      "entry": "FLOW-03-N1",
+      "nodes": [
+        "FLOW-03-N1",
+        "FLOW-03-N2",
+        "FLOW-03-N3",
+        "FLOW-03-N4",
+        "FLOW-03-N5",
+        "FLOW-03-E1",
+        "FLOW-03-E2",
+        "FLOW-03-E3",
+        "FLOW-03-E4",
+        "FLOW-03-E5",
+        "FLOW-03-BACK",
+        "FLOW-03-DONE"
+      ],
+      "edges": [
+        [
+          "FLOW-03-N1",
+          "FLOW-03-N2"
+        ],
+        [
+          "FLOW-03-N2",
+          "FLOW-03-N3"
+        ],
+        [
+          "FLOW-03-N3",
+          "FLOW-03-N4"
+        ],
+        [
+          "FLOW-03-N4",
+          "FLOW-03-N5"
+        ],
+        [
+          "FLOW-03-N5",
+          "FLOW-03-DONE"
+        ],
+        [
+          "FLOW-03-DONE",
+          "FLOW-03-BACK"
+        ],
+        [
+          "FLOW-03-N1",
+          "FLOW-03-E1"
+        ],
+        [
+          "FLOW-03-E1",
+          "FLOW-03-N1"
+        ],
+        [
+          "FLOW-03-E1",
+          "FLOW-03-BACK"
+        ],
+        [
+          "FLOW-03-N2",
+          "FLOW-03-E2"
+        ],
+        [
+          "FLOW-03-E2",
+          "FLOW-03-N2"
+        ],
+        [
+          "FLOW-03-E2",
+          "FLOW-03-BACK"
+        ],
+        [
+          "FLOW-03-N3",
+          "FLOW-03-E3"
+        ],
+        [
+          "FLOW-03-E3",
+          "FLOW-03-N3"
+        ],
+        [
+          "FLOW-03-E3",
+          "FLOW-03-BACK"
+        ],
+        [
+          "FLOW-03-N4",
+          "FLOW-03-E4"
+        ],
+        [
+          "FLOW-03-E4",
+          "FLOW-03-N4"
+        ],
+        [
+          "FLOW-03-E4",
+          "FLOW-03-BACK"
+        ],
+        [
+          "FLOW-03-N5",
+          "FLOW-03-E5"
+        ],
+        [
+          "FLOW-03-E5",
+          "FLOW-03-N5"
+        ],
+        [
+          "FLOW-03-E5",
+          "FLOW-03-BACK"
+        ]
+      ],
+      "return": "FLOW-03-BACK",
+      "budget": 5,
+      "phase": "P1"
+    },
+    "FLOW-04": {
+      "entry": "FLOW-04-N1",
+      "nodes": [
+        "FLOW-04-N1",
+        "FLOW-04-N2",
+        "FLOW-04-N3",
+        "FLOW-04-N4",
+        "FLOW-04-N5",
+        "FLOW-04-E1",
+        "FLOW-04-E2",
+        "FLOW-04-E3",
+        "FLOW-04-E4",
+        "FLOW-04-E5",
+        "FLOW-04-BACK",
+        "FLOW-04-DONE"
+      ],
+      "edges": [
+        [
+          "FLOW-04-N1",
+          "FLOW-04-N2"
+        ],
+        [
+          "FLOW-04-N2",
+          "FLOW-04-N3"
+        ],
+        [
+          "FLOW-04-N3",
+          "FLOW-04-N4"
+        ],
+        [
+          "FLOW-04-N4",
+          "FLOW-04-N5"
+        ],
+        [
+          "FLOW-04-N5",
+          "FLOW-04-DONE"
+        ],
+        [
+          "FLOW-04-DONE",
+          "FLOW-04-BACK"
+        ],
+        [
+          "FLOW-04-N1",
+          "FLOW-04-E1"
+        ],
+        [
+          "FLOW-04-E1",
+          "FLOW-04-N1"
+        ],
+        [
+          "FLOW-04-E1",
+          "FLOW-04-BACK"
+        ],
+        [
+          "FLOW-04-N2",
+          "FLOW-04-E2"
+        ],
+        [
+          "FLOW-04-E2",
+          "FLOW-04-N2"
+        ],
+        [
+          "FLOW-04-E2",
+          "FLOW-04-BACK"
+        ],
+        [
+          "FLOW-04-N3",
+          "FLOW-04-E3"
+        ],
+        [
+          "FLOW-04-E3",
+          "FLOW-04-N3"
+        ],
+        [
+          "FLOW-04-E3",
+          "FLOW-04-BACK"
+        ],
+        [
+          "FLOW-04-N4",
+          "FLOW-04-E4"
+        ],
+        [
+          "FLOW-04-E4",
+          "FLOW-04-N4"
+        ],
+        [
+          "FLOW-04-E4",
+          "FLOW-04-BACK"
+        ],
+        [
+          "FLOW-04-N5",
+          "FLOW-04-E5"
+        ],
+        [
+          "FLOW-04-E5",
+          "FLOW-04-N5"
+        ],
+        [
+          "FLOW-04-E5",
+          "FLOW-04-BACK"
+        ]
+      ],
+      "return": "FLOW-04-BACK",
+      "budget": 5,
+      "phase": "P0（资产部分P1）"
+    },
+    "FLOW-05": {
+      "entry": "FLOW-05-N1",
+      "nodes": [
+        "FLOW-05-N1",
+        "FLOW-05-N2",
+        "FLOW-05-N3",
+        "FLOW-05-E1",
+        "FLOW-05-E2",
+        "FLOW-05-E3",
+        "FLOW-05-BACK",
+        "FLOW-05-DONE"
+      ],
+      "edges": [
+        [
+          "FLOW-05-N1",
+          "FLOW-05-N2"
+        ],
+        [
+          "FLOW-05-N2",
+          "FLOW-05-N3"
+        ],
+        [
+          "FLOW-05-N3",
+          "FLOW-05-DONE"
+        ],
+        [
+          "FLOW-05-DONE",
+          "FLOW-05-BACK"
+        ],
+        [
+          "FLOW-05-N1",
+          "FLOW-05-E1"
+        ],
+        [
+          "FLOW-05-E1",
+          "FLOW-05-N1"
+        ],
+        [
+          "FLOW-05-E1",
+          "FLOW-05-BACK"
+        ],
+        [
+          "FLOW-05-N2",
+          "FLOW-05-E2"
+        ],
+        [
+          "FLOW-05-E2",
+          "FLOW-05-N2"
+        ],
+        [
+          "FLOW-05-E2",
+          "FLOW-05-BACK"
+        ],
+        [
+          "FLOW-05-N3",
+          "FLOW-05-E3"
+        ],
+        [
+          "FLOW-05-E3",
+          "FLOW-05-N3"
+        ],
+        [
+          "FLOW-05-E3",
+          "FLOW-05-BACK"
+        ]
+      ],
+      "return": "FLOW-05-BACK",
+      "budget": 3,
+      "phase": "P0"
+    }
+  }
+}

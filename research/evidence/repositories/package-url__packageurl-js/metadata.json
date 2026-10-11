@@ -1,0 +1,53 @@
+{
+  "full_name": "package-url/packageurl-js",
+  "html_url": "https://github.com/package-url/packageurl-js",
+  "homepage": "https://www.npmjs.com/package/packageurl-js",
+  "description": "JavaScript implementation of the package url spec ",
+  "language": "JavaScript",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 30,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2018-02-15T08:06:50Z",
+  "updated_at": "2026-08-24T16:22:23Z",
+  "pushed_at": "2026-08-24T16:11:48Z",
+  "open_issues_count": 9,
+  "default_branch": "master",
+  "requested_repo": "package-url/packageurl-js",
+  "commit": "4cfc3681c245c6346e2bef3f3e6a54f011203960",
+  "commit_date": "2026-08-24T16:11:47Z",
+  "commit_message": "docs: make library more findable (#91)\n\n* docs: make library more findable\n\nUpdated project title and added a brief description.\n\n* Add keywords to package.json\n\n* Update README.md",
+  "checked_at_utc": "2026-10-03T03:31:45.714863+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/package-url/packageurl-js/blob/4cfc3681c245c6346e2bef3f3e6a54f011203960/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/package-url/packageurl-js/blob/4cfc3681c245c6346e2bef3f3e6a54f011203960/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/package-url/packageurl-js/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 96,
+      "title": "chore(ci): test all those node versions",
+      "state": "open",
+      "updated_at": "2026-05-05T20:08:12Z",
+      "html_url": "https://github.com/package-url/packageurl-js/issues/96",
+      "comments": 0
+    },
+    {
+      "number": 95,
+      "title": "Fix case-parsing for \"new\" npm packages",
+      "state": "open",
+      "updated_at": "2026-02-13T06:59:14Z",
+      "html_url": "https://github.com/package-url/packageurl-js/issues/95",
+      "comments": 0
+    }
+  ]
+}

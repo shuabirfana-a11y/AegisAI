@@ -1,0 +1,139 @@
+{
+  "validated_at": "2026-10-03T13:06:55.679357+08:00",
+  "purpose": "schema-and-real-fixture-design-probe",
+  "seed_count": 12,
+  "sources": 2,
+  "literal_http_snapshots": 24,
+  "normalized_examples_passed": 12,
+  "missing_fixed_versions": 3,
+  "missing_cna_metrics": 2,
+  "boundary_probes_passed": 5,
+  "interval_boundary_checks": 16,
+  "evidence_locator_checks": 60,
+  "content_key_idempotence_probe_passed": true,
+  "human_gold": false,
+  "database_or_api_service_run": false,
+  "docker_available": false,
+  "results": [
+    {
+      "cve_id": "CVE-2022-45907",
+      "schema_pass": true,
+      "package": "torch",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2025-32434",
+      "schema_pass": true,
+      "package": "torch",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-41486",
+      "schema_pass": true,
+      "package": "ray",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-48545",
+      "schema_pass": true,
+      "package": "gradio",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-49119",
+      "schema_pass": true,
+      "package": "gradio",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-57516",
+      "schema_pass": true,
+      "package": "ray",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-71211",
+      "schema_pass": true,
+      "package": "mlflow",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": true,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-80047",
+      "schema_pass": true,
+      "package": "transformers",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": true,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-8147",
+      "schema_pass": true,
+      "package": "mlflow",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-94626",
+      "schema_pass": true,
+      "package": "vllm",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-9540",
+      "schema_pass": true,
+      "package": "vllm",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": true,
+      "source_hash_pass": true
+    },
+    {
+      "cve_id": "CVE-2026-9856",
+      "schema_pass": true,
+      "package": "transformers",
+      "range_status": [
+        "SUPPORTED"
+      ],
+      "unknown_fixed": false,
+      "source_hash_pass": true
+    }
+  ]
+}

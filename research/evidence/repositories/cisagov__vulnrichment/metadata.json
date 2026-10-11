@@ -1,0 +1,77 @@
+{
+  "full_name": "cisagov/vulnrichment",
+  "html_url": "https://github.com/cisagov/vulnrichment",
+  "homepage": "",
+  "description": "A repo to conduct vulnerability enrichment.",
+  "language": null,
+  "license": {
+    "key": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "spdx_id": "CC0-1.0",
+    "url": "https://api.github.com/licenses/cc0-1.0",
+    "node_id": "MDc6TGljZW5zZTY="
+  },
+  "stargazers_count": 866,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-04-24T16:15:29Z",
+  "updated_at": "2026-10-03T02:16:42Z",
+  "pushed_at": "2026-10-03T02:16:38Z",
+  "open_issues_count": 3,
+  "default_branch": "develop",
+  "requested_repo": "cisagov/vulnrichment",
+  "commit": "bdf8720c255290447ee5273457e02dd2431ca23f",
+  "commit_date": "2026-10-03T02:16:37Z",
+  "commit_message": "data updated",
+  "checked_at_utc": "2026-10-03T03:31:26.442604+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/cisagov/vulnrichment/blob/bdf8720c255290447ee5273457e02dd2431ca23f/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/cisagov/vulnrichment/blob/bdf8720c255290447ee5273457e02dd2431ca23f/LICENSE",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/cisagov/vulnrichment/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 338,
+      "title": "Request for ADP Update: CVE-2026-37604 (CVSS, CWE, SSVC)",
+      "state": "open",
+      "updated_at": "2026-10-02T19:27:39Z",
+      "html_url": "https://github.com/cisagov/vulnrichment/issues/338",
+      "comments": 0
+    },
+    {
+      "number": 337,
+      "title": "CVE-2024-24786 CPE mismatch",
+      "state": "closed",
+      "updated_at": "2026-09-23T13:52:28Z",
+      "html_url": "https://github.com/cisagov/vulnrichment/issues/337",
+      "comments": 1
+    },
+    {
+      "number": 336,
+      "title": "CVE-2026-26030: question on Automatable=no rationale (SDK-default LLM-facing filter path)",
+      "state": "closed",
+      "updated_at": "2026-09-22T16:16:51Z",
+      "html_url": "https://github.com/cisagov/vulnrichment/issues/336",
+      "comments": 4
+    },
+    {
+      "number": 335,
+      "title": "CVE-2026-84832 has an erroneous reference link",
+      "state": "closed",
+      "updated_at": "2026-09-04T16:54:32Z",
+      "html_url": "https://github.com/cisagov/vulnrichment/issues/335",
+      "comments": 1
+    },
+    {
+      "number": 333,
+      "title": "CVE-2026-14216: CISA ADP CVSS 3.1 baseScore does not match vector",
+      "state": "closed",
+      "updated_at": "2026-09-03T13:06:18Z",
+      "html_url": "https://github.com/cisagov/vulnrichment/issues/333",
+      "comments": 1
+    }
+  ]
+}

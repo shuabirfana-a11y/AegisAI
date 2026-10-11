@@ -1,0 +1,47 @@
+{
+  "full_name": "UPinar/contrastapi",
+  "html_url": "https://github.com/UPinar/contrastapi",
+  "homepage": "https://api.contrastcyber.com",
+  "description": "MCP server with 55 security intelligence tools — CVE/KEV, MITRE ATLAS+D3FEND, Sigma detection rules, email security posture (SPF/DMARC), domain & web intel, threat intel.",
+  "language": "Python",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "stargazers_count": 33,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2026-03-27T12:45:44Z",
+  "updated_at": "2026-10-02T15:44:52Z",
+  "pushed_at": "2026-10-02T15:44:49Z",
+  "open_issues_count": 3,
+  "default_branch": "main",
+  "requested_repo": "UPinar/contrastapi",
+  "commit": "07957c19576aaaa4b27014201e7c184bdc15fc7f",
+  "commit_date": "2026-10-02T15:44:47Z",
+  "commit_message": "build(deps): bump fast-uri (#104)\n\nBumps the npm_and_yarn group with 1 update in the /claude-desktop-extension directory: [fast-uri](https://github.com/fastify/fast-uri).\n\n\nUpdates `fast-uri` from 3.1.7 to 3.1.8\n- [Release notes](https://github.com/fastify/fast-uri/releases)\n- [Commits](https://github.com/fastify/fast-uri/compare/v3.1.7...v3.1.8)\n\n---\nupdated-dependencies:\n- dependency-name: fast-uri\n  dependency-version: 3.1.8\n  dependency-type: indirect\n  dependency-group: npm_and_yarn\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:36:35.063985+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/UPinar/contrastapi/blob/07957c19576aaaa4b27014201e7c184bdc15fc7f/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/UPinar/contrastapi/blob/07957c19576aaaa4b27014201e7c184bdc15fc7f/LICENSE",
+  "latest_release": {
+    "tag_name": "v1.36.2",
+    "published_at": "2026-08-24T22:31:47Z",
+    "html_url": "https://github.com/UPinar/contrastapi/releases/tag/v1.36.2",
+    "name": "v1.36.2 — starlette 1.6.0"
+  },
+  "recent_issues": [
+    {
+      "number": 99,
+      "title": "ContrastAPI is listed on Fatstack — claim it, or ask us to remove it",
+      "state": "open",
+      "updated_at": "2026-09-14T14:35:01Z",
+      "html_url": "https://github.com/UPinar/contrastapi/issues/99",
+      "comments": 0
+    }
+  ]
+}

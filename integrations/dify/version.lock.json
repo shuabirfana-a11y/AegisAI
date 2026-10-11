@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-10-04",
+  "dify": {
+    "version": "1.17.1",
+    "commit": "8387590ace4a094de812b7847fc6a4c3a27cd52b",
+    "dsl_version": "0.7.0",
+    "source": "https://github.com/langgenius/dify/tree/8387590ace4a094de812b7847fc6a4c3a27cd52b",
+    "license_sha256": "8f52a639e9b93b16605149e489bd4d59aa55a8657b605ae87acdf805fd6c56da"
+  },
+  "graphon": {
+    "version": "0.7.0",
+    "role": "Offline semantic validation dependency used by Dify 1.17.1",
+    "wheel": "graphon-0.7.0-py3-none-any.whl",
+    "wheel_sha256": "6f7608aaaa65607c4935735137ed4b7029b1e6ca80202cbe829af3370cf4404e",
+    "source": "https://pypi.org/project/graphon/0.7.0/",
+    "license_sha256": "f8afa52a6b3efa19703781efbcc3eb34880a61ac843c922ddcedb1e7a0d437d8"
+  },
+  "aegis_gateway": {
+    "image": "nginx:1.28.0-alpine",
+    "manifest_digest": "sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+    "linux_amd64_digest": "sha256:09ab424a8c788f8d0fe3a64429f6d19dfa526885c8609b748d0943a75dcb9f8c",
+    "metadata_source": "https://hub.docker.com/v2/repositories/library/nginx/tags/1.28.0-alpine",
+    "registry_metadata_verified": true,
+    "image_pulled_or_run": false
+  },
+  "official_compose_base_images_digest_locked": false,
+  "runtime_started": false
+}

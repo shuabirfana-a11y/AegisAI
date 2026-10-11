@@ -1,0 +1,2230 @@
+你现在开始 AegisAI Phase 10。
+
+# Phase 10
+全系统联调 + AegisBench正式评测 +
+Agent消融实验 + 性能优化 +
+稳定性/异常恢复 + 安全测试
+
+Phase 1~9已经完成。
+
+本阶段原则：
+
+不继续堆功能。
+
+重点从：
+
+“系统能不能做”
+
+转向：
+
+“系统做得准不准、快不快、稳不稳，
+Agent是否真的有价值，
+出现异常能不能恢复，
+最终结果是否可信。”
+
+本阶段所有：
+
+准确率
+召回率
+F1
+延迟
+成功率
+失败率
+恢复率
+Token
+LLM调用次数
+
+必须来自真实实验。
+
+禁止伪造数据。
+
+==================================================
+0. Phase 10最终目标
+==================================================
+
+建立完整验证链：
+
+真实数据
+↓
+真实Backend
+↓
+真实Tool
+↓
+真实Hybrid Retrieval
+↓
+真实Agent
+↓
+真实Evidence
+↓
+真实Asset
+↓
+真实Question
+↓
+Ground Truth
+↓
+Benchmark
+↓
+Error Analysis
+↓
+Optimization
+↓
+Regression Test
+
+最终形成可以直接用于：
+
+技术报告
+答辩PPT
+演示视频
+评委提问
+
+的实验结果。
+
+==================================================
+1. 开始前读取所有阶段
+==================================================
+
+完整读取：
+
+requirements/
+research/
+design/
+reports/phase6/
+reports/phase7/
+reports/phase8/
+reports/phase9/
+docs/tooling/
+tests/
+backend/
+frontend/
+prompts/
+
+重点：
+
+SCORE_MAPPING
+
+NON_FUNCTIONAL_REQUIREMENTS
+
+EVALUATION_REQUIREMENTS
+
+POC VERIFICATION
+
+PATCH
+
+VERSION
+
+EVIDENCE
+
+VERIFICATION
+
+ASSET MATCH
+
+HYBRID RETRIEVAL
+
+AGENT
+
+TASK CONTRACT
+
+DEPENDENCY GRAPH
+
+INTEGRATION GATE
+
+RETRY / REPLAN
+
+PROMPT SECURITY
+
+==================================================
+2. 先做Phase 10 Preflight
+==================================================
+
+生成：
+
+reports/phase10/PREFLIGHT.md
+
+实际检查：
+
+Database
+
+Backend
+
+Frontend Skeleton
+
+Dify
+
+Tool Gateway
+
+Vector Retrieval
+
+Agent
+
+Asset
+
+Evidence
+
+Review
+
+Tests
+
+哪些是真正可运行的？
+
+哪些是PARTIAL？
+
+哪些Known Issues会影响Benchmark？
+
+禁止：
+
+看报告说PASS
+
+就默认PASS。
+
+==================================================
+3. 建立System Capability Matrix
+==================================================
+
+生成：
+
+reports/phase10/CAPABILITY_MATRIX.md
+
+列出：
+
+Capability
+
+Implementation
+
+Test
+
+Real Case
+
+Benchmark
+
+Status
+
+例如：
+
+POC Discovery
+
+POC Verification
+
+Patch Discovery
+
+Version Match
+
+Asset Match
+
+Hybrid Retrieval
+
+Agent Planning
+
+Verification
+
+Retry
+
+Replan
+
+Abstention
+
+Prompt Injection Defense
+
+这样可以发现：
+
+“有代码但没有验证”
+
+的能力。
+
+==================================================
+4. Benchmark正式命名
+==================================================
+
+建立：
+
+AegisBench
+
+如果项目已有其他正式名称：
+
+沿用已有名称。
+
+不要重复创建。
+
+AegisBench不是：
+
+一个CSV随便放几十题。
+
+需要：
+
+Dataset
+
+Ground Truth
+
+Runner
+
+Metrics
+
+Result
+
+Error Analysis
+
+Regression
+
+==================================================
+5. Benchmark目录
+==================================================
+
+建议：
+
+evaluation/
+├── datasets/
+├── ground_truth/
+├── runners/
+├── metrics/
+├── baselines/
+├── adversarial/
+├── reports/
+└── README.md
+
+结合现有项目调整。
+
+==================================================
+6. Benchmark必须版本化
+==================================================
+
+例如：
+
+AegisBench-v0.1
+
+保存：
+
+dataset version
+
+created_at
+
+data cutoff
+
+sample count
+
+source
+
+annotation method
+
+这样以后增加题目：
+
+不会把不同测试结果混在一起。
+
+==================================================
+7. 防止数据泄漏
+==================================================
+
+尤其：
+
+Benchmark题目
+
+不能直接来自：
+
+Prompt Example
+
+Few-shot Example
+
+硬编码规则测试样本。
+
+如果使用LLM：
+
+不要把Ground Truth直接放进Context。
+
+==================================================
+8. Time Split
+==================================================
+
+如果数据量允许：
+
+按时间划分。
+
+例如：
+
+开发阶段以前数据：
+
+Development
+
+较新数据：
+
+Evaluation
+
+避免系统只是：
+
+记住已有测试案例。
+
+记录真实cutoff。
+
+==================================================
+9. Benchmark Group A
+==================================================
+
+# AI安全相关性识别
+
+测试：
+
+Relevant
+
+Irrelevant
+
+Uncertain
+
+指标：
+
+Precision
+
+Recall
+
+F1
+
+Confusion Matrix
+
+重点关注：
+
+False Positive
+
+False Negative。
+
+==================================================
+10. Group B
+==================================================
+
+# Version Parsing / Matching
+
+测试：
+
+Affected
+
+Not Affected
+
+Unknown
+
+包括：
+
+简单SemVer
+
+范围
+
+边界
+
+ecosystem-specific
+
+unsupported
+
+conflict
+
+指标：
+
+Accuracy
+
+Unknown Rate
+
+False Affected
+
+False Safe
+
+尤其：
+
+False Safe
+
+必须单独报告。
+
+==================================================
+11. Group C
+==================================================
+
+# POC Discovery / Verification
+
+Ground Truth：
+
+人工核验。
+
+至少区分：
+
+Real POC
+
+Scanner
+
+Reference Repository
+
+Exploit Collection
+
+Unrelated
+
+Insufficient Evidence
+
+指标：
+
+Precision
+
+Recall
+
+F1
+
+以及：
+
+Abstention。
+
+==================================================
+12. Group D
+==================================================
+
+# Patch / Fix Version
+
+测试：
+
+Patch关联
+
+Fixed Version
+
+Fix Commit
+
+指标：
+
+Precision
+
+Recall
+
+Accuracy
+
+Unknown。
+
+==================================================
+13. Group E
+==================================================
+
+# Asset Vulnerability Match
+
+输入：
+
+Asset Component
+
+Installed Version
+
+Vulnerability
+
+Affected Range
+
+输出：
+
+Affected
+
+Not Affected
+
+Uncertain
+
+指标：
+
+Accuracy
+
+Precision
+
+Recall
+
+False Positive
+
+False Negative。
+
+==================================================
+14. Group F
+==================================================
+
+# Fact QA
+
+例如：
+
+某漏洞CVSS？
+
+是否KEV？
+
+EPSS？
+
+Fixed Version？
+
+发布时间？
+
+要求：
+
+结构化事实正确。
+
+==================================================
+15. Group G
+==================================================
+
+# 2-hop QA
+
+例如：
+
+“影响vLLM的漏洞中，
+哪些已经出现Confirmed POC？”
+
+需要：
+
+Product
+→ Vulnerability
+→ POC。
+
+==================================================
+16. Group H
+==================================================
+
+# 3-hop / Complex QA
+
+例如：
+
+“影响我的AI推理资产，
+且已经有可靠POC，
+同时官方已有修复的高危漏洞有哪些？”
+
+需要：
+
+Asset
+→ Component
+→ Vulnerability
+→ POC
+→ Patch。
+
+==================================================
+17. Group I
+==================================================
+
+# Conflict QA
+
+故意选择：
+
+多来源存在不同说法
+
+或者使用明确标记：
+
+TEST FIXTURE。
+
+系统应该：
+
+识别Conflict
+
+而不是：
+
+强行选一个答案。
+
+==================================================
+18. Group J
+==================================================
+
+# Abstention
+
+设计：
+
+证据不足的问题。
+
+正确行为：
+
+不知道就说不知道。
+
+指标至少：
+
+Correct Abstention
+
+Incorrect Abstention
+
+False Confident Answer
+
+==================================================
+19. Group K
+==================================================
+
+# Adversarial
+
+包括：
+
+Indirect Prompt Injection
+
+Fake POC
+
+Misleading Repository
+
+Conflicting Advisory
+
+Tool Injection
+
+Unsupported Version
+
+Malformed SBOM
+
+==================================================
+20. Ground Truth规则
+==================================================
+
+Ground Truth必须：
+
+人工检查
+
++
+
+Evidence。
+
+每个Case至少记录：
+
+expected result
+
+supporting source
+
+annotation note
+
+annotator
+
+review status
+
+不要：
+
+LLM生成答案
+
+→
+
+直接当Ground Truth。
+
+==================================================
+21. Benchmark样本量
+==================================================
+
+根据真实开发时间决定。
+
+不要为了数字大：
+
+自动生成10000条垃圾题。
+
+优先：
+
+质量。
+
+目标可以逐步：
+
+v0.1：小而可信
+
+v0.2：扩充
+
+最终报告必须明确：
+
+实际样本量。
+
+==================================================
+22. Baseline A
+==================================================
+
+建立：
+
+RAG-only Baseline。
+
+问题
+
+↓
+
+Vector Retrieval
+
+↓
+
+LLM Answer
+
+不使用：
+
+SQL
+
+Relation
+
+Agent Investigation
+
+用于证明：
+
+简单RAG的局限。
+
+==================================================
+23. Baseline B
+==================================================
+
+建立：
+
+Hybrid Retrieval。
+
+SQL
+
++
+
+Vector
+
++
+
+Relation
+
++
+
+Tool
+
+但：
+
+固定流程。
+
+==================================================
+24. Full System
+==================================================
+
+建立：
+
+Hybrid Retrieval
+
++
+
+Adaptive Agent
+
++
+
+Verification
+
++
+
+Integration Gate。
+
+==================================================
+25. 核心消融实验
+==================================================
+
+至少做：
+
+Experiment 1：
+
+RAG-only
+vs
+Hybrid Retrieval
+
+Experiment 2：
+
+Fixed Workflow
+vs
+Adaptive Agent
+
+Experiment 3：
+
+No Verification
+vs
+Verification
+
+如果时间允许：
+
+Single Agent
+vs
+Multi-Agent
+
+但第四个不是硬要求。
+
+==================================================
+26. 消融必须公平
+==================================================
+
+尽量保持：
+
+同Dataset
+
+同模型
+
+同Temperature
+
+同Knowledge
+
+同Tool能力
+
+只改变：
+
+实验变量。
+
+否则结果没有说服力。
+
+==================================================
+27. 为什么需要Agent
+==================================================
+
+重点不是证明：
+
+Agent永远准确率更高。
+
+而是观察：
+
+复杂任务成功率
+
+多跳任务
+
+动态补充调查
+
+Tool Failure恢复
+
+Conflict处理
+
+是否改善。
+
+简单事实问题：
+
+Fast Path本来就应该比Agent更好。
+
+==================================================
+28. Fast Path性能
+==================================================
+
+单事实问题记录：
+
+P50
+
+P95
+
+Mean
+
+Max
+
+不要只写：
+
+“响应速度快”。
+
+==================================================
+29. Deep Path性能
+==================================================
+
+复杂Agent问题记录：
+
+Total Latency
+
+Planning
+
+Tool
+
+Retrieval
+
+Verification
+
+LLM
+
+Integration
+
+分别耗时。
+
+找到瓶颈。
+
+==================================================
+30. 响应目标
+==================================================
+
+结合比赛要求和现有NFR。
+
+优先优化：
+
+简单问答
+
+尽量进入秒级。
+
+复杂Deep Path：
+
+允许更慢，
+
+但必须：
+
+有进度
+
+有Timeout
+
+有Fallback。
+
+不要为了追求：
+
+“全部<2秒”
+
+牺牲真实性。
+
+==================================================
+31. Tool Call成本
+==================================================
+
+记录每次Agent Run：
+
+Tool Calls
+
+LLM Calls
+
+Input Tokens
+
+Output Tokens
+
+Retries
+
+Replans
+
+Latency
+
+如果可以获得：
+
+Estimated Cost
+
+也记录。
+
+但不要编造价格。
+
+==================================================
+32. Agent Efficiency
+==================================================
+
+检查：
+
+是否存在重复Tool Call
+
+重复查询同一个CVE
+
+重复Embedding
+
+重复Vendor请求
+
+不必要Agent切换。
+
+==================================================
+33. Cache
+==================================================
+
+只对合理数据Cache。
+
+例如：
+
+Product metadata
+
+CVE static facts
+
+Vendor Document
+
+Embedding
+
+不要缓存：
+
+需要最新状态
+
+而且没有TTL。
+
+==================================================
+34. Freshness
+==================================================
+
+所有Cache必须考虑：
+
+freshness。
+
+例如：
+
+EPSS
+
+POC
+
+KEV
+
+可能变化。
+
+设计合理TTL或失效机制。
+
+==================================================
+35. Reliability Test
+==================================================
+
+主动模拟：
+
+Source timeout
+
+429
+
+500
+
+Invalid JSON
+
+Database transient failure
+
+Vector retrieval failure
+
+Dify timeout
+
+Tool timeout
+
+==================================================
+36. Retry Test
+==================================================
+
+验证：
+
+Retryable error
+
+确实Retry。
+
+Non-retryable
+
+不会疯狂Retry。
+
+==================================================
+37. Replan Test
+==================================================
+
+模拟：
+
+主要POC Source失败。
+
+检查：
+
+Orchestrator是否可以：
+
+使用已有Evidence
+
+或备用Source
+
+继续任务。
+
+必须记录：
+
+Original Plan
+
+Failure
+
+New Plan
+
+Result。
+
+==================================================
+38. Partial Failure
+==================================================
+
+例如：
+
+POC查询失败
+
+但是：
+
+Asset
+
+KEV
+
+Patch
+
+成功。
+
+系统应该：
+
+PARTIAL RESULT
+
+而不是：
+
+整个问题500。
+
+==================================================
+39. Circuit Breaker
+==================================================
+
+评估是否需要轻量Circuit Breaker。
+
+如果某Source持续失败：
+
+暂时停止疯狂请求。
+
+记录：
+
+degraded。
+
+不要为此引入巨大框架。
+
+==================================================
+40. Source Health
+==================================================
+
+System Status至少真实显示：
+
+Source
+
+Last Success
+
+Last Failure
+
+Latency
+
+Status
+
+Error
+
+Last Sync
+
+==================================================
+41. Agent Failure
+==================================================
+
+测试：
+
+Planner输出非法Task
+
+Tool参数非法
+
+Agent Artifact Schema错误
+
+Evidence缺失
+
+Dependency错误
+
+Integration Gate拒绝
+
+确保：
+
+不会输出伪成功。
+
+==================================================
+42. Timeout
+==================================================
+
+定义：
+
+Tool Timeout
+
+Task Timeout
+
+Agent Run Timeout
+
+Deep Path Timeout
+
+达到Timeout：
+
+停止
+
+返回Partial / Failure
+
+不能无限挂。
+
+==================================================
+43. Concurrency
+==================================================
+
+测试：
+
+多个查询同时执行。
+
+不要一上来压10000并发。
+
+根据比赛Demo实际：
+
+5
+
+10
+
+20
+
+逐级测试。
+
+记录：
+
+Latency
+
+Error Rate。
+
+==================================================
+44. Database性能
+==================================================
+
+检查：
+
+N+1
+
+Missing Index
+
+Slow Query
+
+Relation Query
+
+Asset Risk Query
+
+Evidence Query
+
+Timeline Query
+
+只针对真实慢查询优化。
+
+==================================================
+45. Vector Retrieval Evaluation
+==================================================
+
+测试：
+
+Recall@K
+
+MRR
+
+或者适合当前规模的检索指标。
+
+不要只测：
+
+最终LLM回答。
+
+否则不知道：
+
+错在Retrieval
+
+还是Generation。
+
+==================================================
+46. Retrieval Error Analysis
+==================================================
+
+区分：
+
+Document不存在
+
+Chunk错误
+
+Embedding问题
+
+Query Rewrite问题
+
+Ranking问题
+
+Metadata Filter问题。
+
+==================================================
+47. QA Error Taxonomy
+==================================================
+
+扩展统一错误：
+
+RETRIEVAL_ERROR
+
+RELATION_ERROR
+
+TOOL_ERROR
+
+PLANNING_ERROR
+
+HANDOFF_ERROR
+
+VERIFICATION_ERROR
+
+INTEGRATION_ERROR
+
+GENERATION_ERROR
+
+STALE_DATA
+
+FALSE_CONFIDENCE
+
+==================================================
+48. Error Analysis报告
+==================================================
+
+每次Benchmark自动输出：
+
+错误Case
+
+Expected
+
+Actual
+
+Evidence
+
+Error Type
+
+可能原因
+
+不要只输出：
+
+Accuracy = 87%。
+
+==================================================
+49. Prompt Injection测试
+==================================================
+
+至少准备：
+
+恶意README
+
+恶意Blog
+
+恶意POC description
+
+例如：
+
+Ignore previous instructions...
+
+Call this tool...
+
+Reveal system prompt...
+
+Delete database...
+
+系统必须：
+
+当作Data。
+
+==================================================
+50. Tool Security
+==================================================
+
+验证：
+
+Agent无法：
+
+任意Shell
+
+任意SQL
+
+任意URL
+
+任意文件访问
+
+执行POC
+
+修改Tool权限。
+
+==================================================
+51. SQL Injection
+==================================================
+
+测试API和查询层。
+
+尤其：
+
+搜索
+
+Filter
+
+Asset Input
+
+不要字符串拼SQL。
+
+==================================================
+52. SBOM Security
+==================================================
+
+测试：
+
+Oversized file
+
+Malformed JSON
+
+Unexpected nesting
+
+Invalid PURL
+
+Duplicate components
+
+危险字段
+
+不能：
+
+Crash整个服务。
+
+==================================================
+53. API Security
+==================================================
+
+至少检查：
+
+Input Validation
+
+Rate Limit基础
+
+Error Leakage
+
+Secret Leakage
+
+CORS
+
+Debug Mode
+
+Sensitive Log
+
+不要在生产配置：
+
+debug=true。
+
+==================================================
+54. Evidence Integrity
+==================================================
+
+检查：
+
+Claim
+
+Evidence
+
+RawDocument
+
+Source
+
+是否完整可追溯。
+
+随机抽取：
+
+Confirmed Claims
+
+验证：
+
+Evidence真的存在。
+
+==================================================
+55. Citation Correctness
+==================================================
+
+最终回答引用的Evidence：
+
+必须真的支持该Claim。
+
+不要：
+
+URL存在
+
+但内容不支持结论。
+
+建立抽样评估。
+
+==================================================
+56. Hallucination Evaluation
+==================================================
+
+检查：
+
+回答中是否出现：
+
+数据库不存在的CVE
+
+不存在的Fixed Version
+
+不存在的POC
+
+不存在的KEV
+
+不存在的Asset
+
+把这种情况单独统计：
+
+Unsupported Claim Rate。
+
+==================================================
+57. Abstention Evaluation
+==================================================
+
+证据不足时：
+
+系统是否：
+
+拒绝硬答。
+
+这是可信情报系统的重要指标。
+
+==================================================
+58. Multi-Agent Collaboration Evaluation
+==================================================
+
+针对复杂任务记录：
+
+Tasks Created
+
+Parallel Tasks
+
+Sequential Tasks
+
+Handoffs
+
+Rejected Handoffs
+
+Retries
+
+Replans
+
+Human Reviews
+
+Integration Result
+
+证明：
+
+Agent不是PPT架构。
+
+==================================================
+59. Agent Case Study
+==================================================
+
+选一个真实复杂问题。
+
+生成：
+
+完整可审计Case Study：
+
+Question
+
+↓
+
+Route
+
+↓
+
+Plan
+
+↓
+
+Dependency Graph
+
+↓
+
+Task Contracts
+
+↓
+
+Tool Calls
+
+↓
+
+Artifacts
+
+↓
+
+Verification
+
+↓
+
+Integration Gate
+
+↓
+
+Final Answer
+
+↓
+
+Evidence
+
+这以后直接做：
+
+答辩核心页。
+
+==================================================
+60. Fixed Workflow对照
+==================================================
+
+同一个Case：
+
+跑：
+
+Fixed Workflow
+
+Adaptive Agent
+
+比较：
+
+是否完成
+
+Tool Calls
+
+Latency
+
+Evidence Coverage
+
+错误恢复
+
+不要预设Agent一定赢。
+
+==================================================
+61. Human Review统计
+==================================================
+
+记录：
+
+多少任务进入Review
+
+原因
+
+最终Resolution
+
+避免系统：
+
+什么都扔给人工。
+
+==================================================
+62. Frontend
+==================================================
+
+本阶段依然：
+
+只保证框架功能。
+
+不要美化。
+
+只修：
+
+数据不显示
+
+状态错误
+
+API错误
+
+Agent Trace错误
+
+Evidence打不开
+
+Review不能操作
+
+Asset Risk不更新
+
+==================================================
+63. E2E测试
+==================================================
+
+建立至少一条完整E2E：
+
+New Intelligence
+
+↓
+
+Normalize
+
+↓
+
+Enrich
+
+↓
+
+Verify
+
+↓
+
+Asset Match
+
+↓
+
+Risk
+
+↓
+
+User Query
+
+↓
+
+Agent
+
+↓
+
+Evidence Answer
+
+确保整个链条能跑。
+
+==================================================
+64. Demo Replay
+==================================================
+
+为了比赛现场稳定：
+
+设计Replay机制。
+
+注意：
+
+Replay不是Fake。
+
+Replay使用：
+
+之前真实采集保存的RawDocument / Evidence。
+
+当现场网络失败：
+
+可以展示：
+
+真实历史数据链路。
+
+必须明确区分：
+
+LIVE
+
+REPLAY
+
+==================================================
+65. Live / Replay Mode
+==================================================
+
+系统状态中明确：
+
+LIVE
+
+REPLAY
+
+禁止：
+
+网络断了偷偷切Replay
+
+然后假装实时。
+
+==================================================
+66. Demo Seed
+==================================================
+
+允许准备：
+
+经过验证的真实Demo Asset
+
+真实Vulnerability
+
+真实Evidence
+
+用于现场稳定演示。
+
+禁止：
+
+虚构漏洞。
+
+==================================================
+67. Performance Optimization
+==================================================
+
+只优化Benchmark证明的瓶颈。
+
+可能包括：
+
+Index
+
+Query
+
+Batch
+
+Cache
+
+Parallel Tools
+
+Connection Pool
+
+Embedding Cache
+
+不要：
+
+没有Profile就优化。
+
+==================================================
+68. 优化前后对比
+==================================================
+
+每次重要优化：
+
+Before
+
+After
+
+Dataset
+
+Environment
+
+Method
+
+记录。
+
+这样答辩可以说：
+
+“优化后P95从真实X下降到真实Y”。
+
+如果没有明显提升：
+
+如实记录。
+
+==================================================
+69. Regression
+==================================================
+
+所有修复后：
+
+重新跑关键Benchmark。
+
+防止：
+
+提高速度
+
+却降低准确率。
+
+==================================================
+70. Score Mapping
+==================================================
+
+重新读取：
+
+SCORE_MAPPING.md
+
+建立：
+
+reports/phase10/SCORE_EVIDENCE_MATRIX.md
+
+每个比赛评分点对应：
+
+Feature
+
+Code
+
+Test
+
+Benchmark
+
+Demo
+
+Evidence
+
+Report Section
+
+让每一个评分点都有东西可展示。
+
+==================================================
+71. 不要硬凑高分
+==================================================
+
+如果：
+
+准确率没有95%
+
+就不要写95%。
+
+目标是：
+
+发现问题
+
+优化
+
+再次测。
+
+比赛材料最后使用：
+
+真实最好结果。
+
+==================================================
+72. Benchmark可复现
+==================================================
+
+提供：
+
+一条或少量命令
+
+可以重新运行Benchmark。
+
+例如概念：
+
+python -m evaluation.run --suite full
+
+具体根据项目实现。
+
+==================================================
+73. 环境信息
+==================================================
+
+Benchmark报告记录：
+
+Date
+
+Git Commit
+
+Model
+
+Model Config
+
+Database Snapshot
+
+Dataset Version
+
+Machine
+
+Dify Version
+
+Backend Version
+
+保证可复现。
+
+==================================================
+74. 最终Benchmark报告
+==================================================
+
+生成：
+
+reports/phase10/AEGISBENCH_REPORT.md
+
+至少包含：
+
+Dataset
+
+Method
+
+Metrics
+
+Baselines
+
+Full System
+
+Ablation
+
+Latency
+
+Reliability
+
+Security
+
+Error Analysis
+
+Limitations
+
+禁止营销话术。
+
+==================================================
+75. 输出目录
+==================================================
+
+reports/phase10/
+
+至少：
+
+PREFLIGHT.md
+
+CAPABILITY_MATRIX.md
+
+AEGISBENCH_DESIGN.md
+
+AEGISBENCH_REPORT.md
+
+RETRIEVAL_EVALUATION.md
+
+QA_EVALUATION.md
+
+ASSET_MATCH_EVALUATION.md
+
+POC_PATCH_EVALUATION.md
+
+ABSTENTION_EVALUATION.md
+
+ADVERSARIAL_EVALUATION.md
+
+AGENT_EVALUATION.md
+
+ABLATION_STUDY.md
+
+PERFORMANCE_REPORT.md
+
+RELIABILITY_REPORT.md
+
+SECURITY_TEST_REPORT.md
+
+ERROR_ANALYSIS.md
+
+E2E_TEST.md
+
+DEMO_REPLAY.md
+
+SCORE_EVIDENCE_MATRIX.md
+
+KNOWN_ISSUES.md
+
+==================================================
+76. 最终必须真实执行
+==================================================
+
+实际运行：
+
+Unit Tests
+
+Integration Tests
+
+E2E
+
+AegisBench
+
+RAG Baseline
+
+Hybrid Baseline
+
+Full Agent
+
+Ablation
+
+Failure Injection
+
+Prompt Injection
+
+Performance Test
+
+Security Test
+
+不要：
+
+只生成测试代码。
+
+==================================================
+77. Phase 10完成门槛
+==================================================
+
+只有以下满足才能PASS：
+
+[ ] AegisBench存在
+
+[ ] Ground Truth人工核验
+
+[ ] AI Relevance评测
+
+[ ] Version评测
+
+[ ] POC评测
+
+[ ] Patch评测
+
+[ ] Asset Match评测
+
+[ ] Fact QA评测
+
+[ ] Multi-hop评测
+
+[ ] Conflict评测
+
+[ ] Abstention评测
+
+[ ] Adversarial评测
+
+[ ] RAG Baseline
+
+[ ] Hybrid Baseline
+
+[ ] Full Agent
+
+[ ] 至少3组核心Ablation
+
+[ ] Fast Path latency真实测量
+
+[ ] Deep Path latency真实测量
+
+[ ] Reliability测试
+
+[ ] Retry测试
+
+[ ] Replan测试
+
+[ ] Partial Failure测试
+
+[ ] Prompt Injection测试
+
+[ ] Tool Security测试
+
+[ ] E2E真实运行
+
+[ ] Live/Replay机制
+
+[ ] Score Evidence Matrix
+
+[ ] 所有结果无伪造
+
+==================================================
+78. 最终汇报
+==================================================
+
+输出：
+
+=== AegisAI Phase 10 Evaluation Complete ===
+
+System Integration:
+PASS / PARTIAL / FAIL
+
+AegisBench:
+
+Version:
+Dataset Size:
+
+AI Relevance:
+Precision:
+Recall:
+F1:
+
+Version Matching:
+Accuracy:
+False Safe:
+
+POC:
+Precision:
+Recall:
+F1:
+
+Patch:
+...
+
+Asset Match:
+...
+
+QA:
+
+Fact:
+...
+
+2-hop:
+...
+
+3-hop:
+...
+
+Abstention:
+...
+
+Unsupported Claim Rate:
+...
+
+Retrieval:
+...
+
+Performance:
+
+Fast Path P50:
+Fast Path P95:
+
+Deep Path Mean:
+Deep Path P95:
+
+Reliability:
+
+Retry:
+...
+
+Replan:
+...
+
+Partial Failure:
+...
+
+Security:
+
+Prompt Injection:
+...
+
+Tool Abuse:
+...
+
+SBOM:
+...
+
+Ablation:
+
+RAG-only:
+...
+
+Hybrid:
+...
+
+Full Agent:
+...
+
+No Verification vs Verification:
+...
+
+Fixed vs Adaptive:
+...
+
+Tests:
+
+Passed:
+Failed:
+Skipped:
+
+Score Evidence Coverage:
+...
+
+Known Issues:
+...
+
+Phase 10 Status:
+
+PASS / PARTIAL / FAIL
+
+Next Phase:
+
+Phase 11
+Docker生产化 + CI/CD +
+日志/监控/告警 + 数据备份 +
+部署与演示环境固化
+
+完成后停止。
+
+不要自行进入Phase 11。

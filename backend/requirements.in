@@ -1,0 +1,14 @@
+SQLAlchemy>=2.0,<2.1
+alembic>=1.16,<2
+psycopg[binary]>=3.2,<4
+pytest>=8,<10
+fastapi>=0.142,<0.143
+starlette>=0.52,<1
+pydantic>=2.13,<3
+httpx>=0.28,<0.29
+uvicorn>=0.54,<0.55
+packaging>=26,<27
+packageurl-python>=0.17,<0.18
+cvss>=3.6,<4
+jsonschema>=4.25,<5
+fastembed>=0.8,<0.9

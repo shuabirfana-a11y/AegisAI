@@ -1,0 +1,47 @@
+{
+  "full_name": "oasis-open/cti-python-stix2",
+  "html_url": "https://github.com/oasis-open/cti-python-stix2",
+  "homepage": "https://stix2.readthedocs.io/",
+  "description": "OASIS TC Open Repository: Python APIs for STIX 2",
+  "language": "Python",
+  "license": {
+    "key": "bsd-3-clause",
+    "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+    "spdx_id": "BSD-3-Clause",
+    "url": "https://api.github.com/licenses/bsd-3-clause",
+    "node_id": "MDc6TGljZW5zZTU="
+  },
+  "stargazers_count": 438,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2017-02-10T17:50:12Z",
+  "updated_at": "2026-09-29T14:39:44Z",
+  "pushed_at": "2026-02-12T06:21:36Z",
+  "open_issues_count": 68,
+  "default_branch": "master",
+  "requested_repo": "oasis-open/cti-python-stix2",
+  "commit": "2270361774215de49717c1a6028a80c91075b400",
+  "commit_date": "2026-02-12T06:19:32Z",
+  "commit_message": "Merge pull request #642 from chrisr3d/master\n\nQuick update to support latest python version, and a few related fixes",
+  "checked_at_utc": "2026-10-03T03:34:03.645474+00:00",
+  "readme_path": "README.rst",
+  "readme_url": "https://github.com/oasis-open/cti-python-stix2/blob/2270361774215de49717c1a6028a80c91075b400/README.rst",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/oasis-open/cti-python-stix2/blob/2270361774215de49717c1a6028a80c91075b400/LICENSE",
+  "latest_release": {
+    "tag_name": "v3.0.2",
+    "published_at": "2026-02-12T06:22:52Z",
+    "html_url": "https://github.com/oasis-open/cti-python-stix2/releases/tag/v3.0.2",
+    "name": "v3.0.2 released with many bugs fixed and support for latest Python version"
+  },
+  "recent_issues": [
+    {
+      "number": 643,
+      "title": "Network Traffic mandatory properties",
+      "state": "closed",
+      "updated_at": "2026-04-22T18:14:00Z",
+      "html_url": "https://github.com/oasis-open/cti-python-stix2/issues/643",
+      "comments": 2
+    }
+  ]
+}

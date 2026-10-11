@@ -1,0 +1,13 @@
+backend/.venv
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/.env
+work
+reports
+research
+requirements
+design
+evaluation
+prototype
+.git

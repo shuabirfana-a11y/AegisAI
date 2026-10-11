@@ -1,0 +1,79 @@
+{
+  "full_name": "MISP/MISP",
+  "html_url": "https://github.com/MISP/MISP",
+  "homepage": "https://www.misp-project.org/",
+  "description": "MISP (core software) - Open Source Threat Intelligence and Sharing Platform",
+  "language": "PHP",
+  "license": {
+    "key": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "spdx_id": "AGPL-3.0",
+    "url": "https://api.github.com/licenses/agpl-3.0",
+    "node_id": "MDc6TGljZW5zZTE="
+  },
+  "stargazers_count": 6563,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2013-02-07T17:10:34Z",
+  "updated_at": "2026-10-02T13:58:01Z",
+  "pushed_at": "2026-10-02T15:53:38Z",
+  "open_issues_count": 2945,
+  "default_branch": "2.5",
+  "requested_repo": "MISP/MISP",
+  "commit": "fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120",
+  "commit_date": "2026-09-29T14:57:07Z",
+  "commit_message": "new: [statistics] Add object relation usage statistics\n\nStatistics objectRelationUsage prints, per object template, the relations\nof the latest template version that are in use, ordered by the number of\nobjects populating them (ties broken by attribute count, then name).\n\nObjects of every template version count towards the latest one. They are\nmatched by template UUID, case-insensitively, so renamed templates are\nincluded. Deleted objects and attributes are ignored, and relations that\nthe latest version no longer has are left out.\n\nObjects are processed in id-range chunks so that memory and per-query work\nstay bounded on large instances. The JSON goes to stdout, progress to\nstderr.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+  "checked_at_utc": "2026-10-03T03:33:53.920746+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/MISP/MISP/blob/fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/MISP/MISP/blob/fb54b3e4a4ddd7ad7913fffd94284dd0e81b2120/LICENSE",
+  "latest_release": {
+    "tag_name": "v2.5.48",
+    "published_at": "2026-09-29T08:11:29Z",
+    "html_url": "https://github.com/MISP/MISP/releases/tag/v2.5.48",
+    "name": "MISP 2.5.48 - AImageddon security roundup release"
+  },
+  "recent_issues": [
+    {
+      "number": 11185,
+      "title": "Bug: Edit server page extremely slow to load when instance has many tags",
+      "state": "open",
+      "updated_at": "2026-10-02T09:38:52Z",
+      "html_url": "https://github.com/MISP/MISP/issues/11185",
+      "comments": 0
+    },
+    {
+      "number": 11184,
+      "title": "Support: Clarification on UI Theming (Colors/Logo) & AGPL",
+      "state": "open",
+      "updated_at": "2026-10-01T19:53:09Z",
+      "html_url": "https://github.com/MISP/MISP/issues/11184",
+      "comments": 0
+    },
+    {
+      "number": 11183,
+      "title": "Support: Federation Control & Configuration Lockdown Inquiry",
+      "state": "closed",
+      "updated_at": "2026-10-01T13:52:28Z",
+      "html_url": "https://github.com/MISP/MISP/issues/11183",
+      "comments": 1
+    },
+    {
+      "number": 11182,
+      "title": "Support: Theming & Licensing Inquiry (Logo Removal)",
+      "state": "closed",
+      "updated_at": "2026-10-01T15:24:14Z",
+      "html_url": "https://github.com/MISP/MISP/issues/11182",
+      "comments": 2
+    },
+    {
+      "number": 11181,
+      "title": "Support: CRA Compliance & SBOM Inquiry",
+      "state": "closed",
+      "updated_at": "2026-10-01T13:48:39Z",
+      "html_url": "https://github.com/MISP/MISP/issues/11181",
+      "comments": 1
+    }
+  ]
+}

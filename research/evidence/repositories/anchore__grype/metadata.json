@@ -1,0 +1,63 @@
+{
+  "full_name": "anchore/grype",
+  "html_url": "https://github.com/anchore/grype",
+  "homepage": "",
+  "description": "A vulnerability scanner for container images and filesystems",
+  "language": "Go",
+  "license": {
+    "key": "apache-2.0",
+    "name": "Apache License 2.0",
+    "spdx_id": "Apache-2.0",
+    "url": "https://api.github.com/licenses/apache-2.0",
+    "node_id": "MDc6TGljZW5zZTI="
+  },
+  "stargazers_count": 12965,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2020-05-26T13:44:38Z",
+  "updated_at": "2026-10-02T20:48:44Z",
+  "pushed_at": "2026-10-02T16:52:07Z",
+  "open_issues_count": 417,
+  "default_branch": "main",
+  "requested_repo": "anchore/grype",
+  "commit": "4759e396277871feb6530dcc45ae9d3acd074980",
+  "commit_date": "2026-10-02T14:12:23Z",
+  "commit_message": "chore(deps): bump github.com/klauspost/compress from 1.20.0 to 1.20.1 (#3763)\n\nBumps [github.com/klauspost/compress](https://github.com/klauspost/compress) from 1.20.0 to 1.20.1.\n- [Release notes](https://github.com/klauspost/compress/releases)\n- [Commits](https://github.com/klauspost/compress/compare/v1.20.0...v1.20.1)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/klauspost/compress\n  dependency-version: 1.20.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "checked_at_utc": "2026-10-03T03:31:39.022551+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/anchore/grype/blob/4759e396277871feb6530dcc45ae9d3acd074980/README.md",
+  "license_path": "LICENSE",
+  "license_url": "https://github.com/anchore/grype/blob/4759e396277871feb6530dcc45ae9d3acd074980/LICENSE",
+  "latest_release": {
+    "tag_name": "v0.120.0",
+    "published_at": "2026-10-02T14:23:18Z",
+    "html_url": "https://github.com/anchore/grype/releases/tag/v0.120.0",
+    "name": "v0.120.0"
+  },
+  "recent_issues": [
+    {
+      "number": 3769,
+      "title": "False positive:  GHSA-537c-gmf6-5ccf — OS-backported RPM cryptography flagged against upstream version",
+      "state": "open",
+      "updated_at": "2026-10-02T20:27:33Z",
+      "html_url": "https://github.com/anchore/grype/issues/3769",
+      "comments": 0
+    },
+    {
+      "number": 3768,
+      "title": "False Positive:  4 CVES  — OS-backported RPM python3-cryptography-3.3.2-150400.26.1 flagged against upstream PyPI versions",
+      "state": "open",
+      "updated_at": "2026-10-02T20:12:39Z",
+      "html_url": "https://github.com/anchore/grype/issues/3768",
+      "comments": 0
+    },
+    {
+      "number": 3767,
+      "title": "grype 0.119.0 allocates without bound on a CycloneDX machine-learning-model component with no purl and no CPE",
+      "state": "open",
+      "updated_at": "2026-10-02T16:08:31Z",
+      "html_url": "https://github.com/anchore/grype/issues/3767",
+      "comments": 0
+    }
+  ]
+}

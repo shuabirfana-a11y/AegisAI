@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-03T08:04:17.545949+00:00",
+  "cluster": "C:\\Users\\X\\Documents\\Codex\\2026-10-03\\files-mentioned-by-the-user-9\\work\\database_cluster",
+  "port": 55435,
+  "stopped": true,
+  "pid_file_exists": false,
+  "listener_open": false,
+  "windows_service_installed": false,
+  "scope": "Dedicated Phase 5 test cluster only; existing UI preview left running."
+}

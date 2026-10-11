@@ -1,0 +1,69 @@
+{
+  "full_name": "github/advisory-database",
+  "html_url": "https://github.com/github/advisory-database",
+  "homepage": null,
+  "description": "Security vulnerability database inclusive of CVEs and GitHub originated security advisories from the world of open source software.",
+  "language": null,
+  "license": {
+    "key": "cc-by-4.0",
+    "name": "Creative Commons Attribution 4.0 International",
+    "spdx_id": "CC-BY-4.0",
+    "url": "https://api.github.com/licenses/cc-by-4.0",
+    "node_id": "MDc6TGljZW5zZTI1"
+  },
+  "stargazers_count": 2482,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2022-02-11T22:59:38Z",
+  "updated_at": "2026-10-03T00:34:56Z",
+  "pushed_at": "2026-10-03T01:35:02Z",
+  "open_issues_count": 1015,
+  "default_branch": "main",
+  "requested_repo": "github/advisory-database",
+  "commit": "95c24a9af2a1a089b062a575b5a2f9055f36c4e4",
+  "commit_date": "2026-10-03T00:34:48Z",
+  "commit_message": "Advisory Database Sync",
+  "checked_at_utc": "2026-10-03T03:31:26.005811+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/github/advisory-database/blob/95c24a9af2a1a089b062a575b5a2f9055f36c4e4/README.md",
+  "license_path": "LICENSE.md",
+  "license_url": "https://github.com/github/advisory-database/blob/95c24a9af2a1a089b062a575b5a2f9055f36c4e4/LICENSE.md",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/github/advisory-database/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 10120,
+      "title": "Unauthenticated SSTI to RCE in PaloAltoNetworks/panos-bootstrapper (archived)",
+      "state": "open",
+      "updated_at": "2026-10-02T21:04:18Z",
+      "html_url": "https://github.com/github/advisory-database/issues/10120",
+      "comments": 0
+    },
+    {
+      "number": 10119,
+      "title": "test",
+      "state": "open",
+      "updated_at": "2026-10-02T15:12:26Z",
+      "html_url": "https://github.com/github/advisory-database/issues/10119",
+      "comments": 0
+    },
+    {
+      "number": 10118,
+      "title": "recognize github repositories in advisories",
+      "state": "open",
+      "updated_at": "2026-10-02T13:52:47Z",
+      "html_url": "https://github.com/github/advisory-database/issues/10118",
+      "comments": 0
+    },
+    {
+      "number": 10117,
+      "title": "support opam ecosystem for packages that are on github",
+      "state": "open",
+      "updated_at": "2026-10-02T13:51:35Z",
+      "html_url": "https://github.com/github/advisory-database/issues/10117",
+      "comments": 1
+    }
+  ]
+}

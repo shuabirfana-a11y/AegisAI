@@ -1,0 +1,85 @@
+{
+  "full_name": "JafarAkhondali/Morefixes",
+  "html_url": "https://github.com/JafarAkhondali/Morefixes",
+  "homepage": "",
+  "description": "MoreFixes: A Large-Scale Dataset of CVE Fix Commits Mined through Enhanced Repository Discovery",
+  "language": "Python",
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 85,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2024-05-02T13:23:43Z",
+  "updated_at": "2026-09-29T08:42:49Z",
+  "pushed_at": "2026-09-25T14:27:06Z",
+  "open_issues_count": 1,
+  "default_branch": "main",
+  "requested_repo": "JafarAkhondali/Morefixes",
+  "commit": "7e78f1b477d3f656cdb06336fd0af6861d6bca40",
+  "commit_date": "2026-09-25T14:27:06Z",
+  "commit_message": "Improve formatting for 2026 release information\n\nUpdated formatting for the 2026 release section in README.",
+  "checked_at_utc": "2026-10-03T03:34:56.890453+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/JafarAkhondali/Morefixes/blob/7e78f1b477d3f656cdb06336fd0af6861d6bca40/README.md",
+  "license_path": "LICENSE.txt",
+  "license_url": "https://github.com/JafarAkhondali/Morefixes/blob/7e78f1b477d3f656cdb06336fd0af6861d6bca40/LICENSE.txt",
+  "latest_release": {
+    "http_error": 404,
+    "path": "repos/JafarAkhondali/Morefixes/releases/latest"
+  },
+  "recent_issues": [
+    {
+      "number": 10,
+      "title": "Request for an Alternative Download Link for the MoreFixes v4 Dataset",
+      "state": "closed",
+      "updated_at": "2026-09-15T23:11:07Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/10",
+      "comments": 3
+    },
+    {
+      "number": 9,
+      "title": "2026 release",
+      "state": "closed",
+      "updated_at": "2026-06-16T22:04:05Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/9",
+      "comments": 0
+    },
+    {
+      "number": 8,
+      "title": "Use NVD API V2",
+      "state": "closed",
+      "updated_at": "2026-06-01T16:49:35Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/8",
+      "comments": 0
+    },
+    {
+      "number": 7,
+      "title": "GHSA data clone is missing",
+      "state": "closed",
+      "updated_at": "2026-06-01T16:49:48Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/7",
+      "comments": 0
+    },
+    {
+      "number": 6,
+      "title": "CVE Update",
+      "state": "closed",
+      "updated_at": "2026-06-16T15:28:54Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/6",
+      "comments": 0
+    },
+    {
+      "number": 5,
+      "title": "repo_url format not consistent between tables",
+      "state": "closed",
+      "updated_at": "2024-10-23T14:59:21Z",
+      "html_url": "https://github.com/JafarAkhondali/Morefixes/issues/5",
+      "comments": 4
+    }
+  ]
+}

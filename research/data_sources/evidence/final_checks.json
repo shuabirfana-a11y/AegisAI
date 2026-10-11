@@ -1,0 +1,118 @@
+[
+  {
+    "url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=301E0388CB75788DE06397BE0A0AE1B4",
+    "checked_at_utc": "2026-10-03T05:53:47.851121+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://std.samr.gov.cn/gb/search/gbDetailed?id=301E0388CB75788DE06397BE0A0AE1B4",
+    "headers": {
+      "Content-Type": "text/html;charset=UTF-8",
+      "X-RateLimit-Remaining": "183"
+    },
+    "truncated": false,
+    "bytes": 84687,
+    "sha256": "da4f0915c424e42194835324f3286a32592c75562985c8f6c06835d3f8ed6fdd",
+    "file": "research/data_sources/evidence/urls/samr_standard.body"
+  },
+  {
+    "url": "https://std.samr.gov.cn/search/stdPage?q=GB45438",
+    "checked_at_utc": "2026-10-03T05:53:47.853119+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://std.samr.gov.cn/search/stdPage?q=GB45438",
+    "headers": {
+      "Content-Type": "text/html;charset=UTF-8",
+      "X-RateLimit-Remaining": "198"
+    },
+    "truncated": false,
+    "bytes": 9517,
+    "sha256": "ba0a89b98f4a03f9a04725588fb5b28ea2860bbbc49741fa10040d2bbfb6be5f",
+    "file": "research/data_sources/evidence/urls/samr_standard_list.body"
+  },
+  {
+    "url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F32EA2A561F1886CD8D606513512D547",
+    "checked_at_utc": "2026-10-03T05:53:47.854125+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=F32EA2A561F1886CD8D606513512D547",
+    "headers": {
+      "Content-Type": "text/html;charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 24824,
+    "sha256": "7ebff957182e8fdb752d49a2d90643d357f3ccfb923a006178de0d0080297dd3",
+    "file": "research/data_sources/evidence/urls/samr_standard_open.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/commits/commits",
+    "checked_at_utc": "2026-10-03T05:53:48.874198+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/commits/commits",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 543604,
+    "sha256": "f77ee9acaccb96046bdd164376568bb630b5f623a44561324e8f6ec92910ec5e",
+    "file": "research/data_sources/evidence/urls/github_commits_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/releases/releases",
+    "checked_at_utc": "2026-10-03T05:53:48.969620+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/releases/releases",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 468269,
+    "sha256": "dbe39d84eec02154b88fdc66bc89369bf32096f3c84a1fdd873cb58ad213f24a",
+    "file": "research/data_sources/evidence/urls/github_releases_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/issues/issues",
+    "checked_at_utc": "2026-10-03T05:53:48.977328+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/issues/issues",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 1145156,
+    "sha256": "105d1f6ca0d6c81a6cea3b14e2fdbd50accfcd29e2516a5e3907dc199604a683",
+    "file": "research/data_sources/evidence/urls/github_issues_docs.body"
+  },
+  {
+    "url": "https://docs.github.com/en/rest/pulls/pulls",
+    "checked_at_utc": "2026-10-03T05:53:52.618214+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://docs.github.com/en/rest/pulls/pulls",
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8"
+    },
+    "truncated": false,
+    "bytes": 883527,
+    "sha256": "430140bd531c2ceaf8873bd4226f6a22e7808e8d2b31cc817483314a3db2aebf",
+    "file": "research/data_sources/evidence/urls/github_pulls_docs.body",
+    "earlier_attempt_error": "URLError"
+  },
+  {
+    "url": "https://api.first.org/",
+    "checked_at_utc": "2026-10-03T05:53:53.935579+00:00",
+    "method": "GET",
+    "status": 200,
+    "final_url": "https://api.first.org/",
+    "headers": {
+      "last-modified": "Tue, 29 Sep 2026 18:40:40 GMT",
+      "content-type": "text/html; charset=UTF-8"
+    },
+    "truncated": false,
+    "bytes": 15075,
+    "sha256": "157accd23c86c90811eae26ffc446fe27a973cc4be6c0323c05cab67a6c357ed",
+    "file": "research/data_sources/evidence/urls/first_rate_docs.body"
+  }
+]

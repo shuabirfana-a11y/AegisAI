@@ -1,0 +1,16 @@
+{
+  "kind": "REAL POSTGRESQL TEST; NOT SQLITE OR MOCK",
+  "passed": true,
+  "tested_at_utc": "2026-10-03T07:58:08.354043+00:00",
+  "sequence": [
+    "initial upgrade 0001",
+    "downgrade base",
+    "verify all five schemas absent",
+    "upgrade 0001",
+    "ORM metadata comparison"
+  ],
+  "tables": 43,
+  "history_guards": 22,
+  "schema_drift": [],
+  "postgresql": "PostgreSQL 17.11 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit"
+}

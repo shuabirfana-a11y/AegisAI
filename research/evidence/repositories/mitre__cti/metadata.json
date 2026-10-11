@@ -1,0 +1,55 @@
+{
+  "full_name": "mitre/cti",
+  "html_url": "https://github.com/mitre/cti",
+  "homepage": "",
+  "description": "Cyber Threat Intelligence Repository expressed in STIX 2.0",
+  "language": null,
+  "license": {
+    "key": "other",
+    "name": "Other",
+    "spdx_id": "NOASSERTION",
+    "url": null,
+    "node_id": "MDc6TGljZW5zZTA="
+  },
+  "stargazers_count": 2151,
+  "archived": false,
+  "disabled": false,
+  "created_at": "2017-06-05T16:18:24Z",
+  "updated_at": "2026-09-28T16:46:11Z",
+  "pushed_at": "2026-08-05T22:57:18Z",
+  "open_issues_count": 18,
+  "default_branch": "master",
+  "requested_repo": "mitre/cti",
+  "commit": "8543c5b05bd9bbcace9fc37f30bba96b675b6f33",
+  "commit_date": "2026-08-05T22:53:37Z",
+  "commit_message": "ATT&CK v19.2 Enterprise",
+  "checked_at_utc": "2026-10-03T03:31:33.223114+00:00",
+  "readme_path": "README.md",
+  "readme_url": "https://github.com/mitre/cti/blob/8543c5b05bd9bbcace9fc37f30bba96b675b6f33/README.md",
+  "license_path": "LICENSE.txt",
+  "license_url": "https://github.com/mitre/cti/blob/8543c5b05bd9bbcace9fc37f30bba96b675b6f33/LICENSE.txt",
+  "latest_release": {
+    "tag_name": "ATT&CK-v19.2",
+    "published_at": "2026-08-05T22:57:35Z",
+    "html_url": "https://github.com/mitre/cti/releases/tag/ATT%26CK-v19.2",
+    "name": "ATT&CK version 19.2"
+  },
+  "recent_issues": [
+    {
+      "number": 240,
+      "title": "BUG: Missing \"Stealth\" (TA0005) tactic in v19 Enterprise TAXII tactic extraction",
+      "state": "closed",
+      "updated_at": "2026-05-14T07:50:46Z",
+      "html_url": "https://github.com/mitre/cti/issues/240",
+      "comments": 2
+    },
+    {
+      "number": 239,
+      "title": "UUID history of all MITRE ATT&CK records",
+      "state": "open",
+      "updated_at": "2026-07-22T11:53:16Z",
+      "html_url": "https://github.com/mitre/cti/issues/239",
+      "comments": 1
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "phase": "12-A.5",
+  "scope": "docs and types only; no new API/frontend/Agent code",
+  "current_python_schema_groups": {
+    "http-input": {
+      "models": 5,
+      "definitions": 5,
+      "matched_current_python": true
+    },
+    "tool-input": {
+      "models": 17,
+      "definitions": 17,
+      "matched_current_python": true
+    },
+    "internal-input": {
+      "models": 4,
+      "definitions": 13,
+      "matched_current_python": true
+    },
+    "internal-output": {
+      "models": 26,
+      "definitions": 60,
+      "matched_current_python": true
+    },
+    "legacy-output": {
+      "models": 3,
+      "definitions": 3,
+      "matched_current_python": true
+    }
+  },
+  "openapi_matches_current_code": true,
+  "http_operations": 34,
+  "empty_success_schemas": 34,
+  "existing_browser_transport_allowed": 27,
+  "existing_browser_proxy_blocked": 7,
+  "proposed_unexposed_operations": 9,
+  "schema_documents_checked": 6,
+  "pydantic_fixture_objects_validated": 45,
+  "json_schema_fixture_objects_validated": 40,
+  "typescript_files_syntax_checked": 18,
+  "type_export_references_checked": 118,
+  "no_type_any": true,
+  "tsc_executed": false,
+  "typescript_check_method": "Node24 native TypeScript syntax; declared import/export cross-reference checks; no tsc semantic checking",
+  "fixture_secret_field_count": 0,
+  "fixture_unsafe_url_count": 0,
+  "relative_links_checked": 8,
+  "business_source_changes": 0,
+  "historical_1261_tests_rerun": false,
+  "errors": [],
+  "business_files_checked": 258,
+  "business_source_comparison": {
+    "changed": [],
+    "missing": [],
+    "added": [],
+    "baseline": "turn-start SHA-256 snapshot"
+  }
+}
