@@ -1,0 +1,1267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AegisBench manual Ground Truth workflow record v1",
+  "description": "Offline manual form only. Does not change or connect to the Evaluation Runner. Approval authenticity, evidence support, hash equality and independent human identity require manual review.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "aegisbench-ground-truth-workflow-v1"
+    },
+    "record_kind": {
+      "enum": [
+        "BLANK_TEMPLATE",
+        "HUMAN_RECORD"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "VULNERABILITY_FACTS",
+        "VERSION_IMPACT",
+        "PATCH_ANALYSIS",
+        "POC_VERIFICATION",
+        "ASSET_RISK",
+        "MULTIHOP_QA",
+        null
+      ]
+    },
+    "additional_types": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "VULNERABILITY_FACTS",
+          "VERSION_IMPACT",
+          "PATCH_ANALYSIS",
+          "POC_VERIFICATION",
+          "ASSET_RISK",
+          "MULTIHOP_QA"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "category": {
+      "enum": [
+        "facts",
+        "version",
+        "poc_patch",
+        "risk",
+        "multihop",
+        null
+      ]
+    },
+    "input_context": {
+      "type": "object"
+    },
+    "dataset_version": {
+      "type": "string"
+    },
+    "dataset_questions_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "question_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "origin": {
+      "enum": [
+        "",
+        "REAL_SOURCE",
+        "CONTROLLED_SCENARIO",
+        "TEST_FIXTURE"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "evaluation_profile": {
+      "enum": [
+        "POLICY_CONFORMANCE",
+        "CONTEXTUAL_ASSET_RISK",
+        "FACTUAL",
+        null
+      ]
+    },
+    "expected_answer": {
+      "type": "object"
+    },
+    "judgments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/judgment"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "evaluation": {
+      "$ref": "#/$defs/evaluation"
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      }
+    },
+    "ai_assistance": {
+      "$ref": "#/$defs/ai_assistance"
+    },
+    "content_sha256": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "annotation": {
+      "$ref": "#/$defs/annotation"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/history"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "record_kind",
+    "id",
+    "question",
+    "type",
+    "additional_types",
+    "category",
+    "input_context",
+    "dataset_version",
+    "dataset_questions_sha256",
+    "question_sha256",
+    "origin",
+    "source_ids",
+    "evaluation_profile",
+    "expected_answer",
+    "judgments",
+    "evidence",
+    "evaluation",
+    "uncertainties",
+    "ai_assistance",
+    "content_sha256",
+    "annotation",
+    "history"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "evidence_id": {
+          "type": "string"
+        },
+        "source_name": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "quote": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string"
+        },
+        "canonical_excerpt": {
+          "type": "string"
+        },
+        "snapshot_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "authority_level": {
+          "enum": [
+            "L1_OFFICIAL",
+            "L2_RESEARCH",
+            "L3_SECONDARY",
+            null
+          ]
+        },
+        "published_time": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieved_time": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "time_note": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "SUPPORTING",
+            "CONTRADICTING",
+            "CONTEXTUAL",
+            null
+          ]
+        },
+        "judgment_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_name",
+        "source_id",
+        "url",
+        "quote",
+        "locator",
+        "canonical_excerpt",
+        "snapshot_sha256",
+        "authority_level",
+        "published_time",
+        "retrieved_time",
+        "time_note",
+        "role",
+        "judgment_ids"
+      ],
+      "additionalProperties": false
+    },
+    "human_evidence": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/evidence"
+        },
+        {
+          "properties": {
+            "evidence_id": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "source_name": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "source_id": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "quote": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "canonical_excerpt": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://[^\\s]+$"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/"
+            },
+            "snapshot_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "authority_level": {
+              "enum": [
+                "L1_OFFICIAL",
+                "L2_RESEARCH",
+                "L3_SECONDARY"
+              ]
+            },
+            "retrieved_time": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "role": {
+              "enum": [
+                "SUPPORTING",
+                "CONTRADICTING",
+                "CONTEXTUAL"
+              ]
+            },
+            "judgment_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "published_time": {
+                "type": "null"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "time_note": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "judgment": {
+      "type": "object",
+      "properties": {
+        "judgment_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "answer_path": {
+          "type": "string",
+          "pattern": "^/.*"
+        },
+        "decision": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "missing_information": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "required": [
+        "judgment_id",
+        "answer_path",
+        "decision",
+        "evidence_ids",
+        "rationale",
+        "missing_information"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "enum": [
+                  "UNKNOWN",
+                  "INSUFFICIENT_EVIDENCE",
+                  "NO_EVIDENCE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "missing_information": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evaluation": {
+      "type": "object",
+      "properties": {
+        "confidence": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN",
+            null
+          ]
+        },
+        "should_abstain": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "required_hops": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "scored_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "supplementary_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "export_status": {
+          "enum": [
+            "NOT_PREPARED",
+            "EXPORT_BLOCKED",
+            "READY_FOR_RUNNER"
+          ]
+        },
+        "export_notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "confidence",
+        "should_abstain",
+        "required_hops",
+        "scored_fields",
+        "supplementary_fields",
+        "export_status",
+        "export_notes"
+      ],
+      "additionalProperties": false
+    },
+    "ai_assistance": {
+      "type": "object",
+      "properties": {
+        "used": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "tool": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "used_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope": {
+          "type": "string"
+        },
+        "human_source_checks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        }
+      },
+      "required": [
+        "used",
+        "tool",
+        "version",
+        "used_at",
+        "scope",
+        "human_source_checks"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "used": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tool": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "used_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "human_source_checks": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "annotation": {
+      "type": "object",
+      "properties": {
+        "annotator": {
+          "type": "string"
+        },
+        "reviewer": {
+          "type": "string"
+        },
+        "annotator_type": {
+          "enum": [
+            "HUMAN",
+            null
+          ]
+        },
+        "reviewer_type": {
+          "enum": [
+            "HUMAN",
+            null
+          ]
+        },
+        "annotated_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_started_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "DRAFT",
+            "REVIEWING",
+            "APPROVED",
+            "REJECTED",
+            null
+          ]
+        },
+        "revision": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "reviewed_content_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "annotation_note": {
+          "type": "string"
+        },
+        "review_note": {
+          "type": "string"
+        },
+        "rejection_reason": {
+          "type": "string"
+        },
+        "annotator_confirmed_source_check": {
+          "type": "boolean"
+        },
+        "reviewer_confirmed_source_check": {
+          "type": "boolean"
+        },
+        "review_checklist": {
+          "type": "object",
+          "properties": {
+            "frozen_question_matches": {
+              "type": "boolean"
+            },
+            "independent_humans_confirmed": {
+              "type": "boolean"
+            },
+            "claims_and_uncertainties_complete": {
+              "type": "boolean"
+            },
+            "source_and_times_checked": {
+              "type": "boolean"
+            },
+            "authority_directness_conflicts_checked": {
+              "type": "boolean"
+            },
+            "version_and_fact_boundaries_checked": {
+              "type": "boolean"
+            },
+            "patch_and_poc_scope_checked": {
+              "type": "boolean"
+            },
+            "risk_policy_and_unknowns_checked": {
+              "type": "boolean"
+            },
+            "scoring_and_hops_checked": {
+              "type": "boolean"
+            },
+            "full_answer_and_evidence_read": {
+              "type": "boolean"
+            },
+            "review_hash_and_notes_checked": {
+              "type": "boolean"
+            },
+            "revision_progress_and_export_checked": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "frozen_question_matches",
+            "independent_humans_confirmed",
+            "claims_and_uncertainties_complete",
+            "source_and_times_checked",
+            "authority_directness_conflicts_checked",
+            "version_and_fact_boundaries_checked",
+            "patch_and_poc_scope_checked",
+            "risk_policy_and_unknowns_checked",
+            "scoring_and_hops_checked",
+            "full_answer_and_evidence_read",
+            "review_hash_and_notes_checked",
+            "revision_progress_and_export_checked"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "annotator",
+        "reviewer",
+        "annotator_type",
+        "reviewer_type",
+        "annotated_at",
+        "review_started_at",
+        "reviewed_at",
+        "status",
+        "revision",
+        "reviewed_content_sha256",
+        "annotation_note",
+        "review_note",
+        "rejection_reason",
+        "annotator_confirmed_source_check",
+        "reviewer_confirmed_source_check",
+        "review_checklist"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "REVIEWING",
+                  "APPROVED",
+                  "REJECTED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reviewer": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "reviewer_type": {
+                "const": "HUMAN"
+              },
+              "review_started_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "APPROVED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reviewer": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "reviewer_type": {
+                "const": "HUMAN"
+              },
+              "review_started_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewed_content_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "review_note": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "reviewer_confirmed_source_check": {
+                "const": true
+              },
+              "rejection_reason": {
+                "const": ""
+              },
+              "review_checklist": {
+                "properties": {
+                  "frozen_question_matches": {
+                    "const": true
+                  },
+                  "independent_humans_confirmed": {
+                    "const": true
+                  },
+                  "claims_and_uncertainties_complete": {
+                    "const": true
+                  },
+                  "source_and_times_checked": {
+                    "const": true
+                  },
+                  "authority_directness_conflicts_checked": {
+                    "const": true
+                  },
+                  "version_and_fact_boundaries_checked": {
+                    "const": true
+                  },
+                  "patch_and_poc_scope_checked": {
+                    "const": true
+                  },
+                  "risk_policy_and_unknowns_checked": {
+                    "const": true
+                  },
+                  "scoring_and_hops_checked": {
+                    "const": true
+                  },
+                  "full_answer_and_evidence_read": {
+                    "const": true
+                  },
+                  "review_hash_and_notes_checked": {
+                    "const": true
+                  },
+                  "revision_progress_and_export_checked": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "REJECTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reviewed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "review_note": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "rejection_reason": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "history": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "from_status": {
+          "enum": [
+            "DRAFT",
+            "REVIEWING",
+            "APPROVED",
+            "REJECTED",
+            null
+          ]
+        },
+        "to_status": {
+          "enum": [
+            "DRAFT",
+            "REVIEWING",
+            "APPROVED",
+            "REJECTED"
+          ]
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "record_path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      },
+      "required": [
+        "revision",
+        "from_status",
+        "to_status",
+        "actor",
+        "at",
+        "content_sha256",
+        "reason",
+        "record_path"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_kind": {
+            "const": "BLANK_TEMPLATE"
+          }
+        }
+      },
+      "then": {
+        "const": {
+          "schema_version": "aegisbench-ground-truth-workflow-v1",
+          "record_kind": "BLANK_TEMPLATE",
+          "id": "",
+          "question": "",
+          "type": null,
+          "additional_types": [],
+          "category": null,
+          "input_context": {},
+          "dataset_version": "",
+          "dataset_questions_sha256": null,
+          "question_sha256": null,
+          "origin": "",
+          "source_ids": [],
+          "evaluation_profile": null,
+          "expected_answer": {},
+          "judgments": [],
+          "evidence": [
+            {
+              "evidence_id": "",
+              "source_name": "",
+              "source_id": "",
+              "url": "",
+              "quote": "",
+              "locator": "",
+              "canonical_excerpt": "",
+              "snapshot_sha256": null,
+              "authority_level": null,
+              "published_time": null,
+              "retrieved_time": null,
+              "time_note": "",
+              "role": null,
+              "judgment_ids": []
+            }
+          ],
+          "evaluation": {
+            "confidence": null,
+            "should_abstain": null,
+            "required_hops": [],
+            "scored_fields": [],
+            "supplementary_fields": [],
+            "export_status": "NOT_PREPARED",
+            "export_notes": ""
+          },
+          "uncertainties": [],
+          "ai_assistance": {
+            "used": null,
+            "tool": "",
+            "version": "",
+            "used_at": null,
+            "scope": "",
+            "human_source_checks": []
+          },
+          "content_sha256": null,
+          "annotation": {
+            "annotator": "",
+            "reviewer": "",
+            "annotator_type": null,
+            "reviewer_type": null,
+            "annotated_at": null,
+            "review_started_at": null,
+            "reviewed_at": null,
+            "status": null,
+            "revision": null,
+            "reviewed_content_sha256": null,
+            "annotation_note": "",
+            "review_note": "",
+            "rejection_reason": "",
+            "annotator_confirmed_source_check": false,
+            "reviewer_confirmed_source_check": false,
+            "review_checklist": {
+              "frozen_question_matches": false,
+              "independent_humans_confirmed": false,
+              "claims_and_uncertainties_complete": false,
+              "source_and_times_checked": false,
+              "authority_directness_conflicts_checked": false,
+              "version_and_fact_boundaries_checked": false,
+              "patch_and_poc_scope_checked": false,
+              "risk_policy_and_unknowns_checked": false,
+              "scoring_and_hops_checked": false,
+              "full_answer_and_evidence_read": false,
+              "review_hash_and_notes_checked": false,
+              "revision_progress_and_export_checked": false
+            }
+          },
+          "history": []
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_kind": {
+            "const": "HUMAN_RECORD"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "dataset_version": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "type": {
+            "enum": [
+              "VULNERABILITY_FACTS",
+              "VERSION_IMPACT",
+              "PATCH_ANALYSIS",
+              "POC_VERIFICATION",
+              "ASSET_RISK",
+              "MULTIHOP_QA"
+            ]
+          },
+          "category": {
+            "enum": [
+              "facts",
+              "version",
+              "poc_patch",
+              "risk",
+              "multihop"
+            ]
+          },
+          "input_context": {
+            "minProperties": 1
+          },
+          "dataset_questions_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "question_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "origin": {
+            "enum": [
+              "REAL_SOURCE",
+              "CONTROLLED_SCENARIO",
+              "TEST_FIXTURE"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "minItems": 1
+          },
+          "evaluation_profile": {
+            "enum": [
+              "POLICY_CONFORMANCE",
+              "CONTEXTUAL_ASSET_RISK",
+              "FACTUAL"
+            ]
+          },
+          "expected_answer": {
+            "minProperties": 1
+          },
+          "judgments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/judgment"
+            },
+            "minItems": 1
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/human_evidence"
+            },
+            "minItems": 1
+          },
+          "evaluation": {
+            "properties": {
+              "confidence": {
+                "enum": [
+                  "HIGH",
+                  "MEDIUM",
+                  "LOW",
+                  "UNKNOWN"
+                ]
+              },
+              "should_abstain": {
+                "type": "boolean"
+              },
+              "scored_fields": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "minItems": 1
+              }
+            }
+          },
+          "ai_assistance": {
+            "properties": {
+              "used": {
+                "type": "boolean"
+              }
+            }
+          },
+          "content_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "annotation": {
+            "properties": {
+              "annotator": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "annotator_type": {
+                "const": "HUMAN"
+              },
+              "annotated_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "status": {
+                "enum": [
+                  "DRAFT",
+                  "REVIEWING",
+                  "APPROVED",
+                  "REJECTED"
+                ]
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "annotation_note": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "annotator_confirmed_source_check": {
+                "const": true
+              }
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/history"
+            },
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

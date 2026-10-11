@@ -34,3 +34,18 @@ v0.1 原数据与准入规则保持不变。v0.2 的 `annotations.jsonl` 为参�
 复核人还须逐个阅读实际 answer，检查 Claim 清单是否遗漏或过度合并事实，并显式确认 `claim_inventory_complete=true`。默认 false，旧审核文件缺此字段也为 false。含非空 answer 的成功输出即使 `claims=[]` 也必须有输出哈希绑定的人审清单完整性确认；全局 `audit.complete` 同时检查回答覆盖和 Claim 覆盖。纯 UNKNOWN 输出可经人审确认没有可断言事实，但 0 Claim 分母仍为 null。不能仅批准系统自报的 Claim 列表。
 
 结果与源文档均不得保存账号、真实资产秘密或凭据。新增来源保留原作者、许可、获取时间及投影说明；不执行 PoC。
+
+## Phase 13-C：人工生产流程入口
+
+原 Annotation 契约、准入规则与已冻结版本均保留。新增的是人工工作表，不是 Runner 的新输入格式；本阶段不填写答案、不运行评测、不提供自动导入。
+
+- [ANNOTATION_GUIDE.md](ANNOTATION_GUIDE.md)：六类判断、证据等级、独立第二人复核、状态与版本流程。
+- [MANUAL_RECORD_SCHEMA.md](MANUAL_RECORD_SCHEMA.md)：人工字段、哈希绑定、原评测格式的白名单投影。
+- [ground_truth_template.json](ground_truth_template.json)：空白标注表；[template.json](template.json) 为相同内容的兼容副本。
+- [ground_truth_workflow.schema.json](ground_truth_workflow.schema.json)：离线表单结构约束，不接入 Runner。形状通过不证明真人参与或结论正确。
+- [QUESTION_CLASSIFICATION.md](QUESTION_CLASSIFICATION.md)：49 个原 ID，六类互斥主类型；5 个 POC/Patch 复合题不重复计数。
+- [GROUND_TRUTH_PROGRESS.md](GROUND_TRUTH_PROGRESS.md)：唯一台账。当前 49 题未分配，人工 DRAFT/REVIEWING/APPROVED/REJECTED 均为 0。
+
+人工流程 DRAFT/REVIEWING 不可进入正式 gold，APPROVED 仍须满足原准入、实际双人查源和哈希/证据核对。人工 UNKNOWN 或 INSUFFICIENT_EVIDENCE 在原 affected 字段中均投影为 UNKNOWN；PoC/Patch 的 NO_EVIDENCE 在原对应 status 字段投影为 UNKNOWN，不表示不存在漏洞、利用或修复。人工原判断、缺口、资料和修订历史始终保留。
+
+当前 risk/multihop 候选评价的是声明的参考分诊政策符合性，不是真实资产专家风险；政策或字段映射无法一致时标为 EXPORT_BLOCKED。人工记录整份直接交给 Annotation 会被严格 Pydantic 拒绝，Phase 13-D 必须先做白名单投影、独立冻结与准入检查。
