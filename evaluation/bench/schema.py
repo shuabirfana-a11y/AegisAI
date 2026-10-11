@@ -97,10 +97,13 @@ class OutcomeAudit(Contract):
     reviewer: str = ""
     reviewer_type: Literal["HUMAN", "MACHINE"]
     review_status: Literal["PENDING", "APPROVED", "REVIEWED", "REJECTED"]
+    prediction_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
     claims: list[ReviewedClaim]
 
     @model_validator(mode="after")
     def named_human_review(self):
         if self.reviewer_type == "HUMAN" and self.review_status in {"APPROVED", "REVIEWED"} and not self.reviewer.strip():
             raise ValueError("Accepted human outcome audit requires a named reviewer")
+        if self.reviewer_type == "HUMAN" and self.review_status in {"APPROVED", "REVIEWED"} and not self.prediction_sha256:
+            raise ValueError("Accepted human outcome audit requires an output hash")
         return self

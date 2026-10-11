@@ -101,3 +101,18 @@ def test_keyword_does_not_claim_version_inference_or_verified_exploit():
     q = next(q for q in dataset["questions"] if q.category == "version")
     result = KeywordAdapter().run(q, dataset["sources"])
     assert result.answer["affected"] == "UNKNOWN" and result.abstained is True
+
+
+def test_recorded_answers_can_be_rescored_without_new_model_calls(tmp_path, monkeypatch):
+    from evaluation.bench.runner import main
+    original, rescored = tmp_path / "original", tmp_path / "rescored"
+    assert main(["--output", str(original)]) == 0
+    def prohibited(*args, **kwargs):
+        raise AssertionError("Rescoring must not call a model or connect to a database")
+    monkeypatch.setattr("socket.socket.connect", prohibited)
+    assert main(["--rescore-report", str(original / "report.json"), "--outcome-audit",
+                 str(original / "outcome-audit-pending.jsonl"), "--output", str(rescored)]) == 0
+    before = json.loads((original / "report.json").read_text(encoding="utf-8"))
+    after = json.loads((rescored / "report.json").read_text(encoding="utf-8"))
+    assert after["parameters"]["execution_mode"] == "RESCORE_RECORDED_OUTPUTS"
+    assert before["variants"]["fixed_workflow"]["predictions"] == after["variants"]["fixed_workflow"]["predictions"]

@@ -14,7 +14,7 @@ from uuid import uuid4
 
 from .adapters import (AegisAIAdapter, FixedWorkflowAdapter, KeywordAdapter, RagOnlyAdapter,
                        corpus_fingerprint)
-from .data import canonical, load_benchmark, read_jsonl, sha256
+from .data import canonical, load_benchmark, prediction_fingerprint, read_jsonl, sha256
 from .quality import same, score_variant
 from .schema import Annotation, OutcomeAudit, Prediction, Question
 
@@ -115,7 +115,8 @@ def evaluate_dataset(data, *, adapters=None, audits=None, run_id=None):
                 prediction = Prediction(question_id=question.id, baseline=adapter.name, status="FAILED",
                     error_code="ADAPTER_TIMEOUT" if isinstance(exc, TimeoutError) else "ADAPTER_FAILED",
                     error="Controlled adapter failure; no prediction fabricated.")
-            prediction = prediction.model_copy(update={"latency_ms": (time.perf_counter() - started) * 1000})
+            if not getattr(adapter, "recorded", False):
+                prediction = prediction.model_copy(update={"latency_ms": (time.perf_counter() - started) * 1000})
             predictions.append(prediction)
         scores = score_variant(data["questions"], data["annotations"], predictions,
                                [a for a in audits if a.baseline == adapter.name], data["sources"])
@@ -183,6 +184,7 @@ def write_report(report, directory):
     # Explicit packets: reviewing output support is separate from gold annotation.
     packets = [{"question_id": p["question_id"], "baseline": name, "reviewer": "",
                 "reviewer_type": "MACHINE", "review_status": "PENDING",
+                "prediction_sha256": prediction_fingerprint(Prediction.model_validate(p)),
                 "claims": [{"claim_id": c["claim_id"], "verdict": "UNRESOLVED", "evidence_refs": [],
                             "review_note": "Pending independent human semantic review"} for c in p["claims"]]}
                for name, variant in report["variants"].items() for p in variant["predictions"] if p["status"] == "SUCCEEDED"]
@@ -197,17 +199,51 @@ def export_schemas(path):
     Path(path).write_text(json.dumps(schemas, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+class RecordedAdapter:
+    recorded = True
+
+    def __init__(self, name, predictions):
+        self.name = name
+        self.predictions = {p.question_id: p for p in predictions}
+        if len(self.predictions) != len(predictions):
+            raise ValueError("Duplicate recorded predictions")
+
+    def run(self, question, sources):
+        if question.id not in self.predictions:
+            return Prediction(question_id=question.id, baseline=self.name, status="FAILED", error_code="MISSING_RECORDED_PREDICTION")
+        return self.predictions[question.id]
+
+
+def recorded_adapters(path, data):
+    previous = json.loads(Path(path).read_text(encoding="utf-8-sig"))
+    receipt = json.loads((Path(path).parent / "experiment.json").read_text(encoding="utf-8-sig"))
+    if receipt["report_sha256"] != sha256(path):
+        raise ValueError("Recorded experiment report hash mismatch")
+    if (previous["dataset_fingerprint"] != corpus_fingerprint(data["sources"])
+            or previous["dataset_manifest"]["questions_sha256"] != data["manifest"]["questions_sha256"]):
+        raise ValueError("Recorded experiment source/question scope mismatch")
+    adapters = [RecordedAdapter(name, [Prediction.model_validate(p) for p in variant["predictions"]])
+                for name, variant in previous["variants"].items()]
+    if not adapters:
+        raise ValueError("Recorded experiment has no baselines")
+    return adapters, {"run_id": previous["run_id"], "report_sha256": sha256(path),
+                      "original_evaluator_file_hashes": previous["evaluator_file_hashes"]}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="AegisBench: offline pilot by default; no mock quality claims")
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--outcome-audit", type=Path)
+    parser.add_argument("--rescore-report", type=Path, help="Score frozen observed answers without rerunning models; requires experiment receipt")
     parser.add_argument("--live-model", action="store_true", help="Explicitly enable a configured real model; may incur provider charges")
     parser.add_argument("--live-aegisai-requests", type=Path, help="Explicit native Orchestrator run using existing dedicated bench data; requires --live-model")
     parser.add_argument("--export-schemas", type=Path)
     args = parser.parse_args(argv)
     if args.live_aegisai_requests and not args.live_model:
         parser.error("Native evaluation requires explicit --live-model")
+    if args.rescore_report and args.live_model:
+        parser.error("Recorded scoring and live execution are separate modes")
     data = load_benchmark(args.manifest)
     run_id = str(uuid4())
     output = args.output or ROOT / "evaluation/reports" / run_id
@@ -228,11 +264,17 @@ def main(argv=None):
                     print("NATIVE_EVALUATION_NOT_READY; no database changes or predictions fabricated.")
                     native = AegisAIAdapter(gateway=gateway)
         audits = [OutcomeAudit.model_validate(row) for row in read_jsonl(args.outcome_audit)] if args.outcome_audit else []
-        report = evaluate_dataset(data, adapters=[KeywordAdapter(), RagOnlyAdapter(gateway), FixedWorkflowAdapter(), native],
+        adapters, rescore_of = ([KeywordAdapter(), RagOnlyAdapter(gateway), FixedWorkflowAdapter(), native], None)
+        if args.rescore_report:
+            adapters, rescore_of = recorded_adapters(args.rescore_report, data)
+        report = evaluate_dataset(data, adapters=adapters,
                                   audits=audits, run_id=run_id)
         report["parameters"]["default_mode"] = "EXPLICIT_LIVE_MODEL" if args.live_model else "OFFLINE_NO_MODEL_NO_DATABASE"
         report["parameters"]["live_model_enabled"] = args.live_model
         report["parameters"]["native_enabled"] = args.live_aegisai_requests is not None
+        report["parameters"]["execution_mode"] = "RESCORE_RECORDED_OUTPUTS" if args.rescore_report else "NEW_OBSERVATIONS"
+        if rescore_of:
+            report["rescore_of"] = rescore_of
         write_report(report, output)
         # Minimal, credential-free metadata receipt for reproducibility.
         receipt = {key: report[key] for key in ("run_id", "generated_at", "dataset_version", "dataset_fingerprint",
@@ -249,8 +291,10 @@ def main(argv=None):
             export_schemas(args.export_schemas)
         print(f"AegisBench Report: {output / 'report.md'}")
         print(f"Accuracy: {'NOT_EVALUATED (0 human gold)' if not data['eligible_gold'] else 'see per-baseline report'}")
-        print(f"Evidence Coverage: {'NOT_EVALUATED' if not audits else 'see reviewed report'}")
-        print(f"Hallucination: {'NOT_EVALUATED' if not audits else 'see reviewed report'}")
+        coverage = any(v["metrics"]["evidence_coverage"] is not None for v in report["variants"].values())
+        hallucination = any(v["metrics"]["hallucination_rate"] is not None for v in report["variants"].values())
+        print(f"Evidence Coverage: {'see reviewed report' if coverage else 'NOT_EVALUATED'}")
+        print(f"Hallucination: {'see reviewed report' if hallucination else 'NOT_EVALUATED'}")
         return 0  # The runner completed; quality availability is explicit in the report.
     finally:
         if getattr(native, "engine", None) is not None:

@@ -42,6 +42,11 @@ def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
+def prediction_fingerprint(prediction):
+    payload = prediction.model_dump(mode="json", exclude={"metadata", "latency_ms", "error", "error_code"})
+    return hashlib.sha256(canonical(payload).encode()).hexdigest()
+
+
 def annotation_exclusion(question, annotation):
     if question.origin == "TEST_FIXTURE":
         return "Question is a TEST_FIXTURE"

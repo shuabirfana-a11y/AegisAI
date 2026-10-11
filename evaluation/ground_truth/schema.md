@@ -29,6 +29,6 @@ v0.1 原数据与准入规则保持不变。v0.2 的 `annotations.jsonl` 为参�
 
 ## 回答结果的独立审核
 
-标准答案审核与结果审核不同。`OutcomeAudit` 关联 question_id、baseline、输出 claim_id、人工复核人及审核状态；每个成功输出的所有 Claim 都要审核。SUPPORTED 要有可定位支持证据；HALLUCINATED 表示人审确认虚构且有反证；CONTRADICTED 表示有证据反驳；UNRESOLVED 表示尚不能裁决。开放世界中“没搜到”不能标为虚构。无完整人工结果审核时 Evidence Coverage/Hallucination Rate 为 null；机器引用校验不能取代支持性审查。
+标准答案审核与结果审核不同。`OutcomeAudit` 关联 question_id、baseline、输出 claim_id、`prediction_sha256`、人工复核人及审核状态；每个成功输出的所有 Claim 都要审核。输出哈希绑定实际 answer/claims/status/abstained/步骤，防止同名 Claim 的旧审核被套到新答案上；不含易变的延迟/metadata。SUPPORTED 要有可定位支持证据；HALLUCINATED 表示人审确认虚构且有反证；CONTRADICTED 表示有证据反驳；UNRESOLVED 表示尚不能裁决。开放世界中“没搜到”不能标为虚构。无完整人工结果审核时 Evidence Coverage/Hallucination Rate 为 null；机器引用校验不能取代支持性审查。
 
 结果与源文档均不得保存账号、真实资产秘密或凭据。新增来源保留原作者、许可、获取时间及投影说明；不执行 PoC。

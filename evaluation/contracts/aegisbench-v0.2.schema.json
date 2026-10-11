@@ -1,0 +1,537 @@
+{
+  "Question": {
+    "$defs": {
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 200,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "category": {
+        "enum": [
+          "facts",
+          "version",
+          "poc_patch",
+          "risk",
+          "multihop"
+        ],
+        "title": "Category",
+        "type": "string"
+      },
+      "question": {
+        "maxLength": 10000,
+        "minLength": 1,
+        "title": "Question",
+        "type": "string"
+      },
+      "input_context": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Input Context",
+        "type": "object"
+      },
+      "origin": {
+        "enum": [
+          "REAL_SOURCE",
+          "CONTROLLED_SCENARIO",
+          "TEST_FIXTURE"
+        ],
+        "title": "Origin",
+        "type": "string"
+      },
+      "source_ids": {
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 100,
+        "minItems": 1,
+        "title": "Source Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "category",
+      "question",
+      "input_context",
+      "origin",
+      "source_ids"
+    ],
+    "title": "Question",
+    "type": "object"
+  },
+  "Annotation": {
+    "$defs": {
+      "EvidenceReference": {
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "locator": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Locator",
+            "type": "string"
+          },
+          "excerpt": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Excerpt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "locator",
+          "excerpt"
+        ],
+        "title": "EvidenceReference",
+        "type": "object"
+      },
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 200,
+        "minLength": 1,
+        "title": "Id",
+        "type": "string"
+      },
+      "expected_answer": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Expected Answer",
+        "type": "object"
+      },
+      "evidence_refs": {
+        "items": {
+          "$ref": "#/$defs/EvidenceReference"
+        },
+        "title": "Evidence Refs",
+        "type": "array"
+      },
+      "confidence": {
+        "enum": [
+          "HIGH",
+          "MEDIUM",
+          "LOW",
+          "UNKNOWN"
+        ],
+        "title": "Confidence",
+        "type": "string"
+      },
+      "review_status": {
+        "enum": [
+          "PENDING",
+          "APPROVED",
+          "REVIEWED",
+          "REJECTED"
+        ],
+        "title": "Review Status",
+        "type": "string"
+      },
+      "annotator_type": {
+        "enum": [
+          "MACHINE",
+          "HUMAN"
+        ],
+        "title": "Annotator Type",
+        "type": "string"
+      },
+      "reviewer_type": {
+        "enum": [
+          "MACHINE",
+          "HUMAN"
+        ],
+        "title": "Reviewer Type",
+        "type": "string"
+      },
+      "annotator": {
+        "title": "Annotator",
+        "type": "string"
+      },
+      "reviewer": {
+        "title": "Reviewer",
+        "type": "string"
+      },
+      "annotation_note": {
+        "title": "Annotation Note",
+        "type": "string"
+      },
+      "should_abstain": {
+        "title": "Should Abstain",
+        "type": "boolean"
+      },
+      "origin": {
+        "enum": [
+          "SOURCE_REFERENCE",
+          "HUMAN_GOLD",
+          "TEST_FIXTURE"
+        ],
+        "title": "Origin",
+        "type": "string"
+      },
+      "required_hops": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Required Hops",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "expected_answer",
+      "evidence_refs",
+      "confidence",
+      "review_status",
+      "annotator_type",
+      "reviewer_type",
+      "annotator",
+      "reviewer",
+      "annotation_note",
+      "should_abstain",
+      "origin"
+    ],
+    "title": "Annotation",
+    "type": "object"
+  },
+  "Prediction": {
+    "$defs": {
+      "ClaimOutput": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "statement": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Statement",
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "$ref": "#/$defs/EvidenceReference"
+            },
+            "title": "Evidence Refs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim_id",
+          "statement"
+        ],
+        "title": "ClaimOutput",
+        "type": "object"
+      },
+      "EvidenceReference": {
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "locator": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Locator",
+            "type": "string"
+          },
+          "excerpt": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Excerpt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "locator",
+          "excerpt"
+        ],
+        "title": "EvidenceReference",
+        "type": "object"
+      },
+      "JsonValue": {}
+    },
+    "additionalProperties": false,
+    "properties": {
+      "question_id": {
+        "title": "Question Id",
+        "type": "string"
+      },
+      "baseline": {
+        "title": "Baseline",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "SUCCEEDED",
+          "FAILED",
+          "NOT_EVALUATED"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "answer": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Answer",
+        "type": "object"
+      },
+      "claims": {
+        "items": {
+          "$ref": "#/$defs/ClaimOutput"
+        },
+        "title": "Claims",
+        "type": "array"
+      },
+      "abstained": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Abstained"
+      },
+      "completed_hops": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Completed Hops",
+        "type": "array"
+      },
+      "latency_ms": {
+        "default": 0.0,
+        "minimum": 0,
+        "title": "Latency Ms",
+        "type": "number"
+      },
+      "error_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error Code"
+      },
+      "error": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error"
+      },
+      "metadata": {
+        "additionalProperties": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "title": "Metadata",
+        "type": "object"
+      }
+    },
+    "required": [
+      "question_id",
+      "baseline",
+      "status"
+    ],
+    "title": "Prediction",
+    "type": "object"
+  },
+  "OutcomeAudit": {
+    "$defs": {
+      "EvidenceReference": {
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "locator": {
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Locator",
+            "type": "string"
+          },
+          "excerpt": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Excerpt",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "locator",
+          "excerpt"
+        ],
+        "title": "EvidenceReference",
+        "type": "object"
+      },
+      "ReviewedClaim": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "SUPPORTED",
+              "HALLUCINATED",
+              "CONTRADICTED",
+              "UNRESOLVED"
+            ],
+            "title": "Verdict",
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "$ref": "#/$defs/EvidenceReference"
+            },
+            "title": "Evidence Refs",
+            "type": "array"
+          },
+          "review_note": {
+            "minLength": 1,
+            "title": "Review Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "verdict",
+          "review_note"
+        ],
+        "title": "ReviewedClaim",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "question_id": {
+        "title": "Question Id",
+        "type": "string"
+      },
+      "baseline": {
+        "title": "Baseline",
+        "type": "string"
+      },
+      "reviewer": {
+        "default": "",
+        "title": "Reviewer",
+        "type": "string"
+      },
+      "reviewer_type": {
+        "enum": [
+          "HUMAN",
+          "MACHINE"
+        ],
+        "title": "Reviewer Type",
+        "type": "string"
+      },
+      "review_status": {
+        "enum": [
+          "PENDING",
+          "APPROVED",
+          "REVIEWED",
+          "REJECTED"
+        ],
+        "title": "Review Status",
+        "type": "string"
+      },
+      "prediction_sha256": {
+        "anyOf": [
+          {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Prediction Sha256"
+      },
+      "claims": {
+        "items": {
+          "$ref": "#/$defs/ReviewedClaim"
+        },
+        "title": "Claims",
+        "type": "array"
+      }
+    },
+    "required": [
+      "question_id",
+      "baseline",
+      "reviewer_type",
+      "review_status",
+      "claims"
+    ],
+    "title": "OutcomeAudit",
+    "type": "object"
+  },
+  "EvidenceReference": {
+    "additionalProperties": false,
+    "properties": {
+      "source_id": {
+        "maxLength": 200,
+        "minLength": 1,
+        "title": "Source Id",
+        "type": "string"
+      },
+      "locator": {
+        "maxLength": 2000,
+        "minLength": 1,
+        "title": "Locator",
+        "type": "string"
+      },
+      "excerpt": {
+        "maxLength": 20000,
+        "minLength": 1,
+        "title": "Excerpt",
+        "type": "string"
+      }
+    },
+    "required": [
+      "source_id",
+      "locator",
+      "excerpt"
+    ],
+    "title": "EvidenceReference",
+    "type": "object"
+  }
+}

@@ -2,7 +2,7 @@
 from collections import Counter
 
 from evaluation.metrics import abstention_metrics, classification_metrics, latency_metrics, ratio
-from .data import annotation_exclusion, canonical, validate_evidence
+from .data import annotation_exclusion, canonical, prediction_fingerprint, validate_evidence
 
 
 VERSION_LABELS = ["AFFECTED", "NOT_AFFECTED", "UNKNOWN"]
@@ -115,6 +115,8 @@ def score_variant(questions, annotations, predictions, audits, sources):
         unique(audit.claims, lambda c: c.claim_id, "reviewed claim")
         if audit.reviewer_type != "HUMAN" or audit.review_status not in {"APPROVED", "REVIEWED"}:
             continue
+        if audit.prediction_sha256 != prediction_fingerprint(prediction):
+            raise ValueError("Human outcome audit output hash mismatch")
         if {c.claim_id for c in audit.claims} != {c.claim_id for c in prediction.claims}:
             raise ValueError("Human audit must cover all emitted claims in its answer")
         for claim in audit.claims:

@@ -1,5 +1,7 @@
 """Known numerical outcomes validate metrics, not application benchmark quality."""
 import pytest
+import hashlib
+import json
 
 from evaluation.bench.quality import score_variant
 from evaluation.bench.schema import Annotation, OutcomeAudit, Prediction, Question
@@ -7,6 +9,11 @@ from evaluation.bench.schema import Annotation, OutcomeAudit, Prediction, Questi
 
 SOURCES = {"s": {"document": {"record": {"fact": "official fact"}}}}
 REF = {"source_id": "s", "locator": "/record/fact", "excerpt": '"official fact"'}
+
+
+def digest(prediction):
+    payload = prediction.model_dump(mode="json", exclude={"metadata", "latency_ms", "error", "error_code"})
+    return hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
 
 
 def q(identifier, category="version"):
@@ -68,7 +75,7 @@ def test_citation_presence_is_not_evidence_coverage_or_hallucination_audit():
     result = score_variant([q("a", "facts")], [gold("a", {"cve": "CVE-2099-0001"})], [pred], [], SOURCES)
     assert result["evidence_coverage"] is None and result["hallucination_rate"] is None
     audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Human test reviewer",
-                         reviewer_type="HUMAN", review_status="APPROVED", claims=[{
+                         reviewer_type="HUMAN", review_status="APPROVED", prediction_sha256=digest(pred), claims=[{
         "claim_id": "claim1", "verdict": "HALLUCINATED", "review_note": "Explicit contradiction", "evidence_refs": [REF]}])
     result = score_variant([q("a", "facts")], [gold("a", {"cve": "CVE-2099-0001"})], [pred], [audit], SOURCES)
     assert result["evidence_coverage"] == 0 and result["hallucination_rate"] == 1
@@ -77,7 +84,7 @@ def test_citation_presence_is_not_evidence_coverage_or_hallucination_audit():
 def test_invalid_support_or_duplicate_audit_cannot_improve_scores():
     pred = p("a", {}, claims=[{"claim_id": "c", "statement": "Claim"}])
     audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
-                         review_status="APPROVED", claims=[{
+                         review_status="APPROVED", prediction_sha256=digest(pred), claims=[{
         "claim_id": "c", "verdict": "SUPPORTED", "review_note": "Checked", "evidence_refs": []}])
     with pytest.raises(ValueError, match="evidence"):
         score_variant([q("a")], [gold("a", {"affected": "UNKNOWN"}, True)], [pred], [audit], SOURCES)
@@ -102,3 +109,13 @@ def test_duplicate_prediction_and_unknown_class_label_are_rejected():
     result = score_variant([q("a")], [gold("a", {"affected": "AFFECTED"})], [pred], [], SOURCES)
     assert result["version"]["accuracy"] == 0
     assert result["invalid_label_count"] == 1
+
+
+def test_old_human_audit_cannot_approve_changed_output_with_same_claim_id():
+    original = p("a", {"affected": "UNKNOWN"}, claims=[{"claim_id": "c", "statement": "Old output"}])
+    changed = p("a", {"affected": "NOT_AFFECTED"}, claims=[{"claim_id": "c", "statement": "Changed output"}])
+    audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
+                         review_status="APPROVED", prediction_sha256=digest(original), claims=[{
+        "claim_id": "c", "verdict": "SUPPORTED", "review_note": "Reviewed old output", "evidence_refs": [REF]}])
+    with pytest.raises(ValueError, match="hash"):
+        score_variant([q("a")], [], [changed], [audit], SOURCES)

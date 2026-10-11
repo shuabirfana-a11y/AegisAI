@@ -67,6 +67,10 @@ jobs:
         run: python scripts/ci/run_backend_tests.py
       - name: Pydantic, OpenAPI and Mock contract consistency
         run: python scripts/ci/check_contracts.py
+      - name: AegisBench offline contracts and metrics
+        run: python -m pytest tests/aegisbench -q
+      - name: AegisBench offline pilot (quality availability is reported explicitly)
+        run: python evaluate.py --output work/ci-aegisbench
 
   frontend:
     name: Frontend tests and types
