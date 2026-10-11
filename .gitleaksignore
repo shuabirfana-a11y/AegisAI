@@ -60,3 +60,6 @@ d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json
 d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json:generic-api-key:236
 d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json:generic-api-key:242
 d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json:generic-api-key:248
+
+# Phase12-B reviewed OpenAPI file checksum; exact finding only (docs/SECURITY_SCAN.md).
+9ccfbb8f1489a810f5034ec67d4837e0f68f67ba:AegisAI_FRONTEND_HANDOFF_PACKAGE/MANIFEST.json:generic-api-key:356
