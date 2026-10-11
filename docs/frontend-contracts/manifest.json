@@ -1,18 +1,18 @@
 {
   "status": "WRITTEN_AND_VERIFIED",
-  "phase": "12-A.5",
+  "phase": "12-B",
   "exported_at_utc": "2026-10-10T14:50:31.042555+00:00",
-  "scope": "Documentation and type declarations only",
+  "scope": "Actual Phase12-B HTTP schemas, public DTO types, client and handoff documentation.",
   "files": [
     {
       "path": "docs/frontend-contracts/api-gaps.json",
-      "bytes": 5428,
-      "sha256": "5633a5869421c1325d10c0e608f1a9b8091b26c87f83eea4f79509a949282ca4"
+      "bytes": 5673,
+      "sha256": "937b79025caf7599140e29eb213366ed47903de97f28b810e66fade7ca8c8866"
     },
     {
       "path": "docs/frontend-contracts/API_GAPS.md",
-      "bytes": 5118,
-      "sha256": "8415c850df0d273646f4e088aa9053d58ac5ae9b3099004f87cc937ba9babb18"
+      "bytes": 5385,
+      "sha256": "d9dee4eec3b95806b7b96665d271b385928199d868499295ab4485b90f4e3125"
     },
     {
       "path": "docs/frontend-contracts/examples/integration-test-receipts.json",
@@ -36,8 +36,8 @@
     },
     {
       "path": "docs/frontend-contracts/http-apis.json",
-      "bytes": 67053,
-      "sha256": "5e1fadc6799df0eb607f60e28da7050e957e408bafe7c22f59cc9de4a13de8f3"
+      "bytes": 177364,
+      "sha256": "88eb0e0b660d1df20a07e30fcf631b24e9e13ae589ea2493eefdf49061c42f03"
     },
     {
       "path": "docs/frontend-contracts/http-data-columns.d.ts",
@@ -61,13 +61,13 @@
     },
     {
       "path": "docs/frontend-contracts/http-responses.d.ts",
-      "bytes": 9688,
-      "sha256": "f5223f5566f98002a4e3ce971592eff6aa925b5076da795aa350ba8e4b3902f9"
+      "bytes": 9787,
+      "sha256": "383f29b88727a874a44ce7c6fde70a4bc1e540ebef47bd4a6aefc77c89d0d168"
     },
     {
       "path": "docs/frontend-contracts/HTTP_API_REFERENCE.md",
-      "bytes": 38708,
-      "sha256": "74cf6aa184784001feb7e93a0090d3daa2937041c8ac4b35bf1918f853de1539"
+      "bytes": 38915,
+      "sha256": "b7858f7906ea09d876a437ddabeceb177a512a47e51b0fc2d1d2b7e1947ac8a1"
     },
     {
       "path": "docs/frontend-contracts/internal-input.d.ts",
@@ -90,6 +90,21 @@
       "sha256": "f590df2546bc9aa31721fe3687735b1f2401c542292e3ec06a5919ee94e7dc02"
     },
     {
+      "path": "docs/frontend-contracts/investigation-client.ts",
+      "bytes": 2643,
+      "sha256": "5a2b119f68800b9a51d98ef3149216fa8f3562617a937a46ea06369e5f6aa077"
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.d.ts",
+      "bytes": 22840,
+      "sha256": "5a06789e13060e65d677f04bb6534a911040b10dd4801a74fd0220049351f417"
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.openapi.json",
+      "bytes": 143390,
+      "sha256": "9c34f5e5c36d7d93af0ff5569cbf26edb4b5330e0c64a856877d0eec7f1c1f48"
+    },
+    {
       "path": "docs/frontend-contracts/legacy-output.d.ts",
       "bytes": 1933,
       "sha256": "5a82e5b7df8651589c286d10fe9dbf8060691bd413b3653e20ef4bbe669f7abe"
@@ -101,8 +116,13 @@
     },
     {
       "path": "docs/frontend-contracts/openapi.json",
-      "bytes": 60651,
-      "sha256": "449e86e1aa895d78469a6943b19494d325d8a024bdb2a56b4bf89fcdc25b7fb8"
+      "bytes": 335911,
+      "sha256": "5b064abbae933aa1a2976c4d30d38d73c9b6db90b8946e944cd08a0a007a2d66"
+    },
+    {
+      "path": "docs/frontend-contracts/phase12b-verification.json",
+      "bytes": 2282,
+      "sha256": "48d69e20ab27be737550b5970fe608733fac6b34c29e1cb5c735ba946b1568a3"
     },
     {
       "path": "docs/frontend-contracts/tool-input.d.ts",
@@ -121,121 +141,16 @@
     },
     {
       "path": "docs/frontend-contracts/type-verification.json",
-      "bytes": 2173,
-      "sha256": "1bca8f647c2fa180a71b4843777603e2257c52923acda0686c6e9ac214a0dbab"
+      "bytes": 2188,
+      "sha256": "217b7fd11c10d4bfe56ecb4e4d085b960c4db3b6605ab6dfa3f4302e91fdc19b"
     },
     {
       "path": "docs/frontend-contracts/verification.json",
-      "bytes": 1729,
-      "sha256": "9deab3e865ed29ab30cd143f0adfc9a20f96a6eb02a67d592450d73980c0b289"
-    },
-    {
-      "path": "docs/FRONTEND_HANDOFF.md",
-      "bytes": 56512,
-      "sha256": "3dbc73b507c43104584bced101de8c26c89dfefebc1b9012f7988552a0aeb27f"
-    },
-    {
-      "path": "frontend/contracts/AgentTrace.ts",
-      "bytes": 558,
-      "sha256": "3feecb51a4c9f01a5e1140c718e76aa0a483a3602fca2597aaadf67ffe8a8285"
-    },
-    {
-      "path": "frontend/contracts/AnswerEnvelope.ts",
-      "bytes": 540,
-      "sha256": "382b851523b0f475c1f245e7cb55e78bf23a8ee0380e41d1946ecbda42815fdb"
-    },
-    {
-      "path": "frontend/contracts/Claim.ts",
-      "bytes": 464,
-      "sha256": "9f7e7475ffe7eb2da727ff8523aab4da09e5dfdfda988c7e978c23142bf6c3a1"
-    },
-    {
-      "path": "frontend/contracts/EvidenceReference.ts",
-      "bytes": 424,
-      "sha256": "169ab32a94390cd471eb3631606e8492a49b0e64df49efade62aa8156ba57a9f"
-    },
-    {
-      "path": "frontend/contracts/generated/http-data-columns.ts",
-      "bytes": 17983,
-      "sha256": "1cf9ec44beb0657f657cb0544c8c4a94c3d0cc8275c70448a938cdaae81c3cab"
-    },
-    {
-      "path": "frontend/contracts/generated/http-input.ts",
-      "bytes": 2055,
-      "sha256": "69f9007f1195480cb40aa87cd878ac569fedacb0b8f3ff4ac71717a0ecc7c501"
-    },
-    {
-      "path": "frontend/contracts/generated/http-responses.ts",
-      "bytes": 9688,
-      "sha256": "f5223f5566f98002a4e3ce971592eff6aa925b5076da795aa350ba8e4b3902f9"
-    },
-    {
-      "path": "frontend/contracts/generated/internal-input.ts",
-      "bytes": 4419,
-      "sha256": "52ec6585b7422544c2430185a5ab1a775fcbf6be2b5db9d3819c7f22b85f96b7"
-    },
-    {
-      "path": "frontend/contracts/generated/internal-output.ts",
-      "bytes": 31428,
-      "sha256": "237ab6d6922e025c493909c447e53b925a3d16576acc0beebcba83853ef10c09"
-    },
-    {
-      "path": "frontend/contracts/generated/legacy-output.ts",
-      "bytes": 1923,
-      "sha256": "8b2cb7ac303cefe6c454a5eabce637017609c4f32a8391c1794271812defac38"
-    },
-    {
-      "path": "frontend/contracts/generated/tool-input.ts",
-      "bytes": 2830,
-      "sha256": "4dabf4ce0aeaa9a46280bff172f1226d655532e1bcdac0c2e7a67c7d846bca3e"
-    },
-    {
-      "path": "frontend/contracts/HttpContracts.ts",
-      "bytes": 379,
-      "sha256": "a7950b858cbc6a066cbd8d94ff8da431fb6376950e85eeca67813b19666c269c"
-    },
-    {
-      "path": "frontend/contracts/index.ts",
-      "bytes": 1087,
-      "sha256": "f04aa5f3b078f107b0f1c5b3a57e8d187e1fd44ffa72decf1a5998d831e8d1ee"
-    },
-    {
-      "path": "frontend/contracts/IntegrationResult.ts",
-      "bytes": 374,
-      "sha256": "ec84df273aeaf5c4ca14ea887327a43c31f6f51208014fafb5be3e2858227767"
-    },
-    {
-      "path": "frontend/contracts/InvestigationRequest.ts",
-      "bytes": 479,
-      "sha256": "fb959d3c7a60020e098cd4594f78e559b76db3023123daae7076e05a6515ad24"
-    },
-    {
-      "path": "frontend/contracts/InvestigationStatus.ts",
-      "bytes": 402,
-      "sha256": "21c99b7d7a2ac7e7006b6286ea03d736fb670d78f427665415b9cbe5cec501cd"
-    },
-    {
-      "path": "frontend/contracts/README.md",
-      "bytes": 2670,
-      "sha256": "47c30e5888c1feed0ed024a730f3e61d69aeb67f37c143618427d58e67dd9256"
-    },
-    {
-      "path": "frontend/contracts/RiskAnalysis.ts",
-      "bytes": 636,
-      "sha256": "416605205eefc91dc4d5ee906fe7d2ea688b6cdcf31ce62579ceb00816d33f41"
-    },
-    {
-      "path": "frontend/contracts/VerificationResult.ts",
-      "bytes": 625,
-      "sha256": "d4b0c3098632ebf0832ba668e5ced9f491415cb4fdb50c610221f66ae2007e8b"
-    },
-    {
-      "path": "FRONTEND_HANDOFF_RESULT.md",
-      "bytes": 9059,
-      "sha256": "aab35b2a4b1c0b51e801fcdcc03fd59b05133889db93ccb58a33427ca8c86672"
+      "bytes": 1768,
+      "sha256": "acda106da788ca5509d3edce788d83b0785bc634509332ef472d9c73f4504c09"
     }
   ],
-  "file_count_excluding_manifest": 46,
+  "file_count_excluding_manifest": 29,
   "manifest_self_hash_included": false,
   "existing_source_baseline_sha256": {
     "backend/app/cli.py": "f220e828c684d9bca3cfbe8590dd5171c05ff76e68d7074fee2142e796ff134b",
@@ -498,37 +413,121 @@
     "backend/requirements.txt": "bd185722dc55e500fc81c07dbd28fb44602936e173fed96307017fd520f7e5ae"
   },
   "source_proof": {
-    "existing_files_checked": 258,
-    "current_files": 258,
-    "changed": [],
-    "missing": [],
-    "added": [],
+    "original_files_checked": 258,
+    "unchanged": 256,
+    "allowed_composition_changes": [
+      "backend/app/main.py",
+      "frontend/server.mjs"
+    ],
+    "core_business_changes": 0,
     "pass": true
   },
   "verification_summary": {
+    "phase": "12-B",
     "status": "PASS",
-    "http_operations": 34,
-    "browser_proxy_allowed": 27,
-    "browser_proxy_blocked": 7,
-    "api_not_exposed_proposals": 9,
-    "pydantic_fixtures_validated": 45,
-    "json_schema_fixtures_validated": 40,
-    "typescript_syntax_files": 18,
-    "type_export_references": 118,
-    "business_source_changes": 0,
-    "tsc_executed": false,
-    "historical_1261_tests_rerun": false
+    "verified_at_utc": "2026-10-11T11:18:47.043020+00:00",
+    "scope": "Actual HTTP adapter, frontend transport and generated contracts; no UI development.",
+    "full_backend_tests": {
+      "tests": 1288,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "new_investigation_api_tests": 27,
+    "historical_backend_test_count": 1261,
+    "historical_tests_rerun_in_current_suite": true,
+    "portable_ci_baseline": {
+      "passed": 423,
+      "deselected": 1,
+      "excluded_case": "cached real local embedding; no silent DB skips"
+    },
+    "frontend_tests": {
+      "passed": 23,
+      "failed": 0
+    },
+    "engineering_gate_tests": 6,
+    "typescript_semantic_check": "PASS",
+    "javascript_syntax_files": 17,
+    "http_operations": 42,
+    "new_investigation_operations": 8,
+    "proxy_allowed_operations": 35,
+    "legacy_proxy_blocked_operations": 7,
+    "generated_contract_check": "PASS",
+    "legacy_contract_groups_checked": 5,
+    "synthetic_objects_validated": 40,
+    "live_chain_scope": "Real PostgreSQL, original Orchestrator, tools, three Agents and Gate; controlled Mock Planner.",
+    "gate_enum_tests": "Five controlled HTTP DTO states, not five fabricated live Agent runs.",
+    "test_data_notice": "SYNTHETIC_NOT_BENCHMARK; no real model or intelligence accuracy claimed.",
+    "test_environment": "Two isolated disposable PostgreSQL test databases; offline cached embedding; original B2 rules ordered first without changing cases or assertions.",
+    "source_proof": {
+      "original_files_checked": 258,
+      "unchanged": 256,
+      "allowed_composition_changes": [
+        "backend/app/main.py",
+        "frontend/server.mjs"
+      ],
+      "core_business_changes": 0,
+      "pass": true
+    },
+    "review": {
+      "important_findings": 4,
+      "minor_findings": 3,
+      "resolved_with_regression_tests": 7,
+      "new_review_regression_cases": 11,
+      "review_rounds": 1
+    },
+    "limitations": [
+      "Default model is Mock; no paid/real provider evaluation.",
+      "Bounded in-process workers, not a durable distributed queue or automatic resume.",
+      "Configured server-side principal, not a multi-user login system.",
+      "Old responses have descriptive OpenAPI schemas, not new runtime validation.",
+      "No UI development, cloud rollout, SSE or WebSocket in this phase."
+    ]
   },
   "limitations": [
-    "No HTTP endpoints added; Phase 11-D proposed routes remain API_NOT_EXPOSED",
-    "No live HTTP capture or production business data exported",
-    "Current OpenAPI retains empty success schemas; sidecar types do not change backend OpenAPI",
-    "TypeScript syntax and references checked with Node24; full tsc semantic checking not run"
+    "Default model is Mock; no paid/real provider evaluation.",
+    "Bounded in-process workers, not a durable distributed queue or automatic resume.",
+    "Configured server-side principal, not a multi-user login system.",
+    "Old responses have descriptive OpenAPI schemas, not new runtime validation.",
+    "No UI development, cloud rollout, SSE or WebSocket in this phase."
   ],
   "phase13a_type_compatibility_update": {
     "updated_at_utc": "2026-10-11T04:55:07.081914+00:00",
     "field_or_schema_changes": false,
     "changed_type": "JsonValue recursive index signature",
     "original_export_time_preserved": true
+  },
+  "updated_at_utc": "2026-10-11T11:18:47.043020+00:00",
+  "historical_phase12a5": {
+    "phase": "12-A.5",
+    "scope": "Documentation and type declarations only",
+    "source_proof": {
+      "existing_files_checked": 258,
+      "current_files": 258,
+      "changed": [],
+      "missing": [],
+      "added": [],
+      "pass": true
+    },
+    "verification_summary": {
+      "status": "PASS",
+      "http_operations": 34,
+      "browser_proxy_allowed": 27,
+      "browser_proxy_blocked": 7,
+      "api_not_exposed_proposals": 9,
+      "pydantic_fixtures_validated": 45,
+      "json_schema_fixtures_validated": 40,
+      "typescript_syntax_files": 18,
+      "type_export_references": 118,
+      "business_source_changes": 0,
+      "tsc_executed": false,
+      "historical_1261_tests_rerun": false
+    },
+    "limitations": [
+      "No HTTP endpoints added; Phase 11-D proposed routes remain API_NOT_EXPOSED",
+      "No live HTTP capture or production business data exported",
+      "Current OpenAPI retains empty success schemas; sidecar types do not change backend OpenAPI",
+      "TypeScript syntax and references checked with Node24; full tsc semantic checking not run"
+    ]
   }
 }

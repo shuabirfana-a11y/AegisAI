@@ -1,0 +1,83 @@
+{
+  "check_id": "database-GHSA-53q9-r3pm-6pq6",
+  "source_id": "GHSA-53q9-r3pm-6pq6",
+  "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+  "kind": "GITHUB_REVIEWED_DATABASE",
+  "original_source_url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+  "check_started_at": "2026-10-11T08:39:28.778803+00:00",
+  "retrieved_at": "2026-10-11T08:39:30.487708+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+  "response_sha256": "7d9abb97b1d515b560245d64e2919faefae4da3659dabf5b82b7b1a58f7d931c",
+  "projected_record": {
+    "ghsa_id": "GHSA-53q9-r3pm-6pq6",
+    "cve_id": "CVE-2025-32434",
+    "summary": "PyTorch: `torch.load` with `weights_only=True` leads to remote code execution",
+    "severity": "critical",
+    "published_at": "2025-04-18T15:19:28Z",
+    "updated_at": "2025-08-29T19:45:47Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": null,
+      "score": null
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": 0.0
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+        "score": 9.3
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "torch"
+        },
+        "vulnerable_version_range": "< 2.6.0",
+        "first_patched_version": "2.6.0",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-502"
+      }
+    ],
+    "references": [
+      "https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6",
+      "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32434",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/torch/PYSEC-2025-41.yaml",
+      "https://github.com/advisories/GHSA-53q9-r3pm-6pq6"
+    ]
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "04988ba4aa5e1fb5d56457c290ad35281d801cef4527f563de21684d3cd24d47",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.492473+00:00",
+      "retrieved_at": "2026-10-11T08:37:11.792486+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:28.778803+00:00",
+      "retrieved_at": "2026-10-11T08:39:30.487708+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

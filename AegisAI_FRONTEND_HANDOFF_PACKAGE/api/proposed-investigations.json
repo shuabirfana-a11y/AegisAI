@@ -67,5 +67,11 @@
       "http_implemented": false
     }
   ],
-  "notice": "Suggestions only. Public HTTP DTOs/error mapping must be frozen during implementation."
+  "notice": "Suggestions only. Public HTTP DTOs/error mapping must be frozen during implementation.",
+  "historical_proposal": true,
+  "current_phase": "12-B",
+  "current_api_prefix": "/api/investigations",
+  "current_api_implemented": true,
+  "current_contract": "investigation-http.openapi.json",
+  "historical_urls_remain_unimplemented": true
 }

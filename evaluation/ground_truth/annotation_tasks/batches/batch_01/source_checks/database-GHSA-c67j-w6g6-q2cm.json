@@ -1,0 +1,96 @@
+{
+  "check_id": "database-GHSA-c67j-w6g6-q2cm",
+  "source_id": "GHSA-c67j-w6g6-q2cm",
+  "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "kind": "GITHUB_REVIEWED_DATABASE",
+  "original_source_url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "check_started_at": "2026-10-11T08:39:28.780813+00:00",
+  "retrieved_at": "2026-10-11T08:39:30.485704+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "response_sha256": "f5bbd2b2aed51ddcd815d69fb29745d451c9771f879c7fedef526a5ae662ccc7",
+  "projected_record": {
+    "ghsa_id": "GHSA-c67j-w6g6-q2cm",
+    "cve_id": "CVE-2025-68664",
+    "summary": "LangChain serialization injection vulnerability enables secret extraction in dumps/loads APIs",
+    "severity": "critical",
+    "published_at": "2025-12-23T18:46:13Z",
+    "updated_at": "2025-12-24T01:08:11Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+      "score": 9.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+        "score": 9.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": ">= 1.0.0, < 1.2.5",
+        "first_patched_version": "1.2.5",
+        "vulnerable_functions": []
+      },
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": "< 0.3.81",
+        "first_patched_version": "0.3.81",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-502"
+      }
+    ],
+    "references": [
+      "https://github.com/langchain-ai/langchain/security/advisories/GHSA-c67j-w6g6-q2cm",
+      "https://github.com/langchain-ai/langchain/pull/34455",
+      "https://github.com/langchain-ai/langchain/pull/34458",
+      "https://github.com/langchain-ai/langchain/commit/5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8",
+      "https://github.com/langchain-ai/langchain/commit/d9ec4c5cc78960abd37da79b0250f5642e6f0ce6",
+      "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D0.3.81",
+      "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.2.5",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-68664",
+      "https://github.com/advisories/GHSA-c67j-w6g6-q2cm"
+    ]
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "fb719c5ed22a74c7af14d84c482eaa8394aee85b4c314eca57dda405511ddede",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.494481+00:00",
+      "retrieved_at": "2026-10-11T08:37:11.791488+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:28.780813+00:00",
+      "retrieved_at": "2026-10-11T08:39:30.485704+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

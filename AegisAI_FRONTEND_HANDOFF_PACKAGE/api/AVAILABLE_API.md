@@ -1,8 +1,8 @@
 # 当前已实现 HTTP API
 
-以下 34 个操作来自实际 FastAPI 路由/OpenAPI；AVAILABLE 表示接口存在，不承诺当前服务在线。PROXY_BLOCKED 的 7 个写操作不能从现有本地前端代理提交。
+Phase 12-B 已新增 8 个调查操作，见 [调查 API](INVESTIGATION_API.md)，总数为 42。以下是原有 34 个操作；AVAILABLE 表示接口存在，不承诺当前服务在线。PROXY_BLOCKED 的 7 个旧写操作仍不能从本地前端代理提交。
 
-完整参数、权限、请求示例与错误见 [逐项接口参考](reference/HTTP_API_REFERENCE.md)。成功响应类型由 handler/序列化映射，OpenAPI 中成功 Schema 都是 `{}`。
+完整参数、权限、请求示例与错误见 [逐项接口参考](reference/HTTP_API_REFERENCE.md)。旧成功响应的 OpenAPI 描述已经补齐，序列化行为保留；新调查响应使用严格 Pydantic 模型。
 
 | 方法 | 真实完整路径 | 当前浏览器代理 | 返回 TypeScript 类型 | Body 类型 |
 |---|---|---|---|---|

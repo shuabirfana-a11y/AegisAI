@@ -6,6 +6,9 @@
 
 ## 队友从这里开始
 
+- [当前阶段与待办（含24/49题版本说明）](CURRENT_STATUS.md)
+- [智能调查 HTTP 接口对接](docs/PHASE12B_INVESTIGATION_API.md)
+- [49题人工标注入口](evaluation/ground_truth/annotator_package/README.md)
 - [前端交接入口](AegisAI_FRONTEND_HANDOFF_PACKAGE/README.md)
 - [下载交接 ZIP](AegisAI_FRONTEND_HANDOFF_PACKAGE.zip)
 - [队友接入、环境与分支协作](docs/TEAM_COLLABORATION.md)
@@ -22,11 +25,11 @@
 
 截至 2026-10-11，代码已有 Security Intelligence Engine、Tool/Model Gateway、混合检索、受约束 Planner、DAG Runtime、调查/核验/风险分析专业 Agent、Integration Gate 和 Phase 11-D 内部调查总控及 AnswerEnvelope。
 
-**Phase 12-B 只有待实施计划。** FastAPI 目前提供 34 个 HTTP 操作，其中 27 个操作经现有本地前端代理放行、7 个写操作被代理拦截。完整 Phase 11-D 生命周期和结果仍为 API_NOT_EXPOSED；旧 assistant/query 不是完整新调查入口。
+**Phase 12-B 已实现8个智能调查 HTTP 操作。** 本分支 FastAPI 共42个操作，新入口是 `/api/investigations`，覆盖创建、状态、Trace、Artifact、Integration Gate、AnswerEnvelope、取消和历史。旧34个操作保留；35个操作经本地代理放行，原7个其他写操作仍被拦截。对接以 [调查 API 文档](docs/PHASE12B_INVESTIGATION_API.md)为准；旧 assistant/query 保留兼容用途。
 
 前端已有七个页面，采用原生 JavaScript ESM、History Router 和 Node 本地代理。8768 原型是 Mock；真实 API 前端默认 8769，后端默认 8000。GitHub 仓库不等于已经部署的比赛演示网站。
 
-历史全量工程验收记录为 1261 项通过；本次源码上传没有重新执行这套全量测试。交接包提供独立字段/Schema/类型/链接验证记录，所有合成示例都标为 Mock，不能作为真实漏洞情报或 Benchmark 成绩。
+Phase 12-B 实施时全量回归为1288项通过（原1261项加新增27项），记录见 [PHASE_12B_RESULT.md](PHASE_12B_RESULT.md)。集成准备的检查另行记录，不能重复宣称又运行了全套数据库测试。AegisBench 新版候选为49题，人工批准尚未登记；旧v0.1的24题保留，标注人员使用新版题目与规范。合成示例、Mock模型和机器参考不能当作人工标准答案或正式准确率。
 
 ## 项目结构
 

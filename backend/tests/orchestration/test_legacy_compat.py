@@ -56,6 +56,22 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     from pathlib import Path
     root=Path(__file__).resolve().parents[3]
     baseline=json.loads((root/'work/orchestration/baseline_hashes.json').read_text(encoding='utf-8'))
-    allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py'}
+    # Phase12-B permits app composition only; the baseline digests remain intact.
+    allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
+             'backend/app/main.py'}
     for path,digest in baseline.items():
         if path not in allowed:assert hashlib.sha256((root/path).read_bytes()).hexdigest()==digest,path
+    from fastapi.routing import APIRoute
+    from app.main import create_app
+    from app.api import routes,enrichment,assets,assistant,tools
+    expected={(route.path,method):route.endpoint for module in (routes,enrichment,assets,assistant,tools)
+              for route in module.router.routes if isinstance(route,APIRoute) for method in route.methods}
+    def flat(routes):
+        for route in routes:
+            if hasattr(route,'original_router'):
+                yield from flat(route.original_router.routes)
+            else:yield route
+    actual={(route.path,method):route.endpoint for route in flat(create_app().routes) if isinstance(route,APIRoute)
+            and not route.path.startswith('/api/investigations') for method in route.methods}
+    assert len(expected)==34
+    assert actual==expected

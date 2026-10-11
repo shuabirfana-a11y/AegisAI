@@ -1,0 +1,82 @@
+{
+  "check_id": "database-GHSA-9rwj-6rc7-p77c",
+  "source_id": "GHSA-9rwj-6rc7-p77c",
+  "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+  "kind": "GITHUB_REVIEWED_DATABASE",
+  "original_source_url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+  "check_started_at": "2026-10-11T08:39:30.493701+00:00",
+  "retrieved_at": "2026-10-11T08:39:31.719094+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+  "response_sha256": "53be0e3072e8af8efd465bd966d3b72d50018af05195f7ae51b81175caaf30a0",
+  "projected_record": {
+    "ghsa_id": "GHSA-9rwj-6rc7-p77c",
+    "cve_id": "CVE-2025-67644",
+    "summary": "LangGraph's SQLite is vulnerable to SQL injection via metadata filter key in SQLite checkpointer list method",
+    "severity": "high",
+    "published_at": "2025-12-10T00:02:21Z",
+    "updated_at": "2025-12-24T06:22:16Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+      "score": 7.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+        "score": 7.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langgraph-checkpoint-sqlite"
+        },
+        "vulnerable_version_range": "< 3.0.1",
+        "first_patched_version": "3.0.1",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [
+      {
+        "cwe_id": "CWE-89"
+      }
+    ],
+    "references": [
+      "https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c",
+      "https://github.com/langchain-ai/langgraph/commit/297242913f8ad2143ee3e2f72e67db0911d48e2a",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-67644",
+      "https://github.com/advisories/GHSA-9rwj-6rc7-p77c"
+    ]
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "c056372ea8643fba4f58fcbbf72dc897e901b8209830fcde3d6194b963c5e32c",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.495471+00:00",
+      "retrieved_at": "2026-10-11T08:37:11.794487+00:00",
+      "http_status": 403,
+      "check_status": "HTTP_ERROR",
+      "error": "HTTP 403"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:30.493701+00:00",
+      "retrieved_at": "2026-10-11T08:39:31.719094+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

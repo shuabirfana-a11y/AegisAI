@@ -1,5 +1,7 @@
 # AegisAI Phase 12-B Investigation API Implementation Plan
 
+> 历史计划，已被 [PHASE_12B_API_IMPLEMENTATION_PLAN.md](PHASE_12B_API_IMPLEMENTATION_PLAN.md)替代。以下“等待确认”和 `/api/v1/investigations` 仅反映旧计划，不是当前运行状态。实际实现为 `/api/investigations`，结果见 [PHASE_12B_RESULT.md](PHASE_12B_RESULT.md)。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 将现有 Phase 11-D 调查闭环通过 8 个受保护、具备明确响应 Schema 的 HTTP 操作交给前端。

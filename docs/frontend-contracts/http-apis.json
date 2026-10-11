@@ -16,7 +16,33 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "Health",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "application": {
+              "const": "up"
+            },
+            "database": {
+              "enum": [
+                "up",
+                "down"
+              ]
+            },
+            "sources": {
+              "type": "string"
+            },
+            "scope": {
+              "const": "local development"
+            }
+          },
+          "required": [
+            "application",
+            "database",
+            "sources",
+            "scope"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "503": "Database down; response still uses Health fields"
@@ -31,7 +57,8 @@
         "body": null
       },
       "source": "backend/app/api/routes.py",
-      "line": 13
+      "line": 13,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -48,7 +75,146 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "SourcesResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source_key": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "source_type": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "authority_level": {
+                    "type": "string"
+                  },
+                  "authority_scope": {
+                    "type": "string"
+                  },
+                  "acquisition_method": {
+                    "type": "string"
+                  },
+                  "base_url": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "update_interval": {
+                    "type": "integer"
+                  },
+                  "last_sync_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "last_success_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "license_scope": {
+                    "type": "string"
+                  },
+                  "checkpoint": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "coverage_scope": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "last_sync": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "latest_error": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "records": {
+                    "type": "object",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": true
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer"
+            },
+            "status_semantics": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "status_semantics"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {},
       "proxy_errors": {},
@@ -61,7 +227,8 @@
         "body": null
       },
       "source": "backend/app/api/routes.py",
-      "line": 21
+      "line": 21,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -123,7 +290,141 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "SyncRunsResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "started_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "finished_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "records_fetched": {
+                    "type": "integer"
+                  },
+                  "records_created": {
+                    "type": "integer"
+                  },
+                  "records_updated": {
+                    "type": "integer"
+                  },
+                  "records_skipped": {
+                    "type": "integer"
+                  },
+                  "records_failed": {
+                    "type": "integer"
+                  },
+                  "cursor_before": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cursor_after": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "mode": {
+                    "type": "string"
+                  },
+                  "coverage_scope": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "known_gaps": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "error_summary": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retry_of_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError"
@@ -138,7 +439,8 @@
         "body": null
       },
       "source": "backend/app/api/routes.py",
-      "line": 24
+      "line": 24,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -252,7 +554,116 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "VulnerabilityListResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "canonical_id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "published_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "modified_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "primary_severity": {
+                    "type": "string"
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "deleted_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "data_status": {
+              "type": "string"
+            },
+            "coverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError"
@@ -267,7 +678,8 @@
         "body": null
       },
       "source": "backend/app/api/routes.py",
-      "line": 28
+      "line": 28,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -294,7 +706,263 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "VulnerabilityDetail",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "canonical_id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "published_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "modified_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "type": "string"
+            },
+            "primary_severity": {
+              "type": "string"
+            },
+            "revision": {
+              "type": "integer"
+            },
+            "deleted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "source_variants": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "source_documents": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "external_identifiers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "affected_versions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "cvss_assessments": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "products": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "cwe": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "ai_relevance": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "enrichment": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "claims": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "pocs": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "patches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "timeline": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "epss": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "known_exploitation": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "conflicts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "verification_results": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "reviews": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -310,7 +978,8 @@
         "body": null
       },
       "source": "backend/app/api/routes.py",
-      "line": 34
+      "line": 34,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -360,7 +1029,128 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<EnrichmentJob>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vulnerability_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "enrichment_type": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "scheduled_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "started_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "finished_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "attempt": {
+                    "type": "integer"
+                  },
+                  "error_code": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retryable": {
+                    "type": "boolean"
+                  },
+                  "trace_id": {
+                    "type": "string"
+                  },
+                  "duration_ms": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "result": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -376,7 +1166,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -426,7 +1217,217 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<ClaimRow>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_key": {
+                    "type": "string"
+                  },
+                  "vulnerability_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "knowledge_document_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "product_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "package_identifier_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "range_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "poc_candidate_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "patch_candidate_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "asset_component_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cvss_assessment_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "claim_type": {
+                    "type": "string"
+                  },
+                  "predicate": {
+                    "type": "string"
+                  },
+                  "value_json": {},
+                  "scope_key": {
+                    "type": "string"
+                  },
+                  "branch": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "cvss_version": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "assessment_kind": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "as_of_date": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "verification_status": {
+                    "type": "string"
+                  },
+                  "adopted": {
+                    "type": "boolean"
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -442,7 +1443,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -492,7 +1494,118 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<EvidenceRow>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "raw_document_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "observation_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "scope_key": {
+                    "type": "string"
+                  },
+                  "evidence_type": {
+                    "type": "string"
+                  },
+                  "stance": {
+                    "type": "string"
+                  },
+                  "excerpt": {
+                    "type": "string"
+                  },
+                  "excerpt_hash": {
+                    "type": "string"
+                  },
+                  "source_url": {
+                    "type": "string"
+                  },
+                  "published_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retrieved_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "locator": {},
+                  "locator_key": {
+                    "type": "string"
+                  },
+                  "observed_value": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "publisher": {
+                    "type": "string"
+                  },
+                  "lineage_key": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -508,7 +1621,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -558,7 +1672,120 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<PocCandidate>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vulnerability_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "observation_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "canonical_url": {
+                    "type": "string"
+                  },
+                  "repository": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "commit": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "author": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "candidate_type": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "usability_status": {
+                    "type": "string"
+                  },
+                  "first_seen_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "last_seen_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -574,7 +1801,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -624,7 +1852,117 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<PatchCandidate>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vulnerability_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "product_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "observation_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "patch_type": {
+                    "type": "string"
+                  },
+                  "identity_key": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "commit_sha": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "release_version": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "branch": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "first_seen_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -640,7 +1978,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -690,7 +2029,130 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EnrichedPage<IntelligenceEvent>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "event_key": {
+                    "type": "string"
+                  },
+                  "vulnerability_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "knowledge_document_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "claim_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "evidence_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "source_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "event_type": {
+                    "type": "string"
+                  },
+                  "occurred_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "detected_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "summary": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -706,7 +2168,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 18
+      "line": 18,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -734,7 +2197,94 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "EvidenceRow",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "claim_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "source_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "raw_document_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "observation_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "scope_key": {
+              "type": "string"
+            },
+            "evidence_type": {
+              "type": "string"
+            },
+            "stance": {
+              "type": "string"
+            },
+            "excerpt": {
+              "type": "string"
+            },
+            "excerpt_hash": {
+              "type": "string"
+            },
+            "source_url": {
+              "type": "string"
+            },
+            "published_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "retrieved_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "locator": {},
+            "locator_key": {
+              "type": "string"
+            },
+            "observed_value": {
+              "anyOf": [
+                {},
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "publisher": {
+              "type": "string"
+            },
+            "lineage_key": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "claim_verification_status": {
+              "type": "string"
+            },
+            "source_key": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -750,7 +2300,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 27
+      "line": 27,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -814,7 +2365,128 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "Page<ReviewRow>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "review_type": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "assigned_to": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolved_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolution": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolution_note": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "before_state": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "after_state": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError"
@@ -829,7 +2501,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 33
+      "line": 33,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -857,7 +2530,429 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "ReviewDetail",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "claim_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "review_type": {
+              "type": "string"
+            },
+            "priority": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "assigned_to": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolved_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolution": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolution_note": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "before_state": {
+              "anyOf": [
+                {},
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "after_state": {
+              "anyOf": [
+                {},
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "revision": {
+              "type": "integer"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "claim": {
+              "type": "object",
+              "properties": {
+                "claim_key": {
+                  "type": "string"
+                },
+                "vulnerability_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "knowledge_document_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "product_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "package_identifier_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "range_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "poc_candidate_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "patch_candidate_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "asset_component_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "cvss_assessment_id": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "claim_type": {
+                  "type": "string"
+                },
+                "predicate": {
+                  "type": "string"
+                },
+                "value_json": {},
+                "scope_key": {
+                  "type": "string"
+                },
+                "branch": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "cvss_version": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "assessment_kind": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "as_of_date": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "verification_status": {
+                  "type": "string"
+                },
+                "adopted": {
+                  "type": "boolean"
+                },
+                "revision": {
+                  "type": "integer"
+                },
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [],
+              "additionalProperties": true
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "raw_document_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "observation_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "scope_key": {
+                    "type": "string"
+                  },
+                  "evidence_type": {
+                    "type": "string"
+                  },
+                  "stance": {
+                    "type": "string"
+                  },
+                  "excerpt": {
+                    "type": "string"
+                  },
+                  "excerpt_hash": {
+                    "type": "string"
+                  },
+                  "source_url": {
+                    "type": "string"
+                  },
+                  "published_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "retrieved_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "locator": {},
+                  "locator_key": {
+                    "type": "string"
+                  },
+                  "observed_value": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "publisher": {
+                    "type": "string"
+                  },
+                  "lineage_key": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "audit": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "actor": {
+                    "type": "string"
+                  },
+                  "action": {
+                    "type": "string"
+                  },
+                  "claim_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "review_task_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "verification_result_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "before_state": {},
+                  "after_state": {},
+                  "reason": {
+                    "type": "string"
+                  },
+                  "occurred_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "request_key": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -873,7 +2968,8 @@
         "body": null
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 41
+      "line": 41,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -919,7 +3015,65 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "AuditRow",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            },
+            "claim_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "review_task_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "verification_result_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "before_state": {},
+            "after_state": {},
+            "reason": {
+              "type": "string"
+            },
+            "occurred_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "request_key": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -948,7 +3102,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/enrichment.py",
-      "line": 58
+      "line": 58,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1005,7 +3160,101 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "Page<AssetRow>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "asset_type": {
+                    "type": "string"
+                  },
+                  "owner_principal": {
+                    "type": "string"
+                  },
+                  "is_demo": {
+                    "type": "boolean"
+                  },
+                  "deleted_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "environment": {
+                    "type": "string"
+                  },
+                  "exposure": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "request_key": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1023,59 +3272,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 43
-    },
-    {
-      "api_status": "AVAILABLE",
-      "browser_access": "AVAILABLE",
-      "method": "GET",
-      "url": "/api/v1/assets/overview",
-      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
-      "request": {
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "title": "Authorization"
-            }
-          }
-        ],
-        "body_schema": null,
-        "body_model": null,
-        "raw_body_notice": null
-      },
-      "response": {
-        "success_http_status": 200,
-        "typescript_type": "AssetOverview",
-        "openapi_success_schema": {}
-      },
-      "errors": {
-        "422": "FastAPI validation; mutation may also return controlled ValueError",
-        "401": "Authentication required",
-        "503": "Local token not configured"
-      },
-      "proxy_errors": {},
-      "example": {
-        "api_status": "MOCK_ONLY",
-        "fixture_label": "MOCK",
-        "production_data": false,
-        "method": "GET",
-        "url": "/api/v1/assets/overview",
-        "body": null,
-        "auth": "configured server token required; value intentionally omitted"
-      },
-      "source": "backend/app/api/assets.py",
-      "line": 49
+      "line": 43,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1111,7 +3309,74 @@
       "response": {
         "success_http_status": 201,
         "typescript_type": "AssetRow",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "asset_type": {
+              "type": "string"
+            },
+            "owner_principal": {
+              "type": "string"
+            },
+            "is_demo": {
+              "type": "boolean"
+            },
+            "deleted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "environment": {
+              "type": "string"
+            },
+            "exposure": {
+              "type": "string"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "request_key": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -1137,7 +3402,110 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 52
+      "line": 52,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/assets/overview",
+      "permissions": "AEGIS_ASSET_TOKEN (server principal)",
+      "request": {
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null,
+        "body_model": null,
+        "raw_body_notice": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "typescript_type": "AssetOverview",
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "assets": {
+              "type": "integer"
+            },
+            "components": {
+              "type": "integer"
+            },
+            "affected_components": {
+              "type": "integer"
+            },
+            "critical_high": {
+              "type": "integer"
+            },
+            "confirmed_poc": {
+              "type": "integer"
+            },
+            "kev": {
+              "type": "integer"
+            },
+            "patch_available": {
+              "type": "integer"
+            },
+            "uncertain_matches": {
+              "type": "integer"
+            },
+            "not_evaluated_components": {
+              "type": "integer"
+            },
+            "is_demo_inventory_included": {
+              "type": "boolean"
+            },
+            "counts_unit": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "assets",
+            "components",
+            "affected_components",
+            "critical_high",
+            "confirmed_poc",
+            "kev",
+            "patch_available",
+            "uncertain_matches",
+            "not_evaluated_components"
+          ],
+          "additionalProperties": true
+        }
+      },
+      "errors": {
+        "422": "FastAPI validation; mutation may also return controlled ValueError",
+        "401": "Authentication required",
+        "503": "Local token not configured"
+      },
+      "proxy_errors": {},
+      "example": {
+        "api_status": "MOCK_ONLY",
+        "fixture_label": "MOCK",
+        "production_data": false,
+        "method": "GET",
+        "url": "/api/v1/assets/overview",
+        "body": null,
+        "auth": "configured server token required; value intentionally omitted"
+      },
+      "source": "backend/app/api/assets.py",
+      "line": 49,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1181,7 +3549,244 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "AssetDetail",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "asset_type": {
+              "type": "string"
+            },
+            "owner_principal": {
+              "type": "string"
+            },
+            "is_demo": {
+              "type": "boolean"
+            },
+            "deleted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "environment": {
+              "type": "string"
+            },
+            "exposure": {
+              "type": "string"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "request_key": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "components": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "product_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "package_identifier_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "version": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "raw_package_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "inventory_revision": {
+                    "type": "integer"
+                  },
+                  "identity_status": {
+                    "type": "string"
+                  },
+                  "deleted_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "purl": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "ecosystem": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "namespace": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "normalized_version": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolution_method": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "inventory_key": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "first_seen_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "last_seen_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1200,7 +3805,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 57
+      "line": 57,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1246,7 +3852,173 @@
       "response": {
         "success_http_status": 201,
         "typescript_type": "ComponentRow",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "asset_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "product_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "package_identifier_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "raw_package_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "inventory_revision": {
+              "type": "integer"
+            },
+            "identity_status": {
+              "type": "string"
+            },
+            "deleted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "purl": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ecosystem": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "namespace": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "normalized_version": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolution_method": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "inventory_key": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "first_seen_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "last_seen_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -1272,7 +4044,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 62
+      "line": 62,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1328,7 +4101,173 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "ComponentRow",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "asset_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "product_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "package_identifier_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "raw_package_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "source": {
+              "type": "string"
+            },
+            "inventory_revision": {
+              "type": "integer"
+            },
+            "identity_status": {
+              "type": "string"
+            },
+            "deleted_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "purl": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "ecosystem": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "namespace": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "normalized_version": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "resolution_method": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "inventory_key": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "first_seen_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "last_seen_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -1354,7 +4293,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 67
+      "line": 67,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1409,7 +4349,55 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "SbomImportResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "enum": [
+                "CycloneDX",
+                "SPDX"
+              ]
+            },
+            "sha256": {
+              "type": "string"
+            },
+            "added": {
+              "type": "integer"
+            },
+            "updated": {
+              "type": "integer"
+            },
+            "removed": {
+              "type": "integer"
+            },
+            "component_count": {
+              "type": "integer"
+            },
+            "added_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "updated_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "removed_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -1449,7 +4437,8 @@
         }
       },
       "source": "backend/app/api/assets.py",
-      "line": 71
+      "line": 71,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1516,7 +4505,42 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "AssetRisksResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "coverage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1535,7 +4559,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 86
+      "line": 86,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1589,7 +4614,24 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "HistoricalAssetRisk",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "asset_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "snapshot_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "historical": {
+              "const": true
+            }
+          },
+          "required": [],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1608,7 +4650,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 91
+      "line": 91,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1652,7 +4695,24 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "{items: LegacyAssetRiskPayload[]}",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "Invalid request or business input",
@@ -1674,7 +4734,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 96
+      "line": 96,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1741,7 +4802,94 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "RiskChangeResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "component_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "vulnerability_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "previous_snapshot_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "snapshot_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "event_type": {
+                    "type": "string"
+                  },
+                  "event_key": {
+                    "type": "string"
+                  },
+                  "occurred_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "before_state": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "after_state": {},
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1760,7 +4908,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 102
+      "line": 102,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1827,7 +4976,83 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "InventoryHistoryResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "asset_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "component_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "event_type": {
+                    "type": "string"
+                  },
+                  "actor": {
+                    "type": "string"
+                  },
+                  "request_key": {
+                    "type": "string"
+                  },
+                  "occurred_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "changes": {},
+                  "summary": {
+                    "type": "object",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": true
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1846,7 +5071,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 107
+      "line": 107,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1913,7 +5139,128 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "Page<ReviewDetail>",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim_id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "review_type": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "integer"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "assigned_to": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolved_at": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolution": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resolution_note": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "before_state": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "after_state": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "total": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "offset": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "items",
+            "total",
+            "offset",
+            "limit"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1932,7 +5279,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assets.py",
-      "line": 115
+      "line": 115,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -1968,7 +5316,96 @@
       "response": {
         "success_http_status": 202,
         "typescript_type": "LegacyAssistantRun",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "run_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "trace_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "status": {
+              "enum": [
+                "PLANNING",
+                "RUNNING",
+                "WAITING_TOOL",
+                "VERIFYING",
+                "REPLANNING",
+                "WAITING_REVIEW",
+                "COMPLETED",
+                "FAILED"
+              ]
+            },
+            "route": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "result": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "started_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "finished_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "duration_ms": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "run_id",
+            "trace_id",
+            "status",
+            "warnings",
+            "started_at"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -1994,7 +5431,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assistant.py",
-      "line": 9
+      "line": 9,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -2038,7 +5476,96 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "LegacyAssistantRun",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "run_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "trace_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "status": {
+              "enum": [
+                "PLANNING",
+                "RUNNING",
+                "WAITING_TOOL",
+                "VERIFYING",
+                "REPLANNING",
+                "WAITING_REVIEW",
+                "COMPLETED",
+                "FAILED"
+              ]
+            },
+            "route": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "result": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": true
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "started_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "finished_at": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "duration_ms": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "run_id",
+            "trace_id",
+            "status",
+            "warnings",
+            "started_at"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -2057,7 +5584,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assistant.py",
-      "line": 16
+      "line": 16,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -2101,7 +5629,24 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "{items: LegacyTaskRun[]}",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [
+            "items"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -2120,7 +5665,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assistant.py",
-      "line": 21
+      "line": 21,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -2164,7 +5710,48 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "LegacyAssistantTrace",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "run_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "trace_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {},
+                "required": [],
+                "additionalProperties": true
+              }
+            },
+            "disclosure": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "run_id",
+            "trace_id",
+            "items",
+            "events",
+            "disclosure"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -2183,7 +5770,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/assistant.py",
-      "line": 26
+      "line": 26,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -2217,7 +5805,57 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "ToolContractsResponse",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": "ToolContractV3"
+            },
+            "content_trust_level": {
+              "const": "UNTRUSTED_EXTERNAL_CONTENT"
+            },
+            "tools": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "input_schema": {
+                    "type": "object",
+                    "properties": {},
+                    "required": [],
+                    "additionalProperties": true
+                  },
+                  "permission": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "input_schema",
+                  "permission",
+                  "category",
+                  "description"
+                ],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [
+            "version",
+            "content_trust_level",
+            "tools"
+          ],
+          "additionalProperties": true
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -2235,7 +5873,8 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/tools.py",
-      "line": 13
+      "line": 13,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
     },
     {
       "api_status": "AVAILABLE",
@@ -2282,7 +5921,73 @@
       "response": {
         "success_http_status": 200,
         "typescript_type": "ToolEnvelope",
-        "openapi_success_schema": {}
+        "openapi_success_schema": {
+          "additionalProperties": false,
+          "properties": {
+            "tool": {
+              "title": "Tool",
+              "type": "string"
+            },
+            "status": {
+              "enum": [
+                "success",
+                "partial",
+                "no_result",
+                "failed"
+              ],
+              "title": "Status",
+              "type": "string"
+            },
+            "data": {
+              "title": "Data"
+            },
+            "evidence_refs": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "title": "Evidence Refs",
+              "type": "array"
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "title": "Warnings",
+              "type": "array"
+            },
+            "errors": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "title": "Errors",
+              "type": "array"
+            },
+            "retryable": {
+              "default": false,
+              "title": "Retryable",
+              "type": "boolean"
+            },
+            "trace_id": {
+              "title": "Trace Id",
+              "type": "string"
+            },
+            "duration_ms": {
+              "minimum": 0,
+              "title": "Duration Ms",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "tool",
+            "status",
+            "trace_id",
+            "duration_ms"
+          ],
+          "title": "ToolEnvelope",
+          "type": "object"
+        }
       },
       "errors": {
         "422": "FastAPI validation; mutation may also return controlled ValueError",
@@ -2307,7 +6012,396 @@
         "auth": "configured server token required; value intentionally omitted"
       },
       "source": "backend/app/api/tools.py",
-      "line": 19
+      "line": 19,
+      "response_validation": "LEGACY_DESCRIPTION_ONLY"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
+      "url": "/api/investigations",
+      "request": {
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "body_schema": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/InvestigationCreateRequest"
+            },
+            {
+              "$ref": "#/components/schemas/InvestigationRequest"
+            }
+          ],
+          "title": "Body"
+        }
+      },
+      "response": {
+        "success_http_status": 202,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/InvestigationCreateResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/history",
+      "request": {
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "RUNNING",
+                    "SUCCEEDED",
+                    "SUCCEEDED_WITH_WARNINGS",
+                    "INCOMPLETE",
+                    "REVIEW_REQUIRED",
+                    "FAILED",
+                    "CANCELLED"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Status"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "created_desc",
+                "created_asc"
+              ],
+              "type": "string",
+              "default": "created_desc",
+              "title": "Sort"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/HistoryResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/{id}/status",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/InvestigationStatusResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/{id}/trace",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/TraceResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/{id}/artifacts",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/ArtifactResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/{id}/integration",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/IntegrationResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/{id}/answer",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/AnswerResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
+      "url": "/api/investigations/{id}/cancel",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/InvestigationStatusResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
     }
   ]
 }

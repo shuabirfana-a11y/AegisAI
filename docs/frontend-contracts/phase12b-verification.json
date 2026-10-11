@@ -1,0 +1,62 @@
+{
+  "phase": "12-B",
+  "status": "PASS",
+  "verified_at_utc": "2026-10-11T11:18:47.043020+00:00",
+  "scope": "Actual HTTP adapter, frontend transport and generated contracts; no UI development.",
+  "full_backend_tests": {
+    "tests": 1288,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "new_investigation_api_tests": 27,
+  "historical_backend_test_count": 1261,
+  "historical_tests_rerun_in_current_suite": true,
+  "portable_ci_baseline": {
+    "passed": 423,
+    "deselected": 1,
+    "excluded_case": "cached real local embedding; no silent DB skips"
+  },
+  "frontend_tests": {
+    "passed": 23,
+    "failed": 0
+  },
+  "engineering_gate_tests": 6,
+  "typescript_semantic_check": "PASS",
+  "javascript_syntax_files": 17,
+  "http_operations": 42,
+  "new_investigation_operations": 8,
+  "proxy_allowed_operations": 35,
+  "legacy_proxy_blocked_operations": 7,
+  "generated_contract_check": "PASS",
+  "legacy_contract_groups_checked": 5,
+  "synthetic_objects_validated": 40,
+  "live_chain_scope": "Real PostgreSQL, original Orchestrator, tools, three Agents and Gate; controlled Mock Planner.",
+  "gate_enum_tests": "Five controlled HTTP DTO states, not five fabricated live Agent runs.",
+  "test_data_notice": "SYNTHETIC_NOT_BENCHMARK; no real model or intelligence accuracy claimed.",
+  "test_environment": "Two isolated disposable PostgreSQL test databases; offline cached embedding; original B2 rules ordered first without changing cases or assertions.",
+  "source_proof": {
+    "original_files_checked": 258,
+    "unchanged": 256,
+    "allowed_composition_changes": [
+      "backend/app/main.py",
+      "frontend/server.mjs"
+    ],
+    "core_business_changes": 0,
+    "pass": true
+  },
+  "review": {
+    "important_findings": 4,
+    "minor_findings": 3,
+    "resolved_with_regression_tests": 7,
+    "new_review_regression_cases": 11,
+    "review_rounds": 1
+  },
+  "limitations": [
+    "Default model is Mock; no paid/real provider evaluation.",
+    "Bounded in-process workers, not a durable distributed queue or automatic resume.",
+    "Configured server-side principal, not a multi-user login system.",
+    "Old responses have descriptive OpenAPI schemas, not new runtime validation.",
+    "No UI development, cloud rollout, SSE or WebSocket in this phase."
+  ]
+}

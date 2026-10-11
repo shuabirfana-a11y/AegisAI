@@ -31,24 +31,32 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
       response.end(JSON.stringify({ localDemoAccess: Boolean(localDemoToken) }));
       return;
     }
-    const api = url.pathname === '/health' || url.pathname.startsWith('/api/v1/');
+    const investigationRoute = url.pathname === '/api/investigations' || url.pathname.startsWith('/api/investigations/');
+    const api = url.pathname === '/health' || url.pathname.startsWith('/api/v1/') || investigationRoute;
     if (api) {
       if (!['GET', 'HEAD', 'POST'].includes(request.method)) return json(response, 405, 'Method not supported by the skeleton.');
       if (request.method === 'POST') {
-        if (url.pathname !== '/api/v1/assistant/query') return json(response, 405, 'The skeleton only submits Assistant queries.');
+        const investigationWrite = url.pathname === '/api/investigations' ||
+          /^\/api\/investigations\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/cancel$/i.test(url.pathname);
+        if (url.pathname !== '/api/v1/assistant/query' && !investigationWrite) return json(response, 405, 'Only Assistant queries and investigation creation/cancellation are supported.');
         if (request.headers.origin !== 'http://' + host) return json(response, 403, 'Assistant queries require the same frontend origin.');
         if (!/^application\/json(?:\s*;|$)/i.test(request.headers['content-type'] || '')) return json(response, 415, 'Assistant queries require application/json.');
       }
       const headers = { Accept: 'application/json' };
       if (request.headers.authorization) headers.Authorization = request.headers.authorization;
+      if (investigationRoute && request.headers['idempotency-key']) headers['Idempotency-Key'] = request.headers['idempotency-key'];
       const protectedDemoRoute = url.pathname === '/api/v1/assets' || url.pathname.startsWith('/api/v1/assets/') ||
-        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/');
+        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/') || investigationRoute;
       if (localDemoToken && protectedDemoRoute) headers.Authorization = 'Bearer ' + localDemoToken;
       if (request.method === 'POST') headers['Content-Type'] = 'application/json';
       let settled = false;
       const upstream = http.request({ hostname: '127.0.0.1', port: backendPort, path: url.pathname + url.search, method: request.method, headers, timeout: 30000 }, incoming => {
         settled = true;
-        response.writeHead(incoming.statusCode || 502, { ...safeHeaders, 'Content-Type': incoming.headers['content-type'] || 'application/json; charset=utf-8' });
+        const acknowledgement = {};
+        if (investigationRoute) for (const name of ['location', 'retry-after', 'x-request-id', 'www-authenticate']) {
+          if (incoming.headers[name]) acknowledgement[name] = incoming.headers[name];
+        }
+        response.writeHead(incoming.statusCode || 502, { ...safeHeaders, ...acknowledgement, 'Content-Type': incoming.headers['content-type'] || 'application/json; charset=utf-8' });
         incoming.pipe(response);
       });
       upstream.on('timeout', () => upstream.destroy(new Error('Backend timeout')));

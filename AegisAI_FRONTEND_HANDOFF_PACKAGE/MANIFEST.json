@@ -3,27 +3,32 @@
   "format_version": "frontend-handoff-package-v1",
   "created_at_utc": "2026-10-10T15:44:21.280576+00:00",
   "status": "PASS",
-  "scope": "Documentation, exact current contract types and explicitly marked demonstration fixtures.",
+  "scope": "Portable frontend contracts, client, documentation and labelled historical fixtures.",
   "files": [
     {
       "path": "api/API_NOT_EXPOSED.md",
-      "bytes": 3632,
-      "sha256": "053941fc3f3325b43ff9abacd723dc5ebf4786e0c3dc1139a35c72f641e6579e"
+      "bytes": 3890,
+      "sha256": "b23b820cd8032ff4ed654e749503572ddbcda52ad7f45ded92bbbe7d28a038aa"
     },
     {
       "path": "api/API_STATUS.md",
-      "bytes": 2171,
-      "sha256": "c199622b3a73b51d08a814f996bb7a7dbcffbcf41cf8cb3fdaa01230d49e3241"
+      "bytes": 2473,
+      "sha256": "1cadbb9c4e8ba90db629ffe3c5877f4a23dc1e9291a37a7bcb2236978aade34a"
     },
     {
       "path": "api/AVAILABLE_API.md",
-      "bytes": 5430,
-      "sha256": "8a79df75654406912eb70e73c6ab1c2e3daab4ca7d55b2c69ddc0a6573e10188"
+      "bytes": 5532,
+      "sha256": "0148f2b5f3cb3ef7918d49617554798188eb29d429711599598d6bff54075e1b"
+    },
+    {
+      "path": "api/INVESTIGATION_API.md",
+      "bytes": 9755,
+      "sha256": "5fa4c315c4340bc285e9a0544ba0fc296f4273d5c9643cfccf896191b69ece2e"
     },
     {
       "path": "api/proposed-investigations.json",
-      "bytes": 2083,
-      "sha256": "a27da9a0931af0903167d1bd2187f8aefcdb3a8eb551f0aa17d95c9b0578014f"
+      "bytes": 2257,
+      "sha256": "fe47584c6de575c1f99d7a1a507cf9cf69c025c9ac0525d2c2306ae806dfa9af"
     },
     {
       "path": "api/reference/examples/integration-test-receipts.json",
@@ -47,8 +52,8 @@
     },
     {
       "path": "api/reference/http-apis.json",
-      "bytes": 67053,
-      "sha256": "5e1fadc6799df0eb607f60e28da7050e957e408bafe7c22f59cc9de4a13de8f3"
+      "bytes": 177364,
+      "sha256": "88eb0e0b660d1df20a07e30fcf631b24e9e13ae589ea2493eefdf49061c42f03"
     },
     {
       "path": "api/reference/http-data-columns.d.ts",
@@ -72,13 +77,13 @@
     },
     {
       "path": "api/reference/http-responses.d.ts",
-      "bytes": 9688,
-      "sha256": "f5223f5566f98002a4e3ce971592eff6aa925b5076da795aa350ba8e4b3902f9"
+      "bytes": 9787,
+      "sha256": "383f29b88727a874a44ce7c6fde70a4bc1e540ebef47bd4a6aefc77c89d0d168"
     },
     {
       "path": "api/reference/HTTP_API_REFERENCE.md",
-      "bytes": 38708,
-      "sha256": "74cf6aa184784001feb7e93a0090d3daa2937041c8ac4b35bf1918f853de1539"
+      "bytes": 38915,
+      "sha256": "b7858f7906ea09d876a437ddabeceb177a512a47e51b0fc2d1d2b7e1947ac8a1"
     },
     {
       "path": "api/reference/internal-input.d.ts",
@@ -101,6 +106,21 @@
       "sha256": "f590df2546bc9aa31721fe3687735b1f2401c542292e3ec06a5919ee94e7dc02"
     },
     {
+      "path": "api/reference/investigation-client.ts",
+      "bytes": 2643,
+      "sha256": "5a2b119f68800b9a51d98ef3149216fa8f3562617a937a46ea06369e5f6aa077"
+    },
+    {
+      "path": "api/reference/investigation-http.d.ts",
+      "bytes": 22840,
+      "sha256": "5a06789e13060e65d677f04bb6534a911040b10dd4801a74fd0220049351f417"
+    },
+    {
+      "path": "api/reference/investigation-http.openapi.json",
+      "bytes": 143390,
+      "sha256": "9c34f5e5c36d7d93af0ff5569cbf26edb4b5330e0c64a856877d0eec7f1c1f48"
+    },
+    {
       "path": "api/reference/legacy-output.d.ts",
       "bytes": 1933,
       "sha256": "5a82e5b7df8651589c286d10fe9dbf8060691bd413b3653e20ef4bbe669f7abe"
@@ -112,8 +132,8 @@
     },
     {
       "path": "api/reference/openapi.json",
-      "bytes": 60651,
-      "sha256": "449e86e1aa895d78469a6943b19494d325d8a024bdb2a56b4bf89fcdc25b7fb8"
+      "bytes": 335911,
+      "sha256": "5b064abbae933aa1a2976c4d30d38d73c9b6db90b8946e944cd08a0a007a2d66"
     },
     {
       "path": "api/reference/README.md",
@@ -252,8 +272,8 @@
     },
     {
       "path": "docs/BACKEND_STATUS.md",
-      "bytes": 3404,
-      "sha256": "3b08c506ff8db9b8c1b88c0b87aee3bcf4b1e647f770a8b414a7abb2b14f6955"
+      "bytes": 3752,
+      "sha256": "60ec729148a30dd57a5b68618b6c17ec0653ecd36f4c62010f2f9a93878d0f21"
     },
     {
       "path": "docs/DEMO_FLOW.md",
@@ -262,13 +282,13 @@
     },
     {
       "path": "docs/FRONTEND_QUICK_START.md",
-      "bytes": 5470,
-      "sha256": "09d4bfa5948b5f6229d3eb4a3a4746c6076dce9bfee093942e755fa2e43d0002"
+      "bytes": 5813,
+      "sha256": "9ad5212d322279f9a79361f3821ba7f57401c93490feb75f6c13ae9d46ea9da3"
     },
     {
       "path": "docs/FRONTEND_TEAM_HANDOFF.md",
-      "bytes": 55916,
-      "sha256": "8aa5c1b67fc36c1b0d194b1b7991848915b4bc2d970de0c78319184bff80f9d5"
+      "bytes": 55545,
+      "sha256": "17a801a4cc4a73e853445a8a250aa2e2b318978501da5d3d58aab8a6897f26a9"
     },
     {
       "path": "docs/UI_REQUIREMENTS.md",
@@ -316,28 +336,36 @@
       "sha256": "54ab1e6ab0a8f5d789db361f0b14568f7c9e4650285001bcf97909e3d6d37e92"
     },
     {
+      "path": "PHASE12B_VERIFICATION.json",
+      "bytes": 2282,
+      "sha256": "48d69e20ab27be737550b5970fe608733fac6b34c29e1cb5c735ba946b1568a3"
+    },
+    {
       "path": "README.md",
-      "bytes": 3610,
-      "sha256": "48b87d1628b727823a585c2c1c1dd302b542d1536f2bf00c7f9e91048aff78cd"
+      "bytes": 3739,
+      "sha256": "96aeba49beb9c5ca6cfe87573e02b5be75640f35fec7914eda196c17de3addf1"
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 2884,
-      "sha256": "e829c159a9dee7d93525ba67ff6fa3135c6689c0a7884a64e27f6d69302adb7c"
+      "bytes": 2902,
+      "sha256": "0b843db809ea05c823520e976b8f61bfe963e313a10d378a15720dc2eeb41a16"
     }
   ],
-  "file_count_excluding_manifest": 64,
+  "file_count_excluding_manifest": 69,
   "manifest_self_hash_included": false,
-  "current_openapi_sha256": "449e86e1aa895d78469a6943b19494d325d8a024bdb2a56b4bf89fcdc25b7fb8",
+  "current_openapi_sha256": "5b064abbae933aa1a2976c4d30d38d73c9b6db90b8946e944cd08a0a007a2d66",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
   "original_handoff_artifacts_unchanged": false,
-  "new_api_implemented": false,
-  "historical_1261_tests_rerun": false,
+  "new_api_implemented": true,
+  "historical_1261_tests_rerun": true,
   "phase13a_type_compatibility_update": {
     "updated_at_utc": "2026-10-11T04:55:07.081914+00:00",
     "wire_or_schema_changes": false,
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
-  }
+  },
+  "updated_at_utc": "2026-10-11T11:18:47.043020+00:00",
+  "current_phase": "12-B",
+  "verification_file": "PHASE12B_VERIFICATION.json"
 }

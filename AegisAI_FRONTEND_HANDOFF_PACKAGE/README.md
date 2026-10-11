@@ -4,12 +4,12 @@
 
 项目：AegisAI——面向 AI 生态的可信安全情报与自主调查智能体系统。目标：赛题九的安全情报调查、证据核验和可信答案展示。
 
-核对日期：2026-10-10。交接基线：Phase 11-D 已有内部实现，Phase 12-A.5 契约导出已完成，Phase 12-B 只有待实施计划。本次只制作交接资料，不新增 API，不修改业务代码。
+更新日期：2026-10-11。Phase 12-B 已暴露调查闭环的 8 个 HTTP 操作。请优先阅读 [调查 API](api/INVESTIGATION_API.md) 和 `api/reference/investigation-http.d.ts`；后续章节中 Phase 12-A.5 的内部协议仍为历史参考。
 
 ## 三个先记住的事实
 
-1. 后端现有 **34 个 HTTP 操作**；其中 **27 个操作经当前本地前端代理放行，7 个写操作被代理拦截**。鉴权和运行环境仍需满足，不能据此认定服务当前在线。
-2. `/api/v1/assistant/query` 是旧问答入口。Phase 11-D 的调查、核验、风险分析、Integration Gate 和 AnswerEnvelope 目前是内部服务，**API_NOT_EXPOSED**。
+1. 后端现有 **42 个 HTTP 操作**；新增 8 个调查操作已放行代理，原有 7 个其他写操作继续受限。鉴权和运行环境仍需满足，不能据此认定服务当前在线。
+2. `/api/v1/assistant/query` 是旧问答入口。新调查入口是 `/api/investigations`，能够调用 Phase 11-D 闭环并读取存储结果；两者不混用。
 3. `mock/` 全部是演示资料。历史测试回执使用合成漏洞和资产；不是实际漏洞情报、线上 HTTP 抓包或比赛 Benchmark 成绩。
 
 ## 阅读顺序
@@ -22,7 +22,7 @@
 | 4 | [完整项目交接](docs/FRONTEND_TEAM_HANDOFF.md) | 字段、状态、错误、幂等、取消、类型映射 |
 | 5 | [页面结构](design/PAGE_STRUCTURE.md)、[组件计划](design/COMPONENT_PLAN.md)、[用户流程](design/USER_FLOW.md) | 页面组织与实现分工 |
 | 6 | [比赛演示流程](docs/DEMO_FLOW.md)、[示例场景](examples/demo-scenario.md) | 展示顺序和边界说明 |
-| 7 | [后端状态](docs/BACKEND_STATUS.md) | 已有能力与 Phase 12-B 待办 |
+| 7 | [后端状态](docs/BACKEND_STATUS.md) | 已有能力与 Phase 12-B API 边界 |
 
 ## 文件用途
 
@@ -35,8 +35,8 @@
 
 ## 前端当前可以开始什么
 
-可以接入现有漏洞列表/详情、证据、复核读取、资产风险读取、数据源和系统健康；可以用明确标记的 Mock 开发完整调查界面。旧问答可单独联调。完整调查的真实提交、状态、Trace、Artifact、Gate、答案、取消和历史列表，等 Phase 12-B 正式开放后接入。
+可以接入现有漏洞列表/详情、证据、复核读取、资产风险读取、数据源和系统健康；可以用明确标记的 Mock 开发完整调查界面。旧问答可单独联调。完整调查的提交、状态、Trace、Artifact、Gate、答案、取消和历史列表已有 HTTP 入口，请按调查 API 文档接入配置好的后端环境。
 
 现有前端采用原生 JavaScript ESM 和 Node 本地代理，七页已经存在。此包提供 TypeScript 契约供团队使用，不等于项目已经改成 React/Vue 或建立了 TypeScript 构建系统。
 
-本包不含可部署网站，也不含服务地址或登录凭据。收到 ZIP 后可以立即进行离线 Mock 页面开发；真实联调需取得完整项目或由后端负责人提供可访问环境。历史“1261 项测试通过”未在本次重新执行。
+本包不含可部署网站，也不含服务地址或登录凭据。收到 ZIP 后可以立即进行离线 Mock 页面开发；真实联调需取得完整项目或由后端负责人提供可访问环境。历史测试与本轮实跑结果分别记录；当前验证见 PHASE12B_VERIFICATION.json，原 VALIDATION.json 仅保留历史交接检查。

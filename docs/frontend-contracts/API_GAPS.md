@@ -1,3 +1,5 @@
+> 当前更新：Phase 12-B 已提供 `/api/investigations` 的 8 个 HTTP 操作。以下 `/api/v1/investigations` 是 Phase 12-A.5 历史提案，仍不可调用；当前实现见 `investigation-http.openapi.json` 和仓库 `docs/PHASE12B_INVESTIGATION_API.md`。
+
 # Phase 11-D API 缺口（仅建议，未实施）
 
 所有条目状态均为 **API_NOT_EXPOSED**，建议地址均为 **PROPOSED**；没有新增 Router、HTTP API、队列或业务算法。内部模型名称不构成浏览器接口。

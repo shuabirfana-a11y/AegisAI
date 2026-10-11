@@ -53,6 +53,38 @@ test('assistant writes reject cross-origin requests before reaching the backend'
   assert.equal(response.status, 403);
 });
 
+test('investigation proxy forwards auth, idempotency and acknowledgement headers', async t => {
+  let received;
+  const upstream = http.createServer((req, res) => {
+    received = req.headers;
+    req.resume();
+    req.on('end', () => {
+      res.writeHead(202, { 'content-type': 'application/json', location: '/api/investigations/demo/status', 'retry-after': '1', 'x-request-id': 'synthetic-id' });
+      res.end('{"investigation_id":"synthetic-id"}');
+    });
+  });
+  await start(t, upstream);
+  const url = await start(t, createFrontendServer({ backendPort: upstream.address().port }));
+  const response = await fetch(url + '/api/investigations', { method: 'POST',
+    headers: { Origin: url, 'Content-Type': 'application/json', Authorization: 'Bearer test-secret', 'Idempotency-Key': 'same-key' }, body: '{}' });
+  assert.equal(response.status, 202);
+  assert.equal(received['idempotency-key'], 'same-key');
+  assert.equal(received.authorization, 'Bearer test-secret');
+  assert.equal(response.headers.get('location'), '/api/investigations/demo/status');
+  assert.equal(response.headers.get('retry-after'), '1');
+  assert.equal(response.headers.get('x-request-id'), 'synthetic-id');
+});
+
+test('investigation writes enforce origin, JSON and exact POST allowlist', async t => {
+  const url = await start(t, createFrontendServer());
+  const write = (suffix, origin = url, type = 'application/json') => fetch(url + suffix, {
+    method: 'POST', headers: { Origin: origin, 'Content-Type': type }, body: '{}' });
+  assert.equal((await write('/api/investigations', 'https://attacker.invalid')).status, 403);
+  assert.equal((await write('/api/investigations', url, 'text/plain')).status, 415);
+  assert.equal((await write('/api/investigations/history')).status, 405);
+  assert.equal((await write('/api/investigations/not-a-uuid/cancel')).status, 405);
+});
+
 test('same-origin assistant writes preserve JSON body and HTTP conflict', async t => {
   let body = '';
   const upstream = http.createServer((req, res) => {

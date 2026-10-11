@@ -1,0 +1,67 @@
+{
+  "projection": "github-global-advisory-selected-fields-v1",
+  "projection_note": "Selected original API fields. Description/PoC bodies omitted. No inferred facts.",
+  "source_url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+  "retrieved_at": "2026-10-11T06:18:36.235642+00:00",
+  "attribution": {
+    "creator": "GitHub Advisory Database and credited upstream researchers",
+    "original_url": "https://github.com/advisories/GHSA-935w-9g4m-p28p",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/github/advisory-database/blob/main/LICENSE.md",
+    "changes": "Field projection; no description reproduced",
+    "warranty": "AS-IS"
+  },
+  "record": {
+    "ghsa_id": "GHSA-935w-9g4m-p28p",
+    "cve_id": "CVE-2026-105752",
+    "summary": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+    "severity": "low",
+    "published_at": "2026-10-06T00:02:02Z",
+    "updated_at": "2026-10-06T00:02:03Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+      "score": 3.1
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+        "score": 3.1
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-200",
+        "name": "Exposure of Sensitive Information to an Unauthorized Actor"
+      },
+      {
+        "cwe_id": "CWE-524",
+        "name": "Use of Cache Containing Sensitive Information"
+      }
+    ],
+    "references": [
+      "https://github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p",
+      "https://github.com/vllm-project/vllm/pull/50195",
+      "https://github.com/vllm-project/vllm/pull/51818",
+      "https://github.com/vllm-project/vllm/commit/6a2a2bb02b563b83f946012959fd3927984d072a",
+      "https://github.com/vllm-project/vllm/releases/tag/v0.30.0",
+      "https://github.com/advisories/GHSA-935w-9g4m-p28p"
+    ],
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "vllm"
+        },
+        "vulnerable_version_range": "< 0.30.0",
+        "first_patched_version": "0.30.0"
+      }
+    ]
+  },
+  "response_sha256": "f4a3f737db0ff0c9d44e0d2ae09f0cf9fd5039f70c625c6b6686189cc092c261"
+}

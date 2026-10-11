@@ -1,3 +1,5 @@
+> 当前对接基线已更新为 Phase 12-B：42 个 HTTP 操作，其中 8 个为 `/api/investigations`。完整新契约见 [调查 API](../api/INVESTIGATION_API.md) 及 `api/reference/investigation-http.openapi.json`；下文保留 Phase 12-A.5 历史交接，其未开放描述按当时基线理解。
+
 # AegisAI 前端团队完整交接
 
 **独立交接包，沿用已审查的 Phase 12-A.5 契约。Phase 12-B 仍待实施；本包未开发新 API。**

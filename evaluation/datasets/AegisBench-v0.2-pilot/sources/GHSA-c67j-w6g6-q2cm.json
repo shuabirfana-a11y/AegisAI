@@ -1,0 +1,74 @@
+{
+  "projection": "github-global-advisory-selected-fields-v1",
+  "projection_note": "Selected original API fields. Description/PoC bodies omitted. No inferred facts.",
+  "source_url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+  "retrieved_at": "2026-10-11T06:18:33.581636+00:00",
+  "attribution": {
+    "creator": "GitHub Advisory Database and credited upstream researchers",
+    "original_url": "https://github.com/advisories/GHSA-c67j-w6g6-q2cm",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/github/advisory-database/blob/main/LICENSE.md",
+    "changes": "Field projection; no description reproduced",
+    "warranty": "AS-IS"
+  },
+  "record": {
+    "ghsa_id": "GHSA-c67j-w6g6-q2cm",
+    "cve_id": "CVE-2025-68664",
+    "summary": "LangChain serialization injection vulnerability enables secret extraction in dumps/loads APIs",
+    "severity": "critical",
+    "published_at": "2025-12-23T18:46:13Z",
+    "updated_at": "2025-12-24T01:08:11Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+      "score": 9.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N",
+        "score": 9.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-502",
+        "name": "Deserialization of Untrusted Data"
+      }
+    ],
+    "references": [
+      "https://github.com/langchain-ai/langchain/security/advisories/GHSA-c67j-w6g6-q2cm",
+      "https://github.com/langchain-ai/langchain/pull/34455",
+      "https://github.com/langchain-ai/langchain/pull/34458",
+      "https://github.com/langchain-ai/langchain/commit/5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8",
+      "https://github.com/langchain-ai/langchain/commit/d9ec4c5cc78960abd37da79b0250f5642e6f0ce6",
+      "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D0.3.81",
+      "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.2.5",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-68664",
+      "https://github.com/advisories/GHSA-c67j-w6g6-q2cm"
+    ],
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": ">= 1.0.0, < 1.2.5",
+        "first_patched_version": "1.2.5"
+      },
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langchain-core"
+        },
+        "vulnerable_version_range": "< 0.3.81",
+        "first_patched_version": "0.3.81"
+      }
+    ]
+  },
+  "response_sha256": "f5bbd2b2aed51ddcd815d69fb29745d451c9771f879c7fedef526a5ae662ccc7"
+}

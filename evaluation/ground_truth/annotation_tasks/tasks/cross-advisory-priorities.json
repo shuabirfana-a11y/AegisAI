@@ -1,0 +1,69 @@
+{
+  "schema_version": "aegisbench-annotation-task-v1",
+  "record_kind": "ANNOTATION_TASK_NOT_GROUND_TRUTH",
+  "id": "cross-advisory-priorities",
+  "type": "MULTIHOP_QA",
+  "additional_types": [],
+  "category": "multihop",
+  "question": "结合多份公告，按 benchmark-reference-triage-v1 找出须优先处理的演示资产，版本未知者应弃答。",
+  "input_context": {
+    "assets": [
+      {
+        "component": "torch",
+        "id": "demo-GHSA-53q9-r3pm-6pq6-cross",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "2.5.1"
+      },
+      {
+        "component": "langchain-core",
+        "id": "demo-GHSA-c67j-w6g6-q2cm-cross",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "1.2.0"
+      },
+      {
+        "component": "langgraph-checkpoint-sqlite",
+        "id": "demo-GHSA-9rwj-6rc7-p77c-cross",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": null
+      }
+    ],
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-53q9-r3pm-6pq6",
+    "GHSA-c67j-w6g6-q2cm",
+    "GHSA-9rwj-6rc7-p77c"
+  ],
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "edeecbf387cf38d3f763033e873fbc1b228d48bf1e400f51a70a1638aa7221de",
+  "batch_id": "batch_02",
+  "batch_position": 20,
+  "status": "DRAFT",
+  "assignment_status": "UNASSIGNED",
+  "annotator": "",
+  "reviewer": "",
+  "annotation_record_status": "NOT_STARTED",
+  "annotation_record_path": null,
+  "annotation_content_sha256": null,
+  "evidence_count": 0,
+  "candidate_evidence_count": 0,
+  "candidate_packet_paths": [],
+  "source_check_ids": [],
+  "human_confirmations": {
+    "annotator_read_sources": false,
+    "reviewer_read_sources": false
+  },
+  "quality_gate": "AWAITING_HUMANS",
+  "prepared_by": "AI_ASSISTANT",
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "history": [
+    {
+      "event": "TASK_CREATED_BY_AI",
+      "actor": "AI_ASSISTANT",
+      "at": "2026-10-11T08:42:32.891966+00:00",
+      "note": "Question metadata copied verbatim; no answer, human identity, signature or approval generated."
+    }
+  ]
+}

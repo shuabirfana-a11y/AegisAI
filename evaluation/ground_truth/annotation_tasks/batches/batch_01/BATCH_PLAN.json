@@ -1,0 +1,93 @@
+{
+  "record_kind": "ANNOTATION_BATCH_PLAN_NOT_GROUND_TRUTH",
+  "batch_id": "batch_01",
+  "target_count": 10,
+  "state": "PREPARED_AWAITING_HUMANS",
+  "category_counts": {
+    "VULNERABILITY_FACTS": 3,
+    "VERSION_IMPACT": 3,
+    "POC_VERIFICATION": 1,
+    "PATCH_ANALYSIS": 1,
+    "ASSET_RISK": 2
+  },
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "tasks": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "type": "VULNERABILITY_FACTS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-facts.json",
+      "position": 1
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-facts",
+      "type": "VULNERABILITY_FACTS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-facts.json",
+      "position": 2
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-facts",
+      "type": "VULNERABILITY_FACTS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-facts.json",
+      "position": 3
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-affected",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-53q9-r3pm-6pq6-affected.json",
+      "position": 4
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-gap",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-gap.json",
+      "position": 5
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-unknown",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-unknown.json",
+      "position": 6
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-release-and-poc",
+      "type": "POC_VERIFICATION",
+      "additional_types": [
+        "PATCH_ANALYSIS"
+      ],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-release-and-poc.json",
+      "position": 7
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-commit-candidate",
+      "type": "PATCH_ANALYSIS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-commit-candidate.json",
+      "position": 8
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-risk-affected.json",
+      "position": 9
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-risk-fixed",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-risk-fixed.json",
+      "position": 10
+    }
+  ],
+  "manual_completed_count": 0,
+  "reviewing_count": 0,
+  "approved_count": 0,
+  "rejected_count": 0,
+  "final_evaluation_run": false
+}

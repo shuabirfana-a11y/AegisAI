@@ -1,6 +1,6 @@
 # AegisAI 前后端协作契约交接
 
-**Phase 12-A.5：仅交接补齐。未开发 Phase 12-B，未新增 HTTP API。**
+**2026-10-11 Phase 12-B 更新：已新增 `/api/investigations` 的 8 个 HTTP 操作，总数 42；请优先使用 [调查 API 对接](PHASE12B_INVESTIGATION_API.md) 和 `frontend-contracts/investigation-http.d.ts`。下文是 Phase 12-A.5 的历史审查，相关调查 API_NOT_EXPOSED 标记已被本更新取代，其他缺口仍有效。**
 
 审查日期：2026-10-10。基线：Phase 11-D。范围：现有接口、内部协议、前端对接与 Phase 12 最小适配建议。本次不新增接口、不修改业务代码、不启动数据库或服务。
 

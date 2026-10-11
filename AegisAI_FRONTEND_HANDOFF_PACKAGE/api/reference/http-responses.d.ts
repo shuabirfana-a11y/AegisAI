@@ -1,6 +1,7 @@
 /**
  * Manually mapped from FastAPI handler return values and SQLAlchemy columns.
- * These types DO NOT come from FastAPI response_model (all 34 are absent).
+ * Legacy types DO NOT come from response_model. Phase12-B added OpenAPI descriptions
+ * without changing legacy wire behavior; new HTTP types are in investigation-http.d.ts.
  * See FRONTEND_HANDOFF.md for HTTP/internal/proposed boundaries.
  */
 import type * as Row from './http-data-columns.js';
