@@ -67,6 +67,8 @@ jobs:
         run: python scripts/ci/run_backend_tests.py
       - name: Pydantic, OpenAPI and Mock contract consistency
         run: python scripts/ci/check_contracts.py
+      - name: Investigation HTTP contracts
+        run: python scripts/export_investigation_api.py --check
 
   frontend:
     name: Frontend tests and types

@@ -1,8 +1,8 @@
-# Phase 11-D 尚未开放的 HTTP API
+# 尚未开放的产品能力与历史建议
 
-**以下 URL 全部为 PROPOSED / API_NOT_EXPOSED。当前源码没有这些路由，本包没有新增它们。**
+Phase 12-B 已实现 `/api/investigations` 的 8 个操作，详见 [实际调查 API](INVESTIGATION_API.md)。下表是被取代的历史 `/api/v1/investigations` 建议，不能作为实际调用 URL；公开 DTO 已在 `reference/investigation-http.d.ts` 冻结。旧内部请求仍接受，但内部输出不是公共响应。
 
-按最新 Phase 12-B 待实施计划，建议最小集合为 8 个操作。早期 12-A.5 的通用详情和集合 GET 草案已由这份计划细化；完整项目交接中按此版本说明，不把两份建议合并成“已实现接口”。
+历史 Phase12-A.5/早期12-B 计划采用的路径如下，仅保留用于辨认旧材料；新增 `/api/investigations` 已完成提交、状态、Trace、Artifact、Gate、Answer、取消、历史及代理/鉴权/错误适配。
 
 | 能力 | 建议方法与路径（未实现） | 最小适配及输出约束 |
 |---|---|---|
@@ -25,7 +25,7 @@ Router 与适配服务复用既有 Planner、DAG、专业 Agent、Gate 和 Answe
 
 同步内部调查预算可达 300 秒，而现有代理上游超时 30 秒，所以需要提交与查询生命周期适配，不能把完整同步调用直接塞进页面长请求。本计划不是本包实现内容。
 
-## 浏览器联调还需补齐
+## 历史联调检查单（接口适配已完成，UI 由前端团队接入）
 
 - 放行新路由的方法和必要请求头，明确同源、Host、CSP/CORS 与真实部署方式。
 - 对每次状态/历史/Artifact 读取检查 principal，不根据客户端 Body 的 owner 认定权限。

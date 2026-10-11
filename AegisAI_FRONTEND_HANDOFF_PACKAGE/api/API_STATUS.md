@@ -1,6 +1,8 @@
 # API 状态总览
 
-本包按当前源码和 OpenAPI 交接，**没有实施 Phase 12-B**。状态分两维：后端 HTTP 是否存在、当前前端代理是否放行。页面有设计稿或 TypeScript 类型不表示 API 存在。
+Phase 12-B 已新增 `/api/investigations` 的 8 个实际 HTTP 操作，创建、状态、Trace、Artifact、Gate、答案、取消、历史可以接入；8769 同源代理已放行创建/取消。详见 [调查 API](INVESTIGATION_API.md)。下方历史缺口表中相应调查项目已被此更新取代；其他缺口继续有效。完整 OpenAPI 现有 42 个操作。
+
+状态分两维：后端 HTTP 是否存在、当前前端代理是否放行。页面有设计稿或 TypeScript 类型不表示 API 存在。
 
 | 标记 | 含义 |
 |---|---|

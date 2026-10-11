@@ -79,5 +79,7 @@
   "all_named_exports_exist": true,
   "no_any": true,
   "type_only_entry_import_exit_code": 0,
-  "errors": []
+  "errors": [],
+  "historical_validation": true,
+  "current_phase12b_verification": "phase12b-verification.json"
 }

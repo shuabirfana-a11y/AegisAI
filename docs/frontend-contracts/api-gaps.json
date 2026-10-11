@@ -119,5 +119,11 @@
       "suggestion_status": "PROPOSED",
       "http_implemented": false
     }
-  ]
+  ],
+  "historical_proposal": true,
+  "current_phase": "12-B",
+  "current_api_prefix": "/api/investigations",
+  "current_api_implemented": true,
+  "current_contract": "investigation-http.openapi.json",
+  "historical_urls_remain_unimplemented": true
 }

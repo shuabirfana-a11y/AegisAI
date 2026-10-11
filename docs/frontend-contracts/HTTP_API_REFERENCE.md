@@ -1,6 +1,8 @@
 # 现有 HTTP 操作逐项参考
 
-共34个操作。AVAILABLE表示现有HTTP已实现，在正确同源/鉴权条件下调用；PROXY_BLOCKED行不能从当前8769页面直接提交。此标记不是API_NOT_EXPOSED，也没有新增可调用URL。
+本文件记录旧 34 个操作。Phase 12-B 已新增 8 个调查操作，完整 OpenAPI 共 42 个操作，新入口见 [调查 API 对接](../PHASE12B_INVESTIGATION_API.md)。旧响应 OpenAPI 描述已补齐，序列化与旧错误格式保留。
+
+AVAILABLE表示现有HTTP已实现，在正确同源/鉴权条件下调用；PROXY_BLOCKED行不能从当前8769页面直接提交。此标记不是API_NOT_EXPOSED。
 
 所有示例是MOCK，不含令牌值。错误码是处理分支清单，不是已经实现的统一ErrorEnvelope。
 

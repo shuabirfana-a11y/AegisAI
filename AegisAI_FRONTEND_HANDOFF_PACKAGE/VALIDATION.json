@@ -76,5 +76,7 @@
     "type_shape_changes": false,
     "compatibility_correction": "Recursive JsonValue Record replaced with equivalent index signature.",
     "historical_checks_preserved": true
-  }
+  },
+  "historical_validation": true,
+  "current_phase12b_verification": "PHASE12B_VERIFICATION.json"
 }

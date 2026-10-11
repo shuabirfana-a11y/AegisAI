@@ -55,5 +55,7 @@
     "missing": [],
     "added": [],
     "baseline": "turn-start SHA-256 snapshot"
-  }
+  },
+  "historical_validation": true,
+  "current_phase12b_verification": "phase12b-verification.json"
 }
