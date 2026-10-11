@@ -67,5 +67,9 @@ if (-not $ready) {
     started_at = (Get-Date).ToString('o')
 } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $runtimeRoot 'processes.json') -Encoding utf8
 
-Write-Output 'AegisAI local demo is ready: http://127.0.0.1:8769/dashboard'
-Write-Output 'The asset and assistant access token stays in the local service processes.'
+Write-Output 'AegisAI local HTTP services are ready: http://127.0.0.1:8769/dashboard'
+Write-Output 'Health checks confirm service reachability, not successful investigation planning.'
+if (-not $env:MODEL_PROVIDER -or $env:MODEL_PROVIDER -eq 'mock') {
+    Write-Warning 'Default Mock has no PlannerPlan fixture. New investigations stop with PLANNING_FAILED; use the controlled offline chain test or configure a planning-capable provider. See docs/BACKEND_DEMO_STABILITY.md.'
+}
+Write-Output 'The asset, assistant and investigation access token stays in the local service processes.'

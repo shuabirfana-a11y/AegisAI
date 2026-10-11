@@ -38,7 +38,7 @@ TypeScript 类型：`frontend-contracts/investigation-http.d.ts`。客户端：`
 
 `Idempotency-Key` 请求头或 body 的 `idempotency_key` 至少提供一个；同时提供必须相同。内部请求使用其 request_key。重复键/相同内容返回同一个根 ID，`reused=true`；重复键/不同内容返回 409。比较内容不包含每次生成的 request_id。重复返回当前真实阶段，未必仍为 CREATED。
 
-202 仅表示根记录已经提交保存，不能当成调查成功。模型身份由 model_provider / is_mock 明示。默认 Model Gateway 是 Mock；配置真实供应商后才产生真实模型调用，本阶段不宣称已经完成真实模型评测。
+202 仅表示根记录已经提交保存，不能当成调查成功。模型身份由 model_provider / is_mock 明示。默认 Model Gateway 是 Mock；其默认结构化回执不包含 PlannerPlan，因此普通创建请求会在 PLANNING 阶段结束为 PLANNING_FAILED，并产生失败 AnswerEnvelope，尚未执行的 Agent/Gate 不会补造结果。只有显式注入受控 PlannerPlan 测试回执，或配置能生成且通过验证的模型供应商，才可能继续调查。受控闭环测试见 [本地演示检查](BACKEND_DEMO_STABILITY.md)；本阶段不宣称已经完成真实模型评测。
 
 ## 8 个操作
 
