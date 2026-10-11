@@ -86,3 +86,11 @@ Native AnswerEnvelope 最多一个资产，priority 体系与参考 triage polic
 OutcomeAudit 增加 claim_inventory_complete 默认 false，逐回答与逐 Claim 同时审核；弃答仅在结构化未知字段与自报一致时获正向弃答分，保留 partial abstention。两项次要问题也已处理：新冻结 v0.2.1 修订机器部分弃答标签，有效生成设置和原生请求映射哈希记录在实验白名单。原始来源、历史记录与核心业务未修改。
 
 正式四基线效果、独立 holdout、真实人审和原生有效数据/库存一致性准入继续留待后续授权，不将这些缺项包装成成绩。发布与 CI 的最终状态在验收记录中注明。
+
+## 11. 最终本地验收记录
+
+- 修正复核通过：4 项主要问题、2 项次要问题全部关闭；独立复核实际运行 48 项评测检查通过。
+- 最终离线实验 run_id：`c032a417-8395-46f1-9076-05a0ec9666b1`，代码 commit `21c86f082072226c326669b5bbbb03314257ebe6`，运行开始时 working_tree_dirty=false。
+- v0.2.1：49 问题、0 human gold；关键词/固定流程各 49 SUCCEEDED，RAG/AegisAI 各 49 NOT_EVALUATED。Accuracy/Evidence Coverage/Hallucination 均为 null；98 个成功回答均生成待审包，claim_inventory_complete=false。
+- 结果/receipt SHA-256 及实际评测源码哈希已核对一致；原业务与 v0.1 文件差异为空。
+- 本地敏感扫描截至 `21c86f0` 覆盖全部 9 个 Git 提交，无泄漏；仓库门禁通过。发布前对含最终报告的提交再次扫描，GitHub CI 另核对具体提交结果。
