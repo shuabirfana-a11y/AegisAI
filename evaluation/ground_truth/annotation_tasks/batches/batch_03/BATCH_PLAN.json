@@ -1,0 +1,158 @@
+{
+  "record_kind": "ANNOTATION_BATCH_PLAN_NOT_GROUND_TRUTH",
+  "batch_id": "batch_03",
+  "target_count": 19,
+  "state": "PLANNED_NOT_STARTED",
+  "category_counts": {
+    "ASSET_RISK": 5,
+    "MULTIHOP_QA": 5,
+    "VERSION_IMPACT": 6,
+    "POC_VERIFICATION": 2,
+    "PATCH_ANALYSIS": 1
+  },
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "tasks": [
+    {
+      "id": "GHSA-47fc-vmwq-366v-risk-fixed",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-risk-fixed.json",
+      "position": 1
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v-multihop",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-47fc-vmwq-366v-multihop.json",
+      "position": 2
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-risk-affected",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-risk-affected.json",
+      "position": 3
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-risk-fixed",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-risk-fixed.json",
+      "position": 4
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-multihop",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-multihop.json",
+      "position": 5
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-affected",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-affected.json",
+      "position": 6
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-fixed",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-fixed.json",
+      "position": 7
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-release-and-poc",
+      "type": "POC_VERIFICATION",
+      "additional_types": [
+        "PATCH_ANALYSIS"
+      ],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-release-and-poc.json",
+      "position": 8
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-risk-fixed",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-risk-fixed.json",
+      "position": 9
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-multihop",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-9rwj-6rc7-p77c-multihop.json",
+      "position": 10
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-affected.json",
+      "position": 11
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-fixed",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-fixed.json",
+      "position": 12
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-unknown",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-unknown.json",
+      "position": 13
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-release-and-poc",
+      "type": "POC_VERIFICATION",
+      "additional_types": [
+        "PATCH_ANALYSIS"
+      ],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-release-and-poc.json",
+      "position": 14
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-commit-candidate",
+      "type": "PATCH_ANALYSIS",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-commit-candidate.json",
+      "position": 15
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-risk-affected",
+      "type": "ASSET_RISK",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-risk-affected.json",
+      "position": 16
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-multihop",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-935w-9g4m-p28p-multihop.json",
+      "position": 17
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-older-fix",
+      "type": "VERSION_IMPACT",
+      "additional_types": [],
+      "task_file": "../../tasks/GHSA-c67j-w6g6-q2cm-older-fix.json",
+      "position": 18
+    },
+    {
+      "id": "cross-advisory-missing-version",
+      "type": "MULTIHOP_QA",
+      "additional_types": [],
+      "task_file": "../../tasks/cross-advisory-missing-version.json",
+      "position": 19
+    }
+  ],
+  "manual_completed_count": 0,
+  "reviewing_count": 0,
+  "approved_count": 0,
+  "rejected_count": 0,
+  "final_evaluation_run": false
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "aegisbench-annotation-task-v1",
+  "record_kind": "ANNOTATION_TASK_NOT_GROUND_TRUTH",
+  "id": "GHSA-935w-9g4m-p28p-affected",
+  "type": "VERSION_IMPACT",
+  "additional_types": [],
+  "category": "version",
+  "question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+  "input_context": {
+    "component": "vllm",
+    "ecosystem": "PyPI",
+    "target": "CVE-2026-105752",
+    "version": "0.29.0"
+  },
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-935w-9g4m-p28p"
+  ],
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "82d30be983dd901fc287563bb2740af3fbb4d2d7c8e579061a2ff2721edbacef",
+  "batch_id": "batch_03",
+  "batch_position": 11,
+  "status": "DRAFT",
+  "assignment_status": "UNASSIGNED",
+  "annotator": "",
+  "reviewer": "",
+  "annotation_record_status": "NOT_STARTED",
+  "annotation_record_path": null,
+  "annotation_content_sha256": null,
+  "evidence_count": 0,
+  "candidate_evidence_count": 0,
+  "candidate_packet_paths": [],
+  "source_check_ids": [],
+  "human_confirmations": {
+    "annotator_read_sources": false,
+    "reviewer_read_sources": false
+  },
+  "quality_gate": "AWAITING_HUMANS",
+  "prepared_by": "AI_ASSISTANT",
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "history": [
+    {
+      "event": "TASK_CREATED_BY_AI",
+      "actor": "AI_ASSISTANT",
+      "at": "2026-10-11T08:42:32.891966+00:00",
+      "note": "Question metadata copied verbatim; no answer, human identity, signature or approval generated."
+    }
+  ]
+}

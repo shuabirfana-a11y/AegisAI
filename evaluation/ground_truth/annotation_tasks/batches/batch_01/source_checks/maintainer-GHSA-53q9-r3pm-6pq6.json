@@ -1,0 +1,73 @@
+{
+  "check_id": "maintainer-GHSA-53q9-r3pm-6pq6",
+  "source_id": "GHSA-53q9-r3pm-6pq6",
+  "url": "https://api.github.com/repos/pytorch/pytorch/security-advisories/GHSA-53q9-r3pm-6pq6",
+  "kind": "MAINTAINER_ADVISORY",
+  "original_source_url": "https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6",
+  "check_started_at": "2026-10-11T08:39:30.895798+00:00",
+  "retrieved_at": "2026-10-11T08:39:32.674797+00:00",
+  "http_status": 200,
+  "check_status": "REACHABLE_ID_MATCHED",
+  "final_url": "https://api.github.com/repos/pytorch/pytorch/security-advisories/GHSA-53q9-r3pm-6pq6",
+  "response_sha256": "b198297b01abda9dec23806ddc8ffbad57c431f1a2d758b1ac6d2754475a72ce",
+  "projected_record": {
+    "ghsa_id": "GHSA-53q9-r3pm-6pq6",
+    "cve_id": "CVE-2025-32434",
+    "summary": "torch.load  with weights_only=True RCE",
+    "severity": "critical",
+    "published_at": "2025-04-17T23:04:38Z",
+    "updated_at": "2025-05-23T00:20:37Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": null,
+      "score": null
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": null
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": null
+      }
+    },
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "pytorch"
+        },
+        "vulnerable_version_range": "<=2.5.1",
+        "patched_versions": "2.6.0",
+        "vulnerable_functions": []
+      }
+    ],
+    "cwes": [],
+    "references": []
+  },
+  "error": null,
+  "human_reviewed": false,
+  "enters_ground_truth": false,
+  "projection_note": "Candidate source check only. No description, exploit code, auth headers, credentials or final answer saved. A readable URL/metadata is not evidence supporting a human conclusion.",
+  "projection_sha256": "13f56b10003b3873b03f1d67e5dc141f001f31fff9674ae7d1c0e3a4439315f5",
+  "attempts": [
+    {
+      "transport": "UNAUTHENTICATED_HTTPS",
+      "check_started_at": "2026-10-11T08:37:11.792486+00:00",
+      "retrieved_at": "2026-10-11T08:37:30.958081+00:00",
+      "http_status": null,
+      "check_status": "NETWORK_CHECK_FAILED",
+      "error": "URLError: <urlopen error [WinError 10054] 远程主机强迫关闭了一个现有的连接。>"
+    },
+    {
+      "transport": "EXISTING_GITHUB_CLI_AUTH",
+      "check_started_at": "2026-10-11T08:39:30.895798+00:00",
+      "retrieved_at": "2026-10-11T08:39:32.674797+00:00",
+      "http_status": 200,
+      "check_status": "REACHABLE_ID_MATCHED",
+      "error": null
+    }
+  ],
+  "transport": "EXISTING_GITHUB_CLI_AUTH"
+}

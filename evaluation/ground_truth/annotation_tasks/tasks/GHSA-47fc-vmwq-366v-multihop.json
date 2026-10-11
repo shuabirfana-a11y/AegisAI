@@ -1,0 +1,64 @@
+{
+  "schema_version": "aegisbench-annotation-task-v1",
+  "record_kind": "ANNOTATION_TASK_NOT_GROUND_TRUTH",
+  "id": "GHSA-47fc-vmwq-366v-multihop",
+  "type": "MULTIHOP_QA",
+  "additional_types": [],
+  "category": "multihop",
+  "question": "按 benchmark-reference-triage-v1 查询公告、比较版本并分析这两个演示资产，哪一个应优先处理？",
+  "input_context": {
+    "assets": [
+      {
+        "component": "torch",
+        "id": "demo-GHSA-47fc-vmwq-366v-affected",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "1.13.0"
+      },
+      {
+        "component": "torch",
+        "id": "demo-GHSA-47fc-vmwq-366v-fixed",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "1.13.1"
+      }
+    ],
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-47fc-vmwq-366v"
+  ],
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "4a8cf3b8777b2ed2473d2c3f7e12f579b05bbaf0855c360c0a961d43a0f27538",
+  "batch_id": "batch_03",
+  "batch_position": 2,
+  "status": "DRAFT",
+  "assignment_status": "UNASSIGNED",
+  "annotator": "",
+  "reviewer": "",
+  "annotation_record_status": "NOT_STARTED",
+  "annotation_record_path": null,
+  "annotation_content_sha256": null,
+  "evidence_count": 0,
+  "candidate_evidence_count": 0,
+  "candidate_packet_paths": [],
+  "source_check_ids": [],
+  "human_confirmations": {
+    "annotator_read_sources": false,
+    "reviewer_read_sources": false
+  },
+  "quality_gate": "AWAITING_HUMANS",
+  "prepared_by": "AI_ASSISTANT",
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "history": [
+    {
+      "event": "TASK_CREATED_BY_AI",
+      "actor": "AI_ASSISTANT",
+      "at": "2026-10-11T08:42:32.891966+00:00",
+      "note": "Question metadata copied verbatim; no answer, human identity, signature or approval generated."
+    }
+  ]
+}

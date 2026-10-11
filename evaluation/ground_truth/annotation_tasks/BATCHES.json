@@ -1,0 +1,51 @@
+{
+  "record_kind": "ANNOTATION_BATCH_INDEX_NOT_GROUND_TRUTH",
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "candidate_question_count": 49,
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "batches": [
+    {
+      "batch_id": "batch_01",
+      "count": 10,
+      "type_counts": {
+        "VULNERABILITY_FACTS": 3,
+        "VERSION_IMPACT": 3,
+        "POC_VERIFICATION": 1,
+        "PATCH_ANALYSIS": 1,
+        "ASSET_RISK": 2
+      },
+      "plan_file": "batches/batch_01/BATCH_PLAN.json",
+      "state": "PREPARED_AWAITING_HUMANS"
+    },
+    {
+      "batch_id": "batch_02",
+      "count": 20,
+      "type_counts": {
+        "VULNERABILITY_FACTS": 2,
+        "VERSION_IMPACT": 8,
+        "PATCH_ANALYSIS": 3,
+        "POC_VERIFICATION": 2,
+        "ASSET_RISK": 3,
+        "MULTIHOP_QA": 2
+      },
+      "plan_file": "batches/batch_02/BATCH_PLAN.json",
+      "state": "PLANNED_NOT_STARTED"
+    },
+    {
+      "batch_id": "batch_03",
+      "count": 19,
+      "type_counts": {
+        "ASSET_RISK": 5,
+        "MULTIHOP_QA": 5,
+        "VERSION_IMPACT": 6,
+        "POC_VERIFICATION": 2,
+        "PATCH_ANALYSIS": 1
+      },
+      "plan_file": "batches/batch_03/BATCH_PLAN.json",
+      "state": "PLANNED_NOT_STARTED"
+    }
+  ],
+  "human_annotated": 0,
+  "human_approved": 0,
+  "uses_machine_reference_answers": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "aegisbench-annotation-task-v1",
+  "record_kind": "ANNOTATION_TASK_NOT_GROUND_TRUTH",
+  "id": "GHSA-47fc-vmwq-366v-commit-candidate",
+  "type": "PATCH_ANALYSIS",
+  "additional_types": [],
+  "category": "poc_patch",
+  "question": "此链接仅出现在 CVE-2022-45907 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+  "input_context": {
+    "candidate_kind": "patch",
+    "candidate_reference": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907"
+  },
+  "origin": "REAL_SOURCE",
+  "source_ids": [
+    "GHSA-47fc-vmwq-366v"
+  ],
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "dcfd23f93266b50ba13529c5eebe90a58f3024874174d891b0c3075f670466fb",
+  "batch_id": "batch_01",
+  "batch_position": 8,
+  "status": "DRAFT",
+  "assignment_status": "UNASSIGNED",
+  "annotator": "",
+  "reviewer": "",
+  "annotation_record_status": "NOT_STARTED",
+  "annotation_record_path": null,
+  "annotation_content_sha256": null,
+  "evidence_count": 0,
+  "candidate_evidence_count": 6,
+  "candidate_packet_paths": [
+    "../batches/batch_01/evidence_candidates/GHSA-47fc-vmwq-366v.json"
+  ],
+  "source_check_ids": [
+    "database-GHSA-47fc-vmwq-366v",
+    "commit-767f6aa49fe20a2766b9843d01e3b7f7793df6a3"
+  ],
+  "human_confirmations": {
+    "annotator_read_sources": false,
+    "reviewer_read_sources": false
+  },
+  "quality_gate": "AWAITING_HUMANS",
+  "prepared_by": "AI_ASSISTANT",
+  "prepared_at": "2026-10-11T08:42:32.891966+00:00",
+  "history": [
+    {
+      "event": "TASK_CREATED_BY_AI",
+      "actor": "AI_ASSISTANT",
+      "at": "2026-10-11T08:42:32.891966+00:00",
+      "note": "Question metadata copied verbatim; no answer, human identity, signature or approval generated."
+    }
+  ]
+}
