@@ -45,6 +45,6 @@
 - [x] 更新 `docs/FRONTEND_HANDOFF.md`，移除当前规范中已过期的调查 API_NOT_EXPOSED 描述，保留尚未实现的缺口。
 - [x] 同步队友交接包当前文档、清单与 ZIP，保留历史验证记录并明确历史含义。
 - [x] 更新 `CURRENT_STATUS.md`，生成 `PHASE_12C_RESULT.md`，区分历史 1261 与本次实际测试。
-- [ ] 运行回归、OpenAPI/TypeScript 一致性检查、敏感信息检查；完成独立审查后提交 PR。
+- [x] 运行回归、OpenAPI/TypeScript 一致性检查、敏感信息检查；完成独立审查后提交 [PR #8](https://github.com/shuabirfana-a11y/AegisAI/pull/8)。
 
 验收后停止，不进入真实模型效果评测、正式 AegisBench 或公网部署。

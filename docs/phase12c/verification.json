@@ -1,7 +1,11 @@
 {
   "phase": "12-C",
-  "verified_at_utc": "2026-10-11T15:38:12.155535+00:00",
+  "verified_at_utc": "2026-10-11T15:41:05.222493+00:00",
   "baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
+  "pull_request": "https://github.com/shuabirfana-a11y/AegisAI/pull/8",
+  "independent_review": "PASS_AFTER_P2_P3_FIXES",
+  "github_ci": "REFER_TO_FINAL_PR_CHECKS",
+  "merged_to_main": false,
   "scope": "Loopback TCP transport, actual services with synthetic controlled inputs, current public contracts and documentation.",
   "engineering_status": "PASS",
   "real_model_ready": false,

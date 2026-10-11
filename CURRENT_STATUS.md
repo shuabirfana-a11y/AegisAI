@@ -1,6 +1,6 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-11（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #6、#7 已经负责人确认并合入 main，当前稳定基线为 `8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd`。本轮 Phase 12-C 在 `feature/phase12c-http-integration` 完成联调准备；不涉及 SentinelGraph 或恒脑。
+更新日期：2026-10-11（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #6、#7 已经负责人确认并合入 main，当前稳定基线为 `8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd`。本轮 Phase 12-C 在 `feature/phase12c-http-integration` 完成联调准备，通过 [PR #8](https://github.com/shuabirfana-a11y/AegisAI/pull/8) 交付，独立复查通过，尚未合入 main；不涉及 SentinelGraph 或恒脑。
 
 ## 已有能力
 

@@ -297,8 +297,8 @@
     },
     {
       "path": "docs/PHASE12C_INTEGRATION.md",
-      "bytes": 10468,
-      "sha256": "64051cb829a47a8216b55692d959380608403e966fb9ce95506e8fe8c8ffb051"
+      "bytes": 10706,
+      "sha256": "ac2877e3be194b23c51f6ab6712cd4416446739953b67c48f86a08cb3d54c9e4"
     },
     {
       "path": "docs/UI_REQUIREMENTS.md",
@@ -372,8 +372,8 @@
     },
     {
       "path": "PHASE12C_VERIFICATION.json",
-      "bytes": 2189,
-      "sha256": "b98038d7c23263e834068a0f98dc550a6eede5bcb925eee50cae001344371dc4"
+      "bytes": 2381,
+      "sha256": "79f1d08717ea5e1c5e1fb6bad7a6d829bb1e7475cf9943a81cd141e8c4ec21a5"
     },
     {
       "path": "README.md",
@@ -400,7 +400,7 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-11T15:38:12.155535+00:00",
+  "updated_at_utc": "2026-10-11T15:41:05.222493+00:00",
   "current_phase": "12-C",
   "verification_file": "PHASE12C_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
