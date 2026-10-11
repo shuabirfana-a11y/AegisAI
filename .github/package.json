@@ -1,0 +1,6 @@
+{
+  "name": "aegisai-ci-contract-checks",
+  "private": true,
+  "description": "CI tooling only; does not change the frontend runtime",
+  "devDependencies": { "typescript": "7.0.2" }
+}

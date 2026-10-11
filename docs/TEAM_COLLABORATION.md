@@ -29,10 +29,11 @@ GitHub 邀请需要队友用户名；本次上传不代替邀请，也没有向�
 ```text
 git clone <仓库页面的HTTPS地址>
 cd AegisAI
-git switch -c frontend/你的功能名称
+git switch feature/frontend
+git switch -c frontend/你的名字-功能名称
 ```
 
-每次开始工作先同步主分支；每人使用自己的功能分支，通过 Pull Request 说明改动、界面效果和验证结果，再由团队审查合并。不要把队友的未提交修改直接覆盖。
+每次开始工作先同步自己的目标分支；main 是稳定分支，feature/backend、feature/frontend 是长期协作分支。每人使用个人功能分支，PR 先进入对应协作分支，再由负责人审查协作分支到 main 的 PR。不要覆盖队友修改；不自动合并队友代码。详细规则见 [CONTRIBUTING](../CONTRIBUTING.md) 与 [GitHub 流程](GITHUB_WORKFLOW.md)。
 
 不需要重新建后端、重写 Agent 或另造 DTO。当前前端是原生 JavaScript ESM；团队如采用 TypeScript/其他框架，先讨论迁移范围，协议继续复用。
 
@@ -64,4 +65,4 @@ git switch -c frontend/你的功能名称
 
 联调问题记录：页面、方法/路径、范围、字段、HTTP 状态、业务状态、复现步骤和脱敏截图。缺 API 标 `API_NOT_EXPOSED`，缺字段/统计标 `BACKEND_REQUIRED`，代理阻断标 `PROXY_BLOCKED`。复用真实状态和原引用，不靠前端补造安全结论。
 
-本仓库上传属于协作准备；没有实施新功能、部署公开网站或重跑历史 1261 项全量测试。
+初次上传属于协作准备；Phase 13-A 增加工程检查、分支和文档。两阶段均未新增业务功能、部署公开网站或重跑历史 1261 项全量测试。当前基础 CI 的实际范围见 [开发指南](DEVELOPMENT_GUIDE.md)；GitHub 私有仓库套餐暂不支持强制分支保护。

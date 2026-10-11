@@ -13,6 +13,10 @@
 - [页面需求](AegisAI_FRONTEND_HANDOFF_PACKAGE/docs/UI_REQUIREMENTS.md)
 - [现有 API 与缺口](AegisAI_FRONTEND_HANDOFF_PACKAGE/api/API_STATUS.md)
 - [完整前后端契约](AegisAI_FRONTEND_HANDOFF_PACKAGE/docs/FRONTEND_TEAM_HANDOFF.md)
+- [贡献与 PR 规范](CONTRIBUTING.md)
+- [GitHub 分支和基线流程](docs/GITHUB_WORKFLOW.md)
+- [本地检查与基础 CI](docs/DEVELOPMENT_GUIDE.md)
+- [版本说明](docs/RELEASE_NOTES.md)
 
 ## 当前状态
 
