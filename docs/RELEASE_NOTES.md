@@ -22,8 +22,8 @@
 
 本地与 GitHub 执行证据及限制见 [Phase 13-A 报告](../PHASE_13A_RESULT.md)。私有仓库套餐暂不支持强制分支保护。
 
-## 待实施
+## 当前 main（2026-10-11）
 
-**Phase 12-B**：已有计划，待授权暴露 Phase 11-D 的 8 项公共调查操作并进行前后端联调。前端队友继续独立开发，无需等待后端工程维护结束。
+PR #6 已合并到 main，提交 `0f2e7221b5e5a4765b6839ed54215c2c5dde9f0d`。Phase 12-B 的 8 个调查 HTTP 操作、OpenAPI/TypeScript Client、AegisBench 框架及新版 49 题标注材料已进入 main。以上固定标签和 Phase 13-A 段落保留为历史记录。
 
-**Phase 13-B 建议**：AegisBench 业务评测、真实安全数据标注、真实模型对照和场景 Replay。尚未开始，不在本发布中宣称成绩。
+AegisBench 人工 APPROVED 仍为 0，正式实验尚未运行。默认 Mock 没有 PlannerPlan，不能把当前发布描述为任意问题的自主调查成功演示；本地检查与限制见 [BACKEND_DEMO_STABILITY](BACKEND_DEMO_STABILITY.md)。前端工作台、真实模型和公网部署仍待完成。

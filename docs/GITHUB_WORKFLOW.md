@@ -1,6 +1,6 @@
 # GitHub 协作流程
 
-仓库：[shuabirfana-a11y/AegisAI](https://github.com/shuabirfana-a11y/AegisAI)，保持 private。当前稳定业务版本为 Phase 11-D，交接协议 Phase 12-A.5。
+仓库：[shuabirfana-a11y/AegisAI](https://github.com/shuabirfana-a11y/AegisAI)，保持 private。当前 main 已包含 Phase 11-D、Phase 12-B 调查 HTTP API，以及前端交接和 AegisBench/49 题材料；发布状态见 [CURRENT_STATUS](../CURRENT_STATUS.md)。
 
 ## 稳定基线
 

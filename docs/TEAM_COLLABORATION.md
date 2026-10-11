@@ -41,9 +41,10 @@ git switch -c frontend/你的名字-功能名称
 
 - 可以直接做明确 Mock 模式下的完整调查 UI，以及七页布局、字段和异常状态。
 - 有可用后端环境和权限时，可接漏洞/证据/资产风险/复核读取、旧问答及系统状态 API。
-- 完整 Phase 11-D 调查的提交、状态、Trace、Artifact、Gate、Answer、取消和历史 API 尚未开放；Phase 12-B 仍是待实施计划。
+- Phase 12-B 的提交、状态、Trace、Artifact、Gate、Answer、取消和历史 API 已随 PR #6 进入 main。按 [HTTP 联调契约](PHASE12B_INVESTIGATION_API.md) 对接；202 只是受理，不代表调查完成。
 - 旧 `/api/v1/assistant/query` 与新调查协议分开，不能把旧答案强制转换成 AnswerEnvelope。
-- 7 个现有写操作被当前前端代理阻断；新调查 URL 是提案，不是可以立即调用的接口。
+- 当前同源代理放行 35/42 个 HTTP 操作，包括调查创建与取消；另外 7 个原有写操作仍被阻断。
+- 默认 Mock 没有 PlannerPlan 测试回执，普通调查会在规划阶段失败。前端应展示真实错误；成功闭环的受控离线测试与真实模型联调见 [演示检查](BACKEND_DEMO_STABILITY.md)。
 
 ## 本地环境的边界
 

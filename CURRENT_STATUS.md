@@ -1,6 +1,6 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-11（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。本文件对应集成准备分支，main 发布状态需要单独确认；不涉及 SentinelGraph 或恒脑。
+更新日期：2026-10-11（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #6 已经负责人确认并合入 main，基线提交为 `0f2e7221b5e5a4765b6839ed54215c2c5dde9f0d`。本轮后续启动修复在 `feature/backend-integration-stability` 分支待审；不涉及 SentinelGraph 或恒脑。
 
 ## 已有能力
 
@@ -26,17 +26,17 @@
 
 | 待办 | 当前事实 | 下一动作 |
 |---|---|---|
-| main 集成 | 原PR #2、#3、#4、#5 的成果已汇到 `chore/aegisai-integration` 候选；尚未进入main | 通过集成PR统一审查，负责人确认后合并；不覆盖队友工作 |
+| 本地启动稳定性 | main 的旧数据库脚本会误信失效 PID 文件；修复分支已有实际恢复验证及 6 条新测试 | 新 PR 审查、CI 通过并由负责人确认合并后，修复才成为 main 启动入口 |
 | 人工标注与复核 | 仓库登记的人工完成和APPROVED均为0，任务材料已备；成员的新进度尚未收到 | 收取实际答案和证据，登记真实标注/复核人，逐题签核 |
 | 前端调查工作台 | 交接契约可用，队友页面进度待团队确认 | 队友按已开放HTTP联调；不直接调用内部Python服务 |
-| 真实模型 | 默认 Mock，真实供应商尚未配置 | 由团队选定服务，在后端环境配置；不把Mock冒充真实调用 |
+| 真实模型 | 默认 Mock 没有 PlannerPlan，普通新调查实测 PLANNING_FAILED；受控合成完整链通过 | 配置规划模型并在真实数据上重新验收；不把 Mock、旧确定性 Assistant 冒充新自主调查 |
 | 正式 AegisBench 实验 | 没有已批准标准答案，不能发布正式准确率 | Ground Truth达到准入后再授权实验 |
 | 比赛公网网址 | GitHub代码不等于网站已上线 | 团队确认部署方案后准备发布 |
 
 ## 验证记录入口
 
-[Phase 12-B结果](PHASE_12B_RESULT.md)、[Phase 13-B结果](PHASE_13B_RESULT.md)、[Phase 13-C结果](PHASE_13C_RESULT.md)、[Phase 13-D准备进度](PHASE_13D_PROGRESS.md)。历史1288项回归与本次集成检查分开记录。
+[Phase 12-B结果](PHASE_12B_RESULT.md)、[Phase 13-B结果](PHASE_13B_RESULT.md)、[Phase 13-C结果](PHASE_13C_RESULT.md)、[Phase 13-D准备进度](PHASE_13D_PROGRESS.md)。历史 1261/1288 项回归与本轮实际执行分开记录。
 
-本轮本地检查和来源一致性见 [集成准备记录](docs/INTEGRATION_PREPARATION_RESULT.md)。GitHub检查是否通过，以集成PR当前提交的Checks为准。
+集成准备历史见 [集成准备记录](docs/INTEGRATION_PREPARATION_RESULT.md)。PR #6 合并后的 main 三项 CI 均通过：[run 38144161139](https://github.com/shuabirfana-a11y/AegisAI/actions/runs/38144161139)。本轮修复的 CI 另按新 PR 当前提交记录，不能借用该历史结果。
 
-本轮只处理已有成果的集成与工程检查；没有新增Agent、改风险/Gate规则、填写人工答案或开发前端。
+本机 API 8000、代理 8769、开发库 55436 已恢复，现有漏洞列表返回 278 条记录。旧确定性 Assistant 实测 COMPLETED / PASS_WITH_WARNINGS；新调查的成功闭环仅在专用测试库的显式合成场景中验证。启动与联调方法见 [演示检查](docs/BACKEND_DEMO_STABILITY.md)，本轮验证见 [稳定性结果](docs/BACKEND_INTEGRATION_STABILITY_RESULT.md)。没有新增 Agent、改风险/Gate 规则、填写人工答案或开发前端。

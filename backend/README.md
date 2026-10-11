@@ -1,8 +1,8 @@
-# AegisAI 后端采集与查询
+# AegisAI 后端
 
-当前包括Phase6三源采集、Phase7富化/核验和Phase8资产/SBOM/版本风险链路。0001/0002保留，追加0003；当前49表、25项历史保护，最新292项工程测试通过。
+当前已包含 Phase 11-D 的调查闭环和 Phase 12-B 的 8 个调查 HTTP 操作，迁移 head 为 0004。Planner、三专业 Agent、Integration Gate 和 AnswerEnvelope 的接口说明见 [调查 API](../docs/PHASE12B_INVESTIGATION_API.md)。Dify 不在运行链路中。
 
-原型仍在8768使用Mock；本后端在8000返回真实数据。PoC/Patch静态关联、Claim/Evidence、核验及资产风险已实现；没有接入正式前端、Dify或Agent。最新结果见[Phase8交接](../reports/phase8/FINAL_SUMMARY.md)。历史采集记录见[Phase6报告](../reports/phase6/BACKEND_ARCHITECTURE.md)。
+本后端在 8000 提供 API，现有七页骨架及同源代理在 8769；8768 是历史 Mock 原型。数据来自配置的数据库，不代表模型已经配置。默认 Mock 不提供 PlannerPlan，普通调查会返回 PLANNING_FAILED；受控离线闭环和真实模型调用须分别验收。先读 [本地联调与演示检查](../docs/BACKEND_DEMO_STABILITY.md) 和 [当前状态](../CURRENT_STATUS.md)。以下 Phase 6—8 同步、重放与资产说明保留为历史操作入口，测试数量不是当前验收结果。
 
 ## 当前机器启动
 
