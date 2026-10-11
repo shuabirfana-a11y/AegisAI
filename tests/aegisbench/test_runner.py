@@ -116,3 +116,20 @@ def test_recorded_answers_can_be_rescored_without_new_model_calls(tmp_path, monk
     after = json.loads((rescored / "report.json").read_text(encoding="utf-8"))
     assert after["parameters"]["execution_mode"] == "RESCORE_RECORDED_OUTPUTS"
     assert before["variants"]["fixed_workflow"]["predictions"] == after["variants"]["fixed_workflow"]["predictions"]
+
+
+def test_effective_generation_settings_are_allowlisted_in_reports(tmp_path):
+    gateway = SimpleNamespace(config=SimpleNamespace(provider="openai_compatible", model="fixture-only",
+        timeout_seconds=17.0, max_output_tokens=321, structured_mode="json_schema", token_parameter="max_completion_tokens",
+        api_key="fixture-never-export", api_base="https://private.invalid/v1"))
+    adapter = RagOnlyAdapter(gateway)
+    dataset = data()
+    dataset["questions"], dataset["annotations"] = [], []
+    report = evaluate_dataset(dataset, adapters=[adapter])
+    settings = report["variants"]["rag_only"]["configuration"]
+    assert settings["model"]["max_output_tokens"] == 321
+    assert settings["model"]["timeout_seconds"] == 17.0
+    assert settings["model"]["structured_mode"] == "json_schema"
+    write_report(report, tmp_path)
+    text = (tmp_path / "report.json").read_text(encoding="utf-8")
+    assert "fixture-never-export" not in text and "private.invalid" not in text

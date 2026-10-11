@@ -107,7 +107,7 @@ def main():
     add("cross-advisory-priorities", "multihop", f"结合多份公告，按 {POLICY} 找出须优先处理的演示资产，版本未知者应弃答。",
         {"assets": assets, "triage_policy": POLICY},
         {"affected_asset_ids": [a["id"] for a in assets[:2]], "unknown_asset_ids": [assets[2]["id"]]}, ids,
-        controlled=True, hops=["vulnerability", "version", "asset", "risk"])
+        unknown=True, controlled=True, hops=["vulnerability", "version", "asset", "risk"])
     add("cross-advisory-missing-version", "multihop", "这些 AI 组件的部署版本均缺失。能够确认资产不受影响吗？",
         {"assets": [asset(sid, "missing", None) for sid in ids], "triage_policy": POLICY},
         {"affected": "UNKNOWN", "risk_level": "UNKNOWN", "priority": "REVIEW"}, ids,

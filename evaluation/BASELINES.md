@@ -5,7 +5,7 @@
 | keyword_search | 冻结官方投影 → 词项检索 → 字段/引用展示，其他任务 UNKNOWN | 是 | 检索命中不证明安全判断正确；无版本推理、LLM、核验 |
 | rag_only | 相同词项检索与 top-5 资料 → 现有 Model Gateway.generate_structured | 否，缺真实生成模型 | 不能以检索结果或 Mock 输出冒充 RAG 答案 |
 | fixed_workflow | 原公告字段 → 现有 parse_expression/compare_version → 显式参考分诊政策 | 是 | 仅政策符合性与固定流程；没有专业核验 Agent，不能叫完整 AegisAI |
-| aegisai | 真正 Python InvestigationOrchestrator → Planner/三 Agent/Gate/AnswerEnvelope/Trace | 否，缺真实模型、专用数据和请求映射 | 不用旧 HTTP assistant 冒充 Phase 11-D，不捏造新 API，不手工拼 Artifact 冒充执行 |
+| aegisai | Python InvestigationOrchestrator/AnswerEnvelope 适配接口；目前仅排除出成绩的 fixture 可执行 | 否，有效情报与实际资产数据一致性门禁未实现 | 不用旧 HTTP assistant 冒充 Phase 11-D，不捏造新 API，不手工拼 Artifact 冒充执行 |
 
 默认四变体都有逐例记录。两个已实跑变体各 49 条成功返回；另外两个各 49 条 NOT_EVALUATED。成功是取得结构化响应，不代表标准答案匹配；正式质量指标没有人审基准，所以为空。
 
@@ -17,13 +17,13 @@
 & backend/.venv/Scripts/python.exe evaluate.py --live-model --output evaluation/reports/my-live-run
 ```
 
-此命令只启用 RAG；没有 native 配置时完整 AegisAI 仍 NOT_EVALUATED。真实模型名称、prompt 版本、每例 usage/request_id 和源码/资料哈希写入结果，endpoint、key、数据库密码不会写入。
+此命令只启用 RAG；完整 AegisAI 仍 NOT_EVALUATED。真实模型名称、prompt 版本、每例 usage/request_id、有效 timeout/max_output_tokens/structured_mode/token_parameter 和源码/资料哈希写入结果，endpoint、key、数据库密码不会写入。
 
 ## 真实 Phase 11-D 原生适配条件
 
-额外传 `--live-aegisai-requests evaluation/experiments/<prepared-map>.json`，并设置 AEGIS_BENCH_DATABASE_URL、AEGIS_BENCH_ACTOR。数据库仅允许 loopback PostgreSQL，库名 `aegis_bench_test` 或 `aegis_phase5_test`；绝不连接开发/生产库。请求映射只能来自 evaluation/experiments 树，内容为 question ID → 真实 InvestigationRequest，不能包含答案/标注字段。目标、问题、组件、版本必须与测试输入相同；fresh request_key 每次实验生成，避免把 idempotent replay 当新执行。
+当前 live 原生执行保持关闭，原因是尚未实现有效情报和实际选定资产的一致性校验。即使显式传 `--live-aegisai-requests` 及全部配置，也只记录准备材料和 NOT_EVALUATED，不建立数据库连接或调用 Orchestrator。不能通过手工传入 service 绕过真实问题的门禁；只有 TEST_FIXTURE 能验证包装接口，该类型永远不能进入正式 gold。
 
-数据需已用原有采集/规范化链路准备好。适配器不建库、不迁移、不造资产、不导入数据、不清空表。启动时只读验证 RawDocument 数量、ID、source_url、raw bytes 哈希与 parsed payload、原公告字段和冻结语料完全一致；不一致或缺少配置不执行。成功 opt-in 之后 Orchestrator 只执行其原本的 Trace/Artifact 审计写入。正向调用适配测试使用明确 fixture；本阶段未跑真实模型/数据库 Orchestrator，因此不声称实测通过。
+准备检查限定 loopback PostgreSQL、库名 aegis_bench_test/aegis_phase5_test，拒绝全部 URL 查询参数，防止 host/dbname/service 等覆盖实际目标。请求映射只允许 evaluation/experiments 树且不得含标签字段，记录映射 SHA-256，不导出原映射、actor 或连接地址。未来开放 live 前必须只读核对 RawDocument 及实际工具读取的规范化 observation、版本范围、CVSS、enrichment、Claim；同时核对 query.asset_id/component_id 对应的库存组件与部署版本。仅原始文档哈希相同和请求里的组件描述相同不满足准入。本阶段不建库、迁移、造资产、导入数据或改核心模块。
 
 当前 Native AnswerEnvelope 最多一个资产，不能覆盖所有本批多资产问题；缺少准备请求或超范围返回 NOT_EVALUATED。Native priority 保留 P0/P1/P2/P3/DEFER/REVIEW_REQUIRED，不人为改成参考策略的 MONITOR/REVIEW。CWE/summary/CVSS vector 等不能在 AnswerEnvelope 确认的字段不编造；保留 native 引用，后续人工按源映射审核。版本、政策、输出字段需在正式人审数据中统一后，方可声称比较了真实 AegisAI 与普通 RAG。
 

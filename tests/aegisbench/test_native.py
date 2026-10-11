@@ -1,5 +1,7 @@
 """Native boundary tests use fixtures; they do not measure real Agent quality."""
 from types import SimpleNamespace
+import json
+import pytest
 
 from evaluation.bench.adapters import AegisAIAdapter, corpus_fingerprint
 from evaluation.bench.data import load_benchmark
@@ -90,3 +92,47 @@ def test_native_uses_fresh_request_key_and_does_not_invent_completed_steps():
     assert raw["planner_input"]["query"]["request_key"] == "reused-key"
     assert result.completed_hops == []
     assert result.abstained is True and result.answer["native_answer_status"] == "REVIEW_REQUIRED"
+
+
+@pytest.mark.parametrize("query", ["host=remote.invalid", "hostaddr=192.0.2.1", "dbname=other_database",
+                                   "service=untrusted", "port=6543"])
+def test_native_database_query_overrides_are_refused_before_engine_creation(monkeypatch, tmp_path, query):
+    from evaluation.bench.native import native_adapter
+    def prohibited(*args, **kwargs):
+        raise AssertionError("Unvalidated connection must never create an engine")
+    monkeypatch.setattr("sqlalchemy.create_engine", prohibited)
+    monkeypatch.setenv("AEGIS_BENCH_DATABASE_URL", f"postgresql+psycopg://fixture@localhost/aegis_bench_test?{query}")
+    with pytest.raises(ValueError, match="NATIVE_DEDICATED_LOCAL_BENCH_DATABASE_REQUIRED"):
+        native_adapter(object(), load_benchmark(DEFAULT_MANIFEST), tmp_path / "requests.json", "fixture")
+
+
+def test_native_factory_stays_unavailable_until_effective_data_and_inventory_parity_exist(monkeypatch, tmp_path):
+    import evaluation.bench.native as native
+    from evaluation.bench.data import sha256
+    monkeypatch.setattr(native, "__file__", str(tmp_path / "evaluation/bench/native.py"))
+    path = tmp_path / "evaluation/experiments/requests.json"
+    path.parent.mkdir(parents=True)
+    path.write_text("{}", encoding="utf-8")
+    monkeypatch.setenv("AEGIS_BENCH_DATABASE_URL", "postgresql+psycopg://fixture@localhost/aegis_bench_test")
+    monkeypatch.setenv("AEGIS_BENCH_ACTOR", "fixture-actor")
+    def prohibited(*args, **kwargs):
+        raise AssertionError("Raw source parity alone cannot authorize native execution")
+    monkeypatch.setattr("sqlalchemy.create_engine", prohibited)
+    gateway = SimpleNamespace(config=SimpleNamespace(provider="openai_compatible"))
+    data = load_benchmark(DEFAULT_MANIFEST)
+    adapter = native.native_adapter(gateway, data, path, "fixture")
+    assert adapter.run(data["questions"][0], data["sources"]).error_code == "NATIVE_EFFECTIVE_DATA_PARITY_NOT_IMPLEMENTED"
+    assert adapter.configuration["native_request_map_sha256"] == sha256(path)
+
+
+def test_real_case_cannot_bypass_parity_gate_with_injected_native_service():
+    data = load_benchmark(DEFAULT_MANIFEST)
+    q = next(q for q in data["questions"] if q.id == "GHSA-53q9-r3pm-6pq6-affected")
+    raw = {"planner_input": {"query": {"question": q.question, "target": q.input_context["target"], "request_key": "fixture-key"},
+                             "component": {"name": "torch", "ecosystem": "PyPI", "version": "2.5.1"}}}
+    class NeverCalled:
+        def investigate(self, *args, **kwargs):
+            raise AssertionError("Real cases require effective normalized data and inventory parity")
+    adapter = AegisAIAdapter(NeverCalled(), SimpleNamespace(config=SimpleNamespace(provider="openai_compatible")),
+                            "fixture", {q.id: raw}, corpus_fingerprint(data["sources"]))
+    assert adapter.run(q, data["sources"]).error_code == "NATIVE_EFFECTIVE_DATA_PARITY_NOT_IMPLEMENTED"

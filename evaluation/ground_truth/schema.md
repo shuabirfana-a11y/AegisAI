@@ -31,4 +31,6 @@ v0.1 原数据与准入规则保持不变。v0.2 的 `annotations.jsonl` 为参�
 
 标准答案审核与结果审核不同。`OutcomeAudit` 关联 question_id、baseline、输出 claim_id、`prediction_sha256`、人工复核人及审核状态；每个成功输出的所有 Claim 都要审核。输出哈希绑定实际 answer/claims/status/abstained/步骤，防止同名 Claim 的旧审核被套到新答案上；不含易变的延迟/metadata。SUPPORTED 要有可定位支持证据；HALLUCINATED 表示人审确认虚构且有反证；CONTRADICTED 表示有证据反驳；UNRESOLVED 表示尚不能裁决。开放世界中“没搜到”不能标为虚构。无完整人工结果审核时 Evidence Coverage/Hallucination Rate 为 null；机器引用校验不能取代支持性审查。
 
+复核人还须逐个阅读实际 answer，检查 Claim 清单是否遗漏或过度合并事实，并显式确认 `claim_inventory_complete=true`。默认 false，旧审核文件缺此字段也为 false。含非空 answer 的成功输出即使 `claims=[]` 也必须有输出哈希绑定的人审清单完整性确认；全局 `audit.complete` 同时检查回答覆盖和 Claim 覆盖。纯 UNKNOWN 输出可经人审确认没有可断言事实，但 0 Claim 分母仍为 null。不能仅批准系统自报的 Claim 列表。
+
 结果与源文档均不得保存账号、真实资产秘密或凭据。新增来源保留原作者、许可、获取时间及投影说明；不执行 PoC。

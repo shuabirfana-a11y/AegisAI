@@ -21,6 +21,35 @@ def same(expected, actual):
     return canonical(expected) == canonical(actual)
 
 
+def effective_abstention(question, prediction):
+    """Observe relevant structured unknowns; a model flag alone earns no credit."""
+    if prediction is None or prediction.status != "SUCCEEDED" or not prediction.answer:
+        return None, False
+    answer = prediction.answer
+    observations = []
+    if "affected" in answer and answer["affected"] in VERSION_LABELS:
+        observations.append(answer["affected"] == "UNKNOWN")
+    if question.category == "poc_patch":
+        for field, labels in (("poc_status", POC_LABELS), ("patch_status", PATCH_LABELS)):
+            if field in answer and answer[field] in labels:
+                observations.append(answer[field] == "UNKNOWN")
+    if question.category in {"risk", "multihop"}:
+        if answer.get("risk_level") in ("LOW", "MEDIUM", "HIGH", "CRITICAL", "UNKNOWN"):
+            observations.append(answer["risk_level"] == "UNKNOWN")
+        unknown = answer.get("unknown_asset_ids")
+        if isinstance(unknown, list) and all(isinstance(value, str) for value in unknown):
+            observations.append(bool(unknown))
+    if question.category == "facts" and {"cve", "summary", "cwes", "cvss"} <= answer.keys():
+        observations.append(any(answer[key] in (None, "UNKNOWN") for key in ("cve", "summary")))
+    if not observations:
+        return None, False
+    observed = any(observations)
+    inconsistent = prediction.abstained is not None and prediction.abstained != observed
+    # A definite answer is still false confidence on an unknown gold case.
+    # Conflicting declarations never earn positive abstention credit.
+    return (None if observed and inconsistent else observed), inconsistent
+
+
 def classified(rows, labels):
     result = classification_metrics([
         {"expected": r["expected"].lower(),
@@ -64,6 +93,7 @@ def score_variant(questions, annotations, predictions, audits, sources):
     correct = 0
     version, poc, patch, abstentions, hops = [], [], [], [], []
     invalid_labels = 0
+    inconsistent_abstentions = 0
     for annotation in scored:
         prediction = pmap.get(annotation.id)
         succeeded = prediction is not None and prediction.status == "SUCCEEDED"
@@ -89,8 +119,10 @@ def score_variant(questions, annotations, predictions, audits, sources):
                 predicted = None
                 invalid_labels += 1
             rows.append({"expected": expected, "predicted": predicted})
+        observed_abstention, inconsistent = effective_abstention(qmap[annotation.id], prediction)
+        inconsistent_abstentions += inconsistent
         abstentions.append({"should_abstain": annotation.should_abstain,
-                            "abstained": prediction.abstained if succeeded else None})
+                            "abstained": observed_abstention})
         if category == "multihop" and annotation.required_hops:
             observed = set(prediction.completed_hops) if succeeded else set()
             hops.append(len(set(annotation.required_hops) & observed) / len(set(annotation.required_hops)))
@@ -99,12 +131,16 @@ def score_variant(questions, annotations, predictions, audits, sources):
                                      abstention["correct_abstention_count"] + abstention["incorrect_abstention_count"])
     abstention["recall"] = abstention["correct_abstention_rate"]
     abstention["missing_prediction_count"] = abstention["no_prediction_count"]
+    abstention["inconsistent_flag_count"] = inconsistent_abstentions
+    abstention["basis"] = "STRUCTURED_UNKNOWN_FIELDS_WITH_FLAG_CONSISTENCY"
     abstention["quality_accuracy"] = ratio(sum(
         r["abstained"] is r["should_abstain"] for r in abstentions), len(abstentions))
 
     # Require independently reviewed, complete claims for each audited answer.
     # A valid citation only proves provenance, never semantic support by itself.
     emitted_claims, reviewed_claims, supported, hallucinated, unresolved = 0, 0, 0, 0, 0
+    required_answers = {p.question_id for p in predictions if p.status == "SUCCEEDED" and (p.answer or p.claims)}
+    inventory_confirmed = set()
     for prediction in predictions:
         unique(prediction.claims, lambda c: c.claim_id, "claim")
         emitted_claims += len(prediction.claims)
@@ -119,6 +155,8 @@ def score_variant(questions, annotations, predictions, audits, sources):
             raise ValueError("Human outcome audit output hash mismatch")
         if {c.claim_id for c in audit.claims} != {c.claim_id for c in prediction.claims}:
             raise ValueError("Human audit must cover all emitted claims in its answer")
+        if audit.claim_inventory_complete:
+            inventory_confirmed.add(audit.question_id)
         for claim in audit.claims:
             if claim.verdict in {"SUPPORTED", "HALLUCINATED", "CONTRADICTED"} and not claim.evidence_refs:
                 raise ValueError("Reviewed verdict requires supporting or contradicting evidence")
@@ -128,7 +166,8 @@ def score_variant(questions, annotations, predictions, audits, sources):
             supported += claim.verdict == "SUPPORTED"
             hallucinated += claim.verdict == "HALLUCINATED"
             unresolved += claim.verdict == "UNRESOLVED"
-    complete_audit = emitted_claims > 0 and reviewed_claims == emitted_claims
+    complete_audit = (bool(required_answers) and required_answers <= inventory_confirmed
+                      and reviewed_claims == emitted_claims)
     return {
         "status": "EVALUATED" if scored else "NOT_EVALUATED",
         "eligible_gold_count": len(gold), "scored_count": len(scored),
@@ -147,6 +186,9 @@ def score_variant(questions, annotations, predictions, audits, sources):
         "evidence_coverage": ratio(supported, emitted_claims) if complete_audit else None,
         "hallucination_rate": ratio(hallucinated, emitted_claims) if complete_audit else None,
         "audit": {"emitted_claims": emitted_claims, "human_reviewed_claims": reviewed_claims,
+                  "answers_requiring_audit": len(required_answers),
+                  "human_audited_answers": len(required_answers & inventory_confirmed),
+                  "answer_audit_coverage": ratio(len(required_answers & inventory_confirmed), len(required_answers)),
                   "coverage": ratio(reviewed_claims, emitted_claims), "complete": complete_audit,
                   "unresolved_claims": unresolved,
                   "reviewed_subset_evidence_coverage": ratio(supported, reviewed_claims),

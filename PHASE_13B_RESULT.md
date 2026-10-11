@@ -19,7 +19,7 @@
 
 ## 3. 数据集与标注
 
-- AegisBench-v0.2-pilot：49 条问题；facts 5、版本影响 17、POC/Patch 10、资产风险 10、多跳 7。
+- AegisBench-v0.2.1-pilot：49 条问题；facts 5、版本影响 17、POC/Patch 10、资产风险 10、多跳 7。原 v0.2 及历史报告保留；新修订纠正 1 条机器草稿的部分弃答标签，未增加人审 gold。
 - 5 份实际获取的官方 GHSA 公告：PyTorch 2、LangChain 1、LangGraph 1、vLLM 1；不是 49 个独立漏洞。
 - 每份来源保存 upstream 时间、retrieved_at、API URL、投影哈希、完整 API 输出哈希与 attribution。JSON Pointer/excerpt 精确验证，源路径越界与摘要漂移拒绝。
 - 49 条机器参考均为 MACHINE/SOURCE_REFERENCE/PENDING，人工 gold=0；controlled asset 明示演示输入，版本空档场景不声称真实部署。
@@ -27,9 +27,9 @@
 
 ## 4. 指标与基线
 
-实现事实/字段准确率、受影响分类 Precision/Recall/F1/False Safe、POC/Patch 分类、风险/优先级字段准确率、弃答精确率/召回率/行为准确率、流程步骤覆盖、实际延迟。Evidence Coverage/Hallucination 需完整人审结果与支持/反证；不能把引用存在当支持。失败/缺预测保留在分母，0 分母为 null。
+实现事实/字段准确率、受影响分类 Precision/Recall/F1/False Safe、POC/Patch 分类、风险/优先级字段准确率、弃答精确率/召回率/行为准确率、流程步骤覆盖、实际延迟。弃答从相关 UNKNOWN 字段观察，矛盾自报标志不能获正确弃答分。Evidence Coverage/Hallucination 需逐回答确认 Claim 清单完整及逐 Claim 人审支持/反证；不能把引用存在当支持，也不能漏掉 Claim 列表为空的非空回答。失败/缺预测保留在分母，0 分母为 null。
 
-四基线：keyword_search、rag_only、fixed_workflow、aegisai。原生适配使用真正 Phase11-D Python InvestigationOrchestrator，缺真实模型、匹配资料或请求上下文时记录 NOT_EVALUATED；从未用旧 assistant 或人工 Artifact 冒充执行。
+四基线：keyword_search、rag_only、fixed_workflow、aegisai。原生接口对接 Phase11-D Python InvestigationOrchestrator；有效情报与实际库存资产的一致性门禁尚未实现，真实案例保持 NOT_EVALUATED，即使配置模型、专用库和请求映射也不建立数据库连接。只有不计成绩的 TEST_FIXTURE 验证包装接口；从未用旧 assistant 或人工 Artifact 冒充执行。
 
 ## 5. 实际首轮实验
 
@@ -43,6 +43,8 @@
 | AegisAI | 0 | 0 | 49 | NOT_EVALUATED：真实 Planner 模型未配置 |
 
 首轮真实记录在 `evaluation/reports/phase13b-pilot-20261011/`。关键词 10/49、固定流程 49/49 与机器参考相符，仅为 extraction/policy wiring diagnostic，**不是正式准确率**。报告明确 PARTIAL / NOT_EVALUATED / NOT_COMPARABLE；没有生成虚假的 uplift、语义问答准确率或多跳效果结论。
+
+最终复跑使用 v0.2.1，保存至 `evaluation/reports/phase13b-final-20261011/`。每次实验保留有效配置白名单、源码哈希和结果哈希；人审可对冻结输出重新计分，无须再次调用模型。
 
 ## 6. 修改文件
 
@@ -58,7 +60,7 @@
 
 ## 7. 验证
 
-- 新增评测测试：32 项已实际通过；先观察 RED 再实现 GREEN。
+- 新增评测测试：48 项已实际通过；审查修正先实际观察 RED，再验证 GREEN。
 - 原后端便携回归：398 passed，1 个真实缓存 embedding 测试明确排除。
 - 前端：21 passed；TypeScript 交接契约与 17 个 JavaScript 语法检查通过。
 - 原 OpenAPI/Pydantic：34 HTTP operations、5 Schema groups、40 合成对象验证通过；不连接数据库。
@@ -69,10 +71,18 @@
 
 正式成果仍需要真实人审：标注人逐条核对、另一人独立审核，再补真实结果 Claim 审查。数据缺独立 holdout、平衡正负类、利用验证正例和多来源冲突案例。摘要字段是严格匹配；流程步骤覆盖不证明语义推理正确。
 
-Native AnswerEnvelope 最多一个资产，priority 体系与参考 triage policy 不同；字段/风险政策和任务范围需先在人审数据中统一，不能强行改业务或翻译 enum 来制造提高。原生 live adapter 的 guarded DB 正向完整链路没有配置和运行，因此不能说此阶段真实四基线比较已经完成。
+Native AnswerEnvelope 最多一个资产，priority 体系与参考 triage policy 不同；字段/风险政策和任务范围需先在人审数据中统一，不能强行改业务或翻译 enum 来制造提高。原生 live 必须先补有效规范化资料及实际资产的一致性检查；本阶段关闭真实执行，因此不能说已完成真实四基线比较。
 
 下一次授权可逐步补人审 gold、独立 holdout、真实兼容模型与同语料实验；现阶段所有工具与材料已可供此工作使用。Phase 12-B 的调查 HTTP API 暴露仍是单独工作，本阶段不处理。
 
 ## 9. 停止条件
 
 本阶段只完成 Benchmark 基础与候选数据建设。停止，不进入前端联调、UI、新 Agent 或核心业务优化。
+
+## 10. 独立审查修正与准入决策
+
+独立审查指出的 4 个主要问题均有针对性回归：数据库 URL 参数覆盖、空 Claim 回答遗漏、自报弃答与实际结论矛盾、原始文档相同但实际情报/资产不同。当前拒绝全部数据库 URL 查询参数；native 工厂不建立 engine，真实 native 案例保持未评测。此准入限制是准确记录尚缺条件，不表示业务 Agent 未完成。
+
+OutcomeAudit 增加 claim_inventory_complete 默认 false，逐回答与逐 Claim 同时审核；弃答仅在结构化未知字段与自报一致时获正向弃答分，保留 partial abstention。两项次要问题也已处理：新冻结 v0.2.1 修订机器部分弃答标签，有效生成设置和原生请求映射哈希记录在实验白名单。原始来源、历史记录与核心业务未修改。
+
+正式四基线效果、独立 holdout、真实人审和原生有效数据/库存一致性准入继续留待后续授权，不将这些缺项包装成成绩。发布与 CI 的最终状态在验收记录中注明。

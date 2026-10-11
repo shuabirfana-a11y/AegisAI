@@ -20,11 +20,22 @@ from .schema import Annotation, OutcomeAudit, Prediction, Question
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_MANIFEST = ROOT / "evaluation/datasets/AegisBench-v0.2-pilot/manifest.json"
+DEFAULT_MANIFEST = ROOT / "evaluation/datasets/AegisBench-v0.2.1-pilot/manifest.json"
 PUBLIC_METADATA = {"provider", "model", "prompt_version", "is_mock", "request_id", "usage",
                    "retrieved_source_ids", "capability", "policy", "logical_investigation_id",
                    "native_status", "native_priority_taxonomy"}
 SECRET_KEYS = re.compile(r"(?i)(?:api[_-]?key|password|secret|authorization|access[_-]?token|database[_-]?url)")
+MODEL_SETTINGS = {"provider", "model", "timeout_seconds", "max_output_tokens", "structured_mode", "token_parameter"}
+
+
+def adapter_configuration(adapter):
+    config = getattr(getattr(adapter, "gateway", None), "config", None)
+    model = {key: getattr(config, key) for key in sorted(MODEL_SETTINGS) if hasattr(config, key)}
+    previous = getattr(adapter, "configuration", {})
+    if getattr(adapter, "recorded", False):
+        model = {key: value for key, value in previous.get("model", {}).items() if key in MODEL_SETTINGS}
+    return {"model": model, **{key: value for key, value in previous.items() if key in {
+        "native_request_map_sha256", "native_admission_status"}}}
 
 
 def clean(value):
@@ -127,7 +138,7 @@ def evaluate_dataset(data, *, adapters=None, audits=None, run_id=None):
             groups[category] = score_variant(qs, [a for a in data["annotations"] if a.id in ids],
                 [p for p in predictions if p.question_id in ids],
                 [a for a in audits if a.baseline == adapter.name and a.question_id in ids], data["sources"])
-        variants[adapter.name] = {"metrics": scores, "categories": groups,
+        variants[adapter.name] = {"metrics": scores, "categories": groups, "configuration": adapter_configuration(adapter),
             "reference_diagnostics": reference_diagnostics(data["annotations"], predictions),
             "predictions": [p.model_dump(mode="json") for p in predictions]}
     complete_variants = all(v["metrics"]["execution"].get("SUCCEEDED", 0) == len(data["questions"])
@@ -184,6 +195,7 @@ def write_report(report, directory):
     # Explicit packets: reviewing output support is separate from gold annotation.
     packets = [{"question_id": p["question_id"], "baseline": name, "reviewer": "",
                 "reviewer_type": "MACHINE", "review_status": "PENDING",
+                "claim_inventory_complete": False,
                 "prediction_sha256": prediction_fingerprint(Prediction.model_validate(p)),
                 "claims": [{"claim_id": c["claim_id"], "verdict": "UNRESOLVED", "evidence_refs": [],
                             "review_note": "Pending independent human semantic review"} for c in p["claims"]]}
@@ -202,8 +214,9 @@ def export_schemas(path):
 class RecordedAdapter:
     recorded = True
 
-    def __init__(self, name, predictions):
+    def __init__(self, name, predictions, configuration=None):
         self.name = name
+        self.configuration = configuration or {}
         self.predictions = {p.question_id: p for p in predictions}
         if len(self.predictions) != len(predictions):
             raise ValueError("Duplicate recorded predictions")
@@ -222,7 +235,7 @@ def recorded_adapters(path, data):
     if (previous["dataset_fingerprint"] != corpus_fingerprint(data["sources"])
             or previous["dataset_manifest"]["questions_sha256"] != data["manifest"]["questions_sha256"]):
         raise ValueError("Recorded experiment source/question scope mismatch")
-    adapters = [RecordedAdapter(name, [Prediction.model_validate(p) for p in variant["predictions"]])
+    adapters = [RecordedAdapter(name, [Prediction.model_validate(p) for p in variant["predictions"]], variant.get("configuration"))
                 for name, variant in previous["variants"].items()]
     if not adapters:
         raise ValueError("Recorded experiment has no baselines")
@@ -271,7 +284,8 @@ def main(argv=None):
                                   audits=audits, run_id=run_id)
         report["parameters"]["default_mode"] = "EXPLICIT_LIVE_MODEL" if args.live_model else "OFFLINE_NO_MODEL_NO_DATABASE"
         report["parameters"]["live_model_enabled"] = args.live_model
-        report["parameters"]["native_enabled"] = args.live_aegisai_requests is not None
+        report["parameters"]["native_requested"] = args.live_aegisai_requests is not None
+        report["parameters"]["native_enabled"] = False  # Effective normalized-data/asset parity is not yet implemented.
         report["parameters"]["execution_mode"] = "RESCORE_RECORDED_OUTPUTS" if args.rescore_report else "NEW_OBSERVATIONS"
         if rescore_of:
             report["rescore_of"] = rescore_of
@@ -285,6 +299,7 @@ def main(argv=None):
         receipt["model_identities"] = {name: sorted({(p["metadata"].get("provider", "NONE"), p["metadata"].get("model", "NONE"),
                                                       p["metadata"].get("prompt_version", "NONE"))
                                                     for p in value["predictions"]}) for name, value in report["variants"].items()}
+        receipt["baseline_configurations"] = {name: value["configuration"] for name, value in report["variants"].items()}
         receipt["report_sha256"] = sha256(output / "report.json")
         (output / "experiment.json").write_text(json.dumps(clean(receipt), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         if args.export_schemas:

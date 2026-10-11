@@ -486,6 +486,11 @@
         "default": null,
         "title": "Prediction Sha256"
       },
+      "claim_inventory_complete": {
+        "default": false,
+        "title": "Claim Inventory Complete",
+        "type": "boolean"
+      },
       "claims": {
         "items": {
           "$ref": "#/$defs/ReviewedClaim"

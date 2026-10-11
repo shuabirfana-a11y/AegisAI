@@ -98,6 +98,7 @@ class OutcomeAudit(Contract):
     reviewer_type: Literal["HUMAN", "MACHINE"]
     review_status: Literal["PENDING", "APPROVED", "REVIEWED", "REJECTED"]
     prediction_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+    claim_inventory_complete: bool = False
     claims: list[ReviewedClaim]
 
     @model_validator(mode="after")

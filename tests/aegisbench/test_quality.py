@@ -75,7 +75,7 @@ def test_citation_presence_is_not_evidence_coverage_or_hallucination_audit():
     result = score_variant([q("a", "facts")], [gold("a", {"cve": "CVE-2099-0001"})], [pred], [], SOURCES)
     assert result["evidence_coverage"] is None and result["hallucination_rate"] is None
     audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Human test reviewer",
-                         reviewer_type="HUMAN", review_status="APPROVED", prediction_sha256=digest(pred), claims=[{
+                         reviewer_type="HUMAN", review_status="APPROVED", prediction_sha256=digest(pred), claim_inventory_complete=True, claims=[{
         "claim_id": "claim1", "verdict": "HALLUCINATED", "review_note": "Explicit contradiction", "evidence_refs": [REF]}])
     result = score_variant([q("a", "facts")], [gold("a", {"cve": "CVE-2099-0001"})], [pred], [audit], SOURCES)
     assert result["evidence_coverage"] == 0 and result["hallucination_rate"] == 1
@@ -119,3 +119,67 @@ def test_old_human_audit_cannot_approve_changed_output_with_same_claim_id():
         "claim_id": "c", "verdict": "SUPPORTED", "review_note": "Reviewed old output", "evidence_refs": [REF]}])
     with pytest.raises(ValueError, match="hash"):
         score_variant([q("a")], [], [changed], [audit], SOURCES)
+
+
+def test_global_evidence_metrics_require_every_substantive_answer_to_be_audited():
+    pred = p("a", {"affected": "AFFECTED"}, claims=[{"claim_id": "c", "statement": "A fact"}])
+    unaccounted = p("b", {"affected": "NOT_AFFECTED"}, claims=[])
+    audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
+                         review_status="APPROVED", prediction_sha256=digest(pred), claims=[{
+        "claim_id": "c", "verdict": "SUPPORTED", "review_note": "Checked fact", "evidence_refs": [REF]}])
+    result = score_variant([q("a"), q("b")], [], [pred, unaccounted], [audit], SOURCES)
+    assert result["evidence_coverage"] is None and result["hallucination_rate"] is None
+    assert result["audit"]["complete"] is False
+
+
+def test_claim_list_review_without_inventory_confirmation_is_not_global_completeness():
+    pred = p("a", {"affected": "AFFECTED"}, claims=[{"claim_id": "c", "statement": "A fact"}])
+    audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
+                         review_status="APPROVED", prediction_sha256=digest(pred), claims=[{
+        "claim_id": "c", "verdict": "SUPPORTED", "review_note": "Only listed claim checked", "evidence_refs": [REF]}])
+    result = score_variant([q("a")], [], [pred], [audit], SOURCES)
+    assert result["evidence_coverage"] is None
+    assert result["audit"]["complete"] is False
+
+
+def test_contradictory_abstention_flag_cannot_earn_correct_abstention_credit():
+    pred = p("a", {"affected": "NOT_AFFECTED"}).model_copy(update={"abstained": True})
+    result = score_variant([q("a")], [gold("a", {"affected": "UNKNOWN"}, True)], [pred], [], SOURCES)
+    assert result["accuracy"] == 0
+    assert result["abstention"]["correct_abstention_count"] == 0
+    assert result["abstention"]["false_confident_answer_count"] == 1
+    assert result["abstention"]["inconsistent_flag_count"] == 1
+
+
+def test_partial_poc_abstention_preserves_confirmed_release_information():
+    pred = p("a", {"poc_status": "UNKNOWN", "patch_status": "CONFIRMED_FIX"}).model_copy(update={"abstained": True})
+    result = score_variant([q("a", "poc_patch")], [gold("a", {"poc_status": "UNKNOWN", "patch_status": "CONFIRMED_FIX"}, True)],
+                           [pred], [], SOURCES)
+    assert result["accuracy"] == 1 and result["abstention"]["correct_abstention_count"] == 1
+
+
+def test_confirmed_inventory_is_required_for_audited_empty_claim_answer():
+    pred = p("a", {"affected": "UNKNOWN"}, claims=[]).model_copy(update={"abstained": True})
+    audit = OutcomeAudit(question_id="a", baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
+                         review_status="APPROVED", prediction_sha256=digest(pred), claims=[])
+    result = score_variant([q("a")], [], [pred], [audit], SOURCES)
+    assert result["audit"]["answers_requiring_audit"] == 1
+    assert result["audit"]["human_audited_answers"] == 0
+
+
+def test_complete_inventory_reviews_all_answers_including_explicit_unknown_without_claims():
+    first = p("a", {"affected": "AFFECTED"}, claims=[{"claim_id": "c", "statement": "A fact"}])
+    second = p("b", {"affected": "UNKNOWN"}, claims=[]).model_copy(update={"abstained": True})
+    audits = [OutcomeAudit(question_id=pred.question_id, baseline="test", reviewer="Reviewer", reviewer_type="HUMAN",
+        review_status="APPROVED", prediction_sha256=digest(pred), claim_inventory_complete=True, claims=claims)
+        for pred, claims in [(first, [{"claim_id": "c", "verdict": "SUPPORTED", "review_note": "Checked complete inventory",
+                                     "evidence_refs": [REF]}]), (second, [])]]
+    result = score_variant([q("a"), q("b")], [], [first, second], audits, SOURCES)
+    assert result["audit"]["human_audited_answers"] == 2 and result["audit"]["complete"] is True
+    assert result["evidence_coverage"] == 1 and result["hallucination_rate"] == 0
+
+
+def test_invalid_risk_shape_does_not_crash_abstention_scoring():
+    pred = p("a", {"risk_level": {"invalid": "HIGH"}})
+    result = score_variant([q("a", "risk")], [gold("a", {"risk_level": "UNKNOWN"}, True)], [pred], [], SOURCES)
+    assert result["accuracy"] == 0 and result["abstention"]["correct_abstention_count"] == 0

@@ -255,13 +255,16 @@ class AegisAIAdapter:
     """
     name = "aegisai"
 
-    def __init__(self, service=None, gateway=None, actor=None, request_map=None, runtime_corpus=None):
+    def __init__(self, service=None, gateway=None, actor=None, request_map=None, runtime_corpus=None, unavailable_reason=None):
         self.service, self.gateway, self.actor = service, gateway, actor
         self.request_map, self.runtime_corpus = request_map or {}, runtime_corpus
+        self.unavailable_reason = unavailable_reason
 
     def run(self, question, sources):
         if self.gateway is None or self.gateway.config.provider == "mock":
             return withheld(self.name, question, "REAL_PLANNER_MODEL_NOT_CONFIGURED")
+        if self.unavailable_reason:
+            return withheld(self.name, question, self.unavailable_reason)
         if self.service is None or not self.actor:
             return withheld(self.name, question, "NATIVE_ORCHESTRATOR_NOT_CONFIGURED")
         if self.runtime_corpus != corpus_fingerprint(sources):
@@ -292,6 +295,11 @@ class AegisAIAdapter:
                     or entity.get("version") != resolution.version
                     or resolution.ecosystem != context.get("ecosystem", "PyPI")):
                 return withheld(self.name, question, "NATIVE_REQUEST_COMPONENT_MISMATCH")
+        # RawDocument parity does not prove normalized intelligence or inventory
+        # parity. Until that read-only gate exists, only excluded test fixtures
+        # may exercise this wrapper; no real benchmark case is executed.
+        if question.origin != "TEST_FIXTURE":
+            return withheld(self.name, question, "NATIVE_EFFECTIVE_DATA_PARITY_NOT_IMPLEMENTED")
         result = self.service.investigate(checked, actor=self.actor)
         envelope = result.answer
         if envelope is None:
