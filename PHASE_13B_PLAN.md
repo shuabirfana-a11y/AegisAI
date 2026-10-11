@@ -32,20 +32,20 @@ Files: evaluation/bench/{__init__,schema,data,sources}.py；evaluation/datasets/
 
 Interfaces: load_benchmark(manifest_path) 返回 questions、annotations、eligible_gold、sources；旧 gold_exclusion_reason 为唯一人工准入门槛。
 
-- [ ] 先写测试：标签不能出现在问题中；重复 ID、摘要漂移和越界 source 路径拒绝；机器标签和 TEST_FIXTURE 不准入。
-- [ ] 运行并看到新增模块缺失的 RED，再实现 schema、数据加载和官方来源采集。
-- [ ] 采集可验证真实资料，生成五类候选及独立参考标签，保留 unknown/复核状态。
-- [ ] 验证数据集及 provenance；提交这一独立交付。
+- [x] 先写测试：标签不能出现在问题中；重复 ID、摘要漂移和越界 source 路径拒绝；机器标签和 TEST_FIXTURE 不准入。
+- [x] 运行并看到新增模块缺失的 RED，再实现 schema、数据加载和官方来源采集。
+- [x] 采集可验证真实资料，生成五类候选及独立参考标签，保留 unknown/复核状态。
+- [x] 验证数据集及 provenance；提交这一独立交付。
 
 ## Task 2：指标及 Outcome Audit
 
 Files: evaluation/bench/quality.py；tests/aegisbench/test_quality.py。
 
-Interfaces: score_variant(questions, annotations, predictions, audits) 返回分组指标、正式覆盖和问题明细；复用 evaluation.metrics 数学函数。
+Interfaces: score_variant(questions, annotations, predictions, audits, sources) 返回分组指标、正式覆盖和问题明细；复用 evaluation.metrics 数学函数。
 
-- [ ] 先写数值断言：缺预测入分母、零分母 null、Unknown 的弃答精确率/召回率、弱引用不等于支持、重复 audit 拒绝、没有人工 audit 的幻觉率 null。
-- [ ] RED → 实现最小计分逻辑 → GREEN，保留支持性判断与必要多跳步骤的证据要求。
-- [ ] 提交指标实现和真实测试输出。
+- [x] 先写数值断言：缺预测入分母、零分母 null、Unknown 的弃答精确率/召回率、弱引用不等于支持、重复 audit 拒绝、没有人工 audit 的幻觉率 null。
+- [x] RED → 实现最小计分逻辑 → GREEN，保留支持性判断与必要多跳步骤的证据要求。
+- [x] 提交指标实现和真实测试输出。
 
 ## Task 3：四个基线及 Runner
 
@@ -53,14 +53,14 @@ Files: evaluation/bench/{adapters,runner}.py；evaluate.py；tests/aegisbench/te
 
 Interfaces: adapter.run(question, corpus) 返回结构化 observed prediction，不接收标签；Runner 在运行完成后调用 score_variant。
 
-- [ ] 先测无模型 RAG/AegisAI 不冒充成功、默认不触网/数据库、输入无 gold、失败记录及安全元数据。
-- [ ] RED → 实现 keyword/fixed 实跑和可选 Gateway/Orchestrator 适配器 → GREEN。
-- [ ] python evaluate.py 实际运行并保存每例结果和 JSON/Markdown 报告；正式无 gold 则 NOT_EVALUATED。
+- [x] 先测无模型 RAG/AegisAI 不冒充成功、默认不触网/数据库、输入无 gold、失败记录及安全元数据。
+- [x] RED → 实现 keyword/fixed 实跑和可选 Gateway/Orchestrator 适配器 → GREEN。
+- [x] python evaluate.py 实际运行并保存每例结果和 JSON/Markdown 报告；正式无 gold 则 NOT_EVALUATED。
 
 ## Task 4：交付与验收
 
 Files: evaluation/{README.md,BASELINES.md,METRICS.md}；evaluation/experiments/；evaluation/reports/；PHASE_13B_RESULT.md；.github/workflows/ci.yml 的评测测试步骤。
 
-- [ ] 实际跑评测单元/集成、原基础后端/前端/Schema/业务哈希检查和敏感扫描。
-- [ ] 最终独立审查，修复影响正确性问题；记录实际数据、结果和限制。
-- [ ] Git 保存并发布本阶段独立评测 PR，保持团队分支与原基线；完成后停止。
+- [x] 实际跑评测单元/集成、原基础后端/前端/Schema/业务哈希检查和敏感扫描。
+- [x] 最终独立审查，修复影响正确性问题；记录实际数据、结果和限制。
+- [x] Git 保存并发布本阶段独立评测 PR，保持团队分支与原基线；完成后停止。

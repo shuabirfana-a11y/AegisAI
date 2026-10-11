@@ -94,3 +94,11 @@ OutcomeAudit 增加 claim_inventory_complete 默认 false，逐回答与逐 Clai
 - v0.2.1：49 问题、0 human gold；关键词/固定流程各 49 SUCCEEDED，RAG/AegisAI 各 49 NOT_EVALUATED。Accuracy/Evidence Coverage/Hallucination 均为 null；98 个成功回答均生成待审包，claim_inventory_complete=false。
 - 结果/receipt SHA-256 及实际评测源码哈希已核对一致；原业务与 v0.1 文件差异为空。
 - 本地敏感扫描截至 `21c86f0` 覆盖全部 9 个 Git 提交，无泄漏；仓库门禁通过。发布前对含最终报告的提交再次扫描，GitHub CI 另核对具体提交结果。
+
+## 12. GitHub 交付与工程验收
+
+- 私有仓库：[AegisAI](https://github.com/shuabirfana-a11y/AegisAI)，本阶段分支 `backend/aegisbench`。
+- [PR #2](https://github.com/shuabirfana-a11y/AegisAI/pull/2) 已上传且附加到当前任务；保留 OPEN，没有自动合并或覆盖团队分支。
+- [CI run 38121582542](https://github.com/shuabirfana-a11y/AegisAI/actions/runs/38121582542)：绑定提交 `24dcfaf2e2c3e571c1e13166ac756389d647ad0d`；Repository safety、Backend unit and contracts、Frontend tests and types 三项均 success。
+- 含最终报告的本地完整历史扫描：10 commits、32.73 MB，无泄漏；仓库门禁 1574 tracked files、PASS。最终结果包/5 个 Schema/98 份待审包均已核对。
+- 此处 CI 证据绑定上述提交；后续交付文档提交的最新状态以 PR Checks 为准。本阶段结束，后续正式人审、真实模型与 native parity 门禁另行推进。
