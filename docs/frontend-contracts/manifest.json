@@ -41,8 +41,8 @@
     },
     {
       "path": "docs/frontend-contracts/http-data-columns.d.ts",
-      "bytes": 17990,
-      "sha256": "41e4f0b9dfc428c7370c3626dd37145f2df05df2d1820e2e0a83458209861302"
+      "bytes": 17993,
+      "sha256": "eb61483b5dd6e777fd7ba527618d323f8366d57fb79a6e1f2018af959ffdb89f"
     },
     {
       "path": "docs/frontend-contracts/http-data-columns.schemas.json",
@@ -156,8 +156,8 @@
     },
     {
       "path": "frontend/contracts/generated/http-data-columns.ts",
-      "bytes": 17980,
-      "sha256": "3b40c372cdf803d2037e56859c84560a32bf1d2b9adc4467fca7ccfb61a35de7"
+      "bytes": 17983,
+      "sha256": "1cf9ec44beb0657f657cb0544c8c4a94c3d0cc8275c70448a938cdaae81c3cab"
     },
     {
       "path": "frontend/contracts/generated/http-input.ts",
@@ -524,5 +524,11 @@
     "No live HTTP capture or production business data exported",
     "Current OpenAPI retains empty success schemas; sidecar types do not change backend OpenAPI",
     "TypeScript syntax and references checked with Node24; full tsc semantic checking not run"
-  ]
+  ],
+  "phase13a_type_compatibility_update": {
+    "updated_at_utc": "2026-10-11T04:55:07.081914+00:00",
+    "field_or_schema_changes": false,
+    "changed_type": "JsonValue recursive index signature",
+    "original_export_time_preserved": true
+  }
 }

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "types": []
+  },
+  "include": [
+    "contracts-smoke.ts",
+    "../frontend/contracts/**/*.ts",
+    "../AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/**/*.ts",
+    "../docs/frontend-contracts/*.d.ts"
+  ]
+}

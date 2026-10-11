@@ -629,5 +629,5 @@ export type HttpAssetInventoryEventRow = {
   "content_trust_level"?: "UNTRUSTED_EXTERNAL_CONTENT";
 };
 
-export type JsonValue = (null | boolean | number | string | Array<JsonValue> | Record<string, JsonValue>);
+export type JsonValue = (null | boolean | number | string | Array<JsonValue> | { [key: string]: JsonValue });
 

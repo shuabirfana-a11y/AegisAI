@@ -52,8 +52,8 @@
     },
     {
       "path": "api/reference/http-data-columns.d.ts",
-      "bytes": 17990,
-      "sha256": "41e4f0b9dfc428c7370c3626dd37145f2df05df2d1820e2e0a83458209861302"
+      "bytes": 17993,
+      "sha256": "eb61483b5dd6e777fd7ba527618d323f8366d57fb79a6e1f2018af959ffdb89f"
     },
     {
       "path": "api/reference/http-data-columns.schemas.json",
@@ -157,8 +157,8 @@
     },
     {
       "path": "contracts/generated/http-data-columns.ts",
-      "bytes": 17980,
-      "sha256": "3b40c372cdf803d2037e56859c84560a32bf1d2b9adc4467fca7ccfb61a35de7"
+      "bytes": 17983,
+      "sha256": "1cf9ec44beb0657f657cb0544c8c4a94c3d0cc8275c70448a938cdaae81c3cab"
     },
     {
       "path": "contracts/generated/http-input.ts",
@@ -322,8 +322,8 @@
     },
     {
       "path": "VALIDATION.json",
-      "bytes": 2502,
-      "sha256": "ec63a31ee4a2bac9e5deba38039bb381a7c5e4df26f1114f4399f9275b43aac0"
+      "bytes": 2884,
+      "sha256": "e829c159a9dee7d93525ba67ff6fa3135c6689c0a7884a64e27f6d69302adb7c"
     }
   ],
   "file_count_excluding_manifest": 64,
@@ -331,7 +331,13 @@
   "current_openapi_sha256": "449e86e1aa895d78469a6943b19494d325d8a024bdb2a56b4bf89fcdc25b7fb8",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
-  "original_handoff_artifacts_unchanged": true,
+  "original_handoff_artifacts_unchanged": false,
   "new_api_implemented": false,
-  "historical_1261_tests_rerun": false
+  "historical_1261_tests_rerun": false,
+  "phase13a_type_compatibility_update": {
+    "updated_at_utc": "2026-10-11T04:55:07.081914+00:00",
+    "wire_or_schema_changes": false,
+    "original_handoff_artifacts_unchanged_at_initial_creation": true,
+    "current_handoff_type_compatibility_correction": true
+  }
 }

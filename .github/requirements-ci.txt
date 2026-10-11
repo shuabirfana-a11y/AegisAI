@@ -1,0 +1,18 @@
+# Portable unit/schema subset; versions match backend/requirements.txt.
+# Real local embedding/model downloads and database integration are outside this CI.
+alembic==1.20.0
+cvss==3.6
+fastapi==0.142.2
+httpx==0.28.1
+jsonschema==4.25.1
+packageurl-python==0.17.6
+packaging==26.3
+psycopg==3.3.6
+psycopg-binary==3.3.6
+pydantic==2.13.5
+pydantic_core==2.46.5
+pytest==9.1.1
+SQLAlchemy==2.0.54
+starlette==0.52.1
+pyyaml==6.0.3
+tzdata==2026.4

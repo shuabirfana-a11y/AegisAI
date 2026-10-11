@@ -1,0 +1,50 @@
+"""Run the documented portable baseline, refusing DB fixtures before execution."""
+import os
+import sys
+from pathlib import Path
+import pytest
+
+ROOT = Path(__file__).resolve().parents[2]
+TESTS = [
+    "tests/model_gateway", "tests/test_schema_contract.py", "tests/test_normalizers.py",
+    "tests/test_ingestion_units.py", "tests/test_phase7_rules.py",
+    "tests/runtime/test_contracts_plan.py", "tests/runtime/test_graph_states.py",
+    "tests/runtime/test_scheduler.py", "tests/agents/test_contracts_registry.py",
+    "tests/agents/test_artifacts.py", "tests/agents/test_router.py",
+    "tests/planner/test_schemas_registry.py", "tests/planner/test_validation.py",
+    "tests/integration/test_contracts.py", "tests/agents/investigation/test_planning.py",
+    "tests/agents/investigation/test_normalize.py", "tests/agents/verification/test_schemas.py",
+    "tests/agents/analysis/test_schemas.py", "tests/orchestration/test_contracts_scope.py",
+    "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
+]
+
+
+class NoDatabaseFixtures:
+    def pytest_collection_modifyitems(self, items):
+        blocked = [item.nodeid for item in items if
+                   {"engine", "db", "seed", "runtime_seed", "completed_chain"} &
+                   set(item.fixturenames)]
+        if blocked:
+            raise pytest.UsageError("Database-dependent tests entered the unit baseline: " +
+                                    ", ".join(blocked))
+
+
+def main():
+    for name in ("AEGIS_DATABASE_URL", "AEGIS_TEST_DATABASE_URL", "AEGIS_RUNTIME_TEST_DATABASE_URL",
+                 "MODEL_API_KEY", "MODEL_EMBEDDING_API_KEY", "MODEL_API_BASE"):
+        os.environ.pop(name, None)
+    os.environ.update(MODEL_PROVIDER="mock", MODEL_EMBEDDING_PROVIDER="mock",
+                      MODEL_NAME="mock-text-v1", MODEL_EMBEDDING_NAME="mock-embedding-v1",
+                      HF_HUB_OFFLINE="1", TRANSFORMERS_OFFLINE="1")
+    (ROOT / "work").mkdir(exist_ok=True)
+    os.chdir(ROOT / "backend")
+    sys.path.insert(0, str(ROOT / "backend"))
+    print("Portable unit baseline; no DB credentials or real model calls. "
+          "Cached-real-embedding test is excluded explicitly.")
+    return pytest.main(["-q", *TESTS, "-k",
+                       "not test_cached_real_local_embedding_through_gateway"],
+                       plugins=[NoDatabaseFixtures()])
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
