@@ -1,0 +1,71 @@
+{
+  "phase": "12D.1",
+  "selected_config_status": "PASSED_FIXED_PLANNER_AND_BOUNDED_OVERVIEW",
+  "security_accuracy_evaluated": false,
+  "selected_model": "aegisai-qwen25-planner:latest",
+  "planner_runs": 20,
+  "planner_valid": 20,
+  "http_runs": 3,
+  "http_accepted": 2,
+  "comparison_model_valid": 0,
+  "tests": {
+    "broad_backend_v3": {
+      "passed": 891,
+      "failed": 0,
+      "warnings": 23
+    },
+    "final_portable": {
+      "passed": 502,
+      "failed": 0,
+      "deselected": 1,
+      "reason": "cached real embedding explicitly excluded"
+    },
+    "final_targeted_postgresql_synthetic_tcp": {
+      "passed": 59,
+      "failed": 0
+    },
+    "new_protocol_tests": 39,
+    "engineering": {
+      "passed": 18,
+      "failed": 0
+    },
+    "frontend": {
+      "passed": 23,
+      "failed": 0
+    },
+    "javascript_syntax_files": 17,
+    "typescript_contracts": "PASS",
+    "http_schema_operations": 42,
+    "investigation_export_files": 10
+  },
+  "counts_overlap": true,
+  "review": {
+    "critical": 0,
+    "important": 4,
+    "important_fixed": 4,
+    "minor": 0,
+    "fix_passes": 1,
+    "re_reviews": 0
+  },
+  "source_guard": "PASS: historical baseline unchanged, independent four-file Phase12D1 exceptions",
+  "receipt_recapture": {
+    "logical_runs": 126,
+    "inference_reissued": 0
+  },
+  "raw_output_exported": false,
+  "public_redaction": "existing public_copy reused",
+  "limitations": [
+    "Qwen3.5 planner unsupported at current configuration",
+    "component/asset HTTP gate FAILED",
+    "three fixed questions, one CVE",
+    "mock embedding",
+    "no approved Ground Truth",
+    "not a formal AegisBench experiment",
+    "no public deployment"
+  ],
+  "artifacts": {
+    "stability.json": "8491abd94f2292d9879edb6b84246d540967af7f636336c44213acccc7dc0e8b",
+    "baseline-cohorts.json": "bdd67552a75b48bf2a061f6872253d74a3fa97f986a43305a89b0ca0475cfd02",
+    "http-chain-receipts.json": "4b7ef3cb91d7d587f53e064f92234d4b5cc21d55988d81202f0ec134f3f2b98c"
+  }
+}

@@ -50,3 +50,21 @@ def test_planner_repetition_persists_original_audit_without_executing_runtime(en
                 m.AgentRun.actor_principal==seed.actor,m.AgentRun.agent_type=='runtime-v1')) == 0
     finally:
         gateway.close()
+
+
+def test_actual_store_finalizes_interrupted_synthetic_planner(engine, monkeypatch):
+    import pytest
+    seed, request, gateway, _, _ = scenario(engine)
+    case=bound_case(seed,request)
+    case['request']=case['request'].model_dump(mode='json')
+    def interrupted(*args,**kwargs):raise KeyboardInterrupt()
+    monkeypatch.setattr(gateway.text_provider,'generate_structured',interrupted)
+    receipt={}
+    try:
+        with pytest.raises(KeyboardInterrupt):
+            run_planner_case(engine,gateway,seed.actor,case,receipt=receipt)
+        audit=PlannerTraceStore(engine).read(receipt['planner_run_id'],seed.actor)
+        assert audit.validation_status=='PLANNING_FAILED' and audit.runtime_run_id is None
+        assert audit.error[0].code=='PROBE_INTERRUPTED'
+        assert receipt['audit_cleanup_complete'] and not receipt['attempt_accounting_complete']
+    finally:gateway.close()

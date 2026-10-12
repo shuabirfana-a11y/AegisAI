@@ -25,11 +25,14 @@ from app.db.session import make_engine
 from app.investigation_api.schemas import (
     InvestigationCreateRequest, TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse,
 )
+from app.investigation_api.projection import public_copy
 from app.llm.config import ModelConfig
 from app.llm.gateway import ModelGateway
 from app.llm.schemas import strict_json
 from app.main import create_app
 from app.planner.trace import PlannerTraceStore
+from app.planner.schemas import PlanningOutcome
+from app.planner.llm_planner import issue
 from app.planner.context import build_context
 from app.orchestration.scope import resolve_scope
 from app.runtime.contracts import RuntimePolicy
@@ -77,6 +80,7 @@ def summarize(receipts):
         return sum(bool(predicate(x)) for x in items) / len(items) if items else None
     return {
         'logical_runs': len(receipts), 'provider_attempts': len(attempts), 'full_chain_attempts':len(chains),
+        'provider_attempt_accounting_complete':all(r.get('attempt_accounting_complete',True) for r in receipts),
         'attempts': {
             'json_success_rate': rate(attempts, lambda a: a['json_valid']),
             'schema_pass_rate': rate(attempts, lambda a: a['schema_valid']),
@@ -97,9 +101,23 @@ def summarize(receipts):
     }
 
 
-def run_planner_case(engine, gateway, actor, case):
+def public_plan_tasks(plan):
+    return public_copy([{'task_id':t['task_id'],'type':t['type'],
+        'task_type':t.get('task_type','tool_sequence'),'dependencies':t.get('dependencies',[]),
+        'tools':[s['name'] for s in t['input_data'].get('steps',[])]} for t in (plan or {}).get('tasks',[])])
+
+
+def initial_receipt(case, *, chain):
+    return {'case_id':case['case_id'],'elapsed_ms':0.,'attempts':[], 'error_codes':[],
+        'measurement_status':'RUNNING','planner_validated':False,'real_mode_confirmed':False,
+        'chain_attempted':chain,'full_chain_executed':False,'gate_accepted':False,
+        'attempt_accounting_complete':False}
+
+
+def run_planner_case(engine, gateway, actor, case, *, receipt=None, on_progress=None):
     """Same scope, Planner adapter and persistence as HTTP; no Runtime execution here."""
     started = time.monotonic()
+    receipt = initial_receipt(case,chain=False) if receipt is None else receipt
     request = InvestigationCreateRequest.model_validate(case['request']).model_copy(
         update={'idempotency_key':'phase12d1-plan-'+uuid4().hex})
     input = resolve_scope(request.to_internal(),actor=actor).planner_input
@@ -110,41 +128,72 @@ def run_planner_case(engine, gateway, actor, case):
         prompt_version=planner.prompt_version,registry_version=planner.registry_version)
     if not fresh:
         raise RuntimeError('PROBE_PLANNER_ID_REUSED')
+    receipt.update(planner_run_id=str(saved.planner_run_id),measurement_status='RUNNING')
+    if on_progress:on_progress()
     context = build_context(input,actor,policy,saved.planner_run_id,saved.trace_id)
-    outcome = planner.plan(input,context)
-    store.complete(saved.planner_run_id,actor,outcome)
+    try:
+        outcome = planner.plan(input,context)
+        store.complete(saved.planner_run_id,actor,outcome)
+    except BaseException as exc:
+        # Only this owned standalone audit is finalized. No Runtime has been started.
+        interrupted=isinstance(exc,KeyboardInterrupt)
+        receipt.update(measurement_status='INTERRUPTED' if interrupted else 'FAILED',
+            error_codes=['PROBE_INTERRUPTED' if interrupted else 'PROBE_EXECUTION_FAILED'],
+            attempt_accounting_complete=False,elapsed_ms=round((time.monotonic()-started)*1000,3))
+        try:
+            audit=store.read(saved.planner_run_id,actor)
+            receipt['attempts']=[classify_attempt(a.model_dump(mode='json')) for a in audit.attempts]
+            store.complete(saved.planner_run_id,actor,PlanningOutcome(status='PLANNING_FAILED',
+                issues=(issue(receipt['error_codes'][0]),),attempts=tuple(audit.attempts)))
+            receipt['audit_cleanup_complete']=True
+        except Exception:
+            receipt['audit_cleanup_complete']=False
+        if on_progress:on_progress()
+        raise
     audit = store.read(saved.planner_run_id,actor)
     attempts = [classify_attempt(a.model_dump(mode='json')) for a in audit.attempts]
-    tasks = (audit.generated_plan or {}).get('tasks',[])
-    return {
+    receipt.update({
         'case_id':case['case_id'],'checked_at_utc':datetime.now(timezone.utc).isoformat(),
         'transport':'INTERNAL_PRODUCTION_PLANNER','data_origin':case.get('data_origin','REAL_SOURCE'),
         'benchmark':False,'planner_run_id':str(audit.planner_run_id),'prompt_version':audit.prompt_version,
         'attempts':attempts,'planner_validated':audit.validation_status=='VALIDATED',
         'real_mode_confirmed':bool(attempts and all(a['is_mock'] is False for a in attempts)),
         'chain_attempted':False,'full_chain_executed':False,'gate_accepted':False,
+        'measurement_status':'COMPLETED','attempt_accounting_complete':True,
         'elapsed_ms':round((time.monotonic()-started)*1000,3),
         'error_codes':[i.code for i in audit.error],
-        'plan_tasks':[{'task_id':t['task_id'],'type':t['type'],
-            'task_type':t.get('task_type','tool_sequence'),'dependencies':t.get('dependencies',[]),
-            'tools':[s['name'] for s in t['input_data'].get('steps',[])]} for t in tasks],
-    }
+        'plan_tasks':public_plan_tasks(audit.generated_plan),
+    })
+    return receipt
 
 
-def run_stability_case(client, case, audit_reader):
+def capture_owned_audit(receipt, trace, audit_reader):
+    if not trace.planner:
+        receipt['attempt_accounting_complete']=False
+        return
+    audit=audit_reader(trace.planner.planner_run_id)
+    receipt.update(planner_run_id=str(trace.planner.planner_run_id),prompt_version=trace.planner.prompt_version,
+        planner_validated=trace.planner.validation_status=='VALIDATED',
+        attempts=[classify_attempt(a.model_dump(mode='json')) for a in audit.attempts],
+        plan_tasks=public_plan_tasks(audit.generated_plan),
+        attempt_accounting_complete=audit.validation_status!='PLANNING')
+
+
+def run_stability_case(client, case, audit_reader, *, receipt=None, on_progress=None):
     started = time.monotonic()
     request = InvestigationCreateRequest.model_validate(case['request'])
     # Every repeat creates a new model run, never an idempotently reused success.
     request = request.model_copy(update={'idempotency_key': 'phase12d1-' + uuid4().hex})
     bound = {**case, 'request': request, 'data_origin': case.get('data_origin','REAL_SOURCE'), 'requested_mode': 'REAL'}
-    receipt = {
+    receipt = initial_receipt(case,chain=True) if receipt is None else receipt
+    receipt.update({
         'case_id': case['case_id'], 'checked_at_utc': datetime.now(timezone.utc).isoformat(),
         'data_origin': case.get('data_origin', 'REAL_SOURCE'), 'transport': 'LOOPBACK_HTTP',
         'benchmark': False, 'attempts': [], 'planner_validated': False,
         'chain_attempted': True,
         'real_mode_confirmed': False, 'full_chain_executed': False, 'gate_accepted': False,
         'answer_frozen_read_verified': False, 'error_code': None,
-    }
+    })
     try:
         probe = run_probe(client, bound, timeout_seconds=120, poll_interval=.4, requested_mode='REAL')
         receipt['http_probe'] = probe
@@ -153,25 +202,25 @@ def run_stability_case(client, case, audit_reader):
         if not id:
             return receipt
         receipt['investigation_id'] = id
+        if on_progress:on_progress()
         prefix = '/api/investigations/' + id
         if probe.get('error_code') == 'PROBE_POLL_TIMEOUT':
             # This logical run was just created by this audit, never another user's work.
             client.post(prefix + '/cancel', json={})
+            # Bounded read of this run only; missing audit is an incomplete count.
+            try:
+                saved=client.get(prefix+'/trace')
+                if saved.is_success:
+                    capture_owned_audit(receipt,TraceResponse.model_validate(saved.json()),audit_reader)
+            except Exception:
+                receipt['attempt_accounting_complete']=False
+            receipt['measurement_status']='TIMED_OUT'
             return receipt
         raw_trace = client.get(prefix + '/trace')
         if not raw_trace.is_success:
             return receipt
         trace = TraceResponse.model_validate(raw_trace.json())
-        if trace.planner:
-            audit = audit_reader(trace.planner.planner_run_id)
-            receipt['planner_run_id'] = str(trace.planner.planner_run_id)
-            receipt['prompt_version'] = trace.planner.prompt_version
-            receipt['planner_validated'] = trace.planner.validation_status == 'VALIDATED'
-            receipt['attempts'] = [classify_attempt(a.model_dump(mode='json')) for a in audit.attempts]
-            tasks = (audit.generated_plan or {}).get('tasks', [])
-            receipt['plan_tasks'] = [{'task_id':t['task_id'], 'type':t['type'],
-                'task_type':t.get('task_type','tool_sequence'), 'dependencies':t.get('dependencies',[]),
-                'tools':[s['name'] for s in t['input_data'].get('steps',[])]} for t in tasks]
+        capture_owned_audit(receipt,trace,audit_reader)
         receipt['real_mode_confirmed'] = bool(trace.model_execution
             and trace.model_execution.execution_mode == 'REAL'
             and trace.model_execution.source == 'PERSISTED_PLANNER_CALL'
@@ -202,9 +251,11 @@ def run_stability_case(client, case, audit_reader):
             receipt['answer_read_extra_planner_calls'] = after-before
         receipt['gate_accepted'] = bool(probe.get('chain_verified') and receipt['real_mode_confirmed']
             and receipt['full_chain_executed'] and receipt['answer_frozen_read_verified'])
+        receipt['measurement_status']='COMPLETED'
         return receipt
     except (httpx.HTTPError, ValueError, TypeError):
         receipt['error_code'] = 'PROBE_PROTOCOL_FAILED'
+        receipt['measurement_status']='FAILED'
         return receipt
     finally:
         receipt['elapsed_ms'] = round((time.monotonic()-started)*1000,3)
@@ -258,61 +309,95 @@ def main():
     parser.add_argument('--planner-timeout-seconds',type=float,default=20,
         help='Per-provider timeout for --planner-stability after explicit model prewarm')
     args = parser.parse_args()
-    cases = json.loads(args.cases.read_text(encoding='utf-8'))['cases']
-    sequence = case_sequence(cases)
-    token = secrets.token_urlsafe(32)
-    os.environ['AEGIS_ASSET_TOKEN'] = token
-    actor = 'phase12d1-stability-' + uuid4().hex
-    os.environ['AEGIS_ASSET_OWNER'] = actor
-    engine = make_engine()
     output = {'started_at_utc':datetime.now(timezone.utc).isoformat(), 'models':[],
+              'status':'RUNNING','report_version':'phase12d1-probe-v2',
               'benchmark':False, 'security_accuracy_evaluated':False}
     args.output.parent.mkdir(parents=True,exist_ok=True)
     def save():
-        args.output.write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+        for entry in output['models']:
+            entry['summary']=summarize(entry['receipts'])
+            if 'planner_receipts' in entry:
+                entry['planner_summary']=summarize(entry['planner_receipts'])
+        temporary=args.output.with_name(args.output.name+'.tmp')
+        temporary.write_text(json.dumps(public_copy(output),ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+        temporary.replace(args.output)
+    # Replace stale success before any fallible setup/configuration/prewarm.
+    save()
+    engine=None;active=None;active_started=None
+    original={k:os.environ.get(k) for k in ('AEGIS_ASSET_TOKEN','AEGIS_ASSET_OWNER')}
     try:
+        cases = json.loads(args.cases.read_text(encoding='utf-8'))['cases']
+        sequence = case_sequence(cases)
+        token = secrets.token_urlsafe(32)
+        os.environ['AEGIS_ASSET_TOKEN'] = token
+        actor = 'phase12d1-stability-' + uuid4().hex
+        os.environ['AEGIS_ASSET_OWNER'] = actor
+        engine = make_engine()
         for name in args.model:
+            entry={'receipts':[],'measurement_status':'CONFIGURING'}
+            output['models'].append(entry);save()
             model_env = {**os.environ,'MODEL_NAME':name}
             if args.planner_stability:
                 model_env['MODEL_TIMEOUT_SECONDS'] = str(args.planner_timeout_seconds)
             cfg = ModelConfig.from_env(model_env)
             if cfg.provider=='mock':
                 raise ValueError('REAL_PROVIDER_REQUIRED')
+            entry.update(provider=cfg.provider,model=cfg.model,structured_mode=cfg.structured_mode,
+                reasoning_effort=cfg.reasoning_effort,temperature=0.0,
+                timeout_seconds=cfg.timeout_seconds,max_output_tokens=cfg.max_output_tokens)
+            save()
             # Empty stdin preloads existing weights, not a supplied plan or answer.
             if args.ollama_executable:
                 prewarm_model(args.ollama_executable,name)
             gateway = ModelGateway(cfg)
-            entry = {'provider':cfg.provider,'model':name,'structured_mode':cfg.structured_mode,
-                'reasoning_effort':cfg.reasoning_effort,'temperature':0.0,
-                'timeout_seconds':cfg.timeout_seconds,'max_output_tokens':cfg.max_output_tokens,
-                'receipts':[]}
-            output['models'].append(entry);save()
+            entry['measurement_status']='RUNNING';save()
             try:
                 http_cases = sequence
                 if args.planner_stability:
                     entry['planner_receipts'] = []
                     for index,case in enumerate(sequence,1):
-                        receipt = run_planner_case(engine,gateway,actor,case)
-                        entry['planner_receipts'].append(receipt)
-                        entry['planner_summary'] = summarize(entry['planner_receipts']);save()
-                        print(json.dumps({'model':name,'planner_run':index,'case':case['case_id'],
+                        active=initial_receipt(case,chain=False);active_started=time.monotonic()
+                        entry['planner_receipts'].append(active);save()
+                        receipt = run_planner_case(engine,gateway,actor,case,receipt=active,on_progress=save)
+                        active.update(receipt);active['measurement_status']='COMPLETED';save()
+                        print(json.dumps(public_copy({'model':name,'planner_run':index,'case':case['case_id'],
                             'plan_valid':receipt['planner_validated'],'errors':receipt['error_codes'],
-                            'elapsed_ms':receipt['elapsed_ms']}),flush=True)
+                            'elapsed_ms':receipt['elapsed_ms']})),flush=True)
+                        active=None
                     http_cases = cases
                 with owned_http_client(create_app(engine,investigation_gateway=gateway),token) as client:
                     read = lambda id: PlannerTraceStore(engine).read(id,actor)
                     for index,case in enumerate(http_cases,1):
-                        receipt = run_stability_case(client,case,read)
-                        entry['receipts'].append(receipt)
-                        entry['summary'] = summarize(entry['receipts']);save()
-                        print(json.dumps({'model':name,'run':index,'case':case['case_id'],
+                        active=initial_receipt(case,chain=True);active_started=time.monotonic()
+                        entry['receipts'].append(active);save()
+                        receipt = run_stability_case(client,case,read,receipt=active,on_progress=save)
+                        active.update(receipt);save()
+                        print(json.dumps(public_copy({'model':name,'run':index,'case':case['case_id'],
                             'plan_valid':receipt['planner_validated'],'gate':receipt.get('integration_status'),
-                            'error':receipt['error_code'],'elapsed_ms':receipt['elapsed_ms']}),flush=True)
+                            'error':receipt['error_code'],'elapsed_ms':receipt['elapsed_ms']})),flush=True)
+                        active=None
+                entry['measurement_status']='COMPLETED'
             finally:
                 gateway.close()
+        output['status']='COMPLETED'
         output['finished_at_utc'] = datetime.now(timezone.utc).isoformat();save()
+    except BaseException as exc:
+        interrupted=isinstance(exc,KeyboardInterrupt)
+        output['status']='INTERRUPTED' if interrupted else 'FAILED'
+        known={'MODEL_NOT_INSTALLED','MODEL_PREWARM_FAILED','REAL_PROVIDER_REQUIRED','PROBE_PLANNER_ID_REUSED'}
+        output['error_code']='PROBE_INTERRUPTED' if interrupted else str(exc) if str(exc) in known else 'PROBE_EXECUTION_FAILED'
+        if active is not None:
+            active.update(measurement_status=output['status'],planner_validated=False,gate_accepted=False,
+                attempt_accounting_complete=False,error_codes=[output['error_code']],
+                elapsed_ms=round((time.monotonic()-active_started)*1000,3))
+        if output['models']:output['models'][-1]['measurement_status']=output['status']
+        output['finished_at_utc']=datetime.now(timezone.utc).isoformat();save()
+        raise
     finally:
-        engine.dispose()
+        if engine is not None:engine.dispose()
+        for key,value in original.items():
+            if value is None:os.environ.pop(key,None)
+            else:os.environ[key]=value
 
 
 if __name__=='__main__':

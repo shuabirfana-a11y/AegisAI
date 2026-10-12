@@ -32,4 +32,4 @@ $phase12d1Ollama = Join-Path $env:LOCALAPPDATA 'AegisAI/ollama-runtime/v0.40.3/o
 
 前端仍调用已有八个调查接口。以Trace的 `model_execution.execution_mode=REAL` 和 `source=PERSISTED_PLANNER_CALL` 确认实际模式；创建响应声明不足以证明模型已经执行。Gate只把 `PASS` / `PASS_WITH_WARNINGS` 算作验收通过。`FAILED`、`REPLAN_REQUIRED`、人工复核或缺证据结果应照实显示。
 
-结果、调用分母和当前限制以项目根目录 `PHASE_12D1_RESULT.md` 及 `docs/phase12d1/` 回执为准。该报告未完成前，此配置仍是待验收配置。
+结果、调用分母和当前限制以项目根目录 `PHASE_12D1_RESULT.md` 及 `docs/phase12d1/` 回执为准。Qwen2.5最终20/20合法计划、两次概览HTTP验收通过；Qwen3.5 0/20，版本/资产场景Gate失败，保留这些限制。
