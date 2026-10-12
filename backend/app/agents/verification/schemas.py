@@ -5,6 +5,7 @@ from uuid import UUID
 from pydantic import AwareDatetime, Field, StrictBool, model_validator
 from app.runtime.contracts import FrozenModel, TaskId, TaskState, ARTIFACT_LIMIT, json_bytes
 from app.enrichment.contracts import ClaimType, VerificationStatus
+from app.agents.asset_observations import InvestigationArtifactReference, VersionObservation, ImpactVersionEvidence
 
 RULES_VERSION = 'verification-rules-v1'
 SNAPSHOT_LIMIT = 2 * 1024 * 1024
@@ -38,9 +39,17 @@ class VerificationRequest(Bounded):
     claim_ids: tuple[Identifier, ...] = Field(default=(), max_length=32)
     request_key: str = Field(min_length=1, max_length=150)
     model_assistance: StrictBool = False
+    supporting_artifacts: tuple[InvestigationArtifactReference,...] = Field(default=(),max_length=16,exclude_if=lambda v:not v)
+    asset_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
+    component_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
 
     @model_validator(mode='after')
     def unique_selection(self):
+        if self.component_id is not None and self.asset_id is None:
+            raise ValueError('Component observation requires asset scope')
+        refs=[(r.run_id,r.task_id,r.artifact_id) for r in self.supporting_artifacts]
+        if len(set(refs))!=len(refs) or any(r.run_id!=self.source_run_id for r in self.supporting_artifacts):
+            raise ValueError('Supporting artifacts must be unique and in the source run')
         if len(set(self.claim_ids)) != len(self.claim_ids):
             raise ValueError('Duplicate claim selection')
         if self.task_type == 'claim_validation' and not self.claim_ids:
@@ -114,6 +123,8 @@ class VerificationSourceSnapshot(Bounded):
     warnings: tuple[str, ...] = ()
     unresolved_items: tuple[str, ...] = ()
     parent_planner_run_id: str | None = None
+    version_observations: tuple[VersionObservation,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
+    impact_version_evidence: tuple[ImpactVersionEvidence,...] = Field(default=(),max_length=128,exclude_if=lambda v:not v)
 
 
 class VerificationContext(Bounded):
@@ -172,6 +183,8 @@ class VerificationAssessment(Bounded):
     model_calls: tuple[dict[str, Any], ...] = ()
     model_hints: tuple[dict[str, Any], ...] = ()
     rules_version: Literal['verification-rules-v1'] = RULES_VERSION
+    version_observations: tuple[VersionObservation,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
+    impact_version_evidence: tuple[ImpactVersionEvidence,...] = Field(default=(),max_length=128,exclude_if=lambda v:not v)
 
 
 class VerificationArtifact(VerificationAssessment):

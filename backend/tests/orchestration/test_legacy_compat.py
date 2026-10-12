@@ -63,9 +63,19 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     planner_changes=json.loads((root/'docs/phase12d1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     assert set(planner_changes)=={'backend/app/agents/investigation/planner.py','backend/app/agents/investigation/planning.py',
                                  'backend/app/agents/investigation/roles.py','backend/tests/agents/investigation/test_planning.py'}
+    asset_changes=json.loads((root/'docs/phase12d3/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(asset_changes)=={'backend/app/agents/analysis/schemas.py','backend/app/agents/analysis/snapshot.py',
+        'backend/app/agents/verification/schemas.py','backend/app/agents/verification/snapshot.py',
+        'backend/app/agents/verification/reader.py','backend/app/tooling/analysis.py','backend/app/tooling/verification.py'}
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in asset_changes:
+            entry=asset_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['authorization']=='PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in planner_changes:
             entry=planner_changes[path]
             assert entry['baseline_sha256']==digest,path

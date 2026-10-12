@@ -1,0 +1,25 @@
+{
+  "database_kind": "ISOLATED_REAL_OFFICIAL_SOURCE_SNAPSHOT_WITH_DEMO_INVENTORY",
+  "source_url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-hjq4-87xh-g4fv",
+  "raw_document_id": "edf76536-3f1d-4c93-913c-a38b9e2ba4b7",
+  "observation_id": "dd7298af-339d-44a5-a243-b214f00d0f33",
+  "retrieved_at": "2026-10-12T11:26:14.999943+00:00",
+  "asset_id": "05f073ce-83df-4487-891b-76c46ca96746",
+  "component_id": "7afbc8d2-66dc-4a09-b60d-2bec50b85975",
+  "is_demo": true,
+  "benchmark": false,
+  "source_scope": "Only the selected official vendor advisory; no exclusion or modification of legacy DB claims",
+  "target": "CVE-2025-47277",
+  "affected_range": {
+    "package": "vllm",
+    "ecosystem": "PyPI",
+    "range": ">=0.6.5,<0.8.5",
+    "parse_status": "parsed"
+  },
+  "severity": {
+    "version": "3.1",
+    "score": 9.8,
+    "severity": "critical",
+    "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+  }
+}

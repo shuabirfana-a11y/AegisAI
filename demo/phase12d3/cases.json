@@ -1,0 +1,18 @@
+{
+  "benchmark": false,
+  "notes": "独立真实官方来源快照库，显式演示库存；不修改旧库、不预设核验/Gate结果。模型和提示词保持 Phase12D.1，沿用 Phase12D.2 的40秒调用预算。",
+  "cases": [{
+    "case_id": "real-asset-risk-official-vllm",
+    "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+    "request": {
+      "user_query": "对指定资产中的 vLLM 0.6.5 开展 CVE-2025-47277 风险分析和优先级调查，查询漏洞、资产库存、组件版本和证据；未确认项保持未知。",
+      "asset_scope": {
+        "asset_id": "05f073ce-83df-4487-891b-76c46ca96746",
+        "component_id": "7afbc8d2-66dc-4a09-b60d-2bec50b85975",
+        "target": "CVE-2025-47277",
+        "component": {"name": "vllm", "ecosystem": "PyPI", "package_name": "vllm", "version": "0.6.5"}
+      },
+      "options": {"objective_profile": "asset_risk_v1"}
+    }
+  }]
+}

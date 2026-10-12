@@ -124,7 +124,35 @@ class AnalysisSnapshotReader:
         except (ValueError,TypeError,KeyError,LookupError,StopIteration,AttributeError):
             raise AgentFrameworkError('INVALID_INPUT_ARTIFACT') from None
         with transaction(self.engine) as db:
-            asset=self._asset(db,request,source.claims,actor,evaluation_time)
+            if sealed.request.asset_id is not None:
+                # Ownership is checked now; the version/exposure remains the original
+                # Tool Gateway observation, not a fresh inventory replacement.
+                owned_asset(db,request.asset_id,actor)
+                if sealed.request.asset_id!=request.asset_id:raise ValueError('ASSET_OBSERVATION_SCOPE_MISMATCH')
+                observations=source.version_observations
+                if len(observations)!=1:
+                    asset=AssetContextSnapshot(asset_id=request.asset_id,component_id=request.component_id,
+                        captured_at=evaluation_time,unresolved_items=('ASSET_VERSION_OBSERVATION_MISSING_OR_AMBIGUOUS',))
+                else:
+                    obs=observations[0]
+                    if obs.asset_id!=request.asset_id or request.component_id and obs.component_id!=request.component_id:
+                        raise ValueError('ASSET_OBSERVATION_SCOPE_MISMATCH')
+                    record=db.get(m.ToolCallRecord,obs.receipt_id)
+                    if record is None or record.agent_run_id!=investigation.run_id or fingerprint(record.output_summary)!=obs.receipt_hash:
+                        raise ValueError('ASSET_OBSERVATION_RECEIPT_CHANGED')
+                    # Validate exact package identity through the existing resolver.
+                    resolved=resolve_component(db,{'name':obs.component,'package_identifier_id':obs.package_identifier_id,
+                        'package_name':obs.package_name,'ecosystem':obs.ecosystem,'namespace':obs.namespace,
+                        'purl':obs.purl,'version':obs.version})
+                    valid=resolved['status']=='RESOLVED'
+                    asset=AssetContextSnapshot(asset_id=obs.asset_id,component_id=obs.component_id,asset_name=obs.asset_name,
+                        component=obs.component,package_identifier_id=str(resolved['package_identifier_id']) if valid else None,
+                        package_name=resolved['package_name'] if valid else None,ecosystem=resolved['ecosystem'],namespace=resolved['namespace'],
+                        purl=obs.purl,deployed_version=obs.version,inventory_revision=obs.inventory_revision,
+                        asset_updated_at=obs.asset_updated_at,component_updated_at=obs.component_updated_at,captured_at=obs.created_at,
+                        environment=obs.environment,exposure=obs.exposure,is_demo=obs.is_demo,version_observation_id=obs.id,
+                        context_status='RESOLVED' if valid else 'UNRESOLVED',unresolved_items=() if valid else ('COMPONENT_IDENTITY_UNRESOLVED',))
+            else:asset=self._asset(db,request,source.claims,actor,evaluation_time)
         values=dict(investigation=investigation,verification=verification,asset=asset,
             source_claims=source.claims,source_verification_task=sealed.request.task_type,
             source_snapshot_hash=sealed.source_snapshot_hash,receipt_references=tuple(refs),

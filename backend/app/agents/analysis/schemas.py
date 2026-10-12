@@ -54,6 +54,8 @@ class AssetContextSnapshot(Bounded):
     context_status: Literal['RESOLVED','MISSING','AMBIGUOUS','UNRESOLVED','LIMITED'] = 'MISSING'
     unresolved_items: tuple[str,...] = ()
     provenance: Literal['USER_INVENTORY_NOT_SCANNED'] = 'USER_INVENTORY_NOT_SCANNED'
+    asset_name: str | None = Field(None,max_length=200,exclude_if=lambda v:v is None)
+    version_observation_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
 
 
 class AnalysisInputs(Bounded):

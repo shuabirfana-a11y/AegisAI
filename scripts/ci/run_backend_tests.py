@@ -24,6 +24,8 @@ TESTS = [
     "tests/investigation_api/test_planner_stability.py",
     "tests/investigation_api/test_stability_failures.py",
     "tests/investigation_api/test_failure_diagnostics.py",
+    "tests/orchestration/test_asset_handoff.py", "tests/orchestration/test_impact_input.py",
+    "tests/orchestration/test_asset_nonimpact.py", "tests/orchestration/test_observation_proof.py",
 ]
 
 
