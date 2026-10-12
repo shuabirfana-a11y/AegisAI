@@ -1,0 +1,67 @@
+{
+  "schema_version": "phase12d2-failure-v1",
+  "benchmark": false,
+  "security_accuracy_evaluated": false,
+  "id": "980b59a6-0bc7-45b5-8e6c-34638b8c3670",
+  "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
+  "model": "aegisai-qwen25-planner:latest",
+  "execution_mode": "REAL",
+  "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+  "failed_stage": "PLANNING",
+  "gate_executed": false,
+  "gate_status": null,
+  "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+  "classification": "PLANNER_OUTPUT_OR_PROVIDER",
+  "missing_information": [
+    "validated plan before downstream business diagnosis"
+  ],
+  "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+  "planner_run_id": "93126404-8f3b-40a8-9c22-f3b96e43115f",
+  "integration_id": null,
+  "planner_validation": "PLANNING_FAILED",
+  "planner_error_codes": [
+    "COMPONENT_SCOPE_MISMATCH"
+  ],
+  "chain_error_code": "PLANNING_FAILED",
+  "upstream_unresolved_items": [],
+  "run_ids": {
+    "investigation": null,
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 0,
+    "verification": 0,
+    "analysis": 0
+  },
+  "objective": {
+    "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
+    "targets": [
+      "CVE-2026-9540"
+    ],
+    "asset_id": null,
+    "component_id": null,
+    "package_name": null,
+    "version": null,
+    "required_outcomes": [
+      "identity",
+      "overview"
+    ],
+    "window_days": null,
+    "requires_current": false,
+    "scope_gaps": []
+  },
+  "plan_tasks": [],
+  "gate_rules": [],
+  "asset_snapshot": {},
+  "artifact_states": [],
+  "verification": {},
+  "analysis": null,
+  "version_observation_handoff": {
+    "selected_artifact_id": null,
+    "selected_has_version": false,
+    "observed_artifact_ids": []
+  },
+  "recorded_source_conflict_count": 0,
+  "verified_conflict_count": 0
+}

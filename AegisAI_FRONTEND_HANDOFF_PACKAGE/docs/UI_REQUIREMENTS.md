@@ -21,7 +21,7 @@
 | 漏洞详情 `/vulnerabilities/{id}` | 漏洞身份、来源断言、版本范围、CVSS/CWE、候选 PoC/Patch、Claims、Evidence、冲突、时间线 | 详情聚合及六个分页子资源 | 派生证据 ID 未必可走 evidence UUID 接口；未知与冲突需显式展示 |
 | 资产风险 `/assets` | 资产/组件版本、匹配状态、风险快照、依据与处置入口 | assets、overview、risks、历史快照/变更读取 | 写入/版本修改/SBOM/重算被代理拦截；专业 RiskArtifact 不在此 HTTP 返回中 |
 | 证据复核 `/reviews` | 复核队列、Claim、支持/反对证据、理由和审计 | reviews 及详情；资产专用 reviews 需权限 | resolve 后端存在但被代理拦截；无 GET claims/{id} |
-| 智能调查 `/assistant` | 输入范围、阶段进度、专业 Agent 链、证据、Gate、可信答案、取消/历史 | 旧问答可接；完整调查先用 Mock | Phase 11-D 全链 API_NOT_EXPOSED；不能用旧 result.answer 冒充 AnswerEnvelope |
+| 智能调查 `/assistant` | 输入范围、阶段进度、专业 Agent 链、证据、Gate、可信答案、取消/历史 | 新调查八操作可接；Mock须明确标记 | Phase 11-D 八个HTTP操作已开放；默认Mock规划失败，不能用旧 result.answer 冒充 AnswerEnvelope |
 | 系统状态 `/system` | health、源状态、同步历史、失败摘要 | health、sources、sync-runs | CPU/内存/模型用量遥测、实时推送、主动重试入口未提供 |
 
 ## 漏洞中心与详情

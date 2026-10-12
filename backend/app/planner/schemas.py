@@ -1,10 +1,11 @@
 """Candidates carry intent; only validated immutable snapshots reach Runtime."""
 import json
-from typing import Literal
+from copy import deepcopy
+from typing import Any, Literal
 from uuid import UUID
 from pydantic import ConfigDict, Field, model_validator
 from app.assistant.contracts import QueryRequest
-from app.runtime.contracts import FrozenModel, TaskContract, RuntimePolicy, json_bytes
+from app.runtime.contracts import FrozenModel, TaskContract, TaskInput, RuntimePolicy, json_bytes
 from app.tooling.contracts import ResolutionInput
 
 PlannerType = Literal['vulnerability_lookup', 'version_match', 'evidence_search',
@@ -24,10 +25,39 @@ class PlannerInput(FrozenModel):
     snapshot_id: UUID | None = None
     component: ResolutionInput | None = None
 
+def _task_input_schema():
+    schema = TaskInput.model_json_schema()
+    step_schema = schema.pop('$defs')['ToolStep']
+    schema['properties']['steps']['items'] = step_schema
+    return schema
+
+
+def _task_contract_schema(schema):
+    # Describe the structural conditions already enforced by TaskContract.valid_payload.
+    # Do not change its validator, defaults, permissions, or execution behavior.
+    # Complete branches also support decoders that ignore siblings of anyOf.
+    tool, missing = deepcopy(schema), deepcopy(schema)
+    for branch, kind, input_field in ((tool, 'tool_sequence', 'steps'),
+                                      (missing, 'input_required', 'required_fields')):
+        branch['properties']['task_type'] = {'type': 'string', 'const': kind}
+        branch['properties']['input_data']['required'] = [input_field]
+    tool['required'] = list(dict.fromkeys(tool['required'] + ['allowed_tools']))
+    tool['properties']['allowed_tools']['minItems'] = 1
+    tool['properties']['input_data']['properties']['steps']['minItems'] = 1
+    tool['properties']['input_data']['properties']['required_fields']['maxItems'] = 0
+    missing['required'] = list(dict.fromkeys(missing['required'] + ['task_type', 'max_tool_calls']))
+    missing['properties']['allowed_tools']['maxItems'] = 0
+    missing['properties']['max_tool_calls'] = {'type': 'integer', 'const': 0}
+    missing['properties']['input_data']['properties']['steps']['maxItems'] = 0
+    missing['properties']['input_data']['properties']['required_fields']['minItems'] = 1
+    schema['anyOf'] = [missing, tool]
+
+
 class PlannerTaskContract(TaskContract):
     model_config = ConfigDict(extra='forbid', frozen=True, allow_inf_nan=False,
-                              populate_by_name=True)
+                              populate_by_name=True, json_schema_extra=_task_contract_schema)
     planner_type: PlannerType = Field(alias='type')
+    input_data: dict[str, Any] = Field(json_schema_extra=_task_input_schema())
 
 class PlannerPlan(FrozenModel):
     plan_id: UUID

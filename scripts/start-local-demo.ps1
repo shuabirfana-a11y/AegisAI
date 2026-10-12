@@ -1,8 +1,8 @@
-param()
+param([string]$PythonPath)
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
-$python = Join-Path $projectRoot 'backend/.venv/Scripts/python.exe'
+$python = if ($PythonPath) { $PythonPath } else { Join-Path $projectRoot 'backend/.venv/Scripts/python.exe' }
 $node = (Get-Command node -ErrorAction SilentlyContinue).Source
 if (-not $node) { $node = 'C:/Users/X/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' }
 if (-not (Test-Path -LiteralPath $python)) { throw 'The backend Python environment is missing.' }
@@ -39,6 +39,11 @@ try {
     $env:AEGIS_LOCAL_DEMO = '1'
     $backend = Start-Process -FilePath $python -ArgumentList @('-m', 'uvicorn', 'app.main:app', '--host', '127.0.0.1', '--port', '8000') -WorkingDirectory (Join-Path $projectRoot 'backend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $runtimeRoot 'backend.out.log') -RedirectStandardError (Join-Path $runtimeRoot 'backend.err.log')
     $frontend = Start-Process -FilePath $node -ArgumentList @('server.mjs') -WorkingDirectory (Join-Path $projectRoot 'frontend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $runtimeRoot 'frontend.out.log') -RedirectStandardError (Join-Path $runtimeRoot 'frontend.err.log')
+} catch {
+    foreach ($process in @($frontend, $backend)) {
+        if ($process -and -not $process.HasExited) { Stop-Process -Id $process.Id -Force }
+    }
+    throw
 } finally {
     Remove-Item Env:AEGIS_ASSET_TOKEN -ErrorAction SilentlyContinue
     Remove-Item Env:AEGIS_LOCAL_DEMO -ErrorAction SilentlyContinue

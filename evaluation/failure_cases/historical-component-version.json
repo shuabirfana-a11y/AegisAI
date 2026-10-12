@@ -1,0 +1,468 @@
+{
+  "schema_version": "phase12d2-failure-v1",
+  "benchmark": false,
+  "id": "06cc6ede-6437-487b-a7d0-c9fd3410a4ca",
+  "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+  "model": "aegisai-qwen25-planner:latest",
+  "execution_mode": "REAL",
+  "data_origin": "REAL_SOURCE_COMPONENT_INPUT",
+  "failed_stage": "INTEGRATING",
+  "gate_status": "FAILED",
+  "reason": "合法计划成功执行版本检查，但单Artifact交接未包含该结果；输入没有资产ID，影响Claim也未获充分核验。",
+  "missing_information": [
+    "asset_id",
+    "component_id",
+    "eligible independent AFFECTS_VERSION evidence",
+    "handoff of requested version task observation"
+  ],
+  "possible_fix": "分类C业务交接/组件-only契约与DATA证据缺口；本轮只记录，暂停相关业务修改。",
+  "planner_run_id": "b5cea9fe-3256-4985-a44f-61061a60a628",
+  "planner_validation": "VALIDATED",
+  "integration_id": "7c936231-9a76-433e-a25d-fe86168db8e0",
+  "objective_profile": "asset_impact_v1",
+  "objective": {
+    "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+    "targets": [
+      "CVE-2025-32434"
+    ],
+    "asset_id": null,
+    "component_id": null,
+    "package_name": "torch",
+    "version": "2.5.1",
+    "required_outcomes": [
+      "identity",
+      "asset",
+      "version_impact",
+      "remediation_status"
+    ],
+    "window_days": null,
+    "requires_current": false,
+    "scope_gaps": [
+      "ASSET_SCOPE_MISSING"
+    ]
+  },
+  "plan": {
+    "tasks": [
+      {
+        "type": "vulnerability_lookup",
+        "task_id": "lookup",
+        "task_type": "tool_sequence",
+        "input_data": {
+          "steps": [
+            {
+              "name": "get_vulnerability",
+              "arguments": {
+                "target": "CVE-2025-32434"
+              }
+            }
+          ],
+          "required_fields": []
+        },
+        "description": "Look up CVE-2025-32434",
+        "dependencies": [],
+        "allowed_tools": [
+          "get_vulnerability"
+        ],
+        "max_tool_calls": 1,
+        "expected_output": "ToolSequenceResult-v1",
+        "timeout_seconds": 30,
+        "acceptance_criteria": [
+          "tools_succeeded",
+          "output_nonempty"
+        ]
+      },
+      {
+        "type": "vulnerability_lookup",
+        "task_id": "component_version",
+        "task_type": "tool_sequence",
+        "input_data": {
+          "steps": [
+            {
+              "name": "inspect_component_version",
+              "arguments": {
+                "name": "pytorch",
+                "target": "CVE-2025-32434",
+                "version": "2.5.1",
+                "ecosystem": "PyPI",
+                "package_name": "torch"
+              }
+            }
+          ],
+          "required_fields": []
+        },
+        "description": "Inspect PyTorch 2.5.1 version for CVE-2025-32434",
+        "dependencies": [
+          "lookup"
+        ],
+        "allowed_tools": [
+          "inspect_component_version"
+        ],
+        "max_tool_calls": 1,
+        "expected_output": "ToolSequenceResult-v1",
+        "timeout_seconds": 30,
+        "acceptance_criteria": [
+          "tools_succeeded",
+          "output_nonempty"
+        ]
+      },
+      {
+        "type": "evidence_search",
+        "task_id": "evidence",
+        "task_type": "tool_sequence",
+        "input_data": {
+          "steps": [
+            {
+              "name": "get_evidence",
+              "arguments": {
+                "target": "CVE-2025-32434"
+              }
+            }
+          ],
+          "required_fields": []
+        },
+        "description": "Search for evidence related to CVE-2025-32434",
+        "dependencies": [
+          "lookup"
+        ],
+        "allowed_tools": [
+          "get_evidence"
+        ],
+        "max_tool_calls": 1,
+        "expected_output": "ToolSequenceResult-v1",
+        "timeout_seconds": 30,
+        "acceptance_criteria": [
+          "tools_succeeded",
+          "output_nonempty",
+          "evidence_present"
+        ]
+      },
+      {
+        "type": "evidence_search",
+        "task_id": "claims",
+        "task_type": "tool_sequence",
+        "input_data": {
+          "steps": [
+            {
+              "name": "get_claims",
+              "arguments": {
+                "target": "CVE-2025-32434"
+              }
+            }
+          ],
+          "required_fields": []
+        },
+        "description": "Search for claims related to CVE-2025-32434",
+        "dependencies": [
+          "lookup"
+        ],
+        "allowed_tools": [
+          "get_claims"
+        ],
+        "max_tool_calls": 1,
+        "expected_output": "ToolSequenceResult-v1",
+        "timeout_seconds": 30,
+        "acceptance_criteria": [
+          "tools_succeeded",
+          "output_nonempty",
+          "evidence_present"
+        ]
+      }
+    ],
+    "plan_id": "123e4567-e89b-12d3-a456-426614174000",
+    "objective": "Verify if PyTorch 2.5.1 is affected by CVE-2025-32434 and provide evidence.",
+    "confidence": 0.95,
+    "reasoning_summary": "This plan checks if PyTorch 2.5.1 is affected by CVE-2025-32434 by looking up the vulnerability, inspecting the component version, and searching for related evidence and claims."
+  },
+  "selected_investigation_artifact_id": "643b24a3-01c1-4247-bdd9-b26cf753a251",
+  "investigation_artifacts": [
+    {
+      "artifact_id": "643b24a3-01c1-4247-bdd9-b26cf753a251",
+      "task_id": "lookup",
+      "status": "COMPLETE",
+      "selected_downstream": true,
+      "component": null,
+      "version_match": null
+    },
+    {
+      "artifact_id": "fff43f41-5e07-47e2-a20e-91cafca683ec",
+      "task_id": "component_version",
+      "status": "COMPLETE",
+      "selected_downstream": false,
+      "component": {
+        "name": "pytorch",
+        "version": "2.5.1",
+        "ecosystem": "PyPI",
+        "package_name": "torch"
+      },
+      "version_match": {
+        "range_statuses": [
+          {
+            "range_id": "95479519-8fe5-4a7b-9c25-30d646edcc93",
+            "is_current": false,
+            "range_result": "UNKNOWN",
+            "comparison_affected": null
+          },
+          {
+            "range_id": "b5973acd-b132-4e57-813b-0b88d446e1b1",
+            "is_current": false,
+            "range_result": "UNKNOWN",
+            "comparison_affected": true
+          },
+          {
+            "range_id": "f829748a-5896-4ed1-bc52-13951928cfa2",
+            "is_current": true,
+            "range_result": "IN_RANGE",
+            "comparison_affected": true
+          },
+          {
+            "range_id": "202d26a7-f3c2-4821-ac00-ba32009df4d1",
+            "is_current": true,
+            "range_result": "UNKNOWN",
+            "comparison_affected": null
+          }
+        ]
+      }
+    },
+    {
+      "artifact_id": "5b98e47e-5b1b-4d28-a87b-5b9649c90cbf",
+      "task_id": "evidence",
+      "status": "COMPLETE",
+      "selected_downstream": false,
+      "component": null,
+      "version_match": null
+    },
+    {
+      "artifact_id": "472cfeef-9118-4b93-b7c1-c7082fcf8b5b",
+      "task_id": "claims",
+      "status": "COMPLETE",
+      "selected_downstream": false,
+      "component": null,
+      "version_match": null
+    }
+  ],
+  "version_claim_assessments": [
+    {
+      "claim_id": "5fdb08dc-3152-4ecc-8379-e3289e14b633",
+      "claim_type": "AFFECTS_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "supporting_evidence_count": 0,
+      "reason": "Version expression is unsupported; no guessed range.",
+      "exclusion_codes": [
+        "RAW_OR_EXCERPT_INTEGRITY_FAILED",
+        "INCOMPLETE_OR_INVALID_PROVENANCE"
+      ]
+    },
+    {
+      "claim_id": "ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+      "claim_type": "AFFECTS_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "supporting_evidence_count": 1,
+      "reason": "Insufficient current, explicit, independent evidence.",
+      "exclusion_codes": []
+    },
+    {
+      "claim_id": "derived:09eb4ddb4f0cd926e2233f89a54709f91d0b1600b37077ac3f973591c64906f6",
+      "claim_type": "AFFECTS_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "supporting_evidence_count": 0,
+      "reason": "Version expression is unsupported; no guessed range.",
+      "exclusion_codes": []
+    },
+    {
+      "claim_id": "ec450c34-d801-4e6b-8722-5f150b4548a4",
+      "claim_type": "AFFECTS_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "supporting_evidence_count": 1,
+      "reason": "Version expression is unsupported; no guessed range.",
+      "exclusion_codes": []
+    }
+  ],
+  "verification": {
+    "artifact_id": "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+    "status": "PENDING",
+    "claim_status_counts": {
+      "INSUFFICIENT_EVIDENCE": 11,
+      "CONFIRMED": 1,
+      "REJECTED": 3
+    }
+  },
+  "analysis": {
+    "artifact_id": "8a337b65-b3e9-43c2-8363-2e8114e3cfb5",
+    "risk_level": "UNKNOWN",
+    "priority": "REVIEW_REQUIRED",
+    "version_match_status": "UNKNOWN",
+    "asset_snapshot": {
+      "asset_id": null,
+      "component_id": null,
+      "component": null,
+      "package_identifier_id": null,
+      "package_name": null,
+      "ecosystem": "unknown",
+      "namespace": "",
+      "purl": null,
+      "deployed_version": null,
+      "inventory_revision": null,
+      "asset_updated_at": null,
+      "component_updated_at": null,
+      "captured_at": "2026-10-12T06:54:39.104380Z",
+      "environment": "unknown",
+      "exposure": "unknown",
+      "criticality": "unknown",
+      "is_demo": false,
+      "context_status": "MISSING",
+      "unresolved_items": [
+        "ASSET_CONTEXT_MISSING"
+      ],
+      "provenance": "USER_INVENTORY_NOT_SCANNED"
+    }
+  },
+  "gate_rules": [
+    {
+      "gate_rule": "completion",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "blocking": "REPLAN",
+      "objective": null,
+      "reason": "核验/分析真实执行但为WAITING_REVIEW，资产目标要求确定性结果。",
+      "needs": "补充版本Claim的可用、直接、独立证据及库存；不能把WAITING_REVIEW算SUCCESS。",
+      "classification": "DATA",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": [
+        "671fd96d-85c8-4741-8767-ab4777f4942c",
+        "verify"
+      ]
+    },
+    {
+      "gate_rule": "completion",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "blocking": "REPLAN",
+      "objective": null,
+      "reason": "核验/分析真实执行但为WAITING_REVIEW，资产目标要求确定性结果。",
+      "needs": "补充版本Claim的可用、直接、独立证据及库存；不能把WAITING_REVIEW算SUCCESS。",
+      "classification": "DATA",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": [
+        "df075287-7187-4218-946c-2e7c867b8e6b",
+        "analyze"
+      ]
+    },
+    {
+      "gate_rule": "objective",
+      "code": "ASSET_SCOPE_MISSING",
+      "blocking": "REPLAN",
+      "objective": null,
+      "reason": "原输入没有asset_id，asset_impact_v1要求资产上下文。",
+      "needs": "提供已存在且归属当前用户的asset_id及明确component_id。",
+      "classification": "C",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": []
+    },
+    {
+      "gate_rule": "objective",
+      "code": "OBJECTIVE_VERSION_MISMATCH",
+      "blocking": "FATAL",
+      "objective": null,
+      "reason": "目标版本2.5.1与MISSING资产快照中的null不同；当前规则将其记为FATAL。",
+      "needs": "先补齐真实库存；组件-only问题的独立契约及缺失/不匹配分级需另行业务设计。",
+      "classification": "C",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": []
+    },
+    {
+      "gate_rule": "objective",
+      "code": "OBJECTIVE_PACKAGE_MISMATCH",
+      "blocking": "FATAL",
+      "objective": null,
+      "reason": "目标包torch与MISSING快照中的null不同，FATAL优先导致最终FAILED。",
+      "needs": "补齐精确包身份与库存；不修改本轮Gate分级。",
+      "classification": "C",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": []
+    },
+    {
+      "gate_rule": "objective",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "blocking": "REPLAN",
+      "objective": "asset",
+      "reason": "asset/version_impact结果尚未满足原始目标。",
+      "needs": "保留UNKNOWN，补全对应结果所需证据和上下文。",
+      "classification": "DATA",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": []
+    },
+    {
+      "gate_rule": "objective",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "blocking": "REPLAN",
+      "objective": "version_impact",
+      "reason": "asset/version_impact结果尚未满足原始目标。",
+      "needs": "保留UNKNOWN，补全对应结果所需证据和上下文。",
+      "classification": "DATA",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": []
+    },
+    {
+      "gate_rule": "freshness",
+      "code": "UNRESOLVED_ANALYSIS",
+      "blocking": "REPLAN",
+      "objective": null,
+      "reason": "风险为UNKNOWN，核验为PENDING，没有足够依据确认资产影响。",
+      "needs": "补充合法证据及库存后重新调查，不能把UNKNOWN视为安全。",
+      "classification": "DATA",
+      "involved_artifacts": [
+        "643b24a3-01c1-4247-bdd9-b26cf753a251",
+        "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+        "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+      ],
+      "native_refs": [
+        "VERIFICATION_PENDING",
+        "VERIFICATION_RUNTIME_INCOMPLETE",
+        "ASSET_CONTEXT_MISSING",
+        "ASSET_MATCH_UNKNOWN",
+        "UNCONFIRMED_IMPACT:5fdb08dc-3152-4ecc-8379-e3289e14b633",
+        "UNCONFIRMED_IMPACT:ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+        "UNCONFIRMED_IMPACT:derived:09eb4ddb4f0cd926e2233f89a54709f91d0b1600b37077ac3f973591c64906f6",
+        "UNCONFIRMED_IMPACT:ec450c34-d801-4e6b-8722-5f150b4548a4",
+        "Derived ranges without immutable claim-bound evidence remain candidates",
+        "Insufficient current, explicit, independent evidence.",
+        "Catalog absence is not evidence of no exploitation.",
+        "Static information explicitly rejects this association.",
+        "Version expression is unsupported; no guessed range."
+      ]
+    }
+  ],
+  "sources": {
+    "stored_receipt": "docs/phase12d1/http-chain-receipts.json",
+    "selection": "backend/app/orchestration/handoff.py:select_investigation",
+    "risk_input": "backend/app/agents/analysis/snapshot.py:AnalysisSnapshotReader._asset",
+    "objective": "backend/app/integration/objective.py:check_objective",
+    "final_verdict": "backend/app/integration/rules_common.py:decision"
+  }
+}

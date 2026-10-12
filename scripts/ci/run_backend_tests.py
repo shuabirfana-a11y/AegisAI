@@ -12,12 +12,21 @@ TESTS = [
     "tests/runtime/test_scheduler.py", "tests/agents/test_contracts_registry.py",
     "tests/agents/test_artifacts.py", "tests/agents/test_router.py",
     "tests/planner/test_schemas_registry.py", "tests/planner/test_validation.py",
+    "tests/planner/test_task_input_schema.py",
     "tests/integration/test_contracts.py", "tests/agents/investigation/test_planning.py",
+    "tests/agents/investigation/test_model_schema.py",
     "tests/agents/investigation/test_normalize.py", "tests/agents/verification/test_schemas.py",
     "tests/agents/analysis/test_schemas.py", "tests/orchestration/test_contracts_scope.py",
     "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
     "tests/investigation_api/test_contract.py",
     "tests/investigation_api/test_service.py", "tests/investigation_api/test_review_regressions.py",
+    "tests/investigation_api/test_http_probe.py",
+    "tests/investigation_api/test_planner_stability.py",
+    "tests/investigation_api/test_stability_failures.py",
+    "tests/investigation_api/test_failure_diagnostics.py",
+    "tests/orchestration/test_asset_handoff.py", "tests/orchestration/test_impact_input.py",
+    "tests/orchestration/test_asset_nonimpact.py", "tests/orchestration/test_observation_proof.py",
+    "tests/orchestration/test_demo_case_export.py",
 ]
 
 

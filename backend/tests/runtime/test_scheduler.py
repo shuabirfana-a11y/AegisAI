@@ -30,9 +30,12 @@ def test_dependencies_finish_before_downstream_starts():
 
 def test_poc_patch_ready_tasks_are_really_parallel():
     barrier=threading.Barrier(2)
+    intervals={}
     def tools(name,args,ctx):
         if name in ('find_poc_candidates','find_patch_candidates'):
+            intervals[name]=[time.perf_counter(),None]
             barrier.wait(timeout=2)
+            intervals[name][1]=time.perf_counter()
         return {'status':'success','data':{'items':[{'synthetic':True}]}}
     tasks=[task(task_id='root')]
     for id,name in [('poc','find_poc_candidates'),('patch','find_patch_candidates')]:
@@ -41,7 +44,10 @@ def test_poc_patch_ready_tasks_are_really_parallel():
     outcome,_=run(tasks,tools)
     assert outcome.status=='succeeded'
     traces={t.task_id:t for t in outcome.traces}
-    assert max(traces['poc'].start_time,traces['patch'].start_time) < min(traces['poc'].end_time,traces['patch'].end_time)
+    # Windows wall-clock samples can be equal for sub-millisecond tasks.
+    # The barrier and monotonic call intervals prove actual parallel execution.
+    assert max(v[0] for v in intervals.values()) < min(v[1] for v in intervals.values())
+    assert all(traces[k].start_time <= traces[k].end_time for k in ('poc','patch'))
 
 
 def test_parallel_limit_is_enforced_with_more_than_three_roots():

@@ -1,0 +1,64 @@
+{
+  "schema_version": "phase12d2-fixed-cases-v1",
+  "benchmark": false,
+  "notes": "本机已采集真实来源；两个资产场景复用现有is_demo=true库存，未声称扫描了真实服务器。冲突场景使用既有open记录，是否真正冲突以独立核验结果为准。",
+  "cases": [
+    {
+      "case_id": "cve-overview",
+      "data_origin": "REAL_SOURCE",
+      "request": {
+        "user_query": "查询 CVE-2025-32434 的漏洞信息，并列出证据来源和仍未知的信息。",
+        "asset_scope": {"target": "CVE-2025-32434"},
+        "options": {"objective_profile": "overview_v1"}
+      }
+    },
+    {
+      "case_id": "component-version",
+      "data_origin": "REAL_SOURCE_COMPONENT_INPUT",
+      "request": {
+        "user_query": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+        "asset_scope": {
+          "target": "CVE-2025-32434",
+          "component": {"name": "pytorch", "ecosystem": "PyPI", "package_name": "torch", "version": "2.5.1"}
+        }
+      }
+    },
+    {
+      "case_id": "asset-risk",
+      "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+      "request": {
+        "user_query": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
+        "asset_scope": {
+          "asset_id": "0db4cc0a-c574-45e4-a99a-f1af8d19ac25",
+          "component_id": "130b4d4e-bd4d-4215-8700-9508d4f75291",
+          "target": "CVE-2025-32434",
+          "component": {"name": "pytorch", "ecosystem": "PyPI", "package_name": "torch", "version": "2.5.1"}
+        },
+        "options": {"objective_profile": "asset_risk_v1"}
+      }
+    },
+    {
+      "case_id": "insufficient-evidence",
+      "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+      "request": {
+        "user_query": "对指定资产的 PyTorch 2.5.1 调查 CVE-2022-45907 是否受影响；核验本地可追溯版本证据，证据不足时保留未知并说明缺口。",
+        "asset_scope": {
+          "asset_id": "0db4cc0a-c574-45e4-a99a-f1af8d19ac25",
+          "component_id": "130b4d4e-bd4d-4215-8700-9508d4f75291",
+          "target": "CVE-2022-45907",
+          "component": {"name": "pytorch", "ecosystem": "PyPI", "package_name": "torch", "version": "2.5.1"}
+        },
+        "options": {"objective_profile": "asset_impact_v1"}
+      }
+    },
+    {
+      "case_id": "conflicting-source-records",
+      "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+      "request": {
+        "user_query": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
+        "asset_scope": {"target": "CVE-2026-9540"},
+        "options": {"objective_profile": "overview_v1"}
+      }
+    }
+  ]
+}

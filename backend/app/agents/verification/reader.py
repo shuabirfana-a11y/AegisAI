@@ -69,6 +69,9 @@ class VerificationReader:
                     or data.get('evaluation_time')!=context.evaluation_time.isoformat()):
                     raise AgentFrameworkError('AGENT_TRACE_INVALID')
                 result=VerificationAssessment.model_validate(data['assessment'])
+                if context.request.asset_id:
+                    from app.agents.verification.asset_snapshot import validate_observation_handoff
+                    validate_observation_handoff(result,context.snapshot)
                 checked=tuple(data.get('claims_checked',[c.claim.claim_id for c in result.claims]))
                 expected_checked=tuple(c.claim_id for c in context.snapshot.claims
                     if not context.request.claim_ids or c.claim_id in context.request.claim_ids)

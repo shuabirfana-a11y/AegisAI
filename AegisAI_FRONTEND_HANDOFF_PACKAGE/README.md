@@ -4,7 +4,7 @@
 
 项目：AegisAI——面向 AI 生态的可信安全情报与自主调查智能体系统。目标：赛题九的安全情报调查、证据核验和可信答案展示。
 
-更新日期：2026-10-11。Phase 12-B 已暴露调查闭环的 8 个 HTTP 操作。请优先阅读 [调查 API](api/INVESTIGATION_API.md) 和 `api/reference/investigation-http.d.ts`；后续章节中 Phase 12-A.5 的内部协议仍为历史参考。
+更新日期：2026-10-12。Phase12B调查闭环8个HTTP操作可对接；Phase12D新增可选Trace模型身份字段，真实模型调查仍未就绪。请优先阅读 [调查 API](api/INVESTIGATION_API.md)、[模型联调状态](docs/PHASE12D_MODEL_STATUS.md)和 `api/reference/investigation-http.d.ts`；Phase12A.5内部协议仍为历史参考。
 
 ## 三个先记住的事实
 
@@ -40,3 +40,15 @@
 现有前端采用原生 JavaScript ESM 和 Node 本地代理，七页已经存在。此包提供 TypeScript 契约供团队使用，不等于项目已经改成 React/Vue 或建立了 TypeScript 构建系统。
 
 本包不含可部署网站，也不含服务地址或登录凭据。收到 ZIP 后可以立即进行离线 Mock 页面开发；真实联调需取得完整项目或由后端负责人提供可访问环境。历史测试与本轮实跑结果分别记录；当前验证见 PHASE12B_VERIFICATION.json，原 VALIDATION.json 仅保留历史交接检查。
+
+## Phase 12-C 当前联调
+
+八个HTTP操作和现有TypeScript Client已通过本机TCP闭环；成功输入/模型回执明确为SYNTHETIC_TEST。默认Mock真实来源查询仍PLANNING_FAILED，不能声明真实模型演示已就绪。参见 [当前联调结果](docs/PHASE12C_INTEGRATION.md) 与 [当前验证](PHASE12C_VERIFICATION.json)。历史VALIDATION.json与PHASE12B_VERIFICATION.json保留原时间和范围，不替代当前记录。
+
+## Phase 12-D 模型标识
+
+调查Trace公共投影新增可选 model_execution：execution_mode、provider、model、source、attempt_count。null表示尚无确认调用记录；不要从当前服务配置推断历史模式。MOCK/REAL与执行成功/失败分别展示。只用 api/reference/investigation-http.d.ts 的公共类型；不向浏览器传模型Key或11434地址。模型/业务实跑状态见本阶段交接记录，不将历史Mock示例当成实时调查。
+
+## Phase 12-D.3 资产风险对接
+
+仍使用八个调查 HTTP 接口；核验 Artifact 新增可选 `version_observations` 与 `impact_version_evidence`。按 [资产风险交接说明](api/ASSET_RISK_HANDOFF.md)展示来源、版本和演示标识，历史响应缺字段按空数组处理。封存事实和风险只针对指定组件/漏洞，UNKNOWN 不等于安全。最新验证状态见 `PHASE12D3_VERIFICATION.json`；代码位于独立 Phase12D.3 分支，是否进入 main 以 PR 合并为准。

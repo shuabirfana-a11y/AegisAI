@@ -40,3 +40,7 @@ Gitleaks 的准确指纹忽略只适用于 Git 历史扫描；检查当前未提
 历史扫描若再次命中当前摘要，仅加入经过复核的准确 commit/path/rule/line 指纹，不排除整个 MANIFEST、契约目录或规则。扫描启用完整脱敏，原始扫描报告保存在忽略的 work 目录，禁止推送发现的真实私密凭据。
 
 完整 Git 历史扫描仅新增 1 个指纹：提交 9ccfbb8f1489a810f5034ec67d4837e0f68f67ba，MANIFEST.json 第 356 行的 current_openapi_sha256。已用该提交的 OpenAPI Git blob 重新计算 SHA256，与字段完全一致；精确指纹记录在 .gitleaksignore。新增忽略不覆盖后续提交，推送前复扫确认无未处理候选。
+
+## Phase 12-D.3 补充扫描
+
+完整历史扫描仅新增一个候选：提交 544e5f0b7d9936fcec82e0b23723a32ee12c7912 的 MANIFEST.json 第 411 行 current_openapi_sha256。通过同一提交的实际 OpenAPI Git blob 重新计算摘要，与该字段和命中行完全一致，因此它是文件校验值，不是凭据。只追加这一 commit/path/rule/line 的准确历史指纹，不排除目录、文件或规则；推送前再次扫描全部历史。

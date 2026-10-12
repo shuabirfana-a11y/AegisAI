@@ -253,6 +253,33 @@
       "title": "IntegrationRequest",
       "type": "object"
     },
+    "InvestigationArtifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "format": "uuid",
+          "title": "Run Id",
+          "type": "string"
+        },
+        "task_id": {
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "artifact_id": {
+          "format": "uuid",
+          "title": "Artifact Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "task_id",
+        "artifact_id"
+      ],
+      "title": "InvestigationArtifactReference",
+      "type": "object"
+    },
     "InvestigationOptions": {
       "additionalProperties": false,
       "properties": {
@@ -750,6 +777,41 @@
           "default": false,
           "title": "Model Assistance",
           "type": "boolean"
+        },
+        "supporting_artifacts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/InvestigationArtifactReference"
+          },
+          "maxItems": 16,
+          "title": "Supporting Artifacts",
+          "type": "array"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "component_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Component Id"
         }
       },
       "required": [

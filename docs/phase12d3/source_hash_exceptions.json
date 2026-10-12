@@ -1,0 +1,49 @@
+{
+  "phase": "12D.3",
+  "base_commit": "1537ffdc36a52e6d5aaec876534d70cec5d62d43",
+  "changes": {
+    "backend/app/agents/analysis/schemas.py": {
+      "baseline_sha256": "ac671fe82e878802a5859f7496f15936ea5446c82b96beef691fa3eec9266d51",
+      "phase_base_sha256": "ac671fe82e878802a5859f7496f15936ea5446c82b96beef691fa3eec9266d51",
+      "current_sha256": "d9516d38c7467cd0cd80646f9e2fb1de7e77ec52aa1508786835f4e0c54c84f7",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/agents/analysis/snapshot.py": {
+      "baseline_sha256": "6a0d110fbbaeb04636017872efc38ca717d4c0ee544786d4d0c4e317ac59a331",
+      "phase_base_sha256": "6a0d110fbbaeb04636017872efc38ca717d4c0ee544786d4d0c4e317ac59a331",
+      "current_sha256": "39382c1cf38a4b5fa5be611f4985115fdf0588e74814cf432d4c7ea4fb15bc33",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/agents/verification/reader.py": {
+      "baseline_sha256": "dfb0ae83aaf9b8219280135b5650a7f6b8733aa1954bd10ebe3add086f2d9d92",
+      "phase_base_sha256": "dfb0ae83aaf9b8219280135b5650a7f6b8733aa1954bd10ebe3add086f2d9d92",
+      "current_sha256": "ab69aeb40c04c02722425ec00bb3729f3f76c2614c06ce8f8a0661de4c95815f",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/agents/verification/schemas.py": {
+      "baseline_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "phase_base_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "current_sha256": "d1c6f71efee11a3cb99446ecee31e31e808e82e3fa6e17a7835180f043ebd750",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "phase_base_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "current_sha256": "292cbfeec8e6f1c38c4fca9acf9327047bcfa740587571b18295347e3497bafc",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/tooling/analysis.py": {
+      "baseline_sha256": "8f033e1f2fab3bcbdc655c5b87aa85b166a4a3e51a6fa8c52f1af64275939875",
+      "phase_base_sha256": "8f033e1f2fab3bcbdc655c5b87aa85b166a4a3e51a6fa8c52f1af64275939875",
+      "current_sha256": "a3aaff0f6d40f981f664e7e36c6ad7d204a4424a3297bd2a9f00dd445b3f7e80",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    },
+    "backend/app/tooling/verification.py": {
+      "baseline_sha256": "6a0dfce126b68c6aa1bc3102a0531d9e2d82c52d875251a35ac49ef5b8de5500",
+      "phase_base_sha256": "6a0dfce126b68c6aa1bc3102a0531d9e2d82c52d875251a35ac49ef5b8de5500",
+      "current_sha256": "7bed7daf60d102c7ac4d14143080aa6109e310cfed48a9ac99a5ea50428a72e5",
+      "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
+    }
+  },
+  "preserves": "Runtime, Planner, investigation Agent, verification rules, risk rules and all Gate rules remain byte-identical"
+}

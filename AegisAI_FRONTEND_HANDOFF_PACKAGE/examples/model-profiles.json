@@ -1,0 +1,20 @@
+{
+  "MOCK": {
+    "MODEL_PROVIDER": "mock", "MODEL_NAME": "mock-text-v1",
+    "MODEL_EMBEDDING_PROVIDER": "mock", "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+    "MODEL_EMBEDDING_DIMENSION": "384", "MODEL_STRUCTURED_MODE": "prompt_json"
+  },
+  "REMOTE_COMPATIBLE": {
+    "MODEL_PROVIDER": "openai_compatible", "MODEL_NAME": "provider-served-model",
+    "MODEL_API_BASE": "https://your-provider.example.invalid/v1",
+    "MODEL_EMBEDDING_PROVIDER": "mock", "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+    "MODEL_EMBEDDING_DIMENSION": "384", "MODEL_STRUCTURED_MODE": "prompt_json",
+    "MODEL_ALLOW_KEYLESS_LOCAL": "false"
+  },
+  "LOCAL_COMPATIBLE": {
+    "MODEL_PROVIDER": "openai_compatible", "MODEL_NAME": "local-served-model",
+    "MODEL_API_BASE": "http://127.0.0.1:11434/v1", "MODEL_ALLOW_KEYLESS_LOCAL": "true",
+    "MODEL_EMBEDDING_PROVIDER": "mock", "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+    "MODEL_EMBEDDING_DIMENSION": "384", "MODEL_STRUCTURED_MODE": "prompt_json"
+  }
+}

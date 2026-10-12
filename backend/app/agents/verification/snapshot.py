@@ -162,7 +162,14 @@ class InvestigationSnapshotReader:
                 selected.add(task_id)
                 for parent in next(t for t in plan.tasks if t.task_id==task_id).dependencies:include(parent)
             include(request.source_task_id)
-            refs=[];metadata={};claims={};candidate_rows=[]
+            artifacts={a.task_id:a for a in found.artifacts}
+            for ref in request.supporting_artifacts:
+                extra=artifacts.get(ref.task_id)
+                if (extra is None or extra.artifact_id!=ref.artifact_id or extra.run_id!=ref.run_id or
+                    extra.runtime_status!='SUCCESS' or extra.partial_result or extra.canonical_id not in (None,artifact.canonical_id)):
+                    raise ValueError('SUPPORTING_ARTIFACT_INVALID')
+                include(ref.task_id)
+            refs=[];metadata={};claims={};candidate_rows=[];records=[]
             root=str(artifact.vulnerability_id) if artifact.vulnerability_id else ''
             for task in plan.tasks:
                 if task.task_id not in selected:continue
@@ -170,6 +177,7 @@ class InvestigationSnapshotReader:
                     record=db.get(m.ToolCallRecord,UUID(call['record_id']))
                     if record is None or record.agent_run_id!=row.id:raise ValueError('Invalid source receipt')
                     envelope=record.output_summary
+                    records.append((record,task.task_id))
                     refs.append({**call,'input_hash':fingerprint(record.input_summary),
                                  'output_hash':fingerprint(envelope)})
                     for item in envelope.get('evidence_refs',[]):
@@ -201,6 +209,9 @@ class InvestigationSnapshotReader:
                 value={'raw_expression':item.get('raw_expression'),
                        'ecosystem':match.value.get('ecosystem') if match else None,
                        'package':match.value.get('package') if match else None}
+                if request.asset_id:
+                    from app.agents.verification.asset_snapshot import candidate_version_value
+                    value=candidate_version_value(item,match)
                 if not root or not value['raw_expression'] or any(c.claim_type==ClaimType.AFFECTS_VERSION and
                     c.package_identifier_id==package and canonical_value('AFFECTS_VERSION',c.value)==canonical_value('AFFECTS_VERSION',value)
                     for c in claims.values()):continue
@@ -223,10 +234,16 @@ class InvestigationSnapshotReader:
             if any(c.origin=='derived' and not c.evidence_ids for c in (claims[i] for i in kept)):
                 unresolved.append('Derived ranges without immutable claim-bound evidence remain candidates')
             if len(all_ids)>32 or omitted:unresolved.append('VERIFICATION_INPUT_LIMIT: unprocessed claims/evidence retained as counts')
+            extension={}
+            if request.asset_id:
+                from app.agents.verification.asset_snapshot import capture_version_observation,impact_references
+                extension['version_observations']=capture_version_observation(request,records,artifacts,tuple(claims[i] for i in kept),actor)
+                extension['impact_version_evidence']=impact_references(tuple(claims[i] for i in kept),evidence)
+                if not extension['version_observations']:unresolved.append('ASSET_VERSION_OBSERVATION_MISSING_OR_AMBIGUOUS')
             return VerificationSourceSnapshot(source_run_id=row.id,source_task_id=artifact.task_id,
                 source_artifact_id=artifact.artifact_id,source_snapshot_as_of=now,artifact=artifact.model_dump(mode='json'),
                 receipt_references=tuple(refs),claims=tuple(claims[i] for i in kept),evidence=tuple(evidence),
                 omitted_claim_ids=tuple(all_ids[32:288]),omitted_claim_count=max(0,len(all_ids)-32),
                 omitted_evidence_count=omitted,unresolved_items=tuple(unresolved),
                 warnings=('TIME_CHAIN_PARTIAL: release/fix dates are only checked when supplied',),
-                parent_planner_run_id=plan.route.get('planner_run_id'))
+                parent_planner_run_id=plan.route.get('planner_run_id'),**extension)

@@ -215,6 +215,23 @@ export type HistoryResponse = {
   "status_filter"?: ("RUNNING" | "SUCCEEDED" | "SUCCEEDED_WITH_WARNINGS" | "INCOMPLETE" | "REVIEW_REQUIRED" | "FAILED" | "CANCELLED" | null);
 };
 
+export type ImpactVersionEvidence = {
+  "id": string;
+  "type"?: "IMPACT_VERSION_EVIDENCE";
+  "vulnerability_id": string;
+  "package_identifier_id"?: (string | null);
+  "claim_id": string;
+  "affected_versions"?: Array<Record<string, unknown>>;
+  "fixed_versions"?: Array<Record<string, unknown>>;
+  "evidence_ids"?: Array<string>;
+  "source": string;
+  "reference": Record<string, unknown>;
+  "raw_document_id"?: (string | null);
+  "observation_id"?: (string | null);
+  "hash"?: (string | null);
+  "status"?: "CONFIRMED" | "PENDING" | "CONFLICT" | "INSUFFICIENT_EVIDENCE" | "REJECTED";
+};
+
 export type IntegrationResponse = {
   "integration_id": string;
   "logical_investigation_id": string;
@@ -243,6 +260,12 @@ export type IntegrationResponse = {
   "evaluation_time": string;
   "historical_snapshot"?: true;
   "persistence"?: "STORED" | "NOT_STORED";
+};
+
+export type InvestigationArtifactReference = {
+  "run_id": string;
+  "task_id": string;
+  "artifact_id": string;
 };
 
 export type InvestigationCreateRequest = {
@@ -309,6 +332,14 @@ export type InvestigationStatusResponse = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+};
+
+export type ModelExecutionMetadata = {
+  "execution_mode": "MOCK" | "REAL";
+  "provider": string;
+  "model": string;
+  "source"?: "PERSISTED_PLANNER_CALL";
+  "attempt_count": number;
 };
 
 export type ObjectiveCoverage = {
@@ -427,6 +458,8 @@ export type PublicVerificationArtifact = {
   "unresolved_items"?: Array<string>;
   "partial_result"?: boolean;
   "rules_version"?: "verification-rules-v1";
+  "version_observations"?: Array<VersionObservation>;
+  "impact_version_evidence"?: Array<ImpactVersionEvidence>;
   "artifact_id": string;
   "task_id": string;
   "run_id": string;
@@ -549,6 +582,7 @@ export type TraceResponse = {
   "investigation_id": string;
   "stages": Array<TraceStage>;
   "revision": number;
+  "model_execution"?: (ModelExecutionMetadata | null);
 };
 
 export type TraceStage = {
@@ -642,6 +676,33 @@ export type VersionMatchResult = {
   "claim_ids"?: Array<string>;
   "comparisons"?: Array<Record<string, unknown>>;
   "normalization"?: Record<string, unknown>;
+};
+
+export type VersionObservation = {
+  "id": string;
+  "type"?: "VERSION_OBSERVATION";
+  "asset_id": string;
+  "component_id": string;
+  "asset_name": string;
+  "component": string;
+  "version"?: (string | null);
+  "package_identifier_id"?: (string | null);
+  "package_name"?: (string | null);
+  "ecosystem"?: string;
+  "namespace"?: string;
+  "purl"?: (string | null);
+  "environment"?: "production" | "staging" | "development" | "unknown";
+  "exposure"?: "internet" | "internal" | "development" | "unknown";
+  "criticality"?: "unknown";
+  "inventory_revision": number;
+  "asset_updated_at": string;
+  "component_updated_at": string;
+  "source"?: "OWNER_INVENTORY_NOT_SCANNED";
+  "created_at": string;
+  "source_artifact": InvestigationArtifactReference;
+  "receipt_id": string;
+  "receipt_hash": string;
+  "is_demo": boolean;
 };
 
 export type Overall = InvestigationStatusResponse["overall_status"];

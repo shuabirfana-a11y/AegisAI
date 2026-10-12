@@ -2525,6 +2525,133 @@
         ],
         "title": "HistoryResponse"
       },
+      "ImpactVersionEvidence": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "const": "IMPACT_VERSION_EVIDENCE",
+            "title": "Type",
+            "default": "IMPACT_VERSION_EVIDENCE"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "title": "Vulnerability Id"
+          },
+          "package_identifier_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Package Identifier Id"
+          },
+          "claim_id": {
+            "type": "string",
+            "title": "Claim Id"
+          },
+          "affected_versions": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Affected Versions",
+            "default": []
+          },
+          "fixed_versions": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Fixed Versions",
+            "default": []
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "default": []
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "reference": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Reference"
+          },
+          "raw_document_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Document Id"
+          },
+          "observation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observation Id"
+          },
+          "hash": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hash"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "CONFLICT",
+              "INSUFFICIENT_EVIDENCE",
+              "REJECTED"
+            ],
+            "title": "Status",
+            "default": "PENDING"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "vulnerability_id",
+          "claim_id",
+          "source",
+          "reference"
+        ],
+        "title": "ImpactVersionEvidence"
+      },
       "IntegrationResponse": {
         "properties": {
           "integration_id": {
@@ -2743,6 +2870,33 @@
           "evaluation_time"
         ],
         "title": "IntegrationResponse"
+      },
+      "InvestigationArtifactReference": {
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Run Id"
+          },
+          "task_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
+            "title": "Task Id"
+          },
+          "artifact_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Artifact Id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "run_id",
+          "task_id",
+          "artifact_id"
+        ],
+        "title": "InvestigationArtifactReference"
       },
       "InvestigationCreateRequest": {
         "properties": {
@@ -3229,6 +3383,51 @@
           "created_at"
         ],
         "title": "InvestigationStatusResponse"
+      },
+      "ModelExecutionMetadata": {
+        "properties": {
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "MOCK",
+              "REAL"
+            ],
+            "title": "Execution Mode"
+          },
+          "provider": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Provider"
+          },
+          "model": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Model"
+          },
+          "source": {
+            "type": "string",
+            "const": "PERSISTED_PLANNER_CALL",
+            "title": "Source",
+            "default": "PERSISTED_PLANNER_CALL"
+          },
+          "attempt_count": {
+            "type": "integer",
+            "maximum": 2.0,
+            "minimum": 1.0,
+            "title": "Attempt Count"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "execution_mode",
+          "provider",
+          "model",
+          "attempt_count"
+        ],
+        "title": "ModelExecutionMetadata"
       },
       "ObjectiveCoverage": {
         "properties": {
@@ -4045,6 +4244,24 @@
             "const": "verification-rules-v1",
             "title": "Rules Version",
             "default": "verification-rules-v1"
+          },
+          "version_observations": {
+            "items": {
+              "$ref": "#/components/schemas/VersionObservation"
+            },
+            "type": "array",
+            "maxItems": 1,
+            "title": "Version Observations",
+            "default": []
+          },
+          "impact_version_evidence": {
+            "items": {
+              "$ref": "#/components/schemas/ImpactVersionEvidence"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Impact Version Evidence",
+            "default": []
           },
           "artifact_id": {
             "type": "string",
@@ -4868,6 +5085,16 @@
           "revision": {
             "type": "integer",
             "title": "Revision"
+          },
+          "model_execution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModelExecutionMetadata"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -5534,6 +5761,185 @@
         "additionalProperties": false,
         "type": "object",
         "title": "VersionMatchResult"
+      },
+      "VersionObservation": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "const": "VERSION_OBSERVATION",
+            "title": "Type",
+            "default": "VERSION_OBSERVATION"
+          },
+          "asset_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Asset Id"
+          },
+          "component_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Component Id"
+          },
+          "asset_name": {
+            "type": "string",
+            "maxLength": 200,
+            "title": "Asset Name"
+          },
+          "component": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Component"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 200
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "package_identifier_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Package Identifier Id"
+          },
+          "package_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Package Name"
+          },
+          "ecosystem": {
+            "type": "string",
+            "title": "Ecosystem",
+            "default": "unknown"
+          },
+          "namespace": {
+            "type": "string",
+            "title": "Namespace",
+            "default": ""
+          },
+          "purl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Purl"
+          },
+          "environment": {
+            "type": "string",
+            "enum": [
+              "production",
+              "staging",
+              "development",
+              "unknown"
+            ],
+            "title": "Environment",
+            "default": "unknown"
+          },
+          "exposure": {
+            "type": "string",
+            "enum": [
+              "internet",
+              "internal",
+              "development",
+              "unknown"
+            ],
+            "title": "Exposure",
+            "default": "unknown"
+          },
+          "criticality": {
+            "type": "string",
+            "const": "unknown",
+            "title": "Criticality",
+            "default": "unknown"
+          },
+          "inventory_revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Inventory Revision"
+          },
+          "asset_updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Asset Updated At"
+          },
+          "component_updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Component Updated At"
+          },
+          "source": {
+            "type": "string",
+            "const": "OWNER_INVENTORY_NOT_SCANNED",
+            "title": "Source",
+            "default": "OWNER_INVENTORY_NOT_SCANNED"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "source_artifact": {
+            "$ref": "#/components/schemas/InvestigationArtifactReference"
+          },
+          "receipt_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Receipt Id"
+          },
+          "receipt_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Receipt Hash"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "asset_id",
+          "component_id",
+          "asset_name",
+          "component",
+          "inventory_revision",
+          "asset_updated_at",
+          "component_updated_at",
+          "created_at",
+          "source_artifact",
+          "receipt_id",
+          "receipt_hash",
+          "is_demo"
+        ],
+        "title": "VersionObservation"
       }
     },
     "securitySchemes": {

@@ -47,10 +47,11 @@ def test_no_evidence_requires_abstention_and_zero_score():
 
 
 @pytest.mark.parametrize('change',[{'integrity_status':'INVALID'}, {'is_current':False},
-    {'retrieved_at':utcnow()-timedelta(days=31)}, {'retrieved_at':utcnow()+timedelta(minutes=8)},
-    {'published_at':utcnow()+timedelta(days=1)}, {'hash':None}, {'scope_key':'other-package'},
+    {'retrieved_at':lambda: utcnow()-timedelta(days=31)}, {'retrieved_at':lambda: utcnow()+timedelta(minutes=8)},
+    {'published_at':lambda: utcnow()+timedelta(days=1)}, {'hash':None}, {'scope_key':'other-package'},
     {'vulnerability_id':'CVE-2099-0000'}, {'observed_value':{'ecosystem':'PyPI','package':'other','raw_expression':'<=0.6'}}])
 def test_invalid_old_future_or_unrelated_evidence_never_confirms(change):
+    change={key:value() if callable(value) else value for key,value in change.items()}
     got=evaluate(context(evidence_items=[evidence(**change)]))
     assert got.verification_status=='INSUFFICIENT_EVIDENCE'
     assert got.confidence==0

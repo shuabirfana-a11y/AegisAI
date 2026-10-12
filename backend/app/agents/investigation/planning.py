@@ -1,10 +1,9 @@
 from typing import Literal
 from pydantic import ConfigDict, Field
-from app.runtime.contracts import TaskContract
-from app.planner.schemas import PlannerPlan
+from app.planner.schemas import PlannerPlan, PlannerTaskContract
 
 InvestigationTaskType=Literal['vulnerability_lookup','evidence_search','asset_lookup']
-class InvestigationTaskCandidate(TaskContract):
+class InvestigationTaskCandidate(PlannerTaskContract):
     model_config=ConfigDict(extra='forbid',frozen=True,allow_inf_nan=False,populate_by_name=True)
     planner_type:InvestigationTaskType=Field(alias='type')
 

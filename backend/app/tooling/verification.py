@@ -12,6 +12,11 @@ def execute_verification(session,name,arguments,actor):
     if TOOLS[context.request.task_type]!=name or tuple(arguments.get('claim_ids',()))!=context.request.claim_ids:
         raise ValueError('Tool does not match the sealed verification request')
     assessment=evaluate_snapshot(context)
+    if context.request.asset_id:
+        from app.agents.verification.asset_snapshot import bind_impact_verdicts
+        assessment=assessment.model_copy(update={
+            'version_observations':context.snapshot.version_observations,
+            'impact_version_evidence':bind_impact_verdicts(context.snapshot.impact_version_evidence,assessment.claims)})
     if context.request.model_assistance:
         from app.llm.gateway import ModelGateway
         from app.llm.config import ModelConfig,ConfigError

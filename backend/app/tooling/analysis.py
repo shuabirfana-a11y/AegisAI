@@ -10,6 +10,15 @@ from app.runtime.contracts import json_bytes
 
 def base_assessment(context):
     result=assess_risk(context)
+    if (context.inputs.asset.version_observation_id is not None and result.asset_match_status=='NOT_MATCHED'
+            and result.affected is False and result.risk_level=='LOW' and result.verification_status=='CONFIRMED'):
+        # R1 already decided scoped non-impact on exact package identity. Align
+        # its version DTO with that existing decision; no risk/Gate rule changes.
+        from app.agents.analysis.schemas import VersionMatchResult
+        version=VersionMatchResult(status='NOT_AFFECTED',affected=False,
+            reason='Only this selected distribution differs from the confirmed vulnerability package; not whole-asset safety',
+            claim_ids=result.asset_match_result.claim_ids)
+        result=result.model_copy(update={'version_match_status':'NOT_AFFECTED','version_match_result':version})
     actions=build_actions(context,asset_match=result.asset_match_result,version_match=result.version_match_result,
         risk_level=result.risk_level,priority=result.priority)
     # Preserve the reference closure, including actions and inspectable conflicts.

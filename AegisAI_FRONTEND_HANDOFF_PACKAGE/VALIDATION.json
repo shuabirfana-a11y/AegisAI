@@ -78,5 +78,6 @@
     "historical_checks_preserved": true
   },
   "historical_validation": true,
-  "current_phase12b_verification": "PHASE12B_VERIFICATION.json"
+  "current_phase12b_verification": "PHASE12B_VERIFICATION.json",
+  "current_phase12c_verification": "PHASE12C_VERIFICATION.json"
 }

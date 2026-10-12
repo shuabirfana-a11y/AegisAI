@@ -44,3 +44,7 @@ Phase 12-B 采用增量 HTTP 接线，未修改 Planner、DAG/Scheduler、三专
 最多 2 个进程内工作线程，沿用 Runtime 配额，推荐先用单个 FastAPI worker。没有 SSE/WebSocket、跨实例持久队列或自动恢复承诺；重启后的孤立调查通过 recovery_required 明示。本阶段没有云端部署。
 
 浏览器前端不得依赖内部 Context、worker_token、stage_keys、私有 Prompt 或数据库连接。生成类型中出现内部模型名称，不表示允许向浏览器返回这些内容。
+
+## Phase 12-C 当前联调
+
+八个HTTP操作和现有TypeScript Client已通过本机TCP闭环；成功输入/模型回执明确为SYNTHETIC_TEST。默认Mock真实来源查询仍PLANNING_FAILED，不能声明真实模型演示已就绪。参见 [当前联调结果](PHASE12C_INTEGRATION.md) 与 [当前验证](../PHASE12C_VERIFICATION.json)。历史VALIDATION.json与PHASE12B_VERIFICATION.json保留原时间和范围，不替代当前记录。

@@ -1,0 +1,207 @@
+{
+  "controlled_tcp_chain": {
+    "case_id": "synthetic-vllm-0_6_0-chain",
+    "data_origin": "SYNTHETIC_TEST",
+    "checked_at_utc": "2026-10-11T15:16:03.376922+00:00",
+    "transport": "LOOPBACK_HTTP",
+    "benchmark": false,
+    "endpoints": {
+      "create": {
+        "http_status": 202,
+        "schema_valid": true
+      },
+      "status": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "trace": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "artifacts": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "integration": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "answer": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "history": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "cancel": {
+        "http_status": 200,
+        "schema_valid": true
+      }
+    },
+    "chain_verified": true,
+    "ready": true,
+    "error_code": null,
+    "investigation_id": "cfc46d05-8405-48ac-b194-69111535c748",
+    "model_mode": {
+      "requested": "MOCK",
+      "provider": "mock",
+      "is_mock": true,
+      "observed": "MOCK",
+      "matched": true,
+      "error_code": null,
+      "model_quality_evaluated": false
+    },
+    "overall_status": "SUCCEEDED",
+    "current_stage": "COMPLETED",
+    "planner_present": true,
+    "planner_validation": "VALIDATED",
+    "chain_error_code": null,
+    "agent_run_count": 3,
+    "tool_call_count": 5,
+    "artifact_count": 3,
+    "integration_status": "PASS",
+    "answer_status": "COMPLETE",
+    "citation_count": 3
+  },
+  "existing_typescript_client": {
+    "transport": "LOOPBACK_HTTP",
+    "client": "existing-typescript-client",
+    "operations": 8,
+    "answer_status": "COMPLETE",
+    "data_origin": "SYNTHETIC_TEST",
+    "benchmark": false
+  },
+  "default_mock_failure": {
+    "case_id": "synthetic-vllm-0_6_0-chain",
+    "data_origin": "SYNTHETIC_TEST",
+    "checked_at_utc": "2026-10-11T15:16:22.857092+00:00",
+    "transport": "LOOPBACK_HTTP",
+    "benchmark": false,
+    "endpoints": {
+      "create": {
+        "http_status": 202,
+        "schema_valid": true
+      },
+      "status": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "trace": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "artifacts": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "integration": {
+        "http_status": 409,
+        "schema_valid": true,
+        "error_code": "RESULT_UNAVAILABLE"
+      },
+      "answer": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "history": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "cancel": {
+        "http_status": 200,
+        "schema_valid": true
+      }
+    },
+    "chain_verified": false,
+    "ready": false,
+    "error_code": "PLANNING_FAILED",
+    "investigation_id": "b62785c5-047e-4b81-9666-27bacf69f707",
+    "model_mode": {
+      "requested": "MOCK",
+      "provider": "mock",
+      "is_mock": true,
+      "observed": "MOCK",
+      "matched": true,
+      "error_code": null,
+      "model_quality_evaluated": false
+    },
+    "overall_status": "FAILED",
+    "current_stage": "FAILED",
+    "planner_present": true,
+    "planner_validation": "PLANNING_FAILED",
+    "chain_error_code": "PLANNING_FAILED",
+    "agent_run_count": 0,
+    "tool_call_count": 0,
+    "artifact_count": 0,
+    "integration_status": null,
+    "answer_status": "FAILED",
+    "citation_count": 0
+  },
+  "real_source_current_service": {
+    "case_id": "torch-CVE-2025-32434-version-2_5_1",
+    "data_origin": "REAL_SOURCE",
+    "checked_at_utc": "2026-10-11T15:19:20.050299+00:00",
+    "transport": "LOOPBACK_HTTP",
+    "benchmark": false,
+    "endpoints": {
+      "create": {
+        "http_status": 202,
+        "schema_valid": true
+      },
+      "status": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "trace": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "artifacts": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "integration": {
+        "http_status": 409,
+        "schema_valid": true,
+        "error_code": "RESULT_UNAVAILABLE"
+      },
+      "answer": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "history": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "cancel": {
+        "http_status": 200,
+        "schema_valid": true
+      }
+    },
+    "chain_verified": false,
+    "ready": false,
+    "error_code": "MODEL_MODE_MISMATCH",
+    "investigation_id": "0a3c9552-9832-45e4-a485-2f6bb04a1151",
+    "model_mode": {
+      "requested": "REAL",
+      "provider": "mock",
+      "is_mock": true,
+      "observed": "MOCK",
+      "matched": false,
+      "error_code": "MODEL_MODE_MISMATCH",
+      "model_quality_evaluated": false
+    },
+    "overall_status": "FAILED",
+    "current_stage": "FAILED",
+    "planner_present": true,
+    "planner_validation": "PLANNING_FAILED",
+    "chain_error_code": "PLANNING_FAILED",
+    "agent_run_count": 0,
+    "tool_call_count": 0,
+    "artifact_count": 0,
+    "integration_status": null,
+    "answer_status": "FAILED",
+    "citation_count": 0
+  }
+}

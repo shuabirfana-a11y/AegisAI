@@ -1,0 +1,76 @@
+{
+  "phase": "12D.3",
+  "generated_at_utc": "2026-10-12T11:58:20.863743+00:00",
+  "files": [
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-input.d.ts",
+      "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b",
+      "bytes": 3780
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-input.schemas.json",
+      "sha256": "39ff06cccc3429228ea836078faa02c5dcf16d3171acf0fb8c46ba62d60f986a",
+      "bytes": 19750
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-output.d.ts",
+      "sha256": "76ec009dc9d4817bafc0e86d87688bb76a1a4ac0751c1608ef7eed9dbff72435",
+      "bytes": 28764
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-output.schemas.json",
+      "sha256": "9633d327760cb24acce5ed0f55b345405bc17646489927612140d0bb3969d3fc",
+      "bytes": 141335
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/investigation-http.d.ts",
+      "sha256": "705158141203a4468949ff58a7eb8dfb35ca4ac11ece620d453dd96bf2eaaf9b",
+      "bytes": 24734
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/investigation-http.openapi.json",
+      "sha256": "a044115688a22d5393664aa9bb88d740eaa7375ddfcfb9b319cdc1087c7c3ced",
+      "bytes": 153922
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/openapi.json",
+      "sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c",
+      "bytes": 346443
+    },
+    {
+      "path": "docs/frontend-contracts/internal-input.d.ts",
+      "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b",
+      "bytes": 3780
+    },
+    {
+      "path": "docs/frontend-contracts/internal-input.schemas.json",
+      "sha256": "39ff06cccc3429228ea836078faa02c5dcf16d3171acf0fb8c46ba62d60f986a",
+      "bytes": 19750
+    },
+    {
+      "path": "docs/frontend-contracts/internal-output.d.ts",
+      "sha256": "76ec009dc9d4817bafc0e86d87688bb76a1a4ac0751c1608ef7eed9dbff72435",
+      "bytes": 28764
+    },
+    {
+      "path": "docs/frontend-contracts/internal-output.schemas.json",
+      "sha256": "9633d327760cb24acce5ed0f55b345405bc17646489927612140d0bb3969d3fc",
+      "bytes": 141335
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.d.ts",
+      "sha256": "705158141203a4468949ff58a7eb8dfb35ca4ac11ece620d453dd96bf2eaaf9b",
+      "bytes": 24734
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.openapi.json",
+      "sha256": "a044115688a22d5393664aa9bb88d740eaa7375ddfcfb9b319cdc1087c7c3ced",
+      "bytes": 153922
+    },
+    {
+      "path": "docs/frontend-contracts/openapi.json",
+      "sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c",
+      "bytes": 346443
+    }
+  ]
+}

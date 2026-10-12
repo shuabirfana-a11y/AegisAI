@@ -6,6 +6,8 @@ from app.runtime.contracts import TaskInput,TaskPlan
 from app.agents.investigation.schemas import InvestigationArtifact,InvestigationRunResult
 from app.agents.verification.schemas import VerificationRequest
 from app.agents.analysis.schemas import AnalysisRequest
+from app.agents.asset_observations import InvestigationArtifactReference
+from uuid import UUID
 
 
 class ArtifactSelection(Sized):
@@ -14,6 +16,9 @@ class ArtifactSelection(Sized):
     admission: Literal['CONTINUE','STOP']
     reasons: tuple[str,...] = ()
     optional_tasks: tuple[OptionalTask,...] = Field(default=(),max_length=16)
+    supporting_artifacts: tuple[InvestigationArtifactReference,...] = ()
+    asset_id: UUID | None = None
+    component_id: UUID | None = None
 
 
 def artifact_ref(artifact):
@@ -63,15 +68,29 @@ def select_investigation(result: InvestigationRunResult,scope,plan: TaskPlan):
             reasons.append('REQUIRED_INVESTIGATION_TASK_INCOMPLETE:'+task.task_id)
     if artifact.partial_result or artifact.status=='PARTIAL' or artifact.runtime_status not in ('SUCCESS','WAITING_REVIEW'):
         reasons.append('REQUIRED_INVESTIGATION_ARTIFACT_INCOMPLETE')
+    # Exact complete sibling/descendant outputs are supplementary facts, not a
+    # replacement for the original selected Artifact or a new Runtime task.
+    supporting=[]
+    if scope.planner_input.query.asset_id:
+        for art in result.artifacts:
+            if art.task_id in optional_ids or art.artifact_id==artifact.artifact_id:continue
+            if art.run_id!=result.run_id or art.canonical_id not in (None,target):
+                reasons.append('SUPPORTING_ARTIFACT_SCOPE_MISMATCH:'+art.task_id);continue
+            trace=traces.get(art.task_id)
+            if art.partial_result or art.runtime_status!='SUCCESS' or trace is None or trace.status!='SUCCESS':
+                reasons.append('SUPPORTING_ARTIFACT_INCOMPLETE:'+art.task_id);continue
+            supporting.append(InvestigationArtifactReference(run_id=art.run_id,task_id=art.task_id,artifact_id=art.artifact_id))
     return ArtifactSelection(artifact=artifact,admission='STOP' if reasons else 'CONTINUE',
-                             reasons=tuple(reasons),optional_tasks=tuple(optional))
+        reasons=tuple(reasons),optional_tasks=tuple(optional),supporting_artifacts=tuple(supporting),
+        asset_id=scope.planner_input.query.asset_id,component_id=scope.planner_input.component_id)
 
 
 def build_verification_request(selection,stage_key):
     if selection.admission!='CONTINUE' or selection.artifact is None:raise ValueError('INVESTIGATION_NOT_ADMITTED')
     art=selection.artifact
     return VerificationRequest(source_run_id=art.run_id,source_task_id=art.task_id,
-        source_artifact_id=art.artifact_id,request_key=stage_key,task_type='evidence_verification',model_assistance=False)
+        source_artifact_id=art.artifact_id,request_key=stage_key,task_type='evidence_verification',model_assistance=False,
+        supporting_artifacts=selection.supporting_artifacts,asset_id=selection.asset_id,component_id=selection.component_id)
 
 
 def verification_admitted(result,investigation):
