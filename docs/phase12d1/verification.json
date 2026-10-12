@@ -15,16 +15,16 @@
       "warnings": 23
     },
     "final_portable": {
-      "passed": 502,
+      "passed": 503,
       "failed": 0,
       "deselected": 1,
       "reason": "cached real embedding explicitly excluded"
     },
     "final_targeted_postgresql_synthetic_tcp": {
-      "passed": 59,
+      "passed": 60,
       "failed": 0
     },
-    "new_protocol_tests": 39,
+    "new_protocol_tests": 40,
     "engineering": {
       "passed": 18,
       "failed": 0
@@ -39,6 +39,12 @@
     "investigation_export_files": 10
   },
   "counts_overlap": true,
+  "initial_ci_failure": {
+    "run_id": 38220023136,
+    "cause": "offline probe import required uvicorn outside CI dependency boundary",
+    "fix": "load uvicorn only when starting owned HTTP probe",
+    "offline_import_regression": "PASS"
+  },
   "review": {
     "critical": 0,
     "important": 4,

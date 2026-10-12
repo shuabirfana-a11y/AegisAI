@@ -18,7 +18,6 @@ sys.path.insert(0, str(ROOT / 'backend'))
 
 import httpx
 from jsonschema import Draft202012Validator, FormatChecker, ValidationError
-import uvicorn
 from app.agents.investigation.planning import InvestigationPlan
 from app.agents.investigation.planner import InvestigationPlannerAdapter
 from app.db.session import make_engine
@@ -263,6 +262,7 @@ def run_stability_case(client, case, audit_reader, *, receipt=None, on_progress=
 
 @contextmanager
 def owned_http_client(app, token):
+    import uvicorn
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
         listener.bind(('127.0.0.1',0))
         server = uvicorn.Server(uvicorn.Config(app,loop='asyncio',http='h11',ws='none',

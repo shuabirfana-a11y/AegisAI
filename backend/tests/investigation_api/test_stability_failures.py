@@ -132,3 +132,18 @@ def test_interrupted_planner_finalizes_only_its_owned_audit(monkeypatch):
     assert receipt['planner_run_id']==str(id)
     assert receipt['measurement_status']=='INTERRUPTED'
     assert not receipt['attempt_accounting_complete']
+
+
+def test_offline_statistics_import_does_not_require_http_server_runtime():
+    import subprocess
+    code='''import sys, importlib.abc
+class Offline(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname == "uvicorn":
+            raise ModuleNotFoundError("SYNTHETIC server runtime not installed")
+sys.meta_path.insert(0, Offline())
+from scripts.probe_planner_stability import summarize
+assert summarize([])["logical_runs"] == 0
+'''
+    result=subprocess.run([sys.executable,'-c',code],capture_output=True,text=True,timeout=20)
+    assert result.returncode==0,result.stderr
