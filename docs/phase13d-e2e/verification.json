@@ -64,5 +64,6 @@
   "protected_changed_files": [],
   "independent_review_important_fixed": 5,
   "execution_report_finding_elevated_and_fixed": true,
-  "security_scan_false_positive_file_hashes": 2
+  "security_scan_false_positive_file_hashes": 2,
+  "security_scan_false_positive_synthetic_source_ids": 8
 }
