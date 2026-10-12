@@ -1,0 +1,4010 @@
+{
+  "started_at_utc": "2026-10-12T06:49:46.526020+00:00",
+  "models": [
+    {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen25-planner:latest",
+      "structured_mode": "json_object",
+      "reasoning_effort": "none",
+      "temperature": 0.0,
+      "timeout_seconds": 20.0,
+      "max_output_tokens": 4096,
+      "receipts": [
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:53:40.026357+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "879e7697-5f44-4713-92b7-9d14c555b331",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9397.729100001015,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5409,
+                "output_tokens": 501
+              }
+            }
+          ],
+          "planner_validated": true,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": true,
+          "gate_accepted": true,
+          "answer_frozen_read_verified": true,
+          "error_code": null,
+          "http_probe": {
+            "case_id": "cve-fact",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T06:53:40.026357+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": true,
+            "ready": true,
+            "error_code": null,
+            "investigation_id": "77b15e30-8f51-442f-ae03-d6c0b588f644",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen25-planner:latest",
+              "planner_attempt_count": 1
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "SUCCEEDED_WITH_WARNINGS",
+            "current_stage": "COMPLETED",
+            "planner_present": true,
+            "planner_validation": "VALIDATED",
+            "chain_error_code": null,
+            "agent_run_count": 3,
+            "tool_call_count": 5,
+            "artifact_count": 3,
+            "integration_status": "PASS_WITH_WARNINGS",
+            "answer_status": "COMPLETE_WITH_WARNINGS",
+            "citation_count": 1
+          },
+          "investigation_id": "77b15e30-8f51-442f-ae03-d6c0b588f644",
+          "planner_run_id": "1750ae75-3e16-4d1b-8b60-1c83594a49f6",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [
+            {
+              "task_id": "lookup-vulnerability",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence-search",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup-vulnerability"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "agent_runs": [
+            {
+              "run_id": "da2e2bbc-4f81-45de-b5e2-e29d273c8359",
+              "status": "succeeded",
+              "task_statuses": {
+                "lookup-vulnerability": "SUCCESS",
+                "evidence-search": "SUCCESS"
+              },
+              "artifact_ids": [
+                "ff0af038-41f8-4937-88e7-441ce42a885c"
+              ]
+            },
+            {
+              "run_id": "afa1dd50-55cd-44c4-8acb-22226c24ab44",
+              "status": "partial",
+              "task_statuses": {
+                "verify": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "4b8196a0-98f4-4005-b68d-b905f5c0ccbe"
+              ]
+            },
+            {
+              "run_id": "909e7385-ed81-4467-9b06-13f3963986eb",
+              "status": "partial",
+              "task_statuses": {
+                "analyze": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "36879567-0820-4bf5-ac6e-3d92c4c4b383"
+              ]
+            }
+          ],
+          "integration_id": "73e8e448-910b-4368-9a05-cd9def71d223",
+          "artifact_ids": {
+            "investigation": "ff0af038-41f8-4937-88e7-441ce42a885c",
+            "verification": "4b8196a0-98f4-4005-b68d-b905f5c0ccbe",
+            "analysis": "36879567-0820-4bf5-ac6e-3d92c4c4b383"
+          },
+          "integration_status": "PASS_WITH_WARNINGS",
+          "answer_id": "559c8184-e883-551f-a8ab-e423b5ef5fcf",
+          "answer_status": "COMPLETE_WITH_WARNINGS",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 30625.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true,
+          "gate_checks": [
+            {
+              "gate": "completion",
+              "code": "COMPLETION_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "integrity",
+              "code": "INTEGRITY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "evidence",
+              "code": "SHARED_SOURCE_LINEAGE",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "consistency",
+              "code": "CONSISTENCY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "objective",
+              "code": "OVERVIEW_BOUNDED_ABSTENTION",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "freshness",
+              "code": "UNRESOLVED_ANALYSIS",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            }
+          ]
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:54:10.661469+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "c610b147-c88d-4a16-87e6-5130e6a4a2af",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15142.830599997978,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": true,
+          "gate_accepted": false,
+          "answer_frozen_read_verified": true,
+          "error_code": "GATE_FAILED",
+          "http_probe": {
+            "case_id": "component-version",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T06:54:10.661469+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": false,
+            "ready": false,
+            "error_code": "GATE_FAILED",
+            "investigation_id": "06cc6ede-6437-487b-a7d0-c9fd3410a4ca",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen25-planner:latest",
+              "planner_attempt_count": 1
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "FAILED",
+            "current_stage": "FAILED",
+            "planner_present": true,
+            "planner_validation": "VALIDATED",
+            "chain_error_code": "GATE_FAILED",
+            "agent_run_count": 3,
+            "tool_call_count": 6,
+            "artifact_count": 3,
+            "integration_status": "FAILED",
+            "answer_status": "FAILED",
+            "citation_count": 0
+          },
+          "investigation_id": "06cc6ede-6437-487b-a7d0-c9fd3410a4ca",
+          "planner_run_id": "b5cea9fe-3256-4985-a44f-61061a60a628",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "agent_runs": [
+            {
+              "run_id": "c9de3841-1f51-4863-a19b-d7e5141541ba",
+              "status": "succeeded",
+              "task_statuses": {
+                "lookup": "SUCCESS",
+                "component_version": "SUCCESS",
+                "evidence": "SUCCESS",
+                "claims": "SUCCESS"
+              },
+              "artifact_ids": [
+                "643b24a3-01c1-4247-bdd9-b26cf753a251"
+              ]
+            },
+            {
+              "run_id": "671fd96d-85c8-4741-8767-ab4777f4942c",
+              "status": "partial",
+              "task_statuses": {
+                "verify": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "5cca3a9b-9e86-4466-b16a-9edf82304d28"
+              ]
+            },
+            {
+              "run_id": "df075287-7187-4218-946c-2e7c867b8e6b",
+              "status": "partial",
+              "task_statuses": {
+                "analyze": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+              ]
+            }
+          ],
+          "integration_id": "7c936231-9a76-433e-a25d-fe86168db8e0",
+          "artifact_ids": {
+            "investigation": "643b24a3-01c1-4247-bdd9-b26cf753a251",
+            "verification": "5cca3a9b-9e86-4466-b16a-9edf82304d28",
+            "analysis": "8a337b65-b3e9-43c2-8363-2e8114e3cfb5"
+          },
+          "integration_status": "FAILED",
+          "answer_id": "c3136dea-6205-5e2c-a685-1bd81d684ea0",
+          "answer_status": "FAILED",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 36969.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true,
+          "gate_checks": [
+            {
+              "gate": "completion",
+              "code": "REQUIRED_TASK_INCOMPLETE",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            },
+            {
+              "gate": "completion",
+              "code": "REQUIRED_TASK_INCOMPLETE",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            },
+            {
+              "gate": "integrity",
+              "code": "INTEGRITY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "evidence",
+              "code": "SHARED_SOURCE_LINEAGE",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "consistency",
+              "code": "CONSISTENCY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "objective",
+              "code": "ASSET_SCOPE_MISSING",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            },
+            {
+              "gate": "objective",
+              "code": "OBJECTIVE_VERSION_MISMATCH",
+              "outcome": "ERROR",
+              "blocking": "FATAL"
+            },
+            {
+              "gate": "objective",
+              "code": "OBJECTIVE_PACKAGE_MISMATCH",
+              "outcome": "ERROR",
+              "blocking": "FATAL"
+            },
+            {
+              "gate": "objective",
+              "code": "OBJECTIVE_NOT_COVERED",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            },
+            {
+              "gate": "objective",
+              "code": "OBJECTIVE_NOT_COVERED",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            },
+            {
+              "gate": "objective",
+              "code": "REMEDIATION_UNKNOWN",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "freshness",
+              "code": "UNRESOLVED_ANALYSIS",
+              "outcome": "BLOCKED",
+              "blocking": "REPLAN"
+            }
+          ]
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:54:47.636238+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "ed449fdb-c237-4846-8003-d4a5083d54b1",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8842.680899997504,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": true,
+          "gate_accepted": true,
+          "answer_frozen_read_verified": true,
+          "error_code": null,
+          "http_probe": {
+            "case_id": "multi-step-evidence",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T06:54:47.636238+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": true,
+            "ready": true,
+            "error_code": null,
+            "investigation_id": "5b74f62c-a306-4bc6-9d39-a01fdbfbd0e9",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen25-planner:latest",
+              "planner_attempt_count": 1
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "SUCCEEDED_WITH_WARNINGS",
+            "current_stage": "COMPLETED",
+            "planner_present": true,
+            "planner_validation": "VALIDATED",
+            "chain_error_code": null,
+            "agent_run_count": 3,
+            "tool_call_count": 5,
+            "artifact_count": 3,
+            "integration_status": "PASS_WITH_WARNINGS",
+            "answer_status": "COMPLETE_WITH_WARNINGS",
+            "citation_count": 1
+          },
+          "investigation_id": "5b74f62c-a306-4bc6-9d39-a01fdbfbd0e9",
+          "planner_run_id": "c171ff71-3fc1-4b12-ada6-b15ec648d41c",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "agent_runs": [
+            {
+              "run_id": "70437a42-e576-4ce4-a56f-818dbc43de47",
+              "status": "succeeded",
+              "task_statuses": {
+                "lookup": "SUCCESS",
+                "evidence": "SUCCESS"
+              },
+              "artifact_ids": [
+                "f85282ba-9a57-4000-acd6-d117665dc35d"
+              ]
+            },
+            {
+              "run_id": "49276445-35bb-4e37-b12c-9c81e3b7a7cb",
+              "status": "partial",
+              "task_statuses": {
+                "verify": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "d0b8fe1b-0025-4c47-9b4b-b0bd304b2f96"
+              ]
+            },
+            {
+              "run_id": "2212a228-0129-43c4-8bc0-d43b92ba3a61",
+              "status": "partial",
+              "task_statuses": {
+                "analyze": "WAITING_REVIEW"
+              },
+              "artifact_ids": [
+                "87e356fb-aa74-4e1b-afb1-20f3ed553fc3"
+              ]
+            }
+          ],
+          "integration_id": "9c73f83b-fb3b-4c8e-83d0-39409b4c0abd",
+          "artifact_ids": {
+            "investigation": "f85282ba-9a57-4000-acd6-d117665dc35d",
+            "verification": "d0b8fe1b-0025-4c47-9b4b-b0bd304b2f96",
+            "analysis": "87e356fb-aa74-4e1b-afb1-20f3ed553fc3"
+          },
+          "integration_status": "PASS_WITH_WARNINGS",
+          "answer_id": "59c41cb5-610f-5b95-a1af-c39bcb7e28a0",
+          "answer_status": "COMPLETE_WITH_WARNINGS",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 30203.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true,
+          "gate_checks": [
+            {
+              "gate": "completion",
+              "code": "COMPLETION_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "integrity",
+              "code": "INTEGRITY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "evidence",
+              "code": "SHARED_SOURCE_LINEAGE",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "consistency",
+              "code": "CONSISTENCY_OK",
+              "outcome": "PASS",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "objective",
+              "code": "OVERVIEW_BOUNDED_ABSTENTION",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            },
+            {
+              "gate": "freshness",
+              "code": "UNRESOLVED_ANALYSIS",
+              "outcome": "WARNING",
+              "blocking": "NONE"
+            }
+          ]
+        }
+      ],
+      "planner_receipts": [
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:50:07.164523+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "a3473bf9-c19e-4305-81ad-caa3871dfd7d",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "e90e0290-3fa0-4558-a38d-833853fb5f2b",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 10669.121599999926,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5399,
+                "output_tokens": 491
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 10937.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup-vulnerability",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence-search",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup-vulnerability"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:50:21.908261+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "f544f7a2-f38e-458a-9995-cc84c8a4a70f",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "7094f0b9-ca09-4c3c-aee8-0dff7aa6e360",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14692.546700000094,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14750.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:50:30.935847+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "c31e90b2-244e-475c-b35b-738cd3531d4e",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "3eb65b34-b1c9-4c28-bca0-f996f00fdbfe",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8982.415599999513,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9031.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:50:40.159627+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "11218e3a-557f-4ca2-bb01-88aef509940b",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "47df5cd5-6b5f-4bf9-8b44-0c1e2a9357b1",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9180.869799998618,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9219.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:50:54.979149+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "bea93665-8783-4400-88ec-5d1677836a1e",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "2a32dda2-2ade-4a4e-b89e-e1b6e9543b4c",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14770.239999998012,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14828.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:51:03.959179+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "db46cdd2-3b32-410b-afed-73ed31f989c2",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "403066d3-f487-4987-97f2-fb082e509e8e",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8941.242900000361,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 8969.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:51:13.183958+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "35dd2661-a394-4f39-8ab8-f44b9ef31266",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "45b6d237-bbfc-477b-af2c-ca9d768feadf",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9178.0147999998,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9234.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:51:28.014485+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "955d4eb7-77d4-4973-bda7-3bae11d93b37",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "fd0b026c-5c09-49f7-88e3-b9920c481e7d",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14801.786700001685,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14829.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:51:37.046003+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "5287a48e-18bc-4d0c-a4a8-c1125a15cde7",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "96ccf7f0-d8cd-448b-82f8-cbaf93b337b7",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8983.326300000044,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9016.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:51:46.232953+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "bd2ab77b-0e4c-43c0-8e8d-77f03b9b9f56",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "b2c897e7-3963-46de-9084-4543e3258256",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9153.504000001703,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9187.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:52:00.879229+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "22c1aecb-8d83-4b95-9eb7-3842e97cf51b",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "22ff2ba8-7f85-4909-b061-d3d540767166",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14615.813100001105,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14641.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:52:09.772944+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "6beb44a1-3f79-4a9e-a11b-76f5dc7481c0",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "5e88f630-9f53-4829-8a65-7fe863bac450",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8862.411499998416,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 8891.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:52:18.926680+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "1c65e8f3-0dee-4120-a5af-79b35b3ab2f5",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "83bd0592-926b-423c-827f-001252973700",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9103.076200000942,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9141.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:52:33.638472+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "2cd01ebb-eb3d-4b21-ae0a-b8d1e05bf401",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "181c7739-de31-4b0b-9a34-481d7e413196",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14679.200099999434,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14719.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:52:42.605791+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "f1cc98de-6a69-4f56-a661-deddce9d95ea",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "243b80fa-a186-48d4-881f-971cbd5a15ad",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8927.144299999782,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 8968.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:52:51.804527+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "677d32a2-da95-4173-bd8f-d2cc67456cfe",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "a043633b-9efe-47bd-9835-afea68db14c1",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9151.937499998894,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9188.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:53:06.521056+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "1e7be0a9-2276-4695-8df9-b028bb0db99c",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "b320705a-e85f-4df2-8239-47779d855a8b",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14668.514400000277,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 14719.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:53:15.485548+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "3a45a4fd-4ba3-4f21-9182-a6b7e4cdac54",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "8afbd720-c313-4165-8151-59e7f05d9077",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8928.277799997886,
+              "usage": {
+                "input_tokens": 5114,
+                "total_tokens": 5585,
+                "output_tokens": 471
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 8968.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:53:24.906919+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "5a470a5b-0a4d-4458-a485-c875fdfde3c5",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "94da141f-23b0-4451-9140-34d0f73b168e",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9384.942200002115,
+              "usage": {
+                "input_tokens": 4908,
+                "total_tokens": 5401,
+                "output_tokens": 493
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 9422.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims",
+                "get_evidence"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:53:39.977329+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "f01f193a-a52a-4dc2-bd76-62e6423ac6a6",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": true,
+              "validation_status": "VALIDATED",
+              "error_codes": [],
+              "request_id": "9a55c9b7-57f0-4f13-a29f-498df41de105",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen25-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15026.436200001626,
+              "usage": {
+                "input_tokens": 5048,
+                "total_tokens": 5870,
+                "output_tokens": 822
+              }
+            }
+          ],
+          "planner_validated": true,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 15063.0,
+          "error_codes": [],
+          "plan_tasks": [
+            {
+              "task_id": "lookup",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [],
+              "tools": [
+                "get_vulnerability"
+              ]
+            },
+            {
+              "task_id": "component_version",
+              "type": "vulnerability_lookup",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "inspect_component_version"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_evidence"
+              ]
+            },
+            {
+              "task_id": "claims",
+              "type": "evidence_search",
+              "task_type": "tool_sequence",
+              "dependencies": [
+                "lookup"
+              ],
+              "tools": [
+                "get_claims"
+              ]
+            }
+          ],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        }
+      ],
+      "planner_summary": {
+        "logical_runs": 20,
+        "provider_attempts": 20,
+        "full_chain_attempts": 0,
+        "provider_attempt_accounting_complete": true,
+        "attempts": {
+          "json_success_rate": 1.0,
+          "schema_pass_rate": 1.0,
+          "task_legal_rate": 1.0
+        },
+        "runs": {
+          "json_success_rate": 1.0,
+          "schema_pass_rate": 1.0,
+          "task_legal_rate": 1.0,
+          "full_chain_execution_rate": null,
+          "full_chain_success_rate": null
+        },
+        "mean_elapsed_ms": 11186.0,
+        "total_tokens": 112405,
+        "case_distribution": {
+          "component-version": 7,
+          "cve-fact": 7,
+          "multi-step-evidence": 6
+        },
+        "benchmark": false,
+        "security_accuracy_evaluated": false
+      },
+      "summary": {
+        "logical_runs": 3,
+        "provider_attempts": 3,
+        "full_chain_attempts": 3,
+        "provider_attempt_accounting_complete": true,
+        "attempts": {
+          "json_success_rate": 1.0,
+          "schema_pass_rate": 1.0,
+          "task_legal_rate": 1.0
+        },
+        "runs": {
+          "json_success_rate": 1.0,
+          "schema_pass_rate": 1.0,
+          "task_legal_rate": 1.0,
+          "full_chain_execution_rate": 1.0,
+          "full_chain_success_rate": 0.6666666666666666
+        },
+        "mean_elapsed_ms": 32599.0,
+        "total_tokens": 16864,
+        "case_distribution": {
+          "component-version": 1,
+          "cve-fact": 1,
+          "multi-step-evidence": 1
+        },
+        "benchmark": false,
+        "security_accuracy_evaluated": false
+      }
+    },
+    {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen35-planner:latest",
+      "structured_mode": "json_object",
+      "reasoning_effort": "none",
+      "temperature": 0.0,
+      "timeout_seconds": 20.0,
+      "max_output_tokens": 4096,
+      "receipts": [
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T07:04:15.739863+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "e17b2496-f8c8-4ec1-8eee-a2b7f8ee3f21",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9145.170399999188,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "3c86e293-2c34-41ca-9b87-f578e7c9727b",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 7577.359900002193,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "answer_frozen_read_verified": true,
+          "error_code": "PLANNING_FAILED",
+          "http_probe": {
+            "case_id": "cve-fact",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T07:04:15.739863+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 409,
+                "schema_valid": true,
+                "error_code": "RESULT_UNAVAILABLE"
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": false,
+            "ready": false,
+            "error_code": "PLANNING_FAILED",
+            "investigation_id": "eec90bdf-35a2-4f05-bda9-4791e1b15dd9",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen35-planner:latest",
+              "planner_attempt_count": 2
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "FAILED",
+            "current_stage": "FAILED",
+            "planner_present": true,
+            "planner_validation": "PLANNING_FAILED",
+            "chain_error_code": "PLANNING_FAILED",
+            "agent_run_count": 0,
+            "tool_call_count": 0,
+            "artifact_count": 0,
+            "integration_status": null,
+            "answer_status": "FAILED",
+            "citation_count": 0
+          },
+          "investigation_id": "eec90bdf-35a2-4f05-bda9-4791e1b15dd9",
+          "planner_run_id": "53f1d459-2f37-403e-bc01-a21bb0989992",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [],
+          "agent_runs": [],
+          "integration_id": null,
+          "artifact_ids": {},
+          "integration_status": null,
+          "answer_id": "6278ee53-7023-5af4-b0d5-41f9ca677811",
+          "answer_status": "FAILED",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 17078.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T07:04:32.815554+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "b1a328be-1174-42ab-8c81-9d758bb3ace8",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14691.8336000017,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "6874a697-348f-4cac-b2d9-5077848e8602",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20078.535000000556,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "answer_frozen_read_verified": true,
+          "error_code": "PLANNING_FAILED",
+          "http_probe": {
+            "case_id": "component-version",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T07:04:32.815554+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 409,
+                "schema_valid": true,
+                "error_code": "RESULT_UNAVAILABLE"
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": false,
+            "ready": false,
+            "error_code": "PLANNING_FAILED",
+            "investigation_id": "9f516f7f-3da9-4d91-ad4f-a83e55e545cf",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen35-planner:latest",
+              "planner_attempt_count": 2
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "FAILED",
+            "current_stage": "FAILED",
+            "planner_present": true,
+            "planner_validation": "PLANNING_FAILED",
+            "chain_error_code": "PLANNING_FAILED",
+            "agent_run_count": 0,
+            "tool_call_count": 0,
+            "artifact_count": 0,
+            "integration_status": null,
+            "answer_status": "FAILED",
+            "citation_count": 0
+          },
+          "investigation_id": "9f516f7f-3da9-4d91-ad4f-a83e55e545cf",
+          "planner_run_id": "847932be-e5d9-4080-b3db-7b3a472f1053",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [],
+          "agent_runs": [],
+          "integration_id": null,
+          "artifact_ids": {},
+          "integration_status": null,
+          "answer_id": "a7e6a00d-4d82-5443-bbf4-dea2d24ffbef",
+          "answer_status": "FAILED",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 35110.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T07:05:07.944167+00:00",
+          "data_origin": "REAL_SOURCE",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "6531a024-5a2f-4bd8-9fba-aeaf37a571d7",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 11521.29000000059,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "3b443b06-cf57-4150-9a7c-a73116338b59",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12956.796500002383,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "chain_attempted": true,
+          "real_mode_confirmed": true,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "answer_frozen_read_verified": true,
+          "error_code": "PLANNING_FAILED",
+          "http_probe": {
+            "case_id": "multi-step-evidence",
+            "data_origin": "REAL_SOURCE",
+            "checked_at_utc": "2026-10-12T07:05:07.944167+00:00",
+            "transport": "LOOPBACK_HTTP",
+            "benchmark": false,
+            "endpoints": {
+              "create": {
+                "http_status": 202,
+                "schema_valid": true
+              },
+              "status": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "trace": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "artifacts": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "integration": {
+                "http_status": 409,
+                "schema_valid": true,
+                "error_code": "RESULT_UNAVAILABLE"
+              },
+              "answer": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "history": {
+                "http_status": 200,
+                "schema_valid": true
+              },
+              "cancel": {
+                "http_status": 200,
+                "schema_valid": true
+              }
+            },
+            "chain_verified": false,
+            "ready": false,
+            "error_code": "PLANNING_FAILED",
+            "investigation_id": "70648307-4804-4a06-9473-b34b27aa21e3",
+            "model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false,
+              "source": "PERSISTED_PLANNER_CALL",
+              "model": "aegisai-qwen35-planner:latest",
+              "planner_attempt_count": 2
+            },
+            "creation_model_mode": {
+              "requested": "REAL",
+              "provider": "openai_compatible",
+              "is_mock": false,
+              "observed": "NON_MOCK",
+              "matched": true,
+              "error_code": null,
+              "model_quality_evaluated": false
+            },
+            "overall_status": "FAILED",
+            "current_stage": "FAILED",
+            "planner_present": true,
+            "planner_validation": "PLANNING_FAILED",
+            "chain_error_code": "PLANNING_FAILED",
+            "agent_run_count": 0,
+            "tool_call_count": 0,
+            "artifact_count": 0,
+            "integration_status": null,
+            "answer_status": "FAILED",
+            "citation_count": 0
+          },
+          "investigation_id": "70648307-4804-4a06-9473-b34b27aa21e3",
+          "planner_run_id": "af53eb43-3de1-43f6-8604-d0d605977711",
+          "prompt_version": "investigation-plan-v4",
+          "plan_tasks": [],
+          "agent_runs": [],
+          "integration_id": null,
+          "artifact_ids": {},
+          "integration_status": null,
+          "answer_id": "a2205e10-d03b-53a1-8d6e-64c16f3a03a3",
+          "answer_status": "FAILED",
+          "answer_read_extra_planner_calls": 0,
+          "elapsed_ms": 24797.0,
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        }
+      ],
+      "planner_receipts": [
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:55:44.806053+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "d66d0efe-d24c-41f6-9ce2-c5a1c7093cd5",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "e75bc457-7b76-47e2-b7ee-e2cce8eba5a1",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9427.276000002166,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "44331290-2e23-4eb4-a7de-14da71118044",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 7994.380899999669,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17500.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:56:20.446795+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "df3483a1-17af-40b3-b65f-1867251e23fb",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "c01aa76b-27a4-4a5f-b0d8-b4e09f398930",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15510.418999998365,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "df6477b0-6a9e-4533-b025-ea8550024b42",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20074.621100000513,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 35641.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:56:46.263874+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "25befdad-e25c-4802-afe5-add4efc6c2c2",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "98d21781-720e-41fc-869b-c1dbec0b66b5",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12228.99200000029,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "5128d7ec-bc7e-4e12-826c-d54f956a7735",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 13526.07309999803,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 25813.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:57:03.765616+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "ac03e0a0-2b49-441f-99ac-cf91b8ae2c94",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "2786e30f-5c9e-4c89-8b14-6327b9c9d52f",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9344.620299998496,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "e5ebc964-eede-480e-89fb-6018f921a83a",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8094.0700999999535,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17500.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:57:39.152342+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "752b7bd5-38ad-4090-ae9c-956307b46a3d",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "008a9e5d-acad-43f0-8cb8-fd9ce870b5a4",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15237.20239999966,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "1e0b5ddd-dede-4f35-a880-66da1c008b20",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20097.488800001884,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 35375.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:58:04.555352+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "e47ac42a-bafb-4366-9d6c-a502a3a64813",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "9972f50a-404e-40b2-9030-82927fabef93",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 11904.774300001009,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "1a16335d-f2e1-4bb5-bed1-3f5fd60475c9",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 13441.351599998598,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 25391.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:58:22.298588+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "9c097b30-09f2-46c3-8d7c-eea2293d570c",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "b436d95d-b8d8-4d4c-9390-db989d1c3072",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9328.043499997875,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "47bf048c-0c55-47ef-8238-c0d023d2ecea",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8353.94559999986,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17735.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T06:58:58.271531+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "0435babe-0293-4521-b0e3-4774584a0265",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "943eaac8-ea96-447d-b4fc-0c53e997af39",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15809.822600000189,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "d921b118-52c5-4daa-917c-3e314f93e55e",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20115.83569999857,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 35954.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T06:59:24.719300+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "49442540-cf72-44bf-a2f3-a2a80bb162c0",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "8f68e748-3dbc-4ef8-a770-b7b163d53061",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12404.781899997033,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "ad2fd843-7c30-41b5-a119-e094439a539a",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 13978.739800000767,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 26438.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T06:59:42.665981+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "87e7ac5d-ab37-4a8c-ab62-745ee7b90d37",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "1f5898cb-f671-45ab-8101-d75d729d04c6",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9595.320899999933,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "0cf68a71-7d23-4c67-893c-a057a3b344ba",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8284.221099998831,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17953.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T07:00:18.701987+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "65b4593c-089c-4d09-b857-2af1f0398132",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "92a3ba35-3772-4f31-b749-864378583f7b",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15893.23389999845,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "b3a736ad-ba54-45a3-b9df-8854738a98f8",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20092.751399999543,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 36031.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T07:00:45.020019+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "ca132d70-5e33-4f0a-bf8d-4842ca21848e",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "8abc455e-c167-45fd-ad15-7394760b2740",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12320.210099998803,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "ff330564-1ae4-47d5-a46c-d611ae81bf47",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 13924.690699997882,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 26313.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T07:01:02.713397+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "3b60460f-98b2-47a0-ad03-7392ab0192a7",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "bed81d2b-96ed-42b9-96d2-2991d6f96278",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9457.232400000066,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "4f85af29-af99-42aa-ba06-ba3ec87421c4",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8159.038900001178,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17688.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T07:01:38.437797+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "d40723d7-b855-4953-a5e7-fc28493c535d",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "0fb4fca2-9f72-432f-859f-1b0bb1f346d3",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 15582.638600000791,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "e2648628-8381-46fd-a083-1470ae4dc8fc",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20088.108799998736,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 35718.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T07:02:04.764230+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "9edd1cb5-7b37-46a1-80ab-e039816b9d24",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "8c7edd36-28a6-4a94-bed2-9249cd81a22c",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12198.388000000705,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "28ef55d9-da40-4caa-860d-c72159af4d3f",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14068.256800001109,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 26313.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T07:02:22.181508+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "41d510da-db68-4b27-b15b-83e056fafe21",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "ede43752-d19c-4763-828c-4921f4157089",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 9717.123900001752,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "fcdcae89-53d9-4020-8e9f-8dd9970669d7",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 7643.067100001645,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 17421.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T07:02:59.632318+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "f1adec44-426f-4a5e-85bd-8941860272f4",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "0a4180c0-bccb-4235-b547-3b9cee52e414",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 17304.60680000033,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "349b59fd-d253-429a-a575-6c61652ed1e3",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20104.893299998366,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 37438.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "multi-step-evidence",
+          "checked_at_utc": "2026-10-12T07:03:24.302091+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "de7f94bb-a6f4-494d-8d3a-f30e09c5aac9",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "dd6ca38f-fc15-4dc7-bb49-82b28482a3b8",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 11714.06449999995,
+              "usage": {
+                "input_tokens": 5164,
+                "total_tokens": 5896,
+                "output_tokens": 732
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "4664f713-7238-4f09-8e27-c2589d3a87be",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 12917.05930000171,
+              "usage": {
+                "input_tokens": 5195,
+                "total_tokens": 6142,
+                "output_tokens": 947
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 24656.0,
+          "error_codes": [
+            "SCHEMA_VALIDATION_FAILED"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "cve-fact",
+          "checked_at_utc": "2026-10-12T07:03:40.885135+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "9f380b43-d4f3-4073-8439-a2ff4364b314",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "SCHEMA_VALIDATION_FAILED"
+              ],
+              "request_id": "de0b4ed6-6aba-4cd3-9d94-90b378dd1247",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 8936.379200000374,
+              "usage": {
+                "input_tokens": 4958,
+                "total_tokens": 5505,
+                "output_tokens": 547
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": true,
+              "json_valid": true,
+              "schema_valid": true,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "MINIMUM_CRITERIA_MISSING"
+              ],
+              "request_id": "7cac9de4-c1c0-4907-b29f-d032c6cabc9d",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 7583.943400000862,
+              "usage": {
+                "input_tokens": 4989,
+                "total_tokens": 5532,
+                "output_tokens": 543
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 16579.0,
+          "error_codes": [
+            "MINIMUM_CRITERIA_MISSING"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        },
+        {
+          "case_id": "component-version",
+          "checked_at_utc": "2026-10-12T07:04:15.690521+00:00",
+          "transport": "INTERNAL_PRODUCTION_PLANNER",
+          "data_origin": "REAL_SOURCE",
+          "benchmark": false,
+          "planner_run_id": "0507a006-eb10-4320-82e2-845d159a9644",
+          "prompt_version": "investigation-plan-v4",
+          "attempts": [
+            {
+              "attempt_index": 1,
+              "diagnostic_available": true,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "INVALID_JSON"
+              ],
+              "request_id": "0cec0756-5b8b-44d0-91cd-993774be73af",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 14689.07869999748,
+              "usage": {
+                "input_tokens": 5096,
+                "total_tokens": 6081,
+                "output_tokens": 985
+              }
+            },
+            {
+              "attempt_index": 2,
+              "diagnostic_available": false,
+              "json_valid": false,
+              "schema_valid": false,
+              "task_legal": false,
+              "validation_status": "REJECTED",
+              "error_codes": [
+                "TIMEOUT"
+              ],
+              "request_id": "b6193fc4-0e03-47d2-9460-fd5a3cae437e",
+              "provider": "openai_compatible",
+              "model": "aegisai-qwen35-planner:latest",
+              "is_mock": false,
+              "duration_ms": 20072.46799999848,
+              "usage": {
+                "input_tokens": null,
+                "total_tokens": null,
+                "output_tokens": null
+              }
+            }
+          ],
+          "planner_validated": false,
+          "real_mode_confirmed": true,
+          "chain_attempted": false,
+          "full_chain_executed": false,
+          "gate_accepted": false,
+          "elapsed_ms": 34796.0,
+          "error_codes": [
+            "TIMEOUT"
+          ],
+          "plan_tasks": [],
+          "measurement_status": "COMPLETED",
+          "attempt_accounting_complete": true
+        }
+      ],
+      "planner_summary": {
+        "logical_runs": 20,
+        "provider_attempts": 40,
+        "full_chain_attempts": 0,
+        "provider_attempt_accounting_complete": true,
+        "attempts": {
+          "json_success_rate": 0.65,
+          "schema_pass_rate": 0.175,
+          "task_legal_rate": 0.0
+        },
+        "runs": {
+          "json_success_rate": 0.65,
+          "schema_pass_rate": 0.35,
+          "task_legal_rate": 0.0,
+          "full_chain_execution_rate": null,
+          "full_chain_success_rate": null
+        },
+        "mean_elapsed_ms": 26412.65,
+        "total_tokens": 192054,
+        "case_distribution": {
+          "component-version": 7,
+          "cve-fact": 7,
+          "multi-step-evidence": 6
+        },
+        "benchmark": false,
+        "security_accuracy_evaluated": false
+      },
+      "summary": {
+        "logical_runs": 3,
+        "provider_attempts": 6,
+        "full_chain_attempts": 3,
+        "provider_attempt_accounting_complete": true,
+        "attempts": {
+          "json_success_rate": 0.6666666666666666,
+          "schema_pass_rate": 0.16666666666666666,
+          "task_legal_rate": 0.0
+        },
+        "runs": {
+          "json_success_rate": 0.6666666666666666,
+          "schema_pass_rate": 0.3333333333333333,
+          "task_legal_rate": 0.0,
+          "full_chain_execution_rate": 0.0,
+          "full_chain_success_rate": 0.0
+        },
+        "mean_elapsed_ms": 25661.666666666668,
+        "total_tokens": 29156,
+        "case_distribution": {
+          "component-version": 1,
+          "cve-fact": 1,
+          "multi-step-evidence": 1
+        },
+        "benchmark": false,
+        "security_accuracy_evaluated": false
+      }
+    }
+  ],
+  "benchmark": false,
+  "security_accuracy_evaluated": false,
+  "finished_at_utc": "2026-10-12T07:05:32.890838+00:00",
+  "status": "COMPLETED",
+  "exported_at_utc": "2026-10-12T07:40:51.901856+00:00",
+  "source_report_sha256": "5c7d685d816ee172cce1b96814bf548ac4398ba71de1421fa3e6f11fb9bc2129",
+  "recapture": "Read-only re-read of all existing owned Planner audits and stored Gate results; no inference rerun",
+  "report_version": "phase12d1-probe-v2",
+  "prompt_version": "investigation-plan-v4"
+}

@@ -60,9 +60,18 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     changes=json.loads((root/'docs/phase12d/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     assert set(changes)=={'backend/app/planner/schemas.py','backend/app/llm/config.py','backend/tests/agents/verification/test_rules.py','backend/tests/runtime/test_scheduler.py',
                          'backend/app/llm/providers/openai_compatible.py'}
+    planner_changes=json.loads((root/'docs/phase12d1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(planner_changes)=={'backend/app/agents/investigation/planner.py','backend/app/agents/investigation/planning.py',
+                                 'backend/app/agents/investigation/roles.py','backend/tests/agents/investigation/test_planning.py'}
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in planner_changes:
+            entry=planner_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['authorization']=='PHASE12D1_USER_AUTHORIZED_PLANNER_STABILITY',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in changes:
             assert changes[path]['baseline_sha256']==digest,path
             assert changes[path]['authorization'] in {'USER_APPROVED_SCHEMA_METADATA_ONLY','PHASE12D_MODEL_PROVIDER_CONFIGURATION','PHASE12D_TEST_CLOCK_ISOLATION','PHASE12D_TEST_MONOTONIC_CONCURRENCY'}

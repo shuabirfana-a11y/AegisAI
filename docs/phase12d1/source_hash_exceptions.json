@@ -1,0 +1,26 @@
+{
+  "phase": "12D.1",
+  "preserves": "Historical baseline and Phase12D exception manifest are immutable",
+  "changes": {
+    "backend/app/agents/investigation/planner.py": {
+      "baseline_sha256": "2ace4a1acfd9b6e6e35767eda0ea46219a9225b8178b22f5d6ac0115fd21c365",
+      "current_sha256": "2c1f943b24dcd3c7b92909e07f2904eef47db85afb145e175526faa152fb0a11",
+      "authorization": "PHASE12D1_USER_AUTHORIZED_PLANNER_STABILITY"
+    },
+    "backend/app/agents/investigation/planning.py": {
+      "baseline_sha256": "c7c0986bcab8d41a40ee067012314e7459248df142f4c454ba97041100540135",
+      "current_sha256": "6a071c3bcd213fc9d1ab2c37390ee995ad2bb679597b363f4c1875c67838fed4",
+      "authorization": "PHASE12D1_USER_AUTHORIZED_PLANNER_STABILITY"
+    },
+    "backend/app/agents/investigation/roles.py": {
+      "baseline_sha256": "63a0e2e21d0f1fae667b051a1f7b52277927772bcf0a346d6fed3111e0b30293",
+      "current_sha256": "ed2a5f8a158c059cf35edf393d16f9dccd01b59d7c68a60080e4e5ea91c8e3b6",
+      "authorization": "PHASE12D1_USER_AUTHORIZED_PLANNER_STABILITY"
+    },
+    "backend/tests/agents/investigation/test_planning.py": {
+      "baseline_sha256": "2403c627565e9b703451503a361c1b4e0c300bfc272718a1d5e38358de516402",
+      "current_sha256": "f68da1ad38fcedbd1d46c7a750f829d5be0f68ce095b9b6b15673ce2eeb40867",
+      "authorization": "PHASE12D1_USER_AUTHORIZED_PLANNER_STABILITY"
+    }
+  }
+}

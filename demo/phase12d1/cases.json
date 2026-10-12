@@ -1,0 +1,36 @@
+{
+  "schema_version": "phase12d1-fixed-cases-v1",
+  "benchmark": false,
+  "notes": "固定协议稳定性问题，使用本地已采集的真实来源。不是人工Ground Truth或安全准确率评测。版本场景不提供资产库存，Gate必须保留此缺口。",
+  "cases": [
+    {
+      "case_id": "cve-fact",
+      "data_origin": "REAL_SOURCE",
+      "request": {
+        "user_query": "查询 CVE-2025-32434 的漏洞信息，并列出证据来源和仍未知的信息。",
+        "asset_scope": {"target": "CVE-2025-32434"},
+        "options": {"objective_profile": "overview_v1"}
+      }
+    },
+    {
+      "case_id": "component-version",
+      "data_origin": "REAL_SOURCE",
+      "request": {
+        "user_query": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+        "asset_scope": {
+          "target": "CVE-2025-32434",
+          "component": {"name": "pytorch", "ecosystem": "PyPI", "package_name": "torch", "version": "2.5.1"}
+        }
+      }
+    },
+    {
+      "case_id": "multi-step-evidence",
+      "data_origin": "REAL_SOURCE",
+      "request": {
+        "user_query": "围绕 CVE-2025-32434 开展多步骤调查：先查漏洞，再分别获取证据和 Claim 记录，整理官方与社区来源以及已知和未知项。",
+        "asset_scope": {"target": "CVE-2025-32434"},
+        "options": {"objective_profile": "overview_v1"}
+      }
+    }
+  ]
+}
