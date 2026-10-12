@@ -1,0 +1,2166 @@
+{
+  "phase": "12D.2",
+  "benchmark": false,
+  "security_accuracy_evaluated": false,
+  "status": "COMPLETED",
+  "started_at_utc": "2026-10-12T08:51:19.617296+00:00",
+  "cases": [
+    {
+      "case_id": "cve-overview",
+      "receipt": {
+        "case_id": "cve-overview",
+        "elapsed_ms": 35079.0,
+        "attempts": [
+          {
+            "attempt_index": 1,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": true,
+            "validation_status": "VALIDATED",
+            "error_codes": [],
+            "request_id": "e4d8ec0d-d1fc-40b0-87c6-ca8c37c8e661",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 10551.37719999766,
+            "usage": {
+              "input_tokens": 4908,
+              "total_tokens": 5399,
+              "output_tokens": 491
+            }
+          }
+        ],
+        "error_codes": [],
+        "measurement_status": "COMPLETED",
+        "planner_validated": true,
+        "real_mode_confirmed": true,
+        "chain_attempted": true,
+        "full_chain_executed": true,
+        "gate_accepted": true,
+        "attempt_accounting_complete": true,
+        "checked_at_utc": "2026-10-12T08:51:28.690602+00:00",
+        "data_origin": "REAL_SOURCE",
+        "transport": "LOOPBACK_HTTP",
+        "benchmark": false,
+        "answer_frozen_read_verified": true,
+        "error_code": null,
+        "http_probe": {
+          "case_id": "cve-overview",
+          "data_origin": "REAL_SOURCE",
+          "checked_at_utc": "2026-10-12T08:51:28.690602+00:00",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "endpoints": {
+            "create": {
+              "http_status": 202,
+              "schema_valid": true
+            },
+            "status": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "trace": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "artifacts": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "integration": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "answer": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "history": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "cancel": {
+              "http_status": 200,
+              "schema_valid": true
+            }
+          },
+          "chain_verified": true,
+          "ready": true,
+          "error_code": null,
+          "investigation_id": "d6541956-d4b0-4448-a32b-39e7f8c01785",
+          "model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false,
+            "source": "PERSISTED_PLANNER_CALL",
+            "model": "aegisai-qwen25-planner:latest",
+            "planner_attempt_count": 1
+          },
+          "creation_model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false
+          },
+          "overall_status": "SUCCEEDED_WITH_WARNINGS",
+          "current_stage": "COMPLETED",
+          "planner_present": true,
+          "planner_validation": "VALIDATED",
+          "chain_error_code": null,
+          "agent_run_count": 3,
+          "tool_call_count": 5,
+          "artifact_count": 3,
+          "integration_status": "PASS_WITH_WARNINGS",
+          "answer_status": "COMPLETE_WITH_WARNINGS",
+          "citation_count": 1
+        },
+        "investigation_id": "d6541956-d4b0-4448-a32b-39e7f8c01785",
+        "planner_run_id": "e9b96045-4d5b-4a08-b219-59ff7f7f2823",
+        "prompt_version": "investigation-plan-v4",
+        "plan_tasks": [
+          {
+            "task_id": "lookup-vulnerability",
+            "type": "vulnerability_lookup",
+            "task_type": "tool_sequence",
+            "dependencies": [],
+            "tools": [
+              "get_vulnerability"
+            ]
+          },
+          {
+            "task_id": "evidence-search",
+            "type": "evidence_search",
+            "task_type": "tool_sequence",
+            "dependencies": [
+              "lookup-vulnerability"
+            ],
+            "tools": [
+              "get_claims",
+              "get_evidence"
+            ]
+          }
+        ],
+        "agent_runs": [
+          {
+            "run_id": "7f63b9eb-3b35-478b-9339-63dfd4848c90",
+            "status": "succeeded",
+            "task_statuses": {
+              "lookup-vulnerability": "SUCCESS",
+              "evidence-search": "SUCCESS"
+            },
+            "artifact_ids": [
+              "4fdb1e2b-6b47-4a9d-868c-a7d7bc9d7ebd"
+            ]
+          },
+          {
+            "run_id": "a34cab73-bd11-4371-8795-9871a4dcff5a",
+            "status": "partial",
+            "task_statuses": {
+              "verify": "WAITING_REVIEW"
+            },
+            "artifact_ids": [
+              "7515ae36-eafb-4457-93cf-9ee93673c712"
+            ]
+          },
+          {
+            "run_id": "c96acf56-5e69-4082-b35c-75c8f9dfb1b3",
+            "status": "partial",
+            "task_statuses": {
+              "analyze": "WAITING_REVIEW"
+            },
+            "artifact_ids": [
+              "b9933b41-9fe1-4715-aace-a4ba8826c779"
+            ]
+          }
+        ],
+        "integration_id": "b2c3d2c2-dfae-46d3-b88b-eafb9eed874e",
+        "artifact_ids": {
+          "investigation": "4fdb1e2b-6b47-4a9d-868c-a7d7bc9d7ebd",
+          "verification": "7515ae36-eafb-4457-93cf-9ee93673c712",
+          "analysis": "b9933b41-9fe1-4715-aace-a4ba8826c779"
+        },
+        "integration_status": "PASS_WITH_WARNINGS",
+        "answer_id": "c4d842a4-d4b2-5463-9049-540a65de7aa3",
+        "answer_status": "COMPLETE_WITH_WARNINGS",
+        "answer_read_extra_planner_calls": 0
+      },
+      "diagnostic": {
+        "schema_version": "phase12d2-failure-v1",
+        "benchmark": false,
+        "security_accuracy_evaluated": false,
+        "id": "d6541956-d4b0-4448-a32b-39e7f8c01785",
+        "question": "查询 CVE-2025-32434 的漏洞信息，并列出证据来源和仍未知的信息。",
+        "model": "aegisai-qwen25-planner:latest",
+        "execution_mode": "REAL",
+        "data_origin": "REAL_SOURCE",
+        "failed_stage": null,
+        "gate_executed": true,
+        "gate_status": "PASS_WITH_WARNINGS",
+        "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+        "classification": "DATA",
+        "missing_information": [
+          "asset_id",
+          "eligible claim-bound evidence"
+        ],
+        "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+        "planner_run_id": "e9b96045-4d5b-4a08-b219-59ff7f7f2823",
+        "integration_id": "b2c3d2c2-dfae-46d3-b88b-eafb9eed874e",
+        "planner_validation": "VALIDATED",
+        "planner_error_codes": [],
+        "chain_error_code": null,
+        "upstream_unresolved_items": [
+          "SHARED_SOURCE_LINEAGE",
+          "OVERVIEW_BOUNDED_ABSTENTION",
+          "UNRESOLVED_ANALYSIS"
+        ],
+        "objective": {
+          "question": "查询 CVE-2025-32434 的漏洞信息，并列出证据来源和仍未知的信息。",
+          "targets": [
+            "CVE-2025-32434"
+          ],
+          "asset_id": null,
+          "component_id": null,
+          "package_name": null,
+          "version": null,
+          "required_outcomes": [
+            "identity",
+            "overview"
+          ],
+          "window_days": null,
+          "requires_current": false,
+          "scope_gaps": []
+        },
+        "plan_tasks": [
+          {
+            "task_id": "lookup-vulnerability",
+            "type": "vulnerability_lookup",
+            "dependencies": [],
+            "tools": [
+              "get_vulnerability"
+            ]
+          },
+          {
+            "task_id": "evidence-search",
+            "type": "evidence_search",
+            "dependencies": [
+              "lookup-vulnerability"
+            ],
+            "tools": [
+              "get_claims",
+              "get_evidence"
+            ]
+          }
+        ],
+        "gate_rules": [],
+        "asset_snapshot": {
+          "asset_id": null,
+          "component_id": null,
+          "component": null,
+          "package_identifier_id": null,
+          "package_name": null,
+          "ecosystem": "unknown",
+          "namespace": "",
+          "purl": null,
+          "deployed_version": null,
+          "inventory_revision": null,
+          "asset_updated_at": null,
+          "component_updated_at": null,
+          "captured_at": "2026-10-12T08:51:55.098875Z",
+          "environment": "unknown",
+          "exposure": "unknown",
+          "criticality": "unknown",
+          "is_demo": false,
+          "context_status": "MISSING",
+          "unresolved_items": [
+            "ASSET_CONTEXT_MISSING"
+          ],
+          "provenance": "USER_INVENTORY_NOT_SCANNED"
+        },
+        "artifact_states": [
+          {
+            "artifact_id": "4fdb1e2b-6b47-4a9d-868c-a7d7bc9d7ebd",
+            "task_id": "lookup-vulnerability",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          },
+          {
+            "artifact_id": "804aa12e-c1b1-4de3-86df-3ddd2ca1c635",
+            "task_id": "evidence-search",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          }
+        ],
+        "verification": {
+          "artifact_id": "7515ae36-eafb-4457-93cf-9ee93673c712",
+          "verification_status": "PENDING",
+          "execution_status": "WAITING_REVIEW",
+          "claim_status_counts": {
+            "INSUFFICIENT_EVIDENCE": 11,
+            "CONFIRMED": 1,
+            "REJECTED": 3
+          },
+          "claims": [
+            {
+              "claim_id": "0c874f26-8b59-411b-8669-b6f624a9211d",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "16a9417d-15f2-4b8a-a7d5-a757f6573731"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "b9075b8f-06c3-4a1a-8e93-e7525c3c72b9"
+                }
+              ]
+            },
+            {
+              "claim_id": "1a59eb0a-93b1-457d-864b-a25ea5a19bfb",
+              "claim_type": "VENDOR_CONFIRMED",
+              "status": "CONFIRMED",
+              "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+              "supporting_evidence_ids": [
+                "663983de-cb2f-4fe8-80c4-a237e9641897"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4a16df93-c044-4c7c-9c6e-8269ac588960"
+                }
+              ]
+            },
+            {
+              "claim_id": "3f1944b1-94ed-43f8-804c-a98a40a777b4",
+              "claim_type": "KNOWN_EXPLOITED",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Catalog absence is not evidence of no exploitation.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "AUTHORITY_SCOPE_NOT_ESTABLISHED",
+                    "SOURCE_AUTHORITY_UNRESOLVED"
+                  ],
+                  "evidence_id": "2c52b57c-43b1-4f2d-9ce1-40e3fa30e23f"
+                }
+              ]
+            },
+            {
+              "claim_id": "52f31961-6a62-43b9-89bc-86ae02b16325",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "3a0edc6b-1f35-469d-8c19-dc93bacaf597"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4303e418-98ee-446d-a13c-d3df2f46a8c5"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4acb5501-d450-45b7-a5d2-99e941d84c00"
+                }
+              ]
+            },
+            {
+              "claim_id": "575a0fbf-1119-4fca-8f92-8ae5f888a51f",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "a00d1cda-55f9-4417-a0ed-ecc04307d35f"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "c7b83d13-a834-4875-aefc-f1b127dd194b"
+                }
+              ]
+            },
+            {
+              "claim_id": "5fdb08dc-3152-4ecc-8379-e3289e14b633",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "RAW_OR_EXCERPT_INTEGRITY_FAILED",
+                    "INCOMPLETE_OR_INVALID_PROVENANCE"
+                  ],
+                  "evidence_id": "6450a7e4-bde0-4862-bee7-62b44d66531e"
+                }
+              ]
+            },
+            {
+              "claim_id": "71e68ff0-3a2a-4af4-b506-99d22c689139",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "695299c4-5a7b-4107-81cd-eee7e7c03f44"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4a1b0c3b-d5a9-44f1-96f6-7989f2a7c006"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "e48a348f-eadc-4072-bc57-750efd9497ee"
+                }
+              ]
+            },
+            {
+              "claim_id": "86ac2463-90cd-4cb4-ac15-463230e946ab",
+              "claim_type": "FIXED_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "f990cea5-9827-4d7f-b9c2-6c5822649acd"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "946af667-53aa-48d7-82ff-fdc112f1b096",
+              "claim_type": "AFFECTS_PRODUCT",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "9ea8d349-4328-4f1d-a562-8ab6e20c164e",
+                "d418c2fc-7b5e-4631-8601-ee4c5289ddf3"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "9a70bb0e-7cc7-47d4-a690-a526a095de5a",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "606e3b5f-a8d0-42e0-808c-8243d6801075"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "a78a8777-7eec-4206-8c71-7facb0198323"
+                }
+              ]
+            },
+            {
+              "claim_id": "aa6b5665-a6a6-45cc-819b-7095ef821026",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "8530f54e-7356-4bdc-8ca2-1497c7f604b6"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "3aad5a08-8c39-424e-af65-0302bc05fe77"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "c0d46681-1ac7-4405-8bf4-f0f6fbc2f695"
+                }
+              ]
+            },
+            {
+              "claim_id": "ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "cab18615-774a-4d75-b49e-a2157c391f28"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "ca316e30-641a-42cc-9df1-5b14752d6fb7",
+              "claim_type": "FIX_COMMIT",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "17819d41-6cd8-4af3-8aa0-864a002d4510"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "33c5a6ca-2f90-446f-bc41-a3ca25c2804e"
+                }
+              ]
+            },
+            {
+              "claim_id": "derived:3149da1b37fd1a32cbc985737c626f15bbd8e28d1974595f6538f326ab11566e",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "ec450c34-d801-4e6b-8722-5f150b4548a4",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [
+                "589f1d98-64c3-49b6-b813-da740d8b0765"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            }
+          ],
+          "conflicts": [],
+          "unresolved_items": [
+            "Derived ranges without immutable claim-bound evidence remain candidates",
+            "Insufficient current, explicit, independent evidence.",
+            "Catalog absence is not evidence of no exploitation.",
+            "Static information explicitly rejects this association.",
+            "Version expression is unsupported; no guessed range."
+          ]
+        },
+        "analysis": {
+          "artifact_id": "b9933b41-9fe1-4715-aace-a4ba8826c779",
+          "risk_level": "UNKNOWN",
+          "priority": "REVIEW_REQUIRED",
+          "verification_status": "PENDING",
+          "version_match_status": "UNKNOWN",
+          "affected": null,
+          "unresolved_items": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "ASSET_CONTEXT_MISSING",
+            "ASSET_MATCH_UNKNOWN",
+            "UNCONFIRMED_IMPACT:5fdb08dc-3152-4ecc-8379-e3289e14b633",
+            "UNCONFIRMED_IMPACT:ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+            "UNCONFIRMED_IMPACT:derived:3149da1b37fd1a32cbc985737c626f15bbd8e28d1974595f6538f326ab11566e",
+            "UNCONFIRMED_IMPACT:ec450c34-d801-4e6b-8722-5f150b4548a4",
+            "Derived ranges without immutable claim-bound evidence remain candidates",
+            "Insufficient current, explicit, independent evidence.",
+            "Catalog absence is not evidence of no exploitation.",
+            "Static information explicitly rejects this association.",
+            "Version expression is unsupported; no guessed range."
+          ]
+        },
+        "version_observation_handoff": {
+          "selected_artifact_id": "4fdb1e2b-6b47-4a9d-868c-a7d7bc9d7ebd",
+          "selected_has_version": false,
+          "observed_artifact_ids": []
+        },
+        "recorded_source_conflict_count": 0,
+        "verified_conflict_count": 0
+      }
+    },
+    {
+      "case_id": "component-version",
+      "receipt": {
+        "case_id": "component-version",
+        "elapsed_ms": 36656.0,
+        "attempts": [
+          {
+            "attempt_index": 1,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": true,
+            "validation_status": "VALIDATED",
+            "error_codes": [],
+            "request_id": "8059d2fe-d45c-4937-a39e-c2bc9c9a1dca",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 14936.389300000883,
+            "usage": {
+              "input_tokens": 5048,
+              "total_tokens": 5870,
+              "output_tokens": 822
+            }
+          }
+        ],
+        "error_codes": [],
+        "measurement_status": "COMPLETED",
+        "planner_validated": true,
+        "real_mode_confirmed": true,
+        "chain_attempted": true,
+        "full_chain_executed": true,
+        "gate_accepted": false,
+        "attempt_accounting_complete": true,
+        "checked_at_utc": "2026-10-12T08:52:04.536940+00:00",
+        "data_origin": "REAL_SOURCE_COMPONENT_INPUT",
+        "transport": "LOOPBACK_HTTP",
+        "benchmark": false,
+        "answer_frozen_read_verified": true,
+        "error_code": "GATE_FAILED",
+        "http_probe": {
+          "case_id": "component-version",
+          "data_origin": "REAL_SOURCE_COMPONENT_INPUT",
+          "checked_at_utc": "2026-10-12T08:52:04.536940+00:00",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "endpoints": {
+            "create": {
+              "http_status": 202,
+              "schema_valid": true
+            },
+            "status": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "trace": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "artifacts": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "integration": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "answer": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "history": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "cancel": {
+              "http_status": 200,
+              "schema_valid": true
+            }
+          },
+          "chain_verified": false,
+          "ready": false,
+          "error_code": "GATE_FAILED",
+          "investigation_id": "ecb8797a-2a26-475d-a1a2-b7103e9bd405",
+          "model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false,
+            "source": "PERSISTED_PLANNER_CALL",
+            "model": "aegisai-qwen25-planner:latest",
+            "planner_attempt_count": 1
+          },
+          "creation_model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false
+          },
+          "overall_status": "FAILED",
+          "current_stage": "FAILED",
+          "planner_present": true,
+          "planner_validation": "VALIDATED",
+          "chain_error_code": "GATE_FAILED",
+          "agent_run_count": 3,
+          "tool_call_count": 6,
+          "artifact_count": 3,
+          "integration_status": "FAILED",
+          "answer_status": "FAILED",
+          "citation_count": 0
+        },
+        "investigation_id": "ecb8797a-2a26-475d-a1a2-b7103e9bd405",
+        "planner_run_id": "7c1d2d1d-acbd-4476-9e2c-1c27fc656915",
+        "prompt_version": "investigation-plan-v4",
+        "plan_tasks": [
+          {
+            "task_id": "lookup",
+            "type": "vulnerability_lookup",
+            "task_type": "tool_sequence",
+            "dependencies": [],
+            "tools": [
+              "get_vulnerability"
+            ]
+          },
+          {
+            "task_id": "component_version",
+            "type": "vulnerability_lookup",
+            "task_type": "tool_sequence",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "inspect_component_version"
+            ]
+          },
+          {
+            "task_id": "evidence",
+            "type": "evidence_search",
+            "task_type": "tool_sequence",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "get_evidence"
+            ]
+          },
+          {
+            "task_id": "claims",
+            "type": "evidence_search",
+            "task_type": "tool_sequence",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "get_claims"
+            ]
+          }
+        ],
+        "agent_runs": [
+          {
+            "run_id": "f3a1226d-9f72-43ff-9d61-2f409d339408",
+            "status": "succeeded",
+            "task_statuses": {
+              "lookup": "SUCCESS",
+              "component_version": "SUCCESS",
+              "evidence": "SUCCESS",
+              "claims": "SUCCESS"
+            },
+            "artifact_ids": [
+              "44881618-cb23-42e1-9161-a804db0f9b23"
+            ]
+          },
+          {
+            "run_id": "e9788151-1425-4c97-a25a-201e264149e6",
+            "status": "partial",
+            "task_statuses": {
+              "verify": "WAITING_REVIEW"
+            },
+            "artifact_ids": [
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b"
+            ]
+          },
+          {
+            "run_id": "4eb6d548-c0ae-4884-bd88-3b7d7aa1a15c",
+            "status": "partial",
+            "task_statuses": {
+              "analyze": "WAITING_REVIEW"
+            },
+            "artifact_ids": [
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ]
+          }
+        ],
+        "integration_id": "dbdebeeb-ed6c-4d2b-824d-cd264a7cfa24",
+        "artifact_ids": {
+          "investigation": "44881618-cb23-42e1-9161-a804db0f9b23",
+          "verification": "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+          "analysis": "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+        },
+        "integration_status": "FAILED",
+        "answer_id": "bb24967a-1eb9-565a-907e-7f3f54c44b79",
+        "answer_status": "FAILED",
+        "answer_read_extra_planner_calls": 0
+      },
+      "diagnostic": {
+        "schema_version": "phase12d2-failure-v1",
+        "benchmark": false,
+        "security_accuracy_evaluated": false,
+        "id": "ecb8797a-2a26-475d-a1a2-b7103e9bd405",
+        "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+        "model": "aegisai-qwen25-planner:latest",
+        "execution_mode": "REAL",
+        "data_origin": "REAL_SOURCE_COMPONENT_INPUT",
+        "failed_stage": "INTEGRATING",
+        "gate_executed": true,
+        "gate_status": "FAILED",
+        "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+        "classification": "C_AND_DATA",
+        "missing_information": [
+          "asset_id",
+          "eligible claim-bound evidence",
+          "handoff of requested version task observation"
+        ],
+        "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+        "planner_run_id": "7c1d2d1d-acbd-4476-9e2c-1c27fc656915",
+        "integration_id": "dbdebeeb-ed6c-4d2b-824d-cd264a7cfa24",
+        "planner_validation": "VALIDATED",
+        "planner_error_codes": [],
+        "chain_error_code": "GATE_FAILED",
+        "upstream_unresolved_items": [
+          "REQUIRED_TASK_INCOMPLETE",
+          "ASSET_SCOPE_MISSING",
+          "OBJECTIVE_VERSION_MISMATCH",
+          "OBJECTIVE_PACKAGE_MISMATCH",
+          "OBJECTIVE_NOT_COVERED",
+          "UNRESOLVED_ANALYSIS",
+          "SHARED_SOURCE_LINEAGE",
+          "REMEDIATION_UNKNOWN"
+        ],
+        "objective": {
+          "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
+          "targets": [
+            "CVE-2025-32434"
+          ],
+          "asset_id": null,
+          "component_id": null,
+          "package_name": "torch",
+          "version": "2.5.1",
+          "required_outcomes": [
+            "identity",
+            "asset",
+            "version_impact",
+            "remediation_status"
+          ],
+          "window_days": null,
+          "requires_current": false,
+          "scope_gaps": [
+            "ASSET_SCOPE_MISSING"
+          ]
+        },
+        "plan_tasks": [
+          {
+            "task_id": "lookup",
+            "type": "vulnerability_lookup",
+            "dependencies": [],
+            "tools": [
+              "get_vulnerability"
+            ]
+          },
+          {
+            "task_id": "component_version",
+            "type": "vulnerability_lookup",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "inspect_component_version"
+            ]
+          },
+          {
+            "task_id": "evidence",
+            "type": "evidence_search",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "get_evidence"
+            ]
+          },
+          {
+            "task_id": "claims",
+            "type": "evidence_search",
+            "dependencies": [
+              "lookup"
+            ],
+            "tools": [
+              "get_claims"
+            ]
+          }
+        ],
+        "gate_rules": [
+          {
+            "gate": "completion",
+            "code": "REQUIRED_TASK_INCOMPLETE",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Required task did not complete",
+            "refs": [
+              "e9788151-1425-4c97-a25a-201e264149e6",
+              "verify"
+            ],
+            "objective": null,
+            "classification": "DATA",
+            "needs": "Complete the required upstream result without changing WAITING_REVIEW",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "completion",
+            "code": "REQUIRED_TASK_INCOMPLETE",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Required task did not complete",
+            "refs": [
+              "4eb6d548-c0ae-4884-bd88-3b7d7aa1a15c",
+              "analyze"
+            ],
+            "objective": null,
+            "classification": "DATA",
+            "needs": "Complete the required upstream result without changing WAITING_REVIEW",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "objective",
+            "code": "ASSET_SCOPE_MISSING",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Original request scope incomplete",
+            "refs": [],
+            "objective": null,
+            "classification": "C",
+            "needs": "Owner-bound asset and exact component context",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "objective",
+            "code": "OBJECTIVE_VERSION_MISMATCH",
+            "outcome": "ERROR",
+            "blocking": "FATAL",
+            "message": "Output scope differs from original input",
+            "refs": [],
+            "objective": null,
+            "classification": "C",
+            "needs": "Original version and deployed inventory version must agree",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "objective",
+            "code": "OBJECTIVE_PACKAGE_MISMATCH",
+            "outcome": "ERROR",
+            "blocking": "FATAL",
+            "message": "Output scope differs from original input",
+            "refs": [],
+            "objective": null,
+            "classification": "C",
+            "needs": "Original package and resolved inventory identity must agree",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "objective",
+            "code": "OBJECTIVE_NOT_COVERED",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Required asset not answered",
+            "refs": [],
+            "objective": "asset",
+            "classification": "DATA",
+            "needs": "Provide evidence/context for the original required outcome",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "objective",
+            "code": "OBJECTIVE_NOT_COVERED",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Required version_impact not answered",
+            "refs": [],
+            "objective": "version_impact",
+            "classification": "DATA",
+            "needs": "Provide evidence/context for the original required outcome",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          },
+          {
+            "gate": "freshness",
+            "code": "UNRESOLVED_ANALYSIS",
+            "outcome": "BLOCKED",
+            "blocking": "REPLAN",
+            "message": "Unresolved analysis is disclosed",
+            "refs": [
+              "VERIFICATION_PENDING",
+              "VERIFICATION_RUNTIME_INCOMPLETE",
+              "ASSET_CONTEXT_MISSING",
+              "ASSET_MATCH_UNKNOWN",
+              "UNCONFIRMED_IMPACT:5fdb08dc-3152-4ecc-8379-e3289e14b633",
+              "UNCONFIRMED_IMPACT:ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+              "UNCONFIRMED_IMPACT:derived:835e52bd29a1049cc08eb5b58c8ad6059687bc30b4fe1e4e06d5d07a45a47c6f",
+              "UNCONFIRMED_IMPACT:ec450c34-d801-4e6b-8722-5f150b4548a4",
+              "Derived ranges without immutable claim-bound evidence remain candidates",
+              "Insufficient current, explicit, independent evidence.",
+              "Catalog absence is not evidence of no exploitation.",
+              "Static information explicitly rejects this association.",
+              "Version expression is unsupported; no guessed range."
+            ],
+            "objective": null,
+            "classification": "DATA",
+            "needs": "Eligible version-impact evidence and resolved inventory",
+            "involved_artifacts": [
+              "44881618-cb23-42e1-9161-a804db0f9b23",
+              "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+              "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+              "f3983277-907e-469f-b2e1-d7188c2b1c71",
+              "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+              "eb542b66-2a1e-4a02-a464-d29f9e4e8309"
+            ],
+            "selected_investigation_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23"
+          }
+        ],
+        "asset_snapshot": {
+          "asset_id": null,
+          "component_id": null,
+          "component": null,
+          "package_identifier_id": null,
+          "package_name": null,
+          "ecosystem": "unknown",
+          "namespace": "",
+          "purl": null,
+          "deployed_version": null,
+          "inventory_revision": null,
+          "asset_updated_at": null,
+          "component_updated_at": null,
+          "captured_at": "2026-10-12T08:52:32.485680Z",
+          "environment": "unknown",
+          "exposure": "unknown",
+          "criticality": "unknown",
+          "is_demo": false,
+          "context_status": "MISSING",
+          "unresolved_items": [
+            "ASSET_CONTEXT_MISSING"
+          ],
+          "provenance": "USER_INVENTORY_NOT_SCANNED"
+        },
+        "artifact_states": [
+          {
+            "artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23",
+            "task_id": "lookup",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          },
+          {
+            "artifact_id": "b0713b76-fd4c-49c9-842f-e587aa7604e1",
+            "task_id": "component_version",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          },
+          {
+            "artifact_id": "c132688b-8705-46e1-9d8a-e8cc2e4d5c28",
+            "task_id": "evidence",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          },
+          {
+            "artifact_id": "f3983277-907e-469f-b2e1-d7188c2b1c71",
+            "task_id": "claims",
+            "status": "COMPLETE",
+            "runtime_status": "SUCCESS"
+          }
+        ],
+        "verification": {
+          "artifact_id": "d0775adc-be2f-4b8a-b179-f83a1d0abe7b",
+          "verification_status": "PENDING",
+          "execution_status": "WAITING_REVIEW",
+          "claim_status_counts": {
+            "INSUFFICIENT_EVIDENCE": 11,
+            "CONFIRMED": 1,
+            "REJECTED": 3
+          },
+          "claims": [
+            {
+              "claim_id": "0c874f26-8b59-411b-8669-b6f624a9211d",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "16a9417d-15f2-4b8a-a7d5-a757f6573731"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "b9075b8f-06c3-4a1a-8e93-e7525c3c72b9"
+                }
+              ]
+            },
+            {
+              "claim_id": "1a59eb0a-93b1-457d-864b-a25ea5a19bfb",
+              "claim_type": "VENDOR_CONFIRMED",
+              "status": "CONFIRMED",
+              "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+              "supporting_evidence_ids": [
+                "663983de-cb2f-4fe8-80c4-a237e9641897"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4a16df93-c044-4c7c-9c6e-8269ac588960"
+                }
+              ]
+            },
+            {
+              "claim_id": "3f1944b1-94ed-43f8-804c-a98a40a777b4",
+              "claim_type": "KNOWN_EXPLOITED",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Catalog absence is not evidence of no exploitation.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "AUTHORITY_SCOPE_NOT_ESTABLISHED",
+                    "SOURCE_AUTHORITY_UNRESOLVED"
+                  ],
+                  "evidence_id": "2c52b57c-43b1-4f2d-9ce1-40e3fa30e23f"
+                }
+              ]
+            },
+            {
+              "claim_id": "52f31961-6a62-43b9-89bc-86ae02b16325",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "3a0edc6b-1f35-469d-8c19-dc93bacaf597"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4303e418-98ee-446d-a13c-d3df2f46a8c5"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4acb5501-d450-45b7-a5d2-99e941d84c00"
+                }
+              ]
+            },
+            {
+              "claim_id": "575a0fbf-1119-4fca-8f92-8ae5f888a51f",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "a00d1cda-55f9-4417-a0ed-ecc04307d35f"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "c7b83d13-a834-4875-aefc-f1b127dd194b"
+                }
+              ]
+            },
+            {
+              "claim_id": "5fdb08dc-3152-4ecc-8379-e3289e14b633",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "RAW_OR_EXCERPT_INTEGRITY_FAILED",
+                    "INCOMPLETE_OR_INVALID_PROVENANCE"
+                  ],
+                  "evidence_id": "6450a7e4-bde0-4862-bee7-62b44d66531e"
+                }
+              ]
+            },
+            {
+              "claim_id": "71e68ff0-3a2a-4af4-b506-99d22c689139",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "695299c4-5a7b-4107-81cd-eee7e7c03f44"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "4a1b0c3b-d5a9-44f1-96f6-7989f2a7c006"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "e48a348f-eadc-4072-bc57-750efd9497ee"
+                }
+              ]
+            },
+            {
+              "claim_id": "86ac2463-90cd-4cb4-ac15-463230e946ab",
+              "claim_type": "FIXED_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "f990cea5-9827-4d7f-b9c2-6c5822649acd"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "946af667-53aa-48d7-82ff-fdc112f1b096",
+              "claim_type": "AFFECTS_PRODUCT",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "9ea8d349-4328-4f1d-a562-8ab6e20c164e",
+                "d418c2fc-7b5e-4631-8601-ee4c5289ddf3"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "9a70bb0e-7cc7-47d4-a690-a526a095de5a",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "606e3b5f-a8d0-42e0-808c-8243d6801075"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE",
+                    "SUPERSEDED_CLAIM"
+                  ],
+                  "evidence_id": "a78a8777-7eec-4206-8c71-7facb0198323"
+                }
+              ]
+            },
+            {
+              "claim_id": "aa6b5665-a6a6-45cc-819b-7095ef821026",
+              "claim_type": "POC_ASSOCIATION",
+              "status": "REJECTED",
+              "reason": "Static information explicitly rejects this association.",
+              "supporting_evidence_ids": [
+                "8530f54e-7356-4bdc-8ca2-1497c7f604b6"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "3aad5a08-8c39-424e-af65-0302bc05fe77"
+                },
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "c0d46681-1ac7-4405-8bf4-f0f6fbc2f695"
+                }
+              ]
+            },
+            {
+              "claim_id": "ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "cab18615-774a-4d75-b49e-a2157c391f28"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "ca316e30-641a-42cc-9df1-5b14752d6fb7",
+              "claim_type": "FIX_COMMIT",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Insufficient current, explicit, independent evidence.",
+              "supporting_evidence_ids": [
+                "17819d41-6cd8-4af3-8aa0-864a002d4510"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": [
+                {
+                  "reasons": [
+                    "HISTORICAL_OR_UNRESOLVED_OBSERVATION",
+                    "NONCURRENT_SOURCE"
+                  ],
+                  "evidence_id": "33c5a6ca-2f90-446f-bc41-a3ca25c2804e"
+                }
+              ]
+            },
+            {
+              "claim_id": "derived:835e52bd29a1049cc08eb5b58c8ad6059687bc30b4fe1e4e06d5d07a45a47c6f",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            },
+            {
+              "claim_id": "ec450c34-d801-4e6b-8722-5f150b4548a4",
+              "claim_type": "AFFECTS_VERSION",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "reason": "Version expression is unsupported; no guessed range.",
+              "supporting_evidence_ids": [
+                "589f1d98-64c3-49b6-b813-da740d8b0765"
+              ],
+              "conflicting_evidence_ids": [],
+              "exclusions": []
+            }
+          ],
+          "conflicts": [],
+          "unresolved_items": [
+            "Derived ranges without immutable claim-bound evidence remain candidates",
+            "Insufficient current, explicit, independent evidence.",
+            "Catalog absence is not evidence of no exploitation.",
+            "Static information explicitly rejects this association.",
+            "Version expression is unsupported; no guessed range."
+          ]
+        },
+        "analysis": {
+          "artifact_id": "eb542b66-2a1e-4a02-a464-d29f9e4e8309",
+          "risk_level": "UNKNOWN",
+          "priority": "REVIEW_REQUIRED",
+          "verification_status": "PENDING",
+          "version_match_status": "UNKNOWN",
+          "affected": null,
+          "unresolved_items": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "ASSET_CONTEXT_MISSING",
+            "ASSET_MATCH_UNKNOWN",
+            "UNCONFIRMED_IMPACT:5fdb08dc-3152-4ecc-8379-e3289e14b633",
+            "UNCONFIRMED_IMPACT:ad9cdd54-5502-4ef7-bc47-d0a4f71aedfe",
+            "UNCONFIRMED_IMPACT:derived:835e52bd29a1049cc08eb5b58c8ad6059687bc30b4fe1e4e06d5d07a45a47c6f",
+            "UNCONFIRMED_IMPACT:ec450c34-d801-4e6b-8722-5f150b4548a4",
+            "Derived ranges without immutable claim-bound evidence remain candidates",
+            "Insufficient current, explicit, independent evidence.",
+            "Catalog absence is not evidence of no exploitation.",
+            "Static information explicitly rejects this association.",
+            "Version expression is unsupported; no guessed range."
+          ]
+        },
+        "version_observation_handoff": {
+          "selected_artifact_id": "44881618-cb23-42e1-9161-a804db0f9b23",
+          "selected_has_version": false,
+          "observed_artifact_ids": [
+            "b0713b76-fd4c-49c9-842f-e587aa7604e1"
+          ]
+        },
+        "recorded_source_conflict_count": 0,
+        "verified_conflict_count": 0
+      }
+    },
+    {
+      "case_id": "asset-risk",
+      "receipt": {
+        "case_id": "asset-risk",
+        "elapsed_ms": 40829.0,
+        "attempts": [
+          {
+            "attempt_index": 1,
+            "diagnostic_available": false,
+            "json_valid": false,
+            "schema_valid": false,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "TIMEOUT"
+            ],
+            "request_id": "eca4385a-90fc-48b8-a4da-382cabae0a4e",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 20087.739599999622,
+            "usage": {
+              "input_tokens": null,
+              "total_tokens": null,
+              "output_tokens": null
+            }
+          },
+          {
+            "attempt_index": 2,
+            "diagnostic_available": false,
+            "json_valid": false,
+            "schema_valid": false,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "TIMEOUT"
+            ],
+            "request_id": "47801ac6-e7c3-4970-a244-de1d85e51dfb",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 20100.39980000147,
+            "usage": {
+              "input_tokens": null,
+              "total_tokens": null,
+              "output_tokens": null
+            }
+          }
+        ],
+        "error_codes": [],
+        "measurement_status": "COMPLETED",
+        "planner_validated": false,
+        "real_mode_confirmed": true,
+        "chain_attempted": true,
+        "full_chain_executed": false,
+        "gate_accepted": false,
+        "attempt_accounting_complete": true,
+        "checked_at_utc": "2026-10-12T08:52:42.186185+00:00",
+        "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+        "transport": "LOOPBACK_HTTP",
+        "benchmark": false,
+        "answer_frozen_read_verified": true,
+        "error_code": "PLANNING_FAILED",
+        "http_probe": {
+          "case_id": "asset-risk",
+          "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+          "checked_at_utc": "2026-10-12T08:52:42.186185+00:00",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "endpoints": {
+            "create": {
+              "http_status": 202,
+              "schema_valid": true
+            },
+            "status": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "trace": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "artifacts": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "integration": {
+              "http_status": 409,
+              "schema_valid": true,
+              "error_code": "RESULT_UNAVAILABLE"
+            },
+            "answer": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "history": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "cancel": {
+              "http_status": 200,
+              "schema_valid": true
+            }
+          },
+          "chain_verified": false,
+          "ready": false,
+          "error_code": "PLANNING_FAILED",
+          "investigation_id": "a514dfde-47ad-44fc-b364-56b7d62876b0",
+          "model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false,
+            "source": "PERSISTED_PLANNER_CALL",
+            "model": "aegisai-qwen25-planner:latest",
+            "planner_attempt_count": 2
+          },
+          "creation_model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false
+          },
+          "overall_status": "FAILED",
+          "current_stage": "FAILED",
+          "planner_present": true,
+          "planner_validation": "PLANNING_FAILED",
+          "chain_error_code": "PLANNING_FAILED",
+          "agent_run_count": 0,
+          "tool_call_count": 0,
+          "artifact_count": 0,
+          "integration_status": null,
+          "answer_status": "FAILED",
+          "citation_count": 0
+        },
+        "investigation_id": "a514dfde-47ad-44fc-b364-56b7d62876b0",
+        "planner_run_id": "53ff31cc-c6dc-4394-b54f-1bbd3337e8d1",
+        "prompt_version": "investigation-plan-v4",
+        "plan_tasks": [],
+        "agent_runs": [],
+        "integration_id": null,
+        "artifact_ids": {},
+        "integration_status": null,
+        "answer_id": "709a9247-4f5e-5cbf-8710-a129bc91178e",
+        "answer_status": "FAILED",
+        "answer_read_extra_planner_calls": 0
+      },
+      "diagnostic": {
+        "schema_version": "phase12d2-failure-v1",
+        "benchmark": false,
+        "security_accuracy_evaluated": false,
+        "id": "a514dfde-47ad-44fc-b364-56b7d62876b0",
+        "question": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
+        "model": "aegisai-qwen25-planner:latest",
+        "execution_mode": "REAL",
+        "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+        "failed_stage": "PLANNING",
+        "gate_executed": false,
+        "gate_status": null,
+        "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+        "classification": "PLANNER_OUTPUT_OR_PROVIDER",
+        "missing_information": [
+          "validated plan before downstream business diagnosis"
+        ],
+        "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+        "planner_run_id": "53ff31cc-c6dc-4394-b54f-1bbd3337e8d1",
+        "integration_id": null,
+        "planner_validation": "PLANNING_FAILED",
+        "planner_error_codes": [
+          "TIMEOUT"
+        ],
+        "chain_error_code": "PLANNING_FAILED",
+        "upstream_unresolved_items": [],
+        "objective": {
+          "question": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
+          "targets": [
+            "CVE-2025-32434"
+          ],
+          "asset_id": "0db4cc0a-c574-45e4-a99a-f1af8d19ac25",
+          "component_id": "130b4d4e-bd4d-4215-8700-9508d4f75291",
+          "package_name": "torch",
+          "version": "2.5.1",
+          "required_outcomes": [
+            "identity",
+            "asset",
+            "version_impact",
+            "remediation_status",
+            "risk",
+            "priority"
+          ],
+          "window_days": null,
+          "requires_current": false,
+          "scope_gaps": []
+        },
+        "plan_tasks": [],
+        "gate_rules": [],
+        "asset_snapshot": {},
+        "artifact_states": [],
+        "verification": {},
+        "analysis": null,
+        "version_observation_handoff": {
+          "selected_artifact_id": null,
+          "selected_has_version": false,
+          "observed_artifact_ids": []
+        },
+        "recorded_source_conflict_count": 0,
+        "verified_conflict_count": 0
+      }
+    },
+    {
+      "case_id": "insufficient-evidence",
+      "receipt": {
+        "case_id": "insufficient-evidence",
+        "elapsed_ms": 20219.0,
+        "attempts": [
+          {
+            "attempt_index": 1,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "ASSET_LOOKUP_REQUIRED"
+            ],
+            "request_id": "6025623f-4d22-435f-a32e-aaa61d4ac091",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 11012.796900002286,
+            "usage": {
+              "input_tokens": 5268,
+              "total_tokens": 5829,
+              "output_tokens": 561
+            }
+          },
+          {
+            "attempt_index": 2,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "ASSET_LOOKUP_REQUIRED"
+            ],
+            "request_id": "69146700-b4ce-4c0f-a491-a9418de7c514",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 8583.778299998812,
+            "usage": {
+              "input_tokens": 5293,
+              "total_tokens": 5735,
+              "output_tokens": 442
+            }
+          }
+        ],
+        "error_codes": [],
+        "measurement_status": "COMPLETED",
+        "planner_validated": false,
+        "real_mode_confirmed": true,
+        "chain_attempted": true,
+        "full_chain_executed": false,
+        "gate_accepted": false,
+        "attempt_accounting_complete": true,
+        "checked_at_utc": "2026-10-12T08:53:23.363850+00:00",
+        "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+        "transport": "LOOPBACK_HTTP",
+        "benchmark": false,
+        "answer_frozen_read_verified": true,
+        "error_code": "PLANNING_FAILED",
+        "http_probe": {
+          "case_id": "insufficient-evidence",
+          "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+          "checked_at_utc": "2026-10-12T08:53:23.364844+00:00",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "endpoints": {
+            "create": {
+              "http_status": 202,
+              "schema_valid": true
+            },
+            "status": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "trace": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "artifacts": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "integration": {
+              "http_status": 409,
+              "schema_valid": true,
+              "error_code": "RESULT_UNAVAILABLE"
+            },
+            "answer": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "history": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "cancel": {
+              "http_status": 200,
+              "schema_valid": true
+            }
+          },
+          "chain_verified": false,
+          "ready": false,
+          "error_code": "PLANNING_FAILED",
+          "investigation_id": "d50fa313-958a-48c6-96ba-c5e071b3c832",
+          "model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false,
+            "source": "PERSISTED_PLANNER_CALL",
+            "model": "aegisai-qwen25-planner:latest",
+            "planner_attempt_count": 2
+          },
+          "creation_model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false
+          },
+          "overall_status": "FAILED",
+          "current_stage": "FAILED",
+          "planner_present": true,
+          "planner_validation": "PLANNING_FAILED",
+          "chain_error_code": "PLANNING_FAILED",
+          "agent_run_count": 0,
+          "tool_call_count": 0,
+          "artifact_count": 0,
+          "integration_status": null,
+          "answer_status": "FAILED",
+          "citation_count": 0
+        },
+        "investigation_id": "d50fa313-958a-48c6-96ba-c5e071b3c832",
+        "planner_run_id": "b0cffd73-0a42-4def-a0e2-656b88fa92bd",
+        "prompt_version": "investigation-plan-v4",
+        "plan_tasks": [],
+        "agent_runs": [],
+        "integration_id": null,
+        "artifact_ids": {},
+        "integration_status": null,
+        "answer_id": "9c5715e4-f2c9-558d-ab7f-528d14f8c135",
+        "answer_status": "FAILED",
+        "answer_read_extra_planner_calls": 0
+      },
+      "diagnostic": {
+        "schema_version": "phase12d2-failure-v1",
+        "benchmark": false,
+        "security_accuracy_evaluated": false,
+        "id": "d50fa313-958a-48c6-96ba-c5e071b3c832",
+        "question": "对指定资产的 PyTorch 2.5.1 调查 CVE-2022-45907 是否受影响；核验本地可追溯版本证据，证据不足时保留未知并说明缺口。",
+        "model": "aegisai-qwen25-planner:latest",
+        "execution_mode": "REAL",
+        "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY",
+        "failed_stage": "PLANNING",
+        "gate_executed": false,
+        "gate_status": null,
+        "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+        "classification": "PLANNER_OUTPUT_OR_PROVIDER",
+        "missing_information": [
+          "validated plan before downstream business diagnosis"
+        ],
+        "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+        "planner_run_id": "b0cffd73-0a42-4def-a0e2-656b88fa92bd",
+        "integration_id": null,
+        "planner_validation": "PLANNING_FAILED",
+        "planner_error_codes": [
+          "ASSET_LOOKUP_REQUIRED"
+        ],
+        "chain_error_code": "PLANNING_FAILED",
+        "upstream_unresolved_items": [],
+        "objective": {
+          "question": "对指定资产的 PyTorch 2.5.1 调查 CVE-2022-45907 是否受影响；核验本地可追溯版本证据，证据不足时保留未知并说明缺口。",
+          "targets": [
+            "CVE-2022-45907"
+          ],
+          "asset_id": "0db4cc0a-c574-45e4-a99a-f1af8d19ac25",
+          "component_id": "130b4d4e-bd4d-4215-8700-9508d4f75291",
+          "package_name": "torch",
+          "version": "2.5.1",
+          "required_outcomes": [
+            "identity",
+            "asset",
+            "version_impact",
+            "remediation_status"
+          ],
+          "window_days": null,
+          "requires_current": false,
+          "scope_gaps": []
+        },
+        "plan_tasks": [],
+        "gate_rules": [],
+        "asset_snapshot": {},
+        "artifact_states": [],
+        "verification": {},
+        "analysis": null,
+        "version_observation_handoff": {
+          "selected_artifact_id": null,
+          "selected_has_version": false,
+          "observed_artifact_ids": []
+        },
+        "recorded_source_conflict_count": 0,
+        "verified_conflict_count": 0
+      }
+    },
+    {
+      "case_id": "conflicting-source-records",
+      "receipt": {
+        "case_id": "conflicting-source-records",
+        "elapsed_ms": 34125.0,
+        "attempts": [
+          {
+            "attempt_index": 1,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "COMPONENT_SCOPE_MISMATCH"
+            ],
+            "request_id": "2cfba3f5-dac8-4d19-955b-7d834cc80c2c",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 14032.430999999633,
+            "usage": {
+              "input_tokens": 5055,
+              "total_tokens": 5826,
+              "output_tokens": 771
+            }
+          },
+          {
+            "attempt_index": 2,
+            "diagnostic_available": true,
+            "json_valid": true,
+            "schema_valid": true,
+            "task_legal": false,
+            "validation_status": "REJECTED",
+            "error_codes": [
+              "COMPONENT_SCOPE_MISMATCH"
+            ],
+            "request_id": "8bbfda83-e88d-48b4-8de7-34ce2a5df874",
+            "provider": "openai_compatible",
+            "model": "aegisai-qwen25-planner:latest",
+            "is_mock": false,
+            "duration_ms": 19245.30550000054,
+            "usage": {
+              "input_tokens": 5086,
+              "total_tokens": 6166,
+              "output_tokens": 1080
+            }
+          }
+        ],
+        "error_codes": [],
+        "measurement_status": "COMPLETED",
+        "planner_validated": false,
+        "real_mode_confirmed": true,
+        "chain_attempted": true,
+        "full_chain_executed": false,
+        "gate_accepted": false,
+        "attempt_accounting_complete": true,
+        "checked_at_utc": "2026-10-12T08:53:43.858806+00:00",
+        "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+        "transport": "LOOPBACK_HTTP",
+        "benchmark": false,
+        "answer_frozen_read_verified": true,
+        "error_code": "PLANNING_FAILED",
+        "http_probe": {
+          "case_id": "conflicting-source-records",
+          "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+          "checked_at_utc": "2026-10-12T08:53:43.858806+00:00",
+          "transport": "LOOPBACK_HTTP",
+          "benchmark": false,
+          "endpoints": {
+            "create": {
+              "http_status": 202,
+              "schema_valid": true
+            },
+            "status": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "trace": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "artifacts": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "integration": {
+              "http_status": 409,
+              "schema_valid": true,
+              "error_code": "RESULT_UNAVAILABLE"
+            },
+            "answer": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "history": {
+              "http_status": 200,
+              "schema_valid": true
+            },
+            "cancel": {
+              "http_status": 200,
+              "schema_valid": true
+            }
+          },
+          "chain_verified": false,
+          "ready": false,
+          "error_code": "PLANNING_FAILED",
+          "investigation_id": "980b59a6-0bc7-45b5-8e6c-34638b8c3670",
+          "model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false,
+            "source": "PERSISTED_PLANNER_CALL",
+            "model": "aegisai-qwen25-planner:latest",
+            "planner_attempt_count": 2
+          },
+          "creation_model_mode": {
+            "requested": "REAL",
+            "provider": "openai_compatible",
+            "is_mock": false,
+            "observed": "NON_MOCK",
+            "matched": true,
+            "error_code": null,
+            "model_quality_evaluated": false
+          },
+          "overall_status": "FAILED",
+          "current_stage": "FAILED",
+          "planner_present": true,
+          "planner_validation": "PLANNING_FAILED",
+          "chain_error_code": "PLANNING_FAILED",
+          "agent_run_count": 0,
+          "tool_call_count": 0,
+          "artifact_count": 0,
+          "integration_status": null,
+          "answer_status": "FAILED",
+          "citation_count": 0
+        },
+        "investigation_id": "980b59a6-0bc7-45b5-8e6c-34638b8c3670",
+        "planner_run_id": "93126404-8f3b-40a8-9c22-f3b96e43115f",
+        "prompt_version": "investigation-plan-v4",
+        "plan_tasks": [],
+        "agent_runs": [],
+        "integration_id": null,
+        "artifact_ids": {},
+        "integration_status": null,
+        "answer_id": "5f83037d-995a-55f5-99ce-7594145e377e",
+        "answer_status": "FAILED",
+        "answer_read_extra_planner_calls": 0
+      },
+      "diagnostic": {
+        "schema_version": "phase12d2-failure-v1",
+        "benchmark": false,
+        "security_accuracy_evaluated": false,
+        "id": "980b59a6-0bc7-45b5-8e6c-34638b8c3670",
+        "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
+        "model": "aegisai-qwen25-planner:latest",
+        "execution_mode": "REAL",
+        "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+        "failed_stage": "PLANNING",
+        "gate_executed": false,
+        "gate_status": null,
+        "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+        "classification": "PLANNER_OUTPUT_OR_PROVIDER",
+        "missing_information": [
+          "validated plan before downstream business diagnosis"
+        ],
+        "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+        "planner_run_id": "93126404-8f3b-40a8-9c22-f3b96e43115f",
+        "integration_id": null,
+        "planner_validation": "PLANNING_FAILED",
+        "planner_error_codes": [
+          "COMPONENT_SCOPE_MISMATCH"
+        ],
+        "chain_error_code": "PLANNING_FAILED",
+        "upstream_unresolved_items": [],
+        "objective": {
+          "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
+          "targets": [
+            "CVE-2026-9540"
+          ],
+          "asset_id": null,
+          "component_id": null,
+          "package_name": null,
+          "version": null,
+          "required_outcomes": [
+            "identity",
+            "overview"
+          ],
+          "window_days": null,
+          "requires_current": false,
+          "scope_gaps": []
+        },
+        "plan_tasks": [],
+        "gate_rules": [],
+        "asset_snapshot": {},
+        "artifact_states": [],
+        "verification": {},
+        "analysis": null,
+        "version_observation_handoff": {
+          "selected_artifact_id": null,
+          "selected_has_version": false,
+          "observed_artifact_ids": []
+        },
+        "recorded_source_conflict_count": 0,
+        "verified_conflict_count": 0
+      }
+    }
+  ],
+  "model": "aegisai-qwen25-planner:latest",
+  "prompt_unchanged": "investigation-plan-v4",
+  "finished_at_utc": "2026-10-12T08:54:18.201197+00:00",
+  "data_counts_after": {
+    "Vulnerability": 278,
+    "Claim": 48,
+    "Evidence": 76,
+    "ConflictRecord": 7,
+    "Asset": 5,
+    "AssetComponent": 205,
+    "PackageIdentifier": 268
+  },
+  "receipt_recapture": {
+    "extra_model_calls": 0,
+    "source_report_sha256": "4b9ccfc7a33476ef3b463060284666da66d9235f9b5046b210f1e5858fcc8e32",
+    "description": "Read only original owned audit, native Gate and immutable artifacts; original source file unchanged"
+  }
+}

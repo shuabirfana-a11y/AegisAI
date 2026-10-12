@@ -23,6 +23,7 @@ TESTS = [
     "tests/investigation_api/test_http_probe.py",
     "tests/investigation_api/test_planner_stability.py",
     "tests/investigation_api/test_stability_failures.py",
+    "tests/investigation_api/test_failure_diagnostics.py",
 ]
 
 

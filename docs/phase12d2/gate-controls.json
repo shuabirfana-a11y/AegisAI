@@ -1,0 +1,149 @@
+{
+  "phase": "12D.2",
+  "data_origin": "SYNTHETIC_CONTROL",
+  "execution_mode": "DETERMINISTIC_RULE_CONTROL",
+  "real_model": false,
+  "benchmark": false,
+  "security_accuracy_evaluated": false,
+  "notes": "独立测试库中既有工厂构建SYNTHETIC完整链，Planner为明确Mock。四项控制只在内存复制Gate上下文，不修改持久化Artifact，不是新真实调查或标准答案。",
+  "source_run_ids": [
+    "b0271fb7-fa7d-470c-a9d8-5e0749795bbb",
+    "29b70648-6be9-41b5-b937-6b8640781a97",
+    "b2767045-eaed-4dd3-b9d1-3e5a3e13788f"
+  ],
+  "controls": [
+    {
+      "case_id": "complete-context",
+      "status": "PASS",
+      "expected_control_status": "PASS",
+      "risk_level": "HIGH",
+      "asset_context": "RESOLVED",
+      "checks": [],
+      "persisted_as_investigation_result": false
+    },
+    {
+      "case_id": "missing-impact-support",
+      "status": "REPLAN_REQUIRED",
+      "expected_control_status": "REPLAN_REQUIRED",
+      "risk_level": "HIGH",
+      "asset_context": "RESOLVED",
+      "checks": [
+        {
+          "gate": "evidence",
+          "code": "CONFIRMED_CLAIM_WITHOUT_SUPPORT",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Confirmed statement has no eligible original support",
+          "refs": [
+            "c0902f82-4c6f-4643-a1ca-82b8d167a076"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "evidence",
+          "code": "UNVERIFIED_DOWNSTREAM_FACT",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Decision/action needs confirmed supported claims",
+          "refs": [
+            "VERIFIED_IMPACT"
+          ],
+          "objective": null
+        }
+      ],
+      "persisted_as_investigation_result": false
+    },
+    {
+      "case_id": "explicit-source-conflict",
+      "status": "HUMAN_REVIEW_REQUIRED",
+      "expected_control_status": "HUMAN_REVIEW_REQUIRED",
+      "risk_level": "UNKNOWN",
+      "asset_context": "RESOLVED",
+      "checks": [
+        {
+          "gate": "consistency",
+          "code": "CRITICAL_EVIDENCE_CONFLICT",
+          "outcome": "BLOCKED",
+          "blocking": "HUMAN",
+          "message": "Critical sources need human adjudication",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        }
+      ],
+      "persisted_as_investigation_result": false
+    },
+    {
+      "case_id": "missing-asset-values",
+      "status": "FAILED",
+      "expected_control_status": "FAILED",
+      "risk_level": "HIGH",
+      "asset_context": "MISSING",
+      "checks": [
+        {
+          "gate": "consistency",
+          "code": "INVENTORY_RESULT_MISMATCH",
+          "outcome": "ERROR",
+          "blocking": "FATAL",
+          "message": "Analysis identity/version differs from its fixed inventory snapshot",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_VERSION_MISMATCH",
+          "outcome": "ERROR",
+          "blocking": "FATAL",
+          "message": "Output scope differs from original input",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_PACKAGE_MISMATCH",
+          "outcome": "ERROR",
+          "blocking": "FATAL",
+          "message": "Output scope differs from original input",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required asset not answered",
+          "refs": [],
+          "objective": "asset"
+        }
+      ],
+      "persisted_as_investigation_result": false
+    }
+  ]
+}
