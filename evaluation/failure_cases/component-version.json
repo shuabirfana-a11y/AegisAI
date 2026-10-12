@@ -33,6 +33,16 @@
     "SHARED_SOURCE_LINEAGE",
     "REMEDIATION_UNKNOWN"
   ],
+  "run_ids": {
+    "investigation": "f3a1226d-9f72-43ff-9d61-2f409d339408",
+    "verification": "e9788151-1425-4c97-a25a-201e264149e6",
+    "analysis": "4eb6d548-c0ae-4884-bd88-3b7d7aa1a15c"
+  },
+  "artifact_availability": {
+    "investigation": 4,
+    "verification": 1,
+    "analysis": 1
+  },
   "objective": {
     "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
     "targets": [

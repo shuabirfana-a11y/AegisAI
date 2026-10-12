@@ -25,6 +25,16 @@
     "VERIFIED_EVIDENCE_MISSING",
     "VERIFICATION_INPUT_MISSING"
   ],
+  "run_ids": {
+    "investigation": "dcbcdd0d-82d8-4ab3-8cc8-565a5c00ab63",
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 1,
+    "verification": 0,
+    "analysis": 0
+  },
   "objective": {
     "question": "围绕 CVE-2026-9540 开展多步骤调查：先查漏洞，再分别获取证据和 Claim 记录，整理官方与社区来源以及已知和未知项。",
     "targets": [

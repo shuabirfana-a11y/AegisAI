@@ -1,5 +1,8 @@
 """Synthetic metadata tests; never security ground truth."""
 from copy import deepcopy
+from contextlib import contextmanager
+from types import SimpleNamespace
+from uuid import uuid4
 import pytest
 
 
@@ -108,3 +111,80 @@ def test_successful_overview_retains_pending_claims_and_is_not_security_accuracy
     assert result['failed_stage'] is None
     assert result['verification']['verification_status']=='INSUFFICIENT_EVIDENCE'
     assert result['security_accuracy_evaluated'] is False
+
+
+@pytest.mark.parametrize('stage',['VERIFYING','ANALYZING'])
+def test_started_run_without_artifact_is_still_collectable(monkeypatch,stage):
+    from scripts.probe_investigation_failures import collect_snapshot
+    from app.orchestration.store import PostgresInvestigationStore
+    from app.agents.verification.reader import VerificationReader
+    from app.agents.analysis.reader import AnalysisReader
+    run_id=uuid4()
+    ctx=SimpleNamespace(logical_investigation_id=uuid4(),planner_run_id=None,
+        investigation_run_id=None,verification_run_id=run_id if stage=='VERIFYING' else None,
+        analysis_run_id=run_id if stage=='ANALYZING' else None,integration_result_id=None,
+        original_request=SimpleNamespace(user_query='SYNTHETIC incomplete run'),
+        current_stage=stage,events=[SimpleNamespace(stage=stage)],error_code='SYNTHETIC_STOP',
+        unresolved_items=('SYNTHETIC_MISSING_ARTIFACT',),
+        resolved_scope=SimpleNamespace(objective=SimpleNamespace(model_dump=lambda **kw:{})))
+    monkeypatch.setattr(PostgresInvestigationStore,'read_audit',lambda *a,**kw:(ctx,{}))
+    monkeypatch.setattr(VerificationReader,'read',lambda *a,**kw:SimpleNamespace(artifacts=()))
+    monkeypatch.setattr(AnalysisReader,'read',lambda *a,**kw:SimpleNamespace(artifacts=()))
+    got=collect_snapshot(None,str(ctx.logical_investigation_id),'SYNTHETIC-owner',{'data_origin':'SYNTHETIC_CONTROL'})
+    assert got['verification'] is None and got['analysis'] is None
+    assert got['run_ids']['verification' if stage=='VERIFYING' else 'analysis']==str(run_id)
+    assert got['last_work_stage']==stage and got['gate'] is None
+
+
+def test_diagnostic_read_failure_does_not_prevent_following_independent_case(monkeypatch):
+    import scripts.probe_investigation_failures as probe
+    seen=[]
+    def collect(*args):
+        seen.append(args[1])
+        if args[1]=='SYNTHETIC-missing':raise LookupError('SYNTHETIC reader failure')
+        return snapshot()
+    monkeypatch.setattr(probe,'collect_snapshot',collect)
+    first={'receipt':{'investigation_id':'SYNTHETIC-missing'},'diagnostic':None}
+    next_case={'receipt':{'investigation_id':'SYNTHETIC-next'},'diagnostic':None}
+    for entry in (first,next_case):probe.add_diagnostic(entry,None,'SYNTHETIC-owner',{})
+    assert first['diagnostic'] is None
+    assert first['diagnostic_error']=='OWNED_DIAGNOSTIC_UNAVAILABLE'
+    assert next_case['diagnostic']['gate_status']=='FAILED'
+    assert seen==['SYNTHETIC-missing','SYNTHETIC-next']
+
+
+def inventory_case():
+    return {'data_origin':'REAL_SOURCE_WITH_DEMO_INVENTORY',
+            'request':{'asset_scope':{'asset_id':str(uuid4())}}}
+
+
+def mock_asset_read(monkeypatch,owner):
+    asset=SimpleNamespace(owner_principal=owner,is_demo=True,deleted_at=None)
+    @contextmanager
+    def transaction(engine):
+        yield SimpleNamespace(get=lambda *a:asset)
+    monkeypatch.setattr('app.db.session.transaction',transaction)
+
+
+def test_inventory_actor_cannot_be_adopted_from_another_owners_asset(monkeypatch):
+    from scripts.probe_investigation_failures import resolve_case_actor
+    mock_asset_read(monkeypatch,'SYNTHETIC-owner-B')
+    with pytest.raises(ValueError,match='ASSET_OWNERSHIP_MISMATCH'):
+        resolve_case_actor(None,inventory_case(),'SYNTHETIC-owner-A')
+
+
+def test_inventory_requires_independently_configured_owner():
+    from scripts.probe_investigation_failures import resolve_case_actor
+    with pytest.raises(ValueError,match='AUTHORIZED_OWNER_REQUIRED'):
+        resolve_case_actor(None,inventory_case(),None)
+
+
+def test_matching_owner_is_preserved_without_adopting_new_identity(monkeypatch):
+    from scripts.probe_investigation_failures import resolve_case_actor
+    mock_asset_read(monkeypatch,'SYNTHETIC-owner-A')
+    assert resolve_case_actor(None,inventory_case(),'SYNTHETIC-owner-A')=='SYNTHETIC-owner-A'
+
+
+def test_source_only_case_uses_separate_temporary_actor():
+    from scripts.probe_investigation_failures import resolve_case_actor
+    assert resolve_case_actor(None,{'request':{}},None).startswith('phase12d2-')

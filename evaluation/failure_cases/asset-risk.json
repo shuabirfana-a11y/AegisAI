@@ -24,6 +24,16 @@
   ],
   "chain_error_code": "PLANNING_FAILED",
   "upstream_unresolved_items": [],
+  "run_ids": {
+    "investigation": null,
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 0,
+    "verification": 0,
+    "analysis": 0
+  },
   "objective": {
     "question": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
     "targets": [

@@ -221,6 +221,16 @@
           "OVERVIEW_BOUNDED_ABSTENTION",
           "UNRESOLVED_ANALYSIS"
         ],
+        "run_ids": {
+          "investigation": "7f63b9eb-3b35-478b-9339-63dfd4848c90",
+          "verification": "a34cab73-bd11-4371-8795-9871a4dcff5a",
+          "analysis": "c96acf56-5e69-4082-b35c-75c8f9dfb1b3"
+        },
+        "artifact_availability": {
+          "investigation": 2,
+          "verification": 1,
+          "analysis": 1
+        },
         "objective": {
           "question": "查询 CVE-2025-32434 的漏洞信息，并列出证据来源和仍未知的信息。",
           "targets": [
@@ -877,6 +887,16 @@
           "SHARED_SOURCE_LINEAGE",
           "REMEDIATION_UNKNOWN"
         ],
+        "run_ids": {
+          "investigation": "f3a1226d-9f72-43ff-9d61-2f409d339408",
+          "verification": "e9788151-1425-4c97-a25a-201e264149e6",
+          "analysis": "4eb6d548-c0ae-4884-bd88-3b7d7aa1a15c"
+        },
+        "artifact_availability": {
+          "investigation": 4,
+          "verification": 1,
+          "analysis": 1
+        },
         "objective": {
           "question": "PyTorch 2.5.1 是否受到 CVE-2025-32434 影响？请调查影响版本、修复信息并保留未确认项。",
           "targets": [
@@ -1685,6 +1705,16 @@
         ],
         "chain_error_code": "PLANNING_FAILED",
         "upstream_unresolved_items": [],
+        "run_ids": {
+          "investigation": null,
+          "verification": null,
+          "analysis": null
+        },
+        "artifact_availability": {
+          "investigation": 0,
+          "verification": 0,
+          "analysis": 0
+        },
         "objective": {
           "question": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
           "targets": [
@@ -1900,6 +1930,16 @@
         ],
         "chain_error_code": "PLANNING_FAILED",
         "upstream_unresolved_items": [],
+        "run_ids": {
+          "investigation": null,
+          "verification": null,
+          "analysis": null
+        },
+        "artifact_availability": {
+          "investigation": 0,
+          "verification": 0,
+          "analysis": 0
+        },
         "objective": {
           "question": "对指定资产的 PyTorch 2.5.1 调查 CVE-2022-45907 是否受影响；核验本地可追溯版本证据，证据不足时保留未知并说明缺口。",
           "targets": [
@@ -2113,6 +2153,16 @@
         ],
         "chain_error_code": "PLANNING_FAILED",
         "upstream_unresolved_items": [],
+        "run_ids": {
+          "investigation": null,
+          "verification": null,
+          "analysis": null
+        },
+        "artifact_availability": {
+          "investigation": 0,
+          "verification": 0,
+          "analysis": 0
+        },
         "objective": {
           "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
           "targets": [

@@ -6,6 +6,8 @@
 
 本轮没有修改backend/app、Planner提示、Runtime、三Agent、Risk/Gate规则或Evaluation Runner。类型C业务问题只报告，相关开发暂停。新增内容是诊断脚本、固定输入、测试和文档。
 
+一次独立审查另发现并修复诊断脚本的空Artifact收集和库存owner授权检查。修复后只读重取既有审计，没有重新模型推理。原资产测量使用受控本机示范库存并按库存owner设置临时授权，不作为真实用户鉴权验收；新脚本要求操作人独立配置owner并拒绝跨owner。
+
 ## 1. 当前模型与测量边界
 
 沿用本地aegisai-qwen25-planner:latest，Qwen2.5 7B instruct Q4_K_M，Ollama/OpenAI Compatible Provider，investigation-plan-v4。原JSON Schema、三任务/只读工具白名单、最多两次尝试及Validation均保持。
@@ -88,6 +90,8 @@
 ## 7. 测试及数据真实性
 
 新增诊断测试已先失败后通过，覆盖原UNKNOWN/FATAL保持、Gate未执行、原生停止原因、独立版本Artifact、资产充分但证据仍不足、候选/已核验冲突区分、继承观测去重、三种Artifact引用和脱敏。实际最终计数见[verification.json](docs/phase12d2/verification.json)，历史1261或Phase12D.1检查不算本轮执行。
+
+审查修复新增七项实际复现：VERIFYING/ANALYZING有Run而无Artifact时保持为空并保留Run ID；单例读取异常不丢后续案例；独立owner缺失、跨owner、匹配以及资料查询临时actor。均先失败后通过。审查边界和处理见[REVIEW_RESOLUTION.md](docs/phase12d2/REVIEW_RESOLUTION.md)。
 
 相关现有业务回归实际执行：
 

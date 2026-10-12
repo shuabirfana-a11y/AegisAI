@@ -8,7 +8,9 @@
 
 资产输入引用开发库已有的is_demo=true库存，字段是用户登记而非真实扫描结果。新机器上的库存UUID不同，必须显式配置属于本机用户的资产，不能伪造记录或忽略所有权。
 
-运行本阶段新脚本时，数据库地址只设置在本机进程环境中：
+运行本阶段新脚本时，数据库地址只设置在本机进程环境中；包含库存的场景还必须预先配置AEGIS_ASSET_OWNER，使用本机后端配置中已授权的owner。脚本比较库存所有权，不能从目标库存记录自动切换身份。缺少owner或跨owner时，该场景在任何模型/HTTP调用前被拒绝，并保留拒绝记录；资料查询仍可使用独立临时actor。
+
+以下命令不包含凭据：
 
 ```text
 python backend/scripts/probe_investigation_failures.py --cases demo/phase12d2/cases.json --profile demo/phase12d1/local-real-profile.json --output work/phase12d2/scene-receipts.json --ollama-executable <本机已有Ollama>

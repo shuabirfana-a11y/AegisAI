@@ -26,15 +26,17 @@
     "not_ground_truth": true
   },
   "tests": {
-    "portable": {"passed": 514, "failed": 0, "deselected": 1, "warnings": 1, "seconds": 12.42},
-    "gate_verification_risk_handoff_regression": {"passed": 129, "failed": 0, "warnings": 22, "seconds": 22.19},
-    "new_diagnostic_tests": 11,
+    "portable": {"passed": 521, "failed": 0, "deselected": 1, "warnings": 1, "seconds": 12.16},
+    "gate_verification_risk_handoff_regression": {"passed": 136, "failed": 0, "warnings": 22, "seconds": 22.03},
+    "new_diagnostic_tests": 18,
     "sets_overlap": true,
     "exclusion": "cached real embedding explicitly excluded from portable baseline",
     "http_contracts": "PASS: 42 operations",
     "investigation_contracts": "PASS: 10 exports, no change"
   },
   "production_app_diff": "EMPTY vs 0e9424f4bd4210a2c6738e4600af5c99043d88ab",
+  "review": {"critical": 0, "important": 2, "important_fixed": 2, "minor": 0, "fix_passes": 1, "re_reviews": 0},
+  "measurement_collector_revision": "before review fixes; model outcomes unchanged, diagnostics recaptured read-only",
   "default_profile_diff": "EMPTY",
   "business_data_counts_unchanged": {
     "Vulnerability": 278, "Claim": 48, "Evidence": 76, "ConflictRecord": 7,

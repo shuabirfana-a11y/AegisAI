@@ -31,6 +31,16 @@
     "SHARED_SOURCE_LINEAGE",
     "REMEDIATION_UNKNOWN"
   ],
+  "run_ids": {
+    "investigation": "97d5deac-440a-41d5-9852-84bd1a1d8f3c",
+    "verification": "59b9ebe3-b69b-45a1-9997-b8bf744b21b9",
+    "analysis": "eb8d4e41-da1f-4700-b1fb-887f58cf2800"
+  },
+  "artifact_availability": {
+    "investigation": 6,
+    "verification": 1,
+    "analysis": 1
+  },
   "objective": {
     "question": "对指定资产中的 PyTorch 2.5.1 开展 CVE-2025-32434 风险分析和优先级调查，核验影响版本与证据，未确认项保持未知。",
     "targets": [

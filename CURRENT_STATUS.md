@@ -9,7 +9,7 @@
 - Phase 12-C：专用测试库的实际TCP完整链和未改动TypeScript Client八操作已验收；固定真实来源输入、模型模式隔离与当前交接文档已补齐。[本阶段结果](PHASE_12C_RESULT.md)。成功场景模型回执/数据仍为SYNTHETIC_TEST，不等于真实模型演示就绪。
 - Phase 12-D：原生Windows Ollama/Qwen免费模型已安装，Gateway健康/文本/小型JSON实跑通过；用户已授权Planner输入Schema元数据补齐。最终默认模型两场景规划仍失败，实际HTTP没有三Agent/Gate成功结果。[本阶段未完成项](PHASE_12D_RESULT.md)。
 - Phase 12-D.1：修复实际HTTP专用Planner的模型Schema及小范围输入/提示；原任务白名单、验证器、Runtime、Agent/Gate未改。最终Qwen2.5规划20/20，HTTP2/3 PASS_WITH_WARNINGS；Qwen3.5规划0/20，HTTP0/3。失败和原v2/v3对照全部留存。503可移植检查及60含数据库针对性检查通过，集合不相加；1项真实Embedding检查明确排除。
-- Phase 12-D.2：初始五场景仅概览通过，组件-only仍FAILED，另三次Planner失败均保留；40秒诊断预算的资产/固定模板冲突复查均到Gate并被REPLAN_REQUIRED阻断。旧失败是资产缺口、单Artifact交接和未确认版本证据，不是格式错误。业务C类只报告，真实风险/冲突确定性闭环仍未验收。514项可移植检查和129项业务/诊断检查通过，集合重叠；四项SYNTHETIC规则控制不算真实调查。
+- Phase 12-D.2：初始五场景仅概览通过，组件-only仍FAILED，另三次Planner失败均保留；40秒诊断预算的资产/固定模板冲突复查均到Gate并被REPLAN_REQUIRED阻断。旧失败是资产缺口、单Artifact交接和未确认版本证据，不是格式错误。业务C类只报告，真实风险/冲突确定性闭环仍未验收。521项可移植检查和136项业务/诊断检查通过，集合重叠；四项SYNTHETIC规则控制不算真实调查。
 - GitHub 私有仓库、分支、CI与前端交接包已有；三项 CI必须按当前提交验证，不能把历史结果挪用。
 - AegisBench 框架及49题候选已有；人工标注规范、独立复核流程和10/20/19分批材料已有。
 

@@ -24,6 +24,16 @@
   ],
   "chain_error_code": "PLANNING_FAILED",
   "upstream_unresolved_items": [],
+  "run_ids": {
+    "investigation": null,
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 0,
+    "verification": 0,
+    "analysis": 0
+  },
   "objective": {
     "question": "调查 CVE-2026-9540 的版本证据与现有来源冲突记录，获取漏洞、Evidence和Claim；来源结论未核验前保持不确定。",
     "targets": [

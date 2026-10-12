@@ -88,6 +88,8 @@ def analyze_case(snapshot):
         'planner_error_codes': snapshot.get('planner_error_codes', []),
         'chain_error_code': snapshot.get('chain_error_code'),
         'upstream_unresolved_items': snapshot.get('upstream_unresolved_items', []),
+        'run_ids': snapshot.get('run_ids', {}),
+        'artifact_availability': snapshot.get('artifact_availability', {}),
         'objective': snapshot.get('objective'), 'plan_tasks': snapshot.get('plan_tasks', []),
         'gate_rules': checks, 'asset_snapshot': asset,
         'artifact_states': [{k: a.get(k) for k in ('artifact_id','task_id','status','runtime_status')} for a in artifacts],
@@ -120,9 +122,12 @@ def collect_snapshot(engine, investigation_id, actor, case):
               'tools': [s['name'] for s in t['input_data']['steps']]} for t in (raw or {}).get('tasks', [])]
     artifacts = [a.model_dump(mode='json') for a in InvestigationReader(engine).read(
         context.investigation_run_id, actor=actor).artifacts] if context.investigation_run_id else []
-    verification = None
+    verification = None; v = None; available = {'investigation':len(artifacts),'verification':0,'analysis':0}
     if context.verification_run_id:
-        v = VerificationReader(engine).read(context.verification_run_id, actor=actor).artifacts[0]
+        found = VerificationReader(engine).read(context.verification_run_id, actor=actor)
+        available['verification'] = len(found.artifacts)
+        v = found.artifacts[0] if found.artifacts else None
+    if v is not None:
         verification = {'artifact_id': str(v.artifact_id), 'verification_status': v.verification_status,
             'execution_status': v.execution_status,
             'claim_status_counts': dict(Counter(c.status for c in v.claims)),
@@ -132,9 +137,12 @@ def collect_snapshot(engine, investigation_id, actor, case):
                 'exclusions': c.score_components.get('excluded', [])} for c in v.claims],
             'conflicts': [c.model_dump(mode='json') for c in v.conflicts],
             'unresolved_items': list(v.unresolved_items)}
-    risk = None; asset = None; selected = None
+    risk = None; asset = None; selected = None; r = None
     if context.analysis_run_id:
-        r = AnalysisReader(engine).read(context.analysis_run_id, actor=actor).artifacts[0]
+        found = AnalysisReader(engine).read(context.analysis_run_id, actor=actor)
+        available['analysis'] = len(found.artifacts)
+        r = found.artifacts[0] if found.artifacts else None
+    if r is not None:
         risk = {k: r.model_dump(mode='json')[k] for k in
                 ('artifact_id','risk_level','priority','verification_status','version_match_status','affected','unresolved_items')}
         with transaction(engine) as db:
@@ -143,7 +151,7 @@ def collect_snapshot(engine, investigation_id, actor, case):
         saved = AnalysisContextStore(engine).read(cid, actor=actor)
         asset = saved.inputs.asset.model_dump(mode='json')
         selected = str(saved.request.investigation_artifact_id)
-    elif context.verification_run_id:
+    elif v is not None:
         selected = str(v.source_artifact_id)
     gate = IntegrationReader(engine).read(context.integration_result_id, actor=actor).model_dump(mode='json') if context.integration_result_id else None
     work = [e.stage for e in context.events if e.stage in
@@ -156,9 +164,57 @@ def collect_snapshot(engine, investigation_id, actor, case):
         'planner_error_codes': list(dict.fromkeys(i.code for attempt in audit.attempts for i in attempt.issues)) if audit else [],
         'chain_error_code': context.error_code,
         'upstream_unresolved_items': list(context.unresolved_items),
+        'run_ids': {key:str(value) if value else None for key,value in (
+            ('investigation',context.investigation_run_id),('verification',context.verification_run_id),
+            ('analysis',context.analysis_run_id))},
+        'artifact_availability': available,
         'objective': context.resolved_scope.objective.model_dump(mode='json'),
         'selected_artifact_id': selected, 'plan_tasks': tasks, 'artifacts': artifacts,
         'asset_snapshot': asset, 'verification': verification, 'analysis': risk, 'gate': gate}
+
+
+def add_diagnostic(entry, engine, actor, case):
+    """An unavailable read is explicit and does not stop the next independent case."""
+    if not entry['receipt'].get('investigation_id'):
+        return
+    try:
+        snapshot = collect_snapshot(engine,entry['receipt']['investigation_id'],actor,case)
+        if snapshot['execution_mode']=='REAL':
+            entry['diagnostic']=analyze_case(snapshot)
+        else:
+            entry['diagnostic_error']='REAL_EXECUTION_UNCONFIRMED'
+    except Exception:
+        entry['diagnostic_error']='OWNED_DIAGNOSTIC_UNAVAILABLE'
+
+
+class SceneAdmissionError(ValueError):
+    pass
+
+
+def resolve_case_actor(engine, case, configured_owner):
+    """Authority comes from operator configuration, never the target inventory row."""
+    asset_id=case.get('request',{}).get('asset_scope',{}).get('asset_id')
+    if not asset_id:
+        return 'phase12d2-'+uuid4().hex
+    if not isinstance(configured_owner,str) or not configured_owner.strip():
+        raise SceneAdmissionError('AUTHORIZED_OWNER_REQUIRED')
+    from app.orchestration.contracts import valid_actor
+    from app.db import models as m
+    from app.db.session import transaction
+    try:
+        valid_actor(configured_owner)
+        id=UUID(asset_id)
+    except ValueError:
+        raise SceneAdmissionError('INVALID_CONFIGURED_OWNER_OR_ASSET_ID') from None
+    with transaction(engine) as db:
+        asset=db.get(m.Asset,id)
+        if asset is None or asset.deleted_at:
+            raise SceneAdmissionError('FIXED_ASSET_NOT_AVAILABLE')
+        if asset.owner_principal!=configured_owner:
+            raise SceneAdmissionError('ASSET_OWNERSHIP_MISMATCH')
+        if case['data_origin']=='REAL_SOURCE_WITH_DEMO_INVENTORY' and not asset.is_demo:
+            raise SceneAdmissionError('INVENTORY_ORIGIN_MISMATCH')
+    return configured_owner
 
 
 def main():
@@ -188,33 +244,30 @@ def main():
         profile=json.loads(args.profile.read_text(encoding='utf-8'))
         config=ModelConfig.from_env({**os.environ,**profile})
         if config.provider=='mock':raise ValueError('REAL_PROVIDER_REQUIRED')
-        if args.ollama_executable:prewarm_model(args.ollama_executable,config.model)
         output['model']=config.model;output['prompt_unchanged']='investigation-plan-v4'
         output['provider_timeout_seconds']=config.timeout_seconds
         output['structured_mode']=config.structured_mode
-        engine=make_engine(); gateway=ModelGateway(config)
+        engine=make_engine()
         for case in cases:
-            actor='phase12d2-'+uuid4().hex
-            asset_id=case['request'].get('asset_scope',{}).get('asset_id')
-            if asset_id:
-                with transaction(engine) as db:
-                    asset=db.get(m.Asset,UUID(asset_id))
-                    if asset is None or asset.deleted_at:raise ValueError('FIXED_ASSET_NOT_AVAILABLE')
-                    if case['data_origin']=='REAL_SOURCE_WITH_DEMO_INVENTORY' and not asset.is_demo:
-                        raise ValueError('INVENTORY_ORIGIN_MISMATCH')
-                    actor=asset.owner_principal
-            token=secrets.token_urlsafe(32)
-            os.environ.update(AEGIS_ASSET_OWNER=actor,AEGIS_ASSET_TOKEN=token)
             entry={'case_id':case['case_id'],'receipt':initial_receipt(case,chain=True),'diagnostic':None}
             output['cases'].append(entry);save()
+            try:
+                actor=resolve_case_actor(engine,case,original['AEGIS_ASSET_OWNER'])
+            except SceneAdmissionError as exc:
+                entry['receipt'].update(measurement_status='REJECTED_BEFORE_EXECUTION',
+                    chain_attempted=False,error_code=str(exc),elapsed_ms=0)
+                entry['diagnostic_error']=str(exc);save()
+                continue
+            if gateway is None:
+                if args.ollama_executable:prewarm_model(args.ollama_executable,config.model)
+                gateway=ModelGateway(config)
+            token=secrets.token_urlsafe(32)
+            os.environ.update(AEGIS_ASSET_OWNER=actor,AEGIS_ASSET_TOKEN=token)
             with owned_http_client(create_app(engine,investigation_gateway=gateway),token) as client:
                 receipt=run_stability_case(client,case,lambda id:PlannerTraceStore(engine).read(id,actor),
                     receipt=entry['receipt'],on_progress=save)
                 entry['receipt']=receipt
-                if receipt.get('investigation_id'):
-                    snapshot=collect_snapshot(engine,receipt['investigation_id'],actor,case)
-                    if snapshot['execution_mode']=='REAL':entry['diagnostic']=analyze_case(snapshot)
-                    else:entry['diagnostic_error']='REAL_EXECUTION_UNCONFIRMED'
+                add_diagnostic(entry,engine,actor,case)
                 save()
             print(json.dumps({'case':case['case_id'],'gate':receipt.get('integration_status'),
                               'error':receipt.get('error_code'),'elapsed_ms':receipt['elapsed_ms']}),flush=True)

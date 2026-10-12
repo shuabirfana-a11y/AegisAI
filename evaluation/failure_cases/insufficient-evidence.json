@@ -24,6 +24,16 @@
   ],
   "chain_error_code": "PLANNING_FAILED",
   "upstream_unresolved_items": [],
+  "run_ids": {
+    "investigation": null,
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 0,
+    "verification": 0,
+    "analysis": 0
+  },
   "objective": {
     "question": "对指定资产的 PyTorch 2.5.1 调查 CVE-2022-45907 是否受影响；核验本地可追溯版本证据，证据不足时保留未知并说明缺口。",
     "targets": [
