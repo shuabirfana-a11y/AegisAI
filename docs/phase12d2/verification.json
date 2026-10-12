@@ -1,0 +1,47 @@
+{
+  "phase": "12D.2",
+  "security_accuracy_evaluated": false,
+  "business_acceptance_complete": false,
+  "initial_real_scenes": {
+    "logical_investigations": 5,
+    "provider_attempts": 8,
+    "validated_plans": 2,
+    "gate_executed": 2,
+    "gate_accepted": 1,
+    "provider_timeout_seconds": 20
+  },
+  "separate_real_followups": {
+    "logical_investigations": 2,
+    "provider_attempts": 3,
+    "validated_plans": 2,
+    "gate_executed": 2,
+    "gate_accepted": 0,
+    "provider_timeout_seconds": 40,
+    "default_config_changed": false
+  },
+  "synthetic_rule_controls": {
+    "count": 4,
+    "real_model": false,
+    "assertions": "4/4 expected native rule outcomes",
+    "not_ground_truth": true
+  },
+  "tests": {
+    "portable": {"passed": 514, "failed": 0, "deselected": 1, "warnings": 1, "seconds": 12.42},
+    "gate_verification_risk_handoff_regression": {"passed": 129, "failed": 0, "warnings": 22, "seconds": 22.19},
+    "new_diagnostic_tests": 11,
+    "sets_overlap": true,
+    "exclusion": "cached real embedding explicitly excluded from portable baseline",
+    "http_contracts": "PASS: 42 operations",
+    "investigation_contracts": "PASS: 10 exports, no change"
+  },
+  "production_app_diff": "EMPTY vs 0e9424f4bd4210a2c6738e4600af5c99043d88ab",
+  "default_profile_diff": "EMPTY",
+  "business_data_counts_unchanged": {
+    "Vulnerability": 278, "Claim": 48, "Evidence": 76, "ConflictRecord": 7,
+    "Asset": 5, "AssetComponent": 205, "PackageIdentifier": 268
+  },
+  "raw_model_output_exported": false,
+  "recapture_model_calls": 0,
+  "formal_benchmark": false,
+  "public_deployment": false
+}
