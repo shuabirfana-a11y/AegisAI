@@ -140,14 +140,25 @@ class AnalysisSnapshotReader:
                     record=db.get(m.ToolCallRecord,obs.receipt_id)
                     if record is None or record.agent_run_id!=investigation.run_id or fingerprint(record.output_summary)!=obs.receipt_hash:
                         raise ValueError('ASSET_OBSERVATION_RECEIPT_CHANGED')
-                    # Validate exact package identity through the existing resolver.
-                    resolved=resolve_component(db,{'name':obs.component,'package_identifier_id':obs.package_identifier_id,
-                        'package_name':obs.package_name,'ecosystem':obs.ecosystem,'namespace':obs.namespace,
-                        'purl':obs.purl,'version':obs.version})
-                    valid=resolved['status']=='RESOLVED'
+                    # Preserve the original inventory applicability boundary. A
+                    # qualified/subpath identity needs separate applicability;
+                    # absent legacy metadata is not an explicit contradictory ID.
+                    resolved=None
+                    try:
+                        if obs.purl:
+                            purl=PackageURL.from_string(obs.purl)
+                            if purl.qualifiers or purl.subpath:
+                                raise ValueError('Qualified identity needs explicit applicability')
+                        resolved=resolve_component(db,{'name':obs.component,'package_identifier_id':obs.package_identifier_id,
+                            'package_name':obs.package_name,'ecosystem':None if obs.ecosystem=='unknown' else obs.ecosystem,
+                            'namespace':obs.namespace,'purl':obs.purl,'version':obs.version})
+                    except (ValueError,TypeError):pass
+                    valid=bool(resolved and resolved['status']=='RESOLVED')
                     asset=AssetContextSnapshot(asset_id=obs.asset_id,component_id=obs.component_id,asset_name=obs.asset_name,
                         component=obs.component,package_identifier_id=str(resolved['package_identifier_id']) if valid else None,
-                        package_name=resolved['package_name'] if valid else None,ecosystem=resolved['ecosystem'],namespace=resolved['namespace'],
+                        package_name=resolved['package_name'] if valid else None,
+                        ecosystem=resolved['ecosystem'] if resolved else obs.ecosystem,
+                        namespace=resolved['namespace'] if resolved else obs.namespace,
                         purl=obs.purl,deployed_version=obs.version,inventory_revision=obs.inventory_revision,
                         asset_updated_at=obs.asset_updated_at,component_updated_at=obs.component_updated_at,captured_at=obs.created_at,
                         environment=obs.environment,exposure=obs.exposure,is_demo=obs.is_demo,version_observation_id=obs.id,

@@ -92,7 +92,7 @@ with transaction(engine) as db:
  KnowledgeIndex.ingest(db,db.get(m.RawDocument,doc.raw_id),local_embedding())
 case={'benchmark':False,'cases':[{'case_id':'real-asset-risk-official-vllm','data_origin':'REAL_SOURCE_WITH_DEMO_INVENTORY','request':{
  'user_query':'对指定资产中的 vLLM 0.6.5 开展 CVE-2025-47277 风险分析和优先级调查，查询漏洞、资产库存、组件版本和证据；未确认项保持未知。',
- 'asset_scope':{'asset_id':str(a.id),'component_id':str(component.id),'target':'CVE-2025-47277',
+ 'asset_scope':{'asset_id':result['asset_id'],'component_id':result['component_id'],'target':'CVE-2025-47277',
  'component':{'name':'vllm','ecosystem':'PyPI','package_name':'vllm','version':'0.6.5'}},
  'options':{'objective_profile':'asset_risk_v1'}}}]}
 Path('work/phase12d3/generated-cases.json').write_text(json.dumps(case,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')

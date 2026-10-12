@@ -20,27 +20,27 @@
 
 涉及 `backend/app/agents/asset_observations.py`（新增）、verification schemas/snapshot、orchestration handoff。
 
-- [ ] 先写失败测试：分开的 get_asset / inspect_component_version 回执必须进入核验，跨运行/失败/错误目标引用拒绝。
-- [ ] 定义 frozen VersionObservation 与 ImpactVersionEvidence；记录源 Artifact、回执、时间、哈希与库存修订；未知字段保留未知。
-- [ ] 新增有界、精确的 supplemental Artifact 引用；原始 Investigation Artifact 不变；核验仍处理所有原有 Claim。
-- [ ] 空扩展字段不参与历史序列化，验证已有审计哈希兼容。
+- [x] 先写失败测试：分开的 get_asset / inspect_component_version 回执必须进入核验，跨运行/失败/错误目标引用拒绝。
+- [x] 定义 frozen VersionObservation 与 ImpactVersionEvidence；记录源 Artifact、回执、时间、哈希与库存修订；未知字段保留未知。
+- [x] 新增有界、精确的 supplemental Artifact 引用；原始 Investigation Artifact 不变；核验仍处理所有原有 Claim。
+- [x] 空扩展字段不参与历史序列化，验证已有审计哈希兼容。
 
 ### 2. 原有核验和风险的输入适配
 
 涉及 verification snapshot、tooling verification、analysis snapshot/schemas。
 
-- [ ] 先写失败测试：影响证据与版本 Observation 关联、库存修改后仍读取调查快照、身份/所有权不匹配拒绝。
-- [ ] 影响范围只来自原始结构化来源/原有 Claim 与 Evidence，复用版本解析；不猜版本、修复版本或确认状态。
-- [ ] 风险消费核验封存的版本快照，增加资产名称与追溯信息；规则不变。
-- [ ] 验证 unknown、缺证据、组件不匹配、冲突保持原有谨慎语义；如发现已有输出协议自相矛盾，只做一致性适配并独立记录。
+- [x] 先写失败测试：影响证据与版本 Observation 关联、库存修改后仍读取调查快照、身份/所有权不匹配拒绝。
+- [x] 影响范围只来自原始结构化来源/原有 Claim 与 Evidence，复用版本解析；不猜版本、修复版本或确认状态。
+- [x] 风险消费核验封存的版本快照，增加资产名称与追溯信息；规则不变。
+- [x] 验证 unknown、缺证据、组件不匹配、冲突保持原有谨慎语义；如发现已有输出协议自相矛盾，只做一致性适配并独立记录。
 
 ### 3. 验证和交付
 
-- [ ] 五类固定场景测试；使用测试库，合成证据明确标识，不能算 Ground Truth。
-- [ ] 至少一次本地 Qwen 真实 HTTP 资产风险调查。仅使用可追溯官方数据，演示库存明确 is_demo；不声称扫描了企业。
-- [ ] 全量后端回归，检查 OpenAPI/TypeScript 契约，同步必要导出。
-- [ ] 精确源文件变更许可记录；核验、Risk 与 Gate 规则文件哈希不变。
-- [ ] 一次独立代码审查，修复实质问题，写 PHASE_12D3_RESULT.md。停止本阶段。
+- [x] 五类固定场景测试；使用测试库，合成证据明确标识，不能算 Ground Truth。
+- [x] 至少一次本地 Qwen 真实 HTTP 资产风险调查。仅使用可追溯官方数据，演示库存明确 is_demo；不声称扫描了企业。
+- [x] 全量后端回归，检查 OpenAPI/TypeScript 契约，同步必要导出。
+- [x] 精确源文件变更许可记录；核验、Risk 与 Gate 规则文件哈希不变。
+- [x] 一次独立代码审查，修复实质问题，写 PHASE_12D3_RESULT.md。停止本阶段。
 
 ## 审查重点
 

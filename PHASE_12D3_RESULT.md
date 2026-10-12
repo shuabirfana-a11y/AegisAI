@@ -1,6 +1,6 @@
 # Phase 12-D.3：资产风险业务闭环修复结果
 
-状态：实现与真实 HTTP 验收已完成；全量回归复查与独立审查正在完成。以最终验证记录为准。
+状态：Phase 12-D.3 已完成。最终真实 HTTP 场景 Gate PASS；独立审查三项问题已修复，最终完整后端回归 1426 passed，无失败/跳过。
 
 ## 1. 问题原因
 
@@ -53,43 +53,47 @@ Planner、Runtime、调查 Agent、核验规则、风险规则及 Gate 规则没
 
 | 记录 | ID |
 |---|---|
-| 调查 | 6af4654c-0390-4959-acd1-6e991eecaefe |
-| Planner Run | 574c6aeb-6fde-4dc6-b19b-567711b67159 |
-| Investigation Run | 96a16a56-c9cc-47be-add9-09bc9ec8dc66 |
-| Verification Run | 7f096e6e-6038-4bab-8305-308d0c247cb9 |
-| Risk Run | f441673b-ec73-44a6-adef-ad0d25f15ead |
-| Gate | 7305f0b7-1f08-4ee1-b3eb-e5ecfcf7e19f |
-| Risk Artifact | ed053a7e-64ff-463b-8478-6906e9d71b19 |
-| Answer | 8057bc87-0785-58f6-81b8-e05c7e7c73c3 |
+| 调查 | e2eec722-e3a6-4452-bc03-1c972fa21ff1 |
+| Planner Run | 9753e509-2f8a-4ca2-8b7d-c5bfd6443ec7 |
+| Investigation Run | 19896859-9b44-498f-a185-b5dac9aa7bbd |
+| Verification Run | 75d29b34-3c67-49f7-b6e3-a91226bccd57 |
+| Risk Run | 8eed030a-2a87-4e22-9562-18d2347580e8 |
+| Gate | 9ae43a98-aded-4b26-9121-a9fa468b8842 |
+| Risk Artifact | 1d0eeb15-a025-4a6f-9346-3f0276131fcc |
+| Answer | 3ff1b0a1-5de7-5bc5-998e-b87caba84a57 |
 
-第一次真实 HTTP 请求因必需 semantic_search 没有知识库资料返回 REPLAN_REQUIRED；用原 KnowledgeIndex 和现有缓存 Embedding 索引同一份官方公告后，同一问题通过。首次失败保留在 real-http-receipts.json。最终代码再次实跑 PASS，见 real-http-final.json。
+第一次真实 HTTP 请求因必需 semantic_search 没有知识库资料返回 REPLAN_REQUIRED；用原 KnowledgeIndex 和现有缓存 Embedding 索引同一份官方公告后，同一问题通过。首次失败保留在 real-http-receipts.json。证据级状态加固后一次 PASS 保存在 real-http-final.json。独立审查的最小输入修复后，再次使用同一场景实跑 PASS，耗时 68.656 秒，八个接口均通过；最新见 real-http-post-review.json。Planner 第一次输出因 QUERY_SCOPE_MISMATCH 拒绝，第二次由原重试机制通过；两次调用均留存，未改模型、提示词或验证规则。
 
 这只是一个范围明确的工程验收：库存 is_demo=true、来源为独立快照库。没有修改旧开发库的 Claim/Evidence，没有伪造企业资产或人工 Ground Truth。实际是否启用 PyNcclPipe、通信端口可达性和补丁是否应用未扫描；HIGH 是既有规则在已声明条件下的结果，不是已验证成功利用。
 
 ## 7. 测试结果
 
-本次新增 14 项测试，覆盖完整资产交接、版本/证据追溯、证据状态、缺证据、未知版本、冲突、组件不匹配、库存变更后固定快照及非法消费。
+本次新增 20 项测试，覆盖完整资产交接、版本/证据追溯、证据状态、缺证据、未知版本、冲突、组件不匹配、库存变更后固定快照及非法消费；补充旧库存空字段、限定 PURL 四个边界及真实事务过期后的演示导出。
 
-已执行：便携后端 530 passed / 1 explicitly deselected；TypeScript semantic compilation PASS；前端已有测试 23 passed；42 HTTP 操作及 5 Python Schema 组一致；HTTP 导出 10 个文件一致。
+已执行：便携后端 531 passed / 1 explicitly deselected；工程门禁 18 passed；17 个前端 JavaScript 语法检查通过；TypeScript semantic compilation PASS；前端已有测试 23 passed；42 HTTP 操作及 5 Python Schema 组一致；HTTP 导出 10 个文件一致。
 
-第一次全量后端：1419 passed / 1 failed / 24 warnings，全部 1420 项实际执行，无跳过。失败项 test_trace_is_owner_bound_and_links_real_tools_and_artifacts 的资产任务发生 AGENT_OUTPUT_INVALID；该模块独立复查 8 passed，原失败记录保留，未放宽断言或 Runtime。完整隔离复查结果稍后写入 verification.json。
+第一次全量后端：1419 passed / 1 failed / 24 warnings，全部 1420 项实际执行，无跳过。失败项 test_trace_is_owner_bound_and_links_real_tools_and_artifacts 的资产任务发生 AGENT_OUTPUT_INVALID；该模块独立复查 8 passed，原失败记录保留，未放宽断言或 Runtime。第二个全新空库的完整复查为 1420 passed / 23 warnings / 827.91 秒，无跳过。独立审查后新增六个复现控制：修复前 6 failed，最终 6 passed / 65.40 秒；最终第三个全新空库完整回归 1426 passed / 23 warnings / 900.02 秒，无失败、跳过或 deselection。第一次失败的原因尚未诊断，记录保留，不能称作已定位原因。
 
 关键命令：
 
 ```text
 python scripts/ci/run_backend_tests.py
-python -m pytest
+python work/phase12d3/run_full_regression.py
+python work/phase12d3/full_rerun.py
+python demo/phase12d3/run_backend_regression.py
 python scripts/ci/check_contracts.py
 python scripts/export_investigation_api.py --check
 node .github/node_modules/typescript/bin/tsc -p .github/tsconfig.contracts.json
 node --test frontend/tests/*.test.mjs
 ```
 
-全量 pytest 使用新建、空的专用 PostgreSQL 集群：迁移/空数据契约先执行，再执行其他全部测试，避免破坏已有人工作业或演示数据库。第一次端口 55438，复查为另一全新集群 55439。测试环境只用 Mock LLM；真实本地模型 HTTP 记录分别保存，不能相加为业务准确率。历史 1261 不计入本轮执行数。
+全量 pytest 使用新建、空的专用 PostgreSQL 集群：迁移/空数据契约先执行，再执行其他全部测试，避免破坏已有人工作业或演示数据库。第一次端口 55438，复查为另一全新集群 55439，最终修复后回归使用 55440。公开的最终测试入口是 demo/phase12d3/run_backend_regression.py；前两次内部驱动的真实命令同时保留。测试环境只用 Mock LLM；真实本地模型 HTTP 记录分别保存，不能相加为业务准确率。历史 1261 不计入本轮执行数。
+
+独立审查共 3 项 Important，已同一次最小修复处理：未知生态不充当显式冲突、恢复原 qualified/subpath 适用性限制、导出使用事务内捕获的标量 ID。限定身份保持 UNKNOWN，原 Gate 的 OBJECTIVE_PACKAGE_MISMATCH 为 FATAL，仍 FAILED；没有将其改成 Warning 或 REPLAN。演示准备脚本已实际独立运行并导出本机用例。详见 FINAL_REVIEW.md。
 
 ## 8. 修改文件
 
-新增领域对象及 verification/asset_snapshot 适配器；更新 orchestration/handoff、verification schemas/snapshot/reader、analysis schemas/snapshot、两个 Tool 适配器。增加 5 个测试文件、精确源文件授权清单、CI 单元列表和文档；同步 HTTP/内部 Schema 与 TypeScript 镜像。无数据库 Schema 迁移、无前端页面实现。
+新增领域对象及 verification/asset_snapshot 适配器；更新 orchestration/handoff、verification schemas/snapshot/reader、analysis schemas/snapshot、两个 Tool 适配器。增加 7 个测试文件、精确源文件授权清单、CI 单元列表和文档；同步 HTTP/内部 Schema 与 TypeScript 镜像。无数据库 Schema 迁移、无前端页面实现。
 
 ## 9. 当前限制
 

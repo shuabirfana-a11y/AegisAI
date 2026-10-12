@@ -11,7 +11,7 @@
     "backend/app/agents/analysis/snapshot.py": {
       "baseline_sha256": "6a0d110fbbaeb04636017872efc38ca717d4c0ee544786d4d0c4e317ac59a331",
       "phase_base_sha256": "6a0d110fbbaeb04636017872efc38ca717d4c0ee544786d4d0c4e317ac59a331",
-      "current_sha256": "e7d4b99483c8dde0eac091940be86266e08bee80857ce5d489dbd7e312cddbdf",
+      "current_sha256": "39382c1cf38a4b5fa5be611f4985115fdf0588e74814cf432d4c7ea4fb15bc33",
       "authorization": "PHASE12D3_USER_AUTHORIZED_ASSET_HANDOFF_ADAPTERS"
     },
     "backend/app/agents/verification/reader.py": {

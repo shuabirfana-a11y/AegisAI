@@ -1,0 +1,96 @@
+{
+  "phase": "12D.3",
+  "checked_at_utc": "2026-10-12T13:01:52.746993+00:00",
+  "status": "PASS",
+  "kind": "ENGINEERING_ASSET_HANDOFF_WITH_REAL_MODEL_AND_DEMO_INVENTORY",
+  "benchmark": false,
+  "enterprise_inventory_scanned": false,
+  "security_accuracy_evaluated": false,
+  "history_1261_not_reused": true,
+  "new_tests": 20,
+  "full_backend": {
+    "command": "python demo/phase12d3/run_backend_regression.py",
+    "test_database": "NEW_EMPTY_DEDICATED_LOOPBACK_55440",
+    "model_provider": "mock",
+    "deselected": 0,
+    "warnings": 23,
+    "tests": 1426,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1426,
+    "seconds": 900.022,
+    "xml_sha256": "b9ae05e5aa13721234e994647f62dbe6941a9bfa622d3a4c8c88c69d8cfeaa59"
+  },
+  "first_full_attempt": {
+    "tests": 1420,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1419,
+    "seconds": 843.723,
+    "xml_sha256": "d21f5f880700646280b393ef3aab53017112438a58fedc8a6039bfcc895f1eb6"
+  },
+  "pre_review_full_rerun": {
+    "tests": 1420,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1420,
+    "seconds": 827.833,
+    "xml_sha256": "7a665143c968c3dc3654ff863eaccdd01251b37fa75ac5ac89d8c1764b43dfca"
+  },
+  "initial_failure": "test_trace_is_owner_bound_and_links_real_tools_and_artifacts: asset task AGENT_OUTPUT_INVALID; cause not diagnosed; module isolated 8 passed",
+  "review": {
+    "one_independent_whole_branch_review": true,
+    "critical": 0,
+    "important": 3,
+    "minor": 0,
+    "fixed": 3,
+    "regression_controls": {
+      "red_failed": 6,
+      "green_passed": 6,
+      "green_seconds": 65.4
+    }
+  },
+  "portable_backend": {
+    "passed": 531,
+    "deselected": 1,
+    "exclusion": "existing cached-real-embedding test; only in portable suite",
+    "seconds": 13.1
+  },
+  "frontend_tests": {
+    "passed": 23,
+    "skipped": 0
+  },
+  "typescript": "PASS",
+  "http_contract_operations": 42,
+  "python_schema_groups": 5,
+  "http_export_files_checked": 10,
+  "engineering_gate_tests": 18,
+  "javascript_files_checked": 17,
+  "real_http": {
+    "investigation_id": "e2eec722-e3a6-4452-bc03-1c972fa21ff1",
+    "planner_run_id": "9753e509-2f8a-4ca2-8b7d-c5bfd6443ec7",
+    "gate_id": "9ae43a98-aded-4b26-9121-a9fa468b8842",
+    "gate_status": "PASS",
+    "answer_status": "COMPLETE",
+    "answer_id": "3ff1b0a1-5de7-5bc5-998e-b87caba84a57",
+    "elapsed_ms": 68656.0,
+    "model": "aegisai-qwen25-planner:latest",
+    "execution_mode": "REAL",
+    "provider_is_mock": false,
+    "planner_attempts": 2,
+    "first_attempt": "REJECTED_QUERY_SCOPE_MISMATCH",
+    "native_retry": "VALIDATED",
+    "eight_endpoints": "PASS",
+    "frozen_answer_reread": true,
+    "risk": "HIGH",
+    "priority": "P1",
+    "data_origin": "REAL_SOURCE_WITH_DEMO_INVENTORY"
+  },
+  "source_rules": "Runtime, Planner, investigation Agent, verification rules, risk rules and all Gate rules remain byte-identical",
+  "verification_manifest": "source_hash_exceptions.json",
+  "security_scan": "Required before branch publication; exact commit tracked by GitHub CI",
+  "source_receipt": "See repository docs/phase12d3/real-http-post-review.json"
+}
