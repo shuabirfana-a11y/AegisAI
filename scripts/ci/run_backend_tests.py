@@ -12,6 +12,7 @@ TESTS = [
     "tests/runtime/test_scheduler.py", "tests/agents/test_contracts_registry.py",
     "tests/agents/test_artifacts.py", "tests/agents/test_router.py",
     "tests/planner/test_schemas_registry.py", "tests/planner/test_validation.py",
+    "tests/planner/test_task_input_schema.py",
     "tests/integration/test_contracts.py", "tests/agents/investigation/test_planning.py",
     "tests/agents/investigation/test_normalize.py", "tests/agents/verification/test_schemas.py",
     "tests/agents/analysis/test_schemas.py", "tests/orchestration/test_contracts_scope.py",

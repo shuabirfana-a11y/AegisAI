@@ -1,0 +1,30 @@
+{
+  "schema_version": "phase12d-source-compatibility-v1",
+  "changes": {
+    "backend/app/planner/schemas.py": {
+      "baseline_sha256": "9a5e96634d31a3d2053a5137019b23be3ebc9de964197f373332d3034aab6f37",
+      "current_sha256": "466cfd82553948e293aece57788e6a8a83f5512eda4e9df15cb198dd1da02009",
+      "authorization": "USER_APPROVED_SCHEMA_METADATA_ONLY"
+    },
+    "backend/app/llm/config.py": {
+      "baseline_sha256": "fac48a39befa1c12208c7fab10dbe59c94b7c6cb482af3da58158f468e66cf4e",
+      "current_sha256": "44de8ababd76a3db9f3e02c0d599c58c7b9397363e4c0cb5ae5b6031770c28d0",
+      "authorization": "PHASE12D_MODEL_PROVIDER_CONFIGURATION"
+    },
+    "backend/app/llm/providers/openai_compatible.py": {
+      "baseline_sha256": "b658161e1c9c6118da1f3bd160fdac8580518657d4c63343c9e4c2617e8214a7",
+      "current_sha256": "82de1d50a72878ed330172bc0d85e615ecb709b1b36d47d87b784b3df1795421",
+      "authorization": "PHASE12D_MODEL_PROVIDER_CONFIGURATION"
+    },
+    "backend/tests/agents/verification/test_rules.py": {
+      "baseline_sha256": "188e44a7e2501245cd7ef1029530727f0916aef0739bd01aa959ab8c877fcbc5",
+      "current_sha256": "d3d2de6312d4ccc884607465227d5e4b4a3b5c13b770fefce5a8e1afc9259ae1",
+      "authorization": "PHASE12D_TEST_CLOCK_ISOLATION"
+    },
+    "backend/tests/runtime/test_scheduler.py": {
+      "baseline_sha256": "c6c162384679e363940a18cc19441fe7083f75ab3efc20de1e3ff64a9827f8cb",
+      "authorization": "PHASE12D_TEST_MONOTONIC_CONCURRENCY",
+      "current_sha256": "0c5fbe60eadb626ef278c2fe1938b4b9fb4ede941c14f5a31aeacc45e751d11c"
+    }
+  }
+}

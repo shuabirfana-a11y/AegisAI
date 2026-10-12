@@ -311,6 +311,14 @@ export type InvestigationStatusResponse = {
   "finished_at"?: (string | null);
 };
 
+export type ModelExecutionMetadata = {
+  "execution_mode": "MOCK" | "REAL";
+  "provider": string;
+  "model": string;
+  "source"?: "PERSISTED_PLANNER_CALL";
+  "attempt_count": number;
+};
+
 export type ObjectiveCoverage = {
   "outcome": "identity" | "overview" | "asset" | "version_impact" | "remediation_status" | "precise_remediation" | "risk" | "priority" | "verified_exploitation";
   "status": "SATISFIED" | "ABSTAINED" | "MISSING" | "CONFLICT";
@@ -549,6 +557,7 @@ export type TraceResponse = {
   "investigation_id": string;
   "stages": Array<TraceStage>;
   "revision": number;
+  "model_execution"?: (ModelExecutionMetadata | null);
 };
 
 export type TraceStage = {

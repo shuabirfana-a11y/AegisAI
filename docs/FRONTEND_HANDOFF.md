@@ -1,6 +1,6 @@
 # AegisAI 前后端协作契约交接
 
-更新：2026-10-11，Phase 12-C。基线为已合并 PR #6 / #7 的 main；本轮只补联调检查、配置说明、测试和交接材料。
+更新：2026-10-12，Phase 12-D。基于 Phase 12-C 的审查提交；本轮增加本地真实Provider联调和可选公共模型执行身份，不增加调查路由。
 
 **当前有 41 条路径、42 个 HTTP 操作；8 个智能调查操作已经开放。完整成功链通过专用测试库的 TCP 联调验证，当前本地默认 Mock 对普通调查仍会规划失败。** 接口已存在、内部链可执行、真实模型可用、队友工作台已完成，是四个不同状态。
 
@@ -90,7 +90,7 @@ AegisAI 是 ICT 大赛命题九、奇安信的 AI 安全知识情报系统。后
 
 当前认证是本地服务端令牌及主体，尚无生产多用户登录。不要在前端源码、构建环境变量、localStorage、Mock、截图或交接 JSON 放服务器令牌、模型 API Key、数据库密码。`/docs`、`/redoc`、`/openapi.json` 在后端，当前代理没有相应文档入口，可用离线导出。
 
-模型配置全部由后端 ModelConfig.from_env 读取，`.env.example` 不会自动加载。兼容远程/国产服务需明确 `MODEL_PROVIDER=openai_compatible`、实际 MODEL_NAME、HTTPS MODEL_API_BASE、服务器端 MODEL_API_KEY；本地兼容服务可显式使用 loopback HTTP 和 MODEL_ALLOW_KEYLESS_LOCAL。这些配置能力不代表供应商已实测。此轮只验证配置 Schema，没有下载/安装模型、实际模型调用或效果评测。
+模型配置全部由后端 ModelConfig.from_env 读取，`.env.example` 不会自动加载。兼容远程/国产服务需明确 `MODEL_PROVIDER=openai_compatible`、实际 MODEL_NAME、HTTPS MODEL_API_BASE、服务器端 MODEL_API_KEY；本地兼容服务可显式使用 loopback HTTP 和 MODEL_ALLOW_KEYLESS_LOCAL。本机已安装 Ollama/Qwen 7B并通过原Gateway实际调用；其他远程供应商未实测。具体成功/失败范围以 docs/MODEL_PROVIDER_TEST.md 的当次记录为准，不把接口格式测试当安全准确率。
 
 ## 5. InvestigationRequest：公共提交协议
 
@@ -209,9 +209,9 @@ PLANNING_FAILED 是调查生命周期业务错误，不等于创建HTTP失败；
 | UI离线 Mock | 交接包 mock/ 历史演示 fixture | 界面字段和状态展示，不能证明在线接口或安全准确率 |
 | SYNTHETIC_TEST + 显式测试规划回执 | 专用数据库、实际 Planner/Agent/Tool/Gate、TCP八操作通过 | HTTP和工程业务连接正确；证据与模型回执仍是合成输入 |
 | REAL_SOURCE + 当前默认Mock | 固定torch场景真实本机HTTP，PLANNING_FAILED | 服务真实接收问题、失败和契约可读取；不是完整成功演示 |
-| NON_MOCK供应商 | 配置Schema支持，但本轮没有真实模型实跑 | 尚不能宣称真实模型调查成功或效果准确 |
+| 本地REAL Provider | Ollama/Qwen经Gateway实际调用，结果另见本阶段实跑记录 | 按保存的调用身份展示；通过Schema不等于安全准确 |
 
-创建响应的 model_provider / is_mock 是服务实际模型身份。前端切真实模式时清除旧 Mock 数据，真实失败不静默回退为假成功。真实模型和数据来源标签必须分别显示。后续文本模型切换时，独立 Embedding 仍为 Mock 的配置要明确，不能称作所有模型已经真实化。
+创建响应的 model_provider / is_mock 反映创建/重用请求时的服务配置，不能用于重新标记历史调查。历史身份以 TraceResponse.model_execution 中已持久化的Planner调用回执为准。该字段为null时显示“模型调用尚未确认”；MOCK/REAL不等于成功/失败。前端切真实模式时清除旧 Mock 数据，真实失败不静默回退为假成功。真实模型和数据来源标签必须分别显示。后续文本模型切换时，独立 Embedding 仍为 Mock 的配置要明确，不能称作所有模型已经真实化。
 
 此轮固定输入不随机；专用测试场景只为数据库隔离生成唯一CVE/UUID绑定，语义条件保持 vLLM0.6.0。合成记录不进入开发库、不当标准答案或正式评测。当前人工 Ground Truth 仍0/49，不生成准确率。
 
@@ -273,3 +273,9 @@ PLANNING_FAILED 是调查生命周期业务错误，不等于创建HTTP失败；
 ### ApiError
 
 `error_code`, `message`, `request_id`, `retryable`
+
+## Phase 12-D 可选模型执行元数据
+
+GET /api/investigations/{id}/trace 的 model_execution 是可选且可为null的公共字段；其对象包含 execution_mode（MOCK/REAL）、provider、model（保存回执中的实际返回模型名）、source=PERSISTED_PLANNER_CALL、attempt_count（1–2）。不含模型地址、Key、原始输出或Prompt。服务重启/切换模型不改变历史标签，未知旧值须显示未知，不回填。
+
+AnswerEnvelope仍由确定性模板生成；重复读取不请求模型，Verification/Risk/Gate仍由既有规则决定。文本模型REAL与独立Embedding Mock必须分别标识；浏览器只访问AegisAI API，不访问模型端口11434。

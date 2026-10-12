@@ -27,6 +27,7 @@ class ModelConfig(Strict):
     max_output_tokens: int = Field(1024, ge=1, le=4096)
     structured_mode: Literal['prompt_json', 'json_object', 'json_schema'] = 'prompt_json'
     token_parameter: Literal['max_tokens', 'max_completion_tokens'] = 'max_tokens'
+    reasoning_effort: Literal['none', 'low', 'medium', 'high'] | None = None
 
     @model_validator(mode='after')
     def complete_and_validate(self):
@@ -84,8 +85,10 @@ class ModelConfig(Strict):
         names = {'MODEL_PROVIDER': 'provider', 'MODEL_NAME': 'model', 'MODEL_API_BASE': 'api_base',
                  'MODEL_API_KEY': 'api_key', 'MODEL_EMBEDDING_PROVIDER': 'embedding_provider',
                  'MODEL_EMBEDDING_NAME': 'embedding_model', 'MODEL_STRUCTURED_MODE': 'structured_mode',
-                 'MODEL_TOKEN_PARAMETER': 'token_parameter'}
+                 'MODEL_TOKEN_PARAMETER': 'token_parameter', 'MODEL_REASONING_EFFORT': 'reasoning_effort'}
         values = {field: env[key] for key, field in names.items() if key in env}
+        if values.get('reasoning_effort') == '':
+            values.pop('reasoning_effort')
         try:
             if 'api_key' in values:
                 values['api_key'] = SecretStr(values['api_key'])

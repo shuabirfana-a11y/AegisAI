@@ -58,6 +58,16 @@ def check_mode(requested, provider, is_mock):
             'model_quality_evaluated': False}
 
 
+def check_persisted_mode(requested, saved):
+    if saved is None:
+        return {'requested': requested, 'observed': 'UNKNOWN', 'matched': False,
+                'source': None, 'error_code': 'MODEL_EXECUTION_UNCONFIRMED',
+                'model_quality_evaluated': False}
+    value = check_mode(requested, saved.provider, saved.execution_mode == 'MOCK')
+    return {**value, 'source': saved.source, 'model': saved.model,
+            'planner_attempt_count': saved.attempt_count}
+
+
 def run_probe(client, case, *, timeout_seconds=45, poll_interval=.1, requested_mode=None):
     """Client must be a TCP httpx.Client; reports contain only allowlisted metadata."""
     checked_origin(str(client.base_url))
@@ -99,6 +109,9 @@ def run_probe(client, case, *, timeout_seconds=45, poll_interval=.1, requested_m
             return report
         time.sleep(min(poll_interval, max(0, deadline - time.monotonic())))
     trace = call('trace', 'GET', prefix + '/trace', TraceResponse)
+    report['creation_model_mode'] = report['model_mode']
+    report['model_mode'] = check_persisted_mode(requested_mode or case['requested_mode'],
+                                              trace.model_execution if trace else None)
     artifacts = call('artifacts', 'GET', prefix + '/artifacts', ArtifactResponse)
     gate = call('integration', 'GET', prefix + '/integration', IntegrationResponse)
     answer = call('answer', 'GET', prefix + '/answer', AnswerResponse)
