@@ -67,3 +67,4 @@ d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json
 61b1155ca0cb9d5ca69e0e562af71741c389cf4b:backend/scripts/probe_model_provider.py:generic-api-key:158
 61b1155ca0cb9d5ca69e0e562af71741c389cf4b:backend/scripts/probe_model_provider.py:generic-api-key:164
 83e753c017cec90a19af4ec8e5f14d7e074b10dd:backend/tests/investigation_api/test_model_execution.py:generic-api-key:35
+4e718b942da5d7749d0c36d8f2b7b97a6d49e2e3:AegisAI_FRONTEND_HANDOFF_PACKAGE/MANIFEST.json:generic-api-key:401

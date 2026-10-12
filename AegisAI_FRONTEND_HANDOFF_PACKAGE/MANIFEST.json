@@ -382,8 +382,8 @@
     },
     {
       "path": "PHASE12D_VERIFICATION.json",
-      "bytes": 3921,
-      "sha256": "a34f776499bdfccbf6f0ecf7276817c427e773c1aa70cde543d42e1bceec1b03"
+      "bytes": 4331,
+      "sha256": "3f722954dc809de3617ba9d85e124007075ce52a734ce0345faab531b28baf69"
     },
     {
       "path": "README.md",
@@ -410,7 +410,7 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-12T05:00:29.696881+00:00",
+  "updated_at_utc": "2026-10-12T05:08:48.136794+00:00",
   "current_phase": "12-D",
   "verification_file": "PHASE12D_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
