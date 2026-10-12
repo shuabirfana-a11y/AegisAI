@@ -50,6 +50,19 @@ def test_missing_binding_and_multi_asset_scope_are_not_silently_filled():
         module().build_request(question(assets=[{'component':'vllm'},{'component':'torch'}]),binding())
 
 
+def test_unknown_inventory_still_uses_asset_risk_profile_without_inventing_component():
+    q=Question(id='synthetic-unknown-inventory',category='risk',question='Investigate this owned asset',
+        origin='TEST_FIXTURE',source_ids=['synthetic-source'],input_context={'target':'CVE-2099-0001'})
+    body=module().build_request(q,binding())
+    assert body['options']['objective_profile']=='asset_risk_v1'
+    assert 'component' not in body['asset_scope']
+
+
+def test_fact_request_uses_existing_overview_profile():
+    body=module().build_request(question('facts'))
+    assert body['options']['objective_profile']=='overview_v1'
+
+
 def test_native_confirmed_risk_is_projected_without_frozen_reference_answers():
     p=module().project_answer(question(),envelope())
     assert p.status=='SUCCEEDED' and p.answer['affected']=='AFFECTED'

@@ -1,7 +1,6 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-12（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #6、#7已获负责人确认合入main，稳定基线仍为`8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd`。Phase12C的[PR #8](https://github.com/shuabirfana-a11y/AegisAI/pull/8)、Phase12D的[PR #9](https://github.com/shuabirfana-a11y/AegisAI/pull/9)、Phase12D.1的[PR #10](https://github.com/shuabirfana-a11y/AegisAI/pull/10)尚未合入main。Phase12D.2 的 [PR #11](https://github.com/shuabirfana-a11y/AegisAI/pull/11)同样尚未合入main。本轮 `codex/phase12d3-asset-risk-loop` 实施 **Phase12D.3：资产版本/证据交接修复**。封存库存 Observation 和影响版本 Evidence 已进入原核验/风险/Gate；独立官方快照与明确演示库存的一次最终真实 HTTP 调查为 HIGH/P1、Gate PASS、Answer COMPLETE。不是企业扫描或 Benchmark 准确率验收。最终工程验证与发布状态以 [本轮报告](PHASE_12D3_RESULT.md)和 [验证记录](docs/phase12d3/verification.json)为准。
-
+更新日期：2026-10-12（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。负责人已授权合并 [PR #12](https://github.com/shuabirfana-a11y/AegisAI/pull/12)，main 稳定基线为 `59ea2a239556e70514ce19bba52141121a98d570`，包含 Phase12D.3 及其依赖。合并后 main CI 通过。本轮 `codex/phase13d-e2e-evaluation` 增加 **Phase13-D：完整 HTTP 评测适配与冻结回放准备**；不修改业务代码，不填写或批准人工答案。当前49题、APPROVED为0；线上准备与离线回放均 NOT_EVALUATED，无模型调用。本轮新 PR 独立提交，不自动合并。见 [本轮报告](PHASE_13D_RESULT.md)。
 ## 已有能力
 
 - Model/Tool Gateway、混合检索、受约束 Planner、Runtime、三专业 Agent、Integration Gate、Investigation Orchestrator、AnswerEnvelope 已实现。
@@ -11,6 +10,7 @@
 - Phase 12-D.1：修复实际HTTP专用Planner的模型Schema及小范围输入/提示；原任务白名单、验证器、Runtime、Agent/Gate未改。最终Qwen2.5规划20/20，HTTP2/3 PASS_WITH_WARNINGS；Qwen3.5规划0/20，HTTP0/3。失败和原v2/v3对照全部留存。503可移植检查及60含数据库针对性检查通过，集合不相加；1项真实Embedding检查明确排除。
 - Phase 12-D.2：初始五场景仅概览通过，组件-only仍FAILED，另三次Planner失败均保留；40秒诊断预算的资产/固定模板冲突复查均到Gate并被REPLAN_REQUIRED阻断。旧失败是资产缺口、单Artifact交接和未确认版本证据，不是格式错误。业务C类只报告，真实风险/冲突确定性闭环仍未验收。521项可移植检查和136项业务/诊断检查通过，集合重叠；四项SYNTHETIC规则控制不算真实调查。
 - Phase 12-D.3：资产/版本/影响证据形成同一封存链；原核验、Risk、Gate规则不变。未知版本、缺证据、身份不明确及来源冲突保持阻断；旧数据无效证据不会自动修好。三个独立审查问题已最小修复；复现资料见 [固定演示说明](demo/phase12d3/README.md)。
+- Phase13-D：原人工准入和 Metrics 复用，公开 Investigation HTTP 采集及 Offline 回放入口已准备；原生 Observation/Evidence/Risk 留痕，Mock 不能进入正式质量门禁。独立对照与语料/库存公平性仍待补齐。
 - GitHub 私有仓库、分支、CI与前端交接包已有；三项 CI必须按当前提交验证，不能把历史结果挪用。
 - AegisBench 框架及49题候选已有；人工标注规范、独立复核流程和10/20/19分批材料已有。
 

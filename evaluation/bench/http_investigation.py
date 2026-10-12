@@ -43,11 +43,11 @@ def build_request(question,binding=None):
         if key in component and component[key] is not None and component[key]!=value:
             raise ValueError('COMPONENT_BINDING_MISMATCH')
     if component or supplied:scope['component']={**component,**supplied}
-    needs_asset=question.category in {'version','risk','multihop'} and bool(component or assets)
+    needs_asset=question.category in {'version','risk'} or (question.category=='multihop' and bool(component or assets or scope.get('asset_id')))
     if needs_asset and not (scope.get('asset_id') and scope.get('component_id')):
         raise ValueError('ASSET_BINDING_REQUIRED')
     raw={'user_query':question.question,'asset_scope':scope,
-         'options':{'objective_profile':'asset_risk_v1' if needs_asset else 'vulnerability_overview_v1'},
+         'options':{'objective_profile':'asset_risk_v1' if needs_asset else 'overview_v1'},
          'idempotency_key':'bench-'+uuid4().hex}
     return api_models().InvestigationCreateRequest.model_validate(raw).model_dump(mode='json',exclude_none=True)
 

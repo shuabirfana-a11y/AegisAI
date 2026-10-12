@@ -1,0 +1,3063 @@
+{
+  "kind": "SYNTHETIC_HTTP_ENGINEERING_CONTROLS_NOT_BENCHMARK",
+  "cases": [
+    {
+      "case": "complete",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "003194fc-2633-48f8-befd-397c02cc5802",
+      "planner_run_id": "0bdebe62-cf27-4d61-a642-fae50cddfa44",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "edcd8e38-eee2-45b7-a6a0-d9ae65ad0648",
+        "5f17cb90-84b2-4a1c-b9d8-35ab13f90705",
+        "05660106-040f-41c3-b3db-37d225888f4f"
+      ],
+      "gate_id": "5bfdbe4f-1073-4003-b65e-0082aa11a077",
+      "gate_status": "PASS",
+      "answer_id": "3b800ffe-79b2-5ae0-bd5e-8840bc44d145",
+      "answer_status": "COMPLETE",
+      "risk_level": "HIGH",
+      "affected": "AFFECTED",
+      "verification_status": "CONFIRMED",
+      "version_observation_count": 1,
+      "impact_evidence_count": 2,
+      "http_calls": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/trace",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/artifacts",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/integration",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/003194fc-2633-48f8-befd-397c02cc5802/answer",
+          "http_status": 200
+        }
+      ],
+      "accuracy_measured": false
+    },
+    {
+      "case": "unknown_version",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "54edc386-1f4f-48a4-a331-c00c1a29e932",
+      "planner_run_id": "f8ce759f-44ad-42bf-a270-f75b43c0c638",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "6dcefe18-51b6-454b-ac99-ab3e83228ea7",
+        "23eaee1b-33a6-48f2-a923-6ad16e05f77c",
+        "fec2b52d-6051-4cfc-9a73-4d83bd030765"
+      ],
+      "gate_id": "703cb08f-e44c-4c68-9c9e-388c87eab0de",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_id": "156d301d-e77d-54de-964c-3541c5ce0dab",
+      "answer_status": "INCOMPLETE",
+      "risk_level": "UNKNOWN",
+      "affected": "UNKNOWN",
+      "verification_status": "CONFIRMED",
+      "version_observation_count": 1,
+      "impact_evidence_count": 2,
+      "http_calls": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/trace",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/artifacts",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/integration",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/54edc386-1f4f-48a4-a331-c00c1a29e932/answer",
+          "http_status": 200
+        }
+      ],
+      "accuracy_measured": false
+    },
+    {
+      "case": "conflict",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "362c2c7e-1e86-4792-b96b-091d1b42e242",
+      "planner_run_id": "66c42605-10c9-4fe6-9458-b5cab0c89cc0",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "037ee5ff-1853-4579-b94c-105527e50fb3",
+        "2d4d3a3c-9e92-46a8-8eb6-7784d7f58778",
+        "fb56b3f5-5637-4aef-83d9-c420b9129351"
+      ],
+      "gate_id": "1f915bda-41ec-4e85-87ad-cec0d29ed994",
+      "gate_status": "HUMAN_REVIEW_REQUIRED",
+      "answer_id": "1a8a7ee9-baba-5184-b06d-d0b917b3ff9d",
+      "answer_status": "REVIEW_REQUIRED",
+      "risk_level": "UNKNOWN",
+      "affected": "UNKNOWN",
+      "verification_status": "CONFLICT",
+      "version_observation_count": 1,
+      "impact_evidence_count": 3,
+      "http_calls": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/status",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/trace",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/artifacts",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/integration",
+          "http_status": 200
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/362c2c7e-1e86-4792-b96b-091d1b42e242/answer",
+          "http_status": 200
+        }
+      ],
+      "accuracy_measured": false
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "checked_at_utc": "2026-10-12T14:45:38.080492+00:00",
+  "stable_base": "59ea2a239556e70514ce19bba52141121a98d570",
+  "historical_tests": 1426,
+  "historical_total_rerun": false,
+  "checks_overlap_do_not_sum": true,
+  "new_test_count": 22,
+  "backend_core_changed": false,
+  "formal_benchmark_run": false,
+  "approved_gold_count": 0,
+  "live_model_calls_this_phase": 0,
+  "checks": [
+    {
+      "name": "aegisbench",
+      "command": "python -m pytest tests/aegisbench -q",
+      "result": "PASS",
+      "observed": "67 passed",
+      "log_sha256": "2135d3a0beb23359cbd60df1e88fdf31580df12775a89a5425d0c7ed7f52a50f"
+    },
+    {
+      "name": "investigation_api",
+      "command": "cd backend; python -m pytest -q tests/investigation_api",
+      "result": "PASS",
+      "observed": "112 passed",
+      "log_sha256": "bb1e5b3c7b5c56ae1cdfc5951e58312eb926ad11992c51c8ec3cef146279b4b4"
+    },
+    {
+      "name": "portable",
+      "command": "python scripts/ci/run_backend_tests.py",
+      "result": "PASS",
+      "observed": "531 passed, 1 deselected",
+      "log_sha256": "b638843314679f37069b8691112b7aa5daeadcd898be09fe502243025d9c920d"
+    },
+    {
+      "name": "contracts",
+      "command": "python scripts/ci/check_contracts.py; python scripts/export_investigation_api.py --check",
+      "result": "PASS",
+      "observed": "PASS",
+      "log_sha256": "79646183bf25ce57f24ab4b57eece4feb9bee967271f1f90cc50372d5e4cd6be"
+    },
+    {
+      "name": "engineering",
+      "command": "python -m unittest discover -s tests/engineering -v",
+      "result": "PASS",
+      "observed": "OK",
+      "log_sha256": "0d96e7827ab7d68162318eb9a06e484bc77d9b8f1a5fb47f382eb6e8d3d4f914"
+    },
+    {
+      "name": "frontend",
+      "command": "node scripts/ci/check_frontend.mjs; npm --prefix frontend test; node .github/node_modules/typescript/bin/tsc -p .github/tsconfig.contracts.json",
+      "result": "PASS",
+      "observed": "pass 23",
+      "log_sha256": "49a087fad713697688605fc8a0db73d431bf51fbbcb08c63e3a2ddc9f74d5ef9"
+    }
+  ],
+  "skips": [
+    "Portable CI intentionally deselects the existing local cached embedding test"
+  ],
+  "warnings": [
+    "Starlette/AnyIO alias deprecation"
+  ],
+  "build_status": "NOT_APPLICABLE_NATIVE_JAVASCRIPT"
+}
