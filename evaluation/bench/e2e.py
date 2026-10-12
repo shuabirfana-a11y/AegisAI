@@ -25,7 +25,8 @@ class ApprovedAdapter:
         if question.id not in self.approved:
             return Prediction(question_id=question.id,baseline=self.name,status='NOT_EVALUATED',error_code='GROUND_TRUTH_NOT_APPROVED')
         result=self.inner.run(question,sources)
-        if result.status=='SUCCEEDED' and self.name=='aegisai' and result.metadata.get('is_mock') is not False:
+        if result.status=='SUCCEEDED' and (result.metadata.get('is_mock') is not False
+            or result.metadata.get('provider')=='mock'):
             return Prediction(question_id=question.id,baseline=self.name,status='NOT_EVALUATED',
                 error_code='MOCK_OUTPUT_NOT_FORMAL',metadata=result.metadata)
         return result
@@ -39,7 +40,7 @@ def evaluate_http(data,adapter,*,run_id=None,audits=None,adapters=None):
     wrapped=[ApprovedAdapter(a,approved) for a in controls]
     report=evaluate_dataset(data,adapters=wrapped,audits=audits,run_id=run_id)
     report['parameters'].update(evaluation_mode='ONLINE',default_mode='EXPLICIT_HTTP_APPROVED_QUESTIONS',
-        http_executed=bool(getattr(adapter,'records',{})),business_rules_modified=False,
+        http_executed=any(r.get('http_attempted',False) for r in getattr(adapter,'records',{}).values()),business_rules_modified=False,
         annotation_input_policy='ONLY_APPROVAL_IDS_TO_GATE; LABELS_FINAL_SCORER_ONLY')
     report['limitations']+=[
         'Online uses public Investigation API; no internal Orchestrator/Agent/model calls.',

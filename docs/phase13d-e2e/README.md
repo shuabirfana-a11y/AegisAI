@@ -68,4 +68,14 @@ Evidence Coverage/Hallucination Rate 还需要独立 OutcomeAudit，完整覆盖
 
 report.json/report.md、predictions.jsonl、native-http-records.json、experiment.json、outcome-audit-pending.jsonl。包含数据集版本/指纹、实际模型/Prompt、Git与评测器文件哈希、时间、原生状态和客户端配置。不会覆盖旧实验或写入标注/数据集目录。
 
+## 审查后的输入与失败约束
+
+`binding.component` 只能重述原问题已给定且相同的字段，不能添加缺失版本或把 null 改成已知值。身份由 asset_id/component_id 绑定；若问题另有 package_name，则 name 为显示提示，按包名、生态和实际库存核对。单资产数组和嵌套 component 的版本/环境条件也参与校验。
+
+HTTP 响应必须对应原问题、目标及原生 Agent/Gate/Artifact 引用。事实值、证据来源、风险视图与取得的冻结 Artifact 一致；每次已校验响应即时保存，后续失败不会丢掉已取得 Trace/证据。所有 Baseline 的 Mock 或缺少明确非 Mock 标识的成功结果均不能进入正式指标。
+
+公开 Trace 只列主要交付 Artifact；Version Observation 的资产子任务源 Artifact UUID 尚不能逐个通过公开端点展开。当前核对调查 run、原资产子任务成功状态及观察的身份/版本，保留源 UUID；不声称已单独验证每个未公开的子 Artifact，也不直接查询数据库绕过边界。
+
+Schema 可重复导出和检查：`python scripts/export_bench_http_schema.py --check`，直接读取现有 Pydantic 定义，无数据库连接。
+
 本轮完成后停止，正式实验待真实人工批准与比较条件齐备后另行授权。

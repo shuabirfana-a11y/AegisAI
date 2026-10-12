@@ -1,5 +1,11 @@
 # 历史敏感信息扫描复核
 
+## Phase 13-D 补充扫描
+
+完整历史扫描首次命中 2 项：提交 `f0f23768078895dc1a11c8428c1eb17dff82179d` 的 `docs/phase13d-e2e/PROTECTED_FILES.json` 第 70、74 行。指向 `backend/app/api/openapi_contracts.py` 与 `backend/app/assets/auth.py` 的文件摘要；已从稳定基线 `59ea2a239556e70514ce19bba52141121a98d570` 的 Git blob 重新计算 SHA-256，与每条记录逐字一致。两项均为 FALSE POSITIVE。
+
+复核数据流为已跟踪源文件 → SHA-256 → 冻结文件清单，不读取环境变量或运行凭据，没有登录/授权消费方。告警由路径包含 api/auth 与长十六进制值触发；用重新计算摘要可复现，无法演示凭据泄露影响。标准复核及反向检查确认，没有依赖未经核验的防护假设；内存、并发和越界类检查不适用。两项在真实安全影响与利用验证门禁失败。仅追加这两个准确 commit/path/rule/line 指纹，不排除目录或规则。最终复扫结果另见本轮验证记录。
+
 工具：Gitleaks v8.30.1，[官方来源](https://github.com/gitleaks/gitleaks/releases/tag/v8.30.1)。本机 Windows 归档对照发布 checksums 验证；CI Linux 归档固定 SHA256，扫描完整 Git 历史，输出启用 100% redaction。
 
 ## 初始扫描

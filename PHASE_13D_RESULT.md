@@ -26,7 +26,7 @@
 
 | 命令 | 本次结果 |
 |---|---|
-| `python -m pytest tests/aegisbench -q` | 见 [验证记录](docs/phase13d-e2e/verification.json) |
+| `python -m pytest tests/aegisbench -q` | 84 passed；包含审查问题负例与实际 Schema 漂移检查 |
 | 在 backend 执行 `python -m pytest -q tests/investigation_api` | 112 passed；包含新增 3 条完整 TCP 控制 |
 | `python scripts/ci/run_backend_tests.py` | 531 passed，1 deselected（原 CI 明确排除的真实本地 Embedding 测试），1 框架弃用提示 |
 | `python scripts/ci/check_contracts.py` | PASS，42 个 HTTP 操作、40 个合成对象 |
@@ -56,11 +56,14 @@
 
 ## 7. 当前限制与下一步
 
+独立只读审查提出 5 个重要问题，已在评测层一次修复，并通过新增负例 RED → GREEN：禁止绑定补入未知版本；核对原问题及完整资产条件；绑定实际 Artifact/证据引用；失败即时保留材料和模型标识；统一阻止各 Baseline 的 Mock 输出获得正式分数。另将“有记录但未发出请求却显示 http_executed”重新定级为重要报告真实性问题并修复。[审查处理](docs/phase13d-e2e/REVIEW.md)。
+
 1. 人工 APPROVED 为 0，未进行正式准确率实验。
 2. 普通 RAG 与无 Verification Agent 的独立对照仍未接入本轮入口；明确 NOT_IMPLEMENTED，不添加生产跳过核验开关。不能宣称三方实验已完成。
 3. 各对照的归一化数据、库存和来源一致性尚未独立证明，不能宣称公平消融。旧 native adapter 的准入限制不变。
 4. 当前单资产调查不覆盖所有候选的多资产聚合问题；部分旧参考字段没有原生交付映射，缺失保持缺失，不修改人工答案迎合模型。
 5. 原优先级 P1/P2/P3/DEFER/REVIEW_REQUIRED 与候选 triage 分类不等价，不做静默转换。
 6. 版本/风险题必须绑定操作者真实拥有的库存；环境/暴露/版本需与封存观察一致。不创建企业扫描数据。
+7. 公开 Trace 仅列主要交付 Artifact，资产子任务源 UUID 当前不能逐个展开验证；核对其原 run / 成功任务和观察语义，不声称存在尚未公开的查询 API。
 
 本阶段完成评测入口与准备交付后停止。等待人工双人批准和后续实验授权；不进行正式评测、PPT 或公网部署。本轮新 PR 不自动合并。

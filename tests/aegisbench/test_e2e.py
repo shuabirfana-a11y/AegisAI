@@ -103,3 +103,31 @@ def test_default_cli_dispatch_stays_offline_and_explicit_mode_selects_new_runner
     assert evaluate.main(['--output','test-legacy'])==0
     assert evaluate.main(['--mode','online','--output','test-new'])==0
     assert [c[0] for c in calls]==['legacy','e2e']
+
+
+@pytest.mark.parametrize('name',['rag_only','agent_without_verification'])
+def test_every_imported_mock_baseline_is_excluded_from_formal_metrics(name):
+    from evaluation.bench.e2e import ApprovedAdapter
+    data=load_benchmark(DEFAULT_MANIFEST);q=data['questions'][0]
+    class Mock:
+        records={};configuration={}
+        def run(self,q,sources):return Prediction(question_id=q.id,baseline=self.name,status='SUCCEEDED',
+            answer={'risk_level':'HIGH'},metadata={'is_mock':True})
+    inner=Mock();inner.name=name
+    prediction=ApprovedAdapter(inner,{q.id}).run(q,{})
+    assert prediction.status=='NOT_EVALUATED' and prediction.error_code=='MOCK_OUTPUT_NOT_FORMAL'
+
+
+def test_no_token_does_not_claim_http_was_executed():
+    from evaluation.bench.e2e import evaluate_http
+    from evaluation.bench.http_investigation import InvestigationHTTPAdapter
+    import httpx
+    data=load_benchmark(DEFAULT_MANIFEST);q=data['questions'][0]
+    gold=data['annotations'][0].model_copy(update={'origin':'HUMAN_GOLD','review_status':'APPROVED',
+        'annotator_type':'HUMAN','reviewer_type':'HUMAN','annotator':'Synthetic A','reviewer':'Synthetic B',
+        'annotation_note':'Synthetic in-memory gate test'})
+    data={**data,'questions':[q],'annotations':[gold],'eligible_gold':[gold]}
+    with httpx.Client(base_url='http://127.0.0.1:9') as client:
+        adapter=InvestigationHTTPAdapter(client=client,token='')
+        report=evaluate_http(data,adapter)
+    assert report['parameters']['http_executed'] is False

@@ -1,10 +1,10 @@
 {
-  "checked_at_utc": "2026-10-12T14:45:38.080492+00:00",
+  "checked_at_utc": "2026-10-12T15:14:26.343374+00:00",
   "stable_base": "59ea2a239556e70514ce19bba52141121a98d570",
   "historical_tests": 1426,
   "historical_total_rerun": false,
   "checks_overlap_do_not_sum": true,
-  "new_test_count": 22,
+  "new_test_count": 39,
   "backend_core_changed": false,
   "formal_benchmark_run": false,
   "approved_gold_count": 0,
@@ -14,15 +14,15 @@
       "name": "aegisbench",
       "command": "python -m pytest tests/aegisbench -q",
       "result": "PASS",
-      "observed": "67 passed",
-      "log_sha256": "2135d3a0beb23359cbd60df1e88fdf31580df12775a89a5425d0c7ed7f52a50f"
+      "observed": "84 passed",
+      "log_sha256": "2df71f054ab9e292ab226306b18425820a7b3b2c904a4aa94e6a9afd75067ead"
     },
     {
       "name": "investigation_api",
       "command": "cd backend; python -m pytest -q tests/investigation_api",
       "result": "PASS",
       "observed": "112 passed",
-      "log_sha256": "bb1e5b3c7b5c56ae1cdfc5951e58312eb926ad11992c51c8ec3cef146279b4b4"
+      "log_sha256": "dafb7a0f1725a84e9e588a739b4a7a7efd7f3dff6d502417d8e827f1a588cead"
     },
     {
       "name": "portable",
@@ -59,5 +59,10 @@
   "warnings": [
     "Starlette/AnyIO alias deprecation"
   ],
-  "build_status": "NOT_APPLICABLE_NATIVE_JAVASCRIPT"
+  "build_status": "NOT_APPLICABLE_NATIVE_JAVASCRIPT",
+  "protected_files_rechecked": 352,
+  "protected_changed_files": [],
+  "independent_review_important_fixed": 5,
+  "execution_report_finding_elevated_and_fixed": true,
+  "security_scan_false_positive_file_hashes": 2
 }

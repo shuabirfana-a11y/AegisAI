@@ -69,3 +69,7 @@ d5bf67321fa9641d01260234c0f3c9691fed2ca3:work/orchestration/baseline_hashes.json
 83e753c017cec90a19af4ec8e5f14d7e074b10dd:backend/tests/investigation_api/test_model_execution.py:generic-api-key:35
 4e718b942da5d7749d0c36d8f2b7b97a6d49e2e3:AegisAI_FRONTEND_HANDOFF_PACKAGE/MANIFEST.json:generic-api-key:401
 544e5f0b7d9936fcec82e0b23723a32ee12c7912:AegisAI_FRONTEND_HANDOFF_PACKAGE/MANIFEST.json:generic-api-key:411
+
+# Phase13-D verified baseline source-file SHA256 only; exact findings (docs/SECURITY_SCAN.md).
+f0f23768078895dc1a11c8428c1eb17dff82179d:docs/phase13d-e2e/PROTECTED_FILES.json:generic-api-key:70
+f0f23768078895dc1a11c8428c1eb17dff82179d:docs/phase13d-e2e/PROTECTED_FILES.json:generic-api-key:74
