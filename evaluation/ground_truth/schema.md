@@ -2,6 +2,10 @@
 
 v0.1 原数据与准入规则保持不变。v0.2 的 `annotations.jsonl` 为参考草稿，当前没有人工 gold。结构可从 `evaluation.bench.schema.Annotation.model_json_schema()` 导出。
 
+Phase 13-D 的公开 HTTP 入口复用此准入与 JsonValue 格式。`expected_answer` 可包含原生 affected/verification_status/risk_level/priority 字段；来源 URL/获取时间保存在 catalog，原文 quote 对应 evidence_refs.excerpt，reference 对应 source_id 与 JSON Pointer locator。人工记录和审批流程没有变更。
+
+版本/资产问题的 input_context 支持 component/ecosystem/version，绑定服务器已有资产的 asset_id/component_id 另置操作者映射，不填进标准答案，也不能覆盖题目版本。新的 VersionObservation/ImpactVersionEvidence 是系统观察，不能充当独立人工标准答案。原生优先级 P1/P2/P3/DEFER/REVIEW_REQUIRED 与其他 triage 分类不做静默映射；未体现的事实字段保持缺失。完整输出证据覆盖与幻觉指标仍需独立 OutcomeAudit，而不由验证 Agent 自动批准。细则见 docs/phase13d-e2e/README.md。
+
 每条记录包含 `id / expected_answer / evidence_refs / confidence`，以及 `should_abstain`、`required_hops`、`origin`、标注人、独立复核人和审核状态。每条证据为 `source_id / locator / excerpt`。定位使用 RFC 6901 JSON Pointer；excerpt 必须等于定位值的规范 JSON（UTF-8、排序键、紧凑分隔符）。来源目录另外保存 HTTPS URL、获取时间、投影文件 SHA-256；不把后端输出当标准答案。
 
 正式准入同时要求：
