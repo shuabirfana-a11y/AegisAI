@@ -1,8 +1,8 @@
-param()
+param([string]$PythonPath)
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
-$python = Join-Path $projectRoot 'backend/.venv/Scripts/python.exe'
+$python = if ($PythonPath) { $PythonPath } else { Join-Path $projectRoot 'backend/.venv/Scripts/python.exe' }
 $node = (Get-Command node -ErrorAction SilentlyContinue).Source
 if (-not $node) { $node = 'C:/Users/X/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' }
 if (-not (Test-Path -LiteralPath $python)) { throw 'The backend Python environment is missing.' }
