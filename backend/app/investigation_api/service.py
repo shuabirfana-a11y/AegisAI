@@ -14,6 +14,7 @@ from app.agents.investigation.reader import InvestigationReader
 from app.agents.verification.reader import VerificationReader
 from app.agents.analysis.reader import AnalysisReader
 from app.investigation_api.repository import InvestigationRepository
+from app.investigation_api.model_execution import read_model_execution
 from app.investigation_api.errors import ApiFailure, not_ready
 from app.investigation_api.projection import public_copy, public_text, public_artifact
 from app.investigation_api.schemas import (
@@ -181,7 +182,8 @@ class InvestigationApiService:
         # different, already-validated ToolSummary schema and remain useful.
         for public_run, original_run in zip(data['agent_runs'], trace.agent_runs):
             public_run['tool_calls'] = [public_copy(call.model_dump(mode='json')) for call in original_run.tool_calls]
-        return TraceResponse(**data, investigation_id=id, stages=tuple(stages), revision=context.revision)
+        return TraceResponse(**data, investigation_id=id, stages=tuple(stages), revision=context.revision,
+                             model_execution=read_model_execution(self.engine, context, actor=actor))
 
     def _sources(self, context, actor):
         if context.integration_result_id:
