@@ -58,12 +58,12 @@ class LocalModelScriptTests(unittest.TestCase):
             $env:MODEL_PROVIDER='SYNTHETIC-old-provider'
             $env:MODEL_API_KEY='SYNTHETIC-old-key'
             try {{ Start-AegisModelDemo -Mode REAL -PythonPath {quoted(sys.executable)} -StarterPath {quoted(starter)} }}
-            catch {{ $failed=$_.Exception.Message -eq 'SYNTHETIC_START_FAILURE' }}
+            catch {{ $caught=$_.Exception.Message; $failed=$caught -eq 'SYNTHETIC_START_FAILURE' }}
             @{{failed=$failed; provider_restored=($env:MODEL_PROVIDER -eq 'SYNTHETIC-old-provider'); key_restored=($env:MODEL_API_KEY -eq 'SYNTHETIC-old-key')}} | ConvertTo-Json -Compress
             """
             result = self.run_ps(code)
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertEqual(json.loads(result.stdout.splitlines()[-1]), {'failed': True, 'provider_restored': True, 'key_restored': True})
+            self.assertEqual(json.loads(result.stdout.splitlines()[-1]), {'failed': True, 'provider_restored': True, 'key_restored': True}, result.stderr)
 
     def test_archive_cannot_escape_runtime_directory(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -93,6 +93,30 @@ class LocalModelScriptTests(unittest.TestCase):
         finally:
             other.terminate()
             other.wait(5)
+
+    def test_frontend_launch_failure_cleans_owned_backend(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'scripts').mkdir()
+            (root / 'backend/scripts').mkdir(parents=True)
+            shutil.copyfile(ROOT / 'scripts/start-local-demo.ps1', root / 'scripts/start-local-demo.ps1')
+            (root / 'backend/scripts/local_database.py').write_text('# SYNTHETIC startup boundary\n', encoding='utf-8')
+            (root / 'alembic.py').write_text('# SYNTHETIC migration boundary\n', encoding='utf-8')
+            code = f"""
+            $global:startupState=@{{starts=0; stopped=[Collections.Generic.List[int]]::new()}}
+            function Start-Process {{
+                $global:startupState.starts++
+                if ($global:startupState.starts -eq 2) {{ throw 'SYNTHETIC_FRONTEND_START_FAILURE' }}
+                [pscustomobject]@{{Id=987654;HasExited=$false}}
+            }}
+            function Stop-Process {{param($Id,[switch]$Force); $global:startupState.stopped.Add($Id)}}
+            try {{ & {quoted(root / 'scripts/start-local-demo.ps1')} -PythonPath {quoted(sys.executable)} }}
+            catch {{ $failed=$_.Exception.Message -eq 'SYNTHETIC_FRONTEND_START_FAILURE' }}
+            @{{failed=$failed; cleaned=($global:startupState.stopped -contains 987654)}} | ConvertTo-Json -Compress
+            """
+            result = self.run_ps(code)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(json.loads(result.stdout.splitlines()[-1]), {'failed': True, 'cleaned': True})
 
 
 if __name__ == '__main__':

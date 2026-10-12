@@ -114,3 +114,36 @@ def test_probe_deadline_stops_only_owned_worker():
     finally:
         unrelated.terminate()
         unrelated.wait(5)
+
+
+def test_interrupt_cleans_owned_worker(monkeypatch):
+    p = probe()
+    class Worker:
+        stopped = False
+        def communicate(self, timeout):
+            if not self.stopped:
+                raise KeyboardInterrupt()
+            return ('', '')
+        def poll(self):
+            return 1 if self.stopped else None
+        def kill(self):
+            self.stopped = True
+    worker = Worker()
+    monkeypatch.setattr(p.subprocess, 'Popen', lambda *a, **k: worker)
+    with pytest.raises(KeyboardInterrupt):
+        p.run_bounded_worker(['SYNTHETIC'], timeout_seconds=1)
+    assert worker.stopped
+
+
+def test_interrupt_invalidates_stale_success_before_worker(tmp_path, monkeypatch, capsys):
+    p = probe()
+    path = tmp_path / 'report.json'
+    path.write_text('{"ready":true}', encoding='utf-8')
+    monkeypatch.setattr(sys, 'argv', ['probe', '--output', str(path), '--mode', 'MOCK'])
+    def interrupted(*a, **k):
+        assert not json.loads(path.read_text(encoding='utf-8'))['ready']
+        raise KeyboardInterrupt()
+    monkeypatch.setattr(p, 'run_bounded_worker', interrupted)
+    assert p.main() == 130
+    report = json.loads(path.read_text(encoding='utf-8'))
+    assert not report['ready'] and report['error_code'] == 'PROBE_INTERRUPTED'

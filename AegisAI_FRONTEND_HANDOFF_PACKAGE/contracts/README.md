@@ -25,3 +25,7 @@ Phase 11-D 的公共HTTP投影已开放，优先使用 api/reference/investigati
 既有前端页面使用原生 JavaScript，没有应用构建命令。Phase 12-C 已运行独立的 TypeScript 契约语义检查（`tsc -p .github/tsconfig.contracts.json`），退出码为 0；同时完成导入/导出引用及 Schema 比对。团队复制后仍需在自己的工程中检查页面与调用代码；仅用类型断言不会验证网络返回。
 
 所有示例的外层标签不属于这些 DTO，见 [Mock 说明](../mock/README.md)。
+
+## Phase 12-D 模型标识
+
+调查Trace公共投影新增可选 model_execution：execution_mode、provider、model、source、attempt_count。null表示尚无确认调用记录；不要从当前服务配置推断历史模式。MOCK/REAL与执行成功/失败分别展示。只用 api/reference/investigation-http.d.ts 的公共类型；不向浏览器传模型Key或11434地址。模型/业务实跑状态见本阶段交接记录，不将历史Mock示例当成实时调查。

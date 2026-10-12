@@ -9085,6 +9085,51 @@
         ],
         "title": "InvestigationStatusResponse"
       },
+      "ModelExecutionMetadata": {
+        "properties": {
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "MOCK",
+              "REAL"
+            ],
+            "title": "Execution Mode"
+          },
+          "provider": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Provider"
+          },
+          "model": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Model"
+          },
+          "source": {
+            "type": "string",
+            "const": "PERSISTED_PLANNER_CALL",
+            "title": "Source",
+            "default": "PERSISTED_PLANNER_CALL"
+          },
+          "attempt_count": {
+            "type": "integer",
+            "maximum": 2.0,
+            "minimum": 1.0,
+            "title": "Attempt Count"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "execution_mode",
+          "provider",
+          "model",
+          "attempt_count"
+        ],
+        "title": "ModelExecutionMetadata"
+      },
       "NewAsset": {
         "properties": {
           "name": {
@@ -10899,6 +10944,16 @@
           "revision": {
             "type": "integer",
             "title": "Revision"
+          },
+          "model_execution": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ModelExecutionMetadata"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,

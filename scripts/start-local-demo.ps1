@@ -39,6 +39,11 @@ try {
     $env:AEGIS_LOCAL_DEMO = '1'
     $backend = Start-Process -FilePath $python -ArgumentList @('-m', 'uvicorn', 'app.main:app', '--host', '127.0.0.1', '--port', '8000') -WorkingDirectory (Join-Path $projectRoot 'backend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $runtimeRoot 'backend.out.log') -RedirectStandardError (Join-Path $runtimeRoot 'backend.err.log')
     $frontend = Start-Process -FilePath $node -ArgumentList @('server.mjs') -WorkingDirectory (Join-Path $projectRoot 'frontend') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $runtimeRoot 'frontend.out.log') -RedirectStandardError (Join-Path $runtimeRoot 'frontend.err.log')
+} catch {
+    foreach ($process in @($frontend, $backend)) {
+        if ($process -and -not $process.HasExited) { Stop-Process -Id $process.Id -Force }
+    }
+    throw
 } finally {
     Remove-Item Env:AEGIS_ASSET_TOKEN -ErrorAction SilentlyContinue
     Remove-Item Env:AEGIS_LOCAL_DEMO -ErrorAction SilentlyContinue

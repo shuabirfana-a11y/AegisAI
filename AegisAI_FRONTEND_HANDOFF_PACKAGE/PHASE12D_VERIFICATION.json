@@ -1,0 +1,120 @@
+{
+  "schema_version": "phase12d-verification-v1",
+  "checked_at_utc": "2026-10-12T04:59:02.724790+00:00",
+  "status": "PARTIAL",
+  "project": "AegisAI / ICT Problem 9",
+  "real_http_chain_passed": false,
+  "default_planner_validated": 0,
+  "default_planner_attempted": 2,
+  "default_json_passed": 5,
+  "default_json_attempted": 5,
+  "benchmark": false,
+  "approved_ground_truth_in_repo": 0,
+  "external_annotation_drafts_received": 49,
+  "historical_test_counts_used_as_current": false,
+  "checks": [
+    {
+      "command": "python -m pytest tests -q -k \"not test_cached_real_local_embedding_through_gateway\"",
+      "scope": "initial bulk against reused dedicated test DB",
+      "passed": 1305,
+      "failed": 34,
+      "deselected": 1,
+      "result": "FAILED"
+    },
+    {
+      "command": "python -m pytest tests/test_migration.py -q",
+      "scope": "new empty dedicated DB / migration first",
+      "passed": 1,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python -m pytest <all backend/tests/test_*.py except test_migration.py> -q",
+      "scope": "new dedicated DB / root legacy tests",
+      "passed": 378,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python -m pytest tests/agents tests/integration tests/investigation_api tests/model_gateway tests/orchestration tests/planner tests/runtime -q -k \"not test_cached_real_local_embedding_through_gateway\"",
+      "scope": "bulk process collected tests before compatibility/time corrections",
+      "passed": 963,
+      "failed": 2,
+      "deselected": 1,
+      "result": "FAILED",
+      "failed_tests": [
+        "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
+        "tests/runtime/test_scheduler.py::test_poc_patch_ready_tasks_are_really_parallel"
+      ]
+    },
+    {
+      "command": "python -m pytest tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged tests/runtime/test_scheduler.py -q",
+      "scope": "post-fix failure retest",
+      "passed": 9,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python scripts/ci/run_backend_tests.py",
+      "scope": "final portable baseline",
+      "passed": 466,
+      "failed": 0,
+      "deselected": 1,
+      "result": "PASS"
+    },
+    {
+      "command": "python -m pytest tests/investigation_api/test_model_execution.py tests/runtime/test_scheduler.py -q",
+      "scope": "final changed integration/concurrency tests",
+      "passed": 22,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "python -m unittest discover -s tests/engineering -q",
+      "passed": 18,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm --prefix frontend test",
+      "passed": 23,
+      "failed": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "node .github/node_modules/typescript/bin/tsc -p .github/tsconfig.contracts.json",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "command": "python scripts/ci/check_contracts.py",
+      "result": "PASS",
+      "http_operations": 42,
+      "schema_groups": 5,
+      "synthetic_objects": 40
+    },
+    {
+      "command": "python scripts/export_investigation_api.py --check",
+      "result": "PASS",
+      "exports": 10
+    },
+    {
+      "command": "node scripts/ci/check_frontend.mjs",
+      "result": "PASS",
+      "javascript_files": 17,
+      "application_build": "NOT_CONFIGURED"
+    }
+  ],
+  "security_scan": "PENDING",
+  "package_integrity": "PENDING",
+  "review": {
+    "status": "NO_REMAINING_CODE_BLOCKERS",
+    "scope": "independent read-only differential review; physical local model success not inferred from synthetic tests"
+  },
+  "limits": [
+    "No stable real Planner or complete real HTTP chain",
+    "No formal AegisBench accuracy",
+    "No real embedding migration",
+    "No frontend UI work or deployment"
+  ]
+}

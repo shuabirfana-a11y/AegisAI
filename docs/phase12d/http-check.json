@@ -1,0 +1,83 @@
+{
+  "case_id": "torch-CVE-2025-32434-version-2_5_1",
+  "data_origin": "REAL_SOURCE",
+  "checked_at_utc": "2026-10-12T04:50:17.714399+00:00",
+  "transport": "LOOPBACK_HTTP",
+  "benchmark": false,
+  "endpoints": {
+    "create": {
+      "http_status": 202,
+      "schema_valid": true
+    },
+    "status": {
+      "http_status": 200,
+      "schema_valid": true
+    },
+    "trace": {
+      "http_status": 200,
+      "schema_valid": true
+    },
+    "artifacts": {
+      "http_status": 200,
+      "schema_valid": true
+    },
+    "integration": {
+      "http_status": 409,
+      "schema_valid": true,
+      "error_code": "RESULT_UNAVAILABLE"
+    },
+    "answer": {
+      "http_status": 200,
+      "schema_valid": true
+    },
+    "history": {
+      "http_status": 200,
+      "schema_valid": true
+    },
+    "cancel": {
+      "http_status": 200,
+      "schema_valid": true
+    }
+  },
+  "chain_verified": false,
+  "ready": false,
+  "error_code": "PLANNING_FAILED",
+  "investigation_id": "13730064-14a5-497b-9a13-94adfb1310f9",
+  "model_mode": {
+    "requested": "REAL",
+    "provider": "openai_compatible",
+    "is_mock": false,
+    "observed": "NON_MOCK",
+    "matched": true,
+    "error_code": null,
+    "model_quality_evaluated": false,
+    "source": "PERSISTED_PLANNER_CALL",
+    "model": "aegisai-qwen25-planner:latest",
+    "planner_attempt_count": 2
+  },
+  "creation_model_mode": {
+    "requested": "REAL",
+    "provider": "openai_compatible",
+    "is_mock": false,
+    "observed": "NON_MOCK",
+    "matched": true,
+    "error_code": null,
+    "model_quality_evaluated": false
+  },
+  "overall_status": "FAILED",
+  "current_stage": "FAILED",
+  "planner_present": true,
+  "planner_validation": "PLANNING_FAILED",
+  "chain_error_code": "PLANNING_FAILED",
+  "agent_run_count": 0,
+  "tool_call_count": 0,
+  "artifact_count": 0,
+  "integration_status": null,
+  "answer_status": "FAILED",
+  "citation_count": 0,
+  "frozen_answer_read": {
+    "identical": true,
+    "additional_model_calls": 0,
+    "tested_answer_status": "FAILED"
+  }
+}

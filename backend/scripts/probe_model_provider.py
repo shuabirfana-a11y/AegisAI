@@ -146,9 +146,11 @@ def run_bounded_worker(command, *, timeout_seconds):
     try:
         stdout, stderr = process.communicate(timeout=timeout_seconds)
     except subprocess.TimeoutExpired:
-        process.kill()
-        process.communicate(timeout=5)
         raise TimeoutError('PROVIDER_PROBE_TIMEOUT') from None
+    finally:
+        if process.poll() is None:
+            process.kill()
+            process.communicate(timeout=5)
     return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
 
 
@@ -188,6 +190,7 @@ def main():
         output_parser = ProbeParser(add_help=False, allow_abbrev=False)
         output_parser.add_argument('--output', type=Path, default=default_output)
         output = output_parser.parse_known_args()[0].output
+        write_report(output, {'ready': False, 'benchmark': False, 'error_code': 'PROBE_RUNNING'})
         args = parser.parse_args()
         config = ModelConfig.from_env()
         observed = 'MOCK' if config.provider == 'mock' else 'REAL'
@@ -227,6 +230,10 @@ def main():
         report = assemble(config, sections, data_origin='MOCK' if observed == 'MOCK' else 'LOCAL_MODEL_SERVICE')
         value = report.model_dump(mode='json')
         exit_code = 0 if report.ready else 1
+    except KeyboardInterrupt:
+        value = {'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'ready': False,
+                 'benchmark': False, 'error_code': 'PROBE_INTERRUPTED'}
+        exit_code = 130
     except (OSError, ValueError, TypeError):
         value = {'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'ready': False,
                  'benchmark': False, 'error_code': 'PROVIDER_PROBE_FAILED'}

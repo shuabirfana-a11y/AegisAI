@@ -52,3 +52,24 @@ def test_local_profile_health_accepts_canonical_ollama_alias():
     with ModelGateway(config, text_provider=provider) as gateway:
         result = gateway.health_check()
     assert result.status == 'success'
+
+
+def test_optional_thinking_control_is_configured_only_at_gateway():
+    from app.llm.schemas import TextRequest, Message
+    settings = {**profile('local-real'), 'MODEL_REASONING_EFFORT': 'none'}
+    config = ModelConfig.from_env(settings)
+    requests = []
+    def respond(request):
+        requests.append(json.loads(request.content))
+        return httpx.Response(200, json={'model': config.model, 'choices': [{
+            'message': {'role': 'assistant', 'content': 'SYNTHETIC text'}, 'finish_reason': 'stop'}]})
+    with ModelGateway(config, text_provider=OpenAICompatibleProvider(
+            config, transport=httpx.MockTransport(respond))) as gateway:
+        result = gateway.generate_text(TextRequest(messages=[Message(role='user', content='SYNTHETIC')]))
+    assert result.status == 'success' and requests[0]['reasoning_effort'] == 'none'
+    assert ModelConfig().reasoning_effort is None
+
+
+def test_unrecognized_reasoning_effort_fails_configuration():
+    with pytest.raises(ConfigError):
+        ModelConfig.from_env({**profile('local-real'), 'MODEL_REASONING_EFFORT': 'SYNTHETIC-invalid'})

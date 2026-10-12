@@ -112,13 +112,13 @@
     },
     {
       "path": "api/reference/investigation-http.d.ts",
-      "bytes": 22840,
-      "sha256": "5a06789e13060e65d677f04bb6534a911040b10dd4801a74fd0220049351f417"
+      "bytes": 23082,
+      "sha256": "dbe93026de5b4405eeee29be528448a53d957bab224797a25897b4f5182e4927"
     },
     {
       "path": "api/reference/investigation-http.openapi.json",
-      "bytes": 143390,
-      "sha256": "9c34f5e5c36d7d93af0ff5569cbf26edb4b5330e0c64a856877d0eec7f1c1f48"
+      "bytes": 144805,
+      "sha256": "533f52c57e589d08a648ba7660cb60f9b6993f7f5599471dfbf14c012e798da0"
     },
     {
       "path": "api/reference/legacy-output.d.ts",
@@ -132,8 +132,8 @@
     },
     {
       "path": "api/reference/openapi.json",
-      "bytes": 335911,
-      "sha256": "5b064abbae933aa1a2976c4d30d38d73c9b6db90b8946e944cd08a0a007a2d66"
+      "bytes": 337326,
+      "sha256": "a5c5b85de49ec8a98efc6f74a0e05f407f31992049a074282935eb315e3d1b2a"
     },
     {
       "path": "api/reference/phase12c-http-probes.json",
@@ -247,8 +247,8 @@
     },
     {
       "path": "contracts/README.md",
-      "bytes": 2440,
-      "sha256": "8eabb748173ce2da20fdad34332904cb4405da99fc79068a0d4b8c0930557d1d"
+      "bytes": 2918,
+      "sha256": "025718051fa09360d6c1f4383ecfcac7e11438e18a17c342377eea29ba242880"
     },
     {
       "path": "contracts/RiskAnalysis.ts",
@@ -299,6 +299,11 @@
       "path": "docs/PHASE12C_INTEGRATION.md",
       "bytes": 10706,
       "sha256": "ac2877e3be194b23c51f6ab6712cd4416446739953b67c48f86a08cb3d54c9e4"
+    },
+    {
+      "path": "docs/PHASE12D_MODEL_STATUS.md",
+      "bytes": 1761,
+      "sha256": "9a10230ee38624c9e14794d387d205597f193ff3294e89c460b88004a1595d08"
     },
     {
       "path": "docs/UI_REQUIREMENTS.md",
@@ -376,9 +381,14 @@
       "sha256": "79f1d08717ea5e1c5e1fb6bad7a6d829bb1e7475cf9943a81cd141e8c4ec21a5"
     },
     {
+      "path": "PHASE12D_VERIFICATION.json",
+      "bytes": 3921,
+      "sha256": "a34f776499bdfccbf6f0ecf7276817c427e773c1aa70cde543d42e1bceec1b03"
+    },
+    {
       "path": "README.md",
-      "bytes": 4188,
-      "sha256": "abb0914c3a127e9b3abfb17b4b98ea0e876b42d37d2c62ef306a621c59720670"
+      "bytes": 4766,
+      "sha256": "461f754047c46debbcc5f94928c4cff4c2c1745df5ff818e139fb2de94c7906c"
     },
     {
       "path": "VALIDATION.json",
@@ -388,7 +398,7 @@
   ],
   "file_count_excluding_manifest": 76,
   "manifest_self_hash_included": false,
-  "current_openapi_sha256": "5b064abbae933aa1a2976c4d30d38d73c9b6db90b8946e944cd08a0a007a2d66",
+  "current_openapi_sha256": "a5c5b85de49ec8a98efc6f74a0e05f407f31992049a074282935eb315e3d1b2a",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
   "original_handoff_artifacts_unchanged": false,
@@ -400,9 +410,10 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-11T15:41:05.222493+00:00",
-  "current_phase": "12-C",
-  "verification_file": "PHASE12C_VERIFICATION.json",
+  "updated_at_utc": "2026-10-12T05:00:29.696881+00:00",
+  "current_phase": "12-D",
+  "verification_file": "PHASE12D_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
-  "historical_manifest_fields_preserved": true
+  "historical_manifest_fields_preserved": true,
+  "model_validation_status": "PARTIAL_NOT_DEMO_READY"
 }

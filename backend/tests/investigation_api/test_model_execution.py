@@ -1,6 +1,7 @@
 """Persisted model identity survives process/provider switches; synthetic protocol only."""
 from contextlib import contextmanager
 from copy import deepcopy
+import json
 from uuid import uuid4
 import httpx
 import pytest
@@ -135,6 +136,18 @@ def test_identity_mismatch_is_not_repaired(engine):
             assert db.get(m.AgentRun, result.context.planner_run_id).details == details
 
 
+def test_conflicting_established_canonical_models_are_rejected(engine):
+    from app.investigation_api import model_execution
+    with failed_investigation(engine, True, 'SYNTHETIC-alias', 'SYNTHETIC-canonical-1') as (api, req, owner, result):
+        with transaction(engine) as db:
+            row = db.get(m.AgentRun, result.context.planner_run_id)
+            details = deepcopy(row.details)
+            details['planner_v1']['attempts'][1]['model_call']['model'] = 'SYNTHETIC-canonical-2'
+            row.details = details
+        with pytest.raises(ValueError, match='MODEL_EXECUTION_IDENTITY_MISMATCH'):
+            model_execution.read_model_execution(engine, result.context, actor=owner)
+
+
 def test_public_metadata_has_no_secrets_or_raw_output(engine, monkeypatch):
     with failed_investigation(engine, True, 'SYNTHETIC-local-secret') as (api, req, owner, result):
         monkeypatch.setenv('MODEL_API_KEY', 'SYNTHETIC-local-secret')
@@ -149,3 +162,34 @@ def test_public_metadata_preserves_a_gateway_valid_long_model_name(engine):
     model = 'SYNTHETIC-' + 'a' * 160
     with failed_investigation(engine, True, model) as (api, req, owner, result):
         assert metadata(api, result, owner).model == model
+
+
+@pytest.mark.parametrize('first_failure', ['TIMEOUT', 'INVALID_RESPONSE', 'INVALID_JSON_NO_MODEL'])
+def test_timeout_then_canonical_response_keeps_real_identity(engine, first_failure):
+    from tests.planner.fixtures import valid_plan
+    config = ModelConfig(provider='openai_compatible', model='SYNTHETIC-alias',
+        api_base='http://127.0.0.1:11434/v1', allow_keyless_local=True, embedding_provider='mock')
+    attempts = []
+    def respond(req):
+        attempts.append(req)
+        if len(attempts) == 1:
+            if first_failure == 'TIMEOUT':
+                raise httpx.ReadTimeout('SYNTHETIC timeout', request=req)
+            if first_failure == 'INVALID_RESPONSE':
+                return httpx.Response(200, json={})
+            return httpx.Response(200, json={'choices': [{
+                'message': {'role': 'assistant', 'content': '{invalid-json'}, 'finish_reason': 'stop'}]})
+        return httpx.Response(200, json={'model': 'SYNTHETIC-alias:canonical', 'choices': [{
+            'message': {'role': 'assistant', 'content': json.dumps(valid_plan())},
+            'finish_reason': 'stop'}]})
+    with ModelGateway(config, text_provider=OpenAICompatibleProvider(
+            config, transport=httpx.MockTransport(respond))) as gw:
+        api = InvestigationApiService(engine, gw)
+        try:
+            owner = 'phase12d-SYNTHETIC-' + uuid4().hex
+            outcome = api.reader.investigate(request(), actor=owner)
+            value = metadata(api, outcome, owner)
+            assert value.execution_mode == 'REAL' and value.attempt_count == 2
+            assert value.model == 'SYNTHETIC-alias:canonical'
+        finally:
+            api.close()

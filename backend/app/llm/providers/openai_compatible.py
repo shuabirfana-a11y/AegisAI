@@ -88,6 +88,8 @@ class OpenAICompatibleProvider:
                 self.config.token_parameter: request.max_output_tokens}
         if request.temperature is not None:
             body['temperature'] = request.temperature
+        if self.config.reasoning_effort is not None:
+            body['reasoning_effort'] = self.config.reasoning_effort
         if schema is not None:
             messages.insert(0, {'role': 'system', 'content':
                 'Return only a JSON object matching this output schema. No code fences or extra text.\n' +

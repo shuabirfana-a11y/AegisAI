@@ -50,8 +50,7 @@ def _task_contract_schema(schema):
     missing['properties']['max_tool_calls'] = {'type': 'integer', 'const': 0}
     missing['properties']['input_data']['properties']['steps']['maxItems'] = 0
     missing['properties']['input_data']['properties']['required_fields']['minItems'] = 1
-    schema.clear()
-    schema['anyOf'] = [tool, missing]
+    schema['anyOf'] = [missing, tool]
 
 
 class PlannerTaskContract(TaskContract):

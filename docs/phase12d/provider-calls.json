@@ -1,0 +1,589 @@
+{
+  "schema_version": "phase12d-provider-probe-v1",
+  "checked_at_utc": "2026-10-12T04:44:02.173103Z",
+  "provider": "openai_compatible",
+  "model": "aegisai-qwen25-planner:latest",
+  "execution_mode": "REAL",
+  "data_origin": "LOCAL_MODEL_SERVICE",
+  "structured_data_origin": "SYNTHETIC_PROTOCOL",
+  "embedding_provider": "mock",
+  "embedding_exercised": false,
+  "benchmark": false,
+  "prompt_version": "task-plan-v1",
+  "ready": false,
+  "structured_attempted": 5,
+  "structured_passed": 5,
+  "planner_attempted": 2,
+  "planner_validated": 0,
+  "planner_checks": [
+    {
+      "status": "PLANNING_FAILED",
+      "attempt_count": 2,
+      "error_codes": [
+        "FALSE_MISSING_INPUT"
+      ],
+      "task_types": []
+    },
+    {
+      "status": "PLANNING_FAILED",
+      "attempt_count": 2,
+      "error_codes": [
+        "FALSE_MISSING_INPUT"
+      ],
+      "task_types": []
+    }
+  ],
+  "call_records": [
+    {
+      "request_id": "a2a54cf7-70e6-42c4-9ba8-aba81d49b859",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "health_check",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:14.230096Z",
+      "finished_at": "2026-10-12T04:43:14.544174Z",
+      "duration_ms": 314.8252000009961,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "cce68a3c-81df-4c30-a249-bbdb8bf4467f",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_text",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:16.868648Z",
+      "finished_at": "2026-10-12T04:43:17.503163Z",
+      "duration_ms": 632.3299999985466,
+      "usage": {
+        "input_tokens": 46,
+        "output_tokens": 15,
+        "total_tokens": 61
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "8c04651f-20db-40e1-90a9-20feb36312c1",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:19.844719Z",
+      "finished_at": "2026-10-12T04:43:20.696637Z",
+      "duration_ms": 851.558100001057,
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 37,
+        "total_tokens": 260
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "9bbc6475-d889-4d66-9bd9-f04cc6a5fa94",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:23.116515Z",
+      "finished_at": "2026-10-12T04:43:23.887529Z",
+      "duration_ms": 771.2279000006674,
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 37,
+        "total_tokens": 260
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "17ec2a32-b1c5-4c0d-b5b4-d6ea9a3b3102",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:26.256462Z",
+      "finished_at": "2026-10-12T04:43:27.009678Z",
+      "duration_ms": 752.3698000004515,
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 37,
+        "total_tokens": 260
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "7a9b1eb8-3053-44db-9b32-1b009cdb557a",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:29.406254Z",
+      "finished_at": "2026-10-12T04:43:30.077715Z",
+      "duration_ms": 670.7882999999129,
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 33,
+        "total_tokens": 256
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "f5feacbd-5db8-4307-be62-29c900f44652",
+      "trace_id": null,
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:32.546166Z",
+      "finished_at": "2026-10-12T04:43:33.196094Z",
+      "duration_ms": 649.3226000002323,
+      "usage": {
+        "input_tokens": 223,
+        "output_tokens": 33,
+        "total_tokens": 256
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "c435cc8f-cbc4-490b-86a0-40ce080fc7ec",
+      "trace_id": "3330f541-3853-4546-a76c-c5b11ba788e6",
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:35.599730Z",
+      "finished_at": "2026-10-12T04:43:41.680447Z",
+      "duration_ms": 6080.044700000144,
+      "usage": {
+        "input_tokens": 4854,
+        "output_tokens": 229,
+        "total_tokens": 5083
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "26531dbc-9e17-4cb2-91af-f15ffb8fe49b",
+      "trace_id": "3330f541-3853-4546-a76c-c5b11ba788e6",
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:41.683940Z",
+      "finished_at": "2026-10-12T04:43:47.037730Z",
+      "duration_ms": 5353.410300000178,
+      "usage": {
+        "input_tokens": 4883,
+        "output_tokens": 227,
+        "total_tokens": 5110
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "f0e5d9d6-4376-4364-9a66-cd4434ea0c30",
+      "trace_id": "37216e7b-a4b1-4136-a118-57764b51c3cb",
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:49.504634Z",
+      "finished_at": "2026-10-12T04:43:56.187731Z",
+      "duration_ms": 6682.292100000268,
+      "usage": {
+        "input_tokens": 4974,
+        "output_tokens": 291,
+        "total_tokens": 5265
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    },
+    {
+      "request_id": "8f14df1d-36d5-4264-9c1a-8aaa000a953d",
+      "trace_id": "37216e7b-a4b1-4136-a118-57764b51c3cb",
+      "provider": "openai_compatible",
+      "requested_model": "aegisai-qwen25-planner:latest",
+      "model": "aegisai-qwen25-planner:latest",
+      "function": "generate_structured",
+      "is_mock": false,
+      "attempt_count": 1,
+      "started_at": "2026-10-12T04:43:56.190484Z",
+      "finished_at": "2026-10-12T04:44:01.897524Z",
+      "duration_ms": 5707.1335000000545,
+      "usage": {
+        "input_tokens": 5003,
+        "output_tokens": 239,
+        "total_tokens": 5242
+      },
+      "status": "success",
+      "error": null,
+      "original_error": null
+    }
+  ],
+  "sections": [
+    {
+      "kind": "health",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "a2a54cf7-70e6-42c4-9ba8-aba81d49b859",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "health_check",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:14.230096Z",
+          "finished_at": "2026-10-12T04:43:14.544174Z",
+          "duration_ms": 314.8252000009961,
+          "usage": {
+            "input_tokens": null,
+            "output_tokens": null,
+            "total_tokens": null
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "text",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "cce68a3c-81df-4c30-a249-bbdb8bf4467f",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_text",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:16.868648Z",
+          "finished_at": "2026-10-12T04:43:17.503163Z",
+          "duration_ms": 632.3299999985466,
+          "usage": {
+            "input_tokens": 46,
+            "output_tokens": 15,
+            "total_tokens": 61
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "structured",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "8c04651f-20db-40e1-90a9-20feb36312c1",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:19.844719Z",
+          "finished_at": "2026-10-12T04:43:20.696637Z",
+          "duration_ms": 851.558100001057,
+          "usage": {
+            "input_tokens": 223,
+            "output_tokens": 37,
+            "total_tokens": 260
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "structured",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "9bbc6475-d889-4d66-9bd9-f04cc6a5fa94",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:23.116515Z",
+          "finished_at": "2026-10-12T04:43:23.887529Z",
+          "duration_ms": 771.2279000006674,
+          "usage": {
+            "input_tokens": 223,
+            "output_tokens": 37,
+            "total_tokens": 260
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "structured",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "17ec2a32-b1c5-4c0d-b5b4-d6ea9a3b3102",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:26.256462Z",
+          "finished_at": "2026-10-12T04:43:27.009678Z",
+          "duration_ms": 752.3698000004515,
+          "usage": {
+            "input_tokens": 223,
+            "output_tokens": 37,
+            "total_tokens": 260
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "structured",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "7a9b1eb8-3053-44db-9b32-1b009cdb557a",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:29.406254Z",
+          "finished_at": "2026-10-12T04:43:30.077715Z",
+          "duration_ms": 670.7882999999129,
+          "usage": {
+            "input_tokens": 223,
+            "output_tokens": 33,
+            "total_tokens": 256
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "structured",
+      "success": true,
+      "call_records": [
+        {
+          "request_id": "f5feacbd-5db8-4307-be62-29c900f44652",
+          "trace_id": null,
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:32.546166Z",
+          "finished_at": "2026-10-12T04:43:33.196094Z",
+          "duration_ms": 649.3226000002323,
+          "usage": {
+            "input_tokens": 223,
+            "output_tokens": 33,
+            "total_tokens": 256
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": null,
+      "error_code": null
+    },
+    {
+      "kind": "planner",
+      "success": false,
+      "call_records": [
+        {
+          "request_id": "c435cc8f-cbc4-490b-86a0-40ce080fc7ec",
+          "trace_id": "3330f541-3853-4546-a76c-c5b11ba788e6",
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:35.599730Z",
+          "finished_at": "2026-10-12T04:43:41.680447Z",
+          "duration_ms": 6080.044700000144,
+          "usage": {
+            "input_tokens": 4854,
+            "output_tokens": 229,
+            "total_tokens": 5083
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        },
+        {
+          "request_id": "26531dbc-9e17-4cb2-91af-f15ffb8fe49b",
+          "trace_id": "3330f541-3853-4546-a76c-c5b11ba788e6",
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:41.683940Z",
+          "finished_at": "2026-10-12T04:43:47.037730Z",
+          "duration_ms": 5353.410300000178,
+          "usage": {
+            "input_tokens": 4883,
+            "output_tokens": 227,
+            "total_tokens": 5110
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": {
+        "status": "PLANNING_FAILED",
+        "attempt_count": 2,
+        "error_codes": [
+          "FALSE_MISSING_INPUT"
+        ],
+        "task_types": []
+      },
+      "error_code": "PLANNING_FAILED"
+    },
+    {
+      "kind": "planner",
+      "success": false,
+      "call_records": [
+        {
+          "request_id": "f0e5d9d6-4376-4364-9a66-cd4434ea0c30",
+          "trace_id": "37216e7b-a4b1-4136-a118-57764b51c3cb",
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:49.504634Z",
+          "finished_at": "2026-10-12T04:43:56.187731Z",
+          "duration_ms": 6682.292100000268,
+          "usage": {
+            "input_tokens": 4974,
+            "output_tokens": 291,
+            "total_tokens": 5265
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        },
+        {
+          "request_id": "8f14df1d-36d5-4264-9c1a-8aaa000a953d",
+          "trace_id": "37216e7b-a4b1-4136-a118-57764b51c3cb",
+          "provider": "openai_compatible",
+          "requested_model": "aegisai-qwen25-planner:latest",
+          "model": "aegisai-qwen25-planner:latest",
+          "function": "generate_structured",
+          "is_mock": false,
+          "attempt_count": 1,
+          "started_at": "2026-10-12T04:43:56.190484Z",
+          "finished_at": "2026-10-12T04:44:01.897524Z",
+          "duration_ms": 5707.1335000000545,
+          "usage": {
+            "input_tokens": 5003,
+            "output_tokens": 239,
+            "total_tokens": 5242
+          },
+          "status": "success",
+          "error": null,
+          "original_error": null
+        }
+      ],
+      "planner": {
+        "status": "PLANNING_FAILED",
+        "attempt_count": 2,
+        "error_codes": [
+          "FALSE_MISSING_INPUT"
+        ],
+        "task_types": []
+      },
+      "error_code": "PLANNING_FAILED"
+    }
+  ],
+  "error_code": "PLANNING_FAILED"
+}
