@@ -91,6 +91,8 @@ node --test frontend/tests/*.test.mjs
 
 独立审查共 3 项 Important，已同一次最小修复处理：未知生态不充当显式冲突、恢复原 qualified/subpath 适用性限制、导出使用事务内捕获的标量 ID。限定身份保持 UNKNOWN，原 Gate 的 OBJECTIVE_PACKAGE_MISMATCH 为 FATAL，仍 FAILED；没有将其改成 Warning 或 REPLAN。演示准备脚本已实际独立运行并导出本机用例。详见 FINAL_REVIEW.md。
 
+安全检查：Git 跟踪路径检查通过；完整历史 Gitleaks 扫描无未处理告警。唯一新增候选是 OpenAPI 的文件校验摘要，已用同一提交的文件字节核对，只添加准确历史指纹；没有扩大排除范围。详见 SECURITY_VERIFICATION.json 与 SECURITY_SCAN.md。
+
 ## 8. 修改文件
 
 新增领域对象及 verification/asset_snapshot 适配器；更新 orchestration/handoff、verification schemas/snapshot/reader、analysis schemas/snapshot、两个 Tool 适配器。增加 7 个测试文件、精确源文件授权清单、CI 单元列表和文档；同步 HTTP/内部 Schema 与 TypeScript 镜像。无数据库 Schema 迁移、无前端页面实现。

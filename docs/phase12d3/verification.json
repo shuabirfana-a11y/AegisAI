@@ -91,5 +91,19 @@
   },
   "source_rules": "Runtime, Planner, investigation Agent, verification rules, risk rules and all Gate rules remain byte-identical",
   "verification_manifest": "source_hash_exceptions.json",
-  "security_scan": "Required before branch publication; exact commit tracked by GitHub CI"
+  "security_scan": {
+    "status": "PASS",
+    "checked_at_utc": "2026-10-12T13:06:53.796968+00:00",
+    "checked_commit": "eb3e2e1ef1fac310121d0b9e8267626ee677d005",
+    "tool": "Gitleaks 8.30.1",
+    "scope": "--all --full-history",
+    "commits_scanned": 36,
+    "unresolved_findings": 0,
+    "redaction": "100%",
+    "verified_checksum_false_positives_added": 1,
+    "exact_exception_document": "docs/SECURITY_SCAN.md",
+    "blanket_exclusions_added": false,
+    "repository_path_check": "PASS",
+    "sensitive_values_exported": false
+  }
 }
