@@ -183,7 +183,8 @@ class InvestigationApiService:
         for public_run, original_run in zip(data['agent_runs'], trace.agent_runs):
             public_run['tool_calls'] = [public_copy(call.model_dump(mode='json')) for call in original_run.tool_calls]
         return TraceResponse(**data, investigation_id=id, stages=tuple(stages), revision=context.revision,
-                             model_execution=read_model_execution(self.engine, context, actor=actor))
+                             model_execution=(read_model_execution(self.engine, context, actor=actor)
+                                              if context.planner_run_id is not None else None))
 
     def _sources(self, context, actor):
         if context.integration_result_id:

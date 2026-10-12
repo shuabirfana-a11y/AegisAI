@@ -143,3 +143,9 @@ def test_public_metadata_has_no_secrets_or_raw_output(engine, monkeypatch):
         assert 'SYNTHETIC-local-secret' not in value.model_dump_json()
         trace = api.trace(result.context.logical_investigation_id, actor=owner).model_dump_json()
         assert 'raw_output' not in trace and 'api_base' not in trace
+
+
+def test_public_metadata_preserves_a_gateway_valid_long_model_name(engine):
+    model = 'SYNTHETIC-' + 'a' * 160
+    with failed_investigation(engine, True, model) as (api, req, owner, result):
+        assert metadata(api, result, owner).model == model

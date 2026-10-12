@@ -32,6 +32,24 @@ def test_non_mock_metadata_is_not_a_model_quality_evaluation():
     assert mode['model_quality_evaluated'] is False
 
 
+def test_real_readiness_requires_saved_model_calls():
+    probe = get_probe()
+    assert hasattr(probe, 'check_persisted_mode'), 'Persisted HTTP mode check is not implemented'
+    mode = probe.check_persisted_mode('REAL', None)
+    assert mode['observed'] == 'UNKNOWN' and mode['matched'] is False
+    assert mode['error_code'] == 'MODEL_EXECUTION_UNCONFIRMED'
+
+
+def test_persisted_mock_call_cannot_be_relabelled_by_current_real_config():
+    from app.investigation_api.schemas import ModelExecutionMetadata
+    probe = get_probe()
+    assert hasattr(probe, 'check_persisted_mode'), 'Persisted HTTP mode check is not implemented'
+    saved = ModelExecutionMetadata(execution_mode='MOCK', provider='mock', model='mock-text-v1', attempt_count=1)
+    mode = probe.check_persisted_mode('REAL', saved)
+    assert not mode['matched'] and mode['observed'] == 'MOCK'
+    assert mode['source'] == 'PERSISTED_PLANNER_CALL'
+
+
 @pytest.mark.parametrize('provider,is_mock', [('mock', False), ('openai_compatible', True)])
 def test_inconsistent_provider_flags_are_rejected(provider, is_mock):
     probe = get_probe()

@@ -100,8 +100,8 @@ class TraceStage(PublicModel):
 
 class ModelExecutionMetadata(PublicModel):
     execution_mode: Literal['MOCK', 'REAL']
-    provider: str = Field(min_length=1, max_length=128)
-    model: str = Field(min_length=1, max_length=128)
+    provider: str = Field(min_length=1, max_length=200)
+    model: str = Field(min_length=1, max_length=200)
     source: Literal['PERSISTED_PLANNER_CALL'] = 'PERSISTED_PLANNER_CALL'
     attempt_count: int = Field(ge=1, le=2)
 
