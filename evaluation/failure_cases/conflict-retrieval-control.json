@@ -1,0 +1,161 @@
+{
+  "schema_version": "phase12d2-failure-v1",
+  "benchmark": false,
+  "security_accuracy_evaluated": false,
+  "id": "13c42a8b-477e-484d-9606-1123b481f6dd",
+  "question": "围绕 CVE-2026-9540 开展多步骤调查：先查漏洞，再分别获取证据和 Claim 记录，整理官方与社区来源以及已知和未知项。",
+  "model": "aegisai-qwen25-planner:latest",
+  "execution_mode": "REAL",
+  "data_origin": "REAL_SOURCE_OPEN_CONFLICT_NOT_YET_VERIFIED",
+  "failed_stage": "INTEGRATING",
+  "gate_executed": true,
+  "gate_status": "REPLAN_REQUIRED",
+  "reason": "See preserved native checks and source artifacts; no verdict was repaired",
+  "classification": "DATA_AND_UNCLASSIFIED",
+  "missing_information": [],
+  "possible_fix": "C/business changes require separate authorization; complete DATA evidence/context first",
+  "planner_run_id": "cda48cee-6daf-45a6-9e12-e0facf58f227",
+  "integration_id": "ba98d1ee-890c-43f5-836b-8f72378e33a2",
+  "planner_validation": "VALIDATED",
+  "planner_error_codes": [],
+  "chain_error_code": null,
+  "upstream_unresolved_items": [
+    "REQUIRED_ARTIFACT_MISSING",
+    "REQUIRED_TASK_INCOMPLETE",
+    "VERIFIED_EVIDENCE_MISSING",
+    "VERIFICATION_INPUT_MISSING"
+  ],
+  "run_ids": {
+    "investigation": "dcbcdd0d-82d8-4ab3-8cc8-565a5c00ab63",
+    "verification": null,
+    "analysis": null
+  },
+  "artifact_availability": {
+    "investigation": 1,
+    "verification": 0,
+    "analysis": 0
+  },
+  "objective": {
+    "question": "围绕 CVE-2026-9540 开展多步骤调查：先查漏洞，再分别获取证据和 Claim 记录，整理官方与社区来源以及已知和未知项。",
+    "targets": [
+      "CVE-2026-9540"
+    ],
+    "asset_id": null,
+    "component_id": null,
+    "package_name": null,
+    "version": null,
+    "required_outcomes": [
+      "identity",
+      "overview"
+    ],
+    "window_days": null,
+    "requires_current": false,
+    "scope_gaps": []
+  },
+  "plan_tasks": [
+    {
+      "task_id": "lookup_vulnerability",
+      "type": "vulnerability_lookup",
+      "dependencies": [],
+      "tools": [
+        "get_vulnerability"
+      ]
+    },
+    {
+      "task_id": "gather_evidence",
+      "type": "evidence_search",
+      "dependencies": [
+        "lookup_vulnerability"
+      ],
+      "tools": [
+        "get_claims",
+        "get_evidence"
+      ]
+    }
+  ],
+  "gate_rules": [
+    {
+      "gate": "completion",
+      "code": "REQUIRED_ARTIFACT_MISSING",
+      "outcome": "BLOCKED",
+      "blocking": "REPLAN",
+      "message": "Missing verification",
+      "refs": [
+        "verification"
+      ],
+      "objective": null,
+      "classification": "UNCLASSIFIED",
+      "needs": "Inspect native check and original referenced artifacts",
+      "involved_artifacts": [
+        "8c033024-eb07-4a74-9750-110a2ba666d3"
+      ],
+      "selected_investigation_artifact_id": null
+    },
+    {
+      "gate": "completion",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "outcome": "BLOCKED",
+      "blocking": "REPLAN",
+      "message": "Required task did not complete",
+      "refs": [
+        "dcbcdd0d-82d8-4ab3-8cc8-565a5c00ab63",
+        "gather_evidence"
+      ],
+      "objective": null,
+      "classification": "DATA",
+      "needs": "Complete the required upstream result without changing WAITING_REVIEW",
+      "involved_artifacts": [
+        "8c033024-eb07-4a74-9750-110a2ba666d3"
+      ],
+      "selected_investigation_artifact_id": null
+    },
+    {
+      "gate": "evidence",
+      "code": "VERIFIED_EVIDENCE_MISSING",
+      "outcome": "BLOCKED",
+      "blocking": "REPLAN",
+      "message": "Verification evidence not available",
+      "refs": [],
+      "objective": null,
+      "classification": "UNCLASSIFIED",
+      "needs": "Inspect native check and original referenced artifacts",
+      "involved_artifacts": [
+        "8c033024-eb07-4a74-9750-110a2ba666d3"
+      ],
+      "selected_investigation_artifact_id": null
+    },
+    {
+      "gate": "consistency",
+      "code": "VERIFICATION_INPUT_MISSING",
+      "outcome": "BLOCKED",
+      "blocking": "REPLAN",
+      "message": "Cannot validate cross-agent facts without verification input",
+      "refs": [],
+      "objective": null,
+      "classification": "UNCLASSIFIED",
+      "needs": "Inspect native check and original referenced artifacts",
+      "involved_artifacts": [
+        "8c033024-eb07-4a74-9750-110a2ba666d3"
+      ],
+      "selected_investigation_artifact_id": null
+    }
+  ],
+  "asset_snapshot": {},
+  "artifact_states": [
+    {
+      "artifact_id": "8c033024-eb07-4a74-9750-110a2ba666d3",
+      "task_id": "lookup_vulnerability",
+      "status": "CONFLICT",
+      "runtime_status": "WAITING_REVIEW"
+    }
+  ],
+  "verification": {},
+  "analysis": null,
+  "version_observation_handoff": {
+    "selected_artifact_id": null,
+    "selected_has_version": false,
+    "observed_artifact_ids": []
+  },
+  "recorded_source_conflict_count": 2,
+  "verified_conflict_count": 0
+}
