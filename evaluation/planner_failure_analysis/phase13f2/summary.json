@@ -1,0 +1,23 @@
+{
+  "analyzed": 35,
+  "primary_categories": {
+    "D": 22,
+    "B": 8,
+    "A": 5
+  },
+  "contributing_categories": {
+    "D": 22,
+    "B": 35,
+    "A": 5
+  },
+  "category_C_task_contract_gap": 0,
+  "model_calls_for_analysis": 0,
+  "causality_limit": "Categories overlap; the first validation error is not proof of the sole cause. No new runs of the original 35.",
+  "original_final_errors": {
+    "VERSION_INPUT_REQUIRED": 4,
+    "ASSET_LOOKUP_REQUIRED": 8,
+    "TOOL_INPUT_INVALID": 11,
+    "COMPONENT_SCOPE_MISMATCH": 10,
+    "QUERY_SCOPE_MISMATCH": 2
+  }
+}

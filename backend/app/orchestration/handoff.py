@@ -13,7 +13,7 @@ from uuid import UUID
 class ArtifactSelection(Sized):
     size_limit=1024*1024
     artifact: InvestigationArtifact | None = None
-    admission: Literal['CONTINUE','STOP']
+    admission: Literal['CONTINUE','VERIFY_ONLY','STOP']
     reasons: tuple[str,...] = ()
     optional_tasks: tuple[OptionalTask,...] = Field(default=(),max_length=16)
     supporting_artifacts: tuple[InvestigationArtifactReference,...] = ()
@@ -80,13 +80,19 @@ def select_investigation(result: InvestigationRunResult,scope,plan: TaskPlan):
             if art.partial_result or art.runtime_status!='SUCCESS' or trace is None or trace.status!='SUCCESS':
                 reasons.append('SUPPORTING_ARTIFACT_INCOMPLETE:'+art.task_id);continue
             supporting.append(InvestigationArtifactReference(run_id=art.run_id,task_id=art.task_id,artifact_id=art.artifact_id))
-    return ArtifactSelection(artifact=artifact,admission='STOP' if reasons else 'CONTINUE',
+    # A complete conflict observation is consumable by the independent verifier,
+    # even if a dependent node remains blocked. This is not execution success:
+    # preserve every reason/task state and do not admit risk analysis.
+    verify_only=(bool(reasons) and artifact.status=='CONFLICT' and artifact.runtime_status=='WAITING_REVIEW'
+        and not artifact.partial_result and not artifact.failed_tools and bool(artifact.conflicts)
+        and traces.get(artifact.task_id) is not None and traces[artifact.task_id].status=='WAITING_REVIEW')
+    return ArtifactSelection(artifact=artifact,admission='VERIFY_ONLY' if verify_only else 'STOP' if reasons else 'CONTINUE',
         reasons=tuple(reasons),optional_tasks=tuple(optional),supporting_artifacts=tuple(supporting),
         asset_id=scope.planner_input.query.asset_id,component_id=scope.planner_input.component_id)
 
 
 def build_verification_request(selection,stage_key):
-    if selection.admission!='CONTINUE' or selection.artifact is None:raise ValueError('INVESTIGATION_NOT_ADMITTED')
+    if selection.admission not in ('CONTINUE','VERIFY_ONLY') or selection.artifact is None:raise ValueError('INVESTIGATION_NOT_ADMITTED')
     art=selection.artifact
     return VerificationRequest(source_run_id=art.run_id,source_task_id=art.task_id,
         source_artifact_id=art.artifact_id,request_key=stage_key,task_type='evidence_verification',model_assistance=False,

@@ -1,0 +1,53 @@
+{
+  "base_commit": "e55f6783b3df0c963c5046620be634a8e51b65b7",
+  "changes": {
+    "backend/app/agents/investigation/planner.py": {
+      "baseline_sha256": "2ace4a1acfd9b6e6e35767eda0ea46219a9225b8178b22f5d6ac0115fd21c365",
+      "previous_sha256": "2c1f943b24dcd3c7b92909e07f2904eef47db85afb145e175526faa152fb0a11",
+      "current_sha256": "0666830691c20a82c7e92f0b1e06b486e75f40d8702aff2ddeae45801f22fb83",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/agents/investigation/planning.py": {
+      "baseline_sha256": "c7c0986bcab8d41a40ee067012314e7459248df142f4c454ba97041100540135",
+      "previous_sha256": "6a071c3bcd213fc9d1ab2c37390ee995ad2bb679597b363f4c1875c67838fed4",
+      "current_sha256": "b2190ca013a0a0bab97a997d5c577dd8540280b797e6c06e85e1a3efb67703b7",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/agents/investigation/roles.py": {
+      "baseline_sha256": "63a0e2e21d0f1fae667b051a1f7b52277927772bcf0a346d6fed3111e0b30293",
+      "previous_sha256": "ed2a5f8a158c059cf35edf393d16f9dccd01b59d7c68a60080e4e5ea91c8e3b6",
+      "current_sha256": "88cf75d0c315ddac74ce65a06d7fbccff1833ea264dc4009c0439e5d77b2d0ed",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/tests/agents/investigation/test_planning.py": {
+      "baseline_sha256": "2403c627565e9b703451503a361c1b4e0c300bfc272718a1d5e38358de516402",
+      "previous_sha256": "f68da1ad38fcedbd1d46c7a750f829d5be0f68ce095b9b6b15673ce2eeb40867",
+      "current_sha256": "38b3c030e045e9e45dceb0a6bf243218d26bde8127d6151a728624c1d6af5104",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/agents/verification/schemas.py": {
+      "baseline_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "previous_sha256": "d1c6f71efee11a3cb99446ecee31e31e808e82e3fa6e17a7835180f043ebd750",
+      "current_sha256": "ec21530e5a32b57466e4348e2f2920e00e88396b8ada68f411f81643c55a43a0",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "previous_sha256": "292cbfeec8e6f1c38c4fca9acf9327047bcfa740587571b18295347e3497bafc",
+      "current_sha256": "bdc1763c9bd67b04aea6a30d509fe36bee2afc63f13f17d7facef642ed6f54fb",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/orchestration/handoff.py": {
+      "baseline_sha256": null,
+      "previous_sha256": "fd71b274fb789794d30505686324bb9e9f1b778996eca6ef1949a50e38b986b5",
+      "current_sha256": "0e45547788dc41493dbb615b33f810d175a6118b06c4096c09fc37f5dbbcdd4d",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    },
+    "backend/app/orchestration/service.py": {
+      "baseline_sha256": null,
+      "previous_sha256": "c84231b39a47af0b9e1ee26e3c422931433320c624d680e4e5831247730cc67a",
+      "current_sha256": "300b3fcb2163eb92840e2c707bcc4a89c70ac2ce9fbebadafc0b4104483524d0",
+      "authorization": "PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF"
+    }
+  }
+}

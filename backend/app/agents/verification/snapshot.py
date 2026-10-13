@@ -234,7 +234,8 @@ class InvestigationSnapshotReader:
             if any(c.origin=='derived' and not c.evidence_ids for c in (claims[i] for i in kept)):
                 unresolved.append('Derived ranges without immutable claim-bound evidence remain candidates')
             if len(all_ids)>32 or omitted:unresolved.append('VERIFICATION_INPUT_LIMIT: unprocessed claims/evidence retained as counts')
-            extension={}
+            from app.agents.verification.conflict_evidence import conflict_artifacts
+            extension={'conflict_evidence_artifacts':conflict_artifacts(artifact.model_dump(mode='json'),evidence)}
             if request.asset_id:
                 from app.agents.verification.asset_snapshot import capture_version_observation,impact_references
                 extension['version_observations']=capture_version_observation(request,records,artifacts,tuple(claims[i] for i in kept),actor)

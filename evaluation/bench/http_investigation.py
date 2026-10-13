@@ -33,6 +33,10 @@ def build_request(question,binding=None):
     if set(binding)-{'asset_id','component_id','snapshot_id','component','target'}:
         raise ValueError('UNSUPPORTED_BINDING_FIELDS')
     values=input_values(question);assets=context.get('assets',[])
+    from .question_contract import BenchmarkQuestionContract
+    # Validate only original question input and real inventory bindings. This
+    # local diagnostic contract is never sent as annotation metadata to the API.
+    BenchmarkQuestionContract.from_input(question.category,question.question,values,binding)
     targets=values.get('targets',[])
     if targets and (not isinstance(targets,list) or len(targets)!=1):raise ValueError('MULTI_TARGET_SCOPE_UNSUPPORTED')
     target=values.get('target') or (targets[0] if targets else None)
