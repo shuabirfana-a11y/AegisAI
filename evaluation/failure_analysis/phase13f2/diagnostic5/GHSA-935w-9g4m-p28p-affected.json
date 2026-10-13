@@ -1,0 +1,1423 @@
+{
+  "debug": {
+    "id": "GHSA-935w-9g4m-p28p-affected",
+    "category": "version",
+    "input": {
+      "component": "vllm",
+      "ecosystem": "PyPI",
+      "target": "CVE-2026-105752",
+      "version": "0.29.0"
+    },
+    "request": {
+      "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "asset_scope": {
+        "asset_id": "30918a0b-8ac4-4fec-8ab2-5263a2a8c8d1",
+        "component_id": "ca37e54f-2852-43c3-a1a1-c8ea67e9e2db",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-b691ecace50b46228019344a3ef43f7c"
+    },
+    "request_status": 202,
+    "investigation_status": "COMPLETED",
+    "overall_status": "INCOMPLETE",
+    "gate_status": "REPLAN_REQUIRED",
+    "answer_status": "INCOMPLETE",
+    "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+    "prediction_status": "FAILED",
+    "error": "REQUIRED_AGENT_ARTIFACT_MISSING",
+    "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+    "planner_run_id": "a4ead7f3-33a6-4c12-aae0-afcc84f1b9b3",
+    "field_values_observed": {}
+  },
+  "prediction": {
+    "question_id": "GHSA-935w-9g4m-p28p-affected",
+    "baseline": "aegisai",
+    "status": "FAILED",
+    "answer": {},
+    "claims": [],
+    "abstained": null,
+    "completed_hops": [],
+    "latency_ms": 38702.9999999977,
+    "error_code": "REQUIRED_AGENT_ARTIFACT_MISSING",
+    "error": "Controlled HTTP failure; no answer fabricated",
+    "metadata": {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen25-planner:latest",
+      "is_mock": false,
+      "prompt_version": "investigation-plan-v5",
+      "logical_investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d"
+    }
+  },
+  "native_http_record": {
+    "question_id": "GHSA-935w-9g4m-p28p-affected",
+    "transport": "HTTP",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/investigations",
+        "http_status": 202
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/trace",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/artifacts",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/integration",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/76ed9e39-0814-4cbc-bd23-642115be3d4d/answer",
+        "http_status": 200
+      }
+    ],
+    "completed": false,
+    "http_attempted": true,
+    "request": {
+      "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "asset_scope": {
+        "asset_id": "30918a0b-8ac4-4fec-8ab2-5263a2a8c8d1",
+        "component_id": "ca37e54f-2852-43c3-a1a1-c8ea67e9e2db",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-b691ecace50b46228019344a3ef43f7c"
+    },
+    "created": {
+      "logical_investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "current_stage": "CREATED",
+      "overall_status": "RUNNING",
+      "planner_run_id": null,
+      "investigation_run_id": null,
+      "verification_run_id": null,
+      "analysis_run_id": null,
+      "cancel_requested": false,
+      "recovery_required": false,
+      "warnings": [],
+      "error_code": null,
+      "revision": 0,
+      "updated_at": "2026-10-13T12:46:01.214042Z",
+      "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "status": "CREATED",
+      "created_at": "2026-10-13T12:46:01.214042Z",
+      "finished_at": null,
+      "reused": false,
+      "persistence": "STORED",
+      "execution_backend": "IN_PROCESS_BOUNDED_WORKER",
+      "model_provider": "openai_compatible",
+      "is_mock": false
+    },
+    "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+    "status": {
+      "logical_investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "current_stage": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "planner_run_id": "a4ead7f3-33a6-4c12-aae0-afcc84f1b9b3",
+      "investigation_run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+      "verification_run_id": null,
+      "analysis_run_id": null,
+      "cancel_requested": false,
+      "recovery_required": false,
+      "warnings": [],
+      "error_code": null,
+      "revision": 10,
+      "updated_at": "2026-10-13T12:46:39.527654Z",
+      "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "status": "COMPLETED",
+      "created_at": "2026-10-13T12:46:01.214042Z",
+      "finished_at": "2026-10-13T12:46:39.527654Z"
+    },
+    "trace": {
+      "schema_version": "investigation-trace-v1",
+      "logical_investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "original_question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "planner": {
+        "planner_run_id": "a4ead7f3-33a6-4c12-aae0-afcc84f1b9b3",
+        "validation_status": "VALIDATED",
+        "retry_count": 1,
+        "prompt_version": "investigation-plan-v5",
+        "task_ids": [
+          "lookup-cve-2026-105752",
+          "lookup-vllm-version",
+          "lookup-asset"
+        ]
+      },
+      "events": [
+        {
+          "stage": "PLANNING",
+          "code": "START",
+          "at": "2026-10-13T12:46:01.228076Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "PLANNING",
+          "code": "PLANNER_CREATED",
+          "at": "2026-10-13T12:46:01.267864Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "PLANNING",
+          "code": "PLANNER_VALIDATED",
+          "at": "2026-10-13T12:46:32.164847Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "INVESTIGATING",
+          "code": "RUN_CREATED",
+          "at": "2026-10-13T12:46:32.226452Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "INVESTIGATING",
+          "code": "RUN_COMPLETED",
+          "at": "2026-10-13T12:46:38.960949Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "INVESTIGATING",
+          "code": "INVESTIGATION_READ",
+          "at": "2026-10-13T12:46:39.165342Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "INTEGRATING",
+          "code": "START",
+          "at": "2026-10-13T12:46:39.195096Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "INTEGRATING",
+          "code": "GATE_REPLAN_REQUIRED",
+          "at": "2026-10-13T12:46:39.455004Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "COMPOSING",
+          "code": "ANSWER_PENDING",
+          "at": "2026-10-13T12:46:39.478016Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "COMPLETED",
+          "code": "ANSWER_STORED",
+          "at": "2026-10-13T12:46:39.527654Z",
+          "overall_status": "INCOMPLETE",
+          "references": {}
+        }
+      ],
+      "agent_runs": [
+        {
+          "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+          "status": "succeeded",
+          "artifact_references": [],
+          "task_statuses": {
+            "lookup-cve-2026-105752": "SUCCESS",
+            "lookup-vllm-version": "SUCCESS",
+            "lookup-asset": "SUCCESS"
+          },
+          "tool_calls": [
+            {
+              "record_id": "9e80f129-b1aa-4b1e-9336-4dc6225de85c",
+              "task_id": "lookup-cve-2026-105752",
+              "tool": "get_vulnerability",
+              "status": "success",
+              "duration_ms": 2296.0,
+              "evidence_ids": [
+                "bb49a1d0-a737-48fb-b709-79a57969426d",
+                "3b168bb7-2aa1-405b-a439-2faa9f271f76",
+                "24e005bf-f8b1-4d04-95d7-ed8615cc775a",
+                "e9ae73d0-3762-414e-96a0-48ca247c5d1f",
+                "6d4e0fb0-97ea-42fa-9531-c31532680f3d",
+                "deaef60e-eea9-404c-866a-1a9d5056da19",
+                "d22be529-bc6b-43a3-9461-da5e382e7d7c",
+                "bee0e29f-0fd5-4c15-aad3-4b462c4d133e",
+                "eebfb08d-f72e-41f5-9df7-d8f90131c603",
+                "15d6c0e3-1cf0-435e-a6eb-9f00494c06dc",
+                "8d0fae33-2ed5-41ec-a576-b2a0bb84dd0d",
+                "f8042fc9-134b-428c-b9e1-e539fdbbb1ba"
+              ]
+            },
+            {
+              "record_id": "39aa8da3-98f0-4bbb-86b7-5eb88eb1a11e",
+              "task_id": "lookup-vllm-version",
+              "tool": "get_vulnerability",
+              "status": "success",
+              "duration_ms": 2328.0,
+              "evidence_ids": [
+                "bb49a1d0-a737-48fb-b709-79a57969426d",
+                "3b168bb7-2aa1-405b-a439-2faa9f271f76",
+                "24e005bf-f8b1-4d04-95d7-ed8615cc775a",
+                "e9ae73d0-3762-414e-96a0-48ca247c5d1f",
+                "6d4e0fb0-97ea-42fa-9531-c31532680f3d",
+                "deaef60e-eea9-404c-866a-1a9d5056da19",
+                "d22be529-bc6b-43a3-9461-da5e382e7d7c",
+                "bee0e29f-0fd5-4c15-aad3-4b462c4d133e",
+                "eebfb08d-f72e-41f5-9df7-d8f90131c603",
+                "15d6c0e3-1cf0-435e-a6eb-9f00494c06dc",
+                "8d0fae33-2ed5-41ec-a576-b2a0bb84dd0d",
+                "f8042fc9-134b-428c-b9e1-e539fdbbb1ba"
+              ]
+            },
+            {
+              "record_id": "b99642a2-a10c-44a4-a63a-2fa28b622b09",
+              "task_id": "lookup-vllm-version",
+              "tool": "inspect_component_version",
+              "status": "success",
+              "duration_ms": 2125.0,
+              "evidence_ids": [
+                "bb49a1d0-a737-48fb-b709-79a57969426d",
+                "3b168bb7-2aa1-405b-a439-2faa9f271f76",
+                "24e005bf-f8b1-4d04-95d7-ed8615cc775a",
+                "e9ae73d0-3762-414e-96a0-48ca247c5d1f",
+                "6d4e0fb0-97ea-42fa-9531-c31532680f3d",
+                "deaef60e-eea9-404c-866a-1a9d5056da19",
+                "d22be529-bc6b-43a3-9461-da5e382e7d7c",
+                "bee0e29f-0fd5-4c15-aad3-4b462c4d133e",
+                "eebfb08d-f72e-41f5-9df7-d8f90131c603",
+                "15d6c0e3-1cf0-435e-a6eb-9f00494c06dc",
+                "8d0fae33-2ed5-41ec-a576-b2a0bb84dd0d",
+                "f8042fc9-134b-428c-b9e1-e539fdbbb1ba"
+              ]
+            },
+            {
+              "record_id": "7c264672-a065-4ec9-b4ab-f27b9a195fd7",
+              "task_id": "lookup-asset",
+              "tool": "get_asset",
+              "status": "success",
+              "duration_ms": 1920.0,
+              "evidence_ids": []
+            }
+          ]
+        }
+      ],
+      "integration_result_id": "369aa8bc-9e18-4d65-a1ae-0df68ee9c839",
+      "integration_status": "REPLAN_REQUIRED",
+      "answer_id": "f81d4acf-3a0c-574b-94b5-481a8f5cf650",
+      "warnings": [],
+      "unresolved_items": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "error_code": null,
+      "historical_snapshot": true,
+      "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "stages": [
+        {
+          "agent": null,
+          "stage": "PLANNING",
+          "status": "PLANNER_VALIDATED",
+          "time": "2026-10-13T12:46:32.164847Z",
+          "run_id": "a4ead7f3-33a6-4c12-aae0-afcc84f1b9b3",
+          "artifact_ids": []
+        },
+        {
+          "agent": "investigation_agent",
+          "stage": "INVESTIGATING",
+          "status": "succeeded",
+          "time": "2026-10-13T12:46:39.165342Z",
+          "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+          "artifact_ids": []
+        },
+        {
+          "agent": null,
+          "stage": "INTEGRATING",
+          "status": "GATE_REPLAN_REQUIRED",
+          "time": "2026-10-13T12:46:39.455004Z",
+          "run_id": "369aa8bc-9e18-4d65-a1ae-0df68ee9c839",
+          "artifact_ids": []
+        },
+        {
+          "agent": null,
+          "stage": "COMPOSING",
+          "status": "ANSWER_PENDING",
+          "time": "2026-10-13T12:46:39.478016Z",
+          "run_id": null,
+          "artifact_ids": []
+        },
+        {
+          "agent": null,
+          "stage": "COMPLETED",
+          "status": "ANSWER_STORED",
+          "time": "2026-10-13T12:46:39.527654Z",
+          "run_id": null,
+          "artifact_ids": []
+        }
+      ],
+      "revision": 10,
+      "model_execution": {
+        "execution_mode": "REAL",
+        "provider": "openai_compatible",
+        "model": "aegisai-qwen25-planner:latest",
+        "source": "PERSISTED_PLANNER_CALL",
+        "attempt_count": 2
+      }
+    },
+    "artifacts": {
+      "investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "revision": 10,
+      "investigation": null,
+      "verification": null,
+      "analysis": null,
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "projection_version": "investigation-api-public-v1"
+    },
+    "integration": {
+      "integration_id": "369aa8bc-9e18-4d65-a1ae-0df68ee9c839",
+      "logical_investigation_id": "71df3795-799b-5edc-bf4f-38e9d783a234",
+      "trace_id": "369aa8bc-9e18-4d65-a1ae-0df68ee9c839",
+      "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+      "source_run_ids": [],
+      "status": "REPLAN_REQUIRED",
+      "objective_coverage": [
+        {
+          "outcome": "identity",
+          "status": "MISSING",
+          "references": []
+        },
+        {
+          "outcome": "asset",
+          "status": "MISSING",
+          "references": []
+        },
+        {
+          "outcome": "version_impact",
+          "status": "MISSING",
+          "references": []
+        },
+        {
+          "outcome": "remediation_status",
+          "status": "MISSING",
+          "references": []
+        },
+        {
+          "outcome": "risk",
+          "status": "MISSING",
+          "references": []
+        },
+        {
+          "outcome": "priority",
+          "status": "MISSING",
+          "references": []
+        }
+      ],
+      "task_completion_summary": [
+        {
+          "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+          "task_id": "lookup-cve-2026-105752",
+          "semantic_type": "vulnerability_lookup",
+          "status": "SUCCESS",
+          "run_status": "succeeded",
+          "required": true,
+          "dependencies": [],
+          "error_codes": []
+        },
+        {
+          "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+          "task_id": "lookup-vllm-version",
+          "semantic_type": "vulnerability_lookup",
+          "status": "SUCCESS",
+          "run_status": "succeeded",
+          "required": true,
+          "dependencies": [],
+          "error_codes": []
+        },
+        {
+          "run_id": "fc3bd917-dda4-4c67-8f7f-2c908264d82b",
+          "task_id": "lookup-asset",
+          "semantic_type": "asset_lookup",
+          "status": "SUCCESS",
+          "run_status": "succeeded",
+          "required": true,
+          "dependencies": [],
+          "error_codes": []
+        }
+      ],
+      "checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_ARTIFACT_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Missing investigation",
+          "refs": [
+            "investigation"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_ARTIFACT_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Missing verification",
+          "refs": [
+            "verification"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_ARTIFACT_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Missing analysis",
+          "refs": [
+            "analysis"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "integrity",
+          "code": "INTEGRITY_OK",
+          "outcome": "PASS",
+          "blocking": "NONE",
+          "message": "All applicable constraints satisfied",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "evidence",
+          "code": "VERIFIED_EVIDENCE_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Verification evidence not available",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "consistency",
+          "code": "VERIFICATION_INPUT_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Cannot validate cross-agent facts without verification input",
+          "refs": [],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required identity not answered",
+          "refs": [],
+          "objective": "identity"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required asset not answered",
+          "refs": [],
+          "objective": "asset"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required remediation_status not answered",
+          "refs": [],
+          "objective": "remediation_status"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "FRESHNESS_OK",
+          "outcome": "PASS",
+          "blocking": "NONE",
+          "message": "All applicable constraints satisfied",
+          "refs": [],
+          "objective": null
+        }
+      ],
+      "passed_checks": [
+        "INTEGRITY_OK",
+        "FRESHNESS_OK"
+      ],
+      "failed_checks": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "REQUIRED_ARTIFACT_MISSING",
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED",
+        "OBJECTIVE_NOT_COVERED",
+        "OBJECTIVE_NOT_COVERED",
+        "OBJECTIVE_NOT_COVERED",
+        "OBJECTIVE_NOT_COVERED",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "blocking_issues": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "warnings": [],
+      "unresolved_items": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "artifact_references": [],
+      "evidence_references": [],
+      "replan_reasons": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "human_review_reasons": [],
+      "final_result_references": [],
+      "partial_result_references": [],
+      "input_hash": "f4a499c5870619fceb614499ce6ad0f964a7f6f43a229d23cc54547a2d817c6a",
+      "objective_hash": "0fcc04bb0e2d5e6a6fa3e6c2b0f83b7ec122bbc0ad3b509275c047ed0b26b5bb",
+      "policy_version": "integration-policy-v1",
+      "created_at": "2026-10-13T12:46:39.221487Z",
+      "evaluation_time": "2026-10-13T12:46:39.221487Z",
+      "historical_snapshot": true,
+      "persistence": "STORED"
+    },
+    "answer": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "f81d4acf-3a0c-574b-94b5-481a8f5cf650",
+      "logical_investigation_id": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "original_question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "answer_status": "INCOMPLETE",
+      "integration_status": "REPLAN_REQUIRED",
+      "summary": "调查尚不完整；以下仅为已核验事实及风险观察，需要补充调查。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [],
+      "unresolved_items": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "integration_result_id": "369aa8bc-9e18-4d65-a1ae-0df68ee9c839",
+      "agent_run_references": [
+        "fc3bd917-dda4-4c67-8f7f-2c908264d82b"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "76ed9e39-0814-4cbc-bd23-642115be3d4d",
+      "generated_at": "2026-10-13T12:46:39.221487Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "error_code": "REQUIRED_AGENT_ARTIFACT_MISSING"
+  },
+  "terminal_read_supplement": {}
+}
