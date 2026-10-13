@@ -6,14 +6,14 @@ from app.planner.schemas import PlannerAttempt,PlanningOutcome
 from app.planner.validator import PlanValidationError,missing_fields
 from app.llm.schemas import StructuredRequest,Message,CallRecord
 from app.tooling.contracts import REGISTRY
-from app.agents.investigation.planning import InvestigationPlan
+from app.agents.investigation.planning import InvestigationPlan,scoped_plan_model
 from app.agents.investigation.validation import validate_investigation_plan
 from app.agents.investigation.roles import ROLES,PROMPT_VERSION,REGISTRY_VERSION
 
 class InvestigationPlannerAdapter(LLMTaskPlanner):
     def __init__(self,gateway,trace_sink):
         super().__init__(gateway,trace_sink)
-        self._investigation_prompt=Path(__file__).with_name('investigation_plan_v4.txt').read_text(encoding='utf-8')
+        self._investigation_prompt=Path(__file__).with_name('investigation_plan_v5.txt').read_text(encoding='utf-8')
     @property
     def prompt_version(self):return PROMPT_VERSION
     @property
@@ -35,7 +35,7 @@ class InvestigationPlannerAdapter(LLMTaskPlanner):
             'missing_fields':sorted(missing&{'target','asset_id','version'}),
             'missing_fields_by_role':{k:sorted(missing&fields) for k,fields in role_fields.items()},
             'exact_tool_arguments':exact}
-        attempts=[];issues=()
+        attempts=[];issues=();output_model=scoped_plan_model(context)
         for index in (1,2):
             messages=[Message(role='system',content=self._investigation_prompt),
                       Message(role='user',content=json.dumps(payload,ensure_ascii=True,allow_nan=False))]
@@ -43,7 +43,7 @@ class InvestigationPlannerAdapter(LLMTaskPlanner):
                 json.dumps([{'code':e.code,'path':e.path} for e in issues])))
             captured=[]
             result=self.gateway.generate_structured(StructuredRequest(messages=messages,trace_id=str(context.trace_id),
-                temperature=0.0,max_output_tokens=min(self.gateway.config.max_output_tokens,4096)),output_model=InvestigationPlan,output_observer=captured.append)
+                temperature=0.0,max_output_tokens=min(self.gateway.config.max_output_tokens,4096)),output_model=output_model,output_observer=captured.append)
             metadata=CallRecord.model_validate({k:v for k,v in result.model_dump().items() if k in CallRecord.model_fields}).model_dump(mode='json')
             current=context.model_copy(update={'model_calls_json':json.dumps([a.model_call for a in attempts]+[metadata])})
             validated=None; retry=False

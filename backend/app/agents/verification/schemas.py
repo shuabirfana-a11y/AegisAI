@@ -6,6 +6,7 @@ from pydantic import AwareDatetime, Field, StrictBool, model_validator
 from app.runtime.contracts import FrozenModel, TaskId, TaskState, ARTIFACT_LIMIT, json_bytes
 from app.enrichment.contracts import ClaimType, VerificationStatus
 from app.agents.asset_observations import InvestigationArtifactReference, VersionObservation, ImpactVersionEvidence
+from app.agents.verification.conflict_evidence import ConflictEvidenceArtifact
 
 RULES_VERSION = 'verification-rules-v1'
 SNAPSHOT_LIMIT = 2 * 1024 * 1024
@@ -123,6 +124,15 @@ class VerificationSourceSnapshot(Bounded):
     warnings: tuple[str, ...] = ()
     unresolved_items: tuple[str, ...] = ()
     parent_planner_run_id: str | None = None
+    conflict_evidence_artifacts:tuple[ConflictEvidenceArtifact,...]=Field(default=(),max_length=32,exclude_if=lambda v:not v)
+
+    @model_validator(mode='after')
+    def conflict_provenance(self):
+        if self.conflict_evidence_artifacts:
+            from app.agents.verification.conflict_evidence import conflict_artifacts
+            if self.conflict_evidence_artifacts!=conflict_artifacts(self.artifact,self.evidence):
+                raise ValueError('CONFLICT_ARTIFACT_PROVENANCE_MISMATCH')
+        return self
     version_observations: tuple[VersionObservation,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
     impact_version_evidence: tuple[ImpactVersionEvidence,...] = Field(default=(),max_length=128,exclude_if=lambda v:not v)
 

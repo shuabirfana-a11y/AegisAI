@@ -76,7 +76,14 @@ def test_model_prompt_and_source_configuration_are_frozen_without_answer_llm():
     assert c['model']['timeout_seconds']==40.0
     assert c['model']['manifest_digest'].startswith('sha256:') and c['model']['blobs_verified'] is True
     for p in c['prompt']['source_files']:
-        assert hashlib.sha256((ROOT/p['path']).read_bytes()).hexdigest()==p['sha256']
+        current=hashlib.sha256((ROOT/p['path']).read_bytes()).hexdigest()
+        if p['path']=='backend/app/agents/investigation/planner.py':
+            # This v4 experiment is preserved history, never the active v5 profile.
+            exception=json.loads((ROOT/'docs/phase13f2/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
+            assert exception['authorization']=='PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF'
+            assert exception['previous_sha256']==p['sha256']
+            assert exception['current_sha256']==current
+        else:assert current==p['sha256']
     assert c['prompt']['planner_version']=='investigation-plan-v4'
     assert c['prompt']['answer_prompt_version']=='NOT_APPLICABLE_DETERMINISTIC_TEMPLATE'
     assert c['system']['git_commit']=='c636c51111c64f04f0eec5c003d15df380a27a54'

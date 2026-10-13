@@ -73,7 +73,7 @@ def test_adapter_uses_model_gateway_and_existing_attempt_protocol():
         got=planner.plan(cve_input(),context_for())
         assert got.status=='VALIDATED' and len(calls)==2 and len(sink.attempts)==2
         assert got.attempts[0].diagnostic['raw_output']=='INVALID_JSON'
-        assert planner.prompt_version=='investigation-plan-v4'
+        assert planner.prompt_version=='investigation-plan-v5'
     finally:gateway.close()
 
 def test_candidate_cannot_request_dag_cycle():

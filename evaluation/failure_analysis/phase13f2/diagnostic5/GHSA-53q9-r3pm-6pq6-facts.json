@@ -1,0 +1,771 @@
+{
+  "debug": {
+    "id": "GHSA-53q9-r3pm-6pq6-facts",
+    "category": "facts",
+    "input": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434"
+    },
+    "request": {
+      "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-f35756f13372400bad9d3261d5e650e2"
+    },
+    "request_status": 202,
+    "investigation_status": "FAILED",
+    "overall_status": "FAILED",
+    "gate_status": null,
+    "answer_status": "FAILED",
+    "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+    "prediction_status": "FAILED",
+    "error": "PLANNING_FAILED",
+    "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+    "planner_run_id": "365e6ab1-5bc4-4e63-8caa-4cf1dea1bfe5",
+    "field_values_observed": {}
+  },
+  "prediction": {
+    "question_id": "GHSA-53q9-r3pm-6pq6-facts",
+    "baseline": "aegisai",
+    "status": "FAILED",
+    "answer": {},
+    "claims": [],
+    "abstained": null,
+    "completed_hops": [],
+    "latency_ms": 25859.00000000038,
+    "error_code": "PLANNING_FAILED",
+    "error": "Controlled HTTP failure; no answer fabricated",
+    "metadata": {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen25-planner:latest",
+      "is_mock": false,
+      "prompt_version": "investigation-plan-v5",
+      "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885"
+    }
+  },
+  "native_http_record": {
+    "question_id": "GHSA-53q9-r3pm-6pq6-facts",
+    "transport": "HTTP",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/investigations",
+        "http_status": 202
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/status",
+        "http_status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/investigations/267c7b4b-7958-44c5-808a-f038f8c09885/trace",
+        "http_status": 200
+      }
+    ],
+    "completed": false,
+    "http_attempted": true,
+    "request": {
+      "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-f35756f13372400bad9d3261d5e650e2"
+    },
+    "created": {
+      "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "current_stage": "CREATED",
+      "overall_status": "RUNNING",
+      "planner_run_id": null,
+      "investigation_run_id": null,
+      "verification_run_id": null,
+      "analysis_run_id": null,
+      "cancel_requested": false,
+      "recovery_required": false,
+      "warnings": [],
+      "error_code": null,
+      "revision": 0,
+      "updated_at": "2026-10-13T12:45:36.863306Z",
+      "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "status": "CREATED",
+      "created_at": "2026-10-13T12:45:36.863306Z",
+      "finished_at": null,
+      "reused": false,
+      "persistence": "STORED",
+      "execution_backend": "IN_PROCESS_BOUNDED_WORKER",
+      "model_provider": "openai_compatible",
+      "is_mock": false
+    },
+    "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+    "status": {
+      "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "current_stage": "FAILED",
+      "overall_status": "FAILED",
+      "planner_run_id": "365e6ab1-5bc4-4e63-8caa-4cf1dea1bfe5",
+      "investigation_run_id": null,
+      "verification_run_id": null,
+      "analysis_run_id": null,
+      "cancel_requested": false,
+      "recovery_required": false,
+      "warnings": [],
+      "error_code": "PLANNING_FAILED",
+      "revision": 4,
+      "updated_at": "2026-10-13T12:46:01.127408Z",
+      "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "status": "FAILED",
+      "created_at": "2026-10-13T12:45:36.863306Z",
+      "finished_at": "2026-10-13T12:46:01.127408Z"
+    },
+    "trace": {
+      "schema_version": "investigation-trace-v1",
+      "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "original_question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "planner": {
+        "planner_run_id": "365e6ab1-5bc4-4e63-8caa-4cf1dea1bfe5",
+        "validation_status": "PLANNING_FAILED",
+        "retry_count": 1,
+        "prompt_version": "investigation-plan-v5",
+        "task_ids": []
+      },
+      "events": [
+        {
+          "stage": "PLANNING",
+          "code": "START",
+          "at": "2026-10-13T12:45:36.944589Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "PLANNING",
+          "code": "PLANNER_CREATED",
+          "at": "2026-10-13T12:45:36.996247Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "PLANNING",
+          "code": "PLANNER_PLANNING_FAILED",
+          "at": "2026-10-13T12:46:01.104392Z",
+          "overall_status": null,
+          "references": {}
+        },
+        {
+          "stage": "FAILED",
+          "code": "STOP",
+          "at": "2026-10-13T12:46:01.127408Z",
+          "overall_status": "FAILED",
+          "references": {}
+        }
+      ],
+      "agent_runs": [],
+      "integration_result_id": null,
+      "integration_status": null,
+      "answer_id": "3474e7ca-64b4-5f8b-946c-07e00ae6b34f",
+      "warnings": [],
+      "unresolved_items": [],
+      "error_code": "PLANNING_FAILED",
+      "historical_snapshot": true,
+      "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "stages": [
+        {
+          "agent": null,
+          "stage": "PLANNING",
+          "status": "PLANNER_PLANNING_FAILED",
+          "time": "2026-10-13T12:46:01.104392Z",
+          "run_id": "365e6ab1-5bc4-4e63-8caa-4cf1dea1bfe5",
+          "artifact_ids": []
+        },
+        {
+          "agent": null,
+          "stage": "FAILED",
+          "status": "STOP",
+          "time": "2026-10-13T12:46:01.127408Z",
+          "run_id": null,
+          "artifact_ids": []
+        }
+      ],
+      "revision": 4,
+      "model_execution": {
+        "execution_mode": "REAL",
+        "provider": "openai_compatible",
+        "model": "aegisai-qwen25-planner:latest",
+        "source": "PERSISTED_PLANNER_CALL",
+        "attempt_count": 2
+      }
+    },
+    "error_code": "PLANNING_FAILED",
+    "artifacts": {
+      "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "revision": 4,
+      "investigation": null,
+      "verification": null,
+      "analysis": null,
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "projection_version": "investigation-api-public-v1"
+    },
+    "answer": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "3474e7ca-64b4-5f8b-946c-07e00ae6b34f",
+      "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "original_question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "answer_status": "FAILED",
+      "integration_status": null,
+      "summary": "调查未完成，请查看审计状态。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "PLANNING_FAILED"
+      ],
+      "unresolved_items": [
+        "PLANNING_FAILED"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [],
+      "accepted_source_run_references": [],
+      "trace_reference": "267c7b4b-7958-44c5-808a-f038f8c09885",
+      "generated_at": "2026-10-13T12:46:01.127408Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    }
+  },
+  "terminal_read_supplement": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "e0b29ecb-c826-44a2-b196-88b100c16b73",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "3474e7ca-64b4-5f8b-946c-07e00ae6b34f",
+        "logical_investigation_id": "267c7b4b-7958-44c5-808a-f038f8c09885",
+        "original_question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "267c7b4b-7958-44c5-808a-f038f8c09885",
+        "generated_at": "2026-10-13T12:46:01.127408Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  }
+}
