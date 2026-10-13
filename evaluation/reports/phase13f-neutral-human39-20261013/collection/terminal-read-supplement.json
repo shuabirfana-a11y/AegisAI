@@ -1,0 +1,2036 @@
+{
+  "GHSA-53q9-r3pm-6pq6-facts": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "c42173ea-1c91-41bb-bbc4-cfb12310679b",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "68ceb9a3-833c-43cc-9a54-728ccef7bc13",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "9173ecee-990d-5f8f-aa32-cde32264fc37",
+        "logical_investigation_id": "c42173ea-1c91-41bb-bbc4-cfb12310679b",
+        "original_question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "c42173ea-1c91-41bb-bbc4-cfb12310679b",
+        "generated_at": "2026-10-13T09:13:32.117048Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "03ba4b1c-65db-4331-a2bd-8180b04d9aab",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "c0f9291e-226c-4d37-8c86-0e086593d7f6",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "239e4988-0a72-510a-97d6-b7813c16d7be",
+        "logical_investigation_id": "03ba4b1c-65db-4331-a2bd-8180b04d9aab",
+        "original_question": "torch 版本 2.5.1 是否受 CVE-2025-32434 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "03ba4b1c-65db-4331-a2bd-8180b04d9aab",
+        "generated_at": "2026-10-13T09:13:49.964337Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "a7158f25-c7d6-411a-8a4a-e5b4db070569",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "ef1309b4-e530-46e8-b0a4-d1bdba57faa5",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "5e4e2bff-f583-51ad-940f-aa09e31c0173",
+        "logical_investigation_id": "a7158f25-c7d6-411a-8a4a-e5b4db070569",
+        "original_question": "torch 版本 2.6.0 是否受 CVE-2025-32434 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "a7158f25-c7d6-411a-8a4a-e5b4db070569",
+        "generated_at": "2026-10-13T09:14:07.602678Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-unknown": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "e4baa323-1096-4439-baa8-3c6fd1f8c8dc",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "a9c930ad-55be-4b60-ad7e-c5f6a161fbf5",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "c8bcf48b-d2a1-54de-81f0-9ed2cce0f44a",
+        "logical_investigation_id": "e4baa323-1096-4439-baa8-3c6fd1f8c8dc",
+        "original_question": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "e4baa323-1096-4439-baa8-3c6fd1f8c8dc",
+        "generated_at": "2026-10-13T09:14:30.492095Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-release-and-poc": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "69090b23-0413-472f-bcf9-582b4981abb9",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "c3dfc862-f0ce-4773-852c-d0b24c428cad",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "4d566a1b-3669-52c4-bda9-35243891ca31",
+        "logical_investigation_id": "69090b23-0413-472f-bcf9-582b4981abb9",
+        "original_question": "按公告的修复版本记录判断 CVE-2025-32434 的 release fix；公开 PoC 是否经过独立验证？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "69090b23-0413-472f-bcf9-582b4981abb9",
+        "generated_at": "2026-10-13T09:15:27.632606Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-commit-candidate": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "8b54863e-d6c8-456d-80b4-7267b10cffa6",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "4d8e4555-338f-4828-9658-e8a4d08ca956",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "dfc4ca63-ceed-5421-9e9b-039fbd2dc1f5",
+        "logical_investigation_id": "8b54863e-d6c8-456d-80b4-7267b10cffa6",
+        "original_question": "此链接仅出现在 CVE-2025-32434 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "8b54863e-d6c8-456d-80b4-7267b10cffa6",
+        "generated_at": "2026-10-13T09:15:41.850865Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-risk-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "56377c29-f12e-4a1c-a6c8-cf33dbf2e00b",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "2887b612-9f09-45c3-956b-d77971c150eb",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "3f3d5467-e97e-5acc-9961-f7c94a087372",
+        "logical_investigation_id": "56377c29-f12e-4a1c-a6c8-cf33dbf2e00b",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "56377c29-f12e-4a1c-a6c8-cf33dbf2e00b",
+        "generated_at": "2026-10-13T09:16:05.693797Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-53q9-r3pm-6pq6-risk-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "b2b8b1f0-b47a-4bba-a7d0-a6ea8ebb9b52",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "7715edae-6576-478a-a438-264828584314",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "b1d551c2-8813-574f-a5d1-e897c38a3858",
+        "logical_investigation_id": "b2b8b1f0-b47a-4bba-a7d0-a6ea8ebb9b52",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "b2b8b1f0-b47a-4bba-a7d0-a6ea8ebb9b52",
+        "generated_at": "2026-10-13T09:16:44.695735Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "33a80a5a-1e27-4551-b131-e15237a924cd",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "acc0a0d7-83d1-4910-9347-e520e5128f12",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "01b4e954-9603-5345-978f-dbdd4eb42a78",
+        "logical_investigation_id": "33a80a5a-1e27-4551-b131-e15237a924cd",
+        "original_question": "torch 版本 1.13.0 是否受 CVE-2022-45907 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "33a80a5a-1e27-4551-b131-e15237a924cd",
+        "generated_at": "2026-10-13T09:17:03.070502Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "b5f91813-eff4-46c1-9b96-c3e0cb0e4e6d",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "7df93c1f-ea33-4d5e-8e11-3ad587849ff2",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "dec1d1b5-ad4a-5942-a5d1-08b3c9d09660",
+        "logical_investigation_id": "b5f91813-eff4-46c1-9b96-c3e0cb0e4e6d",
+        "original_question": "torch 版本 1.13.1 是否受 CVE-2022-45907 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "b5f91813-eff4-46c1-9b96-c3e0cb0e4e6d",
+        "generated_at": "2026-10-13T09:17:21.164155Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-unknown": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "03aa950d-2b9e-4a51-a871-2bb8e4bb1836",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "999160cc-22d9-431f-9e0d-e1427fdc478d",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "a6ebfbba-e971-5a51-bb93-c755994737c2",
+        "logical_investigation_id": "03aa950d-2b9e-4a51-a871-2bb8e4bb1836",
+        "original_question": "torch 版本 未提供 是否受 CVE-2022-45907 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "03aa950d-2b9e-4a51-a871-2bb8e4bb1836",
+        "generated_at": "2026-10-13T09:17:40.870496Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-release-and-poc": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "1e7a3880-b6bd-43dc-aa7e-5b2a6a2dda22",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "327043b9-e243-40ff-901b-209988efe534",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "9670562d-e021-57e0-a8ef-40445f95dd71",
+        "logical_investigation_id": "1e7a3880-b6bd-43dc-aa7e-5b2a6a2dda22",
+        "original_question": "按公告的修复版本记录判断 CVE-2022-45907 的 release fix；公开 PoC 是否经过独立验证？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "1e7a3880-b6bd-43dc-aa7e-5b2a6a2dda22",
+        "generated_at": "2026-10-13T09:18:00.970784Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-commit-candidate": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "6ba6a0ec-e0b9-4215-a27a-65012a662293",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "61f09876-e6c4-4640-a0ae-645873b3d405",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "36ffda41-d6d3-5bb5-bb6a-7731dd41159e",
+        "logical_investigation_id": "6ba6a0ec-e0b9-4215-a27a-65012a662293",
+        "original_question": "此链接仅出现在 CVE-2022-45907 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "6ba6a0ec-e0b9-4215-a27a-65012a662293",
+        "generated_at": "2026-10-13T09:18:17.879132Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-risk-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "84b17c18-15f4-452a-b87f-fa3724453d2e",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "20c06c08-0497-432d-849b-12b3ca8ab007",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "527b371b-1b3f-53dc-8d90-62939efb9715",
+        "logical_investigation_id": "84b17c18-15f4-452a-b87f-fa3724453d2e",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "84b17c18-15f4-452a-b87f-fa3724453d2e",
+        "generated_at": "2026-10-13T09:18:51.319785Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-47fc-vmwq-366v-risk-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "6707a485-e874-47f0-bd05-4b99daa5570f",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "b25ff50a-39bf-49c1-ba09-683f8407a532",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "570706d0-4d41-5156-a40d-a6395345ecba",
+        "logical_investigation_id": "6707a485-e874-47f0-bd05-4b99daa5570f",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "6707a485-e874-47f0-bd05-4b99daa5570f",
+        "generated_at": "2026-10-13T09:19:15.227130Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-facts": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "01071b6f-8b9f-4500-b59f-c0099f3133f7",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "aedb05f7-f74e-4172-8caa-6201da44e515",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "75916350-6e54-516e-940b-22ab9d9b3c64",
+        "logical_investigation_id": "01071b6f-8b9f-4500-b59f-c0099f3133f7",
+        "original_question": "查询 CVE-2025-68664 的描述、CWE 和按版本区分的 CVSS。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "01071b6f-8b9f-4500-b59f-c0099f3133f7",
+        "generated_at": "2026-10-13T09:19:26.398494Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-affected": {},
+  "GHSA-c67j-w6g6-q2cm-fixed": {},
+  "GHSA-c67j-w6g6-q2cm-unknown": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "cb7e7012-b661-450c-a2a3-25073d0cc944",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "d99da0be-a6b6-41c4-a22c-6ddd5692ff29",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "ae12fbfa-6f9c-521d-9113-025ac0fc2603",
+        "logical_investigation_id": "cb7e7012-b661-450c-a2a3-25073d0cc944",
+        "original_question": "langchain-core 版本 未提供 是否受 CVE-2025-68664 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "cb7e7012-b661-450c-a2a3-25073d0cc944",
+        "generated_at": "2026-10-13T09:20:23.858560Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-release-and-poc": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "3cc3ccd7-d793-4818-a0da-ed073defcee6",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "b302f8a6-79b8-4443-ad45-014f26652b27",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "abd734a0-87ae-5118-ae1c-848081c4fa7f",
+        "logical_investigation_id": "3cc3ccd7-d793-4818-a0da-ed073defcee6",
+        "original_question": "按公告的修复版本记录判断 CVE-2025-68664 的 release fix；公开 PoC 是否经过独立验证？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "3cc3ccd7-d793-4818-a0da-ed073defcee6",
+        "generated_at": "2026-10-13T09:20:49.554386Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-commit-candidate": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "2178023c-5fb6-43c1-9b22-bea3381ec8ae",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "36403c50-db50-4371-9054-a9ed061f45cb",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "eb313558-ff78-5f50-8a80-beec20294002",
+        "logical_investigation_id": "2178023c-5fb6-43c1-9b22-bea3381ec8ae",
+        "original_question": "此链接仅出现在 CVE-2025-68664 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "2178023c-5fb6-43c1-9b22-bea3381ec8ae",
+        "generated_at": "2026-10-13T09:21:06.851672Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-risk-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "6408aa37-f64f-4b4f-9195-2015cf5f3216",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "6ef4caed-0a63-4866-baaa-f0e43785bbe3",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "0701a5b6-34ad-53fe-a03b-a39284c55e74",
+        "logical_investigation_id": "6408aa37-f64f-4b4f-9195-2015cf5f3216",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-68664 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "6408aa37-f64f-4b4f-9195-2015cf5f3216",
+        "generated_at": "2026-10-13T09:21:43.387489Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-risk-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "621c9857-1aac-4899-8580-ee22e87b28da",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "5e2fe77f-d319-4d0b-bcfe-1f168ceb2419",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "7c8c31ce-739a-539f-9efc-753a52a244a4",
+        "logical_investigation_id": "621c9857-1aac-4899-8580-ee22e87b28da",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-68664 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "621c9857-1aac-4899-8580-ee22e87b28da",
+        "generated_at": "2026-10-13T09:22:13.321571Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "2efdf35e-c2bc-41a0-800a-12e3cd346f53",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "dce7a79c-b921-46a4-a7d5-fb3c89db02ef",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "4540df57-606a-5754-b8ca-86450ff4bfa0",
+        "logical_investigation_id": "2efdf35e-c2bc-41a0-800a-12e3cd346f53",
+        "original_question": "langgraph-checkpoint-sqlite 版本 3.0.0 是否受 CVE-2025-67644 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "2efdf35e-c2bc-41a0-800a-12e3cd346f53",
+        "generated_at": "2026-10-13T09:22:47.305407Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "c4182e32-579a-44fd-be3d-e499f9f9953b",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "bfea8cf4-9d20-4800-b1ae-8c775abbe900",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "536967da-bb8b-536c-9355-45a5412357ad",
+        "logical_investigation_id": "c4182e32-579a-44fd-be3d-e499f9f9953b",
+        "original_question": "langgraph-checkpoint-sqlite 版本 3.0.1 是否受 CVE-2025-67644 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "c4182e32-579a-44fd-be3d-e499f9f9953b",
+        "generated_at": "2026-10-13T09:23:16.855197Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-unknown": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "b128e734-c92e-412e-a93d-bc6ddb3c64b7",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "86f3deb5-d41a-404b-a47f-d55dd06f1369",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "6f44a46f-16df-5d70-b1c5-91c5bb723d52",
+        "logical_investigation_id": "b128e734-c92e-412e-a93d-bc6ddb3c64b7",
+        "original_question": "langgraph-checkpoint-sqlite 版本 未提供 是否受 CVE-2025-67644 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "b128e734-c92e-412e-a93d-bc6ddb3c64b7",
+        "generated_at": "2026-10-13T09:23:48.617026Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-release-and-poc": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "ccbbf304-624f-4ae4-a655-dfdb04ff6ce0",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "330369b9-18d9-4b29-b808-221070b6dc44",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "4daa1454-a961-504f-87b7-ca579287bd1b",
+        "logical_investigation_id": "ccbbf304-624f-4ae4-a655-dfdb04ff6ce0",
+        "original_question": "按公告的修复版本记录判断 CVE-2025-67644 的 release fix；公开 PoC 是否经过独立验证？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "ccbbf304-624f-4ae4-a655-dfdb04ff6ce0",
+        "generated_at": "2026-10-13T09:24:15.920587Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-commit-candidate": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "d06fbe4f-30a6-41d0-bb34-516aefe603e0",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "a349c4b0-d4b2-4e0a-bf3a-c4ed28e4e47d",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "9add636e-67a2-5ee1-b6c4-f3b183bb8818",
+        "logical_investigation_id": "d06fbe4f-30a6-41d0-bb34-516aefe603e0",
+        "original_question": "此链接仅出现在 CVE-2025-67644 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "d06fbe4f-30a6-41d0-bb34-516aefe603e0",
+        "generated_at": "2026-10-13T09:24:31.414412Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-risk-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "a9f7a6ec-174b-4377-b55a-3cd24af5e3db",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "3ff3d740-a87b-47fe-848c-8f69d952d094",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "25f6a007-d0a8-5948-9781-ed47174a3654",
+        "logical_investigation_id": "a9f7a6ec-174b-4377-b55a-3cd24af5e3db",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "a9f7a6ec-174b-4377-b55a-3cd24af5e3db",
+        "generated_at": "2026-10-13T09:25:05.197019Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-9rwj-6rc7-p77c-risk-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "c479b992-521a-4518-a973-ada6b0356d86",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "aa19d5ea-048c-43a5-96e6-b106e3aad21d",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "5bd59931-1e33-50c8-a51a-1e6e6e3bd0cb",
+        "logical_investigation_id": "c479b992-521a-4518-a973-ada6b0356d86",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "c479b992-521a-4518-a973-ada6b0356d86",
+        "generated_at": "2026-10-13T09:25:44.508018Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-935w-9g4m-p28p-affected": {},
+  "GHSA-935w-9g4m-p28p-fixed": {},
+  "GHSA-935w-9g4m-p28p-unknown": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "c09f5955-9976-4784-a484-5655dbcd71cd",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "6a02e222-65b5-4ce1-8d11-5c1259fca715",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "aad5ebc3-f291-5980-85c9-f38c14173e93",
+        "logical_investigation_id": "c09f5955-9976-4784-a484-5655dbcd71cd",
+        "original_question": "vllm 版本 未提供 是否受 CVE-2026-105752 影响？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "c09f5955-9976-4784-a484-5655dbcd71cd",
+        "generated_at": "2026-10-13T09:27:03.602071Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-935w-9g4m-p28p-release-and-poc": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "fe0ef4df-4b77-4cbf-8401-8953459d10c1",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "c0616c4d-54e9-42f6-a755-931710a9b664",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "c930b5db-7315-580c-98d1-673553a14008",
+        "logical_investigation_id": "fe0ef4df-4b77-4cbf-8401-8953459d10c1",
+        "original_question": "按公告的修复版本记录判断 CVE-2026-105752 的 release fix；公开 PoC 是否经过独立验证？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "fe0ef4df-4b77-4cbf-8401-8953459d10c1",
+        "generated_at": "2026-10-13T09:27:38.467198Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-935w-9g4m-p28p-commit-candidate": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "d2d6de6f-2806-452e-a818-a18b0963373e",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "6b3b76ad-b414-4fd7-b11d-26d905286823",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "6ee6e804-c8a6-5e86-8cdb-27d6f004308e",
+        "logical_investigation_id": "d2d6de6f-2806-452e-a818-a18b0963373e",
+        "original_question": "此链接仅出现在 CVE-2026-105752 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "d2d6de6f-2806-452e-a818-a18b0963373e",
+        "generated_at": "2026-10-13T09:27:57.133007Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-935w-9g4m-p28p-risk-affected": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "e6f24095-ca49-4e7a-87ec-0c656935bead",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "b194cdf3-0247-479e-91c5-033bff23ed06",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "461a16d4-b68d-5215-9885-c69c021eb371",
+        "logical_investigation_id": "e6f24095-ca49-4e7a-87ec-0c656935bead",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2026-105752 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "e6f24095-ca49-4e7a-87ec-0c656935bead",
+        "generated_at": "2026-10-13T09:28:32.575674Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-935w-9g4m-p28p-risk-fixed": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "2b186c02-7cb1-4e38-a5b3-edcd8596aeb8",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "397ec401-1574-4f40-a85d-a92639335b67",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "b454f927-5a4d-54c1-b9fd-df54332c13e6",
+        "logical_investigation_id": "2b186c02-7cb1-4e38-a5b3-edcd8596aeb8",
+        "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2026-105752 的风险与优先级。",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "2b186c02-7cb1-4e38-a5b3-edcd8596aeb8",
+        "generated_at": "2026-10-13T09:29:04.647779Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-gap": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "eda064c4-a268-4b08-aa05-8b15358785c8",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "4a05da60-e0f4-4897-b4ee-a0fbd539aa5a",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "611ecff6-9ad0-57b3-b668-aa43e8264e6e",
+        "logical_investigation_id": "eda064c4-a268-4b08-aa05-8b15358785c8",
+        "original_question": "langchain-core 0.4.0 是否命中 CVE-2025-68664 的任意影响区间？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "eda064c4-a268-4b08-aa05-8b15358785c8",
+        "generated_at": "2026-10-13T09:29:22.868104Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  },
+  "GHSA-c67j-w6g6-q2cm-older-fix": {
+    "artifacts": {
+      "http_status": 200,
+      "body": {
+        "investigation_id": "5271f2bf-e824-4361-8ef9-fcf5afda04ec",
+        "revision": 4,
+        "investigation": null,
+        "verification": null,
+        "analysis": null,
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "projection_version": "investigation-api-public-v1"
+      }
+    },
+    "integration": {
+      "http_status": 409,
+      "body": {
+        "error_code": "RESULT_UNAVAILABLE",
+        "message": "该调查已终止，没有产生 Gate 结果。",
+        "request_id": "901f9813-c674-4161-a03b-0d5236a3f664",
+        "retryable": false
+      }
+    },
+    "answer": {
+      "http_status": 200,
+      "body": {
+        "schema_version": "answer-envelope-v1",
+        "answer_id": "7dbe63b5-784b-5a36-925c-a4792ca1d0e0",
+        "logical_investigation_id": "5271f2bf-e824-4361-8ef9-fcf5afda04ec",
+        "original_question": "langchain-core 0.3.81 是否命中 CVE-2025-68664 的任意影响区间？",
+        "answer_status": "FAILED",
+        "integration_status": null,
+        "summary": "调查未完成，请查看审计状态。",
+        "key_findings": [],
+        "affected_assets": [],
+        "risk_assessment": null,
+        "recommended_actions": [],
+        "verified_claims": [],
+        "disputed_claims": [],
+        "citations": [],
+        "evidence_observations": [],
+        "evidence_references": [],
+        "warnings": [
+          "PLANNING_FAILED"
+        ],
+        "unresolved_items": [
+          "PLANNING_FAILED"
+        ],
+        "integration_result_id": null,
+        "agent_run_references": [],
+        "accepted_source_run_references": [],
+        "trace_reference": "5271f2bf-e824-4361-8ef9-fcf5afda04ec",
+        "generated_at": "2026-10-13T09:29:41.515169Z",
+        "historical_snapshot": true,
+        "fact_origin": "FROZEN_GATE_CONTEXT",
+        "explanation_provider": "DETERMINISTIC_TEMPLATE"
+      }
+    }
+  }
+}

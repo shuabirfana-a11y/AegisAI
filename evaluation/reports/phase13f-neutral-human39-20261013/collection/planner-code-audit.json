@@ -1,0 +1,3202 @@
+{
+  "purpose": "Read-only error diagnosis, not a scoring bypass",
+  "attempt_issue_counts": {
+    "VERSION_INPUT_REQUIRED": 6,
+    "DAG_OR_BUDGET_INVALID": 1,
+    "ASSET_LOOKUP_REQUIRED": 15,
+    "COMPONENT_SCOPE_MISMATCH": 22,
+    "TOOL_INPUT_INVALID": 20,
+    "TIMEOUT": 1,
+    "QUERY_SCOPE_MISMATCH": 6
+  },
+  "planner_runs": [
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-facts",
+      "planner_run_id": "a26a0a20-71c5-40c2-9791-2822c3dd2354",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 10837.802699999884,
+      "final_issues": [
+        {
+          "code": "VERSION_INPUT_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4871,
+              "total_tokens": 5143,
+              "output_tokens": 272
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "768df94f-ab5f-428a-b691-3aaa026903a6",
+            "request_id": "171226c8-f6c0-403b-9516-4fc31bf2301d",
+            "started_at": "2026-10-13T09:13:21.227763Z",
+            "duration_ms": 5580.483200001254,
+            "finished_at": "2026-10-13T09:13:26.824133Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4895,
+              "total_tokens": 5161,
+              "output_tokens": 266
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "768df94f-ab5f-428a-b691-3aaa026903a6",
+            "request_id": "31facaaa-9cc8-4785-ab02-c0b3a9da5db2",
+            "started_at": "2026-10-13T09:13:26.840899Z",
+            "duration_ms": 5257.31949999863,
+            "finished_at": "2026-10-13T09:13:32.098289Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "4fe9b92b672234904ced3abbfb08f81745c4ef8da8916f60b712e92ed2002572",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-affected",
+      "planner_run_id": "7bbcc74b-58e5-456e-9f96-5f9830cfd904",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17650.76980000049,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "DAG_OR_BUDGET_INVALID",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4968,
+              "total_tokens": 5459,
+              "output_tokens": 491
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "90c4f315-9eca-48b1-8d2c-aa7d3a6ebe9b",
+            "request_id": "38a700c0-815b-44ca-902c-d21f7af979dd",
+            "started_at": "2026-10-13T09:13:32.258855Z",
+            "duration_ms": 8986.414799999693,
+            "finished_at": "2026-10-13T09:13:41.257196Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4996,
+              "total_tokens": 5469,
+              "output_tokens": 473
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "90c4f315-9eca-48b1-8d2c-aa7d3a6ebe9b",
+            "request_id": "5c0cf9d9-045a-4646-9334-dd7b0614c60e",
+            "started_at": "2026-10-13T09:13:41.268550Z",
+            "duration_ms": 8664.355000000796,
+            "finished_at": "2026-10-13T09:13:49.930551Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "d83e320bcd162dd7706d07a0b9951156a2134a0aa36ce37db832dbbcdf1adf25",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-fixed",
+      "planner_run_id": "f303f63b-dc8a-4588-badc-5104c9c60cb9",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17378.15910000063,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4958,
+              "total_tokens": 5421,
+              "output_tokens": 463
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "d0b896ce-33ec-430e-9789-d909ac381d07",
+            "request_id": "7d426130-bed9-4fb0-9684-e6bba697953f",
+            "started_at": "2026-10-13T09:13:50.183499Z",
+            "duration_ms": 8558.807200000956,
+            "finished_at": "2026-10-13T09:13:58.741408Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4983,
+              "total_tokens": 5464,
+              "output_tokens": 481
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "d0b896ce-33ec-430e-9789-d909ac381d07",
+            "request_id": "89b36cf9-c7b8-488b-98b6-65805b7f0158",
+            "started_at": "2026-10-13T09:13:58.753520Z",
+            "duration_ms": 8819.351899999674,
+            "finished_at": "2026-10-13T09:14:07.573275Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "69a42890dc0416189d33833187a33262f2b79a499428b8dc1621acc9ce1cd53d",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "planner_run_id": "aa10a1bd-acb1-4184-8dde-7f1baad98eb6",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 22611.322400000063,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4934,
+              "total_tokens": 5723,
+              "output_tokens": 789
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "efa0e383-9893-4119-a0b8-2fd20760c685",
+            "request_id": "727d1b01-2051-4e01-bb55-2bcddcd21d84",
+            "started_at": "2026-10-13T09:14:07.847137Z",
+            "duration_ms": 13847.221199999694,
+            "finished_at": "2026-10-13T09:14:21.694786Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4965,
+              "total_tokens": 5437,
+              "output_tokens": 472
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "efa0e383-9893-4119-a0b8-2fd20760c685",
+            "request_id": "29925254-4775-4f54-b908-f96d3c195628",
+            "started_at": "2026-10-13T09:14:21.709508Z",
+            "duration_ms": 8764.101200000368,
+            "finished_at": "2026-10-13T09:14:30.473332Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "64a67bce0a04117ecedad00ac705f4a053f3a6b2097db2d6e1376bd1db812f8c",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+      "planner_run_id": "23276204-c9a4-4d10-ba91-772908429b92",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 56909.66929999922,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TIMEOUT",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": {
+              "code": "TIMEOUT",
+              "message": "Model service operation timed out.",
+              "retryable": true
+            },
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": null,
+              "total_tokens": null,
+              "output_tokens": null
+            },
+            "status": "failed",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "aae67303-98fa-48e6-a8fe-c6166dab2f9c",
+            "request_id": "2f343b63-fdff-4408-90c7-6e1462bb4fd9",
+            "started_at": "2026-10-13T09:14:30.647665Z",
+            "duration_ms": 40079.228699998566,
+            "finished_at": "2026-10-13T09:15:10.742125Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4982,
+              "total_tokens": 5929,
+              "output_tokens": 947
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "aae67303-98fa-48e6-a8fe-c6166dab2f9c",
+            "request_id": "4c9ff0c1-ddc9-4bd6-b8d2-828c8442ff74",
+            "started_at": "2026-10-13T09:15:10.771194Z",
+            "duration_ms": 16830.440600000657,
+            "finished_at": "2026-10-13T09:15:27.602783Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "4b95c45881e237fad7e7417f60080991bc43e21750a909647fb8be64c0241c8d",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-commit-candidate",
+      "planner_run_id": "f26af418-cfc8-4604-9745-ac2dbc39b3ad",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 14009.154899998975,
+      "final_issues": [
+        {
+          "code": "VERSION_INPUT_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5057,
+              "total_tokens": 5516,
+              "output_tokens": 459
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "518bfe56-6b83-4de9-afa0-ea8c38d9cf00",
+            "request_id": "c784a143-01ac-453f-ab24-8f8bbba1dee7",
+            "started_at": "2026-10-13T09:15:27.788820Z",
+            "duration_ms": 8618.148100000326,
+            "finished_at": "2026-10-13T09:15:36.412154Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5087,
+              "total_tokens": 5349,
+              "output_tokens": 262
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "518bfe56-6b83-4de9-afa0-ea8c38d9cf00",
+            "request_id": "72ddce01-d72c-47ba-82e7-8282321084b8",
+            "started_at": "2026-10-13T09:15:36.422223Z",
+            "duration_ms": 5391.0067999986495,
+            "finished_at": "2026-10-13T09:15:41.814223Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "719fa4f2654c88f3f1a7a63dc16b1dbc66b39bfc9b675afcbd8f4136b0f52883",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "planner_run_id": "8d38f1ba-3c3a-4347-a8b7-e2e265456856",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 23444.101000000956,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[2]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4998,
+              "total_tokens": 5630,
+              "output_tokens": 632
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "6270aa4c-1649-4747-a66c-53de98148ad7",
+            "request_id": "8bae5883-626c-4df7-afd1-8f396d4c4c53",
+            "started_at": "2026-10-13T09:15:42.199061Z",
+            "duration_ms": 11382.704800000283,
+            "finished_at": "2026-10-13T09:15:53.582878Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5028,
+              "total_tokens": 5697,
+              "output_tokens": 669
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "6270aa4c-1649-4747-a66c-53de98148ad7",
+            "request_id": "508244f0-dccc-4b28-997f-100ee4b561b1",
+            "started_at": "2026-10-13T09:15:53.595213Z",
+            "duration_ms": 12061.396200000672,
+            "finished_at": "2026-10-13T09:16:05.657781Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "2d48228c89f991850e39c3840b1fae39b878a6271d20ba8282c18ddc50a0bc96",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-risk-fixed",
+      "planner_run_id": "42da27bf-63b4-4dc2-bb28-e00528a328d7",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 38630.91620000341,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4998,
+              "total_tokens": 6199,
+              "output_tokens": 1201
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b8a16607-6684-435a-a560-dfc0a38ff3de",
+            "request_id": "37e3925e-1b1c-4367-b0aa-e6f41068e569",
+            "started_at": "2026-10-13T09:16:06.034609Z",
+            "duration_ms": 20758.95170000149,
+            "finished_at": "2026-10-13T09:16:26.793835Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5028,
+              "total_tokens": 6043,
+              "output_tokens": 1015
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b8a16607-6684-435a-a560-dfc0a38ff3de",
+            "request_id": "9251a095-03ee-4c77-99f8-25dd1cfd552f",
+            "started_at": "2026-10-13T09:16:26.803955Z",
+            "duration_ms": 17871.964500001923,
+            "finished_at": "2026-10-13T09:16:44.676668Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "7fbb3e7562a997cb9b7664159c6ece90e78f164b29df1e4eeeef709207dd8f4d",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-affected",
+      "planner_run_id": "77d9146f-c103-4e0f-9d46-d8b09216f26a",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 18078.436699997837,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4969,
+              "total_tokens": 5445,
+              "output_tokens": 476
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "ce4245f9-d4c6-415d-96f4-ae5955660249",
+            "request_id": "fcf8c67a-8cce-40e7-9db8-d96fe1c85d0d",
+            "started_at": "2026-10-13T09:16:44.956571Z",
+            "duration_ms": 8958.674199999223,
+            "finished_at": "2026-10-13T09:16:53.914852Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4994,
+              "total_tokens": 5485,
+              "output_tokens": 491
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "ce4245f9-d4c6-415d-96f4-ae5955660249",
+            "request_id": "7c56afe5-1f1c-48a8-a8cc-751336328c7d",
+            "started_at": "2026-10-13T09:16:53.922211Z",
+            "duration_ms": 9119.762499998615,
+            "finished_at": "2026-10-13T09:17:03.045520Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "3675d7d47d76202cf3edf343576bc618a4dd95a5c3a4718eb7234b8331c77431",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-fixed",
+      "planner_run_id": "f4bb764e-998f-4d67-9b1f-7af48821ab00",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17854.404700003215,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4967,
+              "total_tokens": 5445,
+              "output_tokens": 478
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b1a14252-df30-4955-b51f-5e412eecc7a5",
+            "request_id": "bc5623a5-34f4-4721-b9a4-618ffa1b0c9a",
+            "started_at": "2026-10-13T09:17:03.260970Z",
+            "duration_ms": 8841.491300001508,
+            "finished_at": "2026-10-13T09:17:12.103899Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4992,
+              "total_tokens": 5477,
+              "output_tokens": 485
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b1a14252-df30-4955-b51f-5e412eecc7a5",
+            "request_id": "6f6e51f3-a055-45a1-8deb-f8d090f0f82f",
+            "started_at": "2026-10-13T09:17:12.111046Z",
+            "duration_ms": 9012.913400001707,
+            "finished_at": "2026-10-13T09:17:21.129709Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "1d96329a823823fd3f191d18a222421f6ff48c4a9588bbc5c382b6ba938a6f7b",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-unknown",
+      "planner_run_id": "f55da810-34b5-4468-9c1a-7428e2ede76a",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 19368.322099999205,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4933,
+              "total_tokens": 5540,
+              "output_tokens": 607
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "eab49923-8dcd-4052-87bb-1debf153374a",
+            "request_id": "a3206867-51c1-4990-a2e6-1c7ec0384442",
+            "started_at": "2026-10-13T09:17:21.456261Z",
+            "duration_ms": 10901.54949999851,
+            "finished_at": "2026-10-13T09:17:32.357927Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4963,
+              "total_tokens": 5417,
+              "output_tokens": 454
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "eab49923-8dcd-4052-87bb-1debf153374a",
+            "request_id": "297b9cc3-3df0-4716-8cad-21c56ed88720",
+            "started_at": "2026-10-13T09:17:32.368612Z",
+            "duration_ms": 8466.772600000695,
+            "finished_at": "2026-10-13T09:17:40.833530Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "3a98f89cbd10dc2d49aa5abc01bbf333f688d867353cd766738e4eced9404a43",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-release-and-poc",
+      "planner_run_id": "bf1f2651-f829-4471-ab61-b687f9c3f0bf",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 19721.43109999888,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4959,
+              "total_tokens": 5402,
+              "output_tokens": 443
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b514818f-3264-4c37-8628-7a050a18a507",
+            "request_id": "c8244ec2-1e6a-4374-b32d-dc26502bea50",
+            "started_at": "2026-10-13T09:17:41.202283Z",
+            "duration_ms": 8266.834400001244,
+            "finished_at": "2026-10-13T09:17:49.469759Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4989,
+              "total_tokens": 5621,
+              "output_tokens": 632
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b514818f-3264-4c37-8628-7a050a18a507",
+            "request_id": "701c485d-901a-45af-a403-50f0142e0fcd",
+            "started_at": "2026-10-13T09:17:49.477957Z",
+            "duration_ms": 11454.596699997637,
+            "finished_at": "2026-10-13T09:18:00.935412Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "450a60fc3293c1bff4c7a0f231e94e3442015d48ca52ff8980caedcdc8ce68df",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-commit-candidate",
+      "planner_run_id": "aa86c7ea-da02-4137-a5c3-b4b0168f24f5",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 16676.353499999095,
+      "final_issues": [
+        {
+          "code": "QUERY_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5057,
+              "total_tokens": 5490,
+              "output_tokens": 433
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "f97e45e1-3aa6-4947-bbba-350c1d9677bd",
+            "request_id": "e758a969-359e-4c91-ad13-b86d3b5b2fb8",
+            "started_at": "2026-10-13T09:18:01.161560Z",
+            "duration_ms": 8147.333199998684,
+            "finished_at": "2026-10-13T09:18:09.308711Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5087,
+              "total_tokens": 5540,
+              "output_tokens": 453
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "f97e45e1-3aa6-4947-bbba-350c1d9677bd",
+            "request_id": "5ad2182f-f7fd-4273-8786-d17293ecc70e",
+            "started_at": "2026-10-13T09:18:09.319312Z",
+            "duration_ms": 8529.020300000411,
+            "finished_at": "2026-10-13T09:18:17.848267Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "fe32462f313525d295c70ebbe7d2aaf0d02d7f35cfae900d3ebae98144130067",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-risk-affected",
+      "planner_run_id": "9c011703-7fbc-4222-a8bb-6dee86c1b51f",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 33146.38300000297,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4988,
+              "total_tokens": 6196,
+              "output_tokens": 1208
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "719bac4a-9ff6-40bf-a932-c9eb63871c89",
+            "request_id": "12cef202-9ce3-4638-b427-3923e157cfab",
+            "started_at": "2026-10-13T09:18:18.135897Z",
+            "duration_ms": 20939.820400002645,
+            "finished_at": "2026-10-13T09:18:39.082381Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5019,
+              "total_tokens": 5685,
+              "output_tokens": 666
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "719bac4a-9ff6-40bf-a932-c9eb63871c89",
+            "request_id": "d377b3d4-49a9-4f3a-808a-dd788083ec70",
+            "started_at": "2026-10-13T09:18:39.086744Z",
+            "duration_ms": 12206.562600000325,
+            "finished_at": "2026-10-13T09:18:51.299859Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "42a650a3b89b3dfdf0932486f54ec997c89023d6c350f0cadf0ead0c333f6ce5",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-risk-fixed",
+      "planner_run_id": "50825e09-aebb-4ce1-ba52-5535518aeef5",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 23704.111300001387,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4990,
+              "total_tokens": 5664,
+              "output_tokens": 674
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "2e83456c-ed29-4907-9ba1-addce06eca50",
+            "request_id": "c68e9cd3-ed1c-4a19-9ff9-9ebfdda97b22",
+            "started_at": "2026-10-13T09:18:51.477419Z",
+            "duration_ms": 12018.545000002632,
+            "finished_at": "2026-10-13T09:19:03.501842Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5021,
+              "total_tokens": 5668,
+              "output_tokens": 647
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "2e83456c-ed29-4907-9ba1-addce06eca50",
+            "request_id": "d4c1798e-099f-49b0-821f-c10b511665c5",
+            "started_at": "2026-10-13T09:19:03.514018Z",
+            "duration_ms": 11685.566299998754,
+            "finished_at": "2026-10-13T09:19:15.196412Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "746413b68b7ef0f1f3232b3e728168f3ce3d7523c60725ca9339c5fb24118369",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-facts",
+      "planner_run_id": "e5f5a626-b5ed-49b6-acbe-2a715b5f3161",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 10750.51539999913,
+      "final_issues": [
+        {
+          "code": "VERSION_INPUT_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4875,
+              "total_tokens": 5147,
+              "output_tokens": 272
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "816c1cc6-deb7-465f-b649-c14c59452e02",
+            "request_id": "02ff394c-ddc0-41b5-9805-38e0fa7b51ca",
+            "started_at": "2026-10-13T09:19:15.612828Z",
+            "duration_ms": 5451.168100000359,
+            "finished_at": "2026-10-13T09:19:21.063759Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4899,
+              "total_tokens": 5163,
+              "output_tokens": 264
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "816c1cc6-deb7-465f-b649-c14c59452e02",
+            "request_id": "94269543-2c89-45a0-afad-465927d1a44d",
+            "started_at": "2026-10-13T09:19:21.072596Z",
+            "duration_ms": 5299.347299998772,
+            "finished_at": "2026-10-13T09:19:26.373526Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "a0ef66cb2cd1309a4cdb6a595e3811818449ddbe05fdaa3ec0c6fdef3da078f8",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-affected",
+      "planner_run_id": "e41487c9-08b8-4acc-a557-43ec2e08fd50",
+      "validation_status": "VALIDATED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 11086.384099999123,
+      "final_issues": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4970,
+              "total_tokens": 5586,
+              "output_tokens": 616
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "8c95353b-7b24-4b6e-9945-12fe0f99b7ad",
+            "request_id": "e707e2c3-d196-4408-8002-324824c2c754",
+            "started_at": "2026-10-13T09:19:26.608141Z",
+            "duration_ms": 11086.384099999123,
+            "finished_at": "2026-10-13T09:19:37.701195Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "7164c219c8976ff358d7ab83aa8a951db028547be44bc1f1282fc08aac195cc5",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-fixed",
+      "planner_run_id": "48ca7bc8-5a56-4d15-95a6-b1acb7b6de36",
+      "validation_status": "VALIDATED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 19296.92270000305,
+      "final_issues": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4968,
+              "total_tokens": 5413,
+              "output_tokens": 445
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b03841ff-94af-4fb6-92a3-cb08a34126e5",
+            "request_id": "5c9ca0a8-37ef-4b07-8865-e4f45edc249b",
+            "started_at": "2026-10-13T09:19:42.665371Z",
+            "duration_ms": 8287.985700000718,
+            "finished_at": "2026-10-13T09:19:50.960721Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4993,
+              "total_tokens": 5601,
+              "output_tokens": 608
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "b03841ff-94af-4fb6-92a3-cb08a34126e5",
+            "request_id": "c50b35b7-0dee-4000-a667-8eea2f5608f9",
+            "started_at": "2026-10-13T09:19:50.968158Z",
+            "duration_ms": 11008.937000002334,
+            "finished_at": "2026-10-13T09:20:01.983312Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "27edbdcd9f2baae5fd0104c4461d60a866d3783aac85b93341d9688d5d55db90",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-unknown",
+      "planner_run_id": "972514e7-f355-4b8c-b550-a70a66ab428e",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17341.38680000615,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4926,
+              "total_tokens": 5399,
+              "output_tokens": 473
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "0cfc63e2-86e4-4d32-aa4b-c604818db180",
+            "request_id": "c0268f09-623d-4f56-a43e-15030ac69845",
+            "started_at": "2026-10-13T09:20:06.469306Z",
+            "duration_ms": 8738.744600002974,
+            "finished_at": "2026-10-13T09:20:15.207833Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4957,
+              "total_tokens": 5420,
+              "output_tokens": 463
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "0cfc63e2-86e4-4d32-aa4b-c604818db180",
+            "request_id": "95743efd-a066-4802-9324-88888d7b8701",
+            "started_at": "2026-10-13T09:20:15.220229Z",
+            "duration_ms": 8602.642200003174,
+            "finished_at": "2026-10-13T09:20:23.823085Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "3b8a007e45acfde99ec615f154254406fca6ae90977a47dc4a214cd2c97c0fd7",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-release-and-poc",
+      "planner_run_id": "27db314e-08d3-4512-9377-8ab4ae5e93f0",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 25456.016799998906,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4963,
+              "total_tokens": 5652,
+              "output_tokens": 689
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "f5acdb3a-8613-4535-879e-efcc4b30b2ae",
+            "request_id": "e1f6dd01-d568-41a0-bed3-a8b51d2e1321",
+            "started_at": "2026-10-13T09:20:24.054592Z",
+            "duration_ms": 12290.238800000225,
+            "finished_at": "2026-10-13T09:20:36.357569Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4994,
+              "total_tokens": 5732,
+              "output_tokens": 738
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "f5acdb3a-8613-4535-879e-efcc4b30b2ae",
+            "request_id": "5a1215e0-d979-4d11-b058-2ca8580fa333",
+            "started_at": "2026-10-13T09:20:36.370451Z",
+            "duration_ms": 13165.777999998681,
+            "finished_at": "2026-10-13T09:20:49.536090Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "9d7077baf8bb2aad683834e18531890a08a29a5714ae8877b6b9e6a8a2d318e5",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-commit-candidate",
+      "planner_run_id": "99879121-a932-4f1f-8299-bddbdb8dfc79",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17125.1454000012,
+      "final_issues": [
+        {
+          "code": "QUERY_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5061,
+              "total_tokens": 5530,
+              "output_tokens": 469
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "77cd3247-8984-4377-b178-8ddf6b96fcf9",
+            "request_id": "a9d29464-afcb-4cd0-8465-0207fc8c39fd",
+            "started_at": "2026-10-13T09:20:49.679637Z",
+            "duration_ms": 8797.792000001209,
+            "finished_at": "2026-10-13T09:20:58.483691Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5091,
+              "total_tokens": 5528,
+              "output_tokens": 437
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "77cd3247-8984-4377-b178-8ddf6b96fcf9",
+            "request_id": "70a68f9c-0e8c-4338-8938-34e6342a01e0",
+            "started_at": "2026-10-13T09:20:58.493294Z",
+            "duration_ms": 8327.353399999993,
+            "finished_at": "2026-10-13T09:21:06.823150Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "5b20dcd3355a6f01b5c837a3b210cf21f334e974c4cd645425d4638d24bc3777",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-risk-affected",
+      "planner_run_id": "07a87db9-03bf-42af-9484-e054b46c11f4",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 36347.71929999988,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5007,
+              "total_tokens": 6044,
+              "output_tokens": 1037
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "2fc4e23f-45a6-400c-95d7-862875456012",
+            "request_id": "522ae898-ebe5-411c-b418-9262e4bda454",
+            "started_at": "2026-10-13T09:21:06.999978Z",
+            "duration_ms": 18116.89739999929,
+            "finished_at": "2026-10-13T09:21:25.117260Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5038,
+              "total_tokens": 6069,
+              "output_tokens": 1031
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "2fc4e23f-45a6-400c-95d7-862875456012",
+            "request_id": "154e1981-28e8-4b4f-84bf-32c550ba9959",
+            "started_at": "2026-10-13T09:21:25.129229Z",
+            "duration_ms": 18230.821900000592,
+            "finished_at": "2026-10-13T09:21:43.360457Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "33d9a82ff602cb0f25cfb226e498cf0bd6fa1ff2916476064b9992e1aba53785",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-risk-fixed",
+      "planner_run_id": "0ccd9d68-6416-47b3-9ebf-dd50f2e861e6",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 29717.616000001726,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5000,
+              "total_tokens": 5640,
+              "output_tokens": 640
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "17d873a0-edf6-4b51-b02f-8e80a2032541",
+            "request_id": "c1b496dd-9343-4965-9d91-f83b4e85415d",
+            "started_at": "2026-10-13T09:21:43.568624Z",
+            "duration_ms": 11808.700800000224,
+            "finished_at": "2026-10-13T09:21:55.377821Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5030,
+              "total_tokens": 6057,
+              "output_tokens": 1027
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "17d873a0-edf6-4b51-b02f-8e80a2032541",
+            "request_id": "7a80472e-423f-450e-a3a2-1f82dd078882",
+            "started_at": "2026-10-13T09:21:55.388196Z",
+            "duration_ms": 17908.915200001502,
+            "finished_at": "2026-10-13T09:22:13.297658Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "0be6af97edfda289779f0446ad87a821031909e040fc1916b2b703fc0a6685eb",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-affected",
+      "planner_run_id": "e72e0ba0-66f7-4f19-b09d-122246f01e8c",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 33660.28799999913,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4993,
+              "total_tokens": 6020,
+              "output_tokens": 1027
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "db7977d6-708a-489e-85c8-25b64a5a047c",
+            "request_id": "e3dd5f18-a92a-4311-8fea-834025eceaae",
+            "started_at": "2026-10-13T09:22:13.605540Z",
+            "duration_ms": 18150.965899996663,
+            "finished_at": "2026-10-13T09:22:31.756554Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5018,
+              "total_tokens": 5898,
+              "output_tokens": 880
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "db7977d6-708a-489e-85c8-25b64a5a047c",
+            "request_id": "c63b8ac0-fba4-4a51-9d0d-0ed3ca693e94",
+            "started_at": "2026-10-13T09:22:31.760728Z",
+            "duration_ms": 15509.322100002464,
+            "finished_at": "2026-10-13T09:22:47.278608Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "5df945fd237172fbd0d6d714fc6f6ad936ccfed3d878ecdcddeabd0cc1941592",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-fixed",
+      "planner_run_id": "4771a925-57d7-4b57-985b-dea549aac694",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 29155.962900000304,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[5]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4991,
+              "total_tokens": 6126,
+              "output_tokens": 1135
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "22ceb3c6-f93f-4c9c-8e69-8816fc0991be",
+            "request_id": "ab95dbd1-7424-4565-a70a-c500203f6605",
+            "started_at": "2026-10-13T09:22:47.632892Z",
+            "duration_ms": 19774.64770000006,
+            "finished_at": "2026-10-13T09:23:07.422088Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5021,
+              "total_tokens": 5515,
+              "output_tokens": 494
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "22ceb3c6-f93f-4c9c-8e69-8816fc0991be",
+            "request_id": "57465dab-05ed-45fc-a1a5-b4ca4ccc9c07",
+            "started_at": "2026-10-13T09:23:07.436932Z",
+            "duration_ms": 9381.315200000245,
+            "finished_at": "2026-10-13T09:23:16.819274Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "55576edcdda97de8607eea1187fb936a69b1f00d0a63edf9698e33f70644418e",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-unknown",
+      "planner_run_id": "c66bf427-6e71-428a-b9a3-6c3109b5a7c8",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 31353.36019999886,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4955,
+              "total_tokens": 5849,
+              "output_tokens": 894
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "e663e848-6f5b-4ad1-a84d-8ce000361229",
+            "request_id": "f0bd7af8-c5db-478f-a850-4363e01b02d0",
+            "started_at": "2026-10-13T09:23:17.210508Z",
+            "duration_ms": 15703.467899998941,
+            "finished_at": "2026-10-13T09:23:32.929221Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4985,
+              "total_tokens": 5874,
+              "output_tokens": 889
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "e663e848-6f5b-4ad1-a84d-8ce000361229",
+            "request_id": "3e710cf3-8138-465f-a96d-c8f471ff38c3",
+            "started_at": "2026-10-13T09:23:32.940460Z",
+            "duration_ms": 15649.89229999992,
+            "finished_at": "2026-10-13T09:23:48.590628Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "eb56b89347037cbc4992c364030b44a9bb930b9755f3b1b9e840776b065df4c6",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-release-and-poc",
+      "planner_run_id": "49ac4352-5dc6-4af5-8f61-becb85f70072",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 27082.030300000042,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4971,
+              "total_tokens": 5434,
+              "output_tokens": 463
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "63c30b7a-167d-4383-ae73-f2d3d10f6419",
+            "request_id": "d4fe435e-6ef5-4b4c-b86d-b5f3cf258ce6",
+            "started_at": "2026-10-13T09:23:48.795302Z",
+            "duration_ms": 8639.947600000596,
+            "finished_at": "2026-10-13T09:23:57.435063Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5001,
+              "total_tokens": 6062,
+              "output_tokens": 1061
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "63c30b7a-167d-4383-ae73-f2d3d10f6419",
+            "request_id": "857e140e-7ed5-4faf-ad29-6472560db64f",
+            "started_at": "2026-10-13T09:23:57.441695Z",
+            "duration_ms": 18442.082699999446,
+            "finished_at": "2026-10-13T09:24:15.888162Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "8cb4b4fde211472d2f567ff1264880252de6bdf8ddd48dcf7938136862da13e1",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-commit-candidate",
+      "planner_run_id": "124e6212-25f9-41a1-b234-341b6759249c",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 15178.062600003614,
+      "final_issues": [
+        {
+          "code": "VERSION_INPUT_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5069,
+              "total_tokens": 5575,
+              "output_tokens": 506
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "193ef98b-9cef-41f9-863d-f2056feb6dad",
+            "request_id": "db8440b4-bf33-4633-8bee-79117a4e0360",
+            "started_at": "2026-10-13T09:24:16.193768Z",
+            "duration_ms": 9596.753400001035,
+            "finished_at": "2026-10-13T09:24:25.790639Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5099,
+              "total_tokens": 5371,
+              "output_tokens": 272
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "193ef98b-9cef-41f9-863d-f2056feb6dad",
+            "request_id": "c01649f9-6760-4a12-b162-7bb1aba1d6c0",
+            "started_at": "2026-10-13T09:24:25.804466Z",
+            "duration_ms": 5581.309200002579,
+            "finished_at": "2026-10-13T09:24:31.388516Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "ec75b599e2dbed582a2997c68bca8ed9bf186a4b1eee0504aa399a843bbec739",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+      "planner_run_id": "ed5a6d21-2255-4007-9870-8ae945b65304",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 33518.25589999862,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5002,
+              "total_tokens": 5876,
+              "output_tokens": 874
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "e8952c40-df36-4264-83a0-f418f3a729b6",
+            "request_id": "eb0d54fe-c315-4514-8a3c-166c1ff5375e",
+            "started_at": "2026-10-13T09:24:31.637316Z",
+            "duration_ms": 15437.067200000456,
+            "finished_at": "2026-10-13T09:24:47.075413Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5032,
+              "total_tokens": 6069,
+              "output_tokens": 1037
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "e8952c40-df36-4264-83a0-f418f3a729b6",
+            "request_id": "a42fd676-0fed-41de-828d-3fa61365e48a",
+            "started_at": "2026-10-13T09:24:47.087248Z",
+            "duration_ms": 18081.188699998165,
+            "finished_at": "2026-10-13T09:25:05.168817Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "ae7e0d8fa7a0ed0dce69ffc7302084c0446c338fab5365027c7d92a91a724245",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-risk-fixed",
+      "planner_run_id": "6142ddb8-4b1b-492a-acff-07be8fe1dce6",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 39050.62170000383,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4998,
+              "total_tokens": 6212,
+              "output_tokens": 1214
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "97998264-96bb-4fa1-91d7-1552cd57ae0a",
+            "request_id": "76ee5589-3370-4c9e-9633-0d799afde7fc",
+            "started_at": "2026-10-13T09:25:05.408160Z",
+            "duration_ms": 21402.12750000137,
+            "finished_at": "2026-10-13T09:25:26.815247Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5029,
+              "total_tokens": 6022,
+              "output_tokens": 993
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "97998264-96bb-4fa1-91d7-1552cd57ae0a",
+            "request_id": "fa402052-eabe-4eea-ae3e-771667043d59",
+            "started_at": "2026-10-13T09:25:26.821408Z",
+            "duration_ms": 17648.49420000246,
+            "finished_at": "2026-10-13T09:25:44.475206Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "09f463b15f84dcb2522417490e41d66b0195a3f5f8187830eae0cb2b8b1cdf43",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-affected",
+      "planner_run_id": "917936c3-4c02-4406-bb08-f956610401d1",
+      "validation_status": "VALIDATED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 11509.321500001533,
+      "final_issues": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4989,
+              "total_tokens": 5627,
+              "output_tokens": 638
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "ecf7c373-1a8b-49c0-8046-6c25728406d3",
+            "request_id": "349915a9-c4fa-4f0a-82ed-24aab03fac8f",
+            "started_at": "2026-10-13T09:25:44.835839Z",
+            "duration_ms": 11509.321500001533,
+            "finished_at": "2026-10-13T09:25:56.345026Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "d781653a734f2ad4b90a1c6ef8deec9696653faadcdde8fb06ded5be4f874a54",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-fixed",
+      "planner_run_id": "2e22c1b4-de5b-4359-a37a-0b8b958351da",
+      "validation_status": "VALIDATED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 11168.893999998545,
+      "final_issues": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4987,
+              "total_tokens": 5599,
+              "output_tokens": 612
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "40184d04-cc11-4a2d-afc3-ef2b4762b2be",
+            "request_id": "1d7a9d20-0e27-46b6-9d3f-1c50e43db673",
+            "started_at": "2026-10-13T09:26:11.961822Z",
+            "duration_ms": 11168.893999998545,
+            "finished_at": "2026-10-13T09:26:23.139444Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "a057ac0a688961bae58c337cbe8915bf71159013b4b98c437f64a7cfe86f0776",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-unknown",
+      "planner_run_id": "388e9477-c083-4867-84c4-0671da766a9f",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 25828.630600000906,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4950,
+              "total_tokens": 5929,
+              "output_tokens": 979
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "0c0ded38-5be4-43b1-98d0-39c99b3e153c",
+            "request_id": "7cda737d-0a9f-4e6d-8175-bfd169d76c64",
+            "started_at": "2026-10-13T09:26:37.735266Z",
+            "duration_ms": 17184.146100000362,
+            "finished_at": "2026-10-13T09:26:54.919719Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4981,
+              "total_tokens": 5448,
+              "output_tokens": 467
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "0c0ded38-5be4-43b1-98d0-39c99b3e153c",
+            "request_id": "9af030e5-7134-4986-a41a-22f3fdd55295",
+            "started_at": "2026-10-13T09:26:54.930080Z",
+            "duration_ms": 8644.484500000544,
+            "finished_at": "2026-10-13T09:27:03.575611Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "e5d2e7ea24ea766aa013f436c388f88d4941d9c0460d61b7a9cc7faeaecd8bcb",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-release-and-poc",
+      "planner_run_id": "9323c51b-a1d2-476b-be80-4eaeae722037",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 34604.5643000034,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4970,
+              "total_tokens": 5958,
+              "output_tokens": 988
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "c184fd47-9930-4420-83ad-df6d2e3388c8",
+            "request_id": "3c45da1b-5776-4c4f-870a-fee9532bc4c3",
+            "started_at": "2026-10-13T09:27:03.828196Z",
+            "duration_ms": 17246.392700002616,
+            "finished_at": "2026-10-13T09:27:21.074699Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5001,
+              "total_tokens": 5991,
+              "output_tokens": 990
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "c184fd47-9930-4420-83ad-df6d2e3388c8",
+            "request_id": "8b3dfa7c-96ed-4706-bed0-5de07b91da72",
+            "started_at": "2026-10-13T09:27:21.079243Z",
+            "duration_ms": 17358.171600000787,
+            "finished_at": "2026-10-13T09:27:38.444167Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "18eee5cd139ca2f25e9c67bad95ac5a6d6b0e47bb1b3c296ddfbb7e7db815e9a",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-commit-candidate",
+      "planner_run_id": "efe6eed2-5e9d-4fd0-b0d7-24bb00d64b77",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 18302.619099995354,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5068,
+              "total_tokens": 5568,
+              "output_tokens": 500
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "1f3e54ec-72e6-45bc-bbe3-05deac4c3a18",
+            "request_id": "98f08e00-fd6a-4da0-a9c0-0be0e7183bad",
+            "started_at": "2026-10-13T09:27:38.790442Z",
+            "duration_ms": 9266.75129999785,
+            "finished_at": "2026-10-13T09:27:48.058440Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5099,
+              "total_tokens": 5584,
+              "output_tokens": 485
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "1f3e54ec-72e6-45bc-bbe3-05deac4c3a18",
+            "request_id": "cdb18a5b-82a3-4725-bcd0-97aaeaad4064",
+            "started_at": "2026-10-13T09:27:48.069437Z",
+            "duration_ms": 9035.867799997504,
+            "finished_at": "2026-10-13T09:27:57.104885Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "b5d8b95809b8b83b6870334b125d9fd4d4a5dbe82dc924c9fe55d0a2d203efee",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-affected",
+      "planner_run_id": "b5578e4a-6299-484d-a852-57a98ae809cd",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 35160.87939999852,
+      "final_issues": [
+        {
+          "code": "COMPONENT_SCOPE_MISMATCH",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5002,
+              "total_tokens": 5855,
+              "output_tokens": 853
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "a3a10992-4878-434d-a1c9-ca773053d6d5",
+            "request_id": "7a331173-9909-4349-a009-129caedd0348",
+            "started_at": "2026-10-13T09:27:57.363809Z",
+            "duration_ms": 15056.662599999981,
+            "finished_at": "2026-10-13T09:28:12.422439Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5033,
+              "total_tokens": 6188,
+              "output_tokens": 1155
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "a3a10992-4878-434d-a1c9-ca773053d6d5",
+            "request_id": "e2603046-7ff7-48de-83b9-534f0c5aad08",
+            "started_at": "2026-10-13T09:28:12.437882Z",
+            "duration_ms": 20104.21679999854,
+            "finished_at": "2026-10-13T09:28:32.542466Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "af3c4c1aff4edc4a2879257a9dee7330882321fb3581b9f55152264a44081564",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-fixed",
+      "planner_run_id": "e1d83548-1d25-4b0f-ba1d-a96409c1211d",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 31748.26419999954,
+      "final_issues": [
+        {
+          "code": "TOOL_INPUT_INVALID",
+          "path": "$.tasks[1]"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "COMPONENT_SCOPE_MISMATCH",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5009,
+              "total_tokens": 6036,
+              "output_tokens": 1027
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "72ab29d0-676c-4db6-9b80-5828c8e36474",
+            "request_id": "e1be4cb9-a3d2-4303-9a92-9b31971f76fa",
+            "started_at": "2026-10-13T09:28:32.856287Z",
+            "duration_ms": 19242.776900002355,
+            "finished_at": "2026-10-13T09:28:52.099361Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "TOOL_INPUT_INVALID",
+              "path": "$.tasks[1]"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5040,
+              "total_tokens": 5721,
+              "output_tokens": 681
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "72ab29d0-676c-4db6-9b80-5828c8e36474",
+            "request_id": "cc696a64-fa82-4308-919a-f00c1acefad6",
+            "started_at": "2026-10-13T09:28:52.110840Z",
+            "duration_ms": 12505.487299997185,
+            "finished_at": "2026-10-13T09:29:04.616572Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "deb4a96183ab9d1a38fe851c8829b1ed4b34e8e0e98bc960b9b4f851d3f2a6d1",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-gap",
+      "planner_run_id": "6216d486-d277-4fc6-b361-6646d497b73c",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 17846.828699999605,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5008,
+              "total_tokens": 5480,
+              "output_tokens": 472
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "874ae339-b4bf-4d94-a5b0-969dd02c2ea5",
+            "request_id": "43c4163c-9e49-44b0-a5b7-d9a380a70d08",
+            "started_at": "2026-10-13T09:29:04.979757Z",
+            "duration_ms": 8817.940799999633,
+            "finished_at": "2026-10-13T09:29:13.797366Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5033,
+              "total_tokens": 5521,
+              "output_tokens": 488
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "874ae339-b4bf-4d94-a5b0-969dd02c2ea5",
+            "request_id": "48bbcca8-84d4-43b4-aca8-9fcac1ce1f4d",
+            "started_at": "2026-10-13T09:29:13.805398Z",
+            "duration_ms": 9028.887899999972,
+            "finished_at": "2026-10-13T09:29:22.837215Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "24521f047bc53a6bd8ab9276c8a7d0d8b390170510f07ec629417ff54ef138c8",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-older-fix",
+      "planner_run_id": "543e24e2-6bc1-406c-85c9-17e3b30687cf",
+      "validation_status": "PLANNING_FAILED",
+      "prompt_version": "investigation-plan-v4",
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "latency_ms": 18281.11159999753,
+      "final_issues": [
+        {
+          "code": "ASSET_LOOKUP_REQUIRED",
+          "path": "$"
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5011,
+              "total_tokens": 5502,
+              "output_tokens": 491
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "cbf25e74-7b46-43bb-9b4b-9d74fa54d65d",
+            "request_id": "2365bf8a-9784-4787-87a4-294240ddb63e",
+            "started_at": "2026-10-13T09:29:23.187572Z",
+            "duration_ms": 9095.544299998437,
+            "finished_at": "2026-10-13T09:29:32.287457Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "attempt_index": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "ASSET_LOOKUP_REQUIRED",
+              "path": "$"
+            }
+          ],
+          "call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5036,
+              "total_tokens": 5528,
+              "output_tokens": 492
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "cbf25e74-7b46-43bb-9b4b-9d74fa54d65d",
+            "request_id": "8b381f0b-b65e-494d-9453-ad6b4552d6d4",
+            "started_at": "2026-10-13T09:29:32.294865Z",
+            "duration_ms": 9185.567299999093,
+            "finished_at": "2026-10-13T09:29:41.484206Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ],
+      "raw_private_diagnostic_exported": false,
+      "input_context_sha256": "7fea62118ff85c28de20de91edacd8e1fb57c803b06a9a5c042ff25c911f365e",
+      "ground_truth_and_question_id_not_in_planner_context": true
+    }
+  ],
+  "source_raw_documents_unchanged": true,
+  "neutral_asset_metadata_and_planner_input_isolation": "PASS"
+}
