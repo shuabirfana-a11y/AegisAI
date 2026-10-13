@@ -18,7 +18,13 @@ def input_values(question):
     assets=context.get('assets',[])
     if not isinstance(assets,list) or len(assets)>1:raise ValueError('MULTI_ASSET_SCOPE_UNSUPPORTED')
     if assets and not isinstance(assets[0],dict):raise ValueError('INVALID_ASSET_INPUT')
-    return {**context,**(assets[0] if assets else {})}
+    asset=context.get('asset')
+    if asset is not None and not isinstance(asset,dict):raise ValueError('INVALID_ASSET_INPUT')
+    if asset is not None and assets:raise ValueError('AMBIGUOUS_ASSET_INPUT')
+    nested=asset if asset is not None else (assets[0] if assets else {})
+    if any(key in context and context[key]!=value for key,value in nested.items()):
+        raise ValueError('INPUT_CONTEXT_CONFLICT')
+    return {**context,**nested}
 
 
 def build_request(question,binding=None):
@@ -47,8 +53,11 @@ def build_request(question,binding=None):
     for key,value in supplied.items():
         if key not in component or component[key]!=value:
             raise ValueError('COMPONENT_BINDING_MISMATCH')
-    if component or supplied:scope['component']={**component,**supplied}
     needs_asset=question.category in {'version','risk'} or (question.category=='multihop' and bool(component or assets or scope.get('asset_id')))
+    # An exact-target overview needs no deployed component. Passing its hint as
+    # AssetScope.component makes the existing Planner require version input.
+    # Keep component-only search requests without a target unchanged.
+    if (needs_asset or not target) and (component or supplied):scope['component']={**component,**supplied}
     if needs_asset and not (scope.get('asset_id') and scope.get('component_id')):
         raise ValueError('ASSET_BINDING_REQUIRED')
     raw={'user_query':question.question,'asset_scope':scope,

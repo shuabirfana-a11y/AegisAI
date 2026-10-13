@@ -1,0 +1,19 @@
+{
+  "classified": 39,
+  "categories": {
+    "A_PLANNER_VALIDATION_FAILED": 35,
+    "A_INCOMPLETE_ARTIFACT_CHAIN": 2,
+    "B_STRUCTURED_VALUE_MISMATCH": 2
+  },
+  "adapter_issue_counts": {
+    "OVERVIEW_COMPONENT_TRIGGERS_ASSET_ANALYSIS": 12,
+    "SINGULAR_ASSET_VERSION_OMITTED": 10
+  },
+  "accepted_api_requests": 39,
+  "request_schema_valid": 39,
+  "real_model_mode": 39,
+  "all_original_questions_and_ids_match": true,
+  "normal_accepted_matching_answers": 0,
+  "original_formal_metrics_not_rewritten": true,
+  "no_new_model_or_investigation_calls": true
+}

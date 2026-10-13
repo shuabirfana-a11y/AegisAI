@@ -1,6 +1,6 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-13（北京时间）。ICT命题九AegisAI。Phase13-F已用中性受控库存完成39批准题真实HTTP采集，并在用户授权NO_EVIDENCE类别兼容后离线评分；无新增模型/调查调用。整题严格匹配0/39，37FAILED、2可投影但未匹配，Gate通过0；Evidence Coverage/Hallucination仍待原复核人员对本轮2个实质输出共26个claims审计。旧含题号库存试次封存隔离、不评分。当前分支codex/phase13f-first-formal-run，叠在未合并PR#15之上，未自动合并依赖。原金标39通过/10退回未改；[本轮报告](PHASE_13F_RESULT.md)。
+更新日期：2026-10-13（北京时间）。ICT命题九AegisAI。Phase13-F.1已诊断原39题：35 Planner失败、2来源冲突导致Artifact不完整、2 UNKNOWN不匹配，原正式结果不回写。已修复单对象asset版本遗漏与明确目标overview错误触发资产分析；独立库仅实跑固定3题：事实PASS_WITH_WARNINGS、版本REPLAN_REQUIRED、风险QUERY_SCOPE_MISMATCH。115项评测测试通过；正式评测条件仍未全面恢复。没有改模型/Agent/Gate/金标/评分公式，未重跑39题。当前分支codex/phase13f1-evaluation-diagnostics，基于未合并草稿PR#16；依赖不自动合并。原输出的人审语义指标仍待复核。[本阶段报告](PHASE_13F1_RESULT.md)。
 
 ## 已有能力
 

@@ -1,0 +1,154 @@
+[
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-affected",
+    "asset": {
+      "name": "Scenario 85ba59295ea1",
+      "asset_type": "service",
+      "owner_principal": "phase13f1-diagnostic-operator",
+      "is_demo": true,
+      "deleted_at": null,
+      "environment": "unknown",
+      "exposure": "unknown",
+      "description": "CONTROLLED_SCENARIO_NOT_ENTERPRISE_SCAN",
+      "request_key": "asset-39fe165369be4aff97784c916851eb83",
+      "id": "3e5decd1-2cc5-45d1-ab78-3f1952b7d3ee",
+      "created_at": "2026-10-13T10:43:55.722078+00:00",
+      "metadata": {
+        "request_hash": "aca5933b541e5f0b985e52e1567ed78e4ae140ed318a0f2874a7e786876fc775"
+      },
+      "updated_at": "2026-10-13T10:43:55.722078+00:00",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+    },
+    "component": {
+      "asset_id": "3e5decd1-2cc5-45d1-ab78-3f1952b7d3ee",
+      "product_id": "dbeb2bf6-4616-4633-808e-2bfe388d8bfb",
+      "package_identifier_id": "2066ed0c-c955-46d3-8a9c-2135cf4f5b6a",
+      "version": "0.29.0",
+      "raw_package_name": "vllm",
+      "source": "manual",
+      "inventory_revision": 1,
+      "identity_status": "resolved",
+      "deleted_at": null,
+      "purl": "pkg:pypi/vllm",
+      "ecosystem": "PyPI",
+      "namespace": "",
+      "normalized_version": "0.29.0",
+      "resolution_method": "ECOSYSTEM_PACKAGE",
+      "inventory_key": "manual:90f0edebafdf6d023c2bea1a65bae888133f648bb4e72d2692ee380e67c55647",
+      "first_seen_at": "2026-10-13T10:43:55.755245+00:00",
+      "last_seen_at": "2026-10-13T10:43:55.755245+00:00",
+      "id": "2a2a054c-668b-41a5-a262-f64beef43b77",
+      "created_at": "2026-10-13T10:43:55.757245+00:00",
+      "metadata": {
+        "resolution": {
+          "status": "RESOLVED",
+          "method": "ECOSYSTEM_PACKAGE",
+          "product_id": "dbeb2bf6-4616-4633-808e-2bfe388d8bfb",
+          "package_identifier_id": "2066ed0c-c955-46d3-8a9c-2135cf4f5b6a",
+          "matched_product": "vLLM",
+          "matched_identifier": "pkg:pypi/vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "namespace": "",
+          "purl": "pkg:pypi/vllm",
+          "version": "0.29.0",
+          "reason_summary": "Exactly one explicit distribution identity matched"
+        },
+        "normalization": {
+          "raw": "0.29.0",
+          "ecosystem": "PyPI",
+          "status": "NORMALIZED",
+          "normalized": "0.29.0",
+          "public_version": "0.29.0",
+          "reason": "PEP440 normalization; original retained",
+          "local_build": false
+        },
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "match_summary": {
+          "status": "EVALUATED",
+          "candidate_count": 1
+        },
+        "last_matched_at": "2026-10-13T10:43:55.775325+00:00"
+      },
+      "updated_at": "2026-10-13T10:43:55.945692+00:00",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+    },
+    "scope": "CONTROLLED_INPUT_NOT_GROUND_TRUTH"
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+    "asset": {
+      "name": "Scenario 1834226df70e",
+      "asset_type": "service",
+      "owner_principal": "phase13f1-diagnostic-operator",
+      "is_demo": true,
+      "deleted_at": null,
+      "environment": "unknown",
+      "exposure": "unknown",
+      "description": "CONTROLLED_SCENARIO_NOT_ENTERPRISE_SCAN",
+      "request_key": "asset-ba18a5a953d14354baef62a6401e960b",
+      "id": "5e90cd76-efc3-42ba-8121-4cc0f3125d33",
+      "created_at": "2026-10-13T10:43:56.136492+00:00",
+      "metadata": {
+        "request_hash": "a726c1a7df993c6c708a98a0e2207ba2e8ce7b5a084526319c47ce5acadf3ff9"
+      },
+      "updated_at": "2026-10-13T10:43:56.136492+00:00",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+    },
+    "component": {
+      "asset_id": "5e90cd76-efc3-42ba-8121-4cc0f3125d33",
+      "product_id": "9c00e19d-cbb1-4919-a4f0-3801414957dd",
+      "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+      "version": "2.5.1",
+      "raw_package_name": "torch",
+      "source": "manual",
+      "inventory_revision": 1,
+      "identity_status": "resolved",
+      "deleted_at": null,
+      "purl": "pkg:pypi/torch",
+      "ecosystem": "PyPI",
+      "namespace": "",
+      "normalized_version": "2.5.1",
+      "resolution_method": "ECOSYSTEM_PACKAGE",
+      "inventory_key": "manual:36507bdcf0f56a24316ef1403a84435794b3fe6ee6c1246a24241082cb8403d2",
+      "first_seen_at": "2026-10-13T10:43:56.148490+00:00",
+      "last_seen_at": "2026-10-13T10:43:56.148490+00:00",
+      "id": "0521ef39-d2f5-4632-8020-c4e84871fc6f",
+      "created_at": "2026-10-13T10:43:56.148490+00:00",
+      "metadata": {
+        "resolution": {
+          "status": "RESOLVED",
+          "method": "ECOSYSTEM_PACKAGE",
+          "product_id": "9c00e19d-cbb1-4919-a4f0-3801414957dd",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "matched_product": "PyTorch",
+          "matched_identifier": "pkg:pypi/torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "namespace": "",
+          "purl": "pkg:pypi/torch",
+          "version": "2.5.1",
+          "reason_summary": "Exactly one explicit distribution identity matched"
+        },
+        "normalization": {
+          "raw": "2.5.1",
+          "ecosystem": "PyPI",
+          "status": "NORMALIZED",
+          "normalized": "2.5.1",
+          "public_version": "2.5.1",
+          "reason": "PEP440 normalization; original retained",
+          "local_build": false
+        },
+        "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+        "match_summary": {
+          "status": "EVALUATED",
+          "candidate_count": 2
+        },
+        "last_matched_at": "2026-10-13T10:43:56.148490+00:00"
+      },
+      "updated_at": "2026-10-13T10:43:56.257820+00:00",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+    },
+    "scope": "CONTROLLED_INPUT_NOT_GROUND_TRUTH"
+  }
+]
