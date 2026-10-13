@@ -15,3 +15,23 @@ dt { font-weight: 600; }
 dd { margin: 0; overflow-wrap: anywhere; }
 button { cursor: pointer; }
 [aria-current="page"] { font-weight: 700; }
+/* 智能调查工作台（assistant） */
+.workbench-controls { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.workbench-controls label { display: flex; gap: .4rem; align-items: center; }
+.mock-banner { border: 1px dashed #b36b00; background: #fff8e6; padding: .75rem; }
+.badge { border: 1px solid #b36b00; background: #fff8e6; padding: 0 .4rem; font-size: .85em; white-space: nowrap; }
+.section-head { display: flex; gap: .5rem; align-items: center; }
+.field-row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: flex-start; }
+.field-row label { flex: 1 1 12rem; }
+.field-row input[type="text"] { width: 100%; }
+.hint { color: #555; font-size: .9em; }
+.mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; overflow-wrap: anywhere; }
+.run-block { border: 1px solid #bbb; padding: .75rem; margin: .5rem 0; }
+.gate-independent { border: 1px dashed #bbb; padding: .75rem; margin-top: .5rem; }
+.timeline { padding-left: 1.4rem; }
+.message[data-state="loading"] { border-style: dotted; color: #555; }
+.message[data-state="empty"] { border-style: dashed; color: #555; }
+.message[data-state="running"] { background: #eef4fb; border-color: #5b7fa6; }
+.message[data-state="warning"] { background: #fff8e6; border-color: #b36b00; }
+.message[data-state="conflict"] { background: #fff1f1; border-color: #a33; }
+.message[data-state="error"] { background: #fdecec; border-color: #a33; }

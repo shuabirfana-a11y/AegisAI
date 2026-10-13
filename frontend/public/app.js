@@ -28,7 +28,7 @@ function render(route) {
     else nav.removeAttribute('aria-current');
   }
   const page = pages[route.page];
-  if (page) page(view, { api, session, signal: controller.signal }, route.params);
+  if (page) page(view, { api, session, signal: controller.signal, localDemoAccess }, route.params);
   else { pageTitle(view, '页面不存在'); message(view, '请使用上方导航进入支持的页面。', 'error'); }
 }
 
