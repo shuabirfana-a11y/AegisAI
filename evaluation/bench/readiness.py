@@ -14,10 +14,15 @@ def workflow_file_counts():
     counts=Counter(); root=ROOT/'evaluation/ground_truth/samples'
     for path in root.rglob('*.json'):
         row=json.loads(path.read_text(encoding='utf-8-sig'))
-        if row.get('record_kind')=='HUMAN_RECORD':counts[row.get('annotation',{}).get('status') or 'UNSET']+=1
+        if not isinstance(row,dict):raise ValueError('Invalid workflow record object')
+        if row.get('record_kind')=='HUMAN_RECORD':
+            annotation=row.get('annotation',{})
+            if not isinstance(annotation,dict):raise ValueError('Invalid workflow annotation object')
+            counts[annotation.get('status') or 'UNSET']+=1
     tasks=Counter()
     for path in (ROOT/'evaluation/ground_truth/annotation_tasks/tasks').glob('*.json'):
         row=json.loads(path.read_text(encoding='utf-8-sig'))
+        if not isinstance(row,dict):raise ValueError('Invalid task record object')
         if row.get('record_kind')=='ANNOTATION_TASK_NOT_GROUND_TRUTH':tasks[row.get('status') or 'UNSET']+=1
     return {'manual_workflow_file_counts':{k:counts[k] for k in ('DRAFT','REVIEWING','APPROVED','REJECTED')},
             'task_card_state_counts':dict(tasks),
@@ -72,9 +77,10 @@ def main(argv=None):
     try:
         report=inspect_readiness(args.manifest,minimum=args.minimum)
         report.update(workflow_file_counts())
-    except (ValueError,OSError):
+    except (ValueError,OSError,KeyError,TypeError):
         report={'status':'BLOCKED_INVALID_DATASET','data_gate_passed':False,
-                'formal_experiment_executed':False,'http_executed':False,'model_calls':0,'quality_status':'NOT_EVALUATED'}
+                'minimum_approved':args.minimum,'formal_experiment_executed':False,
+                'http_executed':False,'model_calls':0,'quality_status':'NOT_EVALUATED'}
     write_preflight(report,output)
     print(json.dumps({'status':report['status'],'eligible_gold_count':report.get('eligible_gold_count'),
                       'minimum':args.minimum,'formal_experiment_executed':False,'output':str(output)},ensure_ascii=False))

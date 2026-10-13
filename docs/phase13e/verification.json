@@ -1,15 +1,15 @@
 {
-  "checked_at_utc": "2026-10-13T05:56:42.635278+00:00",
+  "checked_at_utc": "2026-10-13T06:07:24.155290+00:00",
   "base_commit": "a1cae4c693366ec157e89640338cc04cf3422875",
   "business_and_existing_evaluation_data_files_checked": 383,
   "changed_protected_files": [],
-  "new_tests": 8,
+  "new_tests": 11,
   "checks": [
     {
       "name": "aegisbench",
       "command": "python -m pytest tests/aegisbench -q",
-      "observed": "92 passed",
-      "log_sha256": "bdb42947c4c035f1493abe7369fc82aa142a4a6f2ee3bebe18de70089818d213",
+      "observed": "95 passed",
+      "log_sha256": "9f9ce47ee9520140c31f10c95cd7b7b5e957ac957d4b60d36a265fc1d8973060",
       "status": "PASS"
     },
     {

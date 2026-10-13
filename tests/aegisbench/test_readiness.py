@@ -77,3 +77,25 @@ def test_minimum_cannot_be_weakened_and_report_cannot_overwrite_gold_or_old_run(
     with pytest.raises(ValueError):module().main(['--output',str(existing)])
     from evaluation.bench.runner import ROOT
     with pytest.raises(ValueError):module().main(['--output',str(ROOT/'evaluation/ground_truth/samples/approved')])
+
+
+@pytest.mark.parametrize('payload',['{}','[]'])
+def test_malformed_manifest_always_leaves_a_blocked_audit_report(tmp_path,payload):
+    root=tmp_path/'evaluation/datasets/broken';root.mkdir(parents=True)
+    manifest=root/'manifest.json';manifest.write_text(payload,encoding='utf-8')
+    output=tmp_path/'blocked'
+    assert module().main(['--manifest',str(manifest),'--minimum','49','--output',str(output)])==3
+    report=json.loads((output/'readiness.json').read_text(encoding='utf-8'))
+    assert report['status']=='BLOCKED_INVALID_DATASET' and report['minimum_approved']==49
+    assert report['formal_experiment_executed'] is False
+
+
+def test_invalid_manual_workflow_shape_also_produces_blocked_report(monkeypatch,tmp_path):
+    import evaluation.bench.readiness as readiness
+    monkeypatch.setattr(readiness,'ROOT',tmp_path)
+    samples=tmp_path/'evaluation/ground_truth/samples/draft';samples.mkdir(parents=True)
+    (samples/'invalid.json').write_text('[]',encoding='utf-8')
+    output=tmp_path/'blocked'
+    assert readiness.main(['--output',str(output)])==3
+    report=json.loads((output/'readiness.json').read_text(encoding='utf-8'))
+    assert report['status']=='BLOCKED_INVALID_DATASET' and report['http_executed'] is False
