@@ -30,6 +30,8 @@ TESTS = [
     "tests/agents/investigation/test_scope_schema.py",
     "tests/agents/verification/test_conflict_artifact.py",
     "tests/orchestration/test_conflict_handoff.py",
+    "tests/agents/investigation/test_normalization.py",
+    "tests/agents/investigation/test_task_templates.py",
 ]
 
 

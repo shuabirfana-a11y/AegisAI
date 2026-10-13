@@ -43,18 +43,60 @@ def scoped_plan_model(context):
             tools.append({'type':'object','additionalProperties':False,'required':['name','arguments'],
                           'properties':{'name':{'type':'string','const':name},'arguments':args}})
     def constrain(schema):
-        def visit(node):
-            if isinstance(node,dict):
-                props=node.get('properties',{})
-                if 'steps' in props and isinstance(props['steps'],dict):
-                    props['steps']['items']={'$ref':'#/$defs/ScopedToolStep'}
-                for value in tuple(node.values()):visit(value)
-            elif isinstance(node,list):
-                for value in node:visit(value)
-        visit(schema)
-        # Store scope-bound alternatives once. Repeating these inside each
-        # TaskContract branch exceeds gateway limits for supported target sets.
-        schema.setdefault('$defs',{})['ScopedToolStep']={'anyOf':tools}
+        definitions=schema.setdefault('$defs',{})
+        candidate=definitions['InvestigationTaskCandidate']
+        props=deepcopy(candidate['properties'])
+        from app.planner.schemas import _task_input_schema
+        props['input_data']=_task_input_schema()
+        props['input_data']['properties']['steps']['items']={'$ref':'#/$defs/ScopedToolStep'}
+        refs=[]
+        for index,tool in enumerate(tools):
+            key='ScopeTool'+str(index);definitions[key]=tool
+            refs.append({'$ref':'#/$defs/'+key})
+        definitions['ScopedToolStep']={'anyOf':refs}
+        executable={'required':['allowed_tools'],'properties':{
+            'allowed_tools':{'minItems':1},'max_tool_calls':{'minimum':1},
+            'input_data':{'required':['steps'],'properties':{'steps':{'minItems':1},'required_fields':{'maxItems':0}}}}}
+        missing={'properties':{'allowed_tools':{'maxItems':0},'max_tool_calls':{'const':0},
+            'input_data':{'required':['required_fields'],'properties':{'steps':{'maxItems':0},'required_fields':{'minItems':1}}}}}
+        rules=[{'if':{'properties':{'task_type':{'const':'tool_sequence'}}},'then':executable},
+               {'if':{'properties':{'task_type':{'const':'input_required'}}},'then':missing}]
+        for role,spec in ROLES.items():
+            role_refs=[ref for ref,tool in zip(refs,tools) if tool['properties']['name']['const'] in spec.tools]
+            key='RoleStep_'+role
+            definitions[key]={'anyOf':role_refs} if role_refs else False
+            rules.append({'if':{'properties':{'type':{'const':role}}},'then':{'properties':{
+                'allowed_tools':{'items':{'enum':sorted(spec.tools)}},
+                'input_data':{'properties':{'steps':{'items':{'$ref':'#/$defs/'+key}}}}}}})
+            # Optional absent deployment metadata is not a required input for
+            # fact discovery. Request only inputs needed by the frozen scope.
+            required=[]
+            if role in ('vulnerability_lookup','evidence_search') and not targets:
+                required.append('target')
+            if (role=='vulnerability_lookup' and component and targets
+                    and scope['asset_analysis'] and not component.get('version')):
+                required.append('version')
+            if role=='asset_lookup' and scope['asset_analysis'] and not scope.get('asset_id'):
+                required.append('asset_id')
+            rules.append({'if':{'properties':{'type':{'const':role},'task_type':{'const':'input_required'}}},
+                'then':{'properties':{'input_data':{'properties':{'required_fields':{
+                    'items':{'enum':required} if required else False}}}}}})
+        # Present each wire field once, rather than duplicating complete tasks
+        # across anyOf branches. Actual Pydantic/Runtime validation is unchanged.
+        definitions['InvestigationTaskCandidate']={'type':'object','additionalProperties':False,
+            'required':list(dict.fromkeys(candidate['required']+['task_type','allowed_tools','max_tool_calls'])),
+            'properties':props,'allOf':rules}
+        conditions=[]
+        for target in targets:
+            lookup={'type':'object','required':['name','arguments'],'properties':{
+                'name':{'const':'get_vulnerability'},'arguments':{'required':['target'],'properties':{'target':{'const':target}}}}}
+            matches={'required':['input_data'],'properties':{'input_data':{'required':['steps'],
+                'properties':{'steps':{'contains':lookup,'minContains':1}}}}}
+            conditions.append({'contains':matches,'minContains':1,'maxContains':1})
+            # Even differing pagination cannot duplicate the same target inside one task.
+            props['input_data']['properties']['steps'].setdefault('allOf',[]).append(
+                {'contains':lookup,'minContains':0,'maxContains':1})
+        if conditions:schema['properties']['tasks']['allOf']=conditions
     # Field-level TaskContract schemas are resolved into $defs after Pydantic's
     # root json_schema_extra hook. Constrain the complete resolved schema.
     def model_schema(cls,*args,**kwargs):

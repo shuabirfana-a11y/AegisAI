@@ -1,0 +1,1078 @@
+{
+  "records": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "planner_run_id": "59a9755a-28fc-4735-b6b9-63f83e5c28b0",
+      "validation_status": "VALIDATED",
+      "errors": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "issues": [],
+          "model_call": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5754,
+              "total_tokens": 6214,
+              "output_tokens": 460
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "78f2429d-1c53-4923-8749-a5e21b62b952",
+            "request_id": "22e38fa3-3332-48e4-b2bb-e772c7b2ac69",
+            "started_at": "2026-10-13T14:31:20.627890Z",
+            "duration_ms": 14924.100900003396,
+            "finished_at": "2026-10-13T14:31:35.559647Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "25eb7c7b826515fa30e0b1e2e15b09ecdc799f039a2814d16f6d78ba52e54c9f",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "41a0b9e0-2d3a-4f3b-8e0a-5f3d7e2c1b7c",
+            "objective": "Read the supplied vulnerability and related claims and evidence",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied vulnerability",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version",
+                  "search_vulnerabilities"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "evidence_search",
+                "task_id": "evidence",
+                "task_type": "tool_sequence",
+                "description": "Read stored source claims and evidence",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_claims",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    },
+                    {
+                      "name": "get_evidence",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_claims",
+                  "get_evidence",
+                  "relation_query",
+                  "semantic_search"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty",
+                  "evidence_present"
+                ]
+              }
+            ],
+            "reasoning_summary": "Lookup the vulnerability details and related claims and evidence",
+            "confidence": 0.9
+          },
+          "raw_output": "{\n  \"plan_id\": \"41a0b9e0-2d3a-4f3b-8e0a-5f3d7e2c1b7c\",\n  \"objective\": \"Read the supplied vulnerability and related claims and evidence\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied vulnerability\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\n        \"get_vulnerability\",\n        \"inspect_component_version\",\n        \"search_vulnerabilities\"\n      ],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\"\n      ]\n    },\n    {\n      \"type\": \"evidence_search\",\n      \"task_id\": \"evidence\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read stored source claims and evidence\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_claims\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          },\n          {\n            \"name\": \"get_evidence\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\n        \"get_claims\",\n        \"get_evidence\",\n        \"relation_query\",\n        \"semantic_search\"\n      ],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\",\n        \"evidence_present\"\n      ]\n    }\n  ],\n  \"reasoning_summary\": \"Lookup the vulnerability details and related claims and evidence\",\n  \"confidence\": 0.9\n}",
+          "strict_json_error": null
+        }
+      ],
+      "runtime_run_id": "e4b46e29-2443-4ee4-83d0-86a70de3aae1",
+      "frozen_input_scope": {
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "asset_id": null,
+        "component_id": null,
+        "snapshot_id": null,
+        "component": null,
+        "question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "asset_analysis": false
+      },
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": null,
+        "version": null,
+        "asset_context": {},
+        "task_type": "vulnerability_fact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "MISSING",
+          "version": "MISSING"
+        }
+      },
+      "task_template": {
+        "template_id": "vulnerability-fact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup per target. Requested facts/claims use a separate evidence_search task, not lookup-role tools."
+      },
+      "normalization_audit": "RECONSTRUCTED_FROM_SAVED_PLANNER_INPUT_NO_NEW_MODEL_CALL"
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "planner_run_id": "948fb5c7-075f-4db3-a134-aabf5db2e26c",
+      "validation_status": "VALIDATED",
+      "errors": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "issues": [],
+          "model_call": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 6689,
+              "total_tokens": 7370,
+              "output_tokens": 681
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "770c242b-ec91-47bd-93b6-04db5ade73e0",
+            "request_id": "bfd76f09-770b-4f0b-bb43-4d5e6ecbfd42",
+            "started_at": "2026-10-13T14:32:18.138530Z",
+            "duration_ms": 14778.638700001466,
+            "finished_at": "2026-10-13T14:32:32.921596Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "33a63769b77a4f573fb750fabeb746b6c959558f63737f136251b397da673c45",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "587d9f2b-4e5a-4f8b-8c9d-7f8e6c5b4a3d",
+            "objective": "Read the actual bound asset; one root vulnerability lookup with supplied version inspection. Discover source evidence.",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied vulnerability",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    },
+                    {
+                      "name": "inspect_component_version",
+                      "arguments": {
+                        "name": "torch",
+                        "ecosystem": "PyPI",
+                        "package_name": "torch",
+                        "version": "2.5.1",
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "evidence_search",
+                "task_id": "evidence",
+                "task_type": "tool_sequence",
+                "description": "Read stored source claims and evidence",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_claims",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    },
+                    {
+                      "name": "get_evidence",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_claims",
+                  "get_evidence"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty",
+                  "evidence_present"
+                ]
+              },
+              {
+                "type": "asset_lookup",
+                "task_id": "asset",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied owned asset",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_asset",
+                      "arguments": {
+                        "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_asset"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              }
+            ],
+            "reasoning_summary": "Read the actual bound asset and perform a vulnerability lookup with version inspection. Discover source evidence related to the CVE-2025-32434.",
+            "confidence": 0.95
+          },
+          "raw_output": "{\n  \"plan_id\": \"587d9f2b-4e5a-4f8b-8c9d-7f8e6c5b4a3d\",\n  \"objective\": \"Read the actual bound asset; one root vulnerability lookup with supplied version inspection. Discover source evidence.\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied vulnerability\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          },\n          {\n            \"name\": \"inspect_component_version\",\n            \"arguments\": {\n              \"name\": \"torch\",\n              \"ecosystem\": \"PyPI\",\n              \"package_name\": \"torch\",\n              \"version\": \"2.5.1\",\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_vulnerability\", \"inspect_component_version\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    },\n    {\n      \"type\": \"evidence_search\",\n      \"task_id\": \"evidence\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read stored source claims and evidence\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_claims\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          },\n          {\n            \"name\": \"get_evidence\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_claims\", \"get_evidence\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\", \"evidence_present\"]\n    },\n    {\n      \"type\": \"asset_lookup\",\n      \"task_id\": \"asset\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied owned asset\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_asset\",\n            \"arguments\": {\n              \"asset_id\": \"0006eb97-201b-4011-8b9e-29b60cceed8d\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_asset\"],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    }\n  ],\n  \"reasoning_summary\": \"Read the actual bound asset and perform a vulnerability lookup with version inspection. Discover source evidence related to the CVE-2025-32434.\",\n  \"confidence\": 0.95\n}",
+          "strict_json_error": null
+        }
+      ],
+      "runtime_run_id": "49e518b9-5ead-42c0-b74b-0c0209921456",
+      "frozen_input_scope": {
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d",
+        "component_id": "ff0fc5a0-ba2b-4848-9296-afde4677e918",
+        "snapshot_id": null,
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1",
+          "purl": null
+        },
+        "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "asset_analysis": true
+      },
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1",
+          "purl": null
+        },
+        "version": "2.5.1",
+        "asset_context": {
+          "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d",
+          "component_id": "ff0fc5a0-ba2b-4848-9296-afde4677e918"
+        },
+        "task_type": "asset_risk",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "asset-risk-v1",
+        "roles": [
+          "asset_lookup",
+          "vulnerability_lookup",
+          "evidence_search"
+        ],
+        "instruction": "Read the actual bound asset; one root vulnerability lookup with supplied version inspection. Discover source evidence. Verification/risk/Gate remain downstream server stages."
+      },
+      "normalization_audit": "RECONSTRUCTED_FROM_SAVED_PLANNER_INPUT_NO_NEW_MODEL_CALL"
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "planner_run_id": "5e3efa3d-6c54-4fe4-8eef-493f9408d645",
+      "validation_status": "PLANNING_FAILED",
+      "errors": [
+        {
+          "code": "VERSION_INPUT_REQUIRED",
+          "path": "$",
+          "message": "Candidate plan rejected by server validation."
+        }
+      ],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "issues": [
+            {
+              "code": "SCHEMA_VALIDATION_FAILED",
+              "path": "$",
+              "message": "Planning failed; no candidate executed."
+            }
+          ],
+          "model_call": {
+            "error": {
+              "code": "SCHEMA_VALIDATION_FAILED",
+              "message": "Model output does not match the schema.",
+              "retryable": false
+            },
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 6118,
+              "total_tokens": 7114,
+              "output_tokens": 996
+            },
+            "status": "failed",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "8cc98365-ae4c-4830-ada7-60aa0bdaab3c",
+            "request_id": "00df54d1-67ab-453c-a489-928f43989798",
+            "started_at": "2026-10-13T14:33:17.757017Z",
+            "duration_ms": 19758.831500002998,
+            "finished_at": "2026-10-13T14:33:37.517429Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "8f40e6adbc6044e41a8a92566d9570d73ce798decb446bcfa30876d8903d6ec3",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "53e0b8c2-4d9f-4f8b-8c3d-7f8e9b0a1c2d",
+            "objective": "Determine if the torch package version impacts CVE-2025-32434",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Lookup the vulnerability details for CVE-2025-32434",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version",
+                  "search_vulnerabilities"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "ask-version",
+                "task_type": "input_required",
+                "description": "Ask for the torch package version",
+                "input_data": {
+                  "required_fields": [
+                    "version"
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [],
+                "max_tool_calls": 0,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "inspect-version",
+                "task_type": "tool_sequence",
+                "description": "Inspect the torch package version for CVE-2025-32434",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "inspect_component_version",
+                      "arguments": {
+                        "name": "torch",
+                        "ecosystem": "PyPI",
+                        "package_name": "torch",
+                        "version": "<version>",
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [
+                  "ask-version"
+                ],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version",
+                  "search_vulnerabilities"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "asset_lookup",
+                "task_id": "asset",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied owned asset",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_asset",
+                      "arguments": {
+                        "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_asset"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "evidence_search",
+                "task_id": "evidence",
+                "task_type": "tool_sequence",
+                "description": "Read stored source claims and evidence",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_claims",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    },
+                    {
+                      "name": "get_evidence",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_claims",
+                  "get_evidence",
+                  "relation_query",
+                  "semantic_search"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty",
+                  "evidence_present"
+                ]
+              }
+            ],
+            "reasoning_summary": "Determine the impact of the torch package version on CVE-2025-32434 by first looking up the vulnerability details, then asking for the version, inspecting the version, and reading stored evidence.",
+            "confidence": 0.8
+          },
+          "raw_output": "{\n  \"plan_id\": \"53e0b8c2-4d9f-4f8b-8c3d-7f8e9b0a1c2d\",\n  \"objective\": \"Determine if the torch package version impacts CVE-2025-32434\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Lookup the vulnerability details for CVE-2025-32434\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\n        \"get_vulnerability\",\n        \"inspect_component_version\",\n        \"search_vulnerabilities\"\n      ],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\"\n      ]\n    },\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"ask-version\",\n      \"task_type\": \"input_required\",\n      \"description\": \"Ask for the torch package version\",\n      \"input_data\": {\n        \"required_fields\": [\n          \"version\"\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [],\n      \"max_tool_calls\": 0,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\"\n      ]\n    },\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"inspect-version\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Inspect the torch package version for CVE-2025-32434\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"inspect_component_version\",\n            \"arguments\": {\n              \"name\": \"torch\",\n              \"ecosystem\": \"PyPI\",\n              \"package_name\": \"torch\",\n              \"version\": \"<version>\",\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [\n        \"ask-version\"\n      ],\n      \"allowed_tools\": [\n        \"get_vulnerability\",\n        \"inspect_component_version\",\n        \"search_vulnerabilities\"\n      ],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\"\n      ]\n    },\n    {\n      \"type\": \"asset_lookup\",\n      \"task_id\": \"asset\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied owned asset\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_asset\",\n            \"arguments\": {\n              \"asset_id\": \"94de0941-1ce1-4e55-bf21-5afeb90a5347\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\n        \"get_asset\"\n      ],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\"\n      ]\n    },\n    {\n      \"type\": \"evidence_search\",\n      \"task_id\": \"evidence\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read stored source claims and evidence\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_claims\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          },\n          {\n            \"name\": \"get_evidence\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\n        \"get_claims\",\n        \"get_evidence\",\n        \"relation_query\",\n        \"semantic_search\"\n      ],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\n        \"tools_succeeded\",\n        \"output_nonempty\",\n        \"evidence_present\"\n      ]\n    }\n  ],\n  \"reasoning_summary\": \"Determine the impact of the torch package version on CVE-2025-32434 by first looking up the vulnerability details, then asking for the version, inspecting the version, and reading stored evidence.\",\n  \"confidence\": 0.8\n}",
+          "strict_json_error": null
+        },
+        {
+          "attempt_index": 2,
+          "issues": [
+            {
+              "code": "VERSION_INPUT_REQUIRED",
+              "path": "$",
+              "message": "Candidate plan rejected by server validation."
+            }
+          ],
+          "model_call": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 6144,
+              "total_tokens": 6772,
+              "output_tokens": 628
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "8cc98365-ae4c-4830-ada7-60aa0bdaab3c",
+            "request_id": "8b97fa3a-4540-4f50-bdde-b808a3ab2c41",
+            "started_at": "2026-10-13T14:33:37.534048Z",
+            "duration_ms": 11793.75859999709,
+            "finished_at": "2026-10-13T14:33:49.328395Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "5224397d0640ab71c2f398b63365cfb961376bd9070805e872ae7e71836276ca",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "53e0d9b2-4f8a-4d6b-8f9d-7f8e9d8e7f6e",
+            "objective": "Determine if the torch package version impacts CVE-2025-32434",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Lookup the vulnerability details for CVE-2025-32434",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "asset_lookup",
+                "task_id": "lookup-asset",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied owned asset",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_asset",
+                      "arguments": {
+                        "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_asset"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "evidence_search",
+                "task_id": "search-evidence",
+                "task_type": "tool_sequence",
+                "description": "Read stored source claims and evidence",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_claims",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    },
+                    {
+                      "name": "get_evidence",
+                      "arguments": {
+                        "target": "CVE-2025-32434"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_claims",
+                  "get_evidence"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty",
+                  "evidence_present"
+                ]
+              }
+            ],
+            "reasoning_summary": "Check the vulnerability details, the asset context, and gather any relevant evidence to determine the impact of the torch package version on CVE-2025-32434.",
+            "confidence": 0.85
+          },
+          "raw_output": "{\n  \"plan_id\": \"53e0d9b2-4f8a-4d6b-8f9d-7f8e9d8e7f6e\",\n  \"objective\": \"Determine if the torch package version impacts CVE-2025-32434\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Lookup the vulnerability details for CVE-2025-32434\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_vulnerability\", \"inspect_component_version\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    },\n    {\n      \"type\": \"asset_lookup\",\n      \"task_id\": \"lookup-asset\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied owned asset\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_asset\",\n            \"arguments\": {\n              \"asset_id\": \"94de0941-1ce1-4e55-bf21-5afeb90a5347\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_asset\"],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    },\n    {\n      \"type\": \"evidence_search\",\n      \"task_id\": \"search-evidence\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read stored source claims and evidence\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_claims\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          },\n          {\n            \"name\": \"get_evidence\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-32434\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_claims\", \"get_evidence\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\", \"evidence_present\"]\n    }\n  ],\n  \"reasoning_summary\": \"Check the vulnerability details, the asset context, and gather any relevant evidence to determine the impact of the torch package version on CVE-2025-32434.\",\n  \"confidence\": 0.85\n}",
+          "strict_json_error": null
+        }
+      ],
+      "runtime_run_id": null,
+      "frozen_input_scope": {
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347",
+        "component_id": "2d3fcb56-0b2c-44a4-8199-7d804d405765",
+        "snapshot_id": null,
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": null,
+          "purl": null
+        },
+        "question": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "asset_analysis": true
+      },
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": null,
+          "purl": null
+        },
+        "version": null,
+        "asset_context": {
+          "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347",
+          "component_id": "2d3fcb56-0b2c-44a4-8199-7d804d405765"
+        },
+        "task_type": "version_impact",
+        "input_status": "INPUT_REQUIRED",
+        "missing_fields": [
+          "version"
+        ],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "normalization_audit": "RECONSTRUCTED_FROM_SAVED_PLANNER_INPUT_NO_NEW_MODEL_CALL"
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "planner_run_id": "7577045e-a713-48ec-8f5d-2a6b09c5b4ac",
+      "validation_status": "VALIDATED",
+      "errors": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "issues": [],
+          "model_call": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 6558,
+              "total_tokens": 7087,
+              "output_tokens": 529
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "11947049-ff1c-4946-b8d8-e2e167f66414",
+            "request_id": "a6d58a16-afce-4f35-b65b-1f4b904e605c",
+            "started_at": "2026-10-13T14:31:50.226814Z",
+            "duration_ms": 12058.822300001339,
+            "finished_at": "2026-10-13T14:32:02.285531Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "74ee7b48bbef34945322d2da3e833cd0efe871dca33d880da21baf5c95821d14",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "58b3e4d0-7f2b-4f3d-8c2a-1234567890ab",
+            "objective": "Determine if vllm version 0.29.0 is impacted by CVE-2026-105752",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Check if vllm version 0.29.0 is impacted by CVE-2026-105752",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2026-105752"
+                      }
+                    },
+                    {
+                      "name": "inspect_component_version",
+                      "arguments": {
+                        "name": "vllm",
+                        "ecosystem": "PyPI",
+                        "package_name": "vllm",
+                        "version": "0.29.0",
+                        "target": "CVE-2026-105752"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "asset_lookup",
+                "task_id": "lookup-asset",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied owned asset",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_asset",
+                      "arguments": {
+                        "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_asset"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              }
+            ],
+            "reasoning_summary": "Check if the vllm version 0.29.0 is impacted by the specified CVE and verify the asset context.",
+            "confidence": 0.95
+          },
+          "raw_output": "{\n  \"plan_id\": \"58b3e4d0-7f2b-4f3d-8c2a-1234567890ab\",\n  \"objective\": \"Determine if vllm version 0.29.0 is impacted by CVE-2026-105752\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Check if vllm version 0.29.0 is impacted by CVE-2026-105752\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2026-105752\"\n            }\n          },\n          {\n            \"name\": \"inspect_component_version\",\n            \"arguments\": {\n              \"name\": \"vllm\",\n              \"ecosystem\": \"PyPI\",\n              \"package_name\": \"vllm\",\n              \"version\": \"0.29.0\",\n              \"target\": \"CVE-2026-105752\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_vulnerability\", \"inspect_component_version\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    },\n    {\n      \"type\": \"asset_lookup\",\n      \"task_id\": \"lookup-asset\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied owned asset\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_asset\",\n            \"arguments\": {\n              \"asset_id\": \"be52bfef-78f8-4df2-8612-bac5acbade27\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_asset\"],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    }\n  ],\n  \"reasoning_summary\": \"Check if the vllm version 0.29.0 is impacted by the specified CVE and verify the asset context.\",\n  \"confidence\": 0.95\n}",
+          "strict_json_error": null
+        }
+      ],
+      "runtime_run_id": "99846096-595f-47ad-ab45-4441aa2fc417",
+      "frozen_input_scope": {
+        "targets": [
+          "CVE-2026-105752"
+        ],
+        "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27",
+        "component_id": "4d9becd0-da0b-4144-8011-7906b537d805",
+        "snapshot_id": null,
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0",
+          "purl": null
+        },
+        "question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "asset_analysis": true
+      },
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "vulnerability_id": "CVE-2026-105752",
+        "targets": [
+          "CVE-2026-105752"
+        ],
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0",
+          "purl": null
+        },
+        "version": "0.29.0",
+        "asset_context": {
+          "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27",
+          "component_id": "4d9becd0-da0b-4144-8011-7906b537d805"
+        },
+        "task_type": "version_impact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "normalization_audit": "RECONSTRUCTED_FROM_SAVED_PLANNER_INPUT_NO_NEW_MODEL_CALL"
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "planner_run_id": "61e1fe78-1617-4d3b-b996-e52c51ff67ea",
+      "validation_status": "VALIDATED",
+      "errors": [],
+      "attempts": [
+        {
+          "attempt_index": 1,
+          "issues": [],
+          "model_call": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 6558,
+              "total_tokens": 7082,
+              "output_tokens": 524
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "c3d4c096-d029-4107-be1f-0c0995e351ad",
+            "request_id": "61e9946b-e497-4fd0-9d53-ba4cc527e822",
+            "started_at": "2026-10-13T14:32:48.172343Z",
+            "duration_ms": 12059.809200000018,
+            "finished_at": "2026-10-13T14:33:00.232082Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          },
+          "raw_output_sha256": "09739cf165d9f768b8d545cf4f8b3693ab36aa1f50e3ab96754867645ece829b",
+          "diagnostic_redacted": false,
+          "diagnostic_truncated": false,
+          "generated_plan": {
+            "plan_id": "58b3e4d0-7f21-4d6b-8f2c-5e6d7f8a9b0c",
+            "objective": "Determine if langchain-core version 1.2.0 is impacted by CVE-2025-68664",
+            "tasks": [
+              {
+                "type": "vulnerability_lookup",
+                "task_id": "lookup-vulnerability",
+                "task_type": "tool_sequence",
+                "description": "Check if langchain-core version 1.2.0 is impacted by CVE-2025-68664",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_vulnerability",
+                      "arguments": {
+                        "target": "CVE-2025-68664"
+                      }
+                    },
+                    {
+                      "name": "inspect_component_version",
+                      "arguments": {
+                        "name": "langchain-core",
+                        "ecosystem": "PyPI",
+                        "package_name": "langchain-core",
+                        "version": "1.2.0",
+                        "target": "CVE-2025-68664"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_vulnerability",
+                  "inspect_component_version"
+                ],
+                "max_tool_calls": 2,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              },
+              {
+                "type": "asset_lookup",
+                "task_id": "lookup-asset",
+                "task_type": "tool_sequence",
+                "description": "Read the supplied owned asset",
+                "input_data": {
+                  "steps": [
+                    {
+                      "name": "get_asset",
+                      "arguments": {
+                        "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44"
+                      }
+                    }
+                  ]
+                },
+                "dependencies": [],
+                "allowed_tools": [
+                  "get_asset"
+                ],
+                "max_tool_calls": 1,
+                "acceptance_criteria": [
+                  "tools_succeeded",
+                  "output_nonempty"
+                ]
+              }
+            ],
+            "reasoning_summary": "Check if the specified version of langchain-core is impacted by the given CVE and verify the asset context.",
+            "confidence": 0.95
+          },
+          "raw_output": "{\n  \"plan_id\": \"58b3e4d0-7f21-4d6b-8f2c-5e6d7f8a9b0c\",\n  \"objective\": \"Determine if langchain-core version 1.2.0 is impacted by CVE-2025-68664\",\n  \"tasks\": [\n    {\n      \"type\": \"vulnerability_lookup\",\n      \"task_id\": \"lookup-vulnerability\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Check if langchain-core version 1.2.0 is impacted by CVE-2025-68664\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_vulnerability\",\n            \"arguments\": {\n              \"target\": \"CVE-2025-68664\"\n            }\n          },\n          {\n            \"name\": \"inspect_component_version\",\n            \"arguments\": {\n              \"name\": \"langchain-core\",\n              \"ecosystem\": \"PyPI\",\n              \"package_name\": \"langchain-core\",\n              \"version\": \"1.2.0\",\n              \"target\": \"CVE-2025-68664\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_vulnerability\", \"inspect_component_version\"],\n      \"max_tool_calls\": 2,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    },\n    {\n      \"type\": \"asset_lookup\",\n      \"task_id\": \"lookup-asset\",\n      \"task_type\": \"tool_sequence\",\n      \"description\": \"Read the supplied owned asset\",\n      \"input_data\": {\n        \"steps\": [\n          {\n            \"name\": \"get_asset\",\n            \"arguments\": {\n              \"asset_id\": \"1f715b30-14f7-49d9-9281-a3fdd62aca44\"\n            }\n          }\n        ]\n      },\n      \"dependencies\": [],\n      \"allowed_tools\": [\"get_asset\"],\n      \"max_tool_calls\": 1,\n      \"acceptance_criteria\": [\"tools_succeeded\", \"output_nonempty\"]\n    }\n  ],\n  \"reasoning_summary\": \"Check if the specified version of langchain-core is impacted by the given CVE and verify the asset context.\",\n  \"confidence\": 0.95\n}",
+          "strict_json_error": null
+        }
+      ],
+      "runtime_run_id": "163d08fa-3721-4642-803d-5fe00f83083e",
+      "frozen_input_scope": {
+        "targets": [
+          "CVE-2025-68664"
+        ],
+        "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44",
+        "component_id": "d7702530-c981-48e0-81c9-0cc9b5d2e154",
+        "snapshot_id": null,
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.0",
+          "purl": null
+        },
+        "question": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "asset_analysis": true
+      },
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "vulnerability_id": "CVE-2025-68664",
+        "targets": [
+          "CVE-2025-68664"
+        ],
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.0",
+          "purl": null
+        },
+        "version": "1.2.0",
+        "asset_context": {
+          "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44",
+          "component_id": "d7702530-c981-48e0-81c9-0cc9b5d2e154"
+        },
+        "task_type": "version_impact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "normalization_audit": "RECONSTRUCTED_FROM_SAVED_PLANNER_INPUT_NO_NEW_MODEL_CALL"
+    }
+  ],
+  "new_model_calls_for_audit": 0,
+  "run_counts": {
+    "integration-gate-v1": 4,
+    "planner-v1": 5,
+    "runtime-v1": 12,
+    "verification-context-v1": 4,
+    "analysis-context-v1": 4,
+    "investigation-orchestrator-v1": 5
+  }
+}
