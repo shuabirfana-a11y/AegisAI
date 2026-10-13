@@ -1,0 +1,235 @@
+{
+  "diagnostic_questions": 5,
+  "new_investigations": 5,
+  "formal_39_rerun": false,
+  "scoring_rules_modified": false,
+  "protected_files_checked": 558,
+  "protected_files_changed": [],
+  "model_unchanged": true,
+  "prompt_version": "investigation-plan-v6",
+  "human_labels_sent": false,
+  "results": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "category": "facts",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434"
+      },
+      "request": {
+        "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "asset_scope": {
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "overview_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-683256cbab15472cb1898850ca69e2a0"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "SUCCEEDED_WITH_WARNINGS",
+      "gate_status": "PASS_WITH_WARNINGS",
+      "answer_status": "COMPLETE_WITH_WARNINGS",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "79fb2088-2c35-48ee-b953-a9fba7ed2852",
+      "planner_run_id": "59a9755a-28fc-4735-b6b9-63f83e5c28b0",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      }
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "category": "version",
+      "input": {
+        "component": "vllm",
+        "ecosystem": "PyPI",
+        "target": "CVE-2026-105752",
+        "version": "0.29.0"
+      },
+      "request": {
+        "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "asset_scope": {
+          "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27",
+          "component_id": "4d9becd0-da0b-4144-8011-7906b537d805",
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm",
+            "version": "0.29.0"
+          },
+          "target": "CVE-2026-105752"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-9c2de4d7fa3648a38d56299ecb9ee8c8"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "60bae506-fe8e-40fb-b4c4-ef3489e913c7",
+      "planner_run_id": "7577045e-a713-48ec-8f5d-2a6b09c5b4ac",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      }
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "category": "risk",
+      "input": {
+        "asset": {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "2.5.1"
+        },
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "request": {
+        "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "asset_scope": {
+          "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d",
+          "component_id": "ff0fc5a0-ba2b-4848-9296-afde4677e918",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch",
+            "version": "2.5.1"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-7888c179a5ef45548ee6323aa3e25028"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "e5ba5154-f448-4a43-b474-806f252c09a0",
+      "planner_run_id": "948fb5c7-075f-4db3-a134-aabf5db2e26c",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      }
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "category": "version",
+      "input": {
+        "component": "langchain-core",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-68664",
+        "version": "1.2.0"
+      },
+      "request": {
+        "user_query": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "asset_scope": {
+          "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44",
+          "component_id": "d7702530-c981-48e0-81c9-0cc9b5d2e154",
+          "component": {
+            "name": "langchain-core",
+            "ecosystem": "PyPI",
+            "package_name": "langchain-core",
+            "version": "1.2.0"
+          },
+          "target": "CVE-2025-68664"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-958ff4d3bd734fe5b0d3e02fe870b814"
+      },
+      "request_status": 202,
+      "investigation_status": "WAITING_REVIEW",
+      "overall_status": "REVIEW_REQUIRED",
+      "gate_status": "HUMAN_REVIEW_REQUIRED",
+      "answer_status": "REVIEW_REQUIRED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "8656f495-17a6-48f1-8388-3b5a869f4662",
+      "planner_run_id": "61e1fe78-1617-4d3b-b996-e52c51ff67ea",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      }
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "category": "version",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "version": null
+      },
+      "request": {
+        "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "asset_scope": {
+          "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347",
+          "component_id": "2d3fcb56-0b2c-44a4-8199-7d804d405765",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-6c435c1811db491ebdb7e3b2c1ab0dd3"
+      },
+      "request_status": 202,
+      "investigation_status": "FAILED",
+      "overall_status": "FAILED",
+      "gate_status": null,
+      "answer_status": "FAILED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "FAILED",
+      "error": "PLANNING_FAILED",
+      "investigation_id": "61856917-3c7d-45e8-ade2-6c3ca83bb472",
+      "planner_run_id": "5e3efa3d-6c54-4fe4-8eef-493f9408d645",
+      "field_values_observed": {}
+    }
+  ]
+}

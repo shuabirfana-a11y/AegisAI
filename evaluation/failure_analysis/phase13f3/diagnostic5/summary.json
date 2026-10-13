@@ -1,0 +1,799 @@
+{
+  "status": "PARTIAL_NOT_READY",
+  "formal_evaluation_conditions_restored": false,
+  "new_http_investigations": 5,
+  "chains_reached": 4,
+  "model_calls": 6,
+  "planner_status_counts": {
+    "VALIDATED": 4,
+    "PLANNING_FAILED": 1
+  },
+  "strict_json_rejections": 0,
+  "gate_status_counts": {
+    "PASS_WITH_WARNINGS": 1,
+    "REPLAN_REQUIRED": 2,
+    "HUMAN_REVIEW_REQUIRED": 1,
+    "NOT_REACHED": 1
+  },
+  "answer_status_counts": {
+    "COMPLETE_WITH_WARNINGS": 1,
+    "INCOMPLETE": 2,
+    "REVIEW_REQUIRED": 1,
+    "FAILED": 1
+  },
+  "token_usage": {
+    "input_tokens": 37821,
+    "output_tokens": 3818,
+    "total_tokens": 41639
+  },
+  "model_duration_ms": 85373.9612000063,
+  "formal_39_rerun": false,
+  "accuracy_calculated": false,
+  "ground_truth_changed": false,
+  "model_changed": false,
+  "protected_files_checked": 558,
+  "protected_files_changed": [],
+  "limitations": [
+    "Five fixed diagnostics are not repeated stability tests or formal scores.",
+    "Raw JSON success and HTTP SUCCEEDED do not establish fact/risk correctness.",
+    "UNKNOWN case failed original VERSION_INPUT_REQUIRED validation; no runtime fallback.",
+    "Gate replan/human review outcomes are preserved, with partial verification/risk artifacts."
+  ],
+  "cases": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "category": "facts",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434"
+      },
+      "request": {
+        "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "asset_scope": {
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "overview_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-683256cbab15472cb1898850ca69e2a0"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "SUCCEEDED_WITH_WARNINGS",
+      "gate_status": "PASS_WITH_WARNINGS",
+      "answer_status": "COMPLETE_WITH_WARNINGS",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "79fb2088-2c35-48ee-b953-a9fba7ed2852",
+      "planner_run_id": "59a9755a-28fc-4735-b6b9-63f83e5c28b0",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "planner_status": "VALIDATED",
+      "runtime_run_id": "e4b46e29-2443-4ee4-83d0-86a70de3aae1",
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": null,
+        "version": null,
+        "asset_context": {},
+        "task_type": "vulnerability_fact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "MISSING",
+          "version": "MISSING"
+        }
+      },
+      "task_template": {
+        "template_id": "vulnerability-fact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup per target. Requested facts/claims use a separate evidence_search task, not lookup-role tools."
+      },
+      "model_attempts": 1,
+      "entered_chain": true,
+      "integration_id": "eaca8d88-527c-4055-97ee-aa82fff60ee1",
+      "artifact_refs": [
+        {
+          "run_id": "e4b46e29-2443-4ee4-83d0-86a70de3aae1",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "7f755f00-9248-47bf-a4d4-474752755aa8",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "3df48beb-2380-4aa8-b5b7-193fb9a89290",
+          "task_id": "verify",
+          "artifact_id": "62384149-481f-4d44-bfd5-2b41da54a736",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "15c51deb-af73-498a-b84d-932b574992ec",
+          "task_id": "analyze",
+          "artifact_id": "f9811630-5c30-4f44-8ab4-bc0e7a6d9757",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "verification_status": "PENDING",
+      "blocked_checks": []
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "category": "version",
+      "input": {
+        "component": "vllm",
+        "ecosystem": "PyPI",
+        "target": "CVE-2026-105752",
+        "version": "0.29.0"
+      },
+      "request": {
+        "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "asset_scope": {
+          "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27",
+          "component_id": "4d9becd0-da0b-4144-8011-7906b537d805",
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm",
+            "version": "0.29.0"
+          },
+          "target": "CVE-2026-105752"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-9c2de4d7fa3648a38d56299ecb9ee8c8"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "60bae506-fe8e-40fb-b4c4-ef3489e913c7",
+      "planner_run_id": "7577045e-a713-48ec-8f5d-2a6b09c5b4ac",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "planner_status": "VALIDATED",
+      "runtime_run_id": "99846096-595f-47ad-ab45-4441aa2fc417",
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "vulnerability_id": "CVE-2026-105752",
+        "targets": [
+          "CVE-2026-105752"
+        ],
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0",
+          "purl": null
+        },
+        "version": "0.29.0",
+        "asset_context": {
+          "asset_id": "be52bfef-78f8-4df2-8612-bac5acbade27",
+          "component_id": "4d9becd0-da0b-4144-8011-7906b537d805"
+        },
+        "task_type": "version_impact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "model_attempts": 1,
+      "entered_chain": true,
+      "integration_id": "61085169-64d4-4f14-beaf-caf2d61e1e64",
+      "artifact_refs": [
+        {
+          "run_id": "99846096-595f-47ad-ab45-4441aa2fc417",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "985f0356-7a91-4d73-93c1-d142abc50740",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "1f04251c-6411-4b2e-95af-071e6e7ad8b0",
+          "task_id": "verify",
+          "artifact_id": "9b06e8b5-dd70-4b7a-a722-a1670e17ef64",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "83684982-5285-4295-9ce7-eb70d581ff5f",
+          "task_id": "analyze",
+          "artifact_id": "f67e1bf2-c3f0-4afc-91fb-878af020e119",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "verification_status": "PENDING",
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "1f04251c-6411-4b2e-95af-071e6e7ad8b0",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "83684982-5285-4295-9ce7-eb70d581ff5f",
+            "analyze"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "UNRESOLVED_ANALYSIS",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Unresolved analysis is disclosed",
+          "refs": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "No explicit normalized fixed version.",
+            "Insufficient current, explicit, independent evidence."
+          ],
+          "objective": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "category": "risk",
+      "input": {
+        "asset": {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "2.5.1"
+        },
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "request": {
+        "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "asset_scope": {
+          "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d",
+          "component_id": "ff0fc5a0-ba2b-4848-9296-afde4677e918",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch",
+            "version": "2.5.1"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-7888c179a5ef45548ee6323aa3e25028"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "e5ba5154-f448-4a43-b474-806f252c09a0",
+      "planner_run_id": "948fb5c7-075f-4db3-a134-aabf5db2e26c",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "planner_status": "VALIDATED",
+      "runtime_run_id": "49e518b9-5ead-42c0-b74b-0c0209921456",
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1",
+          "purl": null
+        },
+        "version": "2.5.1",
+        "asset_context": {
+          "asset_id": "0006eb97-201b-4011-8b9e-29b60cceed8d",
+          "component_id": "ff0fc5a0-ba2b-4848-9296-afde4677e918"
+        },
+        "task_type": "asset_risk",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "asset-risk-v1",
+        "roles": [
+          "asset_lookup",
+          "vulnerability_lookup",
+          "evidence_search"
+        ],
+        "instruction": "Read the actual bound asset; one root vulnerability lookup with supplied version inspection. Discover source evidence. Verification/risk/Gate remain downstream server stages."
+      },
+      "model_attempts": 1,
+      "entered_chain": true,
+      "integration_id": "2f209d72-b9f2-4912-a2dd-21d0d537550b",
+      "artifact_refs": [
+        {
+          "run_id": "49e518b9-5ead-42c0-b74b-0c0209921456",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "970aafe2-ebe3-46f0-9096-b2fccd4532e2",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "0c2941dd-1206-4909-8350-2632c179f35c",
+          "task_id": "verify",
+          "artifact_id": "2c0e87c3-6c2a-4f2e-b1c8-d964ca81f5b3",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "4084657e-d812-4718-9a4c-8937efca1970",
+          "task_id": "analyze",
+          "artifact_id": "7297f5be-46b6-417f-85e2-31c4f6b90d90",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "verification_status": "PENDING",
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "0c2941dd-1206-4909-8350-2632c179f35c",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "4084657e-d812-4718-9a4c-8937efca1970",
+            "analyze"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "UNRESOLVED_ANALYSIS",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Unresolved analysis is disclosed",
+          "refs": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "ASSET_MATCH_UNKNOWN",
+            "UNCONFIRMED_IMPACT:65867ab4-943c-482e-9b01-d12b004bd283",
+            "Insufficient current, explicit, independent evidence."
+          ],
+          "objective": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "category": "version",
+      "input": {
+        "component": "langchain-core",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-68664",
+        "version": "1.2.0"
+      },
+      "request": {
+        "user_query": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "asset_scope": {
+          "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44",
+          "component_id": "d7702530-c981-48e0-81c9-0cc9b5d2e154",
+          "component": {
+            "name": "langchain-core",
+            "ecosystem": "PyPI",
+            "package_name": "langchain-core",
+            "version": "1.2.0"
+          },
+          "target": "CVE-2025-68664"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-958ff4d3bd734fe5b0d3e02fe870b814"
+      },
+      "request_status": 202,
+      "investigation_status": "WAITING_REVIEW",
+      "overall_status": "REVIEW_REQUIRED",
+      "gate_status": "HUMAN_REVIEW_REQUIRED",
+      "answer_status": "REVIEW_REQUIRED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "8656f495-17a6-48f1-8388-3b5a869f4662",
+      "planner_run_id": "61e1fe78-1617-4d3b-b996-e52c51ff67ea",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "planner_status": "VALIDATED",
+      "runtime_run_id": "163d08fa-3721-4642-803d-5fe00f83083e",
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "vulnerability_id": "CVE-2025-68664",
+        "targets": [
+          "CVE-2025-68664"
+        ],
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.0",
+          "purl": null
+        },
+        "version": "1.2.0",
+        "asset_context": {
+          "asset_id": "1f715b30-14f7-49d9-9281-a3fdd62aca44",
+          "component_id": "d7702530-c981-48e0-81c9-0cc9b5d2e154"
+        },
+        "task_type": "version_impact",
+        "input_status": "READY",
+        "missing_fields": [],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "model_attempts": 1,
+      "entered_chain": true,
+      "integration_id": "2d372560-c8f7-4290-9d9e-ae360a9d7af0",
+      "artifact_refs": [
+        {
+          "run_id": "163d08fa-3721-4642-803d-5fe00f83083e",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "f84b30ac-c913-46af-9cef-c660ad43c67c",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "afb9d9af-43dc-48cc-ab9a-e2ecef6d57e5",
+          "task_id": "verify",
+          "artifact_id": "a93be1a5-5cec-4dea-98b3-8e1c0a52e44d",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "dba0a619-c3e0-42a0-b496-bc81cfb9ec03",
+          "task_id": "analyze",
+          "artifact_id": "6f0f2791-53a1-4e92-ac60-8d5c9d169384",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "verification_status": "CONFLICT",
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "163d08fa-3721-4642-803d-5fe00f83083e",
+            "lookup-vulnerability"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "afb9d9af-43dc-48cc-ab9a-e2ecef6d57e5",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "dba0a619-c3e0-42a0-b496-bc81cfb9ec03",
+            "analyze"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "consistency",
+          "code": "CRITICAL_EVIDENCE_CONFLICT",
+          "outcome": "BLOCKED",
+          "blocking": "HUMAN",
+          "message": "Critical sources need human adjudication",
+          "refs": [
+            "2005c0f5-ccba-4fe5-a207-67d758fcdf85",
+            "5a85896f-be5a-40cf-bae8-93a557c081af",
+            "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+            "a95430a2-77a0-426e-9844-7e3658073478",
+            "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "UNRESOLVED_ANALYSIS",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Unresolved analysis is disclosed",
+          "refs": [
+            "VERIFICATION_CONFLICT",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "ASSET_MATCH_UNKNOWN",
+            "UNCONFIRMED_IMPACT:2005c0f5-ccba-4fe5-a207-67d758fcdf85",
+            "UNCONFIRMED_IMPACT:5a85896f-be5a-40cf-bae8-93a557c081af",
+            "UNCONFIRMED_IMPACT:a95430a2-77a0-426e-9844-7e3658073478",
+            "Current same-scope source assertions conflict; verification required",
+            "Conflicting current source values",
+            "Insufficient current, explicit, independent evidence."
+          ],
+          "objective": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "category": "version",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "version": null
+      },
+      "request": {
+        "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "asset_scope": {
+          "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347",
+          "component_id": "2d3fcb56-0b2c-44a4-8199-7d804d405765",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-6c435c1811db491ebdb7e3b2c1ab0dd3"
+      },
+      "request_status": 202,
+      "investigation_status": "FAILED",
+      "overall_status": "FAILED",
+      "gate_status": null,
+      "answer_status": "FAILED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "FAILED",
+      "error": "PLANNING_FAILED",
+      "investigation_id": "61856917-3c7d-45e8-ade2-6c3ca83bb472",
+      "planner_run_id": "5e3efa3d-6c54-4fe4-8eef-493f9408d645",
+      "field_values_observed": {},
+      "planner_status": "PLANNING_FAILED",
+      "runtime_run_id": null,
+      "normalized_goal": {
+        "normalizer_version": "question-normalizer-v1",
+        "objective": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "vulnerability_id": "CVE-2025-32434",
+        "targets": [
+          "CVE-2025-32434"
+        ],
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": null,
+          "purl": null
+        },
+        "version": null,
+        "asset_context": {
+          "asset_id": "94de0941-1ce1-4e55-bf21-5afeb90a5347",
+          "component_id": "2d3fcb56-0b2c-44a4-8199-7d804d405765"
+        },
+        "task_type": "version_impact",
+        "input_status": "INPUT_REQUIRED",
+        "missing_fields": [
+          "version"
+        ],
+        "warnings": [],
+        "provenance": {
+          "vulnerability_id": "INPUT_CONTEXT",
+          "component": "INPUT_CONTEXT",
+          "version": "INPUT_CONTEXT",
+          "asset_context": "ACTUAL_ASSET_BINDING"
+        }
+      },
+      "task_template": {
+        "template_id": "version-impact-v1",
+        "roles": [
+          "vulnerability_lookup",
+          "asset_lookup",
+          "evidence_search"
+        ],
+        "instruction": "One root lookup includes version inspection in the same task when supplied. Independently read the supplied asset. Never repeat get_vulnerability in another task."
+      },
+      "model_attempts": 2,
+      "entered_chain": false,
+      "integration_id": null,
+      "artifact_refs": [],
+      "verification_status": null,
+      "blocked_checks": []
+    }
+  ]
+}
