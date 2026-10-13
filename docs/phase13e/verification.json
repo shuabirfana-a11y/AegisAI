@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-10-13T06:07:24.155290+00:00",
+  "base_commit": "a1cae4c693366ec157e89640338cc04cf3422875",
+  "business_and_existing_evaluation_data_files_checked": 383,
+  "changed_protected_files": [],
+  "new_tests": 11,
+  "checks": [
+    {
+      "name": "aegisbench",
+      "command": "python -m pytest tests/aegisbench -q",
+      "observed": "95 passed",
+      "log_sha256": "9f9ce47ee9520140c31f10c95cd7b7b5e957ac957d4b60d36a265fc1d8973060",
+      "status": "PASS"
+    },
+    {
+      "name": "contracts",
+      "command": "python scripts/ci/check_contracts.py; python scripts/export_investigation_api.py --check; python scripts/export_bench_http_schema.py --check",
+      "observed": "\"schema_groups\": 9",
+      "log_sha256": "d905e9559510a254386bef8e2eba24996632c2398d7de25b09627d717cfbd4fa",
+      "status": "PASS"
+    },
+    {
+      "name": "portable",
+      "command": "python scripts/ci/run_backend_tests.py",
+      "observed": "531 passed",
+      "log_sha256": "47c85d2e3d8d2f65448db5d404f267abb344effc7b4c03a170dfd5afd3571105",
+      "status": "PASS"
+    }
+  ],
+  "preflight_exit_code": 3,
+  "preflight_status": "BLOCKED_MINIMUM_GOLD",
+  "formal_evaluation_executed": false,
+  "quality_status": "NOT_EVALUATED",
+  "http_requests_this_phase": 0,
+  "live_model_calls": 0,
+  "historical_1426_rerun": false,
+  "postgresql_tests_this_phase": "NOT_RUN_NO_DB_CHANGES",
+  "portable_deselection": "One existing cached real embedding check explicitly deselected by CI selector",
+  "test_sets_overlap_do_not_sum": true
+}
