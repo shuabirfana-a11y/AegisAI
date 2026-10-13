@@ -1,6 +1,7 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-13（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #12已授权合并，main基线为`59ea2a239556e70514ce19bba52141121a98d570`。Phase13-D [PR #13](https://github.com/shuabirfana-a11y/AegisAI/pull/13)仍OPEN/DRAFT，三项CI通过，未假定已合并。本轮 `codex/phase13e-evaluation-preflight` 基于该实现，完成 **Phase13-E.1正式实验准入检查**；49候选、0合格HUMAN_GOLD，实际检查exit3/BLOCKED_MINIMUM_GOLD。首批门槛10；未进入13-E.2，没有HTTP/模型调用或准确率。原业务/Runner/数据不变。[本轮报告](PHASE_13E_RESULT.md)。
+更新日期：2026-10-13（北京时间）。ICT命题九AegisAI。用户提供复核包后，人工Ground Truth由0更新为39通过/10退回；新冻结版本AegisBench-v0.3-human39-20261013已被原Loader准入39。旧manifest保留0金标历史，正式准备须显式选新版本。当前分支codex/phase13e2-reviewed-gold-freeze：冻结数据、磁盘模型制品和计划参数/Prompt；**用户本轮明确只准备，未运行实验、未调用模型/调查API**。数据39≥10已通过，执行授权false，真实库存/在线profile仍待核对。PR#14及依赖保持未自动合并。[本轮结果](PHASE_13E2_PREP_RESULT.md)。
+
 ## 已有能力
 
 - Model/Tool Gateway、混合检索、受约束 Planner、Runtime、三专业 Agent、Integration Gate、Investigation Orchestrator、AnswerEnvelope 已实现。
@@ -32,11 +33,11 @@
 | 待办 | 当前事实 | 下一动作 |
 |---|---|---|
 | 本地启动稳定性 | PR #7修复已经合入main；使用实际PostgreSQL运行状态与有限超时，不再误信失效PID标记 | 继续使用现有启动脚本；新机器需配置本机运行环境 |
-| 人工标注与复核 | 收到外部zip的49条HUMAN_RECORD/DRAFT、121条证据，结构/摘要检查通过；尚未独立复核或导入，仓库APPROVED仍0 | 由不同成员逐题查源复核；不把结构检查当人工批准 |
+| 人工标注与复核 | 用户复核包39通过/10退回已冻结，原Loader准入39；签署原件及退回均保留 | 修订10退回；未来实际输出另外做OutcomeAudit |
 | 前端调查工作台 | 交接契约可用，队友页面进度待团队确认 | 队友按已开放HTTP联调；不直接调用内部Python服务 |
 | 真实模型 | Phase12D.1推荐Qwen2.5：三类固定问题20/20合法规划、两次真实概览Gate通过；Qwen3.5不合格 | 使用本轮profile；范围仅固定问题，不代表事实/安全准确率 |
 | 版本/资产闭环 | Phase12D.3 修复封存交接，指定演示资产及官方证据的最终真实 HTTP 场景 HIGH/P1、Gate PASS；无真实企业扫描库存 | 前端使用新可选字段；扩展真实资产数据前保留未知/阻断，不能推断全业务准确率 |
-| 正式 AegisBench 实验 | 没有已批准标准答案，不能发布正式准确率 | Ground Truth达到准入后再授权实验 |
+| 正式 AegisBench 实验 | 新版本已有39人审金标；本轮仅准备，尚无正式指标 | Ground Truth达到准入后再授权实验 |
 | 比赛公网网址 | GitHub代码不等于网站已上线 | 团队确认部署方案后准备发布 |
 
 ## 验证记录入口

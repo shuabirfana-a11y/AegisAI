@@ -1,0 +1,86 @@
+{
+  "record_kind": "PREPARED_CONFIG_NOT_EXECUTED",
+  "experiment_id": "Experiment-001",
+  "dataset": {
+    "dataset_name": "AegisBench",
+    "version": "AegisBench-v0.3-human39-20261013",
+    "manifest": "evaluation/datasets/AegisBench-v0.3-human39-20261013/manifest.json",
+    "manifest_sha256": "4ddb867f8a4d6ce6423fbcdaf7542f6b463b6b5d51f04f1608a2836882bb33b6",
+    "approved_count": 39,
+    "rejected_count": 10,
+    "question_count": 49,
+    "annotations_sha256": "6fb41da340507b191c60b1096d85242b85a67818af1c3ba51bc4fbf876ceda83"
+  },
+  "model": {
+    "provider": "openai_compatible",
+    "model_name": "aegisai-qwen25-planner:latest",
+    "temperature": 0.0,
+    "timeout_seconds": 40.0,
+    "max_output_tokens": 4096,
+    "structured_mode": "json_object",
+    "manifest_digest": "sha256:15aaf3fda3b8e9bb6724e5e9911eec3b9cbdb6bd967646b6bf49ee9846b7ec16",
+    "blobs_verified": true,
+    "runtime_attestation": "NOT_CALLED_OR_ATTESTED"
+  },
+  "prompt": {
+    "planner_version": "investigation-plan-v4",
+    "answer_prompt_version": "NOT_APPLICABLE_DETERMINISTIC_TEMPLATE",
+    "answer_schema_version": "answer-envelope-v1",
+    "source_files": [
+      {
+        "path": "backend/app/agents/investigation/investigation_plan_v4.txt",
+        "sha256": "ebf366a2bc24d6f348c5831e5df14850662ecf82021936439eb7de32d7468b38"
+      },
+      {
+        "path": "backend/app/agents/investigation/planner.py",
+        "sha256": "2c1f943b24dcd3c7b92909e07f2904eef47db85afb145e175526faa152fb0a11"
+      },
+      {
+        "path": "backend/app/orchestration/composer.py",
+        "sha256": "a969593c046ab2ea1de5a21cb4fd4d0f73890602a9574c55d0985dd35aebb461"
+      },
+      {
+        "path": "backend/app/orchestration/answer_contracts.py",
+        "sha256": "dd7a16499bf062ace9bed04876d799a80b31d474e54afcf82822023279f44f9e"
+      }
+    ]
+  },
+  "system": {
+    "git_commit": "c636c51111c64f04f0eec5c003d15df380a27a54",
+    "branch": "codex/phase13e2-reviewed-gold-freeze",
+    "build_version": "SOURCE_c636c51_PHASE13E",
+    "compiled_build": "NOT_APPLICABLE_PYTHON_NATIVE_JS"
+  },
+  "admission": {
+    "minimum_approved": 10,
+    "data_gate_passed": true,
+    "frozen_source_record_receipt": "docs/phase13e2/IMPORT_RECORDS.json"
+  },
+  "execution": {
+    "authorized_for_this_stage": false,
+    "formal_experiment_executed": false,
+    "investigation_calls": 0,
+    "model_calls": 0,
+    "can_start_now": false,
+    "remaining_checks": [
+      "PREPARATION_ONLY_CURRENT_REQUEST",
+      "REAL_OWNER_INVENTORY_BINDINGS_NOT_FROZEN",
+      "RUNNING_PROVIDER_AND_PROFILE_NOT_ATTESTED"
+    ]
+  },
+  "baselines": {
+    "rag_only": {
+      "status": "NOT_READY",
+      "reason": "Independent comparable control not implemented"
+    },
+    "agent_without_verification": {
+      "status": "NOT_READY",
+      "reason": "Independent comparable control not implemented"
+    },
+    "aegisai": {
+      "status": "HTTP_ENTRY_IMPLEMENTED_PREPARED_NOT_EXECUTED"
+    }
+  },
+  "ground_truth_usage": "SCORER_ONLY_NEVER_MODEL_CONTEXT",
+  "runtime_configuration_file": "LOCAL_ONLY_NOT_EXPORTED"
+}

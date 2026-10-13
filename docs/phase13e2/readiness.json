@@ -1,0 +1,52 @@
+{
+  "schema_version": "aegisbench-formal-preflight-v1",
+  "checked_at_utc": "2026-10-13T07:01:48.929789+00:00",
+  "status": "READY_FOR_DATA_FREEZE",
+  "dataset_version": "AegisBench-v0.3-human39-20261013",
+  "sample_count": 49,
+  "manifest_sha256": "4ddb867f8a4d6ce6423fbcdaf7542f6b463b6b5d51f04f1608a2836882bb33b6",
+  "dataset_fingerprint": "097fad76e1145ccb31e41404d8cb3cef1aa93ad5b5fcc57a88139861eb7460af",
+  "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "annotations_sha256": "6fb41da340507b191c60b1096d85242b85a67818af1c3ba51bc4fbf876ceda83",
+  "annotation_status_counts": {
+    "APPROVED": 39
+  },
+  "eligible_gold_count": 39,
+  "eligible_completed_state_counts": {
+    "APPROVED": 39
+  },
+  "excluded_gold_count": 0,
+  "exclusion_reason_counts": {},
+  "minimum_approved": 10,
+  "data_gate_passed": true,
+  "eligible_by_category": {
+    "facts": 2,
+    "version": 17,
+    "poc_patch": 10,
+    "risk": 10
+  },
+  "formal_experiment_executed": false,
+  "http_executed": false,
+  "model_calls": 0,
+  "quality_status": "NOT_EVALUATED",
+  "model_freeze_status": "NOT_FROZEN",
+  "prompt_freeze_status": "NOT_FROZEN",
+  "inventory_equivalence": "NOT_INDEPENDENTLY_ATTESTED",
+  "baselines": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED",
+    "aegisai": "HTTP_ENTRY_IMPLEMENTED_NOT_EXECUTED"
+  },
+  "output_semantic_audit": "REQUIRED_AFTER_OUTPUT_FOR_EVIDENCE_AND_HALLUCINATION",
+  "scope": "Data admission only, not experiment readiness or evidence correctness certification",
+  "manual_workflow_file_counts": {
+    "DRAFT": 0,
+    "REVIEWING": 0,
+    "APPROVED": 39,
+    "REJECTED": 10
+  },
+  "task_card_state_counts": {
+    "DRAFT": 49
+  },
+  "count_semantics": "Workflow files and task cards do not grant benchmark admission; frozen manifest only."
+}

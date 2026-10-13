@@ -1,0 +1,206 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-935w-9g4m-p28p-risk-affected",
+  "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2026-105752 的风险与优先级。",
+  "type": "ASSET_RISK",
+  "additional_types": [],
+  "category": "risk",
+  "input_context": {
+    "asset": {
+      "component": "vllm",
+      "id": "demo-GHSA-935w-9g4m-p28p-affected",
+      "scenario": "CONTROLLED_NOT_PRODUCTION",
+      "version": "0.29.0"
+    },
+    "component": "vllm",
+    "ecosystem": "PyPI",
+    "target": "CVE-2026-105752",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "507a2c4a5dc6ccdb161535e815dbcdd9f140cd5ee992ab269d516529310a0c4f",
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-935w-9g4m-p28p"
+  ],
+  "evaluation_profile": "POLICY_CONFORMANCE",
+  "expected_answer": {
+    "affected": "AFFECTED",
+    "risk_level": "LOW",
+    "priority": "P3"
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-aff",
+      "answer_path": "/affected",
+      "decision": "AFFECTED",
+      "evidence_ids": [
+        "ev-range"
+      ],
+      "rationale": "资产版本 0.29.0 与公告区间比较。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-lvl",
+      "answer_path": "/risk_level",
+      "decision": "LOW",
+      "evidence_ids": [
+        "ev-cvss"
+      ],
+      "rationale": "按 benchmark-reference-triage-v1 分档（受影响且有效 CVSS 分档 / 不受影响 LOW / 未知 UNKNOWN）。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-pri",
+      "answer_path": "/priority",
+      "decision": "P3",
+      "evidence_ids": [
+        "ev-cvss"
+      ],
+      "rationale": "优先级由同一政策推导；CVSS 版本选择见证据。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-range",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "< 0.30.0",
+      "locator": "/record/vulnerabilities/0/vulnerable_version_range",
+      "canonical_excerpt": "\"< 0.30.0\"",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-aff"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvss",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "vector_string=CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N；score=3.1",
+      "locator": "/record/cvss_severities/cvss_v3",
+      "canonical_excerpt": "{\"score\":3.1,\"vector_string\":\"CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N\"}",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-lvl",
+        "j-pri"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "affected",
+      "risk_level",
+      "priority"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [
+    "等级是政策符合性结果，不代表真实生产资产专家风险；政策文本在包内 docs，非冻结来源。"
+  ],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2026-105752：NVD 描述『vLLM <0.30.0 Harmony 工具续写丢失 cache_salt、跨租户前缀缓存成员推断，0.30.0 修复』、受影响 < 0.30.0、CWE-200/CWE-524、CVSS v3.1=3.1（CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N）与冻结投影完全一致；厂商公告 github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p、release v0.30.0、patch commit 6a2a2bb0 一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2026-105752：NVD 描述『vLLM <0.30.0 Harmony 工具续写丢失 cache_salt、跨租户前缀缓存成员推断，0.30.0 修复』、受影响 < 0.30.0、CWE-200/CWE-524、CVSS v3.1=3.1（CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N）与冻结投影完全一致；厂商公告 github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p、release v0.30.0、patch commit 6a2a2bb0 一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "ea86a5bf236ceecc5b715b1f44b8f351c6e95e9156e145549bfac5c01a31d5d2",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-12T21:24:59+08:00",
+    "reviewed_at": "2026-10-13T14:21:17+08:00",
+    "status": "APPROVED",
+    "revision": 2,
+    "reviewed_content_sha256": "ea86a5bf236ceecc5b715b1f44b8f351c6e95e9156e145549bfac5c01a31d5d2",
+    "annotation_note": "标注人本人已逐条查源确认（annotator_confirmed_source_check=true）；AI 辅助核验记录见 ai_assistance；尚未完成独立第二人复核，不得按 APPROVED 使用。",
+    "review_note": "【Codex AI 辅助连续核对，非人工签核；2026-10-12T19:30:02+08:00】\ndemo-GHSA-935w-9g4m-p28p-affected：版本=0.29.0，AFFECTED，LOW/P3（按冻结 cvss_v3=3.1） 结论仅按声明政策评估 CONTROLLED_NOT_PRODUCTION 演示资产。\n[NEEDS_CHECK] 字段 evidence[*].authority_level；证据 ev-range,ev-cvss；证据均标 L1_OFFICIAL，但来源为 GitHub 公告数据库投影；需按实际发布者及引用链说明，而非按域名统一评级。 建议：管理员或标注人说明 L1 来源链；若需调整评级，创建新修订。\n[NEEDS_CHECK] 字段 uncertainties; version/release judgments；证据 ev-range；同一公告正文写 <=0.25.1（在 0.25.1 确认），与版本表范围不同。PR #51818 已关闭，作者称由 #50195 的上游改动修复；#50195 显示已合并。这些线索不足以直接确定全部发布版本边界，需要标注人补充时序与发布映射。 建议：保存正文与版本表差异；补查维护者修复说明及发布映射，限定冻结范围，不直接自动改判版本。\n当前辅助结果：结构化答案与冻结源/声明政策一致，人工查源、未决冲突及正式签署仍待完成。未改答案或证据，未代勾人工清单。\n2026-10-12T21:24:59+08:00：【谢妍本人同源查源摘录】本人从指定 vLLM 公告提供包名vllm/pip，版本表影响<0.30.0、修复0.30.0；同一正文另写vLLM≤0.25.1并明确0.25.1/commit752a3a504485已确认、较低影响起点需维护者补查。版本表与正文记载范围不同，本次不把两者无条件等同，也不从正文推出0.29.0安全；冻结版本题仍须明确其依据是版本表并保留差异。 与冻结分支逐项一致；本题相关版本/修复证据编号：ev-range。该摘录仅记录实际读取的包名与版本/修复范围；尚未按此填写整题来源确认、全部检查表或最终签核。\n2026-10-12T21:37:09+08:00：【同源正式来源本人摘录复用】本人读取的NVD描述明确prior to0.30.0影响、0.30.0修复，支持冻结版本表；保留公告旧正文≤0.25.1/0.25.1确认范围差异，不宣称0.29.0已经实际验证。NVD自身未评定（N/A），GitHub CNA有效v3.1=3.1完整向量与冻结值一致。此CNA归属只据实核对CVSS字段来源链；实际生产影响仍须考虑正文的prefix caching/认证租户/Harmony续轮条件。本题版本/风险结论只按所声明冻结区间和演示政策范围。【AI政策对照】0.29.0按冻结范围AFFECTED，有效CVSS3.1分数<4，得LOW/P3；0.30.0按所列修复版本NOT_AFFECTED，得LOW/MONITOR。两个资产风险等级都为LOW，处理优先级仍区分P3与MONITOR，优先受影响资产。\n2026-10-12T22:41:18+08:00：【同源本人时间摘录与管理员定位核对】本人提供GHSA发布时间2026-10-06T00:02:02Z和冻结获取时间2026-10-11T06:18:36.235642+00:00，与本题证据的两种时间一致；管理员逐条核对来源URL、指针摘录与快照哈希。来源时间不冒充审核发生时间。\n2026-10-13T12:50:53+08:00：【单题带读回应，非最终批准】谢妍在第45题带读说明后回复“行”。说明范围为：资产vllm 0.29.0命中冻结<0.30.0区间，有效CVSS v3.1分数3.1低于4，按benchmark-reference-triage-v1为AFFECTED/LOW/P3，LOW不等于不受影响。该回复记为对当前政策判断说明的认可；不推定本人已读完本题全部JSON或证据，不新增查源声明，不补勾检查项，不代录APPROVED。来源等级及完整签核仍待核对。\n2026-10-13T14:21:17+08:00：【谢妍本人最终确认，Codex代录本题签核】第45题最终复核：资产vllm 0.29.0：AFFECTED，按冻结有效评分与benchmark-reference-triage-v1为LOW/P3；仅用于CONTROLLED_NOT_PRODUCTION演示政策符合性。 证据编号：ev-range, ev-cvss。原有来源差异与不确定性继续保留，不表示相关外部声称已被新增独立验证。谢妍先明确“其他39题都可以就十个要重新”，随后本人明确确认已亲自核对完这39题完整答案、全部证据及逐项检查，授权Codex代录本题APPROVED。签核时间为本次实际代录时间，非昨日来源时间；内容未变，绑定当前指纹。检查项逐题依据见39题最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "7dffd06a0891033358c65f2ae5f8fee955d8444f9949c1265c4c5f627335f147",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-935w-9g4m-p28p-risk-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "ea86a5bf236ceecc5b715b1f44b8f351c6e95e9156e145549bfac5c01a31d5d2",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-935w-9g4m-p28p-risk-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T21:24:59+08:00",
+      "content_sha256": "ea86a5bf236ceecc5b715b1f44b8f351c6e95e9156e145549bfac5c01a31d5d2",
+      "reason": "开始同公告集中带读，已取得本人包名/版本/修复摘录，尚未整题签核",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-935w-9g4m-p28p-risk-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-13T14:21:17+08:00",
+      "content_sha256": "ea86a5bf236ceecc5b715b1f44b8f351c6e95e9156e145549bfac5c01a31d5d2",
+      "reason": "谢妍明确通过并确认本人逐项核对完成，Codex代录；资产vllm 0.29.0：AFFECTED，按冻结有效评分与benchmark-reference-triage-v1为LOW/P3；仅用于CONTROLLED_NOT_PRODUCTION演示政策符合性。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-935w-9g4m-p28p-risk-affected__r0001.json"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-53q9-r3pm-6pq6-commit-candidate",
+  "question": "此链接仅出现在 CVE-2025-32434 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+  "type": "PATCH_ANALYSIS",
+  "additional_types": [],
+  "category": "poc_patch",
+  "input_context": {
+    "candidate_kind": "patch",
+    "candidate_reference": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-32434"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "7c5569a336aa855a6ff14714abe395bcb88330d3920f2c279629fb46fa22428f",
+  "origin": "REAL_SOURCE",
+  "source_ids": [
+    "GHSA-53q9-r3pm-6pq6"
+  ],
+  "evaluation_profile": "FACTUAL",
+  "expected_answer": {
+    "patch_status": "PATCH_CANDIDATE"
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-patch",
+      "answer_path": "/patch_status",
+      "decision": "PATCH_CANDIDATE",
+      "evidence_ids": [
+        "ev-ref"
+      ],
+      "rationale": "该 commit 仅出现在参考列表，冻结来源未提供代码审查或回归验证记录，不能认定为已验证补丁。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-ref",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-53q9-r3pm-6pq6",
+      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+      "quote": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+      "locator": "/record/references/1",
+      "canonical_excerpt": "\"https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04\"",
+      "snapshot_sha256": "5c7326f53ca55c8e128e5122cab2cbf946eed772e1692f022ebccc66e44b751a",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2025-04-18T15:19:28Z",
+      "retrieved_time": "2026-10-11T06:18:31.053133+00:00",
+      "time_note": "",
+      "role": "CONTEXTUAL",
+      "judgment_ids": [
+        "j-patch"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "MEDIUM",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "patch_status"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [
+    "引用列表中的 commit 不等于已确认修复。",
+    "NVD 参考未含独立利用验证记录，CISA SSVC exploitation=none；poc_status=NO_EVIDENCE 维持。"
+  ],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2025-32434：NVD 描述『2.5.1 及更早版本 torch.load(weights_only=True) RCE，2.6.0 修复』、受影响 < 2.6.0、CWE-502、CVSS v4.0=9.3 均与冻结投影一致；PYSEC-2025-41 描述与修复版本一致；厂商公告 github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6 被 NVD 标记为 Vendor Advisory。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2025-32434：NVD 描述『2.5.1 及更早版本 torch.load(weights_only=True) RCE，2.6.0 修复』、受影响 < 2.6.0、CWE-502、CVSS v4.0=9.3 均与冻结投影一致；PYSEC-2025-41 描述与修复版本一致；厂商公告 github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6 被 NVD 标记为 Vendor Advisory。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "960e676a4ba558fcf54202aa6fb3c8047eb86dfd6f673a302b142018e20e700e",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-12T19:02:37+08:00",
+    "reviewed_at": "2026-10-13T14:21:17+08:00",
+    "status": "APPROVED",
+    "revision": 2,
+    "reviewed_content_sha256": "960e676a4ba558fcf54202aa6fb3c8047eb86dfd6f673a302b142018e20e700e",
+    "annotation_note": "标注人本人已逐条查源确认（annotator_confirmed_source_check=true）；AI 辅助核验记录见 ai_assistance；尚未完成独立第二人复核，不得按 APPROVED 使用。",
+    "review_note": "开始第十三题，提供 AI 辅助中文对照供谢妍审阅。目标 CVE-2025-32434，candidate_reference=https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04。复核人此前实际摘录的正确公告 References 已包含 pytorch/pytorch@8d4b8a9；冻结 ev-ref 定位 /record/references/1 与完整提交地址相符。原题给定仅参考链接且没有代码验证记录，原答案 PATCH_CANDIDATE 对应候选范围，不能由参考列表推导已验证补丁。只评 patch_status，不以其他未核对的 PoC/SSVC 叙述作为本题裁决依据。当前为意见草稿，尚未最终签核；来源等级等未处理项继续保留。\n2026-10-12T19:16:34+08:00：谢妍回复“可以”，认可上述第十三题候选提交范围的中文意见草稿。该回复仅记为草稿认可，未作为最终批准或全部检查项完成。\n\n【Codex AI 辅助连续核对，非人工签核；2026-10-12T19:30:02+08:00】\n问题明确只给参考链接且无代码验证记录，保留 PATCH_CANDIDATE。此结论限原题给定材料；不以现时 PR 状态代替该特定提交的代码验证。 额外源差异：厂商页 pytorch/<=2.5.1 与数据库 torch/<2.6.0 不同；本题所问普通版本结论可保持，但应明确来源与包名绑定。\n[NEEDS_CHECK] 字段 evidence[*].authority_level；证据 ev-ref；证据均标 L1_OFFICIAL，但来源为 GitHub 公告数据库投影；需按实际发布者及引用链说明，而非按域名统一评级。 建议：管理员或标注人说明 L1 来源链；若需调整评级，创建新修订。\n[NEEDS_CHECK] 字段 uncertainties；证据 需补充登记；原记录含 NVD/SSVC/其他页面的交叉核对声称，本轮 NVD 网页读取返回空内容，无法独立确认这些声称。 建议：保留原冲突，不把原标注人的声称记成谢妍已查源；补查相应正式记录或让管理员保存材料。\n当前辅助结果：结构化答案与冻结源/声明政策一致，人工查源、未决冲突及正式签署仍待完成。未改答案或证据，未代勾人工清单。\n2026-10-13T14:21:17+08:00：【谢妍本人最终确认，Codex代录本题签核】第13题最终复核：候选链接https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04出现在冻结参考列表；仅确认PATCH_CANDIDATE，不认定已验证补丁。 证据编号：ev-ref。原有来源差异与不确定性继续保留，不表示相关外部声称已被新增独立验证。谢妍先明确“其他39题都可以就十个要重新”，随后本人明确确认已亲自核对完这39题完整答案、全部证据及逐项检查，授权Codex代录本题APPROVED。签核时间为本次实际代录时间，非昨日来源时间；内容未变，绑定当前指纹。检查项逐题依据见39题最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "bee1b34e95097103b08599fb79ab16224b768243f0bf9d912e21ff9e43dfdd72",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-53q9-r3pm-6pq6-commit-candidate__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "960e676a4ba558fcf54202aa6fb3c8047eb86dfd6f673a302b142018e20e700e",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-53q9-r3pm-6pq6-commit-candidate__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T19:02:37+08:00",
+      "content_sha256": "960e676a4ba558fcf54202aa6fb3c8047eb86dfd6f673a302b142018e20e700e",
+      "reason": "开始独立复核第十三题，提供同源候选提交范围对照",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-53q9-r3pm-6pq6-commit-candidate__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-13T14:21:17+08:00",
+      "content_sha256": "960e676a4ba558fcf54202aa6fb3c8047eb86dfd6f673a302b142018e20e700e",
+      "reason": "谢妍明确通过并确认本人逐项核对完成，Codex代录；候选链接https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04出现在冻结参考列表；仅确认PATCH_CANDIDATE，不认定已验证补丁。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-53q9-r3pm-6pq6-commit-candidate__r0001.json"
+    }
+  ]
+}
