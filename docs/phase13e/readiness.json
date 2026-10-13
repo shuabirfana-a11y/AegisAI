@@ -1,0 +1,47 @@
+{
+  "schema_version": "aegisbench-formal-preflight-v1",
+  "checked_at_utc": "2026-10-13T05:51:05.038612+00:00",
+  "status": "BLOCKED_MINIMUM_GOLD",
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "sample_count": 49,
+  "manifest_sha256": "ff35722a2960d6be7a6542d9e7a7200726b4c2851b2911724fcdb6861d8c61c1",
+  "dataset_fingerprint": "097fad76e1145ccb31e41404d8cb3cef1aa93ad5b5fcc57a88139861eb7460af",
+  "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "annotations_sha256": "238cdb03a270c73d293cb29372cb188c61b360ea5e5bf367c5647aec1f678747",
+  "annotation_status_counts": {
+    "PENDING": 49
+  },
+  "eligible_gold_count": 0,
+  "eligible_completed_state_counts": {},
+  "excluded_gold_count": 49,
+  "exclusion_reason_counts": {
+    "Source references and machine drafts are not HUMAN_GOLD": 49
+  },
+  "minimum_approved": 10,
+  "data_gate_passed": false,
+  "eligible_by_category": {},
+  "formal_experiment_executed": false,
+  "http_executed": false,
+  "model_calls": 0,
+  "quality_status": "NOT_EVALUATED",
+  "model_freeze_status": "NOT_FROZEN",
+  "prompt_freeze_status": "NOT_FROZEN",
+  "inventory_equivalence": "NOT_INDEPENDENTLY_ATTESTED",
+  "baselines": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED",
+    "aegisai": "HTTP_ENTRY_IMPLEMENTED_NOT_EXECUTED"
+  },
+  "output_semantic_audit": "REQUIRED_AFTER_OUTPUT_FOR_EVIDENCE_AND_HALLUCINATION",
+  "scope": "Data admission only, not experiment readiness or evidence correctness certification",
+  "manual_workflow_file_counts": {
+    "DRAFT": 0,
+    "REVIEWING": 0,
+    "APPROVED": 0,
+    "REJECTED": 0
+  },
+  "task_card_state_counts": {
+    "DRAFT": 49
+  },
+  "count_semantics": "Workflow files and task cards do not grant benchmark admission; frozen manifest only."
+}

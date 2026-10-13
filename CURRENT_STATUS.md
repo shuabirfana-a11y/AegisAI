@@ -1,6 +1,6 @@
 # AegisAI 当前阶段与待办
 
-更新日期：2026-10-12（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。负责人已授权合并 [PR #12](https://github.com/shuabirfana-a11y/AegisAI/pull/12)，main 稳定基线为 `59ea2a239556e70514ce19bba52141121a98d570`，包含 Phase12D.3 及其依赖。合并后 main CI 通过。本轮 `codex/phase13d-e2e-evaluation` 增加 **Phase13-D：完整 HTTP 评测适配与冻结回放准备**；不修改业务代码，不填写或批准人工答案。当前49题、APPROVED为0；线上准备与离线回放均 NOT_EVALUATED，无模型调用。本轮新 PR 独立提交，不自动合并。见 [本轮报告](PHASE_13D_RESULT.md)。
+更新日期：2026-10-13（北京时间）。项目为 ICT 命题九、奇安信 AI 安全知识情报系统。PR #12已授权合并，main基线为`59ea2a239556e70514ce19bba52141121a98d570`。Phase13-D [PR #13](https://github.com/shuabirfana-a11y/AegisAI/pull/13)仍OPEN/DRAFT，三项CI通过，未假定已合并。本轮 `codex/phase13e-evaluation-preflight` 基于该实现，完成 **Phase13-E.1正式实验准入检查**；49候选、0合格HUMAN_GOLD，实际检查exit3/BLOCKED_MINIMUM_GOLD。首批门槛10；未进入13-E.2，没有HTTP/模型调用或准确率。原业务/Runner/数据不变。[本轮报告](PHASE_13E_RESULT.md)。
 ## 已有能力
 
 - Model/Tool Gateway、混合检索、受约束 Planner、Runtime、三专业 Agent、Integration Gate、Investigation Orchestrator、AnswerEnvelope 已实现。
