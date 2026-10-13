@@ -7,7 +7,7 @@ ROLES=MappingProxyType({
                                frozenset({'tools_succeeded','output_nonempty','evidence_present'})),
     'asset_lookup':TaskRole(frozenset({'get_asset'})),
 })
-PROMPT_VERSION='investigation-plan-v5'
+PROMPT_VERSION='investigation-plan-v6'
 REGISTRY_VERSION='investigation-registry-v1'
 IMPLEMENTATION_KEY='intelligence-investigation-v1'
 

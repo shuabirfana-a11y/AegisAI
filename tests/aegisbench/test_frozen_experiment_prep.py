@@ -78,11 +78,14 @@ def test_model_prompt_and_source_configuration_are_frozen_without_answer_llm():
     for p in c['prompt']['source_files']:
         current=hashlib.sha256((ROOT/p['path']).read_bytes()).hexdigest()
         if p['path']=='backend/app/agents/investigation/planner.py':
-            # This v4 experiment is preserved history, never the active v5 profile.
+            # This v4 experiment is preserved history, never the active v6 profile.
             exception=json.loads((ROOT/'docs/phase13f2/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
             assert exception['authorization']=='PHASE13F2_USER_AUTHORIZED_INPUT_PLANNER_AND_CONFLICT_HANDOFF'
             assert exception['previous_sha256']==p['sha256']
-            assert exception['current_sha256']==current
+            latest=json.loads((ROOT/'docs/phase13f3/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
+            assert latest['previous_sha256']==exception['current_sha256']
+            assert latest['authorization']=='PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES'
+            assert latest['current_sha256']==current
         else:assert current==p['sha256']
     assert c['prompt']['planner_version']=='investigation-plan-v4'
     assert c['prompt']['answer_prompt_version']=='NOT_APPLICABLE_DETERMINISTIC_TEMPLATE'

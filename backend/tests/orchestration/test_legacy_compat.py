@@ -65,6 +65,9 @@ def test_old_api_and_business_source_hashes_are_unchanged():
                                  'backend/app/agents/investigation/roles.py','backend/tests/agents/investigation/test_planning.py'}
     asset_changes=json.loads((root/'docs/phase12d3/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     f2_changes=json.loads((root/'docs/phase13f2/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    f3_changes=json.loads((root/'docs/phase13f3/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(f3_changes)=={'backend/app/agents/investigation/planner.py','backend/app/agents/investigation/planning.py',
+        'backend/app/agents/investigation/roles.py','backend/tests/agents/investigation/test_planning.py'}
     assert set(f2_changes)=={'backend/app/agents/investigation/planner.py','backend/app/agents/investigation/planning.py',
         'backend/app/agents/investigation/roles.py','backend/tests/agents/investigation/test_planning.py',
         'backend/app/agents/verification/schemas.py','backend/app/agents/verification/snapshot.py',
@@ -75,6 +78,13 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in f3_changes:
+            entry=f3_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['previous_sha256']==f2_changes[path]['current_sha256'],path
+            assert entry['authorization']=='PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in f2_changes:
             entry=f2_changes[path]
             assert entry['baseline_sha256']==digest,path

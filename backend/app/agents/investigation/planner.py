@@ -9,11 +9,13 @@ from app.tooling.contracts import REGISTRY
 from app.agents.investigation.planning import InvestigationPlan,scoped_plan_model
 from app.agents.investigation.validation import validate_investigation_plan
 from app.agents.investigation.roles import ROLES,PROMPT_VERSION,REGISTRY_VERSION
+from app.agents.investigation.normalization import normalize_question
+from app.agents.investigation.templates import template_guidance
 
 class InvestigationPlannerAdapter(LLMTaskPlanner):
     def __init__(self,gateway,trace_sink):
         super().__init__(gateway,trace_sink)
-        self._investigation_prompt=Path(__file__).with_name('investigation_plan_v5.txt').read_text(encoding='utf-8')
+        self._investigation_prompt=Path(__file__).with_name('investigation_plan_v6.txt').read_text(encoding='utf-8')
     @property
     def prompt_version(self):return PROMPT_VERSION
     @property
@@ -22,13 +24,16 @@ class InvestigationPlannerAdapter(LLMTaskPlanner):
         missing=missing_fields(context.scope,context.policy)
         role_fields={'vulnerability_lookup':{'target','version'},'evidence_search':{'target'},'asset_lookup':{'asset_id'}}
         scope=context.scope
+        normalized=normalize_question(scope['question'],{'targets':scope['targets'],'component':scope.get('component')},
+            {k:scope[k] for k in ('asset_id','component_id','snapshot_id') if scope.get(k)},extract_literals=False)
         targets=[{'target':t} for t in scope['targets']]
         component={k:v for k,v in (scope.get('component') or {}).items() if v is not None}
         exact={n:targets for n in ('get_vulnerability','get_evidence','get_claims','relation_query')}
         exact['inspect_component_version']=[{**t,**component} for t in targets] if component.get('version') else []
         exact['semantic_search']={'query':scope['question']}
         exact['get_asset']={'asset_id':scope['asset_id']} if scope.get('asset_id') else None
-        payload={'input_scope':context.scope,'permissions':sorted(context.policy.permissions),
+        payload={'input_scope':context.scope,'normalized_goal':normalized.model_dump(mode='json'),
+            'task_template':template_guidance(normalized),'permissions':sorted(context.policy.permissions),
             'runtime_policy':context.policy.model_dump(mode='json'),
             'roles':{k:{'allowed_tools':sorted(r.tools),'minimum_criteria':sorted(r.criteria)} for k,r in ROLES.items()},
             'tool_inputs':{n:REGISTRY[n].input.model_json_schema() for n in sorted(set().union(*(r.tools for r in ROLES.values())))},

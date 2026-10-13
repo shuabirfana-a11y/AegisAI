@@ -73,7 +73,7 @@ def test_prompt_payload_distinguishes_optional_inputs_and_fixes_sampling():
         assert payload['input_scope']['targets']
         assert list(payload['tool_inputs']) == sorted(payload['tool_inputs'])
         assert calls[0].temperature == 0.0
-        assert planner.prompt_version == 'investigation-plan-v5'
+        assert planner.prompt_version == 'investigation-plan-v6'
         prompt = calls[0].messages[0].content
         for field in ('input_data.steps', 'allowed_tools', 'task_type', 'input_required'):
             assert field in prompt

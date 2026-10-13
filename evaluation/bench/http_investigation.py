@@ -33,6 +33,14 @@ def build_request(question,binding=None):
     if set(binding)-{'asset_id','component_id','snapshot_id','component','target'}:
         raise ValueError('UNSUPPORTED_BINDING_FIELDS')
     values=input_values(question);assets=context.get('assets',[])
+    api_models() # reuse the existing backend import path, no network or model call
+    from app.agents.investigation.normalization import normalize_question
+    normalized=normalize_question(question.question,values,binding)
+    if normalized.input_status=='AMBIGUOUS':raise ValueError('QUESTION_NORMALIZATION_AMBIGUOUS')
+    if normalized.vulnerability_id is not None:values['target']=normalized.vulnerability_id
+    if normalized.component is not None:values['component']=normalized.component
+    if normalized.version is not None or 'version' in values or \
+        normalized.component is not None and 'version' in normalized.component:values['version']=normalized.version
     from .question_contract import BenchmarkQuestionContract
     # Validate only original question input and real inventory bindings. This
     # local diagnostic contract is never sent as annotation metadata to the API.
