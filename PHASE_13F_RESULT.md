@@ -95,3 +95,5 @@ RAG-only、Agent without Verification均`NOT_IMPLEMENTED`，没有对照结果�
 类别兼容先实际复现2个失败/1个通过，再一行修复；AegisBench **108 passed**，portable后端 **531 passed / 1 deselected**（旧Starlette/AnyIO告警1项）。两组集合不相加，未声称全量历史1426测试已重跑。499个受保护文件中仅quality.py为授权差异，其余498个不变。
 
 下一步仅等待原复核人员返回输出审计，随后再决定实验分析任务；本阶段不改Prompt/模型/业务、不扩基准、不制作PPT、不部署。
+
+评分代码及原始归档提交：`9155b5725649ad743c719c53bc8cbe01042b042d`。另实际完成18项工程门禁、23项前端现有测试、17文件语法及TypeScript契约检查；OpenAPI 42操作检查通过。原CLI离线回放全部指标与首次评分相同，未调用模型或调查服务。
