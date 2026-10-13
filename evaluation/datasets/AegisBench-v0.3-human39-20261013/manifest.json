@@ -54,13 +54,13 @@
   "model": "NONE",
   "prompt_version": "NONE",
   "triage_policy": "benchmark-reference-triage-v1",
-  "gold_status": "PENDING_HUMAN_REVIEW",
+  "gold_status": "PARTIALLY_APPROVED_39_REJECTED_10",
   "limitations": [
     "Five selected advisory clusters; questions are correlated.",
     "Not an independent holdout; some vulnerabilities appeared in development fixtures.",
     "No verified exploit execution evidence; positive PoC classes lack coverage.",
     "Patch release confirmation is separate from commit correctness or exploit validation.",
-    "Asset risk labels are policy-conformance drafts, not production risk ground truth."
+    "Human-approved asset risk labels measure benchmark-reference-triage-v1 policy conformance, not production risk ground truth."
   ],
   "supersedes": "AegisBench-v0.2-pilot",
   "annotation_errata": [

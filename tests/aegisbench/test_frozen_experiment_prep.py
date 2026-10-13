@@ -97,3 +97,21 @@ def test_report_template_has_no_fabricated_result_and_baselines_are_not_ready():
     assert report['record_kind']=='REPORT_TEMPLATE_NOT_EXECUTED'
     assert report['formal_experiment_executed'] is False
     assert all(x is None for x in report['metrics'].values())
+
+
+def test_manifest_reports_partial_human_approval_and_policy_scope():
+    manifest=json.loads(MANIFEST.read_text(encoding='utf-8'))
+    assert manifest['gold_status']=='PARTIALLY_APPROVED_39_REJECTED_10'
+    assert (manifest['approved_count'],manifest['rejected_count'])==(39,10)
+    risk_scope=next(x for x in manifest['limitations'] if 'risk labels' in x)
+    assert 'Human-approved' in risk_scope and 'drafts' not in risk_scope
+    assert 'policy conformance' in risk_scope and 'not production risk ground truth' in risk_scope
+
+
+def test_report_scopes_approval_checks_to_approved_records_only():
+    report=(ROOT/'PHASE_13E2_PREP_RESULT.md').read_text(encoding='utf-8')
+    assert '49条结构、题目/内容摘要与来源定位检查通过' in report
+    assert '39条批准记录的复核绑定摘要和完整批准清单通过' in report
+    assert '10条退回记录不计入批准门禁' in report
+    rejected=[json.loads(p.read_text(encoding='utf-8')) for p in (ROOT/'evaluation/ground_truth/samples/rejected').glob('*.json')]
+    assert all(row['annotation']['reviewed_content_sha256'] is None for row in rejected)

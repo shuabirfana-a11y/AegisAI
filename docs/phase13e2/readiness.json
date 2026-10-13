@@ -1,10 +1,10 @@
 {
   "schema_version": "aegisbench-formal-preflight-v1",
-  "checked_at_utc": "2026-10-13T07:01:48.929789+00:00",
+  "checked_at_utc": "2026-10-13T07:45:13.175042+00:00",
   "status": "READY_FOR_DATA_FREEZE",
   "dataset_version": "AegisBench-v0.3-human39-20261013",
   "sample_count": 49,
-  "manifest_sha256": "4ddb867f8a4d6ce6423fbcdaf7542f6b463b6b5d51f04f1608a2836882bb33b6",
+  "manifest_sha256": "0651efb54fdfe12c6c05493429dac4f73d309bb51f6297b7f66da71f84552002",
   "dataset_fingerprint": "097fad76e1145ccb31e41404d8cb3cef1aa93ad5b5fcc57a88139861eb7460af",
   "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
   "annotations_sha256": "6fb41da340507b191c60b1096d85242b85a67818af1c3ba51bc4fbf876ceda83",

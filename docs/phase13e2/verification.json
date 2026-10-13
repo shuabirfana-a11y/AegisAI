@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-10-13T07:17:56.710212+00:00",
+  "checked_at_utc": "2026-10-13T07:52:22.839134+00:00",
   "code_source_commit": "c636c51111c64f04f0eec5c003d15df380a27a54",
   "protected_file_count": 383,
   "changed_protected_files": [],
-  "new_tests": 8,
+  "new_tests": 10,
   "aegisbench": {
     "command": "python -m pytest tests/aegisbench -q",
-    "passed": 103,
-    "log_sha256": "93b5ba9f7f8074661cf0bcbc517bbb8d435560f60ea34075e8e13748e0eebbad"
+    "passed": 105,
+    "log_sha256": "267872e7b2279ad1bbddce1b7f4af51a365fd184dcb596607e76e3fbf355b490"
   },
   "contracts": {
     "commands": [
@@ -40,5 +40,15 @@
   },
   "historical_regression_1426_rerun": false,
   "database_test_execution": "NOT_RUN_NO_DB_OR_BUSINESS_CHANGES",
-  "framework_modified": false
+  "framework_modified": false,
+  "approval_checks_scope": {
+    "all_49_records": "Schema, question/content/source hashes and evidence locators",
+    "approved_39_only": "Review binding digest and complete approval checklist",
+    "rejected_10": "Retained rejection, no approval granted"
+  },
+  "final_review_fixes": {
+    "metadata_and_report": "2 negative controls failed before fix; whole AegisBench suite now green",
+    "reviewed_range": "c636c51..f3b12d5",
+    "review_document": "docs/phase13e2/REVIEW.md"
+  }
 }

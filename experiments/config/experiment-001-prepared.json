@@ -5,7 +5,7 @@
     "dataset_name": "AegisBench",
     "version": "AegisBench-v0.3-human39-20261013",
     "manifest": "evaluation/datasets/AegisBench-v0.3-human39-20261013/manifest.json",
-    "manifest_sha256": "4ddb867f8a4d6ce6423fbcdaf7542f6b463b6b5d51f04f1608a2836882bb33b6",
+    "manifest_sha256": "0651efb54fdfe12c6c05493429dac4f73d309bb51f6297b7f66da71f84552002",
     "approved_count": 39,
     "rejected_count": 10,
     "question_count": 49,
