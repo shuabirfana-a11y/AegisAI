@@ -1,0 +1,45 @@
+{
+  "model_name": "aegisai-qwen25-planner:latest",
+  "manifest_digest": "sha256:15aaf3fda3b8e9bb6724e5e9911eec3b9cbdb6bd967646b6bf49ee9846b7ec16",
+  "verification": "LOCAL_FILES_ONLY_NO_MODEL_OR_API_CALL",
+  "checked_at_utc": "2026-10-13T06:59:41.869130+00:00",
+  "blobs": [
+    {
+      "media_type": "application/vnd.docker.container.image.v1+json",
+      "digest": "sha256:65a16d05a256a5a7e91e46a58f38fa18472923f77cbf8e7feb3691267ef485a7",
+      "size": 115,
+      "verified": true
+    },
+    {
+      "media_type": "application/vnd.ollama.image.model",
+      "digest": "sha256:2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730",
+      "size": 4683073952,
+      "verified": true
+    },
+    {
+      "media_type": "application/vnd.ollama.image.system",
+      "digest": "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e",
+      "size": 68,
+      "verified": true
+    },
+    {
+      "media_type": "application/vnd.ollama.image.template",
+      "digest": "sha256:eb4402837c7829a690fa845de4d7f3fd842c2adee476d5341da8a46ea9255175",
+      "size": 1482,
+      "verified": true
+    },
+    {
+      "media_type": "application/vnd.ollama.image.license",
+      "digest": "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "size": 11343,
+      "verified": true
+    },
+    {
+      "media_type": "application/vnd.ollama.image.params",
+      "digest": "sha256:58e1b82a691f46c155e57be607f1031930ea0cccc22daf4447f91d360f74b2d2",
+      "size": 18,
+      "verified": true
+    }
+  ],
+  "running_service_configuration_attested": false
+}

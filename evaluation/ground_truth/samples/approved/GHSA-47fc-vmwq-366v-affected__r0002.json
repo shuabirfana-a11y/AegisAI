@@ -1,0 +1,174 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-47fc-vmwq-366v-affected",
+  "question": "torch 版本 1.13.0 是否受 CVE-2022-45907 影响？",
+  "type": "VERSION_IMPACT",
+  "additional_types": [],
+  "category": "version",
+  "input_context": {
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907",
+    "version": "1.13.0"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "0ebb4c71088d160fd2c0e21fa3afe79bc8e63e24c2c66741c0f0e5fcd8ccc35f",
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-47fc-vmwq-366v"
+  ],
+  "evaluation_profile": "FACTUAL",
+  "expected_answer": {
+    "affected": "AFFECTED"
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-aff",
+      "answer_path": "/affected",
+      "decision": "AFFECTED",
+      "evidence_ids": [
+        "ev-range0",
+        "ev-fixed0"
+      ],
+      "rationale": "被问版本 1.13.0；公告分支：区间0 <= 1.13.0（修复版本 1.13.1）。逐区间比较后综合判定 AFFECTED。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-range0",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "<= 1.13.0",
+      "locator": "/record/vulnerabilities/0/vulnerable_version_range",
+      "canonical_excerpt": "\"<= 1.13.0\"",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-aff"
+      ]
+    },
+    {
+      "evidence_id": "ev-fixed0",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "1.13.1",
+      "locator": "/record/vulnerabilities/0/first_patched_version",
+      "canonical_excerpt": "\"1.13.1\"",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-aff"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "affected"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2022-45907：NVD 描述『trunk/89695 前 torch.jit.annotations.parse_type_line 因 eval 不安全使用可致任意代码执行』，CPE versionEndExcluding=1.13.1 与冻结区间 <=1.13.0/修复 1.13.1 相符；NVD Primary CVSS v3.1=9.8（CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H）与冻结 v3=9.8 完全一致；PYSEC-2022-43015 别名（CVE-2022-45907/GHSA-47fc-vmwq-366v）一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2022-45907：NVD 描述『trunk/89695 前 torch.jit.annotations.parse_type_line 因 eval 不安全使用可致任意代码执行』，CPE versionEndExcluding=1.13.1 与冻结区间 <=1.13.0/修复 1.13.1 相符；NVD Primary CVSS v3.1=9.8（CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H）与冻结 v3=9.8 完全一致；PYSEC-2022-43015 别名（CVE-2022-45907/GHSA-47fc-vmwq-366v）一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "80d3ca6b31eec986755b38b93dc870a9b525eaf9cbf603615866a8b480778f92",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-12T11:06:14+08:00",
+    "reviewed_at": "2026-10-13T14:21:17+08:00",
+    "status": "APPROVED",
+    "revision": 2,
+    "reviewed_content_sha256": "80d3ca6b31eec986755b38b93dc870a9b525eaf9cbf603615866a8b480778f92",
+    "annotation_note": "标注人本人已逐条查源确认（annotator_confirmed_source_check=true）；AI 辅助核验记录见 ai_assistance；尚未完成独立第二人复核，不得按 APPROVED 使用。",
+    "review_note": "阶段记录，复核尚未完成：谢妍已亲自阅读同一 GitHub 公告网页，摘录 Package=torch (pip)、Affected versions=<= 1.13.0、Patched versions=1.13.1，确认 <= A 包含 A。已阅读 CVE-2022-45907 与完整 Description，原文说明 eval 不安全使用及修复版本 1.13.1。本人看到公告 Published=2022-11-26、Updated=2024-11-14。辅助核对：冻结资料 updated_at=2024-11-13T22:52:23Z，换算北京时间为 2024-11-14 06:52:23；题目、问题文件、送审内容及两条证据的冻结哈希和定位一致。以上辅助计算不代替本人逐项复核。完整记录、检查表及最终签署仍待完成。\n后续本人阅读记录：谢妍从工作副本摘录完整 rationale，逐条摘录 ev-range0.quote=<= 1.13.0 与 ev-fixed0.quote=1.13.1，并明确回答被问版本在受影响范围里面；已阅读完整 expected_answer（唯一字段 affected=AFFECTED）。本题答案仅作版本影响判断，不含 CWE、CVSS 或利用成功判断；这些事实评分项不适用。版本边界检查完成。其他检查项继续待核对，未完成最终签署。\n复核人提出待核对问题，撤回先前版本检查完成标记：1. 需确认公告 torch/pip 包与 PyTorch 项目对应，排除同名项目；2. 需核对精确版本、预发布/构建条件及范围表达式与说明正文是否存在例外或冲突。当前尚未作出最终批准或退回决定。\n包身份补查：复核人谢妍亲自找到同一漏洞公告的 Source code 链接，并在对话中提供 https://github.com/pytorch/pytorch；结合已亲自阅读的 Package=torch (pip)、CVE-2022-45907 和 Description 中 PyTorch，公告所述包与题目 PyPI/torch 对应。版本例外、特定构建与正文冲突问题继续待核对。\n版本疑问后续补查：谢妍亲自打开 PyTorch v1.13.1 发行说明，提供 command injection 关联 #88868 的修复条目；亲自打开 PyPI torch/1.13.0 页面，提供完整标题 Release files for torch 1.13.0，确认该具体发布条目存在；再次提供同一 GHSA 公告的完整 Description（中文译文），其中明确修复在 1.13.1，未见声称 1.13.0 已修复或特定构建例外。上述核对范围限定于所读页面及原题 PyPI/torch/1.13.0 输入，不推广到未给出的预发布、私有回移补丁或其他构建。本题版本判断有当前证据支持，尚须完成其他检查项及最终签署。补查入口：https://github.com/pytorch/pytorch/releases/tag/v1.13.1；https://pypi.org/project/torch/1.13.0/。\n未决记录问题：两条 evidence.authority_level 均为 L1_OFFICIAL，实际 source_name 为 GitHub Advisory Database；项目证据规范将经过审阅的公告库列为 L2_RESEARCH，需补充当前定级依据或修订。此项尚未由复核人作出最终裁决。复核人要求先进入下一题，本题保持 REVIEWING，不设置完成时间或批准哈希。\n\n【Codex AI 辅助连续核对，非人工签核；2026-10-12T19:30:02+08:00】\n输入版本 1.13.0；逐一比较冻结影响区间 <= 1.13.0，结果 AFFECTED。\n[NEEDS_CHECK] 字段 evidence[*].authority_level；证据 ev-range0,ev-fixed0；证据均标 L1_OFFICIAL，但来源为 GitHub 公告数据库投影；需按实际发布者及引用链说明，而非按域名统一评级。 建议：管理员或标注人说明 L1 来源链；若需调整评级，创建新修订。\n当前辅助结果：结构化答案与冻结源/声明政策一致，人工查源、未决冲突及正式签署仍待完成。未改答案或证据，未代勾人工清单。\n2026-10-13T14:21:17+08:00：【谢妍本人最终确认，Codex代录本题签核】第1题最终复核：组件torch，输入版本1.13.0，按冻结区间['<= 1.13.0']判定AFFECTED。限定本题版本与公告区间。 证据编号：ev-range0, ev-fixed0。原有来源差异与不确定性继续保留，不表示相关外部声称已被新增独立验证。谢妍先明确“其他39题都可以就十个要重新”，随后本人明确确认已亲自核对完这39题完整答案、全部证据及逐项检查，授权Codex代录本题APPROVED。签核时间为本次实际代录时间，非昨日来源时间；内容未变，绑定当前指纹。检查项逐题依据见39题最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "85f69b582604364667a76b3ec1539d0db8c404dd1b4f0255bb257b35885a168e",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-47fc-vmwq-366v-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "80d3ca6b31eec986755b38b93dc870a9b525eaf9cbf603615866a8b480778f92",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-47fc-vmwq-366v-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T11:06:14+08:00",
+      "content_sha256": "80d3ca6b31eec986755b38b93dc870a9b525eaf9cbf603615866a8b480778f92",
+      "reason": "独立复核开始，待本人逐项查源",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-47fc-vmwq-366v-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-13T14:21:17+08:00",
+      "content_sha256": "80d3ca6b31eec986755b38b93dc870a9b525eaf9cbf603615866a8b480778f92",
+      "reason": "谢妍明确通过并确认本人逐项核对完成，Codex代录；组件torch，输入版本1.13.0，按冻结区间['<= 1.13.0']判定AFFECTED。限定本题版本与公告区间。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-47fc-vmwq-366v-affected__r0001.json"
+    }
+  ]
+}
