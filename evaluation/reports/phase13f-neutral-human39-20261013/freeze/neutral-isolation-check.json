@@ -1,0 +1,8 @@
+{
+  "old_labelled_inventory_negative_control": "REJECTED",
+  "neutral_inventory": "PASS",
+  "assets": 27,
+  "requests": 39,
+  "old_trials_preserved": true,
+  "new_model_calls_before_freeze": 0
+}

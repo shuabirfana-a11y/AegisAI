@@ -1,0 +1,134 @@
+{
+  "run_id": "aegisbench13f-neutral-human39-offline-score-20261013",
+  "dataset_version": "AegisBench-v0.3-human39-20261013",
+  "dataset_fingerprint": "097fad76e1145ccb31e41404d8cb3cef1aa93ad5b5fcc57a88139861eb7460af",
+  "dataset_manifest": {
+    "dataset_version": "AegisBench-v0.3-human39-20261013",
+    "sample_count": 49,
+    "questions_file": "../AegisBench-v0.2-pilot/questions.jsonl",
+    "annotations_file": "annotations.jsonl",
+    "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+    "annotations_sha256": "6fb41da340507b191c60b1096d85242b85a67818af1c3ba51bc4fbf876ceda83",
+    "sources": [
+      {
+        "id": "GHSA-53q9-r3pm-6pq6",
+        "file": "../AegisBench-v0.2-pilot/sources/GHSA-53q9-r3pm-6pq6.json",
+        "sha256": "5c7326f53ca55c8e128e5122cab2cbf946eed772e1692f022ebccc66e44b751a",
+        "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+        "retrieved_at": "2026-10-11T06:18:31.053133+00:00"
+      },
+      {
+        "id": "GHSA-47fc-vmwq-366v",
+        "file": "../AegisBench-v0.2-pilot/sources/GHSA-47fc-vmwq-366v.json",
+        "sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+        "retrieved_at": "2026-10-11T06:18:32.346986+00:00"
+      },
+      {
+        "id": "GHSA-c67j-w6g6-q2cm",
+        "file": "../AegisBench-v0.2-pilot/sources/GHSA-c67j-w6g6-q2cm.json",
+        "sha256": "762f068dbe4214de45c6ce3124a1ba8be52207029dc63210bc3d3bdba0c85448",
+        "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+        "retrieved_at": "2026-10-11T06:18:33.581636+00:00"
+      },
+      {
+        "id": "GHSA-9rwj-6rc7-p77c",
+        "file": "../AegisBench-v0.2-pilot/sources/GHSA-9rwj-6rc7-p77c.json",
+        "sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+        "retrieved_at": "2026-10-11T06:18:34.859905+00:00"
+      },
+      {
+        "id": "GHSA-935w-9g4m-p28p",
+        "file": "../AegisBench-v0.2-pilot/sources/GHSA-935w-9g4m-p28p.json",
+        "sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+        "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+        "retrieved_at": "2026-10-11T06:18:36.235642+00:00"
+      }
+    ],
+    "split": "HUMAN_REVIEWED_PILOT_NOT_INDEPENDENT_HOLDOUT",
+    "category_counts": {
+      "facts": 5,
+      "version": 17,
+      "poc_patch": 10,
+      "risk": 10,
+      "multihop": 7
+    },
+    "advisory_clusters": 5,
+    "model": "NONE",
+    "prompt_version": "NONE",
+    "triage_policy": "benchmark-reference-triage-v1",
+    "gold_status": "PARTIALLY_APPROVED_39_REJECTED_10",
+    "limitations": [
+      "Five selected advisory clusters; questions are correlated.",
+      "Not an independent holdout; some vulnerabilities appeared in development fixtures.",
+      "No verified exploit execution evidence; positive PoC classes lack coverage.",
+      "Patch release confirmation is separate from commit correctness or exploit validation.",
+      "Human-approved asset risk labels measure benchmark-reference-triage-v1 policy conformance, not production risk ground truth."
+    ],
+    "supersedes": "AegisBench-v0.2-pilot",
+    "annotation_errata": [
+      {
+        "id": "cross-advisory-priorities",
+        "field": "should_abstain",
+        "previous": false,
+        "corrected": true,
+        "reason": "Partial abstention for unknown-version asset required by question; machine draft remains pending."
+      }
+    ],
+    "approved_count": 39,
+    "rejected_count": 10,
+    "formal_evaluation_executed": false,
+    "review_archive_sha256": "dc4b406b027147d3e7e72326f776788b838045d22e04f9efcaaa9c7c4f2fc0b5"
+  },
+  "git": {
+    "commit": "bbb3a0fd40e098c52db3dd0499b77bd53aecef86",
+    "working_tree_dirty": true
+  },
+  "evaluator_file_hashes": {
+    "evaluate.py": "3473a243b904ddef2a8a0f4075b141106d26621d04383936eb4dc2535f824b71",
+    "evaluation/dataset.py": "67459a49116265cb13d0d2933d4fbd436abf53e34cd32ebd048bc05109cb73d7",
+    "evaluation/metrics/__init__.py": "e073a19eae9e95137744e6e2c06eb8b79e3bfcf129c311baa7a6cf6581540f65",
+    "backend/app/services/versions.py": "95cb4c4434233595876349a816b986b069ddc7b4f91e547ecd074f8dfda419c6",
+    "backend/app/assets/versions.py": "17d48e4b40fad7ae1a2b0e65ee3185e0bdb893a608a60fb554973eda966711ea",
+    "backend/app/enrichment/versions.py": "ac17a6746277ae97ea11d720fcdacdb518664d6936af4f57fb8d7a4a6d25a4ee",
+    "evaluation/bench/__init__.py": "5a36bce081396cc9a91b5770e0bbeb11a6b3708b247a40e905f45d4265ac787d",
+    "evaluation/bench/adapters.py": "35e2379bd3191704ff46fbf5e6bce220c6bbb2035c2e91710232f67e4c529459",
+    "evaluation/bench/build_pilot.py": "619e46cf13168e7709cc3864c9f9bb55684d3bad98455a8914a70ef319aa8504",
+    "evaluation/bench/data.py": "c78fe1935a01336da8e841713f55b05a85a63e02705cd9d06bd55be941c6f71b",
+    "evaluation/bench/e2e.py": "b0c0d80f253544db8c022950cf74704d16a001e1cde0d37584d4f6ded93067b0",
+    "evaluation/bench/http_investigation.py": "320fb1490081f0f2d44257e7220dd90e956aac24f6e84cc529c19c1a2c7a03a3",
+    "evaluation/bench/native.py": "433749e4794ed6e98fb090d5207c22f468c7925599d1183ac5182809050d0c35",
+    "evaluation/bench/quality.py": "f41702b3efb39f672c020ee734b46df7f4a6bf1f106e10a6165c2f5236e2a8c3",
+    "evaluation/bench/readiness.py": "1e872cc78b0034ab76e257954145a878d7bd9432087bc713365c556074b40759",
+    "evaluation/bench/runner.py": "edb6179fa41117d0c48eb0acd79bcd9982778dd7dc6c8bb5aae9da0c9e21b7d4",
+    "evaluation/bench/schema.py": "19786cc4273d099b74b92387be285a55b9bdfc6537421eccb88e39d879bdab74",
+    "evaluation/bench/sources.py": "988145b309bfb44b646854f12cde0682647a6313f51e6cfc854f70bf68ba0be4"
+  },
+  "parameters": {
+    "retrieval_k": 5,
+    "default_mode": "IMMUTABLE_PREVIOUS_REAL_HTTP_OUTPUTS",
+    "failure_policy": "KEEP_ALL_CASES",
+    "scoring_version": "aegisbench-metrics-v0.2+human-no-evidence-enum-v1",
+    "evaluation_mode": "OFFLINE",
+    "http_executed": false,
+    "business_rules_modified": false,
+    "annotation_input_policy": "ONLY_APPROVAL_IDS_TO_GATE; LABELS_FINAL_SCORER_ONLY",
+    "client_timeout_seconds": 180,
+    "binding_file_sha256": "a9eb5806cad2e16410a45dff87dc9f6e32ac167116d962dd3eea312368647d28",
+    "source_inventory_equivalence": "NOT_INDEPENDENTLY_ATTESTED"
+  },
+  "observed_model_configurations": [
+    {
+      "is_mock": false,
+      "model": "aegisai-qwen25-planner:latest",
+      "prompt_version": "investigation-plan-v4",
+      "provider": "openai_compatible"
+    }
+  ],
+  "report_sha256": "ee041ca482cb9d8103efc1fe88eafea6032f839315610b2329a511be722312a8",
+  "predictions_sha256": "023ccc161069ae9aab64b584bd6ed4f971a64197963e0390f960f71f0462e226",
+  "native_records_sha256": "72bcbdbf3a7c69bf2222b0739153e130e4f633ee13221c7ceb15e6c7532415af",
+  "annotation_gate": "EXISTING_INDEPENDENT_HUMAN_GOLD",
+  "outcome_audit_gate": "EXISTING_COMPLETE_INDEPENDENT_SEMANTIC_AUDIT"
+}
