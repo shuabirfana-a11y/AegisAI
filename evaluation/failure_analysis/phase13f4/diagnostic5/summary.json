@@ -1,0 +1,616 @@
+{
+  "status": "CONTEXT_HANDLING_READY",
+  "technical_admission_restored": true,
+  "http_requests": 5,
+  "actual_investigations": 4,
+  "full_chains": 4,
+  "need_context": 1,
+  "model_calls": 4,
+  "gate_status_counts": {
+    "PASS_WITH_WARNINGS": 1,
+    "REPLAN_REQUIRED": 2,
+    "HUMAN_REVIEW_REQUIRED": 1,
+    "NOT_STARTED": 1
+  },
+  "protected_files_checked": 574,
+  "protected_files_changed": [],
+  "formal_39_rerun": false,
+  "accuracy_calculated": false,
+  "scorer_modified": false,
+  "unknown_risk_answer_fabricated": false,
+  "need_context_remains_not_evaluated": true,
+  "token_usage": {
+    "input_tokens": 25593,
+    "output_tokens": 2607,
+    "total_tokens": 28200
+  },
+  "model_duration_ms": 71730.06010000018,
+  "limitations": [
+    "NEED_CONTEXT is a lawful preflight response, not a completed investigation or correct risk answer.",
+    "The formal scorer still marks a no-answer case unavailable; no denominator/metric changes.",
+    "Five fixed diagnostics do not establish full39 planning stability or semantic accuracy."
+  ],
+  "cases": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "category": "facts",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434"
+      },
+      "request": {
+        "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+        "asset_scope": {
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "overview_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-64c66bcf347042e39b037bb471e7f561"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "SUCCEEDED_WITH_WARNINGS",
+      "gate_status": "PASS_WITH_WARNINGS",
+      "answer_status": "COMPLETE_WITH_WARNINGS",
+      "context_status": "CREATED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "ceda74b6-2d04-46a8-b616-9d4c41b2c74b",
+      "planner_run_id": "ebc11747-d787-474e-936e-be84956b4b10",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "legal_handling": true,
+      "handling": "FULL_CHAIN",
+      "planner_status": "VALIDATED",
+      "missing_fields": [],
+      "model_attempts": 1,
+      "runtime_run_id": "bb3d15fe-f4d7-405b-a5eb-51502ff6a650",
+      "integration_id": "4bd52214-c5dd-4dcf-a2bc-a7827983f92f",
+      "artifact_refs": [
+        {
+          "run_id": "bb3d15fe-f4d7-405b-a5eb-51502ff6a650",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "e3e3cb94-a3bb-43c5-b855-b86964e3409a",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "a2ce789d-f40e-4656-8b9a-bfe5bdb65b0b",
+          "task_id": "verify",
+          "artifact_id": "61c0c948-320a-4fa3-81ce-d81cd7dd814e",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "12075326-7039-4e70-9304-23b1e0d0cf97",
+          "task_id": "analyze",
+          "artifact_id": "c2adf65b-f5a5-49a2-8622-cd610b867c66",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "blocked_checks": []
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "category": "version",
+      "input": {
+        "component": "vllm",
+        "ecosystem": "PyPI",
+        "target": "CVE-2026-105752",
+        "version": "0.29.0"
+      },
+      "request": {
+        "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+        "asset_scope": {
+          "asset_id": "4fa20e2c-3a4c-41bf-9ca3-522602416d11",
+          "component_id": "a6b6058b-ecf2-458a-8036-6a995f3ef6dd",
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm",
+            "version": "0.29.0"
+          },
+          "target": "CVE-2026-105752"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-f2910c6480a842018ae3a4086df890e7"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "context_status": "CREATED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "554c9b12-b340-4119-a494-cdeca5720dd6",
+      "planner_run_id": "f4b691a3-f534-462e-aaec-060088171fbe",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "legal_handling": true,
+      "handling": "FULL_CHAIN",
+      "planner_status": "VALIDATED",
+      "missing_fields": [],
+      "model_attempts": 1,
+      "runtime_run_id": "34be8541-e343-4d50-bdf7-0f11acc8cd8b",
+      "integration_id": "62b9094b-ddf1-4d04-b2f5-993e1c7aab83",
+      "artifact_refs": [
+        {
+          "run_id": "34be8541-e343-4d50-bdf7-0f11acc8cd8b",
+          "task_id": "lookup_vulnerability",
+          "artifact_id": "6546e0ba-8130-4b98-bb35-856a3a45951c",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "c4ca9907-50ad-4b33-83d0-7a1c6c18a6a7",
+          "task_id": "verify",
+          "artifact_id": "14500dd5-af5e-4938-ac24-3a71d6608ea3",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "42c0bafe-7d79-40d7-ac75-33b3feacc4c9",
+          "task_id": "analyze",
+          "artifact_id": "7b6c1594-e6af-41e8-89ee-b0698cfcedb3",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "c4ca9907-50ad-4b33-83d0-7a1c6c18a6a7",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "42c0bafe-7d79-40d7-ac75-33b3feacc4c9",
+            "analyze"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "UNRESOLVED_ANALYSIS",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Unresolved analysis is disclosed",
+          "refs": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "No explicit normalized fixed version.",
+            "Insufficient current, explicit, independent evidence."
+          ],
+          "objective": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "category": "risk",
+      "input": {
+        "asset": {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "2.5.1"
+        },
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "request": {
+        "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+        "asset_scope": {
+          "asset_id": "d2c5642e-8b89-4319-9084-56b4d6e1cd26",
+          "component_id": "ed32c81d-c539-4b3f-bdbd-da51e6e75735",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch",
+            "version": "2.5.1"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-d38004b3e25b4665a31a2a17c83cf7a1"
+      },
+      "request_status": 202,
+      "investigation_status": "COMPLETED",
+      "overall_status": "INCOMPLETE",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_status": "INCOMPLETE",
+      "context_status": "CREATED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "e0e918bb-8ecb-45c6-8ce4-2f387179dbc7",
+      "planner_run_id": "b8b46d5e-41bc-46aa-9ac3-f7ee9ed94294",
+      "field_values_observed": {
+        "affected": "UNKNOWN",
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED"
+      },
+      "legal_handling": true,
+      "handling": "FULL_CHAIN",
+      "planner_status": "VALIDATED",
+      "missing_fields": [],
+      "model_attempts": 1,
+      "runtime_run_id": "11ef74b6-b94e-4c87-a2c9-fe11eeb86810",
+      "integration_id": "46cffcd3-4e6d-4ec0-b0c3-2098a480392d",
+      "artifact_refs": [
+        {
+          "run_id": "11ef74b6-b94e-4c87-a2c9-fe11eeb86810",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "462ab756-1962-485f-bdad-75b26b0249a2",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "06f15dfb-f747-44c4-886b-1e2e70df7ceb",
+          "task_id": "verify",
+          "artifact_id": "59bcac46-00aa-49ac-99b8-3ea646e9d3cd",
+          "schema_version": "verification-artifact-v1"
+        },
+        {
+          "run_id": "5fdf5bed-c31e-4a67-8d17-714f4dbe2d0e",
+          "task_id": "analyze",
+          "artifact_id": "ff5afc1e-b52c-4bf9-b561-63950065b577",
+          "schema_version": "risk-analysis-artifact-v1"
+        }
+      ],
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "06f15dfb-f747-44c4-886b-1e2e70df7ceb",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "5fdf5bed-c31e-4a67-8d17-714f4dbe2d0e",
+            "analyze"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        },
+        {
+          "gate": "freshness",
+          "code": "UNRESOLVED_ANALYSIS",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Unresolved analysis is disclosed",
+          "refs": [
+            "VERIFICATION_PENDING",
+            "VERIFICATION_RUNTIME_INCOMPLETE",
+            "ASSET_MATCH_UNKNOWN",
+            "UNCONFIRMED_IMPACT:65867ab4-943c-482e-9b01-d12b004bd283",
+            "Insufficient current, explicit, independent evidence."
+          ],
+          "objective": null
+        }
+      ]
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "category": "version",
+      "input": {
+        "component": "langchain-core",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-68664",
+        "version": "1.2.0"
+      },
+      "request": {
+        "user_query": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+        "asset_scope": {
+          "asset_id": "43c3e21f-d199-4d40-bc76-bb7bc80c10ae",
+          "component_id": "017e3a06-262f-4c28-a85f-89b2ff2993ab",
+          "component": {
+            "name": "langchain-core",
+            "ecosystem": "PyPI",
+            "package_name": "langchain-core",
+            "version": "1.2.0"
+          },
+          "target": "CVE-2025-68664"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-3f8e7ed5abc0494b87a67fba349b88db"
+      },
+      "request_status": 202,
+      "investigation_status": "WAITING_REVIEW",
+      "overall_status": "REVIEW_REQUIRED",
+      "gate_status": "HUMAN_REVIEW_REQUIRED",
+      "answer_status": "REVIEW_REQUIRED",
+      "context_status": "CREATED",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "SUCCEEDED",
+      "error": null,
+      "investigation_id": "ac9dfd40-9946-4c7a-96a0-aef74da82ab8",
+      "planner_run_id": "9aa57ba7-275c-4c22-bb36-f5148b3bdd07",
+      "field_values_observed": {},
+      "legal_handling": true,
+      "handling": "FULL_CHAIN",
+      "planner_status": "VALIDATED",
+      "missing_fields": [],
+      "model_attempts": 1,
+      "runtime_run_id": "3c5f42a8-e9ab-468e-aab7-133560b19d21",
+      "integration_id": "8fb8c079-0222-4f2e-8332-2b247806adf1",
+      "artifact_refs": [
+        {
+          "run_id": "3c5f42a8-e9ab-468e-aab7-133560b19d21",
+          "task_id": "lookup-vulnerability",
+          "artifact_id": "dc0c32b0-86bf-48bd-bc8d-3a1457a6e778",
+          "schema_version": "investigation-artifact-v1"
+        },
+        {
+          "run_id": "159359f3-b275-4561-97d1-19a48627253d",
+          "task_id": "verify",
+          "artifact_id": "9027f11b-83be-4532-94b8-bf6834834ad1",
+          "schema_version": "verification-artifact-v1"
+        }
+      ],
+      "blocked_checks": [
+        {
+          "gate": "completion",
+          "code": "REQUIRED_ARTIFACT_MISSING",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Missing analysis",
+          "refs": [
+            "analysis"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "3c5f42a8-e9ab-468e-aab7-133560b19d21",
+            "lookup-vulnerability"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "3c5f42a8-e9ab-468e-aab7-133560b19d21",
+            "search-evidence"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "completion",
+          "code": "REQUIRED_TASK_INCOMPLETE",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required task did not complete",
+          "refs": [
+            "159359f3-b275-4561-97d1-19a48627253d",
+            "verify"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "consistency",
+          "code": "CRITICAL_EVIDENCE_CONFLICT",
+          "outcome": "BLOCKED",
+          "blocking": "HUMAN",
+          "message": "Critical sources need human adjudication",
+          "refs": [
+            "2005c0f5-ccba-4fe5-a207-67d758fcdf85",
+            "5a85896f-be5a-40cf-bae8-93a557c081af",
+            "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+            "a95430a2-77a0-426e-9844-7e3658073478",
+            "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec"
+          ],
+          "objective": null
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required asset not answered",
+          "refs": [],
+          "objective": "asset"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required version_impact not answered",
+          "refs": [],
+          "objective": "version_impact"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required remediation_status not answered",
+          "refs": [],
+          "objective": "remediation_status"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required risk not answered",
+          "refs": [],
+          "objective": "risk"
+        },
+        {
+          "gate": "objective",
+          "code": "OBJECTIVE_NOT_COVERED",
+          "outcome": "BLOCKED",
+          "blocking": "REPLAN",
+          "message": "Required priority not answered",
+          "refs": [],
+          "objective": "priority"
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "category": "version",
+      "input": {
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "version": null
+      },
+      "request": {
+        "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+        "asset_scope": {
+          "asset_id": "60b990c8-0aa9-42a0-a99e-3cb0129065df",
+          "component_id": "07d9d4f8-e91e-445f-b759-95130f76e9dc",
+          "component": {
+            "name": "torch",
+            "ecosystem": "PyPI",
+            "package_name": "torch"
+          },
+          "target": "CVE-2025-32434"
+        },
+        "options": {
+          "objective_profile": "asset_risk_v1",
+          "timeout_seconds": 300,
+          "mode": "auto",
+          "realtime": false
+        },
+        "idempotency_key": "bench-f16e7bbfd2a346f6a18c55fddb718beb"
+      },
+      "request_status": 200,
+      "investigation_status": null,
+      "overall_status": null,
+      "gate_status": null,
+      "answer_status": null,
+      "context_status": "NEED_CONTEXT",
+      "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+      "prediction_status": "NOT_EVALUATED",
+      "error": null,
+      "investigation_id": null,
+      "planner_run_id": null,
+      "field_values_observed": {},
+      "legal_handling": true,
+      "handling": "NEED_CONTEXT",
+      "planner_status": "NOT_STARTED",
+      "missing_fields": [
+        "version"
+      ],
+      "model_attempts": 0,
+      "runtime_run_id": null,
+      "integration_id": null,
+      "artifact_refs": [],
+      "blocked_checks": []
+    }
+  ]
+}

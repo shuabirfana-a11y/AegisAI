@@ -1,0 +1,114 @@
+{
+  "debug": {
+    "id": "GHSA-53q9-r3pm-6pq6-unknown",
+    "category": "version",
+    "input": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434",
+      "version": null
+    },
+    "request": {
+      "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "60b990c8-0aa9-42a0-a99e-3cb0129065df",
+        "component_id": "07d9d4f8-e91e-445f-b759-95130f76e9dc",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-f16e7bbfd2a346f6a18c55fddb718beb"
+    },
+    "request_status": 200,
+    "investigation_status": null,
+    "overall_status": null,
+    "gate_status": null,
+    "answer_status": null,
+    "context_status": "NEED_CONTEXT",
+    "evaluation_status": "DIAGNOSTIC_ONLY_NOT_FORMAL_SCORE",
+    "prediction_status": "NOT_EVALUATED",
+    "error": null,
+    "investigation_id": null,
+    "planner_run_id": null,
+    "field_values_observed": {}
+  },
+  "prediction": {
+    "question_id": "GHSA-53q9-r3pm-6pq6-unknown",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {
+      "native_context_status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ]
+    },
+    "claims": [],
+    "abstained": true,
+    "completed_hops": [],
+    "latency_ms": 14.99999999987267,
+    "error_code": null,
+    "error": null,
+    "metadata": {
+      "execution_mode": "NOT_STARTED",
+      "investigation_created": false
+    }
+  },
+  "native_http_record": {
+    "question_id": "GHSA-53q9-r3pm-6pq6-unknown",
+    "transport": "HTTP",
+    "endpoints": [
+      {
+        "method": "POST",
+        "path": "/api/investigations",
+        "http_status": 200
+      }
+    ],
+    "completed": true,
+    "http_attempted": true,
+    "request": {
+      "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "60b990c8-0aa9-42a0-a99e-3cb0129065df",
+        "component_id": "07d9d4f8-e91e-445f-b759-95130f76e9dc",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-f16e7bbfd2a346f6a18c55fddb718beb"
+    },
+    "created": {
+      "status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ],
+      "message": "请补充调查上下文；信息不足，不能判断资产影响或风险。",
+      "next_actions": [
+        "SUPPLY_CONTEXT",
+        "PUBLIC_FACT_LOOKUP"
+      ],
+      "investigation_created": false,
+      "execution_mode": "NOT_STARTED"
+    },
+    "context_required": true,
+    "investigation_created": false
+  },
+  "terminal_read_supplement": {}
+}
