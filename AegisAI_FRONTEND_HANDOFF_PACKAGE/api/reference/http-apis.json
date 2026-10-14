@@ -6569,6 +6569,58 @@
       "api_status": "AVAILABLE",
       "browser_access": "AVAILABLE",
       "method": "GET",
+      "url": "/api/v1/intelligence/vulnerabilities/{id}/poc",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/POCPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
       "url": "/api/v1/intelligence/vulnerabilities/{id}/assets",
       "request": {
         "parameters": [

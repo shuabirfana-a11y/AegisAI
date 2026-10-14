@@ -35,6 +35,9 @@ TESTS = [
     "tests/investigation_api/test_missing_context.py",
     "tests/test_phase14_sources.py", "tests/test_phase14_cli.py",
     "tests/test_phase14_api.py::test_intelligence_openapi_schema_documents_source_and_poc_states",
+    "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected",
+    "tests/test_phase14b1_poc.py::test_invalid_state_or_missing_evidence_is_rejected",
+    "tests/test_phase14b1_poc.py::test_poc_openapi_has_all_fields_and_exact_states",
     "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository",
 ]
 

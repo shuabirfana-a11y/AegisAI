@@ -1,0 +1,6 @@
+{
+  "protected_files": 634,
+  "unchanged": true,
+  "changed": [],
+  "covers": "Agents, Planner, Runtime, Orchestrator, Gate, Model Gateway, migrations, evaluation and experiments"
+}

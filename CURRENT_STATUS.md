@@ -1,3 +1,7 @@
+## Phase 14-B1 PoC 富化（2026-10-14）
+
+Artifact、证据/原核验链复用、只读查询与前端契约已完成。新增35项专项；相关186/186与 portable654项通过。真实库存读取2条候选，0条真实 VERIFIED_EXPLOIT；未执行利用或扫描。全量1574通过、2项既有 Unknown Context 失败保留。分支 codex/phase14b1-poc-enrichment，基于 Phase14A，尚未合并 main。完整结果见 PHASE_14B1_RESULT.md；停止在本阶段。
+
 # AegisAI 当前阶段与待办
 
 当前增量：2026-10-14，Phase 14-A 情报监测与富化补强已完成本阶段验收，见 [结果](PHASE_14A_RESULT.md)。分支 `codex/phase14a-monitoring-enrichment` 基于未合并PR #21，新增五个只读监测接口，原八调查接口不变。三类真实来源入库；本地Qwen规划→三专业Agent→Gate实跑为PASS_WITH_WARNINGS，论文经原语义问答可读。48项新增/相关验收合计70通过，便携CI641通过；完整回归的两项既有缺失上下文断言仍失败并记录，不能宣称全套全绿。来源网络失败、文献关联0、企业库存未提供均保持明确状态。Benchmark与人工答案未改变，未进行新一轮正式评测或部署。下面保留的是较早阶段快照，不代表当前阶段仍停在F.1。

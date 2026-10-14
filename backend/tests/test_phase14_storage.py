@@ -75,6 +75,8 @@ def test_invalid_feed_keeps_raw_but_does_not_create_knowledge_or_success(db):
 
 def test_projection_never_turns_poc_name_or_association_into_verified_exploit(db,seed):
     from app.monitoring.views import vulnerability_view
+    from test_phase14b1_poc import candidate
+    candidate(db,seed)
     seed.poc.status='confirmed';seed.poc.usability_status='not_evaluated';db.flush()
     view=vulnerability_view(db,str(seed.vuln.id))
     assert view.poc_status=='POC_CANDIDATE' and view.cve_id==seed.vuln.canonical_id

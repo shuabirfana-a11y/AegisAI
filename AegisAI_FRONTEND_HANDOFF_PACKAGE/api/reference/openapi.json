@@ -7011,6 +7011,71 @@
         }
       }
     },
+    "/api/v1/intelligence/vulnerabilities/{id}/poc": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Poc",
+        "operationId": "poc_api_v1_intelligence_vulnerabilities__id__poc_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/POCPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/intelligence/vulnerabilities/{id}/assets": {
       "get": {
         "tags": [
@@ -9942,6 +10007,452 @@
           "status"
         ],
         "title": "ObjectiveCoverage"
+      },
+      "POCArtifact": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "poc-artifact-v1",
+            "title": "Schema Version",
+            "default": "poc-artifact-v1"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Vulnerability Id"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Source"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Reference"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2400
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NO_EVIDENCE",
+              "POC_CANDIDATE",
+              "VERIFIED_EXPLOIT"
+            ],
+            "title": "Status"
+          },
+          "created_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created Time"
+          },
+          "verified_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified Time"
+          },
+          "evidence_ref": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "minItems": 1,
+            "title": "Evidence Ref"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/POCEvidence"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Evidence",
+            "default": []
+          },
+          "verification": {
+            "items": {
+              "$ref": "#/components/schemas/POCVerification"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Verification",
+            "default": []
+          },
+          "association_status": {
+            "type": "string",
+            "title": "Association Status"
+          },
+          "usability_status": {
+            "type": "string",
+            "title": "Usability Status"
+          },
+          "omitted_evidence_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Evidence Count",
+            "default": 0
+          },
+          "excluded_evidence_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Excluded Evidence Count",
+            "default": 0
+          },
+          "omitted_verification_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Verification Count",
+            "default": 0
+          },
+          "exploit_executed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Exploit Executed",
+            "default": false
+          },
+          "content_trust_level": {
+            "type": "string",
+            "const": "UNTRUSTED_EXTERNAL_CONTENT",
+            "title": "Content Trust Level",
+            "default": "UNTRUSTED_EXTERNAL_CONTENT"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "vulnerability_id",
+          "source",
+          "reference",
+          "title",
+          "status",
+          "created_time",
+          "evidence_ref",
+          "association_status",
+          "usability_status"
+        ],
+        "title": "POCArtifact"
+      },
+      "POCEvidence": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "const": "POC_EVIDENCE",
+            "title": "Type",
+            "default": "POC_EVIDENCE"
+          },
+          "claim_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Claim Id"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Source"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Reference"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 2400,
+            "title": "Content"
+          },
+          "raw_document_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Raw Document Id"
+          },
+          "observation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Observation Id"
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Hash"
+          },
+          "retrieved_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Retrieved Time"
+          },
+          "is_current": {
+            "type": "boolean",
+            "title": "Is Current"
+          },
+          "stance": {
+            "type": "string",
+            "enum": [
+              "support",
+              "contradict",
+              "neutral"
+            ],
+            "title": "Stance"
+          },
+          "supports_exploit_validation": {
+            "type": "boolean",
+            "title": "Supports Exploit Validation",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "claim_id",
+          "source",
+          "reference",
+          "content",
+          "raw_document_id",
+          "observation_id",
+          "hash",
+          "retrieved_time",
+          "is_current",
+          "stance"
+        ],
+        "title": "POCEvidence"
+      },
+      "POCPage": {
+        "properties": {
+          "vulnerability_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Vulnerability Id"
+          },
+          "canonical_id": {
+            "type": "string",
+            "title": "Canonical Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NO_EVIDENCE",
+              "POC_CANDIDATE",
+              "VERIFIED_EXPLOIT"
+            ],
+            "title": "Status"
+          },
+          "search_status": {
+            "type": "string",
+            "enum": [
+              "NOT_RUN",
+              "COMPLETED",
+              "PARTIAL",
+              "FAILED"
+            ],
+            "title": "Search Status"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/POCArtifact"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total"
+          },
+          "stored_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Stored Count"
+          },
+          "omitted_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Count"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Limit"
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date-time",
+            "title": "As Of"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "Static discovery only; this module never executes PoC code or scans a target.",
+              "NO_EVIDENCE is bounded absence in stored records, not proof no exploit exists.",
+              "Association confirmation alone cannot establish exploit usability.",
+              "Missing title details/language/verification time remain unknown; links are not fetched by this GET."
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id",
+          "canonical_id",
+          "status",
+          "search_status",
+          "items",
+          "total",
+          "stored_count",
+          "omitted_count",
+          "offset",
+          "limit",
+          "as_of"
+        ],
+        "title": "POCPage"
+      },
+      "POCVerification": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "claim_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Claim Id"
+          },
+          "claim_type": {
+            "type": "string",
+            "title": "Claim Type"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "INSUFFICIENT_EVIDENCE",
+              "CONFLICT",
+              "REJECTED"
+            ],
+            "title": "Status"
+          },
+          "current_revision": {
+            "type": "boolean",
+            "title": "Current Revision"
+          },
+          "verified_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Verified Time"
+          },
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "verified_by_type": {
+            "type": "string",
+            "enum": [
+              "human",
+              "system"
+            ],
+            "title": "Verified By Type"
+          },
+          "evidence_ref": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Evidence Ref"
+          },
+          "exploit_validation": {
+            "type": "boolean",
+            "title": "Exploit Validation",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "claim_id",
+          "claim_type",
+          "status",
+          "current_revision",
+          "verified_time",
+          "method",
+          "verified_by_type",
+          "evidence_ref"
+        ],
+        "title": "POCVerification"
       },
       "PatchAvailability": {
         "properties": {
