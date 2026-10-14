@@ -12,6 +12,15 @@ export function resolveRoute(pathname = '/') {
       if (id && !/[\/\\\x00-\x1f]/.test(id)) return { page: 'vulnerability', params: { id } };
     } catch { /* Invalid URL encoding becomes the not-found page. */ }
   }
+  for (const [pattern, page] of [[/^\/assets\/([^/]+)$/, 'asset'], [/^\/reviews\/([^/]+)$/, 'review']]) {
+    const match = pattern.exec(normalized);
+    if (match) {
+      try {
+        const id = decodeURIComponent(match[1]);
+        if (id && !/[\/\\\x00-\x1f]/.test(id)) return { page, params: { id } };
+      } catch { /* Invalid URL encoding becomes the not-found page. */ }
+    }
+  }
   return { page: 'notFound', params: {} };
 }
 

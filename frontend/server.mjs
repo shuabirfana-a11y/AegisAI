@@ -80,7 +80,7 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
     let decoded;
     try { decoded = decodeURIComponent(url.pathname); } catch { return json(response, 400, 'Invalid path encoding.'); }
     if (/[\\\x00]/.test(decoded) || decoded.split('/').some(segment => segment === '..')) return json(response, 400, 'Invalid static path.');
-    const isRoute = decoded === '/' || /^\/(dashboard|vulnerabilities|assets|reviews|assistant|system)\/?$/.test(decoded) || /^\/vulnerabilities\/[^/]+\/?$/.test(decoded);
+    const isRoute = decoded === '/' || /^\/(dashboard|vulnerabilities|assets|reviews|assistant|system)\/?$/.test(decoded) || /^\/(vulnerabilities|assets|reviews)\/[^/]+\/?$/.test(decoded);
     const target = path.resolve(publicRoot, '.' + (isRoute ? '/index.html' : decoded));
     if (!target.startsWith(path.resolve(publicRoot) + path.sep)) return json(response, 403, 'Invalid static path.');
     try {

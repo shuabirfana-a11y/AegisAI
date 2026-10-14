@@ -1001,3 +1001,15 @@ a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo
 a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:368
 a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:417
 a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:470
+
+# Phase14-C.1: unchanged synthetic Mock request IDs from reviewed PR23; exact historical locations only.
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:25
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:74
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:123
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:172
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:221
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:270
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:319
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:368
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:417
+2a501d2b492341941abe3bf3f7b42ad77dbce0f8:frontend/public/mock/investigation-demo.json:generic-api-key:470

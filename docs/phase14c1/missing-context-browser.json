@@ -1,0 +1,7 @@
+{
+  "case": "MISSING_VERSION_AND_ASSET",
+  "has_acceptance": false,
+  "run_id": "",
+  "status_text": "状态\nNEED_CONTEXT · 需要补充信息\n\n请提供目标组件版本后继续分析。\n\n请提供目标资产信息后继续分析。\n\ninvestigation_created\nfalse\nexecution_mode\nNOT_STARTED\nnext_actions\n[\"SUPPLY_CONTEXT\",\"PUBLIC_FACT_LOOKUP\"]\n\n未创建调查，不进行轮询；补充后重新提交。",
+  "ui_state": "NEED_CONTEXT"
+}

@@ -1,0 +1,8 @@
+{
+  "case": "SWITCH_TWO_REAL_INVESTIGATIONS",
+  "gate_text": "⠿\nIntegration Gate\nstatus\nPASS\nintegration_id\n6b494cec-8129-4927-bb35-9922b3a17e94\ntrace_id\n6b494cec-8129-4927-bb35-9922b3a17e94\nrun_id\nc171c191-11cc-4f9f-bfc3-a78a5a2ecadd\ncreated_at\n2026-10-14T13:19:35.899089Z\nevaluation_time\n2026-10-14T13:19:35.899089Z\npersistence\nSTORED\nhistorical_snapshot\ntrue\nObjective coverage\n目",
+  "has_old_root_in_current_panels": false,
+  "selected_id": "a583d1ae-ea72-45f6-92c7-85ef80879e65",
+  "status": "COMPLETED",
+  "status_text": "状态\nSUCCEEDED\nPLANNING\nINVESTIGATING\nVERIFYING\nANALYZING\nINTEGRATING\nCOMPOSING\nCOMPLETED\nSUCCEEDED\ncurrent_stage\nCOMPLETED\ninvestigation_id\na583d1ae-ea72-45f6-92c7-85ef80879e65\nrevision\n18\ncreated_at\n2026-10-14T13:18:54.368916Z\nupdated_at\n2026-10-14T13:19:36.828975Z\nfinished_at\n2026-10-14T13:19:36.828975Z\nerror_code\n未提供 / UNKNOWN"
+}
