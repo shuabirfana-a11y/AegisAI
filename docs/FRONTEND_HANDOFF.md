@@ -279,3 +279,11 @@ PLANNING_FAILED 是调查生命周期业务错误，不等于创建HTTP失败；
 GET /api/investigations/{id}/trace 的 model_execution 是可选且可为null的公共字段；其对象包含 execution_mode（MOCK/REAL）、provider、model（保存回执中的实际返回模型名）、source=PERSISTED_PLANNER_CALL、attempt_count（1–2）。不含模型地址、Key、原始输出或Prompt。服务重启/切换模型不改变历史标签，未知旧值须显示未知，不回填。
 
 AnswerEnvelope仍由确定性模板生成；重复读取不请求模型，Verification/Risk/Gate仍由既有规则决定。文本模型REAL与独立Embedding Mock必须分别标识；浏览器只访问AegisAI API，不访问模型端口11434。
+
+## Phase 14-B3 知识关联只读接口
+
+已实现 `GET /api/v1/intelligence/vulnerabilities/{id}/graph` 和 `GET /api/v1/intelligence/graph/query`，均需现有 Bearer 身份；默认不返回资产，显式请求时按 actor 过滤。指定 investigation_id 读取已有三 Agent/Gate/Answer，不重新调查。
+
+前端类型：`frontend/contracts/knowledge-graph.ts`；方法：IntelligenceApiClient.graph / queryGraphs；完整参数、节点字段、状态、权限和错误说明见 [知识关联契约](phase14b3/KNOWLEDGE_GRAPH_API.md)。生成 OpenAPI 和交接包已同步。
+
+部署版本与影响范围是不同节点；来源严重程度不等于资产风险；所有 Risk 是带 evaluation_time 的已保存决策，current_safety_evaluated=false。truncated=true 时展示部分图提示。演示 JSON 和 PPT 链路见 [真实演示链](phase14b3/demo/DEMO_CHAIN.md)。本阶段提供数据和契约，没有新增图形页面。

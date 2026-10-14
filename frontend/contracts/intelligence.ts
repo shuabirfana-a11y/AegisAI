@@ -1,5 +1,5 @@
 /** Read-only monitoring transport. Credentials supplied at runtime, never stored. */
-import type { SecurityIntelligenceObject, IntelligencePage, SourceStatusPage, AssetRiskPage, POCPage, RecordPage, PipelineRunPage } from '../../docs/frontend-contracts/intelligence-http.js';
+import type { SecurityIntelligenceObject, IntelligencePage, SourceStatusPage, AssetRiskPage, POCPage, RecordPage, PipelineRunPage, KnowledgeGraph, KnowledgeGraphPage } from '../../docs/frontend-contracts/intelligence-http.js';
 
 export class IntelligenceApiError extends Error {
   constructor(public readonly status: number, public readonly detail: unknown) {
@@ -35,6 +35,16 @@ export class IntelligenceApiClient {
     return this.call('/monitoring/runs?' + query.toString());
   }
   vulnerability(id: string): Promise<SecurityIntelligenceObject> { return this.call('/vulnerabilities/' + encodeURIComponent(id)); }
+  graph(id: string, options: { asset_id?: string; include_assets?: boolean; investigation_id?: string } = {}): Promise<KnowledgeGraph> {
+    const query = new URLSearchParams();
+    for (const [key, value] of Object.entries(options)) if (value !== undefined) query.set(key, String(value));
+    return this.call('/vulnerabilities/' + encodeURIComponent(id) + '/graph?' + query.toString());
+  }
+  queryGraphs(options: { component?: string; ecosystem?: string; minimum_severity?: 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW'; include_assets?: boolean; offset?: number; limit?: number } = {}): Promise<KnowledgeGraphPage> {
+    const query = new URLSearchParams();
+    for (const [key, value] of Object.entries(options)) if (value !== undefined) query.set(key, String(value));
+    return this.call('/graph/query?' + query.toString());
+  }
   poc(id: string, offset = 0, limit = 20): Promise<POCPage> {
     return this.call('/vulnerabilities/' + encodeURIComponent(id) + '/poc?' + new URLSearchParams({ offset: String(offset), limit: String(limit) }).toString());
   }

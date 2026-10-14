@@ -22,8 +22,8 @@
     },
     {
       "path": "api/AVAILABLE_API.md",
-      "bytes": 3586,
-      "sha256": "c197688cc763e2c92d3371b205a569c14c74da91b9410a1c943cb01b7bc739c4"
+      "bytes": 3982,
+      "sha256": "c9d0dc8ec30a01da2554c4eaaaf6bf6af7e4298f4046663e34ab5aee1693288f"
     },
     {
       "path": "api/INVESTIGATION_API.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "api/reference/http-apis.json",
-      "bytes": 177364,
-      "sha256": "88eb0e0b660d1df20a07e30fcf631b24e9e13ae589ea2493eefdf49061c42f03"
+      "bytes": 194040,
+      "sha256": "81537c2391d093dba9640032b0ae088aefdd1af1135dcbade52926694e525786"
     },
     {
       "path": "api/reference/http-data-columns.d.ts",
@@ -91,6 +91,16 @@
       "sha256": "047e692941a70264461127bf76c1179b7548d808c1cd514363fde88f8138b6c0"
     },
     {
+      "path": "api/reference/intelligence-http.d.ts",
+      "bytes": 7577,
+      "sha256": "3104ce2fc4b8907f32a0515a309ae3e7949a525235d3af5c504787b5a783ac01"
+    },
+    {
+      "path": "api/reference/intelligence-http.openapi.json",
+      "bytes": 60460,
+      "sha256": "f132412345f563d204227be3a990f179d5e1970c3d2e31d055e1c2ac3ffeb5ab"
+    },
+    {
       "path": "api/reference/internal-input.d.ts",
       "bytes": 3780,
       "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b"
@@ -112,18 +122,18 @@
     },
     {
       "path": "api/reference/investigation-client.ts",
-      "bytes": 2643,
-      "sha256": "5a2b119f68800b9a51d98ef3149216fa8f3562617a937a46ea06369e5f6aa077"
+      "bytes": 2639,
+      "sha256": "f1da788aea0ad366839662e47514cc263d387a4813221f5996c4fc1c157f639c"
     },
     {
       "path": "api/reference/investigation-http.d.ts",
-      "bytes": 24734,
-      "sha256": "705158141203a4468949ff58a7eb8dfb35ca4ac11ece620d453dd96bf2eaaf9b"
+      "bytes": 25155,
+      "sha256": "31ed126c62f91a33dee7e716f4547ee8c0f7c00e201263cdb3e55b19d8468cdb"
     },
     {
       "path": "api/reference/investigation-http.openapi.json",
-      "bytes": 153922,
-      "sha256": "a044115688a22d5393664aa9bb88d740eaa7375ddfcfb9b319cdc1087c7c3ced"
+      "bytes": 156347,
+      "sha256": "0b7074664c6ecbb8e5947f217a8ef3c4f4ada7eca80b3bbbc135913e873014d2"
     },
     {
       "path": "api/reference/legacy-output.d.ts",
@@ -137,8 +147,8 @@
     },
     {
       "path": "api/reference/openapi.json",
-      "bytes": 346443,
-      "sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c"
+      "bytes": 407841,
+      "sha256": "028ffb1d8d3812ee5271a165e1686bcf9786b0a035e344e021c21dbca294b0e7"
     },
     {
       "path": "api/reference/phase12c-http-probes.json",
@@ -236,6 +246,11 @@
       "sha256": "ec84df273aeaf5c4ca14ea887327a43c31f6f51208014fafb5be3e2858227767"
     },
     {
+      "path": "contracts/intelligence.ts",
+      "bytes": 3750,
+      "sha256": "6afe585734711420a39cad667dc072f1b77509bd1bd19af4ae9756a32be006d2"
+    },
+    {
       "path": "contracts/InvestigationArtifact.ts",
       "bytes": 212,
       "sha256": "94c36975259999ad229d41c85d2ccb699a820f7d308f0878585461fafcc3ca00"
@@ -249,6 +264,21 @@
       "path": "contracts/InvestigationStatus.ts",
       "bytes": 402,
       "sha256": "21c99b7d7a2ac7e7006b6286ea03d736fb670d78f427665415b9cbe5cec501cd"
+    },
+    {
+      "path": "contracts/knowledge-graph.ts",
+      "bytes": 214,
+      "sha256": "3dc7234ee3ff80b30cf7a97ca8574cc164872d589200c1cdde8659ff57c6a5ea"
+    },
+    {
+      "path": "contracts/monitoring.ts",
+      "bytes": 230,
+      "sha256": "b316a298a64505a2508630fec3f5aabc3f0ad1111051785908b84b01a4d7dd6c"
+    },
+    {
+      "path": "contracts/poc.ts",
+      "bytes": 195,
+      "sha256": "96b7b4e0f0d59f19e6b3fd910acf5742d329fee372629a1bab365f053de7e2d5"
     },
     {
       "path": "contracts/README.md",
@@ -299,6 +329,11 @@
       "path": "docs/FRONTEND_TEAM_HANDOFF.md",
       "bytes": 24510,
       "sha256": "6193e45812d5b267a91cd393ecabd97a44e481e512e7ec6679cda6313071753f"
+    },
+    {
+      "path": "docs/KNOWLEDGE_GRAPH_API.md",
+      "bytes": 6220,
+      "sha256": "a0f9dcf33e97b4cdc728851b497e0d31fe91791ed2faf14194daa89ccd4a8c04"
     },
     {
       "path": "docs/PHASE12C_INTEGRATION.md",
@@ -396,9 +431,14 @@
       "sha256": "3f722954dc809de3617ba9d85e124007075ce52a734ce0345faab531b28baf69"
     },
     {
+      "path": "PHASE14B3_VERIFICATION.json",
+      "bytes": 453,
+      "sha256": "53685747865d9a085014f71cfe27e5a120c4adb2bd9c560ae8bac8e33f0ec848"
+    },
+    {
       "path": "README.md",
-      "bytes": 5273,
-      "sha256": "56ccf591f0d272c1b696c13da2d53f9215f1016bbccad2bdffaa6977a1797639"
+      "bytes": 5701,
+      "sha256": "ffdaf8f0c6adee8c258afea58afba13eee85be9dab311d0bc14fc987cd340114"
     },
     {
       "path": "VALIDATION.json",
@@ -406,9 +446,9 @@
       "sha256": "7d5030b0e141d92931b502eb2b934d0159cdfaa9ee3b7ba27287280915928c2c"
     }
   ],
-  "file_count_excluding_manifest": 80,
+  "file_count_excluding_manifest": 88,
   "manifest_self_hash_included": false,
-  "current_openapi_sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c",
+  "current_openapi_sha256": "028ffb1d8d3812ee5271a165e1686bcf9786b0a035e344e021c21dbca294b0e7",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
   "original_handoff_artifacts_unchanged": false,
@@ -420,10 +460,11 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-12T13:01:52.746993+00:00",
-  "current_phase": "12-D.3",
-  "verification_file": "PHASE12D3_VERIFICATION.json",
+  "updated_at_utc": "2026-10-14T15:21:29.477956+00:00",
+  "current_phase": "14-B3",
+  "verification_file": "PHASE14B3_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
   "historical_manifest_fields_preserved": true,
-  "model_validation_status": "REAL_SOURCE_DEMO_PASSED_NOT_BENCHMARK"
+  "model_validation_status": "SAVED_REAL_INVESTIGATION_READ_ONLY_PROJECTION",
+  "phase14b3_note": "Historical test fields remain historical; current checks are in PHASE14B3_VERIFICATION.json. No new inference or scoring."
 }

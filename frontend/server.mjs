@@ -46,7 +46,8 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
       if (request.headers.authorization) headers.Authorization = request.headers.authorization;
       if (investigationRoute && request.headers['idempotency-key']) headers['Idempotency-Key'] = request.headers['idempotency-key'];
       const protectedDemoRoute = url.pathname === '/api/v1/assets' || url.pathname.startsWith('/api/v1/assets/') ||
-        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/') || investigationRoute;
+        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/') || investigationRoute ||
+        url.pathname === '/api/v1/intelligence/graph/query' || /^\/api\/v1\/intelligence\/vulnerabilities\/[^/]+\/graph$/.test(url.pathname);
       if (localDemoToken && protectedDemoRoute) headers.Authorization = 'Bearer ' + localDemoToken;
       if (request.method === 'POST') headers['Content-Type'] = 'application/json';
       let settled = false;

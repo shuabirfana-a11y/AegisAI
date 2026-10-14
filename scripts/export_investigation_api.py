@@ -113,7 +113,7 @@ def exports():
                                  'openapi_success_schema': success_schema},
                     'response_validation': 'STRICT_PYDANTIC' if path.startswith(('/api/investigations','/api/v1/intelligence')) else 'LEGACY_DESCRIPTION_ONLY'}
                 if path.startswith('/api/v1/intelligence'):
-                    updated.update(permissions='Bearer / actor-owned assets' if path.endswith('/assets') else 'Public intelligence only; no private inventory',
+                    updated.update(permissions='Bearer / actor-owned assets and investigations' if path.endswith(('/assets','/graph','/graph/query')) else 'Public intelligence only; no private inventory',
                         source='backend/app/api/intelligence.py')
                 if path.startswith('/api/investigations'):
                     updated.update(permissions='Bearer / server-side owner', source='backend/app/api/investigations.py',

@@ -52,3 +52,7 @@
 ## Phase 12-D.3 资产风险对接
 
 仍使用八个调查 HTTP 接口；核验 Artifact 新增可选 `version_observations` 与 `impact_version_evidence`。按 [资产风险交接说明](api/ASSET_RISK_HANDOFF.md)展示来源、版本和演示标识，历史响应缺字段按空数组处理。封存事实和风险只针对指定组件/漏洞，UNKNOWN 不等于安全。最新验证状态见 `PHASE12D3_VERIFICATION.json`；代码位于独立 Phase12D.3 分支，是否进入 main 以 PR 合并为准。
+
+## Phase 14-B3 知识关联
+
+两个只读 Graph API 已实现，六类实体/七种关系由现有 SQL 和调查 Artifact 投影。请先阅读 [知识关联契约](docs/KNOWLEDGE_GRAPH_API.md)，使用 contracts/knowledge-graph.ts 与 IntelligenceApiClient.graph/queryGraphs。默认不返回资产；Risk 是带时间的历史决策；truncated 必须展示。图形页面未新增，是否进入 main 以阶段 PR 为准。

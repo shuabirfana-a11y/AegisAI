@@ -32,6 +32,7 @@ def exports():
     result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/intelligence.ts']=(ROOT/'frontend/contracts/intelligence.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
     result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/poc.ts']=(ROOT/'frontend/contracts/poc.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
     result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/monitoring.ts']=(ROOT/'frontend/contracts/monitoring.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
+    result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/knowledge-graph.ts']=(ROOT/'frontend/contracts/knowledge-graph.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
     return result
 
 def main():

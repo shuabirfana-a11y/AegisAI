@@ -49,6 +49,49 @@ export type IntelligenceRecord = {
   "warnings"?: Array<string>;
 };
 
+export type KnowledgeEdge = {
+  "id": string;
+  "type": "AFFECTS_COMPONENT" | "HAS_AFFECTED_RANGE" | "HAS_VERSION" | "DEPLOYED_ON" | "HAS_EVIDENCE" | "HAS_RISK" | "SUPPORTED_BY";
+  "source": string;
+  "target": string;
+  "status": "SOURCE_ASSERTED" | "CANDIDATE" | "CONFIRMED" | "CONFLICT" | "PENDING" | "REJECTED" | "INSUFFICIENT_EVIDENCE" | "UNKNOWN" | "USER_INVENTORY";
+  "source_records": Array<string>;
+  "claim_ids"?: Array<string>;
+  "evidence_ids"?: Array<string>;
+  "historical_snapshot"?: boolean;
+};
+
+export type KnowledgeGraph = {
+  "schema_version"?: "security-knowledge-graph-v1";
+  "vulnerability_id": string;
+  "canonical_id"?: (string | null);
+  "nodes"?: Array<KnowledgeNode>;
+  "edges"?: Array<KnowledgeEdge>;
+  "truncated"?: boolean;
+  "warnings"?: Array<string>;
+  "limitations"?: Array<string>;
+  "investigation_id"?: (string | null);
+  "agent_references"?: Array<Record<string, string>>;
+  "gate_status"?: (string | null);
+  "answer_id"?: (string | null);
+  "content_trust_level"?: "UNTRUSTED_EXTERNAL_CONTENT";
+};
+
+export type KnowledgeGraphPage = {
+  "items"?: Array<KnowledgeGraph>;
+  "total": number;
+  "offset": number;
+  "limit": number;
+  "limitations"?: Array<string>;
+};
+
+export type KnowledgeNode = {
+  "id": string;
+  "type": "VULNERABILITY" | "COMPONENT" | "VERSION" | "ASSET" | "EVIDENCE" | "RISK";
+  "label": string;
+  "data"?: Record<string, unknown>;
+};
+
 export type POCArtifact = {
   "schema_version"?: "poc-artifact-v1";
   "id": string;
