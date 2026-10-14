@@ -6,6 +6,7 @@
 - `missing-context-browser.json`：浏览器缺版本/资产验收；无调查 ID、无受理提示。
 - `switch-real-investigations-browser.json`：两条真实调查切换的界面绑定结果。
 - `source_hash_exceptions.json`：精确限定的前端变更哈希；原冻结基线未改。
+- `secret-scan-review.json`：十个未改变的合成 Mock 幂等编号的精确扫描复核，无真实凭据。
 - `screenshots/`：实际页面截图。
 
 真实漏洞资料来自官方快照，库存是明确标记的演示数据，未扫描企业资产。这些是工程和交互验收材料，不是 AegisBench 准确率报告。

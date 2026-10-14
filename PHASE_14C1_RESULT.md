@@ -37,6 +37,7 @@
 - `.github/workflows/ci.yml`：安装锁定的前端测试依赖。
 - `backend/tests/orchestration/test_legacy_compat.py`、`docs/phase14c1/source_hash_exceptions.json`：仅将已授权修改的 12 个前端文件加入精确哈希例外，原冻结基线与后端约束不变。
 - 本报告及 `docs/phase14c1/`：脱敏实跑记录、截图、验证说明。
+- `.gitleaksignore`：对上传前端中未改变的十个合成 Mock 幂等 ID 追加精确历史指纹，不排除任何目录或规则。
 
 此外，此修复分支包含 PR #23 已上传的页面、Mock 回放、浏览器 HTTP 客户端和本地代理变化；它们是前端集成基线，不是本次重新开发的功能。完整路径见 PR 文件列表。
 
@@ -78,3 +79,9 @@
 八个调查 HTTP API 的 URL、方法、后端 Schema 均保持不变。前端创建响应现在准确支持 `InvestigationCreateResponse | ContextRequiredResponse`。status/cancel/Trace 的双根 ID、Artifact 的单根 ID、Answer 的网页根 ID、Gate 的引用绑定分别按真实语义检查。
 
 保持 Mock 为显式 `MOCK_ONLY`，未知状态和证据不足状态不伪装成成功。来源中断、模型失败和 API 失败仍显示后端实际失败状态。本阶段完成后停在修复 PR 审查，不自动合并，不进入新功能、版本冻结、Word/PDF 或视频制作。
+
+## 7. 安全扫描与独立审查
+
+全 Git 历史脱敏扫描首次新增 10 个候选，均为 `frontend/public/mock/investigation-demo.json` 的 `request_key: ORCH-...` 合成幂等编号。通过与 PR #23 原 Git blob 逐字节比对及逐行格式检查，确认没有改动这些测试数据，也不是登录或模型凭据。只记录精确 commit/path/rule/line 指纹；复核证据在 `docs/phase14c1/secret-scan-review.json`。真实临时凭据和运行日志不在 Git 或交付包。
+
+独立只读审查发现的取消 revision 和根 ID 两项 P2 已修复并复查关闭；实际 Gate 引用语义修正也已复查，没有剩余 P1 / P2。审查不替代团队负责人的最终 PR Review。
