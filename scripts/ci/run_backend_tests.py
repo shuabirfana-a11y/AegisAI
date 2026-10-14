@@ -38,6 +38,15 @@ TESTS = [
     "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected",
     "tests/test_phase14b1_poc.py::test_invalid_state_or_missing_evidence_is_rejected",
     "tests/test_phase14b1_poc.py::test_poc_openapi_has_all_fields_and_exact_states",
+    "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network",
+    "tests/test_phase14b2_pipeline.py::test_registry_covers_existing_categories_without_automatic_mock_fallback",
+    "tests/test_phase14b2_pipeline.py::test_scheduler_stop_prevents_extra_cycles_and_does_not_force_every_refresh",
+    "tests/test_phase14b2_pipeline.py::test_mock_is_rejected_for_a_development_database_before_any_work",
+    "tests/test_phase14b2_pipeline.py::test_pipeline_openapi_is_typed_and_keeps_availability_distinct_from_verification",
+    "tests/test_phase14b2_pipeline.py::test_invalid_pipeline_deadline_is_rejected_before_db_or_http",
+    "tests/test_phase14b2_pipeline.py::test_guard_invalidates_on_uncertain_acquisition_commit",
+    "tests/test_phase14b2_pipeline.py::test_pipeline_cli_preserves_explicit_zero_budget",
+    "tests/test_phase14b2_pipeline.py::test_automation_adapter_does_not_replace_zero_with_six",
     "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository",
 ]
 

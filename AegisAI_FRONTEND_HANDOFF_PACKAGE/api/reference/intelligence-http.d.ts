@@ -7,6 +7,15 @@ export type AssetRiskPage = {
   "scope"?: string;
 };
 
+export type EnrichmentProgress = {
+  "kind": string;
+  "job_id": string;
+  "status": "queued" | "running" | "success" | "partial" | "no_result" | "failed" | "conflict" | "cancelled";
+  "error_code"?: (string | null);
+  "retryable"?: boolean;
+  "finished_at"?: (string | null);
+};
+
 export type HTTPValidationError = {
   "detail"?: Array<ValidationError>;
   [key: string]: unknown;
@@ -17,6 +26,27 @@ export type IntelligencePage = {
   "total": number;
   "offset": number;
   "limit": number;
+};
+
+export type IntelligenceRecord = {
+  "id": string;
+  "type": string;
+  "title": string;
+  "canonical_id"?: (string | null);
+  "sources": Array<string>;
+  "status": "DISCOVERED" | "NORMALIZED" | "ENRICHING" | "VERIFIED" | "AVAILABLE";
+  "verification_status": "CONFIRMED" | "PENDING" | "CONFLICT" | "INSUFFICIENT_EVIDENCE";
+  "execution_mode"?: "LIVE" | "MOCK" | "UNSPECIFIED";
+  "enrichment_progress"?: Array<EnrichmentProgress>;
+  "query_available": boolean;
+  "verified_claims"?: number;
+  "active_claims"?: number;
+  "evidence_count"?: number;
+  "knowledge_chunks"?: number;
+  "stages": Array<"DISCOVERED" | "NORMALIZED" | "ENRICHING" | "VERIFIED" | "AVAILABLE">;
+  "observed_at": string;
+  "published_at"?: (string | null);
+  "warnings"?: Array<string>;
 };
 
 export type POCArtifact = {
@@ -86,6 +116,40 @@ export type POCVerification = {
   "verified_by_type": "human" | "system";
   "evidence_ref": Array<string>;
   "exploit_validation"?: boolean;
+};
+
+export type PipelineRun = {
+  "sync_run_id": string;
+  "cycle_id": string;
+  "last_cycle_id": string;
+  "source": string;
+  "execution_mode": "LIVE" | "MOCK" | "UNSPECIFIED";
+  "status": "RUNNING" | "SUCCESS" | "PARTIAL" | "FAILED" | "CANCELLED";
+  "collection_status": string;
+  "processed_jobs": number;
+  "failed_jobs": number;
+  "pending_jobs"?: number;
+  "targets": Array<string>;
+  "document_ids": Array<string>;
+  "started_at": string;
+  "updated_at": string;
+  "errors"?: Array<string>;
+};
+
+export type PipelineRunPage = {
+  "items": Array<PipelineRun>;
+  "total": number;
+  "offset": number;
+  "limit": number;
+  "scheduler_semantics"?: string;
+};
+
+export type RecordPage = {
+  "items": Array<IntelligenceRecord>;
+  "total": number;
+  "offset": number;
+  "limit": number;
+  "availability_semantics"?: string;
 };
 
 export type SecurityIntelligenceObject = {

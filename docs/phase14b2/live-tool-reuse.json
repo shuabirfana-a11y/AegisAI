@@ -1,0 +1,22 @@
+{
+  "kind": "LIVE_STORED_DATA_THROUGH_EXISTING_TOOL_GATEWAY",
+  "model_called": false,
+  "target": "CVE-2025-32434",
+  "tools": [
+    {
+      "tool": "get_vulnerability",
+      "status": "success",
+      "trace_id": "3aac9ebf-1d84-4e25-b569-c994e666bcf8",
+      "evidence_references": 6,
+      "errors": []
+    },
+    {
+      "tool": "get_evidence",
+      "status": "success",
+      "trace_id": "d3314722-1419-4a55-9132-66e91c9265be",
+      "evidence_references": 5,
+      "errors": []
+    }
+  ],
+  "no_verdict_override": true
+}

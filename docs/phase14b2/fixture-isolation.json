@@ -1,0 +1,55 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-14T07:44:22.428310+00:00",
+  "exit_status": 0,
+  "passed": 9,
+  "failed": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_version_tool_registered_read_only",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_vllm_060_version_results_use_existing_comparator",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_version_boundaries_and_unknown_are_not_guessed[0.8.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_version_boundaries_and_unknown_are_not_guessed[0.8.4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_version_boundaries_and_unknown_are_not_guessed[invalid-version]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_unknown_identity_is_explicit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_version_tool_does_not_mutate_business_tables",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_version_tool.py::test_evidence_authority_is_metadata_not_verification",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_agent.py::test_pipeline_intelligence_is_consumed_through_original_gateway_and_agents",
+      "phase": "call",
+      "outcome": "passed"
+    }
+  ]
+}

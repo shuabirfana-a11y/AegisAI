@@ -1,0 +1,9 @@
+{
+  "project": "AegisAI",
+  "phase": "14-B2",
+  "base_commit": "87f857032a02e1ceb2751b203ace5063cd728294",
+  "base_pr": 24,
+  "protected_files": 708,
+  "migration_required": false,
+  "new_agent": false
+}

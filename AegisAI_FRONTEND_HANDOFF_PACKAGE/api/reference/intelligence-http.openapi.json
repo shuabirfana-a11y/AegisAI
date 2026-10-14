@@ -123,6 +123,176 @@
         }
       }
     },
+    "/api/v1/intelligence/records": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Records",
+        "operationId": "records_api_v1_intelligence_records_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/monitoring/runs": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Monitoring Runs",
+        "operationId": "monitoring_runs_api_v1_intelligence_monitoring_runs_get",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PipelineRunPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/intelligence/vulnerabilities/{id}": {
       "get": {
         "tags": [
@@ -401,6 +571,69 @@
         ],
         "title": "AssetRiskPage"
       },
+      "EnrichmentProgress": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Job Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "success",
+              "partial",
+              "no_result",
+              "failed",
+              "conflict",
+              "cancelled"
+            ],
+            "title": "Status"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "retryable": {
+            "type": "boolean",
+            "title": "Retryable",
+            "default": false
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "job_id",
+          "status"
+        ],
+        "title": "EnrichmentProgress"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -445,6 +678,157 @@
           "limit"
         ],
         "title": "IntelligencePage"
+      },
+      "IntelligenceRecord": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "canonical_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Id"
+          },
+          "sources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DISCOVERED",
+              "NORMALIZED",
+              "ENRICHING",
+              "VERIFIED",
+              "AVAILABLE"
+            ],
+            "title": "Status"
+          },
+          "verification_status": {
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "CONFLICT",
+              "INSUFFICIENT_EVIDENCE"
+            ],
+            "title": "Verification Status"
+          },
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "MOCK",
+              "UNSPECIFIED"
+            ],
+            "title": "Execution Mode",
+            "default": "UNSPECIFIED"
+          },
+          "enrichment_progress": {
+            "items": {
+              "$ref": "#/components/schemas/EnrichmentProgress"
+            },
+            "type": "array",
+            "title": "Enrichment Progress",
+            "default": []
+          },
+          "query_available": {
+            "type": "boolean",
+            "title": "Query Available"
+          },
+          "verified_claims": {
+            "type": "integer",
+            "title": "Verified Claims",
+            "default": 0
+          },
+          "active_claims": {
+            "type": "integer",
+            "title": "Active Claims",
+            "default": 0
+          },
+          "evidence_count": {
+            "type": "integer",
+            "title": "Evidence Count",
+            "default": 0
+          },
+          "knowledge_chunks": {
+            "type": "integer",
+            "title": "Knowledge Chunks",
+            "default": 0
+          },
+          "stages": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "DISCOVERED",
+                "NORMALIZED",
+                "ENRICHING",
+                "VERIFIED",
+                "AVAILABLE"
+              ]
+            },
+            "type": "array",
+            "title": "Stages"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title",
+          "sources",
+          "status",
+          "verification_status",
+          "query_available",
+          "stages",
+          "observed_at"
+        ],
+        "title": "IntelligenceRecord"
       },
       "POCArtifact": {
         "properties": {
@@ -891,6 +1275,192 @@
           "evidence_ref"
         ],
         "title": "POCVerification"
+      },
+      "PipelineRun": {
+        "properties": {
+          "sync_run_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Sync Run Id"
+          },
+          "cycle_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Cycle Id"
+          },
+          "last_cycle_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Last Cycle Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "MOCK",
+              "UNSPECIFIED"
+            ],
+            "title": "Execution Mode"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "RUNNING",
+              "SUCCESS",
+              "PARTIAL",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "title": "Status"
+          },
+          "collection_status": {
+            "type": "string",
+            "title": "Collection Status"
+          },
+          "processed_jobs": {
+            "type": "integer",
+            "title": "Processed Jobs"
+          },
+          "failed_jobs": {
+            "type": "integer",
+            "title": "Failed Jobs"
+          },
+          "pending_jobs": {
+            "type": "integer",
+            "title": "Pending Jobs",
+            "default": 0
+          },
+          "targets": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Targets"
+          },
+          "document_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Document Ids"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sync_run_id",
+          "cycle_id",
+          "last_cycle_id",
+          "source",
+          "execution_mode",
+          "status",
+          "collection_status",
+          "processed_jobs",
+          "failed_jobs",
+          "targets",
+          "document_ids",
+          "started_at",
+          "updated_at"
+        ],
+        "title": "PipelineRun"
+      },
+      "PipelineRunPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PipelineRun"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "scheduler_semantics": {
+            "type": "string",
+            "title": "Scheduler Semantics",
+            "default": "Worker is operator opt-in; these GETs never trigger collection, models or risk computation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "PipelineRunPage"
+      },
+      "RecordPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/IntelligenceRecord"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "availability_semantics": {
+            "type": "string",
+            "title": "Availability Semantics",
+            "default": "AVAILABLE is queryability, not a blanket verification or exploit verdict."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "RecordPage"
       },
       "SecurityIntelligenceObject": {
         "properties": {

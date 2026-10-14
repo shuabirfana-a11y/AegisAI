@@ -1,0 +1,53 @@
+{
+  "kind": "ENGINEERING AND LIVE SOURCE VALIDATION; NOT BENCHMARK",
+  "phase": "14-B2",
+  "specialized_tests": {
+    "passed": 47,
+    "failed": 0,
+    "synthetic_sources": true
+  },
+  "portable_backend": {
+    "passed": 673,
+    "deselected": 1,
+    "failed": 0
+  },
+  "frontend": {
+    "passed": 23,
+    "failed": 0
+  },
+  "engineering": {
+    "passed": 18,
+    "failed": 0
+  },
+  "typescript": "PASS",
+  "javascript_syntax_files": 17,
+  "frontend_build": "NOT_CONFIGURED",
+  "contracts": {
+    "http_operations": 50,
+    "intelligence_operations": 8,
+    "status": "PASS"
+  },
+  "initial_full_regression": {
+    "passed": 1622,
+    "assertion_failures": 2,
+    "fixture_errors": 7,
+    "preserved_report": "full-regression.json"
+  },
+  "fixture_isolation_recheck": {
+    "passed": 9,
+    "failed": 0,
+    "new_clusters": true,
+    "old_data_deleted": false
+  },
+  "final_clean_full_regression": {
+    "status": "RUNNING",
+    "report": "clean-full-regression.json"
+  },
+  "protected_files": 708,
+  "protected_changed": 0,
+  "review": "PASS",
+  "live_cycles": 3,
+  "new_agent": false,
+  "migration": false,
+  "benchmark_accuracy_claim": false
+}
