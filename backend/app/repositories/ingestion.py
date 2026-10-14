@@ -7,10 +7,11 @@ from app.services.identity import VulnerabilityIdentityResolver
 from app.services.products import canonicalize,registry
 from app.services.relevance import assess
 from app.utils.time import utcnow
-from app.normalizers import cve,osv,cisa_kev
+from app.normalizers import cve,osv,cisa_kev,ghsa,nvd
 
-NORMALIZER_VERSIONS={'CVE_LIST':cve.VERSION,'OSV':osv.VERSION,'CISA_KEV':cisa_kev.VERSION}
-PRIORITY={'CVE_LIST':3,'OSV':2,'CISA_KEV':1}
+NORMALIZER_VERSIONS={'CVE_LIST':cve.VERSION,'OSV':osv.VERSION,'CISA_KEV':cisa_kev.VERSION,
+    'GHSA':ghsa.VERSION,'NVD':nvd.VERSION,**{k:ghsa.VERSION for k in ('VENDOR_PYTORCH','VENDOR_VLLM','VENDOR_MLFLOW')}}
+PRIORITY={'CVE_LIST':3,'OSV':2,'CISA_KEV':1,'GHSA':2,'NVD':2,'VENDOR_PYTORCH':2,'VENDOR_VLLM':2,'VENDOR_MLFLOW':2}
 
 def unique_row(session,model,identity,values=None):
     values={**identity,**(values or {})}

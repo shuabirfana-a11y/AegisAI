@@ -967,3 +967,24 @@ f0f23768078895dc1a11c8428c1eb17dff82179d:docs/phase13d-e2e/PROTECTED_FILES.json:
 31c09a6de52d14f9b672a5d37df6f7ace82425b3:evaluation/reports/phase13g-human49-20261014/output-review-package/native-http-records.json:generic-api-key:99213
 31c09a6de52d14f9b672a5d37df6f7ace82425b3:evaluation/reports/phase13g-human49-20261014/output-review-package/native-http-records.json:generic-api-key:99660
 31c09a6de52d14f9b672a5d37df6f7ace82425b3:evaluation/reports/phase13g-human49-20261014/output-review-package/native-http-records.json:generic-api-key:99784
+
+# Phase14A: independently recomputed non-secret file/locator/scope digests only.
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/verification-summary.json:generic-api-key:43
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/verification-summary.json:generic-api-key:60
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/verification-summary.json:generic-api-key:65
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:68
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:299
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:335
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:372
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:410
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:447
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:481
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:514
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:588
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:635
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:682
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:851
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:887
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:923
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:970
+f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:1017

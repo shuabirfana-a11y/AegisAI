@@ -1,0 +1,29 @@
+{
+  "phase": "14A",
+  "changes": {
+    "backend/app/main.py": {
+      "baseline_sha256": "6d630e8162184c450deb5bb0bb038b232da5cb3b11f6abf714a78a84c0535280",
+      "phase_base_sha256": "952d0ee45513e77bb614d484a5bc5819584c51ef2b64c1bba4606d27c765cd43",
+      "current_sha256": "9b8da06265ba87a616704e4de9314600724732dc56496f50cfed6e6028fc7c57",
+      "authorization": "PHASE14A_USER_AUTHORIZED_MONITORING_ADAPTERS"
+    },
+    "backend/app/api/openapi_contracts.py": {
+      "baseline_sha256": null,
+      "phase_base_sha256": "762fa08233fe7c4d28475d6c837ecbc97c72809f24bdc9741a654a115ca930f7",
+      "current_sha256": "e9b63b2e914ef91130c57f879d47bcd45c42c956e26b2a2634090ef7288a1166",
+      "authorization": "PHASE14A_USER_AUTHORIZED_MONITORING_ADAPTERS"
+    },
+    "backend/app/repositories/ingestion.py": {
+      "baseline_sha256": "e3500e487498026a05d71803277318bca4eec563882ea4f7de053a7e3c980bbd",
+      "phase_base_sha256": "e3500e487498026a05d71803277318bca4eec563882ea4f7de053a7e3c980bbd",
+      "current_sha256": "713bc357095aba1926daf33a7df8a6c32807b01c61bfad2969bc4787ecd41784",
+      "authorization": "PHASE14A_USER_AUTHORIZED_MONITORING_ADAPTERS"
+    },
+    "backend/app/repositories/sources.py": {
+      "baseline_sha256": "61e4ef0d4f8485d4d1dffc649b86023ae2e1a6adf020f28fc7fe07fbcda29b33",
+      "phase_base_sha256": "61e4ef0d4f8485d4d1dffc649b86023ae2e1a6adf020f28fc7fe07fbcda29b33",
+      "current_sha256": "a475e6e4c01da32564fb704c4f475dfc561c9d54a417bc87b2e92284f254a123",
+      "authorization": "PHASE14A_USER_AUTHORIZED_MONITORING_ADAPTERS"
+    }
+  }
+}

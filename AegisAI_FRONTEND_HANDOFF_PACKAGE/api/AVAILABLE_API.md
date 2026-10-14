@@ -1,5 +1,7 @@
 # 当前真实 API 清单
 
+2026-10-14增量：当前46路径/47操作，原调查8操作保留，另有5个 `/api/v1/intelligence` 只读接口。见仓库 `docs/phase14a/FRONTEND_ADAPTER_NOTES.md` 与本包 `api/reference/intelligence-http.openapi.json`。监测客户端为 `contracts/intelligence.ts`。下表为旧代理范围快照，新接口请按配置直接连接后端URL，不假定旧8769代理已经接线。
+
 2026-10-11：42个HTTP操作、41条路径，代理可接35个，7个旧写操作仍受限。AVAILABLE不保证服务在线。
 
 | 方法 | 真实路径 | 响应类型 | 8769代理 |

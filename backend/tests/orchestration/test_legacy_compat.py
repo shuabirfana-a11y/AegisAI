@@ -56,6 +56,9 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     from pathlib import Path
     root=Path(__file__).resolve().parents[3]
     baseline=json.loads((root/'work/orchestration/baseline_hashes.json').read_text(encoding='utf-8'))
+    monitoring_changes=json.loads((root/'docs/phase14a/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(monitoring_changes)=={'backend/app/main.py','backend/app/api/openapi_contracts.py','backend/app/repositories/ingestion.py',
+        'backend/app/repositories/sources.py'}
     # Baseline stays immutable; separately authorize exact Phase12D source digests.
     changes=json.loads((root/'docs/phase12d/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     assert set(changes)=={'backend/app/planner/schemas.py','backend/app/llm/config.py','backend/tests/agents/verification/test_rules.py','backend/tests/runtime/test_scheduler.py',
@@ -78,6 +81,12 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in monitoring_changes:
+            entry=monitoring_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['authorization']=='PHASE14A_USER_AUTHORIZED_MONITORING_ADAPTERS',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in f3_changes:
             entry=f3_changes[path]
             assert entry['baseline_sha256']==digest,path
@@ -120,6 +129,6 @@ def test_old_api_and_business_source_hashes_are_unchanged():
                 yield from flat(route.original_router.routes)
             else:yield route
     actual={(route.path,method):route.endpoint for route in flat(create_app().routes) if isinstance(route,APIRoute)
-            and not route.path.startswith('/api/investigations') for method in route.methods}
+            and not route.path.startswith(('/api/investigations','/api/v1/intelligence')) for method in route.methods}
     assert len(expected)==34
     assert actual==expected

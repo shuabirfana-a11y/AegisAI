@@ -11,6 +11,7 @@ import os
 from urllib.parse import urlsplit
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.investigations import router as investigations_router
+from app.api.intelligence import router as intelligence_router
 from app.api.openapi_contracts import install_openapi
 from app.investigation_api.service import InvestigationApiService
 
@@ -48,6 +49,7 @@ def create_app(engine=None,*,investigation_gateway=None):
     application.include_router(assistant_router)
     application.include_router(tools_router)
     application.include_router(investigations_router)
+    application.include_router(intelligence_router)
     application.add_middleware(CORSMiddleware,allow_origins=cors_allowlist(),allow_credentials=False,
         allow_methods=['GET','POST','PATCH','OPTIONS'],allow_headers=['Authorization','Content-Type','Idempotency-Key','X-Request-Key'],
         expose_headers=['Location','Retry-After','X-Request-ID'])

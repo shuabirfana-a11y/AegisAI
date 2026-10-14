@@ -1,0 +1,62 @@
+[
+  {
+    "source_id": "NVD",
+    "name": "NIST NVD",
+    "source_type": "api",
+    "category": "vulnerability_database",
+    "authority_class": "official",
+    "authority_level": "Published vulnerability assertions; explicit package/version facts only; no exploit validation",
+    "base_url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+    "license": "Upstream terms; metadata with attribution",
+    "update_interval": 3600,
+    "implementation_method": "https_api"
+  },
+  {
+    "source_id": "GHSA",
+    "name": "GitHub reviewed advisory database",
+    "source_type": "api",
+    "category": "security_community",
+    "authority_class": "authoritative",
+    "authority_level": "Published vulnerability assertions; explicit package/version facts only; no exploit validation",
+    "base_url": "https://api.github.com/advisories",
+    "license": "Upstream terms; metadata with attribution",
+    "update_interval": 3600,
+    "implementation_method": "https_api"
+  },
+  {
+    "source_id": "VENDOR_PYTORCH",
+    "name": "PyTorch official security advisories",
+    "source_type": "api",
+    "category": "vendor_advisory",
+    "authority_class": "official",
+    "authority_level": "pytorch/pytorch",
+    "base_url": "https://api.github.com/repos/pytorch/pytorch/security-advisories",
+    "license": "Upstream terms; metadata with attribution",
+    "update_interval": 3600,
+    "implementation_method": "https_api"
+  },
+  {
+    "source_id": "VENDOR_VLLM",
+    "name": "vLLM official security advisories",
+    "source_type": "api",
+    "category": "vendor_advisory",
+    "authority_class": "official",
+    "authority_level": "vllm-project/vllm",
+    "base_url": "https://api.github.com/repos/vllm-project/vllm/security-advisories",
+    "license": "Upstream terms; metadata with attribution",
+    "update_interval": 3600,
+    "implementation_method": "https_api"
+  },
+  {
+    "source_id": "VENDOR_MLFLOW",
+    "name": "MLflow official security advisories",
+    "source_type": "api",
+    "category": "vendor_advisory",
+    "authority_class": "official",
+    "authority_level": "mlflow/mlflow",
+    "base_url": "https://api.github.com/repos/mlflow/mlflow/security-advisories",
+    "license": "Upstream terms; metadata with attribution",
+    "update_interval": 3600,
+    "implementation_method": "https_api"
+  }
+]

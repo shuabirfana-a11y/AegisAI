@@ -1,0 +1,1208 @@
+{
+  "origin": "REDACTED_LIVE_API_PROJECTION",
+  "redactions": [
+    "Evidence excerpt omitted; metadata and locator preserved"
+  ],
+  "synthetic": false,
+  "items": [
+    {
+      "schema_version": "security-intelligence-v1",
+      "id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "source": [
+        "NVD",
+        "OSV"
+      ],
+      "title": "CVE-2022-45907",
+      "type": "vulnerability",
+      "cve_id": "CVE-2022-45907",
+      "affected_product": [
+        "PyTorch"
+      ],
+      "affected_version": [
+        {
+          "vulnerability_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+          "product_id": "46360208-e469-4efa-9fb0-1ef0619f2570",
+          "package_identifier_id": "8946e03c-8ac6-49bc-bbe9-3ad977d97c96",
+          "source_id": "9d9fe8b1-c870-4d3e-9234-3282aa5e0a04",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "introduced": "0",
+          "fixed": "1.13.1",
+          "last_affected": null,
+          "limit_version": null,
+          "range_type": "ECOSYSTEM",
+          "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"1.13.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\"]}",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.13.1"
+            }
+          ],
+          "explicit_versions": [
+            "1.0.0",
+            "1.0.1",
+            "1.1.0",
+            "1.10.0",
+            "1.10.1",
+            "1.10.2",
+            "1.11.0",
+            "1.12.0",
+            "1.12.1",
+            "1.13.0",
+            "1.2.0",
+            "1.3.0",
+            "1.3.1",
+            "1.4.0",
+            "1.5.0",
+            "1.5.1",
+            "1.6.0",
+            "1.7.0",
+            "1.7.1",
+            "1.8.0",
+            "1.8.1",
+            "1.9.0",
+            "1.9.1"
+          ],
+          "branch": null,
+          "scope_key": "fe8c2038a94774ec7428f1b50c9488bcf1418190e141cdbeceea24713a6ce1bc",
+          "parse_status": "parsed",
+          "parse_reason": null,
+          "parser_version": "version-v0.1",
+          "verification_status": "pending",
+          "id": "4ff17901-858d-40ca-8e5f-18a6630ffcb5",
+          "created_at": "2026-10-14T03:13:00.971615Z",
+          "metadata": {
+            "locator": "/affected/0/ranges/0",
+            "source_version_type": null
+          },
+          "source_key": "OSV",
+          "is_current": true
+        }
+      ],
+      "fixed_versions": [
+        {
+          "version": "1.13.1",
+          "package": {
+            "name": "torch",
+            "purl": "pkg:pypi/torch",
+            "ecosystem": "PyPI"
+          },
+          "source": "OSV",
+          "is_current": true,
+          "verification_status": "SOURCE_ASSERTED",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "raw_document_id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+          "locator": "/affected/0/ranges/0"
+        }
+      ],
+      "cvss": [
+        {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "source": "NVD",
+          "provider": "nvd@nist.gov",
+          "observation_id": "648c7b50-6acd-4d25-83c1-c2d9e8b3eea0",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        },
+        {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "source": "NVD",
+          "provider": "134c704f-9b21-4f2e-91b3-4a467353bcc0",
+          "observation_id": "648c7b50-6acd-4d25-83c1-c2d9e8b3eea0",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        },
+        {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "source": "OSV",
+          "provider": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-47fc-vmwq-366v/GHSA-47fc-vmwq-366v.json",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        },
+        {
+          "version": "4.0",
+          "score": 9.3,
+          "severity": "CRITICAL",
+          "source": "OSV",
+          "provider": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2022/11/GHSA-47fc-vmwq-366v/GHSA-47fc-vmwq-366v.json",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        }
+      ],
+      "cwe": [
+        "CWE-77",
+        "CWE-94"
+      ],
+      "published_time": "2022-11-26T02:15:10.253000Z",
+      "modified_time": null,
+      "edition": null,
+      "is_current": null,
+      "canonical_publication_id": null,
+      "references": [
+        {
+          "source": "OSV",
+          "raw_document_id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+          "hash": "c3b8cc51aaef9312071cf539b14d09ebb6433e496accd23a180d33aa3e5ac9eb",
+          "reference": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/GHSA-47fc-vmwq-366v.json",
+          "locator": {
+            "json_pointer": ""
+          },
+          "retrieved_at": "2026-10-14T03:13:00.907422Z",
+          "published_at": "2022-11-26T03:30:27Z"
+        },
+        {
+          "source": "NVD",
+          "raw_document_id": "6c687112-5400-4f19-b0e4-d8ec20c938cb",
+          "hash": "f0e0c0c7aac97d4db952dcba76d11acc130e1ba9898f4cb1de40c485d43c2527",
+          "reference": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-45907",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve"
+          },
+          "retrieved_at": "2026-10-14T03:11:13.370633Z",
+          "published_at": "2022-11-26T02:15:10.253000Z"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "publication_status": "published",
+      "poc_status": "POC_CANDIDATE",
+      "poc_search_status": "COMPLETED",
+      "pocs": [
+        {
+          "vulnerability_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "observation_id": "29bb9e23-be45-4803-b262-77c9de239e49",
+          "url": "https://github.com/mangoding71/AGNC",
+          "canonical_url": "https://github.com/mangoding71/AGNC",
+          "repository": "mangoding71/AGNC",
+          "commit": null,
+          "author": "mangoding71",
+          "candidate_type": "repository",
+          "status": "unknown",
+          "usability_status": "not_evaluated",
+          "first_seen_at": "2026-10-14T03:29:25.948817Z",
+          "last_seen_at": "2026-10-14T03:29:25.948817Z",
+          "id": "f21ddfc5-7cb0-4811-bb61-aec311361cd0",
+          "created_at": "2026-10-14T03:29:30.338773Z",
+          "metadata": {
+            "fork": false,
+            "reason": "Missing explicit identifier, product, mechanism or reproduction evidence.",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": true,
+              "reproduction": false,
+              "scanner_or_list": false,
+              "mentions_version": false,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "description": "Code for paper “Adversarial graph node classification based on unsupervised learning and optimized loss functions”",
+            "cve_reference": "CVE-2022-45907",
+            "readme_raw_id": "06b2c66c-b76e-4aaa-a89a-201a959adb50",
+            "search_raw_id": "df709d77-8bab-4455-8329-7abdecfa2e4c",
+            "README_reference": "https://api.github.com/repos/mangoding71/AGNC/readme",
+            "association_only": true,
+            "usability_status": "not_evaluated",
+            "abstention_reason": "Missing explicit identifier, product, mechanism or reproduction evidence.",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+            "verification_status": "INSUFFICIENT_EVIDENCE",
+            "repository_created_at": "2023-04-16T06:03:48Z",
+            "repository_updated_at": "2024-05-19T08:50:36Z"
+          },
+          "updated_at": "2026-10-14T03:29:30.856957Z",
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      ],
+      "patches": [
+        {
+          "vulnerability_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+          "product_id": "46360208-e469-4efa-9fb0-1ef0619f2570",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "observation_id": "e64eaaba-9c2c-4576-91a5-a3ace1b6380b",
+          "patch_type": "commit",
+          "identity_key": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+          "url": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+          "commit_sha": "767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+          "release_version": null,
+          "branch": "",
+          "status": "candidate",
+          "first_seen_at": "2026-10-14T03:30:20.679980Z",
+          "id": "c7ed3f7d-f3eb-465e-a097-6645edebd8e7",
+          "created_at": "2026-10-14T03:30:21.769051Z",
+          "metadata": {
+            "last_checked_at": "2026-10-14T03:30:20.679980+00:00",
+            "association_only": true,
+            "association_reason": "Reference needs explicit official linkage",
+            "no_patch_execution": true
+          },
+          "updated_at": "2026-10-14T03:30:21.773051Z",
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+        },
+        {
+          "vulnerability_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+          "product_id": "46360208-e469-4efa-9fb0-1ef0619f2570",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "observation_id": "c9aaa202-27ba-4564-adcb-097b3c93c15e",
+          "patch_type": "pull_request",
+          "identity_key": "https://github.com/pytorch/pytorch/pull/89189",
+          "url": "https://github.com/pytorch/pytorch/pull/89189",
+          "commit_sha": null,
+          "release_version": null,
+          "branch": "",
+          "status": "candidate",
+          "first_seen_at": "2026-10-14T03:30:18.478108Z",
+          "id": "79ceaddb-fe1c-4ae2-981c-92b121d96ec6",
+          "created_at": "2026-10-14T03:30:20.655514Z",
+          "metadata": {
+            "last_checked_at": "2026-10-14T03:30:18.478108+00:00",
+            "association_only": true,
+            "association_reason": "Reference needs explicit official linkage",
+            "no_patch_execution": true
+          },
+          "updated_at": "2026-10-14T03:30:20.668464Z",
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      ],
+      "related_documents": [],
+      "evidence": [
+        {
+          "claim_id": "a0b6b118-7005-4871-8384-b9ade803249c",
+          "source_id": "b02b57e4-8b49-4b0c-80a2-1d78e5fd8fed",
+          "raw_document_id": "6c687112-5400-4f19-b0e4-d8ec20c938cb",
+          "observation_id": "648c7b50-6acd-4d25-83c1-c2d9e8b3eea0",
+          "scope_key": "CVSS:3.1:base:fca50885ff1b771a",
+          "evidence_type": "native_cvss",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "d794502e995b57f33d7e9a0db851c9885b2822589f5aa2bebec6ce7612df7324",
+          "source_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-45907",
+          "published_at": "2022-11-26T02:15:10.253000Z",
+          "retrieved_at": "2026-10-14T03:11:13.370633Z",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve/metrics/cvssMetricV31/1/cvssData"
+          },
+          "locator_key": "50547c5ed3c95af2f386c90412e7f07a02cd6039774a70a7ae9e8c7e6ef47f40",
+          "observed_value": {
+            "kind": "base",
+            "score": 9.8,
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "publisher": "NIST NVD",
+          "lineage_key": "nvd:cve@mitre.org",
+          "id": "a6f56edf-be42-4fba-a51c-6ba175034851",
+          "created_at": "2026-10-14T03:48:02.121627Z",
+          "metadata": {
+            "explicit": true,
+            "source_asserted": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "NVD"
+        },
+        {
+          "claim_id": "27ed0f53-4336-44dd-8889-038bce543219",
+          "source_id": "b02b57e4-8b49-4b0c-80a2-1d78e5fd8fed",
+          "raw_document_id": "6c687112-5400-4f19-b0e4-d8ec20c938cb",
+          "observation_id": "648c7b50-6acd-4d25-83c1-c2d9e8b3eea0",
+          "scope_key": "CVSS:3.1:base:708ae4679cbee78c",
+          "evidence_type": "native_cvss",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "d794502e995b57f33d7e9a0db851c9885b2822589f5aa2bebec6ce7612df7324",
+          "source_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-45907",
+          "published_at": "2022-11-26T02:15:10.253000Z",
+          "retrieved_at": "2026-10-14T03:11:13.370633Z",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve/metrics/cvssMetricV31/0/cvssData"
+          },
+          "locator_key": "aafd033d5445f63136e4d3ff007246c057c4a4d7aec59bab4043eeb7933a7be6",
+          "observed_value": {
+            "kind": "base",
+            "score": 9.8,
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "publisher": "NIST NVD",
+          "lineage_key": "nvd:cve@mitre.org",
+          "id": "74ef7ee6-9146-4f27-be5b-5fb2ed54cad2",
+          "created_at": "2026-10-14T03:48:02.113395Z",
+          "metadata": {
+            "explicit": true,
+            "source_asserted": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "NVD"
+        },
+        {
+          "claim_id": "848b4be5-0706-4ad7-921c-9253bdc7b39c",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "fab3ec66-ab05-4e66-82ce-4103af7fb321",
+          "observation_id": "e64eaaba-9c2c-4576-91a5-a3ace1b6380b",
+          "scope_key": "patch:https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+          "evidence_type": "repository_metadata",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "7e0f8bd4a5f7fc79b9c6f6d11e06847e80d91612440983a688b4f853767eea23",
+          "source_url": "https://api.github.com/repos/pytorch/pytorch/commits/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:30:20.679980Z",
+          "locator": {
+            "json_pointer": "/html_url",
+            "reference_url": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3"
+          },
+          "locator_key": "001282ca516f7024fc90cdd97e3a2f0fd48289b059e0fa43d855169228e3bec9",
+          "observed_value": {
+            "url": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+            "commit_sha": "767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+            "patch_type": "commit",
+            "repository": "pytorch/pytorch",
+            "association": "CANDIDATE",
+            "release_version": null
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "0ad84edf-930f-47af-9cdc-f23d75db6a04",
+          "created_at": "2026-10-14T03:30:21.773051Z",
+          "metadata": {
+            "explicit": false,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "INSUFFICIENT_EVIDENCE",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "923db9da-fb0b-47c5-bb30-d92708de96db",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "a6ef7bf3-441c-4374-b7e3-77d19c456144",
+          "observation_id": "c9aaa202-27ba-4564-adcb-097b3c93c15e",
+          "scope_key": "patch:https://github.com/pytorch/pytorch/pull/89189",
+          "evidence_type": "repository_metadata",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "1fb59612b8bade284542ed2462940fe15b272f8cbe71a1310913bbaf681d1da2",
+          "source_url": "https://api.github.com/repos/pytorch/pytorch/pulls/89189",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:30:18.478108Z",
+          "locator": {
+            "json_pointer": "/html_url",
+            "reference_url": "https://github.com/pytorch/pytorch/pull/89189"
+          },
+          "locator_key": "4ed27291f73ef74ebb54930223c8aebff8b35215f9bcaa4de6a76cde1683329d",
+          "observed_value": {
+            "url": "https://github.com/pytorch/pytorch/pull/89189",
+            "commit_sha": null,
+            "patch_type": "pull_request",
+            "repository": "pytorch/pytorch",
+            "association": "CANDIDATE",
+            "release_version": null
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "e8c661f4-42f4-4a47-8235-8e191e9cd7ab",
+          "created_at": "2026-10-14T03:30:20.676980Z",
+          "metadata": {
+            "explicit": false,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "INSUFFICIENT_EVIDENCE",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "0c6cce35-afb1-4825-923f-79de1098d595",
+          "source_id": "9d9fe8b1-c870-4d3e-9234-3282aa5e0a04",
+          "raw_document_id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "scope_key": "PyPI:torch",
+          "evidence_type": "normalized_version",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "07b18e4b79b366603a171dcd71c10418b1689586f6f3ffda72050a1aaa0e5479",
+          "source_url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/GHSA-47fc-vmwq-366v.json",
+          "published_at": "2022-11-26T03:30:27Z",
+          "retrieved_at": "2026-10-14T03:13:00.907422Z",
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "locator_key": "5cdf1a9541faba26bd7faa109fdcd6bc19db729b8db38bfc1baa4ecde88b64ac",
+          "observed_value": {
+            "package": "torch",
+            "version": "1.13.1",
+            "ecosystem": "PyPI"
+          },
+          "publisher": "OSV.dev",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "db9d3645-f7cc-4b78-8f0d-1d2cde47f828",
+          "created_at": "2026-10-14T03:29:45.500727Z",
+          "metadata": {
+            "explicit": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "INSUFFICIENT_EVIDENCE",
+          "source_key": "OSV"
+        },
+        {
+          "claim_id": "1893e8d1-be1f-431b-a600-046385c54f29",
+          "source_id": "9d9fe8b1-c870-4d3e-9234-3282aa5e0a04",
+          "raw_document_id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "scope_key": "PyPI:torch",
+          "evidence_type": "normalized_version",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "07b18e4b79b366603a171dcd71c10418b1689586f6f3ffda72050a1aaa0e5479",
+          "source_url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/GHSA-47fc-vmwq-366v.json",
+          "published_at": "2022-11-26T03:30:27Z",
+          "retrieved_at": "2026-10-14T03:13:00.907422Z",
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "locator_key": "5cdf1a9541faba26bd7faa109fdcd6bc19db729b8db38bfc1baa4ecde88b64ac",
+          "observed_value": {
+            "package": "torch",
+            "ecosystem": "PyPI"
+          },
+          "publisher": "OSV.dev",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "ba82d698-eb57-444d-91c0-3fd5ca8096f3",
+          "created_at": "2026-10-14T03:29:45.490692Z",
+          "metadata": {
+            "explicit": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "INSUFFICIENT_EVIDENCE",
+          "source_key": "OSV"
+        },
+        {
+          "claim_id": "49608d1b-3228-4e53-bcac-d8b03f477f4a",
+          "source_id": "9d9fe8b1-c870-4d3e-9234-3282aa5e0a04",
+          "raw_document_id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+          "observation_id": "d63a3f67-4379-4ba8-a3fd-5ee3a8cf8edc",
+          "scope_key": "PyPI:torch",
+          "evidence_type": "normalized_version",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "07b18e4b79b366603a171dcd71c10418b1689586f6f3ffda72050a1aaa0e5479",
+          "source_url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/GHSA-47fc-vmwq-366v.json",
+          "published_at": "2022-11-26T03:30:27Z",
+          "retrieved_at": "2026-10-14T03:13:00.907422Z",
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "locator_key": "5cdf1a9541faba26bd7faa109fdcd6bc19db729b8db38bfc1baa4ecde88b64ac",
+          "observed_value": {
+            "ranges": [
+              {
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "1.13.1"
+                  }
+                ],
+                "range_type": "ECOSYSTEM",
+                "parse_reason": null,
+                "parse_status": "parsed",
+                "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"1.13.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\"]}",
+                "explicit_versions": [
+                  "1.0.0",
+                  "1.0.1",
+                  "1.1.0",
+                  "1.10.0",
+                  "1.10.1",
+                  "1.10.2",
+                  "1.11.0",
+                  "1.12.0",
+                  "1.12.1",
+                  "1.13.0",
+                  "1.2.0",
+                  "1.3.0",
+                  "1.3.1",
+                  "1.4.0",
+                  "1.5.0",
+                  "1.5.1",
+                  "1.6.0",
+                  "1.7.0",
+                  "1.7.1",
+                  "1.8.0",
+                  "1.8.1",
+                  "1.9.0",
+                  "1.9.1"
+                ]
+              }
+            ],
+            "package": "torch",
+            "ecosystem": "PyPI"
+          },
+          "publisher": "OSV.dev",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "d67bc6f4-1018-4f3e-b6a1-0f96f31e615c",
+          "created_at": "2026-10-14T03:29:45.480265Z",
+          "metadata": {
+            "explicit": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "INSUFFICIENT_EVIDENCE",
+          "source_key": "OSV"
+        },
+        {
+          "claim_id": "9480ef37-3f21-44ef-a578-abdd57193124",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "6870fa91-80ae-4e92-851b-1a27eac32364",
+          "observation_id": "aa62a81b-f8ef-4bcb-917a-fb316ff6441d",
+          "scope_key": "poc:layerd-ai/hex",
+          "evidence_type": "repository_readme",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "f67434001c6fd73bb6a50686daf3ac38a2ac5f8898efcd0fb8bbcd293ea678fa",
+          "source_url": "https://api.github.com/repos/Layerd-AI/Hex/readme",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:33.415416Z",
+          "locator": {
+            "json_pointer": "/content"
+          },
+          "locator_key": "f1bfc42a4a2da97527a101761272305c7c1ff5a7b446a16021e49264e1334e63",
+          "observed_value": {
+            "url": "https://github.com/Layerd-AI/Hex",
+            "repository": "Layerd-AI/Hex",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:layerd-ai/hex",
+          "id": "4659445d-05f5-409f-abfb-bdb02cd2e7dd",
+          "created_at": "2026-10-14T03:29:42.622370Z",
+          "metadata": {
+            "explicit": true,
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": true,
+              "identifier": true,
+              "reproduction": false,
+              "scanner_or_list": true,
+              "mentions_version": true,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "REJECTED",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "REJECTED",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "57cecc77-0732-4e84-96a3-968d8c44c258",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "342337e8-94af-4196-b523-9cd12452aaa5",
+          "observation_id": "ecbc98cf-4ceb-400b-85fa-3194bcedf416",
+          "scope_key": "poc:olist77/vulnerable-ai-app",
+          "evidence_type": "repository_readme",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "ce087729f45cfbb9a6151f243466d9177e955f037df2b28916c58c4c4cb57d9a",
+          "source_url": "https://api.github.com/repos/olist77/vulnerable-ai-app/readme",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:30.903569Z",
+          "locator": {
+            "json_pointer": "/content"
+          },
+          "locator_key": "f1bfc42a4a2da97527a101761272305c7c1ff5a7b446a16021e49264e1334e63",
+          "observed_value": {
+            "url": "https://github.com/olist77/vulnerable-ai-app",
+            "repository": "olist77/vulnerable-ai-app",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:olist77/vulnerable-ai-app",
+          "id": "4ae616f9-24c9-4339-ba1a-28d12adfe734",
+          "created_at": "2026-10-14T03:29:33.359274Z",
+          "metadata": {
+            "explicit": true,
+            "features": {
+              "fork": false,
+              "product": true,
+              "mechanism": true,
+              "identifier": true,
+              "reproduction": false,
+              "scanner_or_list": true,
+              "mentions_version": true,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "REJECTED",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "REJECTED",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "5ead072b-e3df-4f49-8b7b-246a5bc3bb82",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "06b2c66c-b76e-4aaa-a89a-201a959adb50",
+          "observation_id": "94b9f553-0ed4-475b-9154-65ad99c6d315",
+          "scope_key": "poc:mangoding71/agnc",
+          "evidence_type": "repository_readme",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "ab868f042c40a4af7c217b5bc527f95f1955150b5d8d051a72e3f5d5501b82ac",
+          "source_url": "https://api.github.com/repos/mangoding71/AGNC/readme",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:30.352348Z",
+          "locator": {
+            "json_pointer": "/content"
+          },
+          "locator_key": "f1bfc42a4a2da97527a101761272305c7c1ff5a7b446a16021e49264e1334e63",
+          "observed_value": {
+            "url": "https://github.com/mangoding71/AGNC",
+            "repository": "mangoding71/AGNC",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:mangoding71/agnc",
+          "id": "22f6d946-e719-43d0-9931-f93cfc711674",
+          "created_at": "2026-10-14T03:29:30.874407Z",
+          "metadata": {
+            "explicit": true,
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": true,
+              "reproduction": false,
+              "scanner_or_list": false,
+              "mentions_version": false,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "INSUFFICIENT_EVIDENCE",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "GITHUB"
+        }
+      ],
+      "asset_risk_access": "AUTHENTICATED_ONLY",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "limitations": [
+        "Source facts are not blanket-confirmed; conflicting versions and CVSS remain separate.",
+        "NO_EVIDENCE means no stored qualifying candidate, not proof no exploit exists; check poc_search_status.",
+        "Assets require the authenticated assets endpoint. Research links are candidates, not impact evidence."
+      ]
+    },
+    {
+      "schema_version": "security-intelligence-v1",
+      "id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "source": [
+        "NVD"
+      ],
+      "title": "CVE-2025-32434",
+      "type": "vulnerability",
+      "cve_id": "CVE-2025-32434",
+      "affected_product": [],
+      "affected_version": [],
+      "fixed_versions": [],
+      "cvss": [
+        {
+          "version": "3.1",
+          "score": 9.8,
+          "severity": "CRITICAL",
+          "source": "NVD",
+          "provider": "nvd@nist.gov",
+          "observation_id": "5f38cb7d-d078-4737-b88b-ce230606e9cd",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        },
+        {
+          "version": "4.0",
+          "score": 9.3,
+          "severity": "CRITICAL",
+          "source": "NVD",
+          "provider": "security-advisories@github.com",
+          "observation_id": "5f38cb7d-d078-4737-b88b-ce230606e9cd",
+          "is_current": true,
+          "severity_basis": "SOURCE_ASSERTED",
+          "verification_status": "SOURCE_ASSERTED"
+        }
+      ],
+      "cwe": [
+        "CWE-502"
+      ],
+      "published_time": "2025-04-18T16:15:23.183000Z",
+      "modified_time": null,
+      "edition": null,
+      "is_current": null,
+      "canonical_publication_id": null,
+      "references": [
+        {
+          "source": "NVD",
+          "raw_document_id": "ef0dae83-ae62-4dbd-ad79-16a904ed2a3e",
+          "hash": "2eef04293d369873344094e1c0fd19cb84c0eb12092a91515cdb584c3e748ba1",
+          "reference": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve"
+          },
+          "retrieved_at": "2026-10-14T03:11:08.336173Z",
+          "published_at": "2025-04-18T16:15:23.183000Z"
+        }
+      ],
+      "status": "SOURCE_ASSERTED",
+      "publication_status": "published",
+      "poc_status": "POC_CANDIDATE",
+      "poc_search_status": "PARTIAL",
+      "pocs": [
+        {
+          "vulnerability_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "observation_id": "ef790878-4f1d-441d-8d1c-8694a1ad02e1",
+          "url": "https://github.com/Ostorlab/KEV",
+          "canonical_url": "https://github.com/Ostorlab/KEV",
+          "repository": "Ostorlab/KEV",
+          "commit": null,
+          "author": "Ostorlab",
+          "candidate_type": "repository",
+          "status": "unknown",
+          "usability_status": "not_evaluated",
+          "first_seen_at": "2026-10-14T03:29:45.719126Z",
+          "last_seen_at": "2026-10-14T03:29:45.719126Z",
+          "id": "be9d9cad-6923-4b3b-b418-dc3d6cccecb0",
+          "created_at": "2026-10-14T03:29:52.330685Z",
+          "metadata": {
+            "fork": false,
+            "reason": "Missing explicit identifier, product, mechanism or reproduction evidence.",
+            "status": "INSUFFICIENT_EVIDENCE",
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": false,
+              "reproduction": false,
+              "scanner_or_list": false,
+              "mentions_version": false,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "description": "Ostorlab KEV: One-command to detect most remotely known exploitable vulnerabilities. Sourced from CISA KEV, Google's Tsunami, Ostorlab's Asteroid and Bug Bounty programs.",
+            "cve_reference": "CVE-2025-32434",
+            "readme_raw_id": null,
+            "search_raw_id": "e448403c-cfa8-4ed1-baa9-bf67397ac7fe",
+            "README_reference": null,
+            "association_only": true,
+            "usability_status": "not_evaluated",
+            "abstention_reason": "Missing explicit identifier, product, mechanism or reproduction evidence.",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+            "verification_status": "INSUFFICIENT_EVIDENCE",
+            "repository_created_at": "2022-04-19T08:58:42Z",
+            "repository_updated_at": "2026-10-07T22:41:53Z"
+          },
+          "updated_at": "2026-10-14T03:30:17.583494Z",
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+        }
+      ],
+      "patches": [],
+      "related_documents": [],
+      "evidence": [
+        {
+          "claim_id": "c5694fef-a349-4770-b605-855ffca4b21a",
+          "source_id": "b02b57e4-8b49-4b0c-80a2-1d78e5fd8fed",
+          "raw_document_id": "ef0dae83-ae62-4dbd-ad79-16a904ed2a3e",
+          "observation_id": "5f38cb7d-d078-4737-b88b-ce230606e9cd",
+          "scope_key": "CVSS:4.0:base:987e6a71acf112a2",
+          "evidence_type": "native_cvss",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "9be8f291b2510255aa9d8c3fa932825756fa5652275f521a7d4581186e70fb6a",
+          "source_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+          "published_at": "2025-04-18T16:15:23.183000Z",
+          "retrieved_at": "2026-10-14T03:11:08.336173Z",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve/metrics/cvssMetricV40/0/cvssData"
+          },
+          "locator_key": "a9b903d114fe47c28b2380adf5c3f8280a8ab0f7f903176eec8421be73e28bc9",
+          "observed_value": {
+            "kind": "base",
+            "score": 9.3,
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+            "version": "4.0"
+          },
+          "publisher": "NIST NVD",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "68294d27-0731-468d-a4ec-434ab330ab8e",
+          "created_at": "2026-10-14T03:48:02.104480Z",
+          "metadata": {
+            "explicit": true,
+            "source_asserted": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "NVD"
+        },
+        {
+          "claim_id": "a0f11241-3c71-4cc0-bf87-51b53495870f",
+          "source_id": "b02b57e4-8b49-4b0c-80a2-1d78e5fd8fed",
+          "raw_document_id": "ef0dae83-ae62-4dbd-ad79-16a904ed2a3e",
+          "observation_id": "5f38cb7d-d078-4737-b88b-ce230606e9cd",
+          "scope_key": "CVSS:3.1:base:708ae4679cbee78c",
+          "evidence_type": "native_cvss",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "d794502e995b57f33d7e9a0db851c9885b2822589f5aa2bebec6ce7612df7324",
+          "source_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+          "published_at": "2025-04-18T16:15:23.183000Z",
+          "retrieved_at": "2026-10-14T03:11:08.336173Z",
+          "locator": {
+            "json_pointer": "/vulnerabilities/0/cve/metrics/cvssMetricV31/0/cvssData"
+          },
+          "locator_key": "aafd033d5445f63136e4d3ff007246c057c4a4d7aec59bab4043eeb7933a7be6",
+          "observed_value": {
+            "kind": "base",
+            "score": 9.8,
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "version": "3.1"
+          },
+          "publisher": "NIST NVD",
+          "lineage_key": "github:pytorch/pytorch",
+          "id": "1c0c9c2f-5ace-4d04-b24f-6078c7b6b081",
+          "created_at": "2026-10-14T03:48:02.090482Z",
+          "metadata": {
+            "explicit": true,
+            "source_asserted": true,
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "NVD"
+        },
+        {
+          "claim_id": "832b8306-15dd-4c3f-8e51-0567a41b774e",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "e448403c-cfa8-4ed1-baa9-bf67397ac7fe",
+          "observation_id": "ef790878-4f1d-441d-8d1c-8694a1ad02e1",
+          "scope_key": "poc:ostorlab/kev",
+          "evidence_type": "repository_search",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "471b4b1d1bc376b6b29b745f5ca4f04006780af14511e731d5c038749c907812",
+          "source_url": "https://api.github.com/search/repositories?q=CVE-2025-32434%20in%3Aname%2Cdescription%2Creadme&per_page=5",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:45.719126Z",
+          "locator": {
+            "json_pointer": "/items/2"
+          },
+          "locator_key": "d8f2e2e552ecaadfd3848ee4c1487eabf4ea93d97b4c8cce66e3f00212381a06",
+          "observed_value": {
+            "url": "https://github.com/Ostorlab/KEV",
+            "repository": "Ostorlab/KEV",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:search",
+          "id": "31b35d90-c37e-40f1-897b-fde75babf330",
+          "created_at": "2026-10-14T03:30:17.595735Z",
+          "metadata": {
+            "explicit": false,
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": false,
+              "reproduction": false,
+              "scanner_or_list": false,
+              "mentions_version": false,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "INSUFFICIENT_EVIDENCE",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "PENDING",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "61b31d60-c51d-4488-b1ef-9fdde7ea5dd4",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "ffa69bce-46c1-431f-ab66-1c93d00d9bcc",
+          "observation_id": "e7d2d6d3-1620-426a-a417-172ad88618a5",
+          "scope_key": "poc:proteas/apple-cve",
+          "evidence_type": "repository_readme",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "69dd088ba8ae3236c66d1ddc8c3eda76b056ce346770a080059e6ae2dbf7b101",
+          "source_url": "https://api.github.com/repos/Proteas/apple-cve/readme",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:49.492182Z",
+          "locator": {
+            "json_pointer": "/content"
+          },
+          "locator_key": "f1bfc42a4a2da97527a101761272305c7c1ff5a7b446a16021e49264e1334e63",
+          "observed_value": {
+            "url": "https://github.com/Proteas/apple-cve",
+            "repository": "Proteas/apple-cve",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:proteas/apple-cve",
+          "id": "e5557ff2-a3f6-4ee3-8019-86a09727acc9",
+          "created_at": "2026-10-14T03:29:52.320142Z",
+          "metadata": {
+            "explicit": true,
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": false,
+              "reproduction": false,
+              "scanner_or_list": false,
+              "mentions_version": false,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "REJECTED",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "REJECTED",
+          "source_key": "GITHUB"
+        },
+        {
+          "claim_id": "7170a700-c977-4497-8c26-3b55e2c1aab8",
+          "source_id": "8940754e-d830-4c23-9e62-b21d144394c5",
+          "raw_document_id": "ba85f444-010f-456d-a835-0286ba809b86",
+          "observation_id": "37802bcf-ea71-4aba-a2b4-772663dfe5ec",
+          "scope_key": "poc:darknavysecurity/poc",
+          "evidence_type": "repository_readme",
+          "stance": "support",
+          "excerpt": "OMITTED_FROM_HANDOFF_EXAMPLE",
+          "excerpt_hash": "453516d719ff6cde6bb28a45a2b0d383f3a26f0589bbf87e02e0387851c7e05d",
+          "source_url": "https://api.github.com/repos/DarkNavySecurity/PoC/readme",
+          "published_at": null,
+          "retrieved_at": "2026-10-14T03:29:49.081110Z",
+          "locator": {
+            "json_pointer": "/content"
+          },
+          "locator_key": "f1bfc42a4a2da97527a101761272305c7c1ff5a7b446a16021e49264e1334e63",
+          "observed_value": {
+            "url": "https://github.com/DarkNavySecurity/PoC",
+            "repository": "DarkNavySecurity/PoC",
+            "association": "candidate",
+            "usability_status": "not_evaluated"
+          },
+          "publisher": "GITHUB",
+          "lineage_key": "github:darknavysecurity/poc",
+          "id": "3ea13479-0715-4767-91d8-4b80703fc628",
+          "created_at": "2026-10-14T03:29:49.486179Z",
+          "metadata": {
+            "explicit": true,
+            "features": {
+              "fork": false,
+              "product": false,
+              "mechanism": false,
+              "identifier": false,
+              "reproduction": true,
+              "scanner_or_list": false,
+              "mentions_version": true,
+              "independent_reference": false,
+              "affected_version_match": null
+            },
+            "classification": "REJECTED",
+            "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+          "claim_verification_status": "REJECTED",
+          "source_key": "GITHUB"
+        }
+      ],
+      "asset_risk_access": "AUTHENTICATED_ONLY",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "limitations": [
+        "Source facts are not blanket-confirmed; conflicting versions and CVSS remain separate.",
+        "NO_EVIDENCE means no stored qualifying candidate, not proof no exploit exists; check poc_search_status.",
+        "Assets require the authenticated assets endpoint. Research links are candidates, not impact evidence."
+      ]
+    },
+    {
+      "schema_version": "security-intelligence-v1",
+      "id": "3c39ce84-0d54-44b8-b06a-8c65a4d49b3a",
+      "source": [
+        "RSS_TRAIL_OF_BITS"
+      ],
+      "title": "SequenceHash: multihashing for the rest of us",
+      "type": "blog",
+      "cve_id": null,
+      "affected_product": [],
+      "affected_version": [],
+      "fixed_versions": [],
+      "cvss": [],
+      "cwe": [],
+      "published_time": "2026-10-02T11:00:00Z",
+      "modified_time": null,
+      "edition": "9578fb22237b69ef75e20a5445fb7be680e228a25df176e50f911383e4f815dc",
+      "is_current": true,
+      "canonical_publication_id": "https://blog.trailofbits.com/2026/10/02/sequencehash-multihashing-for-the-rest-of-us/",
+      "references": [
+        {
+          "source": "RSS_TRAIL_OF_BITS",
+          "raw_document_id": "aa76e5c8-0196-4a8c-8dca-632df28e689d",
+          "hash": "9498f6e8f05fe43de47111761f8b8952ff3d48a8d5ac35438750845a651c4a9b",
+          "reference": "https://blog.trailofbits.com/index.xml",
+          "locator": {
+            "xml_paths": [
+              "/rss/channel/item[1]"
+            ],
+            "json_pointers": []
+          },
+          "retrieved_at": "2026-10-14T03:11:13.451816Z",
+          "published_at": "2026-10-02T11:00:00Z"
+        }
+      ],
+      "status": "CANDIDATE",
+      "publication_status": "source_asserted",
+      "poc_status": "NO_EVIDENCE",
+      "poc_search_status": "NOT_RUN",
+      "pocs": [],
+      "patches": [],
+      "related_documents": [],
+      "evidence": [],
+      "asset_risk_access": "AUTHENTICATED_ONLY",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "limitations": [
+        "Metadata/limited excerpt only; publication does not confirm an associated vulnerability.",
+        "Canonical publication URL: https://blog.trailofbits.com/2026/10/02/sequencehash-multihashing-for-the-rest-of-us/"
+      ]
+    },
+    {
+      "schema_version": "security-intelligence-v1",
+      "id": "f0296120-842c-413b-b991-863504a49e33",
+      "source": [
+        "RSS_TRAIL_OF_BITS"
+      ],
+      "title": "Don't let TEEs break your MPC",
+      "type": "blog",
+      "cve_id": null,
+      "affected_product": [],
+      "affected_version": [],
+      "fixed_versions": [],
+      "cvss": [],
+      "cwe": [],
+      "published_time": "2026-09-25T11:00:00Z",
+      "modified_time": null,
+      "edition": "8c12f71ec8c5d57c132393923b6bc90bf29db13cbdceafde42bef973332e8165",
+      "is_current": true,
+      "canonical_publication_id": "https://blog.trailofbits.com/2026/09/25/dont-let-tees-break-your-mpc/",
+      "references": [
+        {
+          "source": "RSS_TRAIL_OF_BITS",
+          "raw_document_id": "aa76e5c8-0196-4a8c-8dca-632df28e689d",
+          "hash": "9498f6e8f05fe43de47111761f8b8952ff3d48a8d5ac35438750845a651c4a9b",
+          "reference": "https://blog.trailofbits.com/index.xml",
+          "locator": {
+            "xml_paths": [
+              "/rss/channel/item[2]"
+            ],
+            "json_pointers": []
+          },
+          "retrieved_at": "2026-10-14T03:11:13.451816Z",
+          "published_at": "2026-09-25T11:00:00Z"
+        }
+      ],
+      "status": "CANDIDATE",
+      "publication_status": "source_asserted",
+      "poc_status": "NO_EVIDENCE",
+      "poc_search_status": "NOT_RUN",
+      "pocs": [],
+      "patches": [],
+      "related_documents": [],
+      "evidence": [],
+      "asset_risk_access": "AUTHENTICATED_ONLY",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "limitations": [
+        "Metadata/limited excerpt only; publication does not confirm an associated vulnerability.",
+        "Canonical publication URL: https://blog.trailofbits.com/2026/09/25/dont-let-tees-break-your-mpc/"
+      ]
+    },
+    {
+      "schema_version": "security-intelligence-v1",
+      "id": "202ab063-9fe9-496a-9384-d0e3949729e4",
+      "source": [
+        "ARXIV"
+      ],
+      "title": "ACE: A Security Architecture for LLM-Integrated App Systems",
+      "type": "paper",
+      "cve_id": null,
+      "affected_product": [],
+      "affected_version": [],
+      "fixed_versions": [],
+      "cvss": [],
+      "cwe": [],
+      "published_time": "2025-04-29T17:55:52Z",
+      "modified_time": "2025-09-10T19:03:48Z",
+      "edition": "e6a7123f75fadd48c0f0a2f82da74929173cc1d30928f7887d527117eb6814f5",
+      "is_current": true,
+      "canonical_publication_id": "https://arxiv.org/abs/2504.20984",
+      "references": [
+        {
+          "source": "ARXIV",
+          "raw_document_id": "a393e068-8c7b-4f7c-9f31-f847d71619b6",
+          "hash": "a94f0af5caf8810da2333ea4e36c30c27b7f49180f71fcfae3b19133a18b8e34",
+          "reference": "https://export.arxiv.org/api/query?search_query=all:LLM%20AND%20all:security&max_results=1",
+          "locator": {
+            "xml_paths": [
+              "/feed/entry[1]"
+            ],
+            "json_pointers": []
+          },
+          "retrieved_at": "2026-10-14T03:21:52.558748Z",
+          "published_at": "2025-04-29T17:55:52Z"
+        }
+      ],
+      "status": "CANDIDATE",
+      "publication_status": "source_asserted",
+      "poc_status": "NO_EVIDENCE",
+      "poc_search_status": "NOT_RUN",
+      "pocs": [],
+      "patches": [],
+      "related_documents": [],
+      "evidence": [],
+      "asset_risk_access": "AUTHENTICATED_ONLY",
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "limitations": [
+        "Metadata/limited excerpt only; publication does not confirm an associated vulnerability.",
+        "Canonical publication URL: https://arxiv.org/abs/2504.20984v3"
+      ]
+    }
+  ]
+}

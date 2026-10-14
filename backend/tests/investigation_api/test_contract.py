@@ -10,7 +10,11 @@ def test_openapi_has_eight_typed_investigation_operations_and_no_empty_legacy_su
                   for method, op in item.items() if method in ('get', 'post', 'patch', 'delete', 'put')]
     added = [op for path, method, op in operations if path.startswith('/api/investigations')]
     assert len(added) == 8
-    assert len(operations) == 42
+    # New monitoring endpoints are independently typed; retain the original
+    # 42-operation investigation/legacy contract as the compatibility boundary.
+    monitoring = [op for path, method, op in operations if path.startswith('/api/v1/intelligence')]
+    assert len(monitoring) == 5
+    assert len(operations) - len(monitoring) == 42
     for path, method, op in operations:
         code = next(code for code in op['responses'] if code.startswith('2'))
         assert op['responses'][code]['content']['application/json']['schema'], (path, method)
