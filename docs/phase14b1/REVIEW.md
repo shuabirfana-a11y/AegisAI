@@ -23,6 +23,15 @@ Ready within Phase 14-B1 scope. No open critical or important findings.
 纯读取探针确认：当前链接人工依据能确认；核验后才获取的依据保持候选；DTO 拒绝不一致时序。
 契约导出一致，无空白格式问题，无新增写/攻击接口，无 Agent/Planner/Runtime/Gate 业务修改。
 
+## GitHub CI 同期远程数据误报
+
+GitHub 全历史扫描包含队友刚上传的 frontend/public/mock/investigation-demo.json，10 个合成 request_key 被识别为 generic-api-key。
+该文件的 JSON 与原交接包完全相同，标记为 DEMO、production_data=false、合成种子执行结果。
+仅添加 10 个精确 commit:path:rule:line 排除；没有修改队友前端文件或扩大路径排除。
+使用 --all --full-history（含同期提交与 CI merge audit ref），扫描器报告扫描 69 个提交、0 发现。
+扫描器计数不等于可达 Git 提交总数。独立审查确认仅增加 10 处精确例外、未移除既有规则，
+request_key 为 actor 范围内的幂等标识，HTTP 鉴权是另一个机制。依据见 CI_SCAN_PROOF.json。
+
 ## 未评判事项
 
 - 实际利用与扫描：本阶段明确禁止。

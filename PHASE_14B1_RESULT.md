@@ -54,6 +54,9 @@ Artifact 强制 Evidence 引用可解析，核对 source/observation/raw 关系�
 - frontend/contracts/intelligence.ts 增加 poc 方法，poc.ts 导出实际类型。
 - 两套实际 API/TypeScript 镜像、导出脚本、CI 单元入口、兼容性边界测试。
 - 新增 PoC 模型/API/错误/边界测试、原专业核验链联调测试和本阶段文档。
+- CI 扫描修复：队友同时上传了交接包演示数据的副本。已核对 JSON 完全一致、明确 DEMO/非生产，
+  仅为其中 10 个合成 request_key 添加精确提交/路径/规则/行号误报排除；没有修改队友代码或排除整个目录。
+  核对依据见 docs/phase14b1/CI_SCAN_PROOF.json。
 
 业务受保护文件检查：634 个 Agent/Planner/Runtime/Orchestrator/Gate/Model Gateway/迁移/评测与实验文件未改。
 冻结历史基线不重写；两处既有富化适配的授权摘要另行记录。
