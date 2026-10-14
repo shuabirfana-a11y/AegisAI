@@ -13,6 +13,7 @@ def main(argv=None):
     from app.investigation_api.schemas import (
         InvestigationCreateRequest, TraceResponse, ArtifactResponse,
         IntegrationResponse, AnswerResponse,
+        InvestigationCreateResult, ContextRequiredResponse,
     )
     from evaluation.bench.schema import Question, Annotation, Prediction, OutcomeAudit
 
@@ -20,7 +21,8 @@ def main(argv=None):
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args(argv)
     models = (Question, Annotation, Prediction, OutcomeAudit, InvestigationCreateRequest,
-              TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse)
+              TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse,
+              InvestigationCreateResult, ContextRequiredResponse)
     schemas = {model.__name__: model.model_json_schema() for model in models}
     target = ROOT / 'evaluation/contracts/investigation-http-eval-v1.schema.json'
     if args.check:

@@ -4740,5 +4740,356 @@
     ],
     "title": "AnswerResponse",
     "type": "object"
+  },
+  "InvestigationCreateResult": {
+    "$defs": {
+      "ContextRequiredResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "const": "NEED_CONTEXT",
+            "title": "Status",
+            "type": "string"
+          },
+          "missing_fields": {
+            "items": {
+              "enum": [
+                "vulnerability_id",
+                "component",
+                "version",
+                "asset_context"
+              ],
+              "type": "string"
+            },
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Missing Fields",
+            "type": "array"
+          },
+          "message": {
+            "default": "请补充调查上下文；信息不足，不能判断资产影响或风险。",
+            "maxLength": 300,
+            "title": "Message",
+            "type": "string"
+          },
+          "next_actions": {
+            "default": [
+              "SUPPLY_CONTEXT",
+              "PUBLIC_FACT_LOOKUP"
+            ],
+            "items": {
+              "enum": [
+                "SUPPLY_CONTEXT",
+                "PUBLIC_FACT_LOOKUP"
+              ],
+              "type": "string"
+            },
+            "title": "Next Actions",
+            "type": "array"
+          },
+          "investigation_created": {
+            "const": false,
+            "default": false,
+            "title": "Investigation Created",
+            "type": "boolean"
+          },
+          "execution_mode": {
+            "const": "NOT_STARTED",
+            "default": "NOT_STARTED",
+            "title": "Execution Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "missing_fields"
+        ],
+        "title": "ContextRequiredResponse",
+        "type": "object"
+      },
+      "InvestigationCreateResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "logical_investigation_id": {
+            "format": "uuid",
+            "title": "Logical Investigation Id",
+            "type": "string"
+          },
+          "current_stage": {
+            "enum": [
+              "CREATED",
+              "PLANNING",
+              "INVESTIGATING",
+              "VERIFYING",
+              "ANALYZING",
+              "INTEGRATING",
+              "COMPOSING",
+              "COMPLETED",
+              "WAITING_REVIEW",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "title": "Current Stage",
+            "type": "string"
+          },
+          "overall_status": {
+            "enum": [
+              "RUNNING",
+              "SUCCEEDED",
+              "SUCCEEDED_WITH_WARNINGS",
+              "INCOMPLETE",
+              "REVIEW_REQUIRED",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "title": "Overall Status",
+            "type": "string"
+          },
+          "planner_run_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Planner Run Id"
+          },
+          "investigation_run_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Investigation Run Id"
+          },
+          "verification_run_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Verification Run Id"
+          },
+          "analysis_run_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Analysis Run Id"
+          },
+          "cancel_requested": {
+            "default": false,
+            "title": "Cancel Requested",
+            "type": "boolean"
+          },
+          "recovery_required": {
+            "default": false,
+            "title": "Recovery Required",
+            "type": "boolean"
+          },
+          "warnings": {
+            "default": [],
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Error Code"
+          },
+          "revision": {
+            "title": "Revision",
+            "type": "integer"
+          },
+          "updated_at": {
+            "format": "date-time",
+            "title": "Updated At",
+            "type": "string"
+          },
+          "investigation_id": {
+            "format": "uuid",
+            "title": "Investigation Id",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "CREATED",
+              "PLANNING",
+              "INVESTIGATING",
+              "VERIFYING",
+              "ANALYZING",
+              "INTEGRATING",
+              "COMPOSING",
+              "COMPLETED",
+              "WAITING_REVIEW",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "created_at": {
+            "format": "date-time",
+            "title": "Created At",
+            "type": "string"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Finished At"
+          },
+          "reused": {
+            "title": "Reused",
+            "type": "boolean"
+          },
+          "persistence": {
+            "const": "STORED",
+            "default": "STORED",
+            "title": "Persistence",
+            "type": "string"
+          },
+          "execution_backend": {
+            "const": "IN_PROCESS_BOUNDED_WORKER",
+            "default": "IN_PROCESS_BOUNDED_WORKER",
+            "title": "Execution Backend",
+            "type": "string"
+          },
+          "model_provider": {
+            "title": "Model Provider",
+            "type": "string"
+          },
+          "is_mock": {
+            "title": "Is Mock",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "logical_investigation_id",
+          "current_stage",
+          "overall_status",
+          "revision",
+          "updated_at",
+          "investigation_id",
+          "status",
+          "created_at",
+          "reused",
+          "model_provider",
+          "is_mock"
+        ],
+        "title": "InvestigationCreateResponse",
+        "type": "object"
+      }
+    },
+    "anyOf": [
+      {
+        "$ref": "#/$defs/InvestigationCreateResponse"
+      },
+      {
+        "$ref": "#/$defs/ContextRequiredResponse"
+      }
+    ],
+    "title": "InvestigationCreateResult"
+  },
+  "ContextRequiredResponse": {
+    "additionalProperties": false,
+    "properties": {
+      "status": {
+        "const": "NEED_CONTEXT",
+        "title": "Status",
+        "type": "string"
+      },
+      "missing_fields": {
+        "items": {
+          "enum": [
+            "vulnerability_id",
+            "component",
+            "version",
+            "asset_context"
+          ],
+          "type": "string"
+        },
+        "maxItems": 4,
+        "minItems": 1,
+        "title": "Missing Fields",
+        "type": "array"
+      },
+      "message": {
+        "default": "请补充调查上下文；信息不足，不能判断资产影响或风险。",
+        "maxLength": 300,
+        "title": "Message",
+        "type": "string"
+      },
+      "next_actions": {
+        "default": [
+          "SUPPLY_CONTEXT",
+          "PUBLIC_FACT_LOOKUP"
+        ],
+        "items": {
+          "enum": [
+            "SUPPLY_CONTEXT",
+            "PUBLIC_FACT_LOOKUP"
+          ],
+          "type": "string"
+        },
+        "title": "Next Actions",
+        "type": "array"
+      },
+      "investigation_created": {
+        "const": false,
+        "default": false,
+        "title": "Investigation Created",
+        "type": "boolean"
+      },
+      "execution_mode": {
+        "const": "NOT_STARTED",
+        "default": "NOT_STARTED",
+        "title": "Execution Mode",
+        "type": "string"
+      }
+    },
+    "required": [
+      "status",
+      "missing_fields"
+    ],
+    "title": "ContextRequiredResponse",
+    "type": "object"
   }
 }

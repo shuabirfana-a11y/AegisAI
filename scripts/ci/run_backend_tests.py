@@ -32,6 +32,7 @@ TESTS = [
     "tests/orchestration/test_conflict_handoff.py",
     "tests/agents/investigation/test_normalization.py",
     "tests/agents/investigation/test_task_templates.py",
+    "tests/investigation_api/test_missing_context.py",
 ]
 
 

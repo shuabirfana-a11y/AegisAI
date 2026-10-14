@@ -243,7 +243,13 @@ class InvestigationHTTPAdapter:
         models=api_models()
         try:
             record['request']=body
-            created=self._call('POST','/api/investigations',models.InvestigationCreateResponse,record,body=body,deadline=deadline)
+            created=self._call('POST','/api/investigations',models.InvestigationCreateResult,record,body=body,deadline=deadline)
+            if created.get('status')=='NEED_CONTEXT':
+                record.update(completed=True,context_required=True,investigation_created=False)
+                return Prediction(question_id=question.id,baseline=self.name,status='NOT_EVALUATED',
+                    answer={'native_context_status':created['status'],'missing_fields':created['missing_fields']},
+                    abstained=True,latency_ms=(time.monotonic()-started)*1000,
+                    metadata={'execution_mode':'NOT_STARTED','investigation_created':False})
             identifier=created['investigation_id'];record['investigation_id']=identifier
             while True:
                 state=self._call('GET',f'/api/investigations/{identifier}/status',models.InvestigationStatusResponse,record,deadline=deadline)

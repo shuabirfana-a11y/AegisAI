@@ -15,12 +15,14 @@ from app.agents.verification.reader import VerificationReader
 from app.agents.analysis.reader import AnalysisReader
 from app.investigation_api.repository import InvestigationRepository
 from app.investigation_api.model_execution import read_model_execution
+from app.investigation_api.context_check import check_context
 from app.investigation_api.errors import ApiFailure, not_ready
 from app.investigation_api.projection import public_copy, public_text, public_artifact
 from app.investigation_api.schemas import (
     InvestigationStatusResponse, InvestigationCreateResponse, TraceResponse, TraceStage,
     ArtifactResponse, PublicInvestigationArtifact, PublicVerificationArtifact, PublicRiskAnalysisArtifact,
     IntegrationResponse, AnswerResponse, HistoryResponse, HistoryItem,
+    ContextRequiredResponse,
 )
 
 logger = logging.getLogger('aegisai.investigation_api')
@@ -103,6 +105,9 @@ class InvestigationApiService:
             if pending and pending.request_hash != request_hash:
                 raise IdempotencyConflict('Request fingerprint mismatch')
             if not pending:
+                resolution=check_context(request,actor=actor)
+                if resolution.status=='NEED_CONTEXT':
+                    return ContextRequiredResponse(status='NEED_CONTEXT',missing_fields=resolution.missing_fields)
                 if not self.slots.acquire(blocking=False):
                     raise InvestigationBusy('INVESTIGATION_BUSY')
                 pending = Pending(request_hash, actor)
