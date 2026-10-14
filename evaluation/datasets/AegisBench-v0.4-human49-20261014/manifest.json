@@ -1,0 +1,79 @@
+{
+  "dataset_version": "AegisBench-v0.4-human49-20261014",
+  "sample_count": 49,
+  "questions_file": "../AegisBench-v0.2-pilot/questions.jsonl",
+  "annotations_file": "annotations.jsonl",
+  "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "annotations_sha256": "1d72276e477fa552bd30364ecfabe749a1a34f6e10e266e512321271e7ce7c99",
+  "sources": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6",
+      "file": "../AegisBench-v0.2-pilot/sources/GHSA-53q9-r3pm-6pq6.json",
+      "sha256": "5c7326f53ca55c8e128e5122cab2cbf946eed772e1692f022ebccc66e44b751a",
+      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+      "retrieved_at": "2026-10-11T06:18:31.053133+00:00"
+    },
+    {
+      "id": "GHSA-47fc-vmwq-366v",
+      "file": "../AegisBench-v0.2-pilot/sources/GHSA-47fc-vmwq-366v.json",
+      "sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "retrieved_at": "2026-10-11T06:18:32.346986+00:00"
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm",
+      "file": "../AegisBench-v0.2-pilot/sources/GHSA-c67j-w6g6-q2cm.json",
+      "sha256": "762f068dbe4214de45c6ce3124a1ba8be52207029dc63210bc3d3bdba0c85448",
+      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+      "retrieved_at": "2026-10-11T06:18:33.581636+00:00"
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c",
+      "file": "../AegisBench-v0.2-pilot/sources/GHSA-9rwj-6rc7-p77c.json",
+      "sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+      "retrieved_at": "2026-10-11T06:18:34.859905+00:00"
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p",
+      "file": "../AegisBench-v0.2-pilot/sources/GHSA-935w-9g4m-p28p.json",
+      "sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "retrieved_at": "2026-10-11T06:18:36.235642+00:00"
+    }
+  ],
+  "split": "HUMAN_REVIEWED_PILOT_NOT_INDEPENDENT_HOLDOUT",
+  "category_counts": {
+    "facts": 5,
+    "version": 17,
+    "poc_patch": 10,
+    "risk": 10,
+    "multihop": 7
+  },
+  "advisory_clusters": 5,
+  "model": "NONE",
+  "prompt_version": "NONE",
+  "triage_policy": "benchmark-reference-triage-v1",
+  "gold_status": "APPROVED_49",
+  "limitations": [
+    "Five selected advisory clusters; questions are correlated.",
+    "Not an independent holdout; some vulnerabilities appeared in development fixtures.",
+    "No verified exploit execution evidence; positive PoC classes lack coverage.",
+    "Patch release confirmation is separate from commit correctness or exploit validation.",
+    "Human-approved asset risk labels measure benchmark-reference-triage-v1 policy conformance, not production risk ground truth."
+  ],
+  "supersedes": "AegisBench-v0.3-human39-20261013",
+  "annotation_errata": [
+    {
+      "id": "cross-advisory-priorities",
+      "field": "should_abstain",
+      "previous": false,
+      "corrected": true,
+      "reason": "Partial abstention for unknown-version asset required by question; machine draft remains pending."
+    }
+  ],
+  "approved_count": 49,
+  "rejected_count": 0,
+  "formal_evaluation_executed": false,
+  "review_archive_sha256": "d26cd2090c153c025c76cd2538ed5652304719c22db0db0294797da84b184cf7"
+}

@@ -1,0 +1,305 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-47fc-vmwq-366v-facts",
+  "question": "查询 CVE-2022-45907 的描述、CWE 和按版本区分的 CVSS。",
+  "type": "VULNERABILITY_FACTS",
+  "additional_types": [],
+  "category": "facts",
+  "input_context": {
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "10507c02da473b01ab28bc5e8fb19edcc04de250d1ee6c49213d5978cdf14818",
+  "origin": "REAL_SOURCE",
+  "source_ids": [
+    "GHSA-47fc-vmwq-366v"
+  ],
+  "evaluation_profile": "FACTUAL",
+  "expected_answer": {
+    "cve": "CVE-2022-45907",
+    "summary": "PyTorch vulnerable to arbitrary code execution",
+    "cwes": [
+      "CWE-77"
+    ],
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "score": 9.8
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "score": 9.3
+    }
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-cve",
+      "answer_path": "/cve",
+      "decision": "CVE-2022-45907",
+      "evidence_ids": [
+        "ev-cve"
+      ],
+      "rationale": "冻结公告 record.cve_id 直接给出；已与 NVD 交叉核对。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-summary",
+      "answer_path": "/summary",
+      "decision": "PyTorch vulnerable to arbitrary code execution",
+      "evidence_ids": [
+        "ev-summary"
+      ],
+      "rationale": "冻结公告 record.summary 原文，与 NVD 描述一致。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cwes",
+      "answer_path": "/cwes",
+      "decision": "CWE-77",
+      "evidence_ids": [
+        "ev-cwes"
+      ],
+      "rationale": "CWE 取自冻结公告 record.cwes：CWE-77（命令注入）。其他来源的分类差异按 uncertainties 单独保留。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cvssv3",
+      "answer_path": "/cvss_v3",
+      "decision": "vector_string=CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H；score=9.8",
+      "evidence_ids": [
+        "ev-cvssv3"
+      ],
+      "rationale": "CVSS v3 单独记录；缺向量时分数为占位 0.0，不等于零风险。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cvssv4",
+      "answer_path": "/cvss_v4",
+      "decision": "vector_string=CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N；score=9.3",
+      "evidence_ids": [
+        "ev-cvssv4"
+      ],
+      "rationale": "CVSS v4 单独记录。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-cve",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "CVE-2022-45907",
+      "locator": "/record/cve_id",
+      "canonical_excerpt": "\"CVE-2022-45907\"",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cve"
+      ]
+    },
+    {
+      "evidence_id": "ev-summary",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "PyTorch vulnerable to arbitrary code execution",
+      "locator": "/record/summary",
+      "canonical_excerpt": "\"PyTorch vulnerable to arbitrary code execution\"",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-summary"
+      ]
+    },
+    {
+      "evidence_id": "ev-cwes",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "[{\"cwe_id\":\"CWE-77\",\"name\":\"Improper Neutralization of Special Elements used in a Command ('Command Injection')\"}]",
+      "locator": "/record/cwes",
+      "canonical_excerpt": "[{\"cwe_id\":\"CWE-77\",\"name\":\"Improper Neutralization of Special Elements used in a Command ('Command Injection')\"}]",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cwes"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvssv3",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "vector_string=CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H；score=9.8",
+      "locator": "/record/cvss_severities/cvss_v3",
+      "canonical_excerpt": "{\"score\":9.8,\"vector_string\":\"CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H\"}",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cvssv3"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvssv4",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+      "quote": "vector_string=CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N；score=9.3",
+      "locator": "/record/cvss_severities/cvss_v4",
+      "canonical_excerpt": "{\"score\":9.3,\"vector_string\":\"CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N\"}",
+      "snapshot_sha256": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2022-11-26T03:30:27Z",
+      "retrieved_time": "2026-10-11T06:18:32.346986+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cvssv4"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "cve",
+      "summary",
+      "cwes",
+      "cvss_v3",
+      "cvss_v4"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [
+    "CWE 来源冲突：NVD 标为 CWE-94，冻结 GHSA 为 CWE-77；评测以冻结源 CWE-77 为准，冲突须人工复核并留档。",
+    "PYSEC published=2022-11-26T02:15:00Z 与 GHSA published=2022-11-26T03:30:27Z 相差约 75 分钟（各数据库自记时间戳，仅备案，不构成事实冲突）。"
+  ],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2022-45907：NVD 描述『trunk/89695 前 torch.jit.annotations.parse_type_line 因 eval 不安全使用可致任意代码执行』，CPE versionEndExcluding=1.13.1 与冻结区间 <=1.13.0/修复 1.13.1 相符；NVD Primary CVSS v3.1=9.8（CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H）与冻结 v3=9.8 完全一致；PYSEC-2022-43015 别名（CVE-2022-45907/GHSA-47fc-vmwq-366v）一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2022-45907：NVD 描述『trunk/89695 前 torch.jit.annotations.parse_type_line 因 eval 不安全使用可致任意代码执行』，CPE versionEndExcluding=1.13.1 与冻结区间 <=1.13.0/修复 1.13.1 相符；NVD Primary CVSS v3.1=9.8（CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H）与冻结 v3=9.8 完全一致；PYSEC-2022-43015 别名（CVE-2022-45907/GHSA-47fc-vmwq-366v）一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "9a5941d2aa5e9cb2afdee52452861b3a6448493cb400c79de0c815aeed1bc13c",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-14T08:54:53.635315+08:00",
+    "reviewed_at": "2026-10-14T08:54:53.641313+08:00",
+    "status": "APPROVED",
+    "revision": 3,
+    "reviewed_content_sha256": "9a5941d2aa5e9cb2afdee52452861b3a6448493cb400c79de0c815aeed1bc13c",
+    "annotation_note": "【第3版修订】标注人本人确认复核退回意见（复核人：谢妍，2026-10-13）并完成修订：将 judgments[j-cwes].rationale 按冻结原文更正为「CWE-77（命令注入）」，保留原证据与已披露来源差异。已按修订后内容重算 content_sha256；旧版原件与原内容指纹保留，不沿用旧复核签署。待谢妍按新哈希重新复核。",
+    "review_note": "第6题第3版本人最终复核确认，Codex代录：本题更正后的CWE理由为CWE 取自冻结公告 record.cwes：CWE-77（命令注入）。其他来源的分类差异按 uncertainties 单独保留。；CVE、summary和分版本CVSS与冻结证据逐项一致。 证据：ev-cve, ev-summary, ev-cwes, ev-cvssv3, ev-cvssv4。谢妍本轮明确确认已亲自读完并逐项核对这10题第3版、决定通过并授权代录；原有差异与不确定性保留，不声称新增AI资料已经本人阅读或利用已独立验证。review_started_at和reviewed_at分别记录本次签核登记核验的真实开始/完成时间，不推测此前本人阅读的具体时刻。内容保持提交版本，审核指纹绑定当前第3版。逐项依据见10题第3版最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "db174dbb6dca26d414fef7f99f1e285b310ff57d68bd435c355277777450f029",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-47fc-vmwq-366v-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "3a2067bf51417367d8cf92c04601cf86a3efd94651ef2c92a33675de75ccf803",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-47fc-vmwq-366v-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T14:19:32+08:00",
+      "content_sha256": "3a2067bf51417367d8cf92c04601cf86a3efd94651ef2c92a33675de75ccf803",
+      "reason": "开始独立复核第六题，检查事实字段及原文关联",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-47fc-vmwq-366v-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "REJECTED",
+      "actor": "谢妍",
+      "at": "2026-10-13T13:04:46+08:00",
+      "content_sha256": "3a2067bf51417367d8cf92c04601cf86a3efd94651ef2c92a33675de75ccf803",
+      "reason": "谢妍同意集中处理剩余明确问题题，Codex逐题代录第6题退回；字段 judgments[2].rationale（judgment_id=j-cwes）；证据 ev-cwes、locator=/record/cwes：冻结原文、证据及 expected_answer.cwes 均为 CWE-77，理由却误写“CWE-502 反序列化等”。请修订理由，保留原件和已披露的来源差异，创建新版本并重新复核。 GHSA CWE-77 与 NVD CWE-94 的既有差异须另行保留和核对，不能把答案自动改成CWE-502。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-47fc-vmwq-366v-facts__r0001.json"
+    },
+    {
+      "revision": 3,
+      "from_status": "REJECTED",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-13T12:30:21.786688+00:00",
+      "content_sha256": "9a5941d2aa5e9cb2afdee52452861b3a6448493cb400c79de0c815aeed1bc13c",
+      "reason": "标注人本人确认复核退回意见并完成修订（第3版）：将 judgments[j-cwes].rationale 按冻结原文更正为「CWE-77（命令注入）」，保留原证据与已披露来源差异。待谢妍按新哈希重新复核。",
+      "record_path": "C:\\Users\\Wang\\Desktop\\修订稿_r0003\\GHSA-47fc-vmwq-366v-facts__r0003.json"
+    },
+    {
+      "revision": 3,
+      "from_status": "DRAFT",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-14T08:54:53.641313+08:00",
+      "content_sha256": "9a5941d2aa5e9cb2afdee52452861b3a6448493cb400c79de0c815aeed1bc13c",
+      "reason": "谢妍本轮明确确认10题第3版本人逐项核对完成并通过，Codex代录；本题更正后的CWE理由为CWE 取自冻结公告 record.cwes：CWE-77（命令注入）。其他来源的分类差异按 uncertainties 单独保留。；CVE、summary和分版本CVSS与冻结证据逐项一致。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\r0003复核工作副本\\draft\\GHSA-47fc-vmwq-366v-facts__r0003.json"
+    }
+  ]
+}
