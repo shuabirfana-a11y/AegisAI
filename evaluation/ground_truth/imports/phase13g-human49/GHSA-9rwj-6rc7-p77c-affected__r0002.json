@@ -1,0 +1,174 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-9rwj-6rc7-p77c-affected",
+  "question": "langgraph-checkpoint-sqlite 版本 3.0.0 是否受 CVE-2025-67644 影响？",
+  "type": "VERSION_IMPACT",
+  "additional_types": [],
+  "category": "version",
+  "input_context": {
+    "component": "langgraph-checkpoint-sqlite",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-67644",
+    "version": "3.0.0"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "0cd4157ff3f22b223a0344a547a2876d9d013377deccd872a94ab7832ccd108e",
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-9rwj-6rc7-p77c"
+  ],
+  "evaluation_profile": "FACTUAL",
+  "expected_answer": {
+    "affected": "AFFECTED"
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-aff",
+      "answer_path": "/affected",
+      "decision": "AFFECTED",
+      "evidence_ids": [
+        "ev-range0",
+        "ev-fixed0"
+      ],
+      "rationale": "被问版本 3.0.0；公告分支：区间0 < 3.0.1（修复版本 3.0.1）。逐区间比较后综合判定 AFFECTED。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-range0",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-9rwj-6rc7-p77c",
+      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+      "quote": "< 3.0.1",
+      "locator": "/record/vulnerabilities/0/vulnerable_version_range",
+      "canonical_excerpt": "\"< 3.0.1\"",
+      "snapshot_sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2025-12-10T00:02:21Z",
+      "retrieved_time": "2026-10-11T06:18:34.859905+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-aff"
+      ]
+    },
+    {
+      "evidence_id": "ev-fixed0",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-9rwj-6rc7-p77c",
+      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+      "quote": "3.0.1",
+      "locator": "/record/vulnerabilities/0/first_patched_version",
+      "canonical_excerpt": "\"3.0.1\"",
+      "snapshot_sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2025-12-10T00:02:21Z",
+      "retrieved_time": "2026-10-11T06:18:34.859905+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-aff"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "affected"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2025-67644：NVD 描述『langgraph-checkpoint-sqlite <=3.0.0 经 metadata filter key 的 SQL 注入（_metadata_predicate() f-string 拼接），3.0.1 修复』、受影响 < 3.0.1、CWE-89、CVSS v3.1=7.3（CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N，公告方 Secondary）均与冻结投影一致；厂商公告 github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c 与 patch commit 29724291 一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2025-67644：NVD 描述『langgraph-checkpoint-sqlite <=3.0.0 经 metadata filter key 的 SQL 注入（_metadata_predicate() f-string 拼接），3.0.1 修复』、受影响 < 3.0.1、CWE-89、CVSS v3.1=7.3（CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N，公告方 Secondary）均与冻结投影一致；厂商公告 github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c 与 patch commit 29724291 一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "1ca1a10f09ae62b79f81f21aff0ef668e74a1e208bc3f7dc99cd463802c488eb",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-12T20:47:10+08:00",
+    "reviewed_at": "2026-10-13T14:21:17+08:00",
+    "status": "APPROVED",
+    "revision": 2,
+    "reviewed_content_sha256": "1ca1a10f09ae62b79f81f21aff0ef668e74a1e208bc3f7dc99cd463802c488eb",
+    "annotation_note": "标注人本人已逐条查源确认（annotator_confirmed_source_check=true）；AI 辅助核验记录见 ai_assistance；尚未完成独立第二人复核，不得按 APPROVED 使用。",
+    "review_note": "【Codex AI 辅助连续核对，非人工签核；2026-10-12T19:30:02+08:00】\n输入版本 3.0.0；逐一比较冻结影响区间 < 3.0.1，结果 AFFECTED。\n[NEEDS_CHECK] 字段 evidence[*].authority_level；证据 ev-range0,ev-fixed0；证据均标 L1_OFFICIAL，但来源为 GitHub 公告数据库投影；需按实际发布者及引用链说明，而非按域名统一评级。 建议：管理员或标注人说明 L1 来源链；若需调整评级，创建新修订。\n当前辅助结果：结构化答案与冻结源/声明政策一致，人工查源、未决冲突及正式签署仍待完成。未改答案或证据，未代勾人工清单。\n2026-10-12T20:47:10+08:00：【谢妍本人同源查源摘录】按指定 LangGraph 公告入口，本人提供 Package=langgraph-checkpoint-sqlite/pip、Affected versions=<3.0.1、Patched versions=3.0.1。 与冻结分支逐项一致；本题相关版本/修复证据编号：ev-range0,ev-fixed0。该摘录仅记录实际读取的包名与版本/修复范围；尚未按此填写整题来源确认、全部检查表或最终签核。\n2026-10-12T21:19:22+08:00：【同源本人时间摘录与管理员定位核对】本人从冻结来源摘录发布时间2025-12-10T00:02:21Z、获取时间2026-10-11T06:18:34.859905+00:00，与本题证据两种时间相符；北京时间分别为2025-12-10 08:02:21、2026-10-11 14:18:34.859905。管理员辅助逐条核对来源URL、指针摘录、快照哈希一致。资料获取时间不等于本次本人阅读或审核完成时间。\n2026-10-13T14:21:17+08:00：【谢妍本人最终确认，Codex代录本题签核】第30题最终复核：组件langgraph-checkpoint-sqlite，输入版本3.0.0，按冻结区间['< 3.0.1']判定AFFECTED。限定本题版本与公告区间。 证据编号：ev-range0, ev-fixed0。原有来源差异与不确定性继续保留，不表示相关外部声称已被新增独立验证。谢妍先明确“其他39题都可以就十个要重新”，随后本人明确确认已亲自核对完这39题完整答案、全部证据及逐项检查，授权Codex代录本题APPROVED。签核时间为本次实际代录时间，非昨日来源时间；内容未变，绑定当前指纹。检查项逐题依据见39题最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "71c4241fd080cd0b0e9f78ff057f20267f3bdc830624a16aa33a0dcba186f57a",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-9rwj-6rc7-p77c-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "1ca1a10f09ae62b79f81f21aff0ef668e74a1e208bc3f7dc99cd463802c488eb",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-9rwj-6rc7-p77c-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T20:47:10+08:00",
+      "content_sha256": "1ca1a10f09ae62b79f81f21aff0ef668e74a1e208bc3f7dc99cd463802c488eb",
+      "reason": "开始同公告集中带读，已取得本人包名/版本/修复摘录，尚未整题签核",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-9rwj-6rc7-p77c-affected__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-13T14:21:17+08:00",
+      "content_sha256": "1ca1a10f09ae62b79f81f21aff0ef668e74a1e208bc3f7dc99cd463802c488eb",
+      "reason": "谢妍明确通过并确认本人逐项核对完成，Codex代录；组件langgraph-checkpoint-sqlite，输入版本3.0.0，按冻结区间['< 3.0.1']判定AFFECTED。限定本题版本与公告区间。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-9rwj-6rc7-p77c-affected__r0001.json"
+    }
+  ]
+}

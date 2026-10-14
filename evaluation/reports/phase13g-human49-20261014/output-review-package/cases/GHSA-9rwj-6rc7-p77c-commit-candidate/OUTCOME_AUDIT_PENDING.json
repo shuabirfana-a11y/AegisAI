@@ -1,0 +1,41 @@
+{
+  "baseline": "aegisai",
+  "claim_inventory_complete": false,
+  "claims": [
+    {
+      "claim_id": "native-summary",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-risk",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-0",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-1",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-2",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    }
+  ],
+  "prediction_sha256": "cc10ac8a69560d129063880773f1b36bd893e933d8805ddeb126d6824e7fb65c",
+  "question_id": "GHSA-9rwj-6rc7-p77c-commit-candidate",
+  "review_status": "PENDING",
+  "reviewer": "",
+  "reviewer_type": "MACHINE"
+}

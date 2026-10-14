@@ -1,0 +1,1298 @@
+{
+  "answer": {
+    "fixed_versions": [
+      "1.13.1"
+    ],
+    "impact_version_evidence": [
+      {
+        "affected_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "torch",
+            "ranges": [
+              {
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "1.13.1"
+                  }
+                ],
+                "explicit_versions": [
+                  "1.0.0",
+                  "1.0.1",
+                  "1.1.0",
+                  "1.10.0",
+                  "1.10.1",
+                  "1.10.2",
+                  "1.11.0",
+                  "1.12.0",
+                  "1.12.1",
+                  "1.13.0",
+                  "1.2.0",
+                  "1.3.0",
+                  "1.3.1",
+                  "1.4.0",
+                  "1.5.0",
+                  "1.5.1",
+                  "1.6.0",
+                  "1.7.0",
+                  "1.7.1",
+                  "1.8.0",
+                  "1.8.1",
+                  "1.9.0",
+                  "1.9.1"
+                ],
+                "parse_reason": null,
+                "parse_status": "parsed",
+                "range_type": "ECOSYSTEM",
+                "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"1.13.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\"]}"
+              }
+            ]
+          }
+        ],
+        "claim_id": "30502731-87c3-4cba-ab6b-b99f4411409f",
+        "evidence_ids": [
+          "f0d7d498-0d06-4caa-88ac-3aaf54d67907"
+        ],
+        "fixed_versions": [],
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "id": "f0d7d498-0d06-4caa-88ac-3aaf54d67907",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source": "OSV",
+        "status": "CONFLICT",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8"
+      },
+      {
+        "affected_versions": [],
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_ids": [
+          "228e743b-ec91-413d-b9d1-8a52385aa686"
+        ],
+        "fixed_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "torch",
+            "version": "1.13.1"
+          }
+        ],
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source": "GITHUB_ADVISORY_SNAPSHOT",
+        "status": "CONFIRMED",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8"
+      },
+      {
+        "affected_versions": [],
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_ids": [
+          "cbf66493-1c78-44d4-bb40-ce9afa242045"
+        ],
+        "fixed_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "torch",
+            "version": "1.13.1"
+          }
+        ],
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source": "OSV",
+        "status": "CONFIRMED",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8"
+      },
+      {
+        "affected_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "torch",
+            "parse_status": "parsed",
+            "range": "<= 1.13.0"
+          }
+        ],
+        "claim_id": "f7990f18-ce84-4d7d-90d2-5663bae91325",
+        "evidence_ids": [
+          "b6615079-3e42-4865-8c54-2b6786eb641c"
+        ],
+        "fixed_versions": [],
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "id": "b6615079-3e42-4865-8c54-2b6786eb641c",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source": "GITHUB_ADVISORY_SNAPSHOT",
+        "status": "CONFLICT",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8"
+      }
+    ],
+    "native_answer_status": "REVIEW_REQUIRED",
+    "native_citations": [
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "evidence_id": "335d9103-6947-469d-9258-1fcddfbfc52a",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "evidence_id": "a513455b-5c17-489b-ba2a-b90a9276b848",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/package"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      }
+    ],
+    "native_gate_status": "HUMAN_REVIEW_REQUIRED",
+    "patch_status": "CONFIRMED_FIX",
+    "verification_status": "CONFLICT",
+    "version_observations": [
+      {
+        "asset_id": "a4526388-921f-40dd-ab86-9af800f88f70",
+        "asset_name": "Scenario e5ea283c16ff",
+        "asset_updated_at": "2026-10-14T01:03:02.330411Z",
+        "component": "torch",
+        "component_id": "6f499506-423f-4ceb-8776-c643e894c51f",
+        "component_updated_at": "2026-10-14T01:03:02.173066Z",
+        "created_at": "2026-10-14T01:13:09.478705Z",
+        "criticality": "unknown",
+        "ecosystem": "PyPI",
+        "environment": "unknown",
+        "exposure": "unknown",
+        "id": "0d7c0688-388d-5625-a07f-75931fa7203f",
+        "inventory_revision": 1,
+        "is_demo": true,
+        "namespace": "",
+        "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+        "package_name": "torch",
+        "purl": "pkg:pypi/torch",
+        "receipt_hash": "e80fa6b1752600b6d8fe9173837a29b9bbe2f1a199f878fb4f666b5a1c6a1274",
+        "receipt_id": "4915eee2-8b25-48e2-8045-68c5a832669a",
+        "source": "OWNER_INVENTORY_NOT_SCANNED",
+        "source_artifact": {
+          "artifact_id": "68d8ea0d-dfb0-4417-9164-1dca1df4e5b3",
+          "run_id": "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+          "task_id": "asset"
+        },
+        "type": "VERSION_OBSERVATION",
+        "version": "1.13.1"
+      }
+    ]
+  },
+  "answer_status": "REVIEW_REQUIRED",
+  "artifact_references": [
+    {
+      "artifact_id": "37600d1a-98bb-4c31-a274-e89ba46d2fcb",
+      "run_id": "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+      "schema_version": "investigation-artifact-v1",
+      "task_id": "lookup-vulnerability"
+    },
+    {
+      "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+      "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+      "schema_version": "verification-artifact-v1",
+      "task_id": "verify"
+    }
+  ],
+  "context_required": false,
+  "errors": [],
+  "failed_stage": "GATE",
+  "gate_blocking_checks": [
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_ARTIFACT_MISSING",
+      "gate": "completion",
+      "message": "Missing analysis",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "analysis"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "gate": "completion",
+      "message": "Required task did not complete",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+        "lookup-vulnerability"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "gate": "completion",
+      "message": "Required task did not complete",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+        "evidence"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "gate": "completion",
+      "message": "Required task did not complete",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+        "verify"
+      ]
+    },
+    {
+      "blocking": "HUMAN",
+      "code": "CRITICAL_EVIDENCE_CONFLICT",
+      "gate": "consistency",
+      "message": "Critical sources need human adjudication",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "30502731-87c3-4cba-ab6b-b99f4411409f",
+        "f7990f18-ce84-4d7d-90d2-5663bae91325"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required asset not answered",
+      "objective": "asset",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required version_impact not answered",
+      "objective": "version_impact",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required remediation_status not answered",
+      "objective": "remediation_status",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required risk not answered",
+      "objective": "risk",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required priority not answered",
+      "objective": "priority",
+      "outcome": "BLOCKED",
+      "refs": []
+    }
+  ],
+  "gate_rule_codes": [
+    "REQUIRED_ARTIFACT_MISSING",
+    "REQUIRED_TASK_INCOMPLETE",
+    "REQUIRED_TASK_INCOMPLETE",
+    "REQUIRED_TASK_INCOMPLETE",
+    "CRITICAL_EVIDENCE_CONFLICT",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED"
+  ],
+  "gate_status": "HUMAN_REVIEW_REQUIRED",
+  "http_attempted": true,
+  "input_context": {
+    "asset": {
+      "component": "torch",
+      "id": "demo-GHSA-47fc-vmwq-366v-fixed",
+      "scenario": "CONTROLLED_NOT_PRODUCTION",
+      "version": "1.13.1"
+    },
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "integration_id": "bc555b94-137f-414e-a966-99bfd451ad32",
+  "investigation_id": "d9827ab5-d3a4-457e-9043-d3d1ed4045b0",
+  "missing_fields": [],
+  "native_answer_envelope": {
+    "accepted_source_run_references": [
+      "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+      "90bfad67-229a-4ba4-a67f-1297a8d3faea"
+    ],
+    "affected_assets": [],
+    "agent_run_references": [
+      "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+      "90bfad67-229a-4ba4-a67f-1297a8d3faea"
+    ],
+    "answer_id": "4ebbe738-55ee-56df-b648-80497e5da531",
+    "answer_status": "REVIEW_REQUIRED",
+    "citations": [
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "evidence_id": "335d9103-6947-469d-9258-1fcddfbfc52a",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "evidence_id": "a513455b-5c17-489b-ba2a-b90a9276b848",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/package"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        }
+      }
+    ],
+    "disputed_claims": [
+      {
+        "claim_id": "2d1b61d8-7ab3-42ca-bdf7-ce962b512b4a",
+        "claim_type": "CVSS_SCORE",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "CVE-2022-45907:4.0",
+        "supporting_evidence_ids": [
+          "ae8732bd-7ae1-4471-bdd3-2d390cd87de7"
+        ],
+        "value": {
+          "score": 9.3,
+          "severity": "critical",
+          "version": "4.0"
+        },
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "30502731-87c3-4cba-ab6b-b99f4411409f",
+        "claim_type": "AFFECTS_VERSION",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [
+          "b6615079-3e42-4865-8c54-2b6786eb641c",
+          "f0d7d498-0d06-4caa-88ac-3aaf54d67907"
+        ],
+        "scope_key": "PyPI:torch",
+        "supporting_evidence_ids": [
+          "f0d7d498-0d06-4caa-88ac-3aaf54d67907"
+        ],
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "torch",
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.13.1"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"1.13.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\"]}"
+            }
+          ]
+        },
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFLICT"
+      },
+      {
+        "claim_id": "3cde91d8-308b-44a3-a882-18e5341ba845",
+        "claim_type": "CVSS_SCORE",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "CVE-2022-45907:3.1",
+        "supporting_evidence_ids": [
+          "abcee07a-7028-4a50-a156-c85696cf65f9"
+        ],
+        "value": {
+          "score": 9.8,
+          "severity": "critical",
+          "version": "3.1"
+        },
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "f7990f18-ce84-4d7d-90d2-5663bae91325",
+        "claim_type": "AFFECTS_VERSION",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [
+          "b6615079-3e42-4865-8c54-2b6786eb641c",
+          "f0d7d498-0d06-4caa-88ac-3aaf54d67907"
+        ],
+        "scope_key": "PyPI:torch",
+        "supporting_evidence_ids": [
+          "b6615079-3e42-4865-8c54-2b6786eb641c"
+        ],
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "torch"
+        },
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFLICT"
+      }
+    ],
+    "evidence_observations": [
+      {
+        "claim_id": "2d1b61d8-7ab3-42ca-bdf7-ce962b512b4a",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "ae8732bd-7ae1-4471-bdd3-2d390cd87de7",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/cvss_severities/cvss_v4"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "CVE-2022-45907:4.0",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "30502731-87c3-4cba-ab6b-b99f4411409f",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "f0d7d498-0d06-4caa-88ac-3aaf54d67907",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFLICT"
+      },
+      {
+        "claim_id": "3cde91d8-308b-44a3-a882-18e5341ba845",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "abcee07a-7028-4a50-a156-c85696cf65f9",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/cvss"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "CVE-2022-45907:3.1",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFIRMED"
+      },
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFIRMED"
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "335d9103-6947-469d-9258-1fcddfbfc52a",
+        "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+        "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFIRMED"
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "a513455b-5c17-489b-ba2a-b90a9276b848",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/package"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFIRMED"
+      },
+      {
+        "claim_id": "f7990f18-ce84-4d7d-90d2-5663bae91325",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "b6615079-3e42-4865-8c54-2b6786eb641c",
+        "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+        "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+          },
+          "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v"
+        },
+        "scope_key": "PyPI:torch",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "CONFLICT"
+      }
+    ],
+    "evidence_references": [
+      "ae8732bd-7ae1-4471-bdd3-2d390cd87de7",
+      "f0d7d498-0d06-4caa-88ac-3aaf54d67907",
+      "abcee07a-7028-4a50-a156-c85696cf65f9",
+      "228e743b-ec91-413d-b9d1-8a52385aa686",
+      "cbf66493-1c78-44d4-bb40-ce9afa242045",
+      "335d9103-6947-469d-9258-1fcddfbfc52a",
+      "a513455b-5c17-489b-ba2a-b90a9276b848",
+      "b6615079-3e42-4865-8c54-2b6786eb641c"
+    ],
+    "explanation_provider": "DETERMINISTIC_TEMPLATE",
+    "fact_origin": "FROZEN_GATE_CONTEXT",
+    "generated_at": "2026-10-14T01:13:17.310094Z",
+    "historical_snapshot": true,
+    "integration_result_id": "bc555b94-137f-414e-a966-99bfd451ad32",
+    "integration_status": "HUMAN_REVIEW_REQUIRED",
+    "key_findings": [
+      "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+      "4f85afc8-e8f9-4745-bb3e-bad02be8d9be"
+    ],
+    "logical_investigation_id": "d9827ab5-d3a4-457e-9043-d3d1ed4045b0",
+    "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+    "recommended_actions": [],
+    "risk_assessment": null,
+    "schema_version": "answer-envelope-v1",
+    "summary": "证据存在冲突，需要人工复核；系统保留冲突，不裁决争议事实。",
+    "trace_reference": "d9827ab5-d3a4-457e-9043-d3d1ed4045b0",
+    "unresolved_items": [
+      "REQUIRED_ARTIFACT_MISSING",
+      "REQUIRED_TASK_INCOMPLETE",
+      "CRITICAL_EVIDENCE_CONFLICT",
+      "OBJECTIVE_NOT_COVERED"
+    ],
+    "verified_claims": [
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "claim_type": "FIXED_VERSION",
+        "evidence_ids": [
+          "228e743b-ec91-413d-b9d1-8a52385aa686",
+          "cbf66493-1c78-44d4-bb40-ce9afa242045"
+        ],
+        "source_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "torch",
+          "version": "1.13.1"
+        },
+        "verification_status": "CONFIRMED"
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "claim_type": "AFFECTS_PRODUCT",
+        "evidence_ids": [
+          "335d9103-6947-469d-9258-1fcddfbfc52a",
+          "a513455b-5c17-489b-ba2a-b90a9276b848"
+        ],
+        "source_artifact": {
+          "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+          "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "torch"
+        },
+        "verification_status": "CONFIRMED"
+      }
+    ],
+    "warnings": []
+  },
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "a4526388-921f-40dd-ab86-9af800f88f70",
+      "component_id": "6f499506-423f-4ceb-8776-c643e894c51f"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "torch",
+      "package_name": "torch",
+      "version": "1.13.1"
+    },
+    "input_status": "READY",
+    "missing_fields": [],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2022-45907"
+    ],
+    "task_type": "asset_risk",
+    "version": "1.13.1",
+    "vulnerability_id": "CVE-2022-45907",
+    "warnings": []
+  },
+  "planner_status": "VALIDATED",
+  "prediction_status": "SUCCEEDED",
+  "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+  "question_id": "GHSA-47fc-vmwq-366v-risk-fixed",
+  "run_id": "d9827ab5-d3a4-457e-9043-d3d1ed4045b0",
+  "type": "risk",
+  "prediction": {
+    "question_id": "GHSA-47fc-vmwq-366v-risk-fixed",
+    "baseline": "aegisai",
+    "status": "SUCCEEDED",
+    "answer": {
+      "native_answer_status": "REVIEW_REQUIRED",
+      "native_gate_status": "HUMAN_REVIEW_REQUIRED",
+      "native_citations": [
+        {
+          "evidence_id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+          "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+          "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+          "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+          "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+          "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+            }
+          },
+          "verification_artifact": {
+            "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+            "task_id": "verify",
+            "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+          "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+          "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+          "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+          "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+          "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "verification_artifact": {
+            "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+            "task_id": "verify",
+            "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "335d9103-6947-469d-9258-1fcddfbfc52a",
+          "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+          "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+          "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+          "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+          "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "verification_artifact": {
+            "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+            "task_id": "verify",
+            "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "a513455b-5c17-489b-ba2a-b90a9276b848",
+          "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+          "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+          "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+          "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+          "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/package"
+            }
+          },
+          "verification_artifact": {
+            "run_id": "90bfad67-229a-4ba4-a67f-1297a8d3faea",
+            "task_id": "verify",
+            "artifact_id": "b660721c-72b3-4568-8d21-c2cdebc04f5e",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "verification_status": "CONFLICT",
+      "version_observations": [
+        {
+          "id": "0d7c0688-388d-5625-a07f-75931fa7203f",
+          "type": "VERSION_OBSERVATION",
+          "asset_id": "a4526388-921f-40dd-ab86-9af800f88f70",
+          "component_id": "6f499506-423f-4ceb-8776-c643e894c51f",
+          "asset_name": "Scenario e5ea283c16ff",
+          "component": "torch",
+          "version": "1.13.1",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "package_name": "torch",
+          "ecosystem": "PyPI",
+          "namespace": "",
+          "purl": "pkg:pypi/torch",
+          "environment": "unknown",
+          "exposure": "unknown",
+          "criticality": "unknown",
+          "inventory_revision": 1,
+          "asset_updated_at": "2026-10-14T01:03:02.330411Z",
+          "component_updated_at": "2026-10-14T01:03:02.173066Z",
+          "source": "OWNER_INVENTORY_NOT_SCANNED",
+          "created_at": "2026-10-14T01:13:09.478705Z",
+          "source_artifact": {
+            "run_id": "1581d5a3-7799-4ef9-985c-00bdf6a970fd",
+            "task_id": "asset",
+            "artifact_id": "68d8ea0d-dfb0-4417-9164-1dca1df4e5b3"
+          },
+          "receipt_id": "4915eee2-8b25-48e2-8045-68c5a832669a",
+          "receipt_hash": "e80fa6b1752600b6d8fe9173837a29b9bbe2f1a199f878fb4f666b5a1c6a1274",
+          "is_demo": true
+        }
+      ],
+      "impact_version_evidence": [
+        {
+          "id": "f0d7d498-0d06-4caa-88ac-3aaf54d67907",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "claim_id": "30502731-87c3-4cba-ab6b-b99f4411409f",
+          "affected_versions": [
+            {
+              "ranges": [
+                {
+                  "events": [
+                    {
+                      "introduced": "0"
+                    },
+                    {
+                      "fixed": "1.13.1"
+                    }
+                  ],
+                  "range_type": "ECOSYSTEM",
+                  "parse_reason": null,
+                  "parse_status": "parsed",
+                  "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"1.13.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\"]}",
+                  "explicit_versions": [
+                    "1.0.0",
+                    "1.0.1",
+                    "1.1.0",
+                    "1.10.0",
+                    "1.10.1",
+                    "1.10.2",
+                    "1.11.0",
+                    "1.12.0",
+                    "1.12.1",
+                    "1.13.0",
+                    "1.2.0",
+                    "1.3.0",
+                    "1.3.1",
+                    "1.4.0",
+                    "1.5.0",
+                    "1.5.1",
+                    "1.6.0",
+                    "1.7.0",
+                    "1.7.1",
+                    "1.8.0",
+                    "1.8.1",
+                    "1.9.0",
+                    "1.9.1"
+                  ]
+                }
+              ],
+              "package": "torch",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "fixed_versions": [],
+          "evidence_ids": [
+            "f0d7d498-0d06-4caa-88ac-3aaf54d67907"
+          ],
+          "source": "OSV",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+          "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+          "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+          "status": "CONFLICT"
+        },
+        {
+          "id": "228e743b-ec91-413d-b9d1-8a52385aa686",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+          "affected_versions": [],
+          "fixed_versions": [
+            {
+              "package": "torch",
+              "version": "1.13.1",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "evidence_ids": [
+            "228e743b-ec91-413d-b9d1-8a52385aa686"
+          ],
+          "source": "GITHUB_ADVISORY_SNAPSHOT",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+            }
+          },
+          "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+          "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+          "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+          "status": "CONFIRMED"
+        },
+        {
+          "id": "cbf66493-1c78-44d4-bb40-ce9afa242045",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+          "affected_versions": [],
+          "fixed_versions": [
+            {
+              "package": "torch",
+              "version": "1.13.1",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "evidence_ids": [
+            "cbf66493-1c78-44d4-bb40-ce9afa242045"
+          ],
+          "source": "OSV",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+          "observation_id": "6f22e3fc-d44d-4fef-8f45-01ce244a1562",
+          "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+          "status": "CONFIRMED"
+        },
+        {
+          "id": "b6615079-3e42-4865-8c54-2b6786eb641c",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "5148673e-c4ae-4128-a6d3-abe3a69226a8",
+          "package_identifier_id": "cf2ffe03-4921-4c19-a97e-4c918d0f4b83",
+          "claim_id": "f7990f18-ce84-4d7d-90d2-5663bae91325",
+          "affected_versions": [
+            {
+              "range": "<= 1.13.0",
+              "package": "torch",
+              "ecosystem": "PyPI",
+              "parse_status": "parsed"
+            }
+          ],
+          "fixed_versions": [],
+          "evidence_ids": [
+            "b6615079-3e42-4865-8c54-2b6786eb641c"
+          ],
+          "source": "GITHUB_ADVISORY_SNAPSHOT",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+            }
+          },
+          "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+          "observation_id": "f557b831-adf7-4d9e-8dce-d7709135f3ca",
+          "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+          "status": "CONFLICT"
+        }
+      ],
+      "fixed_versions": [
+        "1.13.1"
+      ],
+      "patch_status": "CONFIRMED_FIX"
+    },
+    "claims": [
+      {
+        "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "statement": "FIXED_VERSION: {\"ecosystem\":\"PyPI\",\"package\":\"torch\",\"version\":\"1.13.1\"}",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "statement": "AFFECTS_PRODUCT: {\"ecosystem\":\"PyPI\",\"package\":\"torch\"}",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-summary",
+        "statement": "证据存在冲突，需要人工复核；系统保留冲突，不裁决争议事实。",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-finding-0",
+        "statement": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-finding-1",
+        "statement": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+        "evidence_refs": []
+      }
+    ],
+    "abstained": true,
+    "completed_hops": [
+      "asset"
+    ],
+    "latency_ms": 28239.87120000038,
+    "error_code": null,
+    "error": null,
+    "metadata": {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen25-planner:latest",
+      "is_mock": false,
+      "prompt_version": "investigation-plan-v6",
+      "logical_investigation_id": "d9827ab5-d3a4-457e-9043-d3d1ed4045b0",
+      "native_status": "REVIEW_REQUIRED",
+      "native_priority_taxonomy": true
+    }
+  },
+  "prediction_sha256": "63b0af00a4477cc79ed54f4d8de9a780f13dac115438dc096e78cd1da1f3215e"
+}

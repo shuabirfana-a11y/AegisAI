@@ -1,0 +1,11 @@
+# 首轮输出复核包（交给原复核人员）
+
+这是本次实际输出的复核，不是重新标注49题。所有表单仍PENDING；没有代替你签字。先看REVIEW_INDEX.json，再打开cases/题号/OBSERVED_OUTPUT.json。
+
+1. 对照原问题、真实AnswerEnvelope和证据逐条检查预测claims。失败记录保留供排查，不算正确拒答。
+2. 对有OUTCOME_AUDIT_PENDING.json的结果逐个判定SUPPORTED、HALLUCINATED、CONTRADICTED或UNRESOLVED，并填写review_note。不能凭引用存在或CONFIRMED状态直接认定支持。
+3. SUPPORTED/HALLUCINATED/CONTRADICTED必须提供EvidenceReference，source_id用benchmark_catalog目录中的GHSA编号，locator是原快照JSON Pointer，excerpt是该字段的规范JSON原文。运行时原始来源另保存在runtime-source-records，不能将内部UUID假装GHSA编号。无法由现有catalog证明的结论保留UNRESOLVED，不扩展基准或编造证据。
+4. 完整核对所有claims（含summary、风险和建议），保留prediction_sha256；实际完成后填写你自己的reviewer，reviewer_type改HUMAN，review_status改REVIEWED或APPROVED，claim_inventory_complete=true。未完成不改批准状态。
+5. 返回填写后的表单，由原离线重评分入口核验。不能改Ground Truth、系统答案、claim_id、输出哈希或指标定义。
+
+人工标准答案的49题批准不替代本轮输出复核。Evidence Coverage与Hallucination Rate目前待复核；本包不声称覆盖或幻觉率为0。原生Risk与benchmark-reference-triage-v1语义不同，保留差异。

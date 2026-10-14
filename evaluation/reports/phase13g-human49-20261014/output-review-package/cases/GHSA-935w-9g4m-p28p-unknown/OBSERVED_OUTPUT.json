@@ -1,0 +1,85 @@
+{
+  "answer": {
+    "missing_fields": [
+      "version"
+    ],
+    "native_context_status": "NEED_CONTEXT"
+  },
+  "answer_status": "NEED_CONTEXT",
+  "artifact_references": [],
+  "context_required": true,
+  "errors": [],
+  "failed_stage": "CONTEXT_PREFLIGHT",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": true,
+  "input_context": {
+    "component": "vllm",
+    "ecosystem": "PyPI",
+    "target": "CVE-2026-105752",
+    "version": null
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [
+    "version"
+  ],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "28545e13-2e98-4d9c-8c0d-39be94a82181",
+      "component_id": "3fb1e1be-d733-493c-866c-fdf0bd8c10d1"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "vllm",
+      "package_name": "vllm",
+      "version": null
+    },
+    "input_status": "INPUT_REQUIRED",
+    "missing_fields": [
+      "version"
+    ],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "vllm 版本 未提供 是否受 CVE-2026-105752 影响？",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2026-105752"
+    ],
+    "task_type": "version_impact",
+    "version": null,
+    "vulnerability_id": "CVE-2026-105752",
+    "warnings": []
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "vllm 版本 未提供 是否受 CVE-2026-105752 影响？",
+  "question_id": "GHSA-935w-9g4m-p28p-unknown",
+  "run_id": null,
+  "type": "version",
+  "prediction": {
+    "question_id": "GHSA-935w-9g4m-p28p-unknown",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {
+      "native_context_status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ]
+    },
+    "claims": [],
+    "abstained": true,
+    "completed_hops": [],
+    "latency_ms": 17.76109999991604,
+    "error_code": null,
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "3a660647fba923c5e2e0ff46a9e1be8afcb5ba700d33702aeaa13ccdaca1ca0c"
+}

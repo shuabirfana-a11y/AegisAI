@@ -1,0 +1,85 @@
+{
+  "answer": {
+    "missing_fields": [
+      "version"
+    ],
+    "native_context_status": "NEED_CONTEXT"
+  },
+  "answer_status": "NEED_CONTEXT",
+  "artifact_references": [],
+  "context_required": true,
+  "errors": [],
+  "failed_stage": "CONTEXT_PREFLIGHT",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": true,
+  "input_context": {
+    "component": "langchain-core",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-68664",
+    "version": null
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [
+    "version"
+  ],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "97cc4152-6f58-4141-8d61-712bc0eb3fe5",
+      "component_id": "d691865a-0302-4a3a-bb27-b2543a4a176a"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "langchain-core",
+      "package_name": "langchain-core",
+      "version": null
+    },
+    "input_status": "INPUT_REQUIRED",
+    "missing_fields": [
+      "version"
+    ],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "langchain-core 版本 未提供 是否受 CVE-2025-68664 影响？",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2025-68664"
+    ],
+    "task_type": "version_impact",
+    "version": null,
+    "vulnerability_id": "CVE-2025-68664",
+    "warnings": []
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "langchain-core 版本 未提供 是否受 CVE-2025-68664 影响？",
+  "question_id": "GHSA-c67j-w6g6-q2cm-unknown",
+  "run_id": null,
+  "type": "version",
+  "prediction": {
+    "question_id": "GHSA-c67j-w6g6-q2cm-unknown",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {
+      "native_context_status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ]
+    },
+    "claims": [],
+    "abstained": true,
+    "completed_hops": [],
+    "latency_ms": 16.86639999934414,
+    "error_code": null,
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "367257f51a32bce70f150fefe06c092adc6f0fe9824bcd6423f9770d4ff862a1"
+}

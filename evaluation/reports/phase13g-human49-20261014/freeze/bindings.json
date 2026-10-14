@@ -1,0 +1,110 @@
+{
+  "GHSA-53q9-r3pm-6pq6-affected": {
+    "asset_id": "bfecb14f-473b-4a52-bc5c-37e3b00334fa",
+    "component_id": "14ab20bd-91d9-4312-853f-cc576dd4d7e7"
+  },
+  "GHSA-53q9-r3pm-6pq6-fixed": {
+    "asset_id": "c4529fe3-038d-4b7d-be9b-800cb1114b54",
+    "component_id": "07ba7096-da8d-4796-abf8-1bf367419146"
+  },
+  "GHSA-53q9-r3pm-6pq6-unknown": {
+    "asset_id": "0d544612-4e38-40bd-b2ef-d94c9c951bbf",
+    "component_id": "0e1fcec1-daf2-45e7-a5f6-fe9c590821ca"
+  },
+  "GHSA-53q9-r3pm-6pq6-risk-affected": {
+    "asset_id": "f8ffac79-eafc-4fdd-b706-29027d09520d",
+    "component_id": "a79f1a2a-b182-4b63-aa7f-27dc766478ad"
+  },
+  "GHSA-53q9-r3pm-6pq6-risk-fixed": {
+    "asset_id": "e17610aa-c13d-4bf6-be9a-106ac7d0652c",
+    "component_id": "048e04d3-8386-4b71-8ce2-0160533756b9"
+  },
+  "GHSA-47fc-vmwq-366v-affected": {
+    "asset_id": "db07ccb1-f3fc-4ac2-9f31-6ba444a985bc",
+    "component_id": "a5b5bcfc-065a-488a-b4aa-a1b702f727fa"
+  },
+  "GHSA-47fc-vmwq-366v-fixed": {
+    "asset_id": "972b0336-c732-4d9c-ac22-0726d3f9321a",
+    "component_id": "bab0d609-abc4-4cbb-9d24-18bf2502aad6"
+  },
+  "GHSA-47fc-vmwq-366v-unknown": {
+    "asset_id": "89ac9b08-d261-4c9d-b4a1-7eb5761a075d",
+    "component_id": "aca987a8-5226-4d2e-8b21-59e862647988"
+  },
+  "GHSA-47fc-vmwq-366v-risk-affected": {
+    "asset_id": "0d8f443a-6d03-4bc2-bc2d-242d418322d8",
+    "component_id": "b18b8311-62d8-4d24-8d9a-26680f02433c"
+  },
+  "GHSA-47fc-vmwq-366v-risk-fixed": {
+    "asset_id": "a4526388-921f-40dd-ab86-9af800f88f70",
+    "component_id": "6f499506-423f-4ceb-8776-c643e894c51f"
+  },
+  "GHSA-c67j-w6g6-q2cm-affected": {
+    "asset_id": "2526490b-c3ea-4212-9a9c-fcf8e8532a37",
+    "component_id": "fc3de6fb-ba67-4141-9036-fbf3fd85e246"
+  },
+  "GHSA-c67j-w6g6-q2cm-fixed": {
+    "asset_id": "70306373-db27-41f2-a978-c3adb3fffdae",
+    "component_id": "79354bbc-396f-40c9-8235-df6d53fba1e4"
+  },
+  "GHSA-c67j-w6g6-q2cm-unknown": {
+    "asset_id": "97cc4152-6f58-4141-8d61-712bc0eb3fe5",
+    "component_id": "d691865a-0302-4a3a-bb27-b2543a4a176a"
+  },
+  "GHSA-c67j-w6g6-q2cm-risk-affected": {
+    "asset_id": "ef088015-428a-4758-a928-b36729029a74",
+    "component_id": "4ab292b7-8bb5-4b3b-afb3-2ac94101e6b6"
+  },
+  "GHSA-c67j-w6g6-q2cm-risk-fixed": {
+    "asset_id": "0a08b823-a238-469a-b347-dbe3a0cdbf78",
+    "component_id": "79b068b5-8348-4188-b508-488740140611"
+  },
+  "GHSA-9rwj-6rc7-p77c-affected": {
+    "asset_id": "b1bda056-d5d6-451f-8a42-f7afbbc217e0",
+    "component_id": "6562af0e-1dcb-4c26-8733-ab811c03ad52"
+  },
+  "GHSA-9rwj-6rc7-p77c-fixed": {
+    "asset_id": "cc5f69fe-51a2-4186-83e6-e248928b49cd",
+    "component_id": "8590549c-31c3-4109-b438-634a6c6057f5"
+  },
+  "GHSA-9rwj-6rc7-p77c-unknown": {
+    "asset_id": "119af39b-d119-419b-af89-71756896dda6",
+    "component_id": "09dfa740-a1ad-4bea-a39b-d2355582bfba"
+  },
+  "GHSA-9rwj-6rc7-p77c-risk-affected": {
+    "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+    "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f"
+  },
+  "GHSA-9rwj-6rc7-p77c-risk-fixed": {
+    "asset_id": "2faee829-96e7-4f99-a6e8-a26dedae7862",
+    "component_id": "350c8468-560f-40bd-bb9a-47fe31d81544"
+  },
+  "GHSA-935w-9g4m-p28p-affected": {
+    "asset_id": "f0facd67-8b0a-4a2f-910b-bdf5abdf5186",
+    "component_id": "259751ac-238d-43f3-8f10-2f4309ea4163"
+  },
+  "GHSA-935w-9g4m-p28p-fixed": {
+    "asset_id": "3b930ea9-cd1f-44cd-ad90-bf91ddd8dc57",
+    "component_id": "0541c317-6199-4f90-ade1-1307f3b67a72"
+  },
+  "GHSA-935w-9g4m-p28p-unknown": {
+    "asset_id": "28545e13-2e98-4d9c-8c0d-39be94a82181",
+    "component_id": "3fb1e1be-d733-493c-866c-fdf0bd8c10d1"
+  },
+  "GHSA-935w-9g4m-p28p-risk-affected": {
+    "asset_id": "c71c7dbc-70af-41c0-9c80-b4f363b93ea4",
+    "component_id": "500ac1ca-c238-4e5c-bbea-f5912c46dab1"
+  },
+  "GHSA-935w-9g4m-p28p-risk-fixed": {
+    "asset_id": "b4f5c352-ceb6-45eb-a339-b4f1c6f1f224",
+    "component_id": "8979e30d-5480-408c-bd87-7f93007ffbaf"
+  },
+  "GHSA-c67j-w6g6-q2cm-gap": {
+    "asset_id": "4afa49ce-c1cd-4fb1-824e-a4b197c55544",
+    "component_id": "e1b06b85-0a02-4dc8-8fa2-65380c25c709"
+  },
+  "GHSA-c67j-w6g6-q2cm-older-fix": {
+    "asset_id": "2309a840-c60b-4627-949c-8a035ffab837",
+    "component_id": "96854e25-8b23-4658-999f-ab0824b7ef9d"
+  }
+}

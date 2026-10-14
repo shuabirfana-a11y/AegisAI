@@ -1,0 +1,1004 @@
+[
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-facts",
+    "request": {
+      "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-80797aff713e4e57bdb83a090abfa666"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-affected",
+    "request": {
+      "user_query": "torch 版本 2.5.1 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "bfecb14f-473b-4a52-bc5c-37e3b00334fa",
+        "component_id": "14ab20bd-91d9-4312-853f-cc576dd4d7e7",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-57607fac412346f5b8334562fa5b3a1c"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-fixed",
+    "request": {
+      "user_query": "torch 版本 2.6.0 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "c4529fe3-038d-4b7d-be9b-800cb1114b54",
+        "component_id": "07ba7096-da8d-4796-abf8-1bf367419146",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.6.0"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-6e5dcf8eda7c415fa4927fba06420cd3"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-unknown",
+    "request": {
+      "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "0d544612-4e38-40bd-b2ef-d94c9c951bbf",
+        "component_id": "0e1fcec1-daf2-45e7-a5f6-fe9c590821ca",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-1d01c84f7b044614bcdf91de5586ef4f"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2025-32434 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-b87456c201c142f38236d1ff36f3a66e"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-commit-candidate",
+    "request": {
+      "user_query": "此链接仅出现在 CVE-2025-32434 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e392631a91754320bc2f8516bbcebbb0"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "f8ffac79-eafc-4fdd-b706-29027d09520d",
+        "component_id": "a79f1a2a-b182-4b63-aa7f-27dc766478ad",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-425fe6d100534b38be0898d8060a40a3"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-risk-fixed",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "e17610aa-c13d-4bf6-be9a-106ac7d0652c",
+        "component_id": "048e04d3-8386-4b71-8ce2-0160533756b9",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.6.0"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-fa6ff031bc764625b4ca7b6fb853aed9"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-53q9-r3pm-6pq6-multihop",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-facts",
+    "request": {
+      "user_query": "查询 CVE-2022-45907 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-bc8f701f6d934d979b1edb7b0e427547"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-affected",
+    "request": {
+      "user_query": "torch 版本 1.13.0 是否受 CVE-2022-45907 影响？",
+      "asset_scope": {
+        "asset_id": "db07ccb1-f3fc-4ac2-9f31-6ba444a985bc",
+        "component_id": "a5b5bcfc-065a-488a-b4aa-a1b702f727fa",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "1.13.0"
+        },
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-43b67db44f344a42a16dac4899d2b455"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-fixed",
+    "request": {
+      "user_query": "torch 版本 1.13.1 是否受 CVE-2022-45907 影响？",
+      "asset_scope": {
+        "asset_id": "972b0336-c732-4d9c-ac22-0726d3f9321a",
+        "component_id": "bab0d609-abc4-4cbb-9d24-18bf2502aad6",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "1.13.1"
+        },
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-322ac4b427244490bda1fddd72d169f9"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-unknown",
+    "request": {
+      "user_query": "torch 版本 未提供 是否受 CVE-2022-45907 影响？",
+      "asset_scope": {
+        "asset_id": "89ac9b08-d261-4c9d-b4a1-7eb5761a075d",
+        "component_id": "aca987a8-5226-4d2e-8b21-59e862647988",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-c436d5b067b04098a48c3e2c03477c71"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-release-and-poc",
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2022-45907 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-251a440271c246759d82627085a4399e"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-commit-candidate",
+    "request": {
+      "user_query": "此链接仅出现在 CVE-2022-45907 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+      "asset_scope": {
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-a40e377488f6496d816ef74e875b1745"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-risk-affected",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "0d8f443a-6d03-4bc2-bc2d-242d418322d8",
+        "component_id": "b18b8311-62d8-4d24-8d9a-26680f02433c",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "1.13.0"
+        },
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-d05ba03cfe964224a2cbe3f2981a20bf"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-risk-fixed",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2022-45907 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "a4526388-921f-40dd-ab86-9af800f88f70",
+        "component_id": "6f499506-423f-4ceb-8776-c643e894c51f",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "1.13.1"
+        },
+        "target": "CVE-2022-45907"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-972331158d744c038ec78e7d7710e267"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-47fc-vmwq-366v-multihop",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-facts",
+    "request": {
+      "user_query": "查询 CVE-2025-68664 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-25c3f5fc86bd48448888493cd5de400a"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-affected",
+    "request": {
+      "user_query": "langchain-core 版本 1.2.0 是否受 CVE-2025-68664 影响？",
+      "asset_scope": {
+        "asset_id": "2526490b-c3ea-4212-9a9c-fcf8e8532a37",
+        "component_id": "fc3de6fb-ba67-4141-9036-fbf3fd85e246",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.0"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-daeb29bbbe624c6192e2c8600545a9fe"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-fixed",
+    "request": {
+      "user_query": "langchain-core 版本 1.2.5 是否受 CVE-2025-68664 影响？",
+      "asset_scope": {
+        "asset_id": "70306373-db27-41f2-a978-c3adb3fffdae",
+        "component_id": "79354bbc-396f-40c9-8235-df6d53fba1e4",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.5"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-2971fbf770c9400b8307cbcbdd10b0e8"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-unknown",
+    "request": {
+      "user_query": "langchain-core 版本 未提供 是否受 CVE-2025-68664 影响？",
+      "asset_scope": {
+        "asset_id": "97cc4152-6f58-4141-8d61-712bc0eb3fe5",
+        "component_id": "d691865a-0302-4a3a-bb27-b2543a4a176a",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-fd7ec6f1b7fa47c88e691c3bcfc78147"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-release-and-poc",
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2025-68664 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-f7efa4abdf6e43b0a1aa60c0db6fa04d"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-commit-candidate",
+    "request": {
+      "user_query": "此链接仅出现在 CVE-2025-68664 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+      "asset_scope": {
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-441d4f2e4a47470a8950b2d8d4bc9b4d"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-risk-affected",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-68664 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "ef088015-428a-4758-a928-b36729029a74",
+        "component_id": "4ab292b7-8bb5-4b3b-afb3-2ac94101e6b6",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.0"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-7cab5eac5f534a68a1d6653ca01fe62f"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-risk-fixed",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-68664 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "0a08b823-a238-469a-b347-dbe3a0cdbf78",
+        "component_id": "79b068b5-8348-4188-b508-488740140611",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "1.2.5"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-06ee341077724158914241f3b8025cd6"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-multihop",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-facts",
+    "request": {
+      "user_query": "查询 CVE-2025-67644 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-9ab6579b9611415fa14594ae32030024"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-affected",
+    "request": {
+      "user_query": "langgraph-checkpoint-sqlite 版本 3.0.0 是否受 CVE-2025-67644 影响？",
+      "asset_scope": {
+        "asset_id": "b1bda056-d5d6-451f-8a42-f7afbbc217e0",
+        "component_id": "6562af0e-1dcb-4c26-8733-ab811c03ad52",
+        "component": {
+          "name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "package_name": "langgraph-checkpoint-sqlite",
+          "version": "3.0.0"
+        },
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e344383349804556970fe83e4557cd7e"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-fixed",
+    "request": {
+      "user_query": "langgraph-checkpoint-sqlite 版本 3.0.1 是否受 CVE-2025-67644 影响？",
+      "asset_scope": {
+        "asset_id": "cc5f69fe-51a2-4186-83e6-e248928b49cd",
+        "component_id": "8590549c-31c3-4109-b438-634a6c6057f5",
+        "component": {
+          "name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "package_name": "langgraph-checkpoint-sqlite",
+          "version": "3.0.1"
+        },
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-02ec3bce9ec9436685b143b37bd9ec24"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-unknown",
+    "request": {
+      "user_query": "langgraph-checkpoint-sqlite 版本 未提供 是否受 CVE-2025-67644 影响？",
+      "asset_scope": {
+        "asset_id": "119af39b-d119-419b-af89-71756896dda6",
+        "component_id": "09dfa740-a1ad-4bea-a39b-d2355582bfba",
+        "component": {
+          "name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "package_name": "langgraph-checkpoint-sqlite"
+        },
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-59a0d1fddcbc4167a485139e3feb6a6e"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-release-and-poc",
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2025-67644 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-6ffc2f48d72e469997abd2150dd0609c"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-commit-candidate",
+    "request": {
+      "user_query": "此链接仅出现在 CVE-2025-67644 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+      "asset_scope": {
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-9c6dbfa505af4fce927a15b7b8dd561f"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+        "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f",
+        "component": {
+          "name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "package_name": "langgraph-checkpoint-sqlite",
+          "version": "3.0.0"
+        },
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-04436814dddb42fd8432d9d2a42f4fc0"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-risk-fixed",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "2faee829-96e7-4f99-a6e8-a26dedae7862",
+        "component_id": "350c8468-560f-40bd-bb9a-47fe31d81544",
+        "component": {
+          "name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "package_name": "langgraph-checkpoint-sqlite",
+          "version": "3.0.1"
+        },
+        "target": "CVE-2025-67644"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-aa11232a84bd4a73a3af3e9123039aad"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-9rwj-6rc7-p77c-multihop",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-facts",
+    "request": {
+      "user_query": "查询 CVE-2026-105752 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e511fa00ba1042879c4080b2fba42a94"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-affected",
+    "request": {
+      "user_query": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "asset_scope": {
+        "asset_id": "f0facd67-8b0a-4a2f-910b-bdf5abdf5186",
+        "component_id": "259751ac-238d-43f3-8f10-2f4309ea4163",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-327205b3b34a4106b538e8b71dd6c70f"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-fixed",
+    "request": {
+      "user_query": "vllm 版本 0.30.0 是否受 CVE-2026-105752 影响？",
+      "asset_scope": {
+        "asset_id": "3b930ea9-cd1f-44cd-ad90-bf91ddd8dc57",
+        "component_id": "0541c317-6199-4f90-ade1-1307f3b67a72",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.30.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-90ea6f2e612148b9b64c9309c210ed30"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-unknown",
+    "request": {
+      "user_query": "vllm 版本 未提供 是否受 CVE-2026-105752 影响？",
+      "asset_scope": {
+        "asset_id": "28545e13-2e98-4d9c-8c0d-39be94a82181",
+        "component_id": "3fb1e1be-d733-493c-866c-fdf0bd8c10d1",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-9a00578bd8164ce4b2795f9dd91eaf43"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-release-and-poc",
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2026-105752 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-deef88191f764275a53856954cc7c7ea"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-commit-candidate",
+    "request": {
+      "user_query": "此链接仅出现在 CVE-2026-105752 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+      "asset_scope": {
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e2c8419a14eb493787eda49bf6e85f33"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-risk-affected",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2026-105752 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "c71c7dbc-70af-41c0-9c80-b4f363b93ea4",
+        "component_id": "500ac1ca-c238-4e5c-bbea-f5912c46dab1",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.29.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e2e5bdf773b2464aa48ae28aa2cf77d8"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-risk-fixed",
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2026-105752 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "b4f5c352-ceb6-45eb-a339-b4f1c6f1f224",
+        "component_id": "8979e30d-5480-408c-bd87-7f93007ffbaf",
+        "component": {
+          "name": "vllm",
+          "ecosystem": "PyPI",
+          "package_name": "vllm",
+          "version": "0.30.0"
+        },
+        "target": "CVE-2026-105752"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-e68087a35696449ea669db5306446fe3"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-935w-9g4m-p28p-multihop",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-gap",
+    "request": {
+      "user_query": "langchain-core 0.4.0 是否命中 CVE-2025-68664 的任意影响区间？",
+      "asset_scope": {
+        "asset_id": "4afa49ce-c1cd-4fb1-824e-a4b197c55544",
+        "component_id": "e1b06b85-0a02-4dc8-8fa2-65380c25c709",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "0.4.0"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-79b2cd4a5c50406d93bc87ae6f697243"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "GHSA-c67j-w6g6-q2cm-older-fix",
+    "request": {
+      "user_query": "langchain-core 0.3.81 是否命中 CVE-2025-68664 的任意影响区间？",
+      "asset_scope": {
+        "asset_id": "2309a840-c60b-4627-949c-8a035ffab837",
+        "component_id": "96854e25-8b23-4658-999f-ab0824b7ef9d",
+        "component": {
+          "name": "langchain-core",
+          "ecosystem": "PyPI",
+          "package_name": "langchain-core",
+          "version": "0.3.81"
+        },
+        "target": "CVE-2025-68664"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "bench-a10eb9ec1a454565921b0d980043ef1c"
+    },
+    "http_request_possible": true,
+    "ground_truth_sent": false
+  },
+  {
+    "question_id": "cross-advisory-priorities",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  },
+  {
+    "question_id": "cross-advisory-missing-version",
+    "preflight_error": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "http_request_possible": false
+  }
+]

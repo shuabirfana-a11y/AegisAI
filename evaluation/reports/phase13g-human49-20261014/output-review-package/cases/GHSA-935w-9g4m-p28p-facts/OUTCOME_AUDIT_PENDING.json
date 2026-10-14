@@ -1,0 +1,89 @@
+{
+  "baseline": "aegisai",
+  "claim_inventory_complete": false,
+  "claims": [
+    {
+      "claim_id": "22577822-d95b-45da-8a7d-a92770dd3740",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "8a22270b-9b1b-48ef-9452-94f0e293862c",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "8b67fa9c-bf96-4068-8209-0d3890ffdf6b",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-summary",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-0",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-1",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-2",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-3",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-risk",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-0",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-1",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-action-2",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    }
+  ],
+  "prediction_sha256": "d49538aff4304a64d564fd30d8f2e2361602d4ca9c5529e63566b519e69c28d3",
+  "question_id": "GHSA-935w-9g4m-p28p-facts",
+  "review_status": "PENDING",
+  "reviewer": "",
+  "reviewer_type": "MACHINE"
+}

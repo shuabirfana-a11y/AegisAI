@@ -1,0 +1,17 @@
+{
+  "baseline": "aegisai",
+  "claim_inventory_complete": false,
+  "claims": [
+    {
+      "claim_id": "native-summary",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    }
+  ],
+  "prediction_sha256": "9ee0ba0eeac3b5746fa0aa4c1c01f1dd239bd070420297b5285b6db427cd0ba0",
+  "question_id": "GHSA-c67j-w6g6-q2cm-gap",
+  "review_status": "PENDING",
+  "reviewer": "",
+  "reviewer_type": "MACHINE"
+}

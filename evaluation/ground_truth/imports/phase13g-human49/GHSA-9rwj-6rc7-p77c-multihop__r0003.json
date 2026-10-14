@@ -1,0 +1,251 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-9rwj-6rc7-p77c-multihop",
+  "question": "按 benchmark-reference-triage-v1 查询公告、比较版本并分析这两个演示资产，哪一个应优先处理？",
+  "type": "MULTIHOP_QA",
+  "additional_types": [],
+  "category": "multihop",
+  "input_context": {
+    "assets": [
+      {
+        "component": "langgraph-checkpoint-sqlite",
+        "id": "demo-GHSA-9rwj-6rc7-p77c-affected",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "3.0.0"
+      },
+      {
+        "component": "langgraph-checkpoint-sqlite",
+        "id": "demo-GHSA-9rwj-6rc7-p77c-fixed",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "3.0.1"
+      }
+    ],
+    "component": "langgraph-checkpoint-sqlite",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-67644",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "2e6447f167ab65930cd06a762b1b9260ef9fe8a627d9d3d31bbeef9ddb30f120",
+  "origin": "CONTROLLED_SCENARIO",
+  "source_ids": [
+    "GHSA-9rwj-6rc7-p77c"
+  ],
+  "evaluation_profile": "POLICY_CONFORMANCE",
+  "expected_answer": {
+    "priority_asset_ids": [
+      "demo-GHSA-9rwj-6rc7-p77c-affected"
+    ],
+    "abstain_asset_ids": [],
+    "assets": {
+      "demo-GHSA-9rwj-6rc7-p77c-affected": {
+        "component": "langgraph-checkpoint-sqlite",
+        "version": "3.0.0",
+        "affected": "AFFECTED",
+        "risk_level": "HIGH",
+        "priority": "P2"
+      },
+      "demo-GHSA-9rwj-6rc7-p77c-fixed": {
+        "component": "langgraph-checkpoint-sqlite",
+        "version": "3.0.1",
+        "affected": "NOT_AFFECTED",
+        "risk_level": "LOW",
+        "priority": "MONITOR"
+      }
+    }
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-pri",
+      "answer_path": "/priority_asset_ids",
+      "decision": "demo-GHSA-9rwj-6rc7-p77c-affected",
+      "evidence_ids": [
+        "ev-range",
+        "ev-cvss"
+      ],
+      "rationale": "逐资产按政策评估，受影响资产优先级更高，应为优先处理对象。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-abstain",
+      "answer_path": "/abstain_asset_ids",
+      "decision": "无弃答资产",
+      "evidence_ids": [
+        "ev-range",
+        "ev-cvss"
+      ],
+      "rationale": "版本未知的资产保留 UNKNOWN，不强行判定。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-range",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-9rwj-6rc7-p77c",
+      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+      "quote": "< 3.0.1",
+      "locator": "/record/vulnerabilities/0/vulnerable_version_range",
+      "canonical_excerpt": "\"< 3.0.1\"",
+      "snapshot_sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2025-12-10T00:02:21Z",
+      "retrieved_time": "2026-10-11T06:18:34.859905+00:00",
+      "time_note": "",
+      "role": "CONTEXTUAL",
+      "judgment_ids": [
+        "j-pri",
+        "j-abstain"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvss",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-9rwj-6rc7-p77c",
+      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+      "quote": "vector_string=CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N；score=7.3",
+      "locator": "/record/cvss_severities/cvss_v3",
+      "canonical_excerpt": "{\"score\":7.3,\"vector_string\":\"CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N\"}",
+      "snapshot_sha256": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2025-12-10T00:02:21Z",
+      "retrieved_time": "2026-10-11T06:18:34.859905+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-pri",
+        "j-abstain"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [
+      "vulnerability",
+      "version",
+      "asset",
+      "risk"
+    ],
+    "scored_fields": [
+      "priority_asset_ids"
+    ],
+    "supplementary_fields": [
+      "assets",
+      "abstain_asset_ids"
+    ],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [
+    "政策符合性结果，非真实资产风险。",
+    "CVSS 口径差异：NVD Primary=7.8 vs 冻结=7.3；两值均落 HIGH 分档（≥7 且 <9），不影响等级/优先级结论。"
+  ],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2025-67644：NVD 描述『langgraph-checkpoint-sqlite <=3.0.0 经 metadata filter key 的 SQL 注入（_metadata_predicate() f-string 拼接），3.0.1 修复』、受影响 < 3.0.1、CWE-89、CVSS v3.1=7.3（CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N，公告方 Secondary）均与冻结投影一致；厂商公告 github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c 与 patch commit 29724291 一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2025-67644：NVD 描述『langgraph-checkpoint-sqlite <=3.0.0 经 metadata filter key 的 SQL 注入（_metadata_predicate() f-string 拼接），3.0.1 修复』、受影响 < 3.0.1、CWE-89、CVSS v3.1=7.3（CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N，公告方 Secondary）均与冻结投影一致；厂商公告 github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c 与 patch commit 29724291 一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "2445ea21699f55f7a0840fee066c27e18296cffa3395d5dba9276e195bf733da",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-14T08:54:53.853506+08:00",
+    "reviewed_at": "2026-10-14T08:54:53.856510+08:00",
+    "status": "APPROVED",
+    "revision": 3,
+    "reviewed_content_sha256": "2445ea21699f55f7a0840fee066c27e18296cffa3395d5dba9276e195bf733da",
+    "annotation_note": "【第3版修订】标注人本人确认复核退回意见（复核人：谢妍，2026-10-13）并完成修订：补齐 evidence[ev-range]、evidence[ev-cvss] 漏登的 j-abstain，完成证据与判断双向关联；保留原件及既有评分来源差异。已按修订后内容重算 content_sha256；旧版原件与原内容指纹保留，不沿用旧复核签署。待谢妍按新哈希重新复核。",
+    "review_note": "第38题第3版本人最终复核确认，Codex代录：证据反向关联已逐条补齐。逐资产按冻结政策核对：langgraph-checkpoint-sqlite 3.0.0 → AFFECTED / HIGH / P2；langgraph-checkpoint-sqlite 3.0.1 → NOT_AFFECTED / LOW / MONITOR。 证据：ev-range, ev-cvss。谢妍本轮明确确认已亲自读完并逐项核对这10题第3版、决定通过并授权代录；原有差异与不确定性保留，不声称新增AI资料已经本人阅读或利用已独立验证。review_started_at和reviewed_at分别记录本次签核登记核验的真实开始/完成时间，不推测此前本人阅读的具体时刻。内容保持提交版本，审核指纹绑定当前第3版。逐项依据见10题第3版最终签核逐项依据.json。",
+    "rejection_reason": "",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": true,
+    "review_checklist": {
+      "frozen_question_matches": true,
+      "independent_humans_confirmed": true,
+      "claims_and_uncertainties_complete": true,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": true,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": true,
+      "risk_policy_and_unknowns_checked": true,
+      "scoring_and_hops_checked": true,
+      "full_answer_and_evidence_read": true,
+      "review_hash_and_notes_checked": true,
+      "revision_progress_and_export_checked": true
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "8fe83b6355ec128029591f0883ba96edde85136a28d6250c556b1ede533e60c2",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-9rwj-6rc7-p77c-multihop__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "3a921b43b8ec8262f39d3780315f50e75d9753314547810aff71c06d9890570a",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-9rwj-6rc7-p77c-multihop__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T20:47:10+08:00",
+      "content_sha256": "3a921b43b8ec8262f39d3780315f50e75d9753314547810aff71c06d9890570a",
+      "reason": "开始同公告集中带读，已取得本人包名/版本/修复摘录，尚未整题签核",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-9rwj-6rc7-p77c-multihop__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "REJECTED",
+      "actor": "谢妍",
+      "at": "2026-10-13T13:04:46+08:00",
+      "content_sha256": "3a921b43b8ec8262f39d3780315f50e75d9753314547810aff71c06d9890570a",
+      "reason": "谢妍同意集中处理剩余明确问题题，Codex逐题代录第38题退回；字段 evidence[ev-range].judgment_ids、evidence[ev-cvss].judgment_ids：判断 j-abstain 引用了 ev-range、ev-cvss，但两条证据只登记 j-pri，均漏登记 j-abstain，共两处关联遗漏。请分别补齐双向关联，创建新版本、重新计算内容指纹并重新复核，保留原件以及既有评分来源差异。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-9rwj-6rc7-p77c-multihop__r0001.json"
+    },
+    {
+      "revision": 3,
+      "from_status": "REJECTED",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-13T12:30:21.786688+00:00",
+      "content_sha256": "2445ea21699f55f7a0840fee066c27e18296cffa3395d5dba9276e195bf733da",
+      "reason": "标注人本人确认复核退回意见并完成修订（第3版）：补齐 evidence[ev-range]、evidence[ev-cvss] 漏登的 j-abstain，完成证据与判断双向关联；保留原件及既有评分来源差异。待谢妍按新哈希重新复核。",
+      "record_path": "C:\\Users\\Wang\\Desktop\\修订稿_r0003\\GHSA-9rwj-6rc7-p77c-multihop__r0003.json"
+    },
+    {
+      "revision": 3,
+      "from_status": "DRAFT",
+      "to_status": "APPROVED",
+      "actor": "谢妍",
+      "at": "2026-10-14T08:54:53.856510+08:00",
+      "content_sha256": "2445ea21699f55f7a0840fee066c27e18296cffa3395d5dba9276e195bf733da",
+      "reason": "谢妍本轮明确确认10题第3版本人逐项核对完成并通过，Codex代录；证据反向关联已逐条补齐。逐资产按冻结政策核对：langgraph-checkpoint-sqlite 3.0.0 → AFFECTED / HIGH / P2；langgraph-checkpoint-sqlite 3.0.1 → NOT_AFFECTED / LOW / MONITOR。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\r0003复核工作副本\\draft\\GHSA-9rwj-6rc7-p77c-multihop__r0003.json"
+    }
+  ]
+}

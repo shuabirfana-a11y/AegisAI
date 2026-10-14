@@ -1,0 +1,61 @@
+{
+  "projection": "github-global-advisory-selected-fields-v1",
+  "projection_note": "Selected original API fields. Description/PoC bodies omitted. No inferred facts.",
+  "source_url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+  "retrieved_at": "2026-10-11T06:18:34.859905+00:00",
+  "attribution": {
+    "creator": "GitHub Advisory Database and credited upstream researchers",
+    "original_url": "https://github.com/advisories/GHSA-9rwj-6rc7-p77c",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/github/advisory-database/blob/main/LICENSE.md",
+    "changes": "Field projection; no description reproduced",
+    "warranty": "AS-IS"
+  },
+  "record": {
+    "ghsa_id": "GHSA-9rwj-6rc7-p77c",
+    "cve_id": "CVE-2025-67644",
+    "summary": "LangGraph's SQLite is vulnerable to SQL injection via metadata filter key in SQLite checkpointer list method",
+    "severity": "high",
+    "published_at": "2025-12-10T00:02:21Z",
+    "updated_at": "2025-12-24T06:22:16Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+      "score": 7.3
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+        "score": 7.3
+      },
+      "cvss_v4": {
+        "vector_string": null,
+        "score": 0.0
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-89",
+        "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"
+      }
+    ],
+    "references": [
+      "https://github.com/langchain-ai/langgraph/security/advisories/GHSA-9rwj-6rc7-p77c",
+      "https://github.com/langchain-ai/langgraph/commit/297242913f8ad2143ee3e2f72e67db0911d48e2a",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-67644",
+      "https://github.com/advisories/GHSA-9rwj-6rc7-p77c"
+    ],
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "langgraph-checkpoint-sqlite"
+        },
+        "vulnerable_version_range": "< 3.0.1",
+        "first_patched_version": "3.0.1"
+      }
+    ]
+  },
+  "response_sha256": "53be0e3072e8af8efd465bd966d3b72d50018af05195f7ae51b81175caaf30a0"
+}

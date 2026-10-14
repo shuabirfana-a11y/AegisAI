@@ -1,0 +1,110 @@
+[
+  {
+    "raw_document_id": "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719",
+    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+    "url": "https://api.osv.dev/v1/vulns/GHSA-47fc-vmwq-366v",
+    "hash": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+    "retrieved_at": "2026-10-13T08:29:19.976589+00:00",
+    "file": "evidence\\runtime-source-records\\5ad539a3-bdc5-4470-9ff2-0e40c7dfa719.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+    "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+    "hash": "017ca3f14e7fc83b1bc7eb25160eac64941e9eed0fe34a5c97a43167dec9b63c",
+    "retrieved_at": "2026-10-13T08:29:20.585663+00:00",
+    "file": "evidence\\runtime-source-records\\26043b83-058c-4c61-89df-bf63fe066319.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "22acab42-3a3c-4e2f-9029-96169c4a089e",
+    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+    "url": "https://api.osv.dev/v1/vulns/GHSA-935w-9g4m-p28p",
+    "hash": "08741ce13e6d06c58009cfda29685dec0953805aaaa7da3153e596c79a29f12b",
+    "retrieved_at": "2026-10-13T08:29:21.150791+00:00",
+    "file": "evidence\\runtime-source-records\\22acab42-3a3c-4e2f-9029-96169c4a089e.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+    "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c",
+    "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+    "retrieved_at": "2026-10-13T08:29:21.491480+00:00",
+    "file": "evidence\\runtime-source-records\\74c8596e-a6ad-4ad5-8940-92286122bec9.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+    "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+    "hash": "203413a3cef96b7a3df5c053eeb0d4c6d8070673e1aec5748fa897cc51b7cc33",
+    "retrieved_at": "2026-10-13T08:29:21.819811+00:00",
+    "file": "evidence\\runtime-source-records\\d1c811d1-4724-4342-9f33-46f750ac0674.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "024d392e-c591-4711-941b-1cc3ec865c72",
+    "source_id": "ec8efe90-4c30-47a8-bb32-05fecc0895af",
+    "url": "https://api.github.com/repos/pytorch/pytorch/security-advisories/GHSA-53q9-r3pm-6pq6",
+    "hash": "fa2a60f2e733918dcc0c3cd3ab6842d9e0be394da74149dd9ec36f89e856e343",
+    "retrieved_at": "2026-10-13T08:29:49.600632+00:00",
+    "file": "evidence\\runtime-source-records\\024d392e-c591-4711-941b-1cc3ec865c72.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "350d9614-e24b-40ba-bd03-da8c6938427e",
+    "source_id": "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+    "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+    "hash": "47589769099fe9976555b64ccc7055d83576e84d9ec3eff07748ae01f68a0f04",
+    "retrieved_at": "2026-10-13T08:29:50.804951+00:00",
+    "file": "evidence\\runtime-source-records\\350d9614-e24b-40ba-bd03-da8c6938427e.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "94a5e1ae-f025-4582-8a75-d98a308224f3",
+    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+    "url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+    "hash": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+    "retrieved_at": "2026-10-11T06:18:32.346986+00:00",
+    "file": "evidence\\runtime-source-records\\94a5e1ae-f025-4582-8a75-d98a308224f3.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+    "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+    "hash": "5c7326f53ca55c8e128e5122cab2cbf946eed772e1692f022ebccc66e44b751a",
+    "retrieved_at": "2026-10-11T06:18:31.053133+00:00",
+    "file": "evidence\\runtime-source-records\\0408466a-913f-4fd0-94ff-2b1852d018cc.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8",
+    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+    "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+    "hash": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+    "retrieved_at": "2026-10-11T06:18:36.235642+00:00",
+    "file": "evidence\\runtime-source-records\\72e09b94-08f2-4ada-9fc5-700e7cc0b8c8.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+    "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+    "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+    "retrieved_at": "2026-10-11T06:18:34.859905+00:00",
+    "file": "evidence\\runtime-source-records\\7374abcb-89b9-41cc-bc35-93f85a36ca64.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  },
+  {
+    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+    "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+    "hash": "762f068dbe4214de45c6ce3124a1ba8be52207029dc63210bc3d3bdba0c85448",
+    "retrieved_at": "2026-10-11T06:18:33.581636+00:00",
+    "file": "evidence\\runtime-source-records\\2d4b3020-f80f-479e-b86e-1dbe02800cbd.json",
+    "scope": "Runtime corpus, not automatically a Benchmark EvidenceReference"
+  }
+]

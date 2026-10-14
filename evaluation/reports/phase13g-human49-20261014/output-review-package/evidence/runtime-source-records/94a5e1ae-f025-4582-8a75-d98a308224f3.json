@@ -1,0 +1,65 @@
+{
+  "projection": "github-global-advisory-selected-fields-v1",
+  "projection_note": "Selected original API fields. Description/PoC bodies omitted. No inferred facts.",
+  "source_url": "https://api.github.com/advisories/GHSA-47fc-vmwq-366v",
+  "retrieved_at": "2026-10-11T06:18:32.346986+00:00",
+  "attribution": {
+    "creator": "GitHub Advisory Database and credited upstream researchers",
+    "original_url": "https://github.com/advisories/GHSA-47fc-vmwq-366v",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/github/advisory-database/blob/main/LICENSE.md",
+    "changes": "Field projection; no description reproduced",
+    "warranty": "AS-IS"
+  },
+  "record": {
+    "ghsa_id": "GHSA-47fc-vmwq-366v",
+    "cve_id": "CVE-2022-45907",
+    "summary": "PyTorch vulnerable to arbitrary code execution",
+    "severity": "critical",
+    "published_at": "2022-11-26T03:30:27Z",
+    "updated_at": "2024-11-13T22:52:23Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "score": 9.8
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+        "score": 9.8
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+        "score": 9.3
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-77",
+        "name": "Improper Neutralization of Special Elements used in a Command ('Command Injection')"
+      }
+    ],
+    "references": [
+      "https://nvd.nist.gov/vuln/detail/CVE-2022-45907",
+      "https://github.com/pytorch/pytorch/issues/88868",
+      "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3",
+      "https://github.com/pytorch/pytorch/issues/89855",
+      "https://github.com/pytorch/pytorch/pull/89189",
+      "https://github.com/pytorch/pytorch/releases/tag/v1.13.1",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/torch/PYSEC-2022-43015.yaml",
+      "https://github.com/advisories/GHSA-47fc-vmwq-366v"
+    ],
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "torch"
+        },
+        "vulnerable_version_range": "<= 1.13.0",
+        "first_patched_version": "1.13.1"
+      }
+    ]
+  },
+  "response_sha256": "28dec9a7f78380522d60a08cfc54d4c3f1de83a4bf307fcb7d1be417861c6064"
+}

@@ -1,0 +1,1101 @@
+{
+  "answer": {
+    "affected": "UNKNOWN",
+    "impact_version_evidence": [
+      {
+        "affected_versions": [],
+        "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+        "evidence_ids": [
+          "8c8efdf2-4857-495c-bfba-615d90195af8"
+        ],
+        "fixed_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "langgraph-checkpoint-sqlite",
+            "version": "3.0.1"
+          }
+        ],
+        "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+        "id": "8c8efdf2-4857-495c-bfba-615d90195af8",
+        "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+        "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+        "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c"
+        },
+        "source": "OSV",
+        "status": "INSUFFICIENT_EVIDENCE",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7"
+      },
+      {
+        "affected_versions": [],
+        "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+        "evidence_ids": [
+          "ff050478-584b-4b4b-b987-936c0310a251"
+        ],
+        "fixed_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "langgraph-checkpoint-sqlite",
+            "version": "3.0.1"
+          }
+        ],
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "id": "ff050478-584b-4b4b-b987-936c0310a251",
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "source": "GITHUB_ADVISORY_SNAPSHOT",
+        "status": "INSUFFICIENT_EVIDENCE",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7"
+      },
+      {
+        "affected_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "langgraph-checkpoint-sqlite",
+            "ranges": [
+              {
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "3.0.1"
+                  }
+                ],
+                "explicit_versions": [
+                  "1.0.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "2.0.0",
+                  "2.0.1",
+                  "2.0.10",
+                  "2.0.11",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.0.4",
+                  "2.0.5",
+                  "2.0.6",
+                  "2.0.7",
+                  "2.0.8",
+                  "2.0.9",
+                  "3.0.0"
+                ],
+                "parse_reason": null,
+                "parse_status": "parsed",
+                "range_type": "ECOSYSTEM",
+                "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"3.0.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.0.2\",\"1.0.3\",\"1.0.4\",\"2.0.0\",\"2.0.1\",\"2.0.10\",\"2.0.11\",\"2.0.2\",\"2.0.3\",\"2.0.4\",\"2.0.5\",\"2.0.6\",\"2.0.7\",\"2.0.8\",\"2.0.9\",\"3.0.0\"]}"
+              }
+            ]
+          }
+        ],
+        "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "evidence_ids": [
+          "76fd567d-ad0e-4327-96ab-b9a4ff488351"
+        ],
+        "fixed_versions": [],
+        "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+        "id": "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+        "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+        "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+        "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c"
+        },
+        "source": "OSV",
+        "status": "INSUFFICIENT_EVIDENCE",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7"
+      },
+      {
+        "affected_versions": [
+          {
+            "ecosystem": "PyPI",
+            "package": "langgraph-checkpoint-sqlite",
+            "ranges": [
+              {
+                "events": [
+                  {
+                    "introduced": "0"
+                  },
+                  {
+                    "fixed": "3.0.1"
+                  }
+                ],
+                "explicit_versions": [
+                  "1.0.0",
+                  "1.0.1",
+                  "1.0.2",
+                  "1.0.3",
+                  "1.0.4",
+                  "2.0.0",
+                  "2.0.1",
+                  "2.0.10",
+                  "2.0.11",
+                  "2.0.2",
+                  "2.0.3",
+                  "2.0.4",
+                  "2.0.5",
+                  "2.0.6",
+                  "2.0.7",
+                  "2.0.8",
+                  "2.0.9",
+                  "3.0.0"
+                ],
+                "parse_reason": null,
+                "parse_status": "parsed",
+                "range_type": "ECOSYSTEM",
+                "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"3.0.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.0.2\",\"1.0.3\",\"1.0.4\",\"2.0.0\",\"2.0.1\",\"2.0.10\",\"2.0.11\",\"2.0.2\",\"2.0.3\",\"2.0.4\",\"2.0.5\",\"2.0.6\",\"2.0.7\",\"2.0.8\",\"2.0.9\",\"3.0.0\"]}"
+              }
+            ]
+          }
+        ],
+        "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "evidence_ids": [
+          "b3ac79d5-1156-4119-aa0f-f93b7d42da12"
+        ],
+        "fixed_versions": [],
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "id": "b3ac79d5-1156-4119-aa0f-f93b7d42da12",
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "source": "GITHUB_ADVISORY_SNAPSHOT",
+        "status": "INSUFFICIENT_EVIDENCE",
+        "type": "IMPACT_VERSION_EVIDENCE",
+        "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7"
+      }
+    ],
+    "native_answer_status": "INCOMPLETE",
+    "native_citations": [],
+    "native_gate_status": "REPLAN_REQUIRED",
+    "priority": "REVIEW_REQUIRED",
+    "risk_level": "UNKNOWN",
+    "verification_status": "PENDING",
+    "version_observations": [
+      {
+        "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+        "asset_name": "Scenario f92859a274fe",
+        "asset_updated_at": "2026-10-14T01:03:04.558552Z",
+        "component": "langgraph-checkpoint-sqlite",
+        "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f",
+        "component_updated_at": "2026-10-14T01:03:04.503655Z",
+        "created_at": "2026-10-14T01:19:11.862073Z",
+        "criticality": "unknown",
+        "ecosystem": "PyPI",
+        "environment": "unknown",
+        "exposure": "unknown",
+        "id": "dcb4a236-00a1-518f-917f-812c618df9a6",
+        "inventory_revision": 1,
+        "is_demo": true,
+        "namespace": "",
+        "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+        "package_name": "langgraph-checkpoint-sqlite",
+        "purl": "pkg:pypi/langgraph-checkpoint-sqlite",
+        "receipt_hash": "98f7f37f1dae2bbe99135876b6c0d042126505fd813d386ab1a973bccf647444",
+        "receipt_id": "831694b6-bd6b-4430-a4e8-8e8ceef7f4d4",
+        "source": "OWNER_INVENTORY_NOT_SCANNED",
+        "source_artifact": {
+          "artifact_id": "1b23e39d-0933-4bea-ba9a-4583b5985a56",
+          "run_id": "461b56f8-f28b-42ce-a187-ae90b0fb5e5f",
+          "task_id": "asset"
+        },
+        "type": "VERSION_OBSERVATION",
+        "version": "3.0.0"
+      }
+    ]
+  },
+  "answer_status": "INCOMPLETE",
+  "artifact_references": [
+    {
+      "artifact_id": "d05c544f-d50b-401f-ae83-9ec89eceb431",
+      "run_id": "461b56f8-f28b-42ce-a187-ae90b0fb5e5f",
+      "schema_version": "investigation-artifact-v1",
+      "task_id": "lookup-vulnerability"
+    },
+    {
+      "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+      "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+      "schema_version": "verification-artifact-v1",
+      "task_id": "verify"
+    },
+    {
+      "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+      "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+      "schema_version": "risk-analysis-artifact-v1",
+      "task_id": "analyze"
+    }
+  ],
+  "context_required": false,
+  "errors": [],
+  "failed_stage": "GATE",
+  "gate_blocking_checks": [
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "gate": "completion",
+      "message": "Required task did not complete",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "96e97d61-895d-4738-99dc-14cf6d1aca09",
+        "verify"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "REQUIRED_TASK_INCOMPLETE",
+      "gate": "completion",
+      "message": "Required task did not complete",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+        "analyze"
+      ]
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required version_impact not answered",
+      "objective": "version_impact",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required risk not answered",
+      "objective": "risk",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "OBJECTIVE_NOT_COVERED",
+      "gate": "objective",
+      "message": "Required priority not answered",
+      "objective": "priority",
+      "outcome": "BLOCKED",
+      "refs": []
+    },
+    {
+      "blocking": "REPLAN",
+      "code": "UNRESOLVED_ANALYSIS",
+      "gate": "freshness",
+      "message": "Unresolved analysis is disclosed",
+      "objective": null,
+      "outcome": "BLOCKED",
+      "refs": [
+        "VERIFICATION_PENDING",
+        "VERIFICATION_RUNTIME_INCOMPLETE",
+        "ASSET_MATCH_UNKNOWN",
+        "UNCONFIRMED_IMPACT:eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "Insufficient current, explicit, independent evidence."
+      ]
+    }
+  ],
+  "gate_rule_codes": [
+    "REQUIRED_TASK_INCOMPLETE",
+    "REQUIRED_TASK_INCOMPLETE",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED",
+    "OBJECTIVE_NOT_COVERED",
+    "UNRESOLVED_ANALYSIS"
+  ],
+  "gate_status": "REPLAN_REQUIRED",
+  "http_attempted": true,
+  "input_context": {
+    "asset": {
+      "component": "langgraph-checkpoint-sqlite",
+      "id": "demo-GHSA-9rwj-6rc7-p77c-affected",
+      "scenario": "CONTROLLED_NOT_PRODUCTION",
+      "version": "3.0.0"
+    },
+    "component": "langgraph-checkpoint-sqlite",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-67644",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "integration_id": "73fb88ab-c9a1-407e-87c7-f007e7e872e1",
+  "investigation_id": "f9a1e52b-17bf-4143-a568-dd835ec41245",
+  "missing_fields": [],
+  "native_answer_envelope": {
+    "accepted_source_run_references": [
+      "461b56f8-f28b-42ce-a187-ae90b0fb5e5f",
+      "96e97d61-895d-4738-99dc-14cf6d1aca09",
+      "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1"
+    ],
+    "affected_assets": [
+      {
+        "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+        "claim_ids": [],
+        "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f",
+        "deployed_version": "3.0.0",
+        "provenance": "USER_INVENTORY_NOT_SCANNED",
+        "source_artifact": {
+          "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+          "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+          "schema_version": "risk-analysis-artifact-v1",
+          "task_id": "analyze"
+        }
+      }
+    ],
+    "agent_run_references": [
+      "461b56f8-f28b-42ce-a187-ae90b0fb5e5f",
+      "96e97d61-895d-4738-99dc-14cf6d1aca09",
+      "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1"
+    ],
+    "answer_id": "50310a40-539c-5087-900b-c1ee36570aec",
+    "answer_status": "INCOMPLETE",
+    "citations": [],
+    "disputed_claims": [
+      {
+        "claim_id": "a0e0e5dc-7b7f-49e0-a4d6-f3c6cf082490",
+        "claim_type": "AFFECTS_PRODUCT",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "supporting_evidence_ids": [
+          "5ee2d0fd-8b12-4c38-8309-2939ea36971f",
+          "c5b25058-71cb-4c66-8685-64cf22b5723b"
+        ],
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "langgraph-checkpoint-sqlite"
+        },
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+        "claim_type": "FIXED_VERSION",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "supporting_evidence_ids": [
+          "8c8efdf2-4857-495c-bfba-615d90195af8",
+          "ff050478-584b-4b4b-b987-936c0310a251"
+        ],
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "langgraph-checkpoint-sqlite",
+          "version": "3.0.1"
+        },
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "b86f4800-185c-4beb-bb5d-3172b98f0668",
+        "claim_type": "CVSS_SCORE",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "CVE-2025-67644:3.1",
+        "supporting_evidence_ids": [
+          "1a324dbc-33d2-4bb0-8227-2a8128972b07"
+        ],
+        "value": {
+          "score": 7.3,
+          "severity": "high",
+          "version": "3.1"
+        },
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "claim_type": "AFFECTS_VERSION",
+        "conclusion_scope": "OBSERVATION",
+        "conflicting_evidence_ids": [],
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "supporting_evidence_ids": [
+          "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+          "b3ac79d5-1156-4119-aa0f-f93b7d42da12"
+        ],
+        "value": {
+          "ecosystem": "PyPI",
+          "package": "langgraph-checkpoint-sqlite",
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.0.1"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"3.0.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.0.2\",\"1.0.3\",\"1.0.4\",\"2.0.0\",\"2.0.1\",\"2.0.10\",\"2.0.11\",\"2.0.2\",\"2.0.3\",\"2.0.4\",\"2.0.5\",\"2.0.6\",\"2.0.7\",\"2.0.8\",\"2.0.9\",\"3.0.0\"]}"
+            }
+          ]
+        },
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      }
+    ],
+    "evidence_observations": [
+      {
+        "claim_id": "a0e0e5dc-7b7f-49e0-a4d6-f3c6cf082490",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "5ee2d0fd-8b12-4c38-8309-2939ea36971f",
+        "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+        "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "a0e0e5dc-7b7f-49e0-a4d6-f3c6cf082490",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "c5b25058-71cb-4c66-8685-64cf22b5723b",
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/package"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "8c8efdf2-4857-495c-bfba-615d90195af8",
+        "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+        "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "ff050478-584b-4b4b-b987-936c0310a251",
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "b86f4800-185c-4beb-bb5d-3172b98f0668",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "1a324dbc-33d2-4bb0-8227-2a8128972b07",
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/cvss"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "CVE-2025-67644:3.1",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+        "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+        "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+        "reference": {
+          "locator": {
+            "json_pointer": "/affected/0/ranges/0"
+          },
+          "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      },
+      {
+        "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+        "conclusion_scope": "OBSERVATION",
+        "directness": "direct",
+        "evidence_id": "b3ac79d5-1156-4119-aa0f-f93b7d42da12",
+        "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+        "integrity_status": "VALID",
+        "is_current": true,
+        "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+        "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+        "reference": {
+          "locator": {
+            "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+          },
+          "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c"
+        },
+        "scope_key": "PyPI:langgraph-checkpoint-sqlite",
+        "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+        "stance": "support",
+        "verification_artifact": {
+          "artifact_id": "7ef13243-9f24-4991-9b76-b777dc3f11fd",
+          "run_id": "96e97d61-895d-4738-99dc-14cf6d1aca09",
+          "schema_version": "verification-artifact-v1",
+          "task_id": "verify"
+        },
+        "verification_status": "INSUFFICIENT_EVIDENCE"
+      }
+    ],
+    "evidence_references": [
+      "5ee2d0fd-8b12-4c38-8309-2939ea36971f",
+      "c5b25058-71cb-4c66-8685-64cf22b5723b",
+      "8c8efdf2-4857-495c-bfba-615d90195af8",
+      "ff050478-584b-4b4b-b987-936c0310a251",
+      "1a324dbc-33d2-4bb0-8227-2a8128972b07",
+      "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+      "b3ac79d5-1156-4119-aa0f-f93b7d42da12"
+    ],
+    "explanation_provider": "DETERMINISTIC_TEMPLATE",
+    "fact_origin": "FROZEN_GATE_CONTEXT",
+    "generated_at": "2026-10-14T01:19:23.943821Z",
+    "historical_snapshot": true,
+    "integration_result_id": "73fb88ab-c9a1-407e-87c7-f007e7e872e1",
+    "integration_status": "REPLAN_REQUIRED",
+    "key_findings": [],
+    "logical_investigation_id": "f9a1e52b-17bf-4143-a568-dd835ec41245",
+    "original_question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+    "recommended_actions": [
+      {
+        "action_id": "REQUEST_REVIEW",
+        "action_provenance": "GENERAL_PRECAUTION",
+        "action_type": "REQUEST_REVIEW",
+        "applicability": "UNKNOWN",
+        "category": "FURTHER_INVESTIGATION",
+        "claim_ids": [],
+        "conclusion_scope": "OBSERVATION",
+        "evidence_ids": [],
+        "fixed_version": null,
+        "patch_reference": null,
+        "source_artifact": {
+          "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+          "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+          "schema_version": "risk-analysis-artifact-v1",
+          "task_id": "analyze"
+        },
+        "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。"
+      },
+      {
+        "action_id": "TRACK_REMEDIATION",
+        "action_provenance": "GENERAL_PRECAUTION",
+        "action_type": "TRACK_REMEDIATION",
+        "applicability": "UNKNOWN",
+        "category": "FURTHER_INVESTIGATION",
+        "claim_ids": [],
+        "conclusion_scope": "OBSERVATION",
+        "evidence_ids": [],
+        "fixed_version": null,
+        "patch_reference": null,
+        "source_artifact": {
+          "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+          "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+          "schema_version": "risk-analysis-artifact-v1",
+          "task_id": "analyze"
+        },
+        "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。"
+      },
+      {
+        "action_id": "MONITOR_COMPONENT",
+        "action_provenance": "GENERAL_PRECAUTION",
+        "action_type": "MONITOR_COMPONENT",
+        "applicability": "UNKNOWN",
+        "category": "LONG_TERM_HARDENING",
+        "claim_ids": [],
+        "conclusion_scope": "OBSERVATION",
+        "evidence_ids": [],
+        "fixed_version": null,
+        "patch_reference": null,
+        "source_artifact": {
+          "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+          "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+          "schema_version": "risk-analysis-artifact-v1",
+          "task_id": "analyze"
+        },
+        "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。"
+      }
+    ],
+    "risk_assessment": {
+      "affected": null,
+      "asset_match_status": "UNKNOWN",
+      "conclusion_scope": "OBSERVATION",
+      "exploitation_status": "UNKNOWN",
+      "patch_applied": "UNKNOWN",
+      "patch_status": "UNCONFIRMED",
+      "priority": "REVIEW_REQUIRED",
+      "risk_level": "UNKNOWN",
+      "source_artifact": {
+        "artifact_id": "0a484345-e196-42e3-84f1-7a5332b3949c",
+        "run_id": "e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1",
+        "schema_version": "risk-analysis-artifact-v1",
+        "task_id": "analyze"
+      },
+      "usability": "NOT_EVALUATED",
+      "verification_status": "PENDING",
+      "version_match_status": "UNKNOWN"
+    },
+    "schema_version": "answer-envelope-v1",
+    "summary": "调查尚不完整；以下仅为已核验事实及风险观察，需要补充调查。",
+    "trace_reference": "f9a1e52b-17bf-4143-a568-dd835ec41245",
+    "unresolved_items": [
+      "REQUIRED_TASK_INCOMPLETE",
+      "OBJECTIVE_NOT_COVERED",
+      "UNRESOLVED_ANALYSIS",
+      "SHARED_SOURCE_LINEAGE",
+      "REMEDIATION_UNKNOWN"
+    ],
+    "verified_claims": [],
+    "warnings": [
+      "SHARED_SOURCE_LINEAGE",
+      "REMEDIATION_UNKNOWN",
+      "UNKNOWN_IS_NOT_SAFE",
+      "PATCH_CANDIDATE_NOT_A_FIX"
+    ]
+  },
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+      "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "langgraph-checkpoint-sqlite",
+      "package_name": "langgraph-checkpoint-sqlite",
+      "version": "3.0.0"
+    },
+    "input_status": "READY",
+    "missing_fields": [],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2025-67644"
+    ],
+    "task_type": "asset_risk",
+    "version": "3.0.0",
+    "vulnerability_id": "CVE-2025-67644",
+    "warnings": []
+  },
+  "planner_status": "VALIDATED",
+  "prediction_status": "SUCCEEDED",
+  "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-67644 的风险与优先级。",
+  "question_id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+  "run_id": "f9a1e52b-17bf-4143-a568-dd835ec41245",
+  "type": "risk",
+  "prediction": {
+    "question_id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+    "baseline": "aegisai",
+    "status": "SUCCEEDED",
+    "answer": {
+      "native_answer_status": "INCOMPLETE",
+      "native_gate_status": "REPLAN_REQUIRED",
+      "native_citations": [],
+      "affected": "UNKNOWN",
+      "risk_level": "UNKNOWN",
+      "priority": "REVIEW_REQUIRED",
+      "verification_status": "PENDING",
+      "version_observations": [
+        {
+          "id": "dcb4a236-00a1-518f-917f-812c618df9a6",
+          "type": "VERSION_OBSERVATION",
+          "asset_id": "43b64c50-6856-4757-8ada-165134d5dbce",
+          "component_id": "be53ae1d-0097-4d0a-ad1f-81a3c387a35f",
+          "asset_name": "Scenario f92859a274fe",
+          "component": "langgraph-checkpoint-sqlite",
+          "version": "3.0.0",
+          "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+          "package_name": "langgraph-checkpoint-sqlite",
+          "ecosystem": "PyPI",
+          "namespace": "",
+          "purl": "pkg:pypi/langgraph-checkpoint-sqlite",
+          "environment": "unknown",
+          "exposure": "unknown",
+          "criticality": "unknown",
+          "inventory_revision": 1,
+          "asset_updated_at": "2026-10-14T01:03:04.558552Z",
+          "component_updated_at": "2026-10-14T01:03:04.503655Z",
+          "source": "OWNER_INVENTORY_NOT_SCANNED",
+          "created_at": "2026-10-14T01:19:11.862073Z",
+          "source_artifact": {
+            "run_id": "461b56f8-f28b-42ce-a187-ae90b0fb5e5f",
+            "task_id": "asset",
+            "artifact_id": "1b23e39d-0933-4bea-ba9a-4583b5985a56"
+          },
+          "receipt_id": "831694b6-bd6b-4430-a4e8-8e8ceef7f4d4",
+          "receipt_hash": "98f7f37f1dae2bbe99135876b6c0d042126505fd813d386ab1a973bccf647444",
+          "is_demo": true
+        }
+      ],
+      "impact_version_evidence": [
+        {
+          "id": "8c8efdf2-4857-495c-bfba-615d90195af8",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+          "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+          "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+          "affected_versions": [],
+          "fixed_versions": [
+            {
+              "package": "langgraph-checkpoint-sqlite",
+              "version": "3.0.1",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "evidence_ids": [
+            "8c8efdf2-4857-495c-bfba-615d90195af8"
+          ],
+          "source": "OSV",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+          "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+          "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+          "status": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "id": "ff050478-584b-4b4b-b987-936c0310a251",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+          "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+          "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+          "affected_versions": [],
+          "fixed_versions": [
+            {
+              "package": "langgraph-checkpoint-sqlite",
+              "version": "3.0.1",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "evidence_ids": [
+            "ff050478-584b-4b4b-b987-936c0310a251"
+          ],
+          "source": "GITHUB_ADVISORY_SNAPSHOT",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+            }
+          },
+          "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+          "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+          "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+          "status": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "id": "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+          "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+          "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+          "affected_versions": [
+            {
+              "ranges": [
+                {
+                  "events": [
+                    {
+                      "introduced": "0"
+                    },
+                    {
+                      "fixed": "3.0.1"
+                    }
+                  ],
+                  "range_type": "ECOSYSTEM",
+                  "parse_reason": null,
+                  "parse_status": "parsed",
+                  "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"3.0.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.0.2\",\"1.0.3\",\"1.0.4\",\"2.0.0\",\"2.0.1\",\"2.0.10\",\"2.0.11\",\"2.0.2\",\"2.0.3\",\"2.0.4\",\"2.0.5\",\"2.0.6\",\"2.0.7\",\"2.0.8\",\"2.0.9\",\"3.0.0\"]}",
+                  "explicit_versions": [
+                    "1.0.0",
+                    "1.0.1",
+                    "1.0.2",
+                    "1.0.3",
+                    "1.0.4",
+                    "2.0.0",
+                    "2.0.1",
+                    "2.0.10",
+                    "2.0.11",
+                    "2.0.2",
+                    "2.0.3",
+                    "2.0.4",
+                    "2.0.5",
+                    "2.0.6",
+                    "2.0.7",
+                    "2.0.8",
+                    "2.0.9",
+                    "3.0.0"
+                  ]
+                }
+              ],
+              "package": "langgraph-checkpoint-sqlite",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "fixed_versions": [],
+          "evidence_ids": [
+            "76fd567d-ad0e-4327-96ab-b9a4ff488351"
+          ],
+          "source": "OSV",
+          "reference": {
+            "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c",
+            "locator": {
+              "json_pointer": "/affected/0/ranges/0"
+            }
+          },
+          "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+          "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+          "hash": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+          "status": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "id": "b3ac79d5-1156-4119-aa0f-f93b7d42da12",
+          "type": "IMPACT_VERSION_EVIDENCE",
+          "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+          "package_identifier_id": "cdfba294-2b4b-4705-9488-399411d7b8e5",
+          "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+          "affected_versions": [
+            {
+              "ranges": [
+                {
+                  "events": [
+                    {
+                      "introduced": "0"
+                    },
+                    {
+                      "fixed": "3.0.1"
+                    }
+                  ],
+                  "range_type": "ECOSYSTEM",
+                  "parse_reason": null,
+                  "parse_status": "parsed",
+                  "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"3.0.1\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.0.2\",\"1.0.3\",\"1.0.4\",\"2.0.0\",\"2.0.1\",\"2.0.10\",\"2.0.11\",\"2.0.2\",\"2.0.3\",\"2.0.4\",\"2.0.5\",\"2.0.6\",\"2.0.7\",\"2.0.8\",\"2.0.9\",\"3.0.0\"]}",
+                  "explicit_versions": [
+                    "1.0.0",
+                    "1.0.1",
+                    "1.0.2",
+                    "1.0.3",
+                    "1.0.4",
+                    "2.0.0",
+                    "2.0.1",
+                    "2.0.10",
+                    "2.0.11",
+                    "2.0.2",
+                    "2.0.3",
+                    "2.0.4",
+                    "2.0.5",
+                    "2.0.6",
+                    "2.0.7",
+                    "2.0.8",
+                    "2.0.9",
+                    "3.0.0"
+                  ]
+                }
+              ],
+              "package": "langgraph-checkpoint-sqlite",
+              "ecosystem": "PyPI"
+            }
+          ],
+          "fixed_versions": [],
+          "evidence_ids": [
+            "b3ac79d5-1156-4119-aa0f-f93b7d42da12"
+          ],
+          "source": "GITHUB_ADVISORY_SNAPSHOT",
+          "reference": {
+            "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+            "locator": {
+              "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+            }
+          },
+          "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+          "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+          "hash": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+          "status": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    "claims": [
+      {
+        "claim_id": "native-summary",
+        "statement": "调查尚不完整；以下仅为已核验事实及风险观察，需要补充调查。",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-risk",
+        "statement": "{\"affected\":null,\"asset_match_status\":\"UNKNOWN\",\"conclusion_scope\":\"OBSERVATION\",\"exploitation_status\":\"UNKNOWN\",\"patch_applied\":\"UNKNOWN\",\"patch_status\":\"UNCONFIRMED\",\"priority\":\"REVIEW_REQUIRED\",\"risk_level\":\"UNKNOWN\",\"source_artifact\":{\"artifact_id\":\"0a484345-e196-42e3-84f1-7a5332b3949c\",\"run_id\":\"e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1\",\"schema_version\":\"risk-analysis-artifact-v1\",\"task_id\":\"analyze\"},\"usability\":\"NOT_EVALUATED\",\"verification_status\":\"PENDING\",\"version_match_status\":\"UNKNOWN\"}",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-action-0",
+        "statement": "{\"action_id\":\"REQUEST_REVIEW\",\"action_provenance\":\"GENERAL_PRECAUTION\",\"action_type\":\"REQUEST_REVIEW\",\"applicability\":\"UNKNOWN\",\"category\":\"FURTHER_INVESTIGATION\",\"claim_ids\":[],\"conclusion_scope\":\"OBSERVATION\",\"evidence_ids\":[],\"fixed_version\":null,\"patch_reference\":null,\"source_artifact\":{\"artifact_id\":\"0a484345-e196-42e3-84f1-7a5332b3949c\",\"run_id\":\"e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1\",\"schema_version\":\"risk-analysis-artifact-v1\",\"task_id\":\"analyze\"},\"summary\":\"建议补充调查或采用通用防护措施；不表示已确认修复。\"}",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-action-1",
+        "statement": "{\"action_id\":\"TRACK_REMEDIATION\",\"action_provenance\":\"GENERAL_PRECAUTION\",\"action_type\":\"TRACK_REMEDIATION\",\"applicability\":\"UNKNOWN\",\"category\":\"FURTHER_INVESTIGATION\",\"claim_ids\":[],\"conclusion_scope\":\"OBSERVATION\",\"evidence_ids\":[],\"fixed_version\":null,\"patch_reference\":null,\"source_artifact\":{\"artifact_id\":\"0a484345-e196-42e3-84f1-7a5332b3949c\",\"run_id\":\"e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1\",\"schema_version\":\"risk-analysis-artifact-v1\",\"task_id\":\"analyze\"},\"summary\":\"建议补充调查或采用通用防护措施；不表示已确认修复。\"}",
+        "evidence_refs": []
+      },
+      {
+        "claim_id": "native-action-2",
+        "statement": "{\"action_id\":\"MONITOR_COMPONENT\",\"action_provenance\":\"GENERAL_PRECAUTION\",\"action_type\":\"MONITOR_COMPONENT\",\"applicability\":\"UNKNOWN\",\"category\":\"LONG_TERM_HARDENING\",\"claim_ids\":[],\"conclusion_scope\":\"OBSERVATION\",\"evidence_ids\":[],\"fixed_version\":null,\"patch_reference\":null,\"source_artifact\":{\"artifact_id\":\"0a484345-e196-42e3-84f1-7a5332b3949c\",\"run_id\":\"e9fb72b2-6d5a-4ded-bcc2-98bf9b9429b1\",\"schema_version\":\"risk-analysis-artifact-v1\",\"task_id\":\"analyze\"},\"summary\":\"建议补充调查或采用通用防护措施；不表示已确认修复。\"}",
+        "evidence_refs": []
+      }
+    ],
+    "abstained": true,
+    "completed_hops": [
+      "vulnerability",
+      "version",
+      "asset"
+    ],
+    "latency_ms": 32455.965900000592,
+    "error_code": null,
+    "error": null,
+    "metadata": {
+      "provider": "openai_compatible",
+      "model": "aegisai-qwen25-planner:latest",
+      "is_mock": false,
+      "prompt_version": "investigation-plan-v6",
+      "logical_investigation_id": "f9a1e52b-17bf-4143-a568-dd835ec41245",
+      "native_status": "INCOMPLETE",
+      "native_priority_taxonomy": true
+    }
+  },
+  "prediction_sha256": "f37e04739e492f8faa13953e6fea3aed18ecd6357c644bbdffe922b77302ad1d"
+}

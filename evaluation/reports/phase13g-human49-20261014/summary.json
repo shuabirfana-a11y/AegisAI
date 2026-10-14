@@ -1,0 +1,420 @@
+{
+  "experiment_mode": "ONLINE_EVALUATION",
+  "dataset": {
+    "dataset_name": "AegisBench",
+    "version": "AegisBench-v0.4-human49-20261014",
+    "manifest": "evaluation/datasets/AegisBench-v0.4-human49-20261014/manifest.json",
+    "manifest_sha256": "002f021912a56f629c79a6207d30a91abe126c55f3d5f201adbfc358e8ae13e3",
+    "annotations_sha256": "1d72276e477fa552bd30364ecfabe749a1a34f6e10e266e512321271e7ce7c99",
+    "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+    "approved_count": 49,
+    "sample_count": 49,
+    "review_archive_sha256": "d26cd2090c153c025c76cd2538ed5652304719c22db0db0294797da84b184cf7"
+  },
+  "code_commit": "ba92879c364411c8fa10642f3950c9f78370b468",
+  "attempted_samples": 49,
+  "actual_http_cases": 42,
+  "created_investigations": 37,
+  "context_preflight_cases": 5,
+  "request_adapter_refusals": 7,
+  "prediction_status_counts": {
+    "SUCCEEDED": 37,
+    "NOT_EVALUATED": 12
+  },
+  "planner_status_counts": {
+    "VALIDATED": 37
+  },
+  "persisted_model_call_records": 38,
+  "gate_status_counts": {
+    "PASS_WITH_WARNINGS": 6,
+    "REPLAN_REQUIRED": 15,
+    "NOT_REACHED": 12,
+    "HUMAN_REVIEW_REQUIRED": 16
+  },
+  "answer_status_counts": {
+    "COMPLETE_WITH_WARNINGS": 6,
+    "INCOMPLETE": 15,
+    "NEED_CONTEXT": 5,
+    "NO_ANSWER": 7,
+    "REVIEW_REQUIRED": 16
+  },
+  "failed_stage_counts": {
+    "NONE": 6,
+    "GATE": 31,
+    "CONTEXT_PREFLIGHT": 5,
+    "REQUEST_ADAPTER": 7
+  },
+  "gate_blocking_rule_case_counts": {
+    "REQUIRED_TASK_INCOMPLETE": 28,
+    "OBJECTIVE_NOT_COVERED": 22,
+    "UNRESOLVED_ANALYSIS": 16,
+    "POC_COMPLETENESS_NOT_SUPPORTED": 5,
+    "CRITICAL_EVIDENCE_CONFLICT": 16,
+    "REQUIRED_ARTIFACT_MISSING": 6
+  },
+  "category_counts": {
+    "facts": {
+      "total": 5,
+      "SUCCEEDED": 5,
+      "strict_match": 0
+    },
+    "version": {
+      "total": 17,
+      "SUCCEEDED": 12,
+      "strict_match": 0,
+      "NOT_EVALUATED": 5
+    },
+    "poc_patch": {
+      "total": 10,
+      "SUCCEEDED": 10,
+      "strict_match": 0
+    },
+    "risk": {
+      "total": 10,
+      "SUCCEEDED": 10,
+      "strict_match": 0
+    },
+    "multihop": {
+      "total": 7,
+      "NOT_EVALUATED": 7,
+      "strict_match": 0
+    }
+  },
+  "metrics": {
+    "status": "EVALUATED",
+    "eligible_gold_count": 49,
+    "scored_count": 49,
+    "excluded_annotations": [],
+    "accuracy": 0.0,
+    "field_accuracy": {
+      "cve": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "cvss_v3": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "cvss_v4": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "cwes": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "summary": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "affected": {
+        "correct": 0,
+        "n": 27,
+        "accuracy": 0.0
+      },
+      "patch_status": {
+        "correct": 1,
+        "n": 10,
+        "accuracy": 0.1
+      },
+      "poc_status": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "priority": {
+        "correct": 0,
+        "n": 10,
+        "accuracy": 0.0
+      },
+      "risk_level": {
+        "correct": 0,
+        "n": 10,
+        "accuracy": 0.0
+      },
+      "priority_asset_ids": {
+        "correct": 0,
+        "n": 6,
+        "accuracy": 0.0
+      },
+      "can_confirm_not_affected": {
+        "correct": 0,
+        "n": 1,
+        "accuracy": 0.0
+      }
+    },
+    "version": {
+      "n": 27,
+      "accuracy": 0.0,
+      "per_class": {
+        "AFFECTED": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 10,
+          "support": 10,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NOT_AFFECTED": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 16,
+          "fn": 5,
+          "support": 5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "confusion_matrix": {
+        "AFFECTED": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 7,
+          "NO_PREDICTION": 3
+        },
+        "NOT_AFFECTED": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 9,
+          "NO_PREDICTION": 3
+        },
+        "UNKNOWN": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 5
+        }
+      },
+      "macro_f1": 0.0,
+      "macro_f1_defined_classes": 3,
+      "unknown_rate": 0.5925925925925926,
+      "no_prediction_count": 11,
+      "false_safe_count": 0,
+      "false_safe_rate": 0.0,
+      "false_affected_count": 0,
+      "false_affected_rate": 0.0,
+      "sample_count": 27
+    },
+    "poc_classification": {
+      "n": 5,
+      "accuracy": 0.0,
+      "per_class": {
+        "POC_CANDIDATE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "VERIFIED_EXPLOIT": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "NO_EVIDENCE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "confusion_matrix": {
+        "POC_CANDIDATE": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "VERIFIED_EXPLOIT": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "UNKNOWN": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "NO_EVIDENCE": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 5
+        }
+      },
+      "macro_f1": 0.0,
+      "macro_f1_defined_classes": 1,
+      "unknown_rate": 0.0,
+      "no_prediction_count": 5,
+      "false_safe_count": 0,
+      "false_safe_rate": null,
+      "false_affected_count": 0,
+      "false_affected_rate": null,
+      "sample_count": 5
+    },
+    "patch_classification": {
+      "n": 10,
+      "accuracy": 0.1,
+      "per_class": {
+        "PATCH_CANDIDATE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "CONFIRMED_FIX": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 4,
+          "support": 5,
+          "precision": 0.5,
+          "recall": 0.2,
+          "f1": 0.2857142857142857
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "PATCH_CANDIDATE": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 1,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 4
+        },
+        "CONFIRMED_FIX": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 1,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 4
+        },
+        "UNKNOWN": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 0,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 0
+        }
+      },
+      "macro_f1": 0.14285714285714285,
+      "macro_f1_defined_classes": 2,
+      "unknown_rate": 0.0,
+      "no_prediction_count": 8,
+      "false_safe_count": 0,
+      "false_safe_rate": null,
+      "false_affected_count": 0,
+      "false_affected_rate": null,
+      "sample_count": 10
+    },
+    "risk_accuracy": 0.0,
+    "priority_accuracy": 0.0,
+    "abstention": {
+      "n": 49,
+      "should_abstain_n": 7,
+      "answerable_n": 42,
+      "correct_abstention_count": 0,
+      "correct_abstention_rate": 0.0,
+      "incorrect_abstention_count": 25,
+      "incorrect_abstention_rate": 0.5952380952380952,
+      "false_confident_answer_count": 0,
+      "false_confident_answer_rate": 0.0,
+      "no_prediction_count": 22,
+      "precision": 0.0,
+      "recall": 0.0,
+      "missing_prediction_count": 22,
+      "inconsistent_flag_count": 2,
+      "basis": "STRUCTURED_UNKNOWN_FIELDS_WITH_FLAG_CONSISTENCY",
+      "quality_accuracy": 0.04081632653061224
+    },
+    "reasoning_completeness": 0.0,
+    "reasoning_completeness_basis": "RECORDED_WORKFLOW_STEPS_NOT_REASONING_CORRECTNESS",
+    "evidence_coverage": null,
+    "hallucination_rate": null,
+    "audit": {
+      "emitted_claims": 235,
+      "human_reviewed_claims": 0,
+      "answers_requiring_audit": 37,
+      "human_audited_answers": 0,
+      "answer_audit_coverage": 0.0,
+      "coverage": 0.0,
+      "complete": false,
+      "unresolved_claims": 0,
+      "reviewed_subset_evidence_coverage": null,
+      "reviewed_subset_hallucination_rate": null
+    },
+    "invalid_label_count": 0,
+    "execution": {
+      "SUCCEEDED": 37,
+      "NOT_EVALUATED": 12
+    },
+    "missing_predictions": 0,
+    "latency": {
+      "n": 37,
+      "p50_ms": 28813.303500000075,
+      "p95_ms": 35423.294620000146,
+      "mean_ms": 29286.926937837838,
+      "max_ms": 48773.648700000194,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "limitations": [
+      "Human gold and outcome audit are distinct gates.",
+      "Absent class support has null recall; macro F1 lists defined classes.",
+      "Workflow step coverage does not establish reasoning correctness.",
+      "Pilot questions sharing advisories are correlated, not independent trials."
+    ]
+  },
+  "outcome_audit": "PENDING_ORIGINAL_INDEPENDENT_HUMAN_REVIEWER",
+  "baselines": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED"
+  },
+  "strict_matching_cases": 0,
+  "not_a_general_security_capability_accuracy": true
+}
