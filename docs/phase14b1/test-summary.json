@@ -1,0 +1,36 @@
+{
+  "new_phase_tests": 35,
+  "targeted": {
+    "passed": 186,
+    "failed": 0,
+    "warning": "Existing AnyIO BlockingPortal deprecation"
+  },
+  "portable": {
+    "passed": 654,
+    "deselected": 1,
+    "excluded": "Existing cached real embedding test",
+    "failed": 0
+  },
+  "full_regression": {
+    "passed": 1574,
+    "failed": 2,
+    "warnings": 23,
+    "scope": "Started before final review fixes; final targeted/portable checks cover those fixes",
+    "known_failures": [
+      "tests/investigation_api/test_bench_http.py::test_evaluation_adapter_reaches_full_original_http_chain[unknown_version]",
+      "tests/orchestration/test_failure_cancel.py::test_essential_partial_blocked_or_ambiguous_stops_downstream[ambiguous]"
+    ]
+  },
+  "frontend_tests": 23,
+  "engineering_tests": 18,
+  "typescript_exit": 0,
+  "javascript_files": 17,
+  "http_operations": 48,
+  "intelligence_operations": 6,
+  "contract_exports": "PASS",
+  "live_candidates": 2,
+  "live_verified_exploits": 0,
+  "model_calls": 0,
+  "exploit_executions": 0,
+  "target_scans": 0
+}

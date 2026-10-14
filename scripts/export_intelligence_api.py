@@ -30,6 +30,7 @@ def exports():
         result[folder/'intelligence-http.openapi.json']=json.dumps(contract,ensure_ascii=False,indent=2)+'\n'
         result[folder/'intelligence-http.d.ts']=declaration
     result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/intelligence.ts']=(ROOT/'frontend/contracts/intelligence.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
+    result[ROOT/'AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/poc.ts']=(ROOT/'frontend/contracts/poc.ts').read_text(encoding='utf-8').replace('../../docs/frontend-contracts/','../api/reference/')
     return result
 
 def main():
@@ -39,6 +40,8 @@ def main():
         if args.check:
             if not path.is_file() or path.read_text(encoding='utf-8')!=text:raise SystemExit('STALE_INTELLIGENCE_CONTRACT: '+str(path.relative_to(ROOT)))
         else:path.write_text(text,encoding='utf-8',newline='\n')
-    print(json.dumps({'status':'PASS','files':len(values),'http_operations':5,'database_connected':False}))
+    contract=json.loads(values[ROOT/'docs/frontend-contracts/intelligence-http.openapi.json'])
+    count=sum(method in ('get','post','put','patch','delete') for item in contract['paths'].values() for method in item)
+    print(json.dumps({'status':'PASS','files':len(values),'http_operations':count,'database_connected':False}))
 
 if __name__=='__main__':main()

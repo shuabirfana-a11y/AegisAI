@@ -19,6 +19,75 @@ export type IntelligencePage = {
   "limit": number;
 };
 
+export type POCArtifact = {
+  "schema_version"?: "poc-artifact-v1";
+  "id": string;
+  "vulnerability_id": string;
+  "source": string;
+  "reference": string;
+  "title": string;
+  "description"?: (string | null);
+  "language"?: (string | null);
+  "status": "NO_EVIDENCE" | "POC_CANDIDATE" | "VERIFIED_EXPLOIT";
+  "created_time": string;
+  "verified_time"?: (string | null);
+  "evidence_ref": Array<string>;
+  "evidence"?: Array<POCEvidence>;
+  "verification"?: Array<POCVerification>;
+  "association_status": string;
+  "usability_status": string;
+  "omitted_evidence_count"?: number;
+  "excluded_evidence_count"?: number;
+  "omitted_verification_count"?: number;
+  "exploit_executed"?: false;
+  "content_trust_level"?: "UNTRUSTED_EXTERNAL_CONTENT";
+};
+
+export type POCEvidence = {
+  "id": string;
+  "type"?: "POC_EVIDENCE";
+  "claim_id": string;
+  "source": string;
+  "reference": string;
+  "content": string;
+  "raw_document_id": string;
+  "observation_id": string;
+  "hash": string;
+  "retrieved_time": string;
+  "is_current": boolean;
+  "stance": "support" | "contradict" | "neutral";
+  "supports_exploit_validation"?: boolean;
+};
+
+export type POCPage = {
+  "vulnerability_id": string;
+  "canonical_id": string;
+  "status": "NO_EVIDENCE" | "POC_CANDIDATE" | "VERIFIED_EXPLOIT";
+  "search_status": "NOT_RUN" | "COMPLETED" | "PARTIAL" | "FAILED";
+  "items": Array<POCArtifact>;
+  "total": number;
+  "stored_count": number;
+  "omitted_count": number;
+  "offset": number;
+  "limit": number;
+  "as_of": string;
+  "warnings"?: Array<string>;
+  "limitations"?: Array<string>;
+};
+
+export type POCVerification = {
+  "id": string;
+  "claim_id": string;
+  "claim_type": string;
+  "status": "CONFIRMED" | "PENDING" | "INSUFFICIENT_EVIDENCE" | "CONFLICT" | "REJECTED";
+  "current_revision": boolean;
+  "verified_time": string;
+  "method": string;
+  "verified_by_type": "human" | "system";
+  "evidence_ref": Array<string>;
+  "exploit_validation"?: boolean;
+};
+
 export type SecurityIntelligenceObject = {
   "schema_version"?: "security-intelligence-v1";
   "id": string;

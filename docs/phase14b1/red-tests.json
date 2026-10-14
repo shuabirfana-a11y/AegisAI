@@ -1,0 +1,90 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-14T04:37:40.584686+00:00",
+  "exit_status": 1,
+  "passed": 0,
+  "failed": 16,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/test_phase14b1_poc.py::test_artifact_is_typed_and_association_does_not_verify_exploit",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_verified_requires_current_human_result_and_linked_evidence",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_conflict_cannot_be_verified",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_absence_reports_search_state_without_fake_artifact",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_damaged_provenance_is_omitted",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_public_projection_excludes_asset_scoped_evidence",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_page_status_is_independent_of_current_page_and_reads_are_pure",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[javascript:alert(1)]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[file:///tmp/poc]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://127.0.0.1/poc]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://user:pass@github.com/a/b]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?api_key=secret]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[not-a-url]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_state_or_missing_evidence_is_rejected",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_http_query_is_read_only_typed_paginated_and_not_found",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_poc_openapi_has_all_fields_and_exact_states",
+      "phase": "call",
+      "outcome": "failed"
+    }
+  ]
+}

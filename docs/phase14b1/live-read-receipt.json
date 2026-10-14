@@ -1,0 +1,61 @@
+{
+  "mode": "LIVE_HTTP_READ_OF_PREVIOUS_REAL_COLLECTION",
+  "model_calls": 0,
+  "exploit_executions": 0,
+  "target_scans": 0,
+  "current_remote_link_fetches": 0,
+  "database": "isolated Phase14A demo inventory; not test or production",
+  "results": [
+    {
+      "canonical_id": "CVE-2025-32434",
+      "http_status": 200,
+      "poc_status": "POC_CANDIDATE",
+      "search_status": "PARTIAL",
+      "total": 1,
+      "omitted": 0,
+      "items": [
+        {
+          "id": "be9d9cad-6923-4b3b-b418-dc3d6cccecb0",
+          "source": "GITHUB",
+          "reference": "https://github.com/Ostorlab/KEV",
+          "status": "POC_CANDIDATE",
+          "language": null,
+          "evidence_count": 1,
+          "verification_statuses": [
+            "PENDING"
+          ],
+          "verified_time": null,
+          "exploit_executed": false
+        }
+      ],
+      "final_code_rechecked": true,
+      "bounded_history_fields_present": true
+    },
+    {
+      "canonical_id": "CVE-2022-45907",
+      "http_status": 200,
+      "poc_status": "POC_CANDIDATE",
+      "search_status": "COMPLETED",
+      "total": 1,
+      "omitted": 0,
+      "items": [
+        {
+          "id": "f21ddfc5-7cb0-4811-bb61-aec311361cd0",
+          "source": "GITHUB",
+          "reference": "https://github.com/mangoding71/AGNC",
+          "status": "POC_CANDIDATE",
+          "language": null,
+          "evidence_count": 1,
+          "verification_statuses": [
+            "PENDING"
+          ],
+          "verified_time": null,
+          "exploit_executed": false
+        }
+      ],
+      "final_code_rechecked": true,
+      "bounded_history_fields_present": true
+    }
+  ],
+  "final_projection_revalidated": true
+}

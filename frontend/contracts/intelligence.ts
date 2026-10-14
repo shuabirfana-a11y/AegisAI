@@ -1,5 +1,5 @@
 /** Read-only monitoring transport. Credentials supplied at runtime, never stored. */
-import type { SecurityIntelligenceObject, IntelligencePage, SourceStatusPage, AssetRiskPage } from '../../docs/frontend-contracts/intelligence-http.js';
+import type { SecurityIntelligenceObject, IntelligencePage, SourceStatusPage, AssetRiskPage, POCPage } from '../../docs/frontend-contracts/intelligence-http.js';
 
 export class IntelligenceApiError extends Error {
   constructor(public readonly status: number, public readonly detail: unknown) {
@@ -25,6 +25,9 @@ export class IntelligenceApiClient {
   }
   sources(): Promise<SourceStatusPage> { return this.call('/sources'); }
   vulnerability(id: string): Promise<SecurityIntelligenceObject> { return this.call('/vulnerabilities/' + encodeURIComponent(id)); }
+  poc(id: string, offset = 0, limit = 20): Promise<POCPage> {
+    return this.call('/vulnerabilities/' + encodeURIComponent(id) + '/poc?' + new URLSearchParams({ offset: String(offset), limit: String(limit) }).toString());
+  }
   document(id: string): Promise<SecurityIntelligenceObject> { return this.call('/documents/' + encodeURIComponent(id)); }
   assets(id: string, offset = 0, limit = 20): Promise<AssetRiskPage> {
     return this.call('/vulnerabilities/' + encodeURIComponent(id) + '/assets?' + new URLSearchParams({ offset: String(offset), limit: String(limit) }).toString());

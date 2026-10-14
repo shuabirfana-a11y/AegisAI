@@ -55,11 +55,10 @@ def vulnerability_view(session,identifier):
     detail=queries.vulnerability_detail(session,str(identifier))
     if detail is None:raise LookupError('Vulnerability not found')
     target=detail['id'];domain=enriched.aggregate(session,target)
+    from app.enrichment.poc_artifacts import poc_page
+    poc_summary=poc_page(session,target,limit=1)
     public_claim_ids={str(c.id) for c in session.scalars(select(m.Claim).where(m.Claim.vulnerability_id==target,m.Claim.asset_component_id.is_(None)))}
     pocs=list(session.scalars(select(m.PocCandidate).where(m.PocCandidate.vulnerability_id==target,m.PocCandidate.status!='rejected').limit(100)))
-    verified=any(has_verified_exploit(session,p) for p in pocs)
-    job=session.scalar(select(m.EnrichmentJob).where(m.EnrichmentJob.vulnerability_id==target,m.EnrichmentJob.enrichment_type=='poc').order_by(m.EnrichmentJob.created_at.desc()).limit(1))
-    searched='NOT_RUN' if job is None else 'FAILED' if job.status=='failed' else 'PARTIAL' if job.status in ('partial','running','queued') else 'COMPLETED'
     refs=[SourceReference(source=x['source_key'],raw_document_id=str(x['raw_document_id']),hash=x['content_hash'],reference=x['source_url'],locator=x['locator'] or {},retrieved_at=x['retrieved_at'],published_at=x['source_published_at']) for x in detail['source_documents']]
     return SecurityIntelligenceObject(id=str(target),type='vulnerability',source=sorted({x.source for x in refs}),title=detail['title'] or detail['canonical_id'],
         cve_id=detail['canonical_id'] if detail['canonical_id'].startswith('CVE-') else None,
@@ -67,7 +66,7 @@ def vulnerability_view(session,identifier):
         fixed_versions=explicit_fixes(session,target),
         cvss=[cvss_view(x) for x in detail['cvss_assessments']],cwe=[x['cwe_id'] for x in detail['cwe']],published_time=detail['published_at'],references=refs,
         status='CONFLICT' if any(str(c['id']) in public_claim_ids and c['verification_status']=='CONFLICT' for c in domain['claims']) else 'SOURCE_ASSERTED',publication_status=detail['status'],
-        poc_status='VERIFIED_EXPLOIT' if verified else 'POC_CANDIDATE' if pocs else 'NO_EVIDENCE',poc_search_status=searched,
+        poc_status=poc_summary.status,poc_search_status=poc_summary.search_status,
         pocs=[enriched.serialize(p) for p in pocs],patches=domain['patches'],related_documents=document_links(session,target),evidence=[e for e in domain['evidence'] if str(e['claim_id']) in public_claim_ids],
         limitations=['Source facts are not blanket-confirmed; conflicting versions and CVSS remain separate.',
             'NO_EVIDENCE means no stored qualifying candidate, not proof no exploit exists; check poc_search_status.',

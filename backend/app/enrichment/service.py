@@ -59,6 +59,9 @@ class EnrichmentService:
                     artifacts={**out.artifacts,'claim_ids':list(map(str,out.claims)),'evidence_ids':list(map(str,out.evidence)),
                         'candidate_ids':list(map(str,out.candidates)),'unresolved':out.unresolved,'dependencies':list(enricher.depends_on),
                         'verification_duration_ms':(perf_counter()-verify_start)*1000}
+                    if enricher.name=='poc':
+                        from app.enrichment.poc_artifacts import poc_page
+                        artifacts['poc_snapshot']=poc_page(session,ctx.target_id,limit=100,job_status=status.lower()).model_dump(mode='json')
                     checked=out.checked;errors=out.errors;warnings=out.warnings
             except Exception as exc:
                 status='FAILED';counts=[0,0,0];artifacts={'unresolved':['Domain transaction rolled back; acquired raw retained']}

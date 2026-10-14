@@ -3,6 +3,8 @@ from app.main import create_app
 from app.api.dependencies import get_session
 
 def test_intelligence_api_exposes_typed_safe_projection_and_404(db,seed,engine):
+    from test_phase14b1_poc import candidate
+    candidate(db,seed)
     app=create_app(engine);app.dependency_overrides[get_session]=lambda:db
     with TestClient(app) as c:
         response=c.get('/api/v1/intelligence/vulnerabilities/'+str(seed.vuln.id))

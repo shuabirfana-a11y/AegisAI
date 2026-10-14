@@ -56,6 +56,8 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     from pathlib import Path
     root=Path(__file__).resolve().parents[3]
     baseline=json.loads((root/'work/orchestration/baseline_hashes.json').read_text(encoding='utf-8'))
+    poc_changes=json.loads((root/'docs/phase14b1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(poc_changes)=={'backend/app/enrichment/enrichers/poc.py','backend/app/enrichment/service.py'}
     monitoring_changes=json.loads((root/'docs/phase14a/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     assert set(monitoring_changes)=={'backend/app/main.py','backend/app/api/openapi_contracts.py','backend/app/repositories/ingestion.py',
         'backend/app/repositories/sources.py'}
@@ -81,6 +83,12 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in poc_changes:
+            entry=poc_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['authorization']=='PHASE14B1_USER_AUTHORIZED_POC_ARTIFACT_ADAPTER',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in monitoring_changes:
             entry=monitoring_changes[path]
             assert entry['baseline_sha256']==digest,path

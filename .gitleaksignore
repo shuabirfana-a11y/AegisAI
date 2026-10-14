@@ -988,3 +988,16 @@ f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example
 f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:923
 f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:970
 f867319401632843085742445dfd70e9811440fb:docs/phase14a/live-intelligence-example.json:generic-api-key:1017
+
+# Phase14B1 CI: exact teammate copy of the already-declared synthetic handoff request keys.
+# Proof: docs/phase14b1/CI_SCAN_PROOF.json; no auth tokens, no broad exclusions.
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:25
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:74
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:123
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:172
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:221
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:270
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:319
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:368
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:417
+a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:470
