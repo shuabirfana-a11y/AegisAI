@@ -1,0 +1,558 @@
+{
+  "api_status": "MOCK_ONLY",
+  "fixture_label": "DEMO",
+  "production_data": false,
+  "default_scenario": "PASS",
+  "data_origin": "REAL_CODE_EXECUTION_WITH_SYNTHETIC_TEST_SEED_NOT_HTTP_CAPTURE_NOT_BENCHMARK",
+  "source": "api/reference/examples/orchestration-test-receipts.json",
+  "captured_at": "2026-10-10T01:20:51.064608+00:00",
+  "notice": "Historical synthetic test receipts, not live responses or real vulnerability advisories. Select the same scenario across all five demo files.",
+  "schema_models": {
+    "request": "InvestigationRequest",
+    "status": "InvestigationStatus"
+  },
+  "scenarios": {
+    "PASS": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "2e07c59c-bc35-468a-8d04-68dfa6832cb3",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-890036937964 影响，如何修复？",
+            "asset_id": "f7a8639a-5c0c-4908-b6ae-84f15827dcbb",
+            "target": "CVE-2099-890036937964",
+            "mode": "auto",
+            "request_key": "ORCH-c86a7178cff04570861458effb022c05",
+            "realtime": false
+          },
+          "component_id": "d9668d54-95d2-4835-9050-08e2d9e4277a",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-99ef28cb054741f88c7c907391ef6ea5",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "df1a055d-1e72-4b8e-9a98-24c0abdf2016",
+        "current_stage": "COMPLETED",
+        "overall_status": "SUCCEEDED",
+        "planner_run_id": "83e04c21-8848-41a5-925b-0c96bffd305e",
+        "investigation_run_id": "64e3ff1f-b30d-42e3-85f7-4da55fa4f8fa",
+        "verification_run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+        "analysis_run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": null,
+        "revision": 18,
+        "updated_at": "2026-10-10T01:18:33.143209Z"
+      }
+    },
+    "ORCHESTRATION_FAILED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "3b083ce5-30ba-44fe-a935-3817ae949fb8",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-152474472338 影响，如何修复？",
+            "asset_id": "752a4a5c-5fb2-4bf3-89d0-f37b392cc905",
+            "target": "CVE-2099-152474472338",
+            "mode": "auto",
+            "request_key": "ORCH-1efaae9273de4f929745319f6eb282c2",
+            "realtime": false
+          },
+          "component_id": "c164aff1-4355-4ef2-a4d7-4c419509248e",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-28dac2801aef4391b68993f35c374b06",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "4a84e54f-379b-4d54-b0f1-b4681b76aad1",
+        "current_stage": "FAILED",
+        "overall_status": "FAILED",
+        "planner_run_id": "c2595888-7ff4-445a-8059-0e0bf0955dd6",
+        "investigation_run_id": "cdd991ed-2c56-4c10-ac60-def3e7203f2f",
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "ORCHESTRATION_FAILED",
+        "revision": 6,
+        "updated_at": "2026-10-10T01:18:16.611626Z"
+      }
+    },
+    "SYNTHETIC_STOP": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "dd78d69f-5dab-432e-9e78-243d5c4bcdeb",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-575284269314 影响，如何修复？",
+            "asset_id": "6b7763eb-6c84-4bfe-b234-78521d0fdc82",
+            "target": "CVE-2099-575284269314",
+            "mode": "auto",
+            "request_key": "ORCH-d6815566c3c3483f8631fec25cdfd9db",
+            "realtime": false
+          },
+          "component_id": "8768b1ff-d744-4355-8684-204e6b9142fe",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-11817cfd8ddd42759fc3336a7f07507c",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "b42e79ba-8dda-4c67-97c0-8b703300e716",
+        "current_stage": "FAILED",
+        "overall_status": "FAILED",
+        "planner_run_id": null,
+        "investigation_run_id": null,
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "SYNTHETIC_STOP",
+        "revision": 2,
+        "updated_at": "2026-10-10T01:17:31.307635Z"
+      }
+    },
+    "CANCELLED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "9e8dc589-7084-4cce-be00-f4970f120cda",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-301469170106 影响，如何修复？",
+            "asset_id": "ca54fda0-4b5e-49ad-a2fe-533aaf59cb59",
+            "target": "CVE-2099-301469170106",
+            "mode": "auto",
+            "request_key": "ORCH-5f79b2f3ca9746b1b8cef5fc89272491",
+            "realtime": false
+          },
+          "component_id": "5adfa6ac-b5e6-4a3b-ad7b-45060508b096",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-735fee1e576348cea3a60d3ed8a18173",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "0139bcb8-6806-4ba6-a763-8e7ac7832e02",
+        "current_stage": "CANCELLED",
+        "overall_status": "CANCELLED",
+        "planner_run_id": "a72a01a0-4072-47f2-8669-cb9e72f4a9ec",
+        "investigation_run_id": "62739514-5fef-4a5e-84e5-cc5416010ca9",
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": true,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "CANCELLED",
+        "revision": 9,
+        "updated_at": "2026-10-10T01:17:31.155594Z"
+      }
+    },
+    "DEADLINE_EXCEEDED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "d9e44379-2d7a-4f30-a3bd-774637a5231b",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-183155864466 影响，如何修复？",
+            "asset_id": "1f8cb70d-e4d5-4955-90de-fafd5eeba62f",
+            "target": "CVE-2099-183155864466",
+            "mode": "auto",
+            "request_key": "ORCH-4201bb18c0094a57973a995f0125dc79",
+            "realtime": false
+          },
+          "component_id": "3766423c-f6cf-4fdd-bd25-a1797f468916",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-b164329d5019493999d195c0907a03c9",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "4082a434-4576-4e45-bb24-d1bda5cff861",
+        "current_stage": "FAILED",
+        "overall_status": "FAILED",
+        "planner_run_id": "0abfa7d7-4ee6-44bc-911f-f9741c0f9834",
+        "investigation_run_id": "255471c5-ad52-4dd1-8333-99d1a1ca062c",
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "DEADLINE_EXCEEDED",
+        "revision": 6,
+        "updated_at": "2026-10-10T01:17:24.951275Z"
+      }
+    },
+    "FAILED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "8d291c2b-d0fa-4c2b-822c-b37ef70eacdc",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-123269225651 影响，如何修复？",
+            "asset_id": "b8144a17-1411-43e1-96a5-137ae0b8dccd",
+            "target": "CVE-2099-123269225651",
+            "mode": "auto",
+            "request_key": "ORCH-d1c21f9ce9c7498b93cd20d1bba75e99",
+            "realtime": false
+          },
+          "component_id": "1089cb22-4374-4b76-9d4b-2f9a530ac122",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-c854e88f51fc42b2835f966a7e6b0a84",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "380557e7-efd4-4d1c-b615-6ac26d1bce2e",
+        "current_stage": "FAILED",
+        "overall_status": "FAILED",
+        "planner_run_id": "c2156beb-ede0-41e5-8c33-ba189cc21b8c",
+        "investigation_run_id": "5ac393a1-0ed3-4e3a-8295-b7e3c1d39154",
+        "verification_run_id": "fd9a91aa-6bce-448a-a19b-2f65411cf63d",
+        "analysis_run_id": "e58a1de0-8087-48df-9e8c-83c701526f96",
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "GATE_FAILED",
+        "revision": 18,
+        "updated_at": "2026-10-10T01:17:21.085050Z"
+      }
+    },
+    "REPLAN_REQUIRED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "60687704-795d-434b-b28c-0d315f9ac812",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-150484804298 影响，如何修复？",
+            "asset_id": "f18c5b8e-5ee2-4593-93b7-e4f172a4edf3",
+            "target": "CVE-2099-150484804298",
+            "mode": "auto",
+            "request_key": "ORCH-275307a1b52a44d4bc8d6b8ec3b2dcff",
+            "realtime": false
+          },
+          "component_id": "eb8ec19a-0e91-487b-a389-410529bfcc28",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-6a8edb6f646b4db783b5a6737aaf4d5f",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "697e5139-784d-455f-958e-d4096d88fd99",
+        "current_stage": "COMPLETED",
+        "overall_status": "INCOMPLETE",
+        "planner_run_id": "28ee682b-fa88-40cb-a9fc-cf87800c02be",
+        "investigation_run_id": "24aaa08d-57ba-4a11-bf71-965bd352b9d0",
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": null,
+        "revision": 10,
+        "updated_at": "2026-10-10T01:17:08.742528Z"
+      }
+    },
+    "PLANNING_FAILED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "3efacda8-d6c2-43bd-b0fa-c6823c9e5683",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-145151218506 影响，如何修复？",
+            "asset_id": "6f9da57f-18b8-4e9e-8bb8-9973f15e835d",
+            "target": "CVE-2099-145151218506",
+            "mode": "auto",
+            "request_key": "ORCH-f7d40edb7c4644a4b75e27543a3c0f60",
+            "realtime": false
+          },
+          "component_id": "67556609-c719-4381-9d27-2151c0e6096e",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-7b089588f8d14b3a92e9be4f921f3a77",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "a7203321-1886-44a8-a8a6-86c6b26b276b",
+        "current_stage": "FAILED",
+        "overall_status": "FAILED",
+        "planner_run_id": "2fcbc5a2-1782-4be0-96dd-699cc7b171c9",
+        "investigation_run_id": null,
+        "verification_run_id": null,
+        "analysis_run_id": null,
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [],
+        "error_code": "PLANNING_FAILED",
+        "revision": 4,
+        "updated_at": "2026-10-10T01:16:24.245479Z"
+      }
+    },
+    "HUMAN_REVIEW_REQUIRED": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "7b521aa7-ca04-489a-920b-566abbca8569",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-161052556954 影响，如何修复？",
+            "asset_id": "dfea5901-23e3-4955-a59f-bb42c2a8dce2",
+            "target": "CVE-2099-161052556954",
+            "mode": "auto",
+            "request_key": "ORCH-cd6e20c6d6e446439ea09fcc5cf081f5",
+            "realtime": false
+          },
+          "component_id": "c78fc9b4-94d3-4439-a664-abfa3fdc9fbf",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "3225d7ec-994f-41c2-ac3b-5bfd7b5298fb",
+        "current_stage": "WAITING_REVIEW",
+        "overall_status": "REVIEW_REQUIRED",
+        "planner_run_id": "01f564cc-0aeb-42cc-92cf-7aceaa060f66",
+        "investigation_run_id": "2ff9c5d4-68ce-4382-a1f2-c790bacde5e6",
+        "verification_run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+        "analysis_run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [
+          "REMEDIATION_UNKNOWN",
+          "UNKNOWN_IS_NOT_SAFE",
+          "PATCH_CANDIDATE_NOT_A_FIX"
+        ],
+        "error_code": null,
+        "revision": 18,
+        "updated_at": "2026-10-10T01:16:01.298991Z"
+      }
+    },
+    "PASS_WITH_WARNINGS": {
+      "request": {
+        "schema_version": "investigation-request-v1",
+        "request_id": "c25dc988-a12e-4695-869d-03809330a6fe",
+        "planner_input": {
+          "query": {
+            "question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-189707837285 影响，如何修复？",
+            "asset_id": "417eea5e-4c08-4672-9c83-938fa1be38ec",
+            "target": "CVE-2099-189707837285",
+            "mode": "auto",
+            "request_key": "ORCH-d4576bc32e50466ea73b21a1db156dc6",
+            "realtime": false
+          },
+          "component_id": "baf8c09e-9a34-4d66-b4fc-2f559ae0dce8",
+          "snapshot_id": null,
+          "component": {
+            "name": "vllm",
+            "ecosystem": "PyPI",
+            "package_name": "vllm-verify-f8e51ae6514d495c8be5de152577b895",
+            "version": "0.6.0",
+            "purl": null
+          }
+        },
+        "time_scope": null,
+        "user_context": {
+          "display_language": "zh-CN",
+          "notes": ""
+        },
+        "investigation_options": {
+          "objective_profile": null,
+          "timeout_seconds": 300
+        }
+      },
+      "status": {
+        "logical_investigation_id": "b424b1e9-a1fc-4452-9a47-e9f287ad2b2b",
+        "current_stage": "COMPLETED",
+        "overall_status": "SUCCEEDED_WITH_WARNINGS",
+        "planner_run_id": "ca4b172c-d68c-4f85-b55a-1f866f5efef9",
+        "investigation_run_id": "38f5dd2a-65df-44e2-a3df-87e9c6210506",
+        "verification_run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+        "analysis_run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+        "cancel_requested": false,
+        "recovery_required": false,
+        "warnings": [
+          "OPTIONAL_TASK_INCOMPLETE"
+        ],
+        "error_code": null,
+        "revision": 18,
+        "updated_at": "2026-10-10T01:15:42.196014Z"
+      }
+    }
+  },
+  "artifact_examples": {
+    "investigation": {
+      "scenario_id": "INDEPENDENT_ABSTENTION_SCHEMA_MOCK",
+      "api_status": "MOCK_ONLY",
+      "fixture_label": "MOCK",
+      "production_data": false,
+      "data_origin": "MOCK_SCHEMA_VALIDATED_NOT_EXECUTED_NOT_HTTP_CAPTURE",
+      "schema_model": "InvestigationArtifact",
+      "payload": {
+        "artifact_id": "00000000-0000-4000-8000-000000000001",
+        "task_id": "lookup",
+        "agent_id": "investigation_agent",
+        "run_id": "00000000-0000-4000-8000-000000000002",
+        "schema_version": "investigation-artifact-v1",
+        "status": "INSUFFICIENT_EVIDENCE",
+        "runtime_status": "WAITING_REVIEW",
+        "partial_result": false,
+        "information_status": "INSUFFICIENT_EVIDENCE",
+        "vulnerability_id": null,
+        "canonical_id": "CVE-2099-0001",
+        "description": null,
+        "component": null,
+        "asset": null,
+        "affected_versions": [],
+        "fixed_versions": [],
+        "version_match": null,
+        "cvss": [],
+        "cwe": [],
+        "poc_candidates": [],
+        "patch_information": [],
+        "evidence": [],
+        "uncertainties": [
+          "MOCK: no supporting evidence"
+        ],
+        "conflicts": [],
+        "confidence": 0.0,
+        "failed_tools": [],
+        "tool_calls": [],
+        "dependency_artifact_ids": [],
+        "evidence_storage": "artifact",
+        "receipt_references": {},
+        "findings": []
+      },
+      "notice": "Independent abstention example. Do not join with any execution-receipt scenario; hashes are synthetic placeholders."
+    }
+  }
+}
