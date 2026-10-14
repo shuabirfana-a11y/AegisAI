@@ -1,0 +1,82 @@
+{
+  "answer": {},
+  "answer_status": null,
+  "artifact_references": [],
+  "context_required": false,
+  "errors": [
+    "REQUEST_BINDING_INVALID"
+  ],
+  "failed_stage": "REQUEST_ADAPTER",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": false,
+  "input_context": {
+    "assets": [
+      {
+        "component": "vllm",
+        "id": "demo-GHSA-935w-9g4m-p28p-affected",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "0.29.0"
+      },
+      {
+        "component": "vllm",
+        "id": "demo-GHSA-935w-9g4m-p28p-fixed",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "0.30.0"
+      }
+    ],
+    "component": "vllm",
+    "ecosystem": "PyPI",
+    "target": "CVE-2026-105752",
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "original_input_context": {
+      "assets": [
+        {
+          "component": "vllm",
+          "id": "demo-GHSA-935w-9g4m-p28p-affected",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "0.29.0"
+        },
+        {
+          "component": "vllm",
+          "id": "demo-GHSA-935w-9g4m-p28p-fixed",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "0.30.0"
+        }
+      ],
+      "component": "vllm",
+      "ecosystem": "PyPI",
+      "target": "CVE-2026-105752",
+      "triage_policy": "benchmark-reference-triage-v1"
+    },
+    "reason": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "status": "UNSUPPORTED_INPUT"
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "按 benchmark-reference-triage-v1 查询公告、比较版本并分析这两个演示资产，哪一个应优先处理？",
+  "question_id": "GHSA-935w-9g4m-p28p-multihop",
+  "run_id": null,
+  "type": "multihop",
+  "prediction": {
+    "question_id": "GHSA-935w-9g4m-p28p-multihop",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {},
+    "claims": [],
+    "abstained": null,
+    "completed_hops": [],
+    "latency_ms": 1.8370000007053022,
+    "error_code": "REQUEST_BINDING_INVALID",
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "2ef6b19c14a1351668e14391ac4c0684054ccbf15db95934580bb9f32be20e55"
+}

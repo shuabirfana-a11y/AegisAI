@@ -1,0 +1,88 @@
+{
+  "answer": {},
+  "answer_status": null,
+  "artifact_references": [],
+  "context_required": false,
+  "errors": [
+    "REQUEST_BINDING_INVALID"
+  ],
+  "failed_stage": "REQUEST_ADAPTER",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": false,
+  "input_context": {
+    "assets": [
+      {
+        "component": "torch",
+        "id": "demo-GHSA-53q9-r3pm-6pq6-missing",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": null
+      },
+      {
+        "component": "langchain-core",
+        "id": "demo-GHSA-c67j-w6g6-q2cm-missing",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": null
+      },
+      {
+        "component": "langgraph-checkpoint-sqlite",
+        "id": "demo-GHSA-9rwj-6rc7-p77c-missing",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": null
+      }
+    ],
+    "triage_policy": "benchmark-reference-triage-v1"
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "original_input_context": {
+      "assets": [
+        {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-missing",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": null
+        },
+        {
+          "component": "langchain-core",
+          "id": "demo-GHSA-c67j-w6g6-q2cm-missing",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": null
+        },
+        {
+          "component": "langgraph-checkpoint-sqlite",
+          "id": "demo-GHSA-9rwj-6rc7-p77c-missing",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": null
+        }
+      ],
+      "triage_policy": "benchmark-reference-triage-v1"
+    },
+    "reason": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+    "status": "UNSUPPORTED_INPUT"
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "这些 AI 组件的部署版本均缺失。能够确认资产不受影响吗？",
+  "question_id": "cross-advisory-missing-version",
+  "run_id": null,
+  "type": "multihop",
+  "prediction": {
+    "question_id": "cross-advisory-missing-version",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {},
+    "claims": [],
+    "abstained": null,
+    "completed_hops": [],
+    "latency_ms": 1.8177000001742272,
+    "error_code": "REQUEST_BINDING_INVALID",
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "9f2843cc48e9846bfbbb1c3c86fd40ff9491b99ddf63f470380fc0fe7b8bf309"
+}
