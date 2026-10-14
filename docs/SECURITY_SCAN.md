@@ -52,3 +52,7 @@ Gitleaks 的准确指纹忽略只适用于 Git 历史扫描；检查当前未提
 ## Phase 12-D.3 补充扫描
 
 完整历史扫描仅新增一个候选：提交 544e5f0b7d9936fcec82e0b23723a32ee12c7912 的 MANIFEST.json 第 411 行 current_openapi_sha256。通过同一提交的实际 OpenAPI Git blob 重新计算摘要，与该字段和命中行完全一致，因此它是文件校验值，不是凭据。只追加这一 commit/path/rule/line 的准确历史指纹，不排除目录、文件或规则；推送前再次扫描全部历史。
+
+## Phase 14-B3 补充扫描
+
+暂存差异命中两项，均为删除前与新增的 OpenAPI 文件校验 SHA256；已逐项与相应文件字节核对。完整历史扫描仅新增一个候选：提交 089ca470a485ed8e94daba49fe4f83733705c1d0 的 MANIFEST.json 第 451 行 current_openapi_sha256。经同提交 OpenAPI Git blob 重算完全一致，属于校验摘要。只追加该 commit/path/rule/line 准确指纹，不排除目录、文件或规则；推送前再次扫描全部历史。没有发现需提交的凭据，原始扫描输出仅保存在忽略的 work 目录。

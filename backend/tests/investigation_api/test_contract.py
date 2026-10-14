@@ -13,7 +13,9 @@ def test_openapi_has_eight_typed_investigation_operations_and_no_empty_legacy_su
     # New monitoring endpoints are independently typed; retain the original
     # 42-operation investigation/legacy contract as the compatibility boundary.
     monitoring = [op for path, method, op in operations if path.startswith('/api/v1/intelligence')]
-    assert len(monitoring) == 8
+    assert len(monitoring) == 10  # Existing eight + two authorized readonly graph operations.
+    graph_paths={path for path in schema['paths'] if path.startswith('/api/v1/intelligence') and '/graph' in path}
+    assert graph_paths=={'/api/v1/intelligence/vulnerabilities/{id}/graph','/api/v1/intelligence/graph/query'}
     assert len(operations) - len(monitoring) == 42
     for path, method, op in operations:
         code = next(code for code in op['responses'] if code.startswith('2'))

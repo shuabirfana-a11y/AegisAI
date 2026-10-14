@@ -109,6 +109,22 @@ test('unavailable backend produces a clear 502 JSON error', async t => {
   assert.match((await response.json()).detail, /Backend/);
 });
 
+test('knowledge graph demo credential stays server side and is limited to graph routes', async t => {
+  const upstream = http.createServer((req, res) => {
+    res.writeHead(200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ authorization: req.headers.authorization || null }));
+  });
+  await start(t, upstream);
+  const url = await start(t, createFrontendServer({ backendPort: upstream.address().port, localDemoToken: 'synthetic-graph-proxy-only' }));
+  for (const path of ['/api/v1/intelligence/graph/query?component=vllm', '/api/v1/intelligence/vulnerabilities/CVE-2099-9999001/graph']) {
+    assert.equal((await fetch(url + path).then(r => r.json())).authorization, 'Bearer synthetic-graph-proxy-only');
+  }
+  for (const path of ['/api/v1/intelligence/sources', '/api/v1/intelligence/vulnerabilities/CVE-2099-9999001']) {
+    assert.equal((await fetch(url + path).then(r => r.json())).authorization, null);
+  }
+  assert.deepEqual(await fetch(url + '/client-config').then(r => r.json()), { localDemoAccess: true });
+});
+
 test('oversized assistant body returns a single 413 and leaves the server usable', async t => {
   const upstream = http.createServer((req, res) => req.on('end', () => { res.end('{}'); }));
   upstream.on('clientError', socket => {});

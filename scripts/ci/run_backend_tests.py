@@ -6,6 +6,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 TESTS = [
+    "tests/test_phase14b3_graph.py::test_graph_budget_is_explicit_and_has_no_dangling_edges",
+    "tests/test_phase14b3_graph.py::test_openapi_graph_and_query_are_typed",
     "tests/model_gateway", "tests/test_schema_contract.py", "tests/test_normalizers.py",
     "tests/test_ingestion_units.py", "tests/test_phase7_rules.py",
     "tests/runtime/test_contracts_plan.py", "tests/runtime/test_graph_states.py",

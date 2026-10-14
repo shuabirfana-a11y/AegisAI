@@ -293,6 +293,248 @@
         }
       }
     },
+    "/api/v1/intelligence/graph/query": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Graph Query",
+        "operationId": "graph_query_api_v1_intelligence_graph_query_get",
+        "parameters": [
+          {
+            "name": "component",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Component"
+            }
+          },
+          {
+            "name": "ecosystem",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ecosystem"
+            }
+          },
+          {
+            "name": "minimum_severity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "CRITICAL",
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Minimum Severity"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "default": 10,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeGraphPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/vulnerabilities/{id}/graph": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Graph",
+        "operationId": "graph_api_v1_intelligence_vulnerabilities__id__graph_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Asset Id"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Investigation Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeGraph"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/intelligence/vulnerabilities/{id}": {
       "get": {
         "tags": [
@@ -829,6 +1071,304 @@
           "observed_at"
         ],
         "title": "IntelligenceRecord"
+      },
+      "KnowledgeEdge": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "AFFECTS_COMPONENT",
+              "HAS_AFFECTED_RANGE",
+              "HAS_VERSION",
+              "DEPLOYED_ON",
+              "HAS_EVIDENCE",
+              "HAS_RISK",
+              "SUPPORTED_BY"
+            ],
+            "title": "Type"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "SOURCE_ASSERTED",
+              "CANDIDATE",
+              "CONFIRMED",
+              "CONFLICT",
+              "PENDING",
+              "REJECTED",
+              "INSUFFICIENT_EVIDENCE",
+              "UNKNOWN",
+              "USER_INVENTORY"
+            ],
+            "title": "Status"
+          },
+          "source_records": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "minItems": 1,
+            "title": "Source Records"
+          },
+          "claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "title": "Claim Ids",
+            "default": []
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "title": "Evidence Ids",
+            "default": []
+          },
+          "historical_snapshot": {
+            "type": "boolean",
+            "title": "Historical Snapshot",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "source",
+          "target",
+          "status",
+          "source_records"
+        ],
+        "title": "KnowledgeEdge"
+      },
+      "KnowledgeGraph": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "security-knowledge-graph-v1",
+            "title": "Schema Version",
+            "default": "security-knowledge-graph-v1"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "title": "Vulnerability Id"
+          },
+          "canonical_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Id"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeNode"
+            },
+            "type": "array",
+            "maxItems": 160,
+            "title": "Nodes",
+            "default": []
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeEdge"
+            },
+            "type": "array",
+            "maxItems": 320,
+            "title": "Edges",
+            "default": []
+          },
+          "truncated": {
+            "type": "boolean",
+            "title": "Truncated",
+            "default": false
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "RELATIONS_DO_NOT_IMPLY_VERIFIED_IMPACT",
+              "NO_RISK_DECISION_SELECTED"
+            ]
+          },
+          "investigation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Investigation Id"
+          },
+          "agent_references": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Agent References",
+            "default": []
+          },
+          "gate_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate Status"
+          },
+          "answer_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Id"
+          },
+          "content_trust_level": {
+            "type": "string",
+            "const": "UNTRUSTED_EXTERNAL_CONTENT",
+            "title": "Content Trust Level",
+            "default": "UNTRUSTED_EXTERNAL_CONTENT"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id"
+        ],
+        "title": "KnowledgeGraph"
+      },
+      "KnowledgeGraphPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeGraph"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Items",
+            "default": []
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Limit"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "LOCAL_COLLECTED_RELATIONS_ONLY",
+              "SOURCE_SEVERITY_IS_NOT_ASSET_RISK"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "KnowledgeGraphPage"
+      },
+      "KnowledgeNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "VULNERABILITY",
+              "COMPONENT",
+              "VERSION",
+              "ASSET",
+              "EVIDENCE",
+              "RISK"
+            ],
+            "title": "Type"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 400,
+            "title": "Label"
+          },
+          "data": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Data"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label"
+        ],
+        "title": "KnowledgeNode"
       },
       "POCArtifact": {
         "properties": {
