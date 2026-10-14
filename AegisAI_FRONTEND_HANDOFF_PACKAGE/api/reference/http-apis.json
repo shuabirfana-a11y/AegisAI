@@ -6510,6 +6510,150 @@
       "api_status": "AVAILABLE",
       "browser_access": "AVAILABLE",
       "method": "GET",
+      "url": "/api/v1/intelligence/records",
+      "request": {
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/RecordPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/monitoring/runs",
+      "request": {
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/PipelineRunPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
       "url": "/api/v1/intelligence/vulnerabilities/{id}",
       "request": {
         "parameters": [

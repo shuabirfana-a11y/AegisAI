@@ -1,0 +1,13 @@
+{
+  "pr": "https://github.com/shuabirfana-a11y/AegisAI/pull/25",
+  "review_base": "codex/phase14b1-poc-enrichment",
+  "implementation_commit": "d6e4199d9436115febc16f61e94ca8d6341428ef",
+  "initial_checks": {
+    "Repository safety": "SUCCESS",
+    "Backend unit and contracts": "SUCCESS",
+    "Frontend tests and types": "SUCCESS"
+  },
+  "history_scan_commits": 71,
+  "history_findings": 0,
+  "main_merged": false
+}

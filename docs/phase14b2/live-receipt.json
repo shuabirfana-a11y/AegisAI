@@ -1,0 +1,863 @@
+{
+  "kind": "LIVE_PUBLIC_SOURCE_AUTOMATION",
+  "started_at": "2026-10-14T07:16:05.407842+00:00",
+  "benchmark_material_loaded": false,
+  "model_calls": 0,
+  "new_empty_database": true,
+  "inventory_created": false,
+  "cycles": [
+    {
+      "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+      "execution_mode": "LIVE",
+      "status": "PARTIAL",
+      "started_at": "2026-10-14T07:16:05.407842Z",
+      "finished_at": "2026-10-14T07:16:43.206543Z",
+      "sources": [
+        {
+          "source": "NVD",
+          "status": "PARTIAL",
+          "sync_run_id": "194b60b5-60be-4565-8f22-d0f8cc61f07b",
+          "targets": [
+            "9aeac647-5afb-488e-b2f9-710e33c99186"
+          ],
+          "document_ids": [],
+          "errors": [],
+          "processed_jobs": 2,
+          "failed_jobs": 0,
+          "pending_jobs": 4
+        },
+        {
+          "source": "GHSA",
+          "status": "FAILED",
+          "sync_run_id": "568dbf94-9703-4fb3-8a99-e4f50ec97150",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "VENDOR_VLLM",
+          "status": "FAILED",
+          "sync_run_id": "cccdb4a9-13f5-4a3a-9463-0474aedde868",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "RSS_TRAIL_OF_BITS",
+          "status": "SUCCESS",
+          "sync_run_id": "e0cd6144-d2c2-4d74-ad40-742cad15d521",
+          "targets": [],
+          "document_ids": [
+            "92627c60-3ace-413d-8493-569432f0da3b"
+          ],
+          "errors": [],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "ARXIV",
+          "status": "FAILED",
+          "sync_run_id": "9f16b004-4f93-4153-ba8c-fac6494b43a2",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "ConnectError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        }
+      ],
+      "queued_jobs": 6,
+      "processed_jobs": 2,
+      "failed_jobs": 0,
+      "pending_jobs": 4,
+      "unresolved_jobs": 0,
+      "dependency_jobs": 1,
+      "failed_dependency_jobs": 0,
+      "backlog_runs": 0,
+      "resumed_sources": [],
+      "asset_jobs": 0,
+      "failed_asset_jobs": 0,
+      "deferred_targets": 0,
+      "warnings": [
+        "ASSET_SCOPE_NOT_CONFIGURED; no inventory created or guessed.",
+        "Verification remains the original scoped rules; pipeline completion is not blanket confirmation."
+      ]
+    },
+    {
+      "cycle_id": "31817038-143e-45a4-b71f-180eab824357",
+      "execution_mode": "LIVE",
+      "status": "PARTIAL",
+      "started_at": "2026-10-14T07:16:46.218290Z",
+      "finished_at": "2026-10-14T07:16:47.952934Z",
+      "sources": [
+        {
+          "source": "NVD",
+          "status": "NOT_DUE",
+          "sync_run_id": "194b60b5-60be-4565-8f22-d0f8cc61f07b",
+          "targets": [
+            "9aeac647-5afb-488e-b2f9-710e33c99186"
+          ],
+          "document_ids": [],
+          "errors": [
+            "COLLECTION_PARTIAL"
+          ],
+          "processed_jobs": 2,
+          "failed_jobs": 0,
+          "pending_jobs": 2
+        },
+        {
+          "source": "GHSA",
+          "status": "FAILED",
+          "sync_run_id": "568dbf94-9703-4fb3-8a99-e4f50ec97150",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "VENDOR_VLLM",
+          "status": "FAILED",
+          "sync_run_id": "cccdb4a9-13f5-4a3a-9463-0474aedde868",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "RSS_TRAIL_OF_BITS",
+          "status": "NOT_DUE",
+          "sync_run_id": "e0cd6144-d2c2-4d74-ad40-742cad15d521",
+          "targets": [],
+          "document_ids": [
+            "92627c60-3ace-413d-8493-569432f0da3b"
+          ],
+          "errors": [],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "ARXIV",
+          "status": "FAILED",
+          "sync_run_id": "9f16b004-4f93-4153-ba8c-fac6494b43a2",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "ConnectError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        }
+      ],
+      "queued_jobs": 0,
+      "processed_jobs": 2,
+      "failed_jobs": 0,
+      "pending_jobs": 2,
+      "unresolved_jobs": 0,
+      "dependency_jobs": 0,
+      "failed_dependency_jobs": 0,
+      "backlog_runs": 0,
+      "resumed_sources": [],
+      "asset_jobs": 0,
+      "failed_asset_jobs": 0,
+      "deferred_targets": 0,
+      "warnings": [
+        "ASSET_SCOPE_NOT_CONFIGURED; no inventory created or guessed.",
+        "Verification remains the original scoped rules; pipeline completion is not blanket confirmation."
+      ]
+    },
+    {
+      "cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+      "execution_mode": "LIVE",
+      "status": "PARTIAL",
+      "started_at": "2026-10-14T07:50:55.112570Z",
+      "finished_at": "2026-10-14T07:50:59.872799Z",
+      "sources": [
+        {
+          "source": "NVD",
+          "status": "NOT_DUE",
+          "sync_run_id": "194b60b5-60be-4565-8f22-d0f8cc61f07b",
+          "targets": [
+            "9aeac647-5afb-488e-b2f9-710e33c99186"
+          ],
+          "document_ids": [],
+          "errors": [
+            "COLLECTION_PARTIAL",
+            "COLLECTION_PARTIAL"
+          ],
+          "processed_jobs": 2,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "GHSA",
+          "status": "FAILED",
+          "sync_run_id": "568dbf94-9703-4fb3-8a99-e4f50ec97150",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "VENDOR_VLLM",
+          "status": "FAILED",
+          "sync_run_id": "cccdb4a9-13f5-4a3a-9463-0474aedde868",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "HTTPStatusError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "RSS_TRAIL_OF_BITS",
+          "status": "NOT_DUE",
+          "sync_run_id": "e0cd6144-d2c2-4d74-ad40-742cad15d521",
+          "targets": [],
+          "document_ids": [
+            "92627c60-3ace-413d-8493-569432f0da3b"
+          ],
+          "errors": [],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        },
+        {
+          "source": "ARXIV",
+          "status": "FAILED",
+          "sync_run_id": "9f16b004-4f93-4153-ba8c-fac6494b43a2",
+          "targets": [],
+          "document_ids": [],
+          "errors": [
+            "ConnectError"
+          ],
+          "processed_jobs": 0,
+          "failed_jobs": 0,
+          "pending_jobs": 0
+        }
+      ],
+      "queued_jobs": 0,
+      "processed_jobs": 2,
+      "failed_jobs": 0,
+      "pending_jobs": 0,
+      "unresolved_jobs": 1,
+      "dependency_jobs": 2,
+      "failed_dependency_jobs": 0,
+      "backlog_runs": 0,
+      "resumed_sources": [],
+      "asset_jobs": 0,
+      "failed_asset_jobs": 0,
+      "deferred_targets": 0,
+      "warnings": [
+        "ASSET_SCOPE_NOT_CONFIGURED; no inventory created or guessed.",
+        "Verification remains the original scoped rules; pipeline completion is not blanket confirmation."
+      ]
+    }
+  ],
+  "counts": {
+    "vulnerabilities": 1,
+    "documents": 1,
+    "chunks": 14,
+    "embeddings": 14,
+    "evidence": 5,
+    "verification_results": 5,
+    "enrichment_jobs": 9,
+    "raw_documents": 7
+  },
+  "raw_provenance": [
+    {
+      "id": "66559965-8a59-47e2-ba74-3388c5b7ddf2",
+      "source": "NVD",
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+      "hash": "1768169319bd7bf668baa90ec65c251f08e3e1673ed95e675fb8f30f3b5e607c",
+      "bytes": 4233,
+      "retrieved_at": "2026-10-14T07:16:07.215289+00:00"
+    },
+    {
+      "id": "bb5f1280-1eb4-4969-aa1b-b5bc47b82707",
+      "source": "RSS_TRAIL_OF_BITS",
+      "url": "https://blog.trailofbits.com/index.xml",
+      "hash": "9498f6e8f05fe43de47111761f8b8952ff3d48a8d5ac35438750845a651c4a9b",
+      "bytes": 951556,
+      "retrieved_at": "2026-10-14T07:16:19.735605+00:00"
+    },
+    {
+      "id": "7407098f-be14-4ece-83fc-e400fdd77335",
+      "source": "EPSS",
+      "url": "https://api.first.org/data/v1/epss?cve=CVE-2025-32434",
+      "hash": "e7b2bb161023b182221dba84baee22c639dab904d582fbb2a9501de3bc9840be",
+      "bytes": 203,
+      "retrieved_at": "2026-10-14T07:16:46.351456+00:00"
+    },
+    {
+      "id": "6798567e-3789-4713-a510-8e2d142b077f",
+      "source": "GITHUB",
+      "url": "https://api.github.com/search/repositories?q=CVE-2025-32434%20in%3Aname%2Cdescription%2Creadme&per_page=5",
+      "hash": "72706779419b509b3c953d9fdd6254dba488965710016bea7992c494d6d4097d",
+      "bytes": 27040,
+      "retrieved_at": "2026-10-14T07:50:55.721946+00:00"
+    },
+    {
+      "id": "000abaac-44f8-4079-a1bc-68945c0b7586",
+      "source": "GITHUB",
+      "url": "https://api.github.com/repos/DarkNavySecurity/PoC/readme",
+      "hash": "4ce5189486840365acf5a08e64ae0c3db87558475b52ef27d956832086463c9b",
+      "bytes": 2382,
+      "retrieved_at": "2026-10-14T07:50:56.581674+00:00"
+    },
+    {
+      "id": "65766a60-33f4-44bd-af82-89d73b0efdf7",
+      "source": "GITHUB",
+      "url": "https://api.github.com/repos/Proteas/apple-cve/readme",
+      "hash": "dd7e9e6f16b07bb24eae7f324e72b2cf7e36f1850169f06cb4dfd6967af0a1b4",
+      "bytes": 5219,
+      "retrieved_at": "2026-10-14T07:50:57.215126+00:00"
+    },
+    {
+      "id": "6afb6681-0f5b-4bfc-b16e-f6f0641ac48a",
+      "source": "GITHUB",
+      "url": "https://api.github.com/repos/Ostorlab/KEV/readme",
+      "hash": "df929f69b3429e2ee8e8b53e001cda5db0587b095586e67bbec2eda241491cc8",
+      "bytes": 398434,
+      "retrieved_at": "2026-10-14T07:50:58.242523+00:00"
+    }
+  ],
+  "http": {
+    "/api/v1/intelligence/records": {
+      "status": 200,
+      "body": {
+        "items": [
+          {
+            "id": "92627c60-3ace-413d-8493-569432f0da3b",
+            "type": "blog",
+            "title": "SequenceHash: multihashing for the rest of us",
+            "canonical_id": null,
+            "sources": [
+              "RSS_TRAIL_OF_BITS"
+            ],
+            "status": "AVAILABLE",
+            "verification_status": "INSUFFICIENT_EVIDENCE",
+            "execution_mode": "LIVE",
+            "enrichment_progress": [],
+            "query_available": true,
+            "verified_claims": 0,
+            "active_claims": 0,
+            "evidence_count": 0,
+            "knowledge_chunks": 14,
+            "stages": [
+              "DISCOVERED",
+              "NORMALIZED",
+              "AVAILABLE"
+            ],
+            "observed_at": "2026-10-14T07:16:19.735605Z",
+            "published_at": "2026-10-02T11:00:00Z",
+            "warnings": [
+              "Queryability does not establish confirmed claims; original verification remains required."
+            ]
+          },
+          {
+            "id": "9aeac647-5afb-488e-b2f9-710e33c99186",
+            "type": "vulnerability",
+            "title": "CVE-2025-32434",
+            "canonical_id": "CVE-2025-32434",
+            "sources": [
+              "NVD"
+            ],
+            "status": "AVAILABLE",
+            "verification_status": "PENDING",
+            "execution_mode": "LIVE",
+            "enrichment_progress": [
+              {
+                "kind": "vendor",
+                "job_id": "eca4cfe2-6118-45bd-afe1-06d32bb709c3",
+                "status": "no_result",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:50:55.710965Z"
+              },
+              {
+                "kind": "version",
+                "job_id": "2038840a-662f-44d4-b554-fde6efd465d7",
+                "status": "no_result",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:16:43.164829Z"
+              },
+              {
+                "kind": "patch",
+                "job_id": "f59c4e02-0dc3-496b-afdd-e90a94f95896",
+                "status": "no_result",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:50:55.643072Z"
+              },
+              {
+                "kind": "poc",
+                "job_id": "ceda1272-b571-4585-b4b3-d0e0446401a6",
+                "status": "partial",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:50:59.827708Z"
+              },
+              {
+                "kind": "kev",
+                "job_id": "4c76fff0-e093-4ce8-9798-e5df9330eba8",
+                "status": "no_result",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:16:47.914223Z"
+              },
+              {
+                "kind": "epss",
+                "job_id": "9e48fb46-2f6d-44b9-8e9a-a2e9fee2fe1a",
+                "status": "success",
+                "error_code": null,
+                "retryable": false,
+                "finished_at": "2026-10-14T07:16:47.848383Z"
+              }
+            ],
+            "query_available": true,
+            "verified_claims": 0,
+            "active_claims": 5,
+            "evidence_count": 5,
+            "knowledge_chunks": 0,
+            "stages": [
+              "DISCOVERED",
+              "NORMALIZED",
+              "ENRICHING",
+              "AVAILABLE"
+            ],
+            "observed_at": "2026-10-14T07:16:07.215289Z",
+            "published_at": "2025-04-18T16:15:23.183000Z",
+            "warnings": [
+              "Queryability does not establish confirmed claims; original verification remains required.",
+              "Enrichment contains failed/partial/conflicting outcomes; inspect job progress."
+            ]
+          }
+        ],
+        "total": 2,
+        "offset": 0,
+        "limit": 20,
+        "availability_semantics": "AVAILABLE is queryability, not a blanket verification or exploit verdict."
+      }
+    },
+    "/api/v1/intelligence/monitoring/runs": {
+      "status": 200,
+      "body": {
+        "items": [
+          {
+            "sync_run_id": "9f16b004-4f93-4153-ba8c-fac6494b43a2",
+            "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+            "last_cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+            "source": "ARXIV",
+            "execution_mode": "LIVE",
+            "status": "FAILED",
+            "collection_status": "FAILED",
+            "processed_jobs": 0,
+            "failed_jobs": 0,
+            "pending_jobs": 0,
+            "targets": [],
+            "document_ids": [],
+            "started_at": "2026-10-14T07:16:36.695113Z",
+            "updated_at": "2026-10-14T07:50:59.870661Z",
+            "errors": [
+              "ConnectError"
+            ]
+          },
+          {
+            "sync_run_id": "e0cd6144-d2c2-4d74-ad40-742cad15d521",
+            "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+            "last_cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+            "source": "RSS_TRAIL_OF_BITS",
+            "execution_mode": "LIVE",
+            "status": "PARTIAL",
+            "collection_status": "SUCCEEDED",
+            "processed_jobs": 0,
+            "failed_jobs": 0,
+            "pending_jobs": 0,
+            "targets": [],
+            "document_ids": [
+              "92627c60-3ace-413d-8493-569432f0da3b"
+            ],
+            "started_at": "2026-10-14T07:16:19.735605Z",
+            "updated_at": "2026-10-14T07:50:59.864782Z",
+            "errors": []
+          },
+          {
+            "sync_run_id": "cccdb4a9-13f5-4a3a-9463-0474aedde868",
+            "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+            "last_cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+            "source": "VENDOR_VLLM",
+            "execution_mode": "LIVE",
+            "status": "FAILED",
+            "collection_status": "FAILED",
+            "processed_jobs": 0,
+            "failed_jobs": 0,
+            "pending_jobs": 0,
+            "targets": [],
+            "document_ids": [],
+            "started_at": "2026-10-14T07:16:11.891386Z",
+            "updated_at": "2026-10-14T07:50:59.858515Z",
+            "errors": [
+              "HTTPStatusError"
+            ]
+          },
+          {
+            "sync_run_id": "568dbf94-9703-4fb3-8a99-e4f50ec97150",
+            "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+            "last_cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+            "source": "GHSA",
+            "execution_mode": "LIVE",
+            "status": "FAILED",
+            "collection_status": "FAILED",
+            "processed_jobs": 0,
+            "failed_jobs": 0,
+            "pending_jobs": 0,
+            "targets": [],
+            "document_ids": [],
+            "started_at": "2026-10-14T07:16:07.425289Z",
+            "updated_at": "2026-10-14T07:50:59.852651Z",
+            "errors": [
+              "HTTPStatusError"
+            ]
+          },
+          {
+            "sync_run_id": "194b60b5-60be-4565-8f22-d0f8cc61f07b",
+            "cycle_id": "e2bbbb7f-2ca9-4e39-898d-a54fba487023",
+            "last_cycle_id": "2820f214-90e4-4167-92ca-3292206cbe71",
+            "source": "NVD",
+            "execution_mode": "LIVE",
+            "status": "PARTIAL",
+            "collection_status": "PARTIAL",
+            "processed_jobs": 6,
+            "failed_jobs": 0,
+            "pending_jobs": 0,
+            "targets": [
+              "9aeac647-5afb-488e-b2f9-710e33c99186"
+            ],
+            "document_ids": [],
+            "started_at": "2026-10-14T07:16:05.607119Z",
+            "updated_at": "2026-10-14T07:50:59.845458Z",
+            "errors": [
+              "COLLECTION_PARTIAL"
+            ]
+          }
+        ],
+        "total": 5,
+        "offset": 0,
+        "limit": 20,
+        "scheduler_semantics": "Worker is operator opt-in; these GETs never trigger collection, models or risk computation."
+      }
+    },
+    "/api/v1/intelligence/sources": {
+      "status": 200,
+      "body": {
+        "items": [
+          {
+            "source_key": "ARXIV",
+            "name": "arXiv AI security metadata",
+            "source_type": "atom",
+            "category": "paper",
+            "authority_level": "community",
+            "authority_scope": "Metadata/analysis assertions; no impact or exploit confirmation",
+            "acquisition_method": "https_feed",
+            "base_url": "https://export.arxiv.org/api/query",
+            "enabled": true,
+            "update_interval": 86400,
+            "last_sync_at": "2026-10-14T07:16:36.695113Z",
+            "last_success_at": null,
+            "status": "failed",
+            "license_scope": "Upstream metadata/limited excerpts only; original publisher terms",
+            "checkpoint": {},
+            "coverage_scope": {
+              "scope": "Bounded relevance-ranked LLM/security query; not latest-paper or exhaustive discovery",
+              "metadata_only": true,
+              "snapshot_limit": 100,
+              "global_complete": false,
+              "processed_limit": 1
+            },
+            "id": "1a35f704-4277-499e-a6cb-4c3f54d63f12",
+            "created_at": "2026-10-14T07:16:36.696111Z",
+            "updated_at": "2026-10-14T07:50:55.399478Z",
+            "last_sync": "9f16b004-4f93-4153-ba8c-fac6494b43a2",
+            "latest_error": "[{\"error_type\": \"ConnectError\"}]",
+            "records": {
+              "raw_documents": 0,
+              "processed_observations": 0
+            },
+            "source_category": "paper"
+          },
+          {
+            "source_key": "EPSS",
+            "name": "EPSS",
+            "source_type": "api",
+            "category": "enrichment",
+            "authority_level": "official",
+            "authority_scope": "FIRST EPSS probability only",
+            "acquisition_method": "https_api",
+            "base_url": "https://api.first.org/data/v1/epss",
+            "enabled": true,
+            "update_interval": 3600,
+            "last_sync_at": "2026-10-14T07:16:46.351456Z",
+            "last_success_at": "2026-10-14T07:16:46.351456Z",
+            "status": "succeeded",
+            "license_scope": "Upstream terms; metadata/limited evidence only",
+            "checkpoint": null,
+            "coverage_scope": null,
+            "id": "e500ae57-8f46-4eaa-97c2-e07c78a1cf65",
+            "created_at": "2026-10-14T07:16:46.410257Z",
+            "updated_at": "2026-10-14T07:16:47.777118Z",
+            "last_sync": null,
+            "latest_error": null,
+            "records": {
+              "raw_documents": 1,
+              "processed_observations": 1
+            },
+            "source_category": "enrichment"
+          },
+          {
+            "source_key": "GHSA",
+            "name": "GitHub reviewed advisory database",
+            "source_type": "api",
+            "category": "security_community",
+            "authority_level": "authoritative",
+            "authority_scope": "Published vulnerability assertions; explicit package/version facts only; no exploit validation",
+            "acquisition_method": "https_api",
+            "base_url": "https://api.github.com/advisories",
+            "enabled": true,
+            "update_interval": 3600,
+            "last_sync_at": "2026-10-14T07:16:07.425289Z",
+            "last_success_at": null,
+            "status": "failed",
+            "license_scope": "Upstream terms; metadata with attribution",
+            "checkpoint": null,
+            "coverage_scope": {
+              "source_unavailable": true
+            },
+            "id": "1e89e133-873b-41c0-8390-76ebddfc7909",
+            "created_at": "2026-10-14T07:16:07.422278Z",
+            "updated_at": "2026-10-14T07:50:55.402477Z",
+            "last_sync": "568dbf94-9703-4fb3-8a99-e4f50ec97150",
+            "latest_error": "[{\"external_id\": null, \"error_type\": \"HTTPStatusError\"}]",
+            "records": {
+              "raw_documents": 0,
+              "processed_observations": 0
+            },
+            "source_category": "security_community"
+          },
+          {
+            "source_key": "GITHUB",
+            "name": "GITHUB",
+            "source_type": "api",
+            "category": "enrichment",
+            "authority_level": "community",
+            "authority_scope": "Public hosting metadata; no exploit authority",
+            "acquisition_method": "https_api",
+            "base_url": "https://api.github.com",
+            "enabled": true,
+            "update_interval": 3600,
+            "last_sync_at": "2026-10-14T07:50:58.242523Z",
+            "last_success_at": "2026-10-14T07:50:58.242523Z",
+            "status": "succeeded",
+            "license_scope": "Upstream terms; metadata/limited evidence only",
+            "checkpoint": null,
+            "coverage_scope": null,
+            "id": "06862cab-15ce-4526-9074-53cd5299da46",
+            "created_at": "2026-10-14T07:50:55.780863Z",
+            "updated_at": "2026-10-14T07:50:59.576912Z",
+            "last_sync": null,
+            "latest_error": null,
+            "records": {
+              "raw_documents": 4,
+              "processed_observations": 4
+            },
+            "source_category": "enrichment"
+          },
+          {
+            "source_key": "NVD",
+            "name": "NIST NVD",
+            "source_type": "api",
+            "category": "vulnerability_database",
+            "authority_level": "official",
+            "authority_scope": "Published vulnerability assertions; explicit package/version facts only; no exploit validation",
+            "acquisition_method": "https_api",
+            "base_url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+            "enabled": true,
+            "update_interval": 3600,
+            "last_sync_at": "2026-10-14T07:16:05.606119Z",
+            "last_success_at": null,
+            "status": "partial",
+            "license_scope": "Upstream terms; metadata with attribution",
+            "checkpoint": {
+              "pending": [
+                "CVE-2022-45907",
+                "CVE-2026-41486",
+                "CVE-2026-48545",
+                "CVE-2026-49119",
+                "CVE-2026-57516",
+                "CVE-2026-71211",
+                "CVE-2026-80047",
+                "CVE-2026-8147",
+                "CVE-2026-94626",
+                "CVE-2026-9540",
+                "CVE-2026-9856"
+              ],
+              "candidate_checkpoint": {
+                "pending": [
+                  "CVE-2022-45907",
+                  "CVE-2026-41486",
+                  "CVE-2026-48545",
+                  "CVE-2026-49119",
+                  "CVE-2026-57516",
+                  "CVE-2026-71211",
+                  "CVE-2026-80047",
+                  "CVE-2026-8147",
+                  "CVE-2026-94626",
+                  "CVE-2026-9540",
+                  "CVE-2026-9856"
+                ],
+                "known_ids": [
+                  "CVE-2025-32434",
+                  "CVE-2022-45907",
+                  "CVE-2026-41486",
+                  "CVE-2026-48545",
+                  "CVE-2026-49119",
+                  "CVE-2026-57516",
+                  "CVE-2026-71211",
+                  "CVE-2026-80047",
+                  "CVE-2026-8147",
+                  "CVE-2026-94626",
+                  "CVE-2026-9540",
+                  "CVE-2026-9856"
+                ]
+              }
+            },
+            "coverage_scope": {
+              "kind": "vulnerability_database",
+              "known_gaps": [
+                "Only declared known AI CVEs; discovery is provided by existing CVE/OSV and GHSA adapters. CPE predicates not flattened into package fixes."
+              ],
+              "record_limit": 1,
+              "global_complete": false,
+              "known_id_refresh": true
+            },
+            "id": "10e033ec-71c5-463d-a886-50ab91d58da8",
+            "created_at": "2026-10-14T07:16:05.599209Z",
+            "updated_at": "2026-10-14T07:50:55.404477Z",
+            "last_sync": "194b60b5-60be-4565-8f22-d0f8cc61f07b",
+            "latest_error": null,
+            "records": {
+              "raw_documents": 1,
+              "processed_observations": 1
+            },
+            "source_category": "vulnerability_database"
+          },
+          {
+            "source_key": "RSS_TRAIL_OF_BITS",
+            "name": "Trail of Bits blog",
+            "source_type": "rss",
+            "category": "blog",
+            "authority_level": "authoritative",
+            "authority_scope": "Metadata/analysis assertions; no impact or exploit confirmation",
+            "acquisition_method": "https_feed",
+            "base_url": "https://blog.trailofbits.com/index.xml",
+            "enabled": true,
+            "update_interval": 21600,
+            "last_sync_at": "2026-10-14T07:16:19.735605Z",
+            "last_success_at": "2026-10-14T07:16:36.677265Z",
+            "status": "succeeded",
+            "license_scope": "Upstream metadata/limited excerpts only; original publisher terms",
+            "checkpoint": {
+              "etag": "W/\"c7afdb73f327a5902d1149ba30cf97e9-ssl-df\"",
+              "raw_id": "bb5f1280-1eb4-4969-aa1b-b5bc47b82707",
+              "request_url": "https://blog.trailofbits.com/index.xml",
+              "last_modified": null,
+              "snapshot_limit": 100,
+              "processed_limit": 1
+            },
+            "coverage_scope": {
+              "scope": "Latest bounded feed slice; older publications not exhaustively reconciled",
+              "metadata_only": true,
+              "snapshot_limit": 100,
+              "global_complete": false,
+              "processed_limit": 1
+            },
+            "id": "4957e727-ec28-4238-9458-1d3af7cf2124",
+            "created_at": "2026-10-14T07:16:19.736607Z",
+            "updated_at": "2026-10-14T07:50:55.408013Z",
+            "last_sync": "e0cd6144-d2c2-4d74-ad40-742cad15d521",
+            "latest_error": null,
+            "records": {
+              "raw_documents": 1,
+              "processed_observations": 1
+            },
+            "source_category": "blog"
+          },
+          {
+            "source_key": "VENDOR_VLLM",
+            "name": "vLLM official security advisories",
+            "source_type": "api",
+            "category": "vendor_advisory",
+            "authority_level": "official",
+            "authority_scope": "vllm-project/vllm",
+            "acquisition_method": "https_api",
+            "base_url": "https://api.github.com/repos/vllm-project/vllm/security-advisories",
+            "enabled": true,
+            "update_interval": 3600,
+            "last_sync_at": "2026-10-14T07:16:11.891386Z",
+            "last_success_at": null,
+            "status": "failed",
+            "license_scope": "Upstream terms; metadata with attribution",
+            "checkpoint": null,
+            "coverage_scope": {
+              "source_unavailable": true
+            },
+            "id": "6f34d766-84c3-424e-85fe-e8ca6446a2a6",
+            "created_at": "2026-10-14T07:16:11.888389Z",
+            "updated_at": "2026-10-14T07:50:55.410004Z",
+            "last_sync": "cccdb4a9-13f5-4a3a-9463-0474aedde868",
+            "latest_error": "[{\"external_id\": null, \"error_type\": \"HTTPStatusError\"}]",
+            "records": {
+              "raw_documents": 0,
+              "processed_observations": 0
+            },
+            "source_category": "vendor_advisory"
+          }
+        ],
+        "total": 7,
+        "source_category_count": 6,
+        "collected_source_category_count": 3,
+        "coverage": "Declared bounded sources; not global completeness or grade attainment"
+      }
+    }
+  },
+  "finished_at": "2026-10-14T07:51:03.461915+00:00"
+}

@@ -8,6 +8,8 @@ from app.monitoring import views
 from app.monitoring.schemas import SecurityIntelligenceObject,IntelligencePage,SourceStatusPage,AssetRiskPage
 from app.enrichment.poc_schemas import POCPage
 from app.enrichment.poc_artifacts import poc_page
+from app.monitoring.automation_schemas import RecordPage,PipelineRunPage
+from app.monitoring.lifecycle import record_page,pipeline_runs
 
 router=APIRouter(prefix='/api/v1/intelligence',tags=['intelligence'])
 SessionDep=Annotated[Session,Depends(get_session)]
@@ -18,6 +20,15 @@ def listing(session:SessionDep,type:Literal['vulnerability','paper','blog','advi
 
 @router.get('/sources',response_model=SourceStatusPage)
 def sources(session:SessionDep):return views.source_status(session)
+
+@router.get('/records',response_model=RecordPage)
+def records(session:SessionDep,type:Literal['vulnerability','paper','blog','advisory','analysis','knowledge']|None=None,
+    q:str|None=Query(None,max_length=150),offset:int=Query(0,ge=0),limit:int=Query(20,ge=1,le=100)):
+    return record_page(session,kind=type,q=q,offset=offset,limit=limit)
+
+@router.get('/monitoring/runs',response_model=PipelineRunPage)
+def monitoring_runs(session:SessionDep,source:str|None=Query(None,max_length=100),offset:int=Query(0,ge=0),limit:int=Query(20,ge=1,le=100)):
+    return pipeline_runs(session,source=source,offset=offset,limit=limit)
 
 @router.get('/vulnerabilities/{id}',response_model=SecurityIntelligenceObject)
 def vulnerability(id:str,session:SessionDep):

@@ -1,3 +1,7 @@
+## Phase 14-B2 多源自动流水线（2026-10-14）
+
+Collector框架、选定批次自动富化、积压续跑、来源状态、显式调度和两个只读接口已完成。原业务708文件未改。专项47项、便携673项通过；最终全量1638项通过、2项既有失败、0夹具错误；真实三轮保留来源失败，6个根任务和3个依赖输出，1漏洞/1博客/14知识块。AVAILABLE不等于确认；未创建企业库存、未运行Benchmark。分支codex/phase14b2-monitoring-pipeline基于未合并PR24，结果见PHASE_14B2_RESULT.md；主分支发布与执行状态分开。
+
 ## Phase 14-B1 PoC 富化（2026-10-14）
 
 Artifact、证据/原核验链复用、只读查询与前端契约已完成。新增35项专项；相关186/186与 portable654项通过。真实库存读取2条候选，0条真实 VERIFIED_EXPLOIT；未执行利用或扫描。全量1574通过、2项既有 Unknown Context 失败保留。分支 codex/phase14b1-poc-enrichment，基于 Phase14A，尚未合并 main。完整结果见 PHASE_14B1_RESULT.md；停止在本阶段。

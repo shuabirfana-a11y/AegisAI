@@ -10,12 +10,17 @@ def main(argv=None):
     p.add_argument('--source',choices=SOURCES,action='append');p.add_argument('--all',action='store_true')
     p.add_argument('--limit',type=int,default=10);p.add_argument('--cycles',type=int,default=1);p.add_argument('--interval',type=float,default=300)
     p.add_argument('--force',action='store_true',help='Ignore source due time for one operator-requested refresh')
-    p.add_argument('--process-enrichment',type=int,default=0,help='Maximum existing queued enrichment jobs per cycle')
+    p.add_argument('--pipeline',action='store_true',help='Opt in to batch-scoped automatic enrichment and bounded inventory updates')
+    p.add_argument('--cycle-seconds',type=float,default=300,help='Pipeline start-next-work deadline; a current HTTP/domain operation finishes under its original bounds')
+    p.add_argument('--allow-cve-bootstrap',action='store_true',help='Explicitly permit the original filtered CVE Git baseline acquisition')
+    p.add_argument('--process-enrichment',type=int,default=None,help='Root job budget: legacy default 0, automatic pipeline default 6; explicit 0 queues without executing')
     p.add_argument('--investigate',help='Submit one explicit CVE question to the existing HTTP Orchestrator after collection')
     p.add_argument('--api-base-url',default='http://127.0.0.1:8000')
     a=p.parse_args(argv)
+    if a.process_enrichment is None:a.process_enrichment=6 if a.pipeline else 0
     if bool(a.source)==bool(a.all):p.error('Choose --source (repeatable) or --all')
     if not 1<=a.limit<=100 or not 1<=a.cycles<=10000 or not 0<=a.process_enrichment<=20 or not math.isfinite(a.interval) or a.interval<3:p.error('Invalid bounded monitoring budget')
+    if a.pipeline and (a.interval>86400 or not math.isfinite(a.cycle_seconds) or not 1<=a.cycle_seconds<=3600):p.error('Invalid automatic pipeline budget')
     if a.investigate:
         import re
         if not re.fullmatch(r'CVE-\d{4}-\d{4,}',a.investigate):p.error('Investigation requires an exact supplied CVE')
@@ -26,7 +31,10 @@ def main(argv=None):
         if not os.environ.get('AEGIS_ASSET_TOKEN'):p.error('Configure local AEGIS_ASSET_TOKEN; do not put it in argv')
     engine=make_engine();service=MonitoringService(engine)
     try:
-        for i in range(a.cycles):
+        if a.pipeline:
+            from app.monitoring.automation_cli import run_automation
+            if not run_automation(engine,service,a):return
+        for i in range(0 if a.pipeline else a.cycles):
             results=service.run_once(a.source if not a.all else None,limit=a.limit,force=a.force)
             jobs=queue_enrichment(service.factory,results)
             processed=[]

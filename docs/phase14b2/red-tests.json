@@ -1,0 +1,95 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-14T06:13:35.207687+00:00",
+  "exit_status": 1,
+  "passed": 0,
+  "failed": 17,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs0]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs1]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs2]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs3]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs4]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs5]",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_registry_covers_existing_categories_without_automatic_mock_fallback",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_collects_normalizes_enriches_and_retains_original_verification",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_failure_is_durable_and_cannot_suppress_other_sources",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_batch_does_not_drain_an_unrelated_enrichment_job",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_not_due_cycle_resumes_its_backlog_without_refetching",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_disabled_source_is_not_reenabled_by_scheduling",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_stopped_cycle_does_not_fetch_or_drain_jobs",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_mock_is_rejected_for_a_development_database_before_any_work",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_scheduler_stop_prevents_extra_cycles_and_does_not_force_every_refresh",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_record_http_is_read_only_and_contains_actual_progress_without_owner_details",
+      "phase": "call",
+      "outcome": "failed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_openapi_is_typed_and_keeps_availability_distinct_from_verification",
+      "phase": "call",
+      "outcome": "failed"
+    }
+  ]
+}
