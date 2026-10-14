@@ -1,0 +1,1309 @@
+{
+  "api_status": "MOCK_ONLY",
+  "fixture_label": "DEMO",
+  "production_data": false,
+  "default_scenario": "PASS",
+  "data_origin": "REAL_CODE_EXECUTION_WITH_SYNTHETIC_TEST_SEED_NOT_HTTP_CAPTURE_NOT_BENCHMARK",
+  "source": "api/reference/examples/orchestration-test-receipts.json",
+  "captured_at": "2026-10-10T01:20:51.064608+00:00",
+  "notice": "Historical synthetic test receipts, not live responses or real vulnerability advisories. Select the same scenario across all five demo files.",
+  "schema_model": "AnswerEnvelope",
+  "scenarios": {
+    "PASS": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "616e193c-5b44-5b7b-ab70-7ae2a5bfb279",
+      "logical_investigation_id": "df1a055d-1e72-4b8e-9a98-24c0abdf2016",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-890036937964 影响，如何修复？",
+      "answer_status": "COMPLETE",
+      "integration_status": "PASS",
+      "summary": "调查结果已通过全局验收，结论及证据如下。",
+      "key_findings": [
+        "604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+        "620389f9-c962-4f2d-9527-80b743a82e7c",
+        "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3"
+      ],
+      "affected_assets": [
+        {
+          "asset_id": "f7a8639a-5c0c-4908-b6ae-84f15827dcbb",
+          "component_id": "d9668d54-95d2-4835-9050-08e2d9e4277a",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": [
+            "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3"
+          ]
+        }
+      ],
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "priority": "P2",
+        "affected": true,
+        "verification_status": "CONFIRMED",
+        "source_artifact": {
+          "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+          "task_id": "analyze",
+          "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "MATCHED",
+        "version_match_status": "AFFECTED",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "CONFIRMED_PRESENT",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "ACCEPTED"
+      },
+      "recommended_actions": [
+        {
+          "action_id": "fix:604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+          "action_type": "UPGRADE_VERIFIED_RELEASE",
+          "summary": "依据核验来源核对修复方案及适用条件。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": "0.7.0",
+          "patch_reference": null,
+          "claim_ids": [
+            "604ab987-e98f-4438-9e7b-e2f219fd5b9a"
+          ],
+          "evidence_ids": [
+            "e03fa204-710d-48b1-a535-8d83ce0f1d86"
+          ],
+          "action_provenance": "VERIFIED_CLAIM",
+          "applicability": "CONFIRMED",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "EVALUATE_EXPOSURE_RESTRICTION",
+          "action_type": "EVALUATE_EXPOSURE_RESTRICTION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "feb55222-e678-48a3-bcc5-ba990b1166c8",
+            "task_id": "analyze",
+            "artifact_id": "870b7b31-ea43-4064-9499-2aa2843d436f",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        }
+      ],
+      "verified_claims": [
+        {
+          "claim_id": "604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+          "claim_type": "FIXED_VERSION",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "package": "vllm-verify-99ef28cb054741f88c7c907391ef6ea5",
+            "version": "0.7.0",
+            "ecosystem": "PyPI"
+          },
+          "evidence_ids": [
+            "e03fa204-710d-48b1-a535-8d83ce0f1d86"
+          ],
+          "source_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "claim_id": "620389f9-c962-4f2d-9527-80b743a82e7c",
+          "claim_type": "CVSS_SCORE",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "score": 8.1,
+            "version": "3.1",
+            "severity": "high"
+          },
+          "evidence_ids": [
+            "7ae054cb-6c96-4088-8872-475b297d00e8"
+          ],
+          "source_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "claim_id": "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3",
+          "claim_type": "AFFECTS_VERSION",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "package": "vllm-verify-99ef28cb054741f88c7c907391ef6ea5",
+            "ecosystem": "PyPI",
+            "raw_expression": ">=0.5.0,<0.7.0"
+          },
+          "evidence_ids": [
+            "5e6c80b7-7ace-4a9b-882b-8fa75f452b4a"
+          ],
+          "source_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "disputed_claims": [],
+      "citations": [
+        {
+          "evidence_id": "e03fa204-710d-48b1-a535-8d83ce0f1d86",
+          "claim_id": "604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "ba08a6b3-7889-442d-8c87-e44501543da1",
+          "raw_document_id": "e9aad2d1-d6f8-4807-bd32-1343907cd8f1",
+          "observation_id": "d220d21c-2832-4f66-91db-1e3309fa1f0a",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 2
+            }
+          },
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "7ae054cb-6c96-4088-8872-475b297d00e8",
+          "claim_id": "620389f9-c962-4f2d-9527-80b743a82e7c",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "ba08a6b3-7889-442d-8c87-e44501543da1",
+          "raw_document_id": "e9aad2d1-d6f8-4807-bd32-1343907cd8f1",
+          "observation_id": "d220d21c-2832-4f66-91db-1e3309fa1f0a",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "5e6c80b7-7ace-4a9b-882b-8fa75f452b4a",
+          "claim_id": "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3",
+          "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+          "source_id": "0c8a4ce0-92a6-4723-b5a4-c75a5a23df31",
+          "raw_document_id": "d121e76b-bd01-47b8-92fe-219668ba30ef",
+          "observation_id": "627a077a-4911-4a8d-aafd-c8f442eddf24",
+          "reference": {
+            "url": "https://example.invalid/SYNTHETIC/99ef28cb054741f88c7c907391ef6ea5",
+            "locator": {
+              "line": 1
+            }
+          },
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "evidence_observations": [
+        {
+          "evidence_id": "e03fa204-710d-48b1-a535-8d83ce0f1d86",
+          "claim_id": "604ab987-e98f-4438-9e7b-e2f219fd5b9a",
+          "verification_status": "CONFIRMED",
+          "scope_key": "PyPI:vllm-verify-99ef28cb054741f88c7c907391ef6ea5",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "ba08a6b3-7889-442d-8c87-e44501543da1",
+          "raw_document_id": "e9aad2d1-d6f8-4807-bd32-1343907cd8f1",
+          "observation_id": "d220d21c-2832-4f66-91db-1e3309fa1f0a",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 2
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "7ae054cb-6c96-4088-8872-475b297d00e8",
+          "claim_id": "620389f9-c962-4f2d-9527-80b743a82e7c",
+          "verification_status": "CONFIRMED",
+          "scope_key": "CVE-2099-890036937964",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "ba08a6b3-7889-442d-8c87-e44501543da1",
+          "raw_document_id": "e9aad2d1-d6f8-4807-bd32-1343907cd8f1",
+          "observation_id": "d220d21c-2832-4f66-91db-1e3309fa1f0a",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "5e6c80b7-7ace-4a9b-882b-8fa75f452b4a",
+          "claim_id": "74c03fe9-4509-4c8f-80d1-df45e8c1b0f3",
+          "verification_status": "CONFIRMED",
+          "scope_key": "PyPI:vllm-verify-99ef28cb054741f88c7c907391ef6ea5",
+          "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+          "source_id": "0c8a4ce0-92a6-4723-b5a4-c75a5a23df31",
+          "raw_document_id": "d121e76b-bd01-47b8-92fe-219668ba30ef",
+          "observation_id": "627a077a-4911-4a8d-aafd-c8f442eddf24",
+          "reference": {
+            "url": "https://example.invalid/SYNTHETIC/99ef28cb054741f88c7c907391ef6ea5",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+            "task_id": "verify",
+            "artifact_id": "f6036789-4258-4bd0-aae6-1be8a7e3f121",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ],
+      "evidence_references": [
+        "e03fa204-710d-48b1-a535-8d83ce0f1d86",
+        "7ae054cb-6c96-4088-8872-475b297d00e8",
+        "5e6c80b7-7ace-4a9b-882b-8fa75f452b4a"
+      ],
+      "warnings": [],
+      "unresolved_items": [],
+      "integration_result_id": "792110ae-d688-4f2f-ae42-fa9349033040",
+      "agent_run_references": [
+        "64e3ff1f-b30d-42e3-85f7-4da55fa4f8fa",
+        "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+        "feb55222-e678-48a3-bcc5-ba990b1166c8"
+      ],
+      "accepted_source_run_references": [
+        "64e3ff1f-b30d-42e3-85f7-4da55fa4f8fa",
+        "2e0d10d5-785f-4708-bd81-0b19afec5acb",
+        "feb55222-e678-48a3-bcc5-ba990b1166c8"
+      ],
+      "trace_reference": "df1a055d-1e72-4b8e-9a98-24c0abdf2016",
+      "generated_at": "2026-10-10T01:18:32.807932Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "ORCHESTRATION_FAILED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "c8ccf363-3575-5d2d-825f-8c5a98d8d3ca",
+      "logical_investigation_id": "4a84e54f-379b-4d54-b0f1-b4681b76aad1",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-152474472338 影响，如何修复？",
+      "answer_status": "FAILED",
+      "integration_status": null,
+      "summary": "调查未完成，请查看审计状态。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "ORCHESTRATION_FAILED"
+      ],
+      "unresolved_items": [
+        "ORCHESTRATION_FAILED"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [
+        "cdd991ed-2c56-4c10-ac60-def3e7203f2f"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "4a84e54f-379b-4d54-b0f1-b4681b76aad1",
+      "generated_at": "2026-10-10T01:18:16.611626Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "SYNTHETIC_STOP": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "7c1c22d9-44f1-5060-a0b2-471c3f46ed71",
+      "logical_investigation_id": "b42e79ba-8dda-4c67-97c0-8b703300e716",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-575284269314 影响，如何修复？",
+      "answer_status": "FAILED",
+      "integration_status": null,
+      "summary": "调查未完成，请查看审计状态。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "SYNTHETIC_STOP"
+      ],
+      "unresolved_items": [
+        "SYNTHETIC_STOP"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [],
+      "accepted_source_run_references": [],
+      "trace_reference": "b42e79ba-8dda-4c67-97c0-8b703300e716",
+      "generated_at": "2026-10-10T01:17:31.307635Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "CANCELLED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "66f43ea7-70a6-51f4-88c6-ea6909e93e80",
+      "logical_investigation_id": "0139bcb8-6806-4ba6-a763-8e7ac7832e02",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-301469170106 影响，如何修复？",
+      "answer_status": "CANCELLED",
+      "integration_status": null,
+      "summary": "调查已取消。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "CANCELLED"
+      ],
+      "unresolved_items": [
+        "CANCELLED"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [
+        "62739514-5fef-4a5e-84e5-cc5416010ca9"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "0139bcb8-6806-4ba6-a763-8e7ac7832e02",
+      "generated_at": "2026-10-10T01:17:31.155594Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "DEADLINE_EXCEEDED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "096b37e6-db62-50e4-a07b-dca96cfb9a5e",
+      "logical_investigation_id": "4082a434-4576-4e45-bb24-d1bda5cff861",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-183155864466 影响，如何修复？",
+      "answer_status": "FAILED",
+      "integration_status": null,
+      "summary": "调查未完成，请查看审计状态。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "DEADLINE_EXCEEDED"
+      ],
+      "unresolved_items": [
+        "DEADLINE_EXCEEDED"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [
+        "255471c5-ad52-4dd1-8333-99d1a1ca062c"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "4082a434-4576-4e45-bb24-d1bda5cff861",
+      "generated_at": "2026-10-10T01:17:24.951275Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "FAILED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "8b7af278-c13e-5960-8f17-3f5867175184",
+      "logical_investigation_id": "380557e7-efd4-4d1c-b615-6ac26d1bce2e",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-123269225651 影响，如何修复？",
+      "answer_status": "FAILED",
+      "integration_status": "FAILED",
+      "summary": "调查验收失败，未交付安全结论；请依据审计原因检查后重新提交新请求。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [],
+      "unresolved_items": [
+        "SOURCE_INPUT_INVALID",
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_CONTEXT_MISSING",
+        "TIME_SCOPE_UNAVAILABLE"
+      ],
+      "integration_result_id": "7e5142a8-77a0-45c6-bc08-44e2308d6487",
+      "agent_run_references": [
+        "5ac393a1-0ed3-4e3a-8295-b7e3c1d39154",
+        "fd9a91aa-6bce-448a-a19b-2f65411cf63d",
+        "e58a1de0-8087-48df-9e8c-83c701526f96"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "380557e7-efd4-4d1c-b615-6ac26d1bce2e",
+      "generated_at": "2026-10-10T01:17:21.028072Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "REPLAN_REQUIRED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "ae865723-28ba-5450-9113-b47768b229f7",
+      "logical_investigation_id": "697e5139-784d-455f-958e-d4096d88fd99",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-150484804298 影响，如何修复？",
+      "answer_status": "INCOMPLETE",
+      "integration_status": "REPLAN_REQUIRED",
+      "summary": "调查尚不完整；以下仅为已核验事实及风险观察，需要补充调查。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [],
+      "unresolved_items": [
+        "REQUIRED_ARTIFACT_MISSING",
+        "VERIFIED_EVIDENCE_MISSING",
+        "VERIFICATION_INPUT_MISSING",
+        "OBJECTIVE_NOT_COVERED"
+      ],
+      "integration_result_id": "6d3a8a1c-a12a-4a88-a3a4-36fbafe9ad4a",
+      "agent_run_references": [
+        "24aaa08d-57ba-4a11-bf71-965bd352b9d0"
+      ],
+      "accepted_source_run_references": [],
+      "trace_reference": "697e5139-784d-455f-958e-d4096d88fd99",
+      "generated_at": "2026-10-10T01:17:08.639997Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "PLANNING_FAILED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "15049587-5832-5068-8fb0-4bec3c6a246e",
+      "logical_investigation_id": "a7203321-1886-44a8-a8a6-86c6b26b276b",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-145151218506 影响，如何修复？",
+      "answer_status": "FAILED",
+      "integration_status": null,
+      "summary": "调查未完成，请查看审计状态。",
+      "key_findings": [],
+      "affected_assets": [],
+      "risk_assessment": null,
+      "recommended_actions": [],
+      "verified_claims": [],
+      "disputed_claims": [],
+      "citations": [],
+      "evidence_observations": [],
+      "evidence_references": [],
+      "warnings": [
+        "PLANNING_FAILED"
+      ],
+      "unresolved_items": [
+        "PLANNING_FAILED"
+      ],
+      "integration_result_id": null,
+      "agent_run_references": [],
+      "accepted_source_run_references": [],
+      "trace_reference": "a7203321-1886-44a8-a8a6-86c6b26b276b",
+      "generated_at": "2026-10-10T01:16:24.245479Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "HUMAN_REVIEW_REQUIRED": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "04fe144f-5efa-55d6-8452-6cd70a803b2d",
+      "logical_investigation_id": "3225d7ec-994f-41c2-ac3b-5bfd7b5298fb",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-161052556954 影响，如何修复？",
+      "answer_status": "REVIEW_REQUIRED",
+      "integration_status": "HUMAN_REVIEW_REQUIRED",
+      "summary": "证据存在冲突，需要人工复核；系统保留冲突，不裁决争议事实。",
+      "key_findings": [
+        "cc3c9758-3ded-4425-8e45-d4eeddf03b76"
+      ],
+      "affected_assets": [
+        {
+          "asset_id": "dfea5901-23e3-4955-a59f-bb42c2a8dce2",
+          "component_id": "c78fc9b4-94d3-4439-a664-abfa3fdc9fbf",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": []
+        }
+      ],
+      "risk_assessment": {
+        "risk_level": "UNKNOWN",
+        "priority": "REVIEW_REQUIRED",
+        "affected": null,
+        "verification_status": "CONFLICT",
+        "source_artifact": {
+          "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+          "task_id": "analyze",
+          "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "UNKNOWN",
+        "version_match_status": "UNKNOWN",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "UNCONFIRMED",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "OBSERVATION"
+      },
+      "recommended_actions": [
+        {
+          "action_id": "REQUEST_REVIEW",
+          "action_type": "REQUEST_REVIEW",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "FURTHER_INVESTIGATION",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "action_id": "TRACK_REMEDIATION",
+          "action_type": "TRACK_REMEDIATION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "FURTHER_INVESTIGATION",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "223b28a8-1291-41f7-802e-6ecd567ea948",
+            "task_id": "analyze",
+            "artifact_id": "fe14dfef-0fc8-4d4d-a11d-3608793ce23a",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ],
+      "verified_claims": [
+        {
+          "claim_id": "cc3c9758-3ded-4425-8e45-d4eeddf03b76",
+          "claim_type": "CVSS_SCORE",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "score": 8.1,
+            "version": "3.1",
+            "severity": "high"
+          },
+          "evidence_ids": [
+            "00ed8030-afd8-4cf8-9754-d643febcc827"
+          ],
+          "source_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "disputed_claims": [
+        {
+          "claim_id": "979532f0-1d62-4080-98bc-70299b82b3f4",
+          "claim_type": "AFFECTS_VERSION",
+          "verification_status": "CONFLICT",
+          "value": {
+            "package": "vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+            "ecosystem": "PyPI",
+            "raw_expression": ">=0.5.0,<0.7.0"
+          },
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "supporting_evidence_ids": [
+            "26cb9865-348f-4d8a-9310-0ad365a30437"
+          ],
+          "conflicting_evidence_ids": [
+            "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4",
+            "26cb9865-348f-4d8a-9310-0ad365a30437"
+          ],
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "claim_id": "bbddb93c-81b5-4896-9027-321e32a96e64",
+          "claim_type": "AFFECTS_VERSION",
+          "verification_status": "CONFLICT",
+          "value": {
+            "package": "vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+            "ecosystem": "PyPI",
+            "raw_expression": "<=0.8.0"
+          },
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "supporting_evidence_ids": [
+            "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4"
+          ],
+          "conflicting_evidence_ids": [
+            "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4",
+            "26cb9865-348f-4d8a-9310-0ad365a30437",
+            "9d5e5a58-f211-43c2-9dc8-9468e7e27c02"
+          ],
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "claim_id": "e703aa1f-6943-47eb-a032-ecdfc8fa31df",
+          "claim_type": "FIXED_VERSION",
+          "verification_status": "CONFLICT",
+          "value": {
+            "package": "vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+            "version": "0.7.0",
+            "ecosystem": "PyPI"
+          },
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "supporting_evidence_ids": [
+            "9d5e5a58-f211-43c2-9dc8-9468e7e27c02"
+          ],
+          "conflicting_evidence_ids": [
+            "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4",
+            "9d5e5a58-f211-43c2-9dc8-9468e7e27c02"
+          ],
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "00ed8030-afd8-4cf8-9754-d643febcc827",
+          "claim_id": "cc3c9758-3ded-4425-8e45-d4eeddf03b76",
+          "hash": "3831f38f411d6083e96130a596ca2a0cd0da9f607e3bd2b079c672f3452c78c0",
+          "source_id": "dde41174-f544-4aad-8525-51d9b102bfa0",
+          "raw_document_id": "5a48d432-c8e9-4b60-91b7-76c58ce85d40",
+          "observation_id": "8a090b49-2e95-4b0f-92f5-2fa59ae7aaa5",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "evidence_observations": [
+        {
+          "evidence_id": "26cb9865-348f-4d8a-9310-0ad365a30437",
+          "claim_id": "979532f0-1d62-4080-98bc-70299b82b3f4",
+          "verification_status": "CONFLICT",
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+          "source_id": "0a8944d0-5833-4ef9-a3a0-61721335deae",
+          "raw_document_id": "813cff3c-8fca-4a3c-890e-95ed1e82fb0a",
+          "observation_id": "f95a3e2d-71d9-4884-97f0-b229bccdfde6",
+          "reference": {
+            "url": "https://example.invalid/SYNTHETIC/a3f808af6f794ae9b0fbfc7827f4005a",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4",
+          "claim_id": "bbddb93c-81b5-4896-9027-321e32a96e64",
+          "verification_status": "CONFLICT",
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "hash": "3831f38f411d6083e96130a596ca2a0cd0da9f607e3bd2b079c672f3452c78c0",
+          "source_id": "dde41174-f544-4aad-8525-51d9b102bfa0",
+          "raw_document_id": "5a48d432-c8e9-4b60-91b7-76c58ce85d40",
+          "observation_id": "8a090b49-2e95-4b0f-92f5-2fa59ae7aaa5",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 3
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "00ed8030-afd8-4cf8-9754-d643febcc827",
+          "claim_id": "cc3c9758-3ded-4425-8e45-d4eeddf03b76",
+          "verification_status": "CONFIRMED",
+          "scope_key": "CVE-2099-161052556954",
+          "hash": "3831f38f411d6083e96130a596ca2a0cd0da9f607e3bd2b079c672f3452c78c0",
+          "source_id": "dde41174-f544-4aad-8525-51d9b102bfa0",
+          "raw_document_id": "5a48d432-c8e9-4b60-91b7-76c58ce85d40",
+          "observation_id": "8a090b49-2e95-4b0f-92f5-2fa59ae7aaa5",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "9d5e5a58-f211-43c2-9dc8-9468e7e27c02",
+          "claim_id": "e703aa1f-6943-47eb-a032-ecdfc8fa31df",
+          "verification_status": "CONFLICT",
+          "scope_key": "PyPI:vllm-verify-a3f808af6f794ae9b0fbfc7827f4005a",
+          "hash": "3831f38f411d6083e96130a596ca2a0cd0da9f607e3bd2b079c672f3452c78c0",
+          "source_id": "dde41174-f544-4aad-8525-51d9b102bfa0",
+          "raw_document_id": "5a48d432-c8e9-4b60-91b7-76c58ce85d40",
+          "observation_id": "8a090b49-2e95-4b0f-92f5-2fa59ae7aaa5",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 2
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "9e286d85-be9c-4214-9151-7237a3d49406",
+            "task_id": "verify",
+            "artifact_id": "1b557514-5fb8-4f99-aafa-4f6aee0a3043",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ],
+      "evidence_references": [
+        "26cb9865-348f-4d8a-9310-0ad365a30437",
+        "1ef6337f-c627-4fbe-b36a-b3cb8e5115c4",
+        "00ed8030-afd8-4cf8-9754-d643febcc827",
+        "9d5e5a58-f211-43c2-9dc8-9468e7e27c02"
+      ],
+      "warnings": [
+        "REMEDIATION_UNKNOWN",
+        "UNKNOWN_IS_NOT_SAFE",
+        "PATCH_CANDIDATE_NOT_A_FIX"
+      ],
+      "unresolved_items": [
+        "REQUIRED_TASK_INCOMPLETE",
+        "CRITICAL_EVIDENCE_CONFLICT",
+        "OBJECTIVE_NOT_COVERED",
+        "UNRESOLVED_ANALYSIS",
+        "REMEDIATION_UNKNOWN"
+      ],
+      "integration_result_id": "08a8c2ba-61df-4b09-badc-5a5d2d1ce930",
+      "agent_run_references": [
+        "2ff9c5d4-68ce-4382-a1f2-c790bacde5e6",
+        "9e286d85-be9c-4214-9151-7237a3d49406",
+        "223b28a8-1291-41f7-802e-6ecd567ea948"
+      ],
+      "accepted_source_run_references": [
+        "2ff9c5d4-68ce-4382-a1f2-c790bacde5e6",
+        "9e286d85-be9c-4214-9151-7237a3d49406",
+        "223b28a8-1291-41f7-802e-6ecd567ea948"
+      ],
+      "trace_reference": "3225d7ec-994f-41c2-ac3b-5bfd7b5298fb",
+      "generated_at": "2026-10-10T01:16:01.008199Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    },
+    "PASS_WITH_WARNINGS": {
+      "schema_version": "answer-envelope-v1",
+      "answer_id": "e0732cbf-c401-565d-9884-90122a3a2aa3",
+      "logical_investigation_id": "b424b1e9-a1fc-4452-9a47-e9f287ad2b2b",
+      "original_question": "我的 vLLM 0.6.0 部署是否受到 CVE-2099-189707837285 影响，如何修复？",
+      "answer_status": "COMPLETE_WITH_WARNINGS",
+      "integration_status": "PASS_WITH_WARNINGS",
+      "summary": "调查结果已通过验收，请同时查看非阻塞警告。",
+      "key_findings": [
+        "6e80cc04-9116-46b1-abd6-7d788ffbee1d",
+        "98a9d0c2-6464-4984-be24-0b12cd63b557",
+        "9f0b2275-b6a2-4918-baad-53bf8897739e"
+      ],
+      "affected_assets": [
+        {
+          "asset_id": "417eea5e-4c08-4672-9c83-938fa1be38ec",
+          "component_id": "baf8c09e-9a34-4d66-b4fc-2f559ae0dce8",
+          "deployed_version": "0.6.0",
+          "provenance": "USER_INVENTORY_NOT_SCANNED",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "claim_ids": [
+            "9f0b2275-b6a2-4918-baad-53bf8897739e"
+          ]
+        }
+      ],
+      "risk_assessment": {
+        "risk_level": "HIGH",
+        "priority": "P2",
+        "affected": true,
+        "verification_status": "CONFIRMED",
+        "source_artifact": {
+          "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+          "task_id": "analyze",
+          "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+          "schema_version": "risk-analysis-artifact-v1"
+        },
+        "asset_match_status": "MATCHED",
+        "version_match_status": "AFFECTED",
+        "exploitation_status": "UNKNOWN",
+        "usability": "NOT_EVALUATED",
+        "patch_status": "CONFIRMED_PRESENT",
+        "patch_applied": "UNKNOWN",
+        "conclusion_scope": "ACCEPTED"
+      },
+      "recommended_actions": [
+        {
+          "action_id": "fix:98a9d0c2-6464-4984-be24-0b12cd63b557",
+          "action_type": "UPGRADE_VERIFIED_RELEASE",
+          "summary": "依据核验来源核对修复方案及适用条件。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": "0.7.0",
+          "patch_reference": null,
+          "claim_ids": [
+            "98a9d0c2-6464-4984-be24-0b12cd63b557"
+          ],
+          "evidence_ids": [
+            "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec"
+          ],
+          "action_provenance": "VERIFIED_CLAIM",
+          "applicability": "CONFIRMED",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "EVALUATE_EXPOSURE_RESTRICTION",
+          "action_type": "EVALUATE_EXPOSURE_RESTRICTION",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        },
+        {
+          "action_id": "MONITOR_COMPONENT",
+          "action_type": "MONITOR_COMPONENT",
+          "summary": "建议补充调查或采用通用防护措施；不表示已确认修复。",
+          "category": "LONG_TERM_HARDENING",
+          "fixed_version": null,
+          "patch_reference": null,
+          "claim_ids": [],
+          "evidence_ids": [],
+          "action_provenance": "GENERAL_PRECAUTION",
+          "applicability": "UNKNOWN",
+          "source_artifact": {
+            "run_id": "efcc5e78-fa37-413e-8c45-d56226c7218a",
+            "task_id": "analyze",
+            "artifact_id": "d1fd170d-b1fd-4e82-87e3-2f9a3ca02214",
+            "schema_version": "risk-analysis-artifact-v1"
+          },
+          "conclusion_scope": "ACCEPTED"
+        }
+      ],
+      "verified_claims": [
+        {
+          "claim_id": "6e80cc04-9116-46b1-abd6-7d788ffbee1d",
+          "claim_type": "CVSS_SCORE",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "score": 8.1,
+            "version": "3.1",
+            "severity": "high"
+          },
+          "evidence_ids": [
+            "13f43fcf-f663-453b-b881-84f559cff536"
+          ],
+          "source_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "claim_id": "98a9d0c2-6464-4984-be24-0b12cd63b557",
+          "claim_type": "FIXED_VERSION",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "package": "vllm-verify-f8e51ae6514d495c8be5de152577b895",
+            "version": "0.7.0",
+            "ecosystem": "PyPI"
+          },
+          "evidence_ids": [
+            "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec"
+          ],
+          "source_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "claim_id": "9f0b2275-b6a2-4918-baad-53bf8897739e",
+          "claim_type": "AFFECTS_VERSION",
+          "verification_status": "CONFIRMED",
+          "value": {
+            "package": "vllm-verify-f8e51ae6514d495c8be5de152577b895",
+            "ecosystem": "PyPI",
+            "raw_expression": ">=0.5.0,<0.7.0"
+          },
+          "evidence_ids": [
+            "71ef609a-8b9c-4fb5-8858-f40a7c848d83"
+          ],
+          "source_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "disputed_claims": [],
+      "citations": [
+        {
+          "evidence_id": "13f43fcf-f663-453b-b881-84f559cff536",
+          "claim_id": "6e80cc04-9116-46b1-abd6-7d788ffbee1d",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "6f28de2b-f79d-4804-9f4e-209f1b781edc",
+          "raw_document_id": "66a1afba-f265-4ba8-a04f-253d33fe4a9b",
+          "observation_id": "a885a6b8-fb52-4ece-92d1-7c282bde778d",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec",
+          "claim_id": "98a9d0c2-6464-4984-be24-0b12cd63b557",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "6f28de2b-f79d-4804-9f4e-209f1b781edc",
+          "raw_document_id": "66a1afba-f265-4ba8-a04f-253d33fe4a9b",
+          "observation_id": "a885a6b8-fb52-4ece-92d1-7c282bde778d",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 2
+            }
+          },
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        },
+        {
+          "evidence_id": "71ef609a-8b9c-4fb5-8858-f40a7c848d83",
+          "claim_id": "9f0b2275-b6a2-4918-baad-53bf8897739e",
+          "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+          "source_id": "23b9b0a4-f288-4fb2-9dc7-08509cfe974d",
+          "raw_document_id": "a200fa3c-1a6d-4fd2-bccd-a3916eeb56a7",
+          "observation_id": "8a7a8e51-6ec6-4981-b5d9-ccc950095c76",
+          "reference": {
+            "url": "https://example.invalid/SYNTHETIC/f8e51ae6514d495c8be5de152577b895",
+            "locator": {
+              "line": 1
+            }
+          },
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          }
+        }
+      ],
+      "evidence_observations": [
+        {
+          "evidence_id": "13f43fcf-f663-453b-b881-84f559cff536",
+          "claim_id": "6e80cc04-9116-46b1-abd6-7d788ffbee1d",
+          "verification_status": "CONFIRMED",
+          "scope_key": "CVE-2099-189707837285",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "6f28de2b-f79d-4804-9f4e-209f1b781edc",
+          "raw_document_id": "66a1afba-f265-4ba8-a04f-253d33fe4a9b",
+          "observation_id": "a885a6b8-fb52-4ece-92d1-7c282bde778d",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec",
+          "claim_id": "98a9d0c2-6464-4984-be24-0b12cd63b557",
+          "verification_status": "CONFIRMED",
+          "scope_key": "PyPI:vllm-verify-f8e51ae6514d495c8be5de152577b895",
+          "hash": "01c1f245152f21fca9213828e52fbead20933efb41bca2e4d7fc26d4c45d4b0d",
+          "source_id": "6f28de2b-f79d-4804-9f4e-209f1b781edc",
+          "raw_document_id": "66a1afba-f265-4ba8-a04f-253d33fe4a9b",
+          "observation_id": "a885a6b8-fb52-4ece-92d1-7c282bde778d",
+          "reference": {
+            "url": "https://example.invalid/ORCHESTRATION_SYNTHETIC",
+            "locator": {
+              "line": 2
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        },
+        {
+          "evidence_id": "71ef609a-8b9c-4fb5-8858-f40a7c848d83",
+          "claim_id": "9f0b2275-b6a2-4918-baad-53bf8897739e",
+          "verification_status": "CONFIRMED",
+          "scope_key": "PyPI:vllm-verify-f8e51ae6514d495c8be5de152577b895",
+          "hash": "810e8c40de07c7cf1b07be31550989386ad2168f337084b4ae01ff33c7f18997",
+          "source_id": "23b9b0a4-f288-4fb2-9dc7-08509cfe974d",
+          "raw_document_id": "a200fa3c-1a6d-4fd2-bccd-a3916eeb56a7",
+          "observation_id": "8a7a8e51-6ec6-4981-b5d9-ccc950095c76",
+          "reference": {
+            "url": "https://example.invalid/SYNTHETIC/f8e51ae6514d495c8be5de152577b895",
+            "locator": {
+              "line": 1
+            }
+          },
+          "stance": "support",
+          "directness": "direct",
+          "integrity_status": "VALID",
+          "is_current": true,
+          "verification_artifact": {
+            "run_id": "062e61df-3f67-4021-b9af-ee0db80537dc",
+            "task_id": "verify",
+            "artifact_id": "d1924366-a2fa-46c9-956a-7cfa2c205151",
+            "schema_version": "verification-artifact-v1"
+          },
+          "conclusion_scope": "OBSERVATION"
+        }
+      ],
+      "evidence_references": [
+        "13f43fcf-f663-453b-b881-84f559cff536",
+        "43cedfb4-6e9b-4e11-b9fa-6ee0458e1eec",
+        "71ef609a-8b9c-4fb5-8858-f40a7c848d83"
+      ],
+      "warnings": [
+        "OPTIONAL_TASK_INCOMPLETE"
+      ],
+      "unresolved_items": [
+        "OPTIONAL_TASK_INCOMPLETE"
+      ],
+      "integration_result_id": "c7cbf8ba-2447-431b-af53-6941073594d1",
+      "agent_run_references": [
+        "38f5dd2a-65df-44e2-a3df-87e9c6210506",
+        "062e61df-3f67-4021-b9af-ee0db80537dc",
+        "efcc5e78-fa37-413e-8c45-d56226c7218a"
+      ],
+      "accepted_source_run_references": [
+        "38f5dd2a-65df-44e2-a3df-87e9c6210506",
+        "062e61df-3f67-4021-b9af-ee0db80537dc",
+        "efcc5e78-fa37-413e-8c45-d56226c7218a"
+      ],
+      "trace_reference": "b424b1e9-a1fc-4452-9a47-e9f287ad2b2b",
+      "generated_at": "2026-10-10T01:15:41.927879Z",
+      "historical_snapshot": true,
+      "fact_origin": "FROZEN_GATE_CONTEXT",
+      "explanation_provider": "DETERMINISTIC_TEMPLATE"
+    }
+  }
+}

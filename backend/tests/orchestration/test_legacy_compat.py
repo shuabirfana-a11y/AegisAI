@@ -56,6 +56,11 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     from pathlib import Path
     root=Path(__file__).resolve().parents[3]
     baseline=json.loads((root/'work/orchestration/baseline_hashes.json').read_text(encoding='utf-8'))
+    frontend_changes=json.loads((root/'docs/phase14c1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(frontend_changes)=={'frontend/public/app.js','frontend/public/index.html','frontend/public/styles.css',
+        'frontend/public/modules/components.js','frontend/public/modules/router.js','frontend/public/modules/services.js',
+        'frontend/public/modules/pages/assets.js','frontend/public/modules/pages/assistant.js','frontend/public/modules/pages/dashboard.js',
+        'frontend/public/modules/pages/reviews.js','frontend/public/modules/pages/system.js','frontend/public/modules/pages/vulnerabilities.js'}
     poc_changes=json.loads((root/'docs/phase14b1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     assert set(poc_changes)=={'backend/app/enrichment/enrichers/poc.py','backend/app/enrichment/service.py'}
     monitoring_changes=json.loads((root/'docs/phase14a/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
@@ -83,6 +88,12 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in frontend_changes:
+            entry=frontend_changes[path]
+            assert entry['baseline_sha256']==digest,path
+            assert entry['authorization']=='PHASE14C1_USER_AUTHORIZED_FRONTEND_INTEGRATION_FIXES',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in poc_changes:
             entry=poc_changes[path]
             assert entry['baseline_sha256']==digest,path

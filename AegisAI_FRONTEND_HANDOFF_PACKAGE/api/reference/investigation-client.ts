@@ -1,9 +1,8 @@
 /** Phase12-B transport client. No UI, stored credentials, models, or business decisions. */
 import type {
-  InvestigationCreateRequest, InvestigationCreateResponse, InvestigationStatusResponse,
+  InvestigationCreateRequest, InvestigationCreateResult, InvestigationStatusResponse,
   TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse, HistoryResponse,
   ApiError, Overall,
-  InvestigationCreateResult,
 } from './investigation-http.js';
 
 export class InvestigationApiError extends Error {
