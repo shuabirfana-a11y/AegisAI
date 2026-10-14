@@ -105,13 +105,16 @@ def exports():
                 success_code = next(code for code in operation['responses'] if code.startswith('2'))
                 success_schema = operation['responses'][success_code]['content']['application/json']['schema']
                 updated = {**previous, 'api_status': 'AVAILABLE',
-                    'browser_access': 'AVAILABLE' if path.startswith('/api/investigations') else previous.get('browser_access', 'UNKNOWN'),
+                    'browser_access': 'AVAILABLE' if path.startswith(('/api/investigations','/api/v1/intelligence')) else previous.get('browser_access', 'UNKNOWN'),
                     'method': method.upper(), 'url': path,
                     'request': {**previous.get('request', {}), 'parameters': operation.get('parameters', []),
                                 'body_schema': operation.get('requestBody', {}).get('content', {}).get('application/json', {}).get('schema')},
                     'response': {**previous.get('response', {}), 'success_http_status': int(success_code),
                                  'openapi_success_schema': success_schema},
-                    'response_validation': 'STRICT_PYDANTIC' if path.startswith('/api/investigations') else 'LEGACY_DESCRIPTION_ONLY'}
+                    'response_validation': 'STRICT_PYDANTIC' if path.startswith(('/api/investigations','/api/v1/intelligence')) else 'LEGACY_DESCRIPTION_ONLY'}
+                if path.startswith('/api/v1/intelligence'):
+                    updated.update(permissions='Bearer / actor-owned assets' if path.endswith('/assets') else 'Public intelligence only; no private inventory',
+                        source='backend/app/api/intelligence.py')
                 if path.startswith('/api/investigations'):
                     updated.update(permissions='Bearer / server-side owner', source='backend/app/api/investigations.py',
                                    errors={code: 'ApiError' for code in operation['responses'] if not code.startswith('2')})

@@ -33,6 +33,9 @@ TESTS = [
     "tests/agents/investigation/test_normalization.py",
     "tests/agents/investigation/test_task_templates.py",
     "tests/investigation_api/test_missing_context.py",
+    "tests/test_phase14_sources.py", "tests/test_phase14_cli.py",
+    "tests/test_phase14_api.py::test_intelligence_openapi_schema_documents_source_and_poc_states",
+    "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository",
 ]
 
 
