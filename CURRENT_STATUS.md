@@ -1,5 +1,7 @@
 # AegisAI 当前阶段与待办
 
+当前增量：2026-10-14，Phase 14-A 情报监测与富化补强已完成本阶段验收，见 [结果](PHASE_14A_RESULT.md)。分支 `codex/phase14a-monitoring-enrichment` 基于未合并PR #21，新增五个只读监测接口，原八调查接口不变。三类真实来源入库；本地Qwen规划→三专业Agent→Gate实跑为PASS_WITH_WARNINGS，论文经原语义问答可读。48项新增/相关验收合计70通过，便携CI641通过；完整回归的两项既有缺失上下文断言仍失败并记录，不能宣称全套全绿。来源网络失败、文献关联0、企业库存未提供均保持明确状态。Benchmark与人工答案未改变，未进行新一轮正式评测或部署。下面保留的是较早阶段快照，不代表当前阶段仍停在F.1。
+
 更新日期：2026-10-13（北京时间）。ICT命题九AegisAI。Phase13-F.1已诊断原39题：35 Planner失败、2来源冲突导致Artifact不完整、2 UNKNOWN不匹配，原正式结果不回写。已修复单对象asset版本遗漏与明确目标overview错误触发资产分析；独立库仅实跑固定3题：事实PASS_WITH_WARNINGS、版本REPLAN_REQUIRED、风险QUERY_SCOPE_MISMATCH。115项评测测试通过；正式评测条件仍未全面恢复。没有改模型/Agent/Gate/金标/评分公式，未重跑39题。当前分支codex/phase13f1-evaluation-diagnostics，基于未合并草稿PR#16；依赖不自动合并。原输出的人审语义指标仍待复核。[本阶段报告](PHASE_13F1_RESULT.md)。
 
 ## 已有能力
