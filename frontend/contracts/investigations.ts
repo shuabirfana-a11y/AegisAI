@@ -3,6 +3,7 @@ import type {
   InvestigationCreateRequest, InvestigationCreateResponse, InvestigationStatusResponse,
   TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse, HistoryResponse,
   ApiError, Overall,
+  InvestigationCreateResult,
 } from '../../docs/frontend-contracts/investigation-http.js';
 
 export class InvestigationApiError extends Error {
@@ -25,7 +26,7 @@ export class InvestigationApiClient {
     return body as T;
   }
 
-  create(request: InvestigationCreateRequest, idempotencyKey: string): Promise<InvestigationCreateResponse> {
+  create(request: InvestigationCreateRequest, idempotencyKey: string): Promise<InvestigationCreateResult> {
     return this.call('', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey }, body: JSON.stringify(request) });
   }
   status(id: string): Promise<InvestigationStatusResponse> { return this.call('/' + encodeURIComponent(id) + '/status'); }

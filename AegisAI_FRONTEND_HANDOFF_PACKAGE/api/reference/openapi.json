@@ -5832,7 +5832,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InvestigationCreateResponse"
+                  "$ref": "#/components/schemas/InvestigationCreateResult"
                 }
               }
             }
@@ -5916,6 +5916,16 @@
               }
             },
             "description": "Service Unavailable"
+          },
+          "200": {
+            "description": "Required context missing; no investigation was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextRequiredResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -7634,6 +7644,70 @@
         ],
         "title": "ClaimVerification"
       },
+      "ContextRequiredResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "NEED_CONTEXT",
+            "title": "Status"
+          },
+          "missing_fields": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "vulnerability_id",
+                "component",
+                "version",
+                "asset_context"
+              ]
+            },
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Missing Fields"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Message",
+            "default": "请补充调查上下文；信息不足，不能判断资产影响或风险。"
+          },
+          "next_actions": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "SUPPLY_CONTEXT",
+                "PUBLIC_FACT_LOOKUP"
+              ]
+            },
+            "type": "array",
+            "title": "Next Actions",
+            "default": [
+              "SUPPLY_CONTEXT",
+              "PUBLIC_FACT_LOOKUP"
+            ]
+          },
+          "investigation_created": {
+            "type": "boolean",
+            "const": false,
+            "title": "Investigation Created",
+            "default": false
+          },
+          "execution_mode": {
+            "type": "string",
+            "const": "NOT_STARTED",
+            "title": "Execution Mode",
+            "default": "NOT_STARTED"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "missing_fields"
+        ],
+        "title": "ContextRequiredResponse"
+      },
       "CreateOptions": {
         "properties": {
           "objective_profile": {
@@ -8991,6 +9065,17 @@
           "is_mock"
         ],
         "title": "InvestigationCreateResponse"
+      },
+      "InvestigationCreateResult": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InvestigationCreateResponse"
+          },
+          {
+            "$ref": "#/components/schemas/ContextRequiredResponse"
+          }
+        ],
+        "title": "InvestigationCreateResult"
       },
       "InvestigationOptions": {
         "properties": {

@@ -127,6 +127,15 @@ export type ClaimVerification = {
   "unresolved_items"?: Array<string>;
 };
 
+export type ContextRequiredResponse = {
+  "status": "NEED_CONTEXT";
+  "missing_fields": Array<"vulnerability_id" | "component" | "version" | "asset_context">;
+  "message"?: string;
+  "next_actions"?: Array<"SUPPLY_CONTEXT" | "PUBLIC_FACT_LOOKUP">;
+  "investigation_created"?: false;
+  "execution_mode"?: "NOT_STARTED";
+};
+
 export type CreateOptions = {
   "objective_profile"?: ("overview_v1" | "asset_impact_v1" | "asset_risk_v1" | null);
   "timeout_seconds"?: number;
@@ -299,6 +308,8 @@ export type InvestigationCreateResponse = {
   "model_provider": string;
   "is_mock": boolean;
 };
+
+export type InvestigationCreateResult = (InvestigationCreateResponse | ContextRequiredResponse);
 
 export type InvestigationOptions = {
   "objective_profile"?: ("overview_v1" | "asset_impact_v1" | "asset_risk_v1" | null);

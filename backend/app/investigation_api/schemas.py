@@ -2,7 +2,8 @@
 from copy import deepcopy
 from typing import Literal
 from uuid import UUID
-from pydantic import BaseModel, ConfigDict, Field, AwareDatetime, create_model
+from pydantic import BaseModel, ConfigDict, Field, AwareDatetime, create_model, RootModel
+from app.investigation_api.context_check import MissingField
 from app.assistant.contracts import QueryRequest
 from app.tooling.contracts import ResolutionInput, Target
 from app.planner.schemas import PlannerInput
@@ -87,6 +88,19 @@ class InvestigationCreateResponse(InvestigationStatusResponse):
     execution_backend: Literal['IN_PROCESS_BOUNDED_WORKER'] = 'IN_PROCESS_BOUNDED_WORKER'
     model_provider: str
     is_mock: bool
+
+
+class ContextRequiredResponse(PublicModel):
+    status: Literal['NEED_CONTEXT']
+    missing_fields: tuple[MissingField,...] = Field(min_length=1,max_length=4)
+    message: str = Field(default='请补充调查上下文；信息不足，不能判断资产影响或风险。',max_length=300)
+    next_actions: tuple[Literal['SUPPLY_CONTEXT','PUBLIC_FACT_LOOKUP'],...] = ('SUPPLY_CONTEXT','PUBLIC_FACT_LOOKUP')
+    investigation_created: Literal[False] = False
+    execution_mode: Literal['NOT_STARTED'] = 'NOT_STARTED'
+
+
+class InvestigationCreateResult(RootModel[InvestigationCreateResponse | ContextRequiredResponse]):
+    pass
 
 
 class TraceStage(PublicModel):

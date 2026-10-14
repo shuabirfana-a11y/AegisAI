@@ -15,6 +15,7 @@ from app.investigation_api.errors import ApiFailure
 from app.investigation_api.schemas import (
     InvestigationCreateRequest, InvestigationCreateResponse, InvestigationStatusResponse,
     TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse, HistoryResponse, ApiError, checked_key,
+    ContextRequiredResponse, InvestigationCreateResult,
 )
 
 logger = logging.getLogger('aegisai.investigation_api')
@@ -80,7 +81,8 @@ errors = {code: {'model': ApiError} for code in (401, 403, 404, 409, 422, 429, 5
 router = APIRouter(prefix='/api/investigations', tags=['investigations'], route_class=InvestigationRoute, responses=errors)
 
 
-@router.post('', status_code=202, response_model=InvestigationCreateResponse)
+@router.post('', status_code=202, response_model=InvestigationCreateResult,
+             responses={200:{'model':ContextRequiredResponse,'description':'Required context missing; no investigation was created.'}})
 def create(body: InvestigationCreateRequest | InvestigationRequest, response: Response, actor: Actor, svc: Service,
            idempotency_key: Annotated[str | None, Header(alias='Idempotency-Key')] = None):
     if isinstance(body, InvestigationCreateRequest):
@@ -89,6 +91,9 @@ def create(body: InvestigationCreateRequest | InvestigationRequest, response: Re
         checked_key(body.request_key, idempotency_key)
         request = body
     result = svc.create(request, actor=actor)
+    if isinstance(result,ContextRequiredResponse):
+        response.status_code=200
+        return result
     response.headers['Location'] = f'/api/investigations/{result.investigation_id}/status'
     response.headers['Retry-After'] = '1'
     return result

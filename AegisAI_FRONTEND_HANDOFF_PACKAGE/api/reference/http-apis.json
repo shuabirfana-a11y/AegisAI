@@ -6054,7 +6054,7 @@
       "response": {
         "success_http_status": 202,
         "openapi_success_schema": {
-          "$ref": "#/components/schemas/InvestigationCreateResponse"
+          "$ref": "#/components/schemas/InvestigationCreateResult"
         }
       },
       "response_validation": "STRICT_PYDANTIC",
