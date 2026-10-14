@@ -40,8 +40,16 @@
     "old_data_deleted": false
   },
   "final_clean_full_regression": {
-    "status": "RUNNING",
-    "report": "clean-full-regression.json"
+    "status": "COMPLETED_WITH_TWO_PREEXISTING_FAILURES",
+    "passed": 1638,
+    "assertion_failures": 2,
+    "fixture_errors": 0,
+    "warnings": 23,
+    "report": "clean-full-regression.json",
+    "failed_tests": [
+      "tests/investigation_api/test_bench_http.py::test_evaluation_adapter_reaches_full_original_http_chain[unknown_version]",
+      "tests/orchestration/test_failure_cancel.py::test_essential_partial_blocked_or_ambiguous_stops_downstream[ambiguous]"
+    ]
   },
   "protected_files": 708,
   "protected_changed": 0,
@@ -49,5 +57,10 @@
   "live_cycles": 3,
   "new_agent": false,
   "migration": false,
-  "benchmark_accuracy_claim": false
+  "benchmark_accuracy_claim": false,
+  "history_secret_scan": {
+    "commits_scanned": 71,
+    "findings": 0,
+    "redacted": true
+  }
 }

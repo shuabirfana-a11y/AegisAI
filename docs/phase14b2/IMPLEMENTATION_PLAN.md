@@ -27,7 +27,7 @@ LIVE never silently falls back to Mock; Mock work is limited to the dedicated sy
 4. [x] Implement scheduler and opt-in --pipeline on the existing CLI; preserve legacy CLI mode.
 5. [x] Add read-only endpoints and frontend client/types; regenerate contracts and run related regressions.
 6. [x] Run a small real-source scheduled pipeline in isolated demo storage; retain outages and partial outcomes.
-7. [ ] Perform independent read-only review, secret/source checks, draft PR and folder delivery; stop.
+7. [x] Perform independent read-only review, secret/source checks, draft PR and folder delivery; stop.
 
 ## Review focus
 

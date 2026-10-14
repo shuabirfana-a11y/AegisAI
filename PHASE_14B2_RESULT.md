@@ -96,7 +96,9 @@ PipelineRunPage 返回源运行/周期ID、原采集状态、处理/失败/积�
 第一次全量回归1622项通过、2项已知 UnknownContext 失败、7项夹具错误。
 七项来自复用测试库中的固定 pkg:pypi/vllm 唯一约束冲突；新的合成 Agent 测试已改用原夹具的唯一包名。
 新的隔离库上，受影响版本工具及Agent复用复核9项通过。原运行和错误记录保留。
-最终干净库完整回归结果另见 docs/phase14b2/test-summary.json；不是用工程测试数量表达安全准确率。
+最终干净库全量回归：1638项通过、0项夹具错误、2项既有失败、23项原警告。
+既有失败分别为 unknown_version HTTP评测场景与 ambiguous 中断场景，未在本阶段修改保护规则掩盖。
+详见 docs/phase14b2/test-summary.json；工程测试数量不是安全准确率。
 
 ## 9. 限制与停止
 
@@ -107,3 +109,5 @@ PipelineRunPage 返回源运行/周期ID、原采集状态、处理/失败/积�
 本阶段完成后停止；上游PR未合并时，本分支也不能被描述为 main 已发布。
 
 操作说明：docs/phase14b2/OPERATIONS.md；前端说明：docs/phase14b2/FRONTEND_MONITORING_HANDOFF.md。
+
+GitHub：PR #25 为草稿，基于 PR #24；尚未合并 main。首次实现提交的三项CI通过，最终报告提交按对应head重新确认。
