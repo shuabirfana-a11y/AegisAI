@@ -134,6 +134,18 @@ def test_essential_partial_blocked_or_ambiguous_stops_downstream(engine,mode):
     seed,request,gw,_,_=scenario(engine,mode)
     try:
         result=InvestigationOrchestrator(engine,gw).investigate(request,actor=seed.actor)
+        if mode=='ambiguous':
+            # Phase13-F.3 scoped Schema rejects duplicate root lookups before Runtime.
+            assert result.status.overall_status=='FAILED'
+            assert result.context.error_code=='PLANNING_FAILED'
+            assert result.context.investigation_run_id is None
+            assert result.context.verification_run_id is None and result.context.analysis_run_id is None
+            assert result.context.integration_result_id is None
+            assert result.answer.integration_status is None and not result.answer.verified_claims
+            assert result.answer.agent_run_references==()
+            trace=InvestigationOrchestrator(engine,gw).get_trace(result.context.logical_investigation_id,actor=seed.actor)
+            assert trace.planner.validation_status=='PLANNING_FAILED' and not trace.agent_runs
+            return
         assert result.answer.integration_status=='REPLAN_REQUIRED'
         assert result.status.overall_status=='INCOMPLETE'
         assert result.context.verification_run_id is None and result.context.analysis_run_id is None

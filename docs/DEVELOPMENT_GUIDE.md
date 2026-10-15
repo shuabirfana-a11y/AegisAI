@@ -26,8 +26,9 @@ Linux/macOS 将上述 Python 路径替换为 .venv/bin/python。现有前端没�
 | 检查 | 范围 | 不能证明 |
 |---|---|---|
 | Repository safety | Git 索引敏感路径、工程失败门禁、Gitleaks 历史扫描 | 没有任何类型的潜在风险 |
-| Backend unit and contracts | 当前 423 项无数据库测试；42 个 HTTP 操作及 Pydantic Schema/导出副本；合成请求/状态/Trace/答案验证 | 全量历史回归、数据库集成、真实模型准确率 |
-| Frontend tests and types | 17 个 JS 文件语法、23 项现有测试、两个契约 TS 目录及原 d.ts 编译 | 七页视觉/E2E 验收、应用 build、线上部署 |
+| Backend unit and contracts | scripts/ci/run_backend_tests.py 明确列出的便携测试；Pydantic/OpenAPI/导出副本；AegisBench 离线框架检查 | 全量历史回归、数据库集成、真实模型准确率 |
+| Backend PostgreSQL critical regression | 两个独立 PostgreSQL 17 测试服务；迁移、采集富化、单/多资产 HTTP、冲突、取消和缺上下文的受控测试 | 全量后端、真实模型效果、生产数据验证 |
+| Frontend tests and types | 当前 JS 语法、前端测试及导出契约 TS 编译（数量以该次日志为准） | 七页视觉/E2E 验收、应用 build、线上部署 |
 
 http-data-columns 是手工 ORM 列形状映射：本 CI 验证其 JSON Schema 合法及两个副本一致，**没有把它当作 Pydantic HTTP 响应或数据库迁移一致性验收**。
 
@@ -43,7 +44,7 @@ CI 的最小 Python 依赖保存在 .github/requirements-ci.txt，版本与已�
 
 后端环境必须自己准备 PostgreSQL + pgvector，安装完整后端依赖，设置本机 AEGIS_DATABASE_URL 后执行已授权迁移，再从 backend 启动 uvicorn app.main:app。配置示例 .env.example 不会自动加载。已有便携 PostgreSQL 脚本依赖开发者本机 work/postgresql_runtime.json，不能作为新电脑一键安装方案。
 
-基础 CI 不执行迁移或数据库测试。需要集成验收时只允许专用 aegis_phase5_test 数据库，并使用对应测试脚本/fixture；不可将测试配置指向开发数据。本机启动、重启检查和受控调查闭环命令见 [BACKEND_DEMO_STABILITY.md](BACKEND_DEMO_STABILITY.md)。
+PostgreSQL CI 已执行关键迁移和数据库回归。完整后端验收使用 [DATABASE_REGRESSION.md](DATABASE_REGRESSION.md) 的 --full 入口，只允许两个独立、空的 aegis_phase5_test 实例；不可将测试配置指向开发或演示数据。本机启动、重启检查和受控调查闭环命令见 [BACKEND_DEMO_STABILITY.md](BACKEND_DEMO_STABILITY.md)。
 
 ## API 与下一阶段
 

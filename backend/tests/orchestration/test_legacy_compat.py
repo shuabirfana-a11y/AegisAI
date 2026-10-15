@@ -65,6 +65,8 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     assert set(poc_changes)=={'backend/app/enrichment/enrichers/poc.py','backend/app/enrichment/service.py'}
     monitoring_changes=json.loads((root/'docs/phase14a/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
     batch_changes=json.loads((root/'docs/phase14b4/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    regression_changes=json.loads((root/'docs/phase14b4_1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(regression_changes)=={'backend/tests/conftest.py'}
     assert set(batch_changes)=={'backend/app/main.py'}
     assert set(monitoring_changes)=={'backend/app/main.py','backend/app/api/openapi_contracts.py','backend/app/repositories/ingestion.py',
         'backend/app/repositories/sources.py'}
@@ -90,6 +92,12 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
     for path,digest in baseline.items():
+        if path in regression_changes:
+            entry=regression_changes[path]
+            assert entry['baseline_sha256']==entry['previous_sha256']==digest,path
+            assert entry['authorization']=='PHASE14B4_1_USER_AUTHORIZED_TEST_DATABASE_ISOLATION',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in batch_changes:
             entry=batch_changes[path]
             assert entry['baseline_sha256']==digest,path

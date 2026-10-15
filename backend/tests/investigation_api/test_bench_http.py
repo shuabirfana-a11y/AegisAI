@@ -30,6 +30,19 @@ def test_evaluation_adapter_reaches_full_original_http_chain(engine,monkeypatch,
                 timeout=90,poll_interval=.05,expected_mode='MOCK')
             prediction=adapter.run(q,{})
             record=adapter.records[q.id]
+            if mode=='unknown_version':
+                # Phase13-F.4 approved preflight: no Planner/Run/Gate is created.
+                assert prediction.status=='NOT_EVALUATED' and prediction.abstained
+                assert prediction.answer['native_context_status']=='NEED_CONTEXT'
+                assert 'version' in prediction.answer['missing_fields']
+                assert record['created']['investigation_created'] is False
+                assert record['created']['execution_mode']=='NOT_STARTED'
+                assert record['completed'] and not calls
+                assert 'investigation_id' not in record and 'trace' not in record
+                assert len(record['endpoints'])==1 and record['endpoints'][0]['http_status']==200
+                assert 'expected_answer' not in json.dumps(record['request'])
+                assert q.id not in json.dumps(record['request'])
+                return
             assert prediction.status=='SUCCEEDED',record
             assert calls and record['trace']['planner']['validation_status']=='VALIDATED'
             assert len(record['trace']['agent_runs'])==3

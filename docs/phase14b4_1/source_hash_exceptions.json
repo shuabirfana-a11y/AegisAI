@@ -1,0 +1,11 @@
+{
+  "changes": {
+    "backend/tests/conftest.py": {
+      "baseline_sha256": "186e459f7036175d5920e0ef3d8dd193e211f4704bf3a2269175c1eb82310380",
+      "previous_sha256": "186e459f7036175d5920e0ef3d8dd193e211f4704bf3a2269175c1eb82310380",
+      "current_sha256": "56e21c7c058074375812d10cbf787287b2955d56eefb7c0ec4924bdfda0bc23a",
+      "authorization": "PHASE14B4_1_USER_AUTHORIZED_TEST_DATABASE_ISOLATION",
+      "reason": "Only fail-closed test fixture guard: distinct committed Runtime and rollback database identities. No business source change."
+    }
+  }
+}
