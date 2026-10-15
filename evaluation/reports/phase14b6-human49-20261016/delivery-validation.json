@@ -1,0 +1,16 @@
+{
+  "staged_delivery_scan": "PASS_ZERO_FINDINGS",
+  "review_folder_scan": "PASS_ZERO_FINDINGS",
+  "scanner_rule_exceptions_added": 0,
+  "sensitive_values_printed": false,
+  "private_api_credentials_published": false,
+  "non_auth_scope_map_preserved": true,
+  "original_private_http_unchanged": true,
+  "metric_form_count": 42,
+  "all_forms_unsigned": true,
+  "case_count": 49,
+  "zip_integrity": "PASS",
+  "prediction_fingerprints": "PASS",
+  "source_hashes": "PASS",
+  "note": "Initial generic-api-key matches were non-auth scope and request keys; public copies sanitized. No scanner rules disabled."
+}
