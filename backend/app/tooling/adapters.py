@@ -10,10 +10,12 @@ from app.assets.inventory import owned_asset
 from app.assets.remediation import trusted_claim
 from app.utils.time import utcnow
 
-def evidence_refs(session,target):
+def evidence_refs(session,target,claim_id=None):
     from app.tooling.provenance import current_support_ids
     refs=[];current={}
-    for row in session.scalars(intel.query(session,target,'evidence').limit(100)):
+    query=intel.query(session,target,'evidence')
+    if claim_id is not None:query=query.where(m.Evidence.claim_id==UUID(str(claim_id)))
+    for row in session.scalars(query.limit(100)):
         c=session.get(m.Claim,row.claim_id)
         if c.id not in current:current[c.id]=current_support_ids(session,c)
         refs.append({'evidence_id':str(row.id),'claim_id':str(c.id),'claim_revision':c.revision,
@@ -40,7 +42,7 @@ def execute_local(session,name,args,actor):
     data={};refs=[];warnings=[]
     target=intel.target_id(session,args['target']) if 'target' in args else None
     if 'target' in args and target is None:raise LookupError('Vulnerability not found')
-    if target:refs=evidence_refs(session,target)
+    if target:refs=evidence_refs(session,target,args.get('claim_id') if name=='get_evidence' else None)
     if name in ('search_vulnerabilities','get_recent_intelligence'):
         data=core.list_vulnerabilities(session,q=args.get('q'),product=args.get('product'),high_severity=args.get('high_severity',False),ai_relevance=args.get('ai_relevance'),limit=args.get('limit',20))
         if args.get('days'):
@@ -64,7 +66,15 @@ def execute_local(session,name,args,actor):
         if row is None or row.deleted_at:raise LookupError('Product not found')
         data=core.columns(row)
     elif name in ('get_claims','get_evidence','get_timeline'):
-        data=intel.page(session,target,{'get_claims':'claims','get_evidence':'evidence','get_timeline':'timeline'}[name],limit=args.get('limit',20))
+        if name=='get_evidence' and args.get('claim_id'):
+            claim=session.get(m.Claim,UUID(args['claim_id']))
+            if claim is None or claim.vulnerability_id!=target:raise PermissionError('Claim target mismatch')
+            from sqlalchemy import func
+            q=intel.query(session,target,'evidence').where(m.Evidence.claim_id==claim.id)
+            data={'items':[intel.serialize(e,session) for e in session.scalars(q.limit(args.get('limit',20)))],
+                  'total':session.scalar(select(func.count()).select_from(q.subquery())),
+                  'offset':0,'limit':args.get('limit',20),'claim_id':str(claim.id)}
+        else:data=intel.page(session,target,{'get_claims':'claims','get_evidence':'evidence','get_timeline':'timeline'}[name],limit=args.get('limit',20))
         if name=='get_claims':
             for c in data['items']:c['trusted']=trusted_claim(session,session.get(m.Claim,c['id']))
     elif name=='relation_query':

@@ -25,6 +25,9 @@ CRITICAL_TESTS = [
     'tests/investigation_api/test_multi_asset.py',
     'tests/investigation_api/test_multi_asset_database.py',
     'tests/investigation_api/test_multi_asset_chain.py',
+    'tests/orchestration/test_supplement.py',
+    'tests/investigation_api/test_supplement_http.py',
+    'tests/investigation_api/test_supplement_read_race.py',
 ]
 
 

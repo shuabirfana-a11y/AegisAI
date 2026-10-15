@@ -8,6 +8,8 @@ class Strict(BaseModel):model_config=ConfigDict(extra='forbid')
 class TargetInput(Strict):
     target:Target
     limit:int=Field(20,ge=1,le=100)
+class EvidenceInput(TargetInput):
+    claim_id:UUID|None=None
 class RefreshInput(TargetInput):refresh:bool=False
 class SearchInput(Strict):
     q:str|None=Field(None,max_length=120)
@@ -71,6 +73,7 @@ def register(names,schema,category,permission='READ_ONLY'):
     for name in names.split():REGISTRY[name]=ToolSpec(schema,category,permission)
 register('search_vulnerabilities get_recent_intelligence',SearchInput,'QUERY')
 register('get_vulnerability get_claims get_evidence get_timeline relation_query',TargetInput,'QUERY')
+register('get_evidence',EvidenceInput,'QUERY')
 register('get_product',IdInput,'QUERY')
 register('find_vendor_advisories find_poc_candidates find_patch_candidates get_epss get_known_exploitation investigate_vulnerability',RefreshInput,'INVESTIGATION')
 register('verify_poc_candidate',IdInput,'VERIFICATION','WRITE')

@@ -91,7 +91,20 @@ def test_old_api_and_business_source_hashes_are_unchanged():
         'backend/app/agents/verification/reader.py','backend/app/tooling/analysis.py','backend/app/tooling/verification.py'}
     allowed={'backend/app/runtime/service.py','backend/app/agents/investigation/service.py','backend/app/runtime/process.py',
              'backend/app/main.py'}
+    supplement_changes=json.loads((root/'docs/phase14b5/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(supplement_changes)=={'backend/app/agents/analysis/snapshot.py','backend/app/agents/verification/schemas.py',
+        'backend/app/agents/verification/snapshot.py','backend/app/integration/snapshot.py',
+        'backend/app/tooling/adapters.py','backend/app/tooling/contracts.py','frontend/public/modules/pages/assistant.js'}
     for path,digest in baseline.items():
+        if path in supplement_changes:
+            entry=supplement_changes[path]
+            prior=next((group[path]['current_sha256'] for group in
+                (regression_changes,frontend_changes,f3_changes,f2_changes,asset_changes,planner_changes,changes) if path in group),digest)
+            assert entry['baseline_sha256']==digest,path
+            assert entry['previous_sha256']==prior,path
+            assert entry['authorization']=='PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in regression_changes:
             entry=regression_changes[path]
             assert entry['baseline_sha256']==entry['previous_sha256']==digest,path

@@ -8,6 +8,14 @@ import { createMockInvestigationClient, loadMockSources, loadIndependentGate, MO
 
 const mockRoot = fileURLToPath(new URL('../public/mock/', import.meta.url));
 
+test('result versions are pinned without changing server budgets', async () => {
+  let url;
+  const client=createInvestigationClient({fetchImpl:async path => {url=path;return new Response('{}',{status:200});}});
+  await client.answer('a',undefined,1);assert.equal(url,'/api/investigations/a/answer?version=1');
+  await client.trace('a',undefined,2);assert.equal(url,'/api/investigations/a/trace?version=2');
+  assert.throws(()=>client.answer('a',undefined,3),/非法结果版本/);
+});
+
 /** 浏览器 fetch 的等价物：直接从 public/mock 读取静态回执。 */
 async function mockFetch(path) {
   const name = String(path).split('/').pop();

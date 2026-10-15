@@ -100,6 +100,9 @@ class IntegrationSnapshotReader:
                 route=routes[r.verification.run_id].get('verification_v1')
                 if not route:raise ValueError('VERIFICATION_ROUTE_MISSING')
                 vc=VerificationContextStore(self.engine).read(route['context_id'],actor=actor);ids[vc.context_id]='verification-context-v1'
+                # Supplemental receipts are validated by the original snapshot
+                # reader, then included in the same pre/post integrity snapshot.
+                for extra_id in vc.snapshot.supplementary_run_ids:ids[extra_id]='runtime-v1'
             if r.analysis:
                 route=routes[r.analysis.run_id].get('analysis_v1')
                 if not route:raise ValueError('ANALYSIS_ROUTE_MISSING')

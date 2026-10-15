@@ -112,23 +112,23 @@ def status(id: UUID, actor: Actor, svc: Service):
 
 
 @router.get('/{id}/trace', response_model=TraceResponse)
-def trace(id: UUID, actor: Actor, svc: Service):
-    return svc.trace(id, actor=actor)
+def trace(id: UUID, actor: Actor, svc: Service, version: int | None = Query(None,ge=1,le=2)):
+    return svc.trace(id, actor=actor, **({'version':version} if version is not None else {}))
 
 
 @router.get('/{id}/artifacts', response_model=ArtifactResponse)
-def artifacts(id: UUID, actor: Actor, svc: Service):
-    return svc.artifacts(id, actor=actor)
+def artifacts(id: UUID, actor: Actor, svc: Service, version: int | None = Query(None,ge=1,le=2)):
+    return svc.artifacts(id, actor=actor, **({'version':version} if version is not None else {}))
 
 
 @router.get('/{id}/integration', response_model=IntegrationResponse)
-def integration(id: UUID, actor: Actor, svc: Service):
-    return svc.integration(id, actor=actor)
+def integration(id: UUID, actor: Actor, svc: Service, version: int | None = Query(None,ge=1,le=2)):
+    return svc.integration(id, actor=actor, **({'version':version} if version is not None else {}))
 
 
 @router.get('/{id}/answer', response_model=AnswerResponse)
-def answer(id: UUID, actor: Actor, svc: Service):
-    return svc.answer(id, actor=actor)
+def answer(id: UUID, actor: Actor, svc: Service, version: int | None = Query(None,ge=1,le=2)):
+    return svc.answer(id, actor=actor, **({'version':version} if version is not None else {}))
 
 
 @router.post('/{id}/cancel', response_model=InvestigationStatusResponse)

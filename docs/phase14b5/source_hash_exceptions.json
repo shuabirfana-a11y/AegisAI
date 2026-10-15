@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "68ea13f24946f536c45f76c1b7a41ddf97ab12bf",
+  "changes": {
+    "backend/app/agents/analysis/snapshot.py": {
+      "baseline_sha256": "6a0d110fbbaeb04636017872efc38ca717d4c0ee544786d4d0c4e317ac59a331",
+      "previous_sha256": "39382c1cf38a4b5fa5be611f4985115fdf0588e74814cf432d4c7ea4fb15bc33",
+      "current_sha256": "37b74ac28fb9e899a2447aa3906d39d1807b369f79332cd53fb71cf515be4e8e",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "backend/app/agents/verification/schemas.py": {
+      "baseline_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "previous_sha256": "ec21530e5a32b57466e4348e2f2920e00e88396b8ada68f411f81643c55a43a0",
+      "current_sha256": "52f98b750a7eb114b12f9485d44818cd52c5d5b87bbc3713c2c3d1c0e410b7d8",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "previous_sha256": "bdc1763c9bd67b04aea6a30d509fe36bee2afc63f13f17d7facef642ed6f54fb",
+      "current_sha256": "656bf3cadab6dd6b3c5f1c47a78c25ea613b9848b2f138668342466ee3f4a3fa",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "backend/app/integration/snapshot.py": {
+      "baseline_sha256": "ff819edaebf5658a8cd0a8c5020408a2e7ad77aa94faadb6ae72a07681c09628",
+      "previous_sha256": "ff819edaebf5658a8cd0a8c5020408a2e7ad77aa94faadb6ae72a07681c09628",
+      "current_sha256": "856d57cf17617e661a04dec78c81d9149ed818b8fc5eeab521d4d0440fc60251",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "backend/app/tooling/adapters.py": {
+      "baseline_sha256": "59bb2965aa691cd221af6573086b2dc4715584290c663da87cd6a128067fe6b5",
+      "previous_sha256": "23645410fd5ce21487e35c2e12dd4b33c36684dc20e25401bf6ac007580e5088",
+      "current_sha256": "8c2f182632d1ab97655ef830b9ebab9acde2ef27563ec0fa6294829d7aa4b43c",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "backend/app/tooling/contracts.py": {
+      "baseline_sha256": "2b1568d1ef9edf8525335bb36373f93a1eef174d7cf760e9dfed471d95352aa0",
+      "previous_sha256": "2b1568d1ef9edf8525335bb36373f93a1eef174d7cf760e9dfed471d95352aa0",
+      "current_sha256": "3d1502165eb6dad56dc07f2ac3c43770f9cb14eb579230696693cf0b5afc56a5",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    },
+    "frontend/public/modules/pages/assistant.js": {
+      "baseline_sha256": "b79c822dc8bbf2cb64aa90621de5a64cc9edbd53391ff5b5f0669e9ed99f044c",
+      "previous_sha256": "2a1e202a7fb1026e587258f9ab774c69897f535e25f96e8d8012b8797fff4da2",
+      "current_sha256": "d97c823df93da981f78256a3c5680194fa2144b6d1509df14baaa2a34b1a2b8f",
+      "authorization": "PHASE14B5_USER_AUTHORIZED_BOUNDED_EVIDENCE_ADAPTERS",
+      "reason": "Typed receipt handoff and targeted readonly lookup only; no Gate rule/threshold, risk scoring or validation weakening."
+    }
+  }
+}

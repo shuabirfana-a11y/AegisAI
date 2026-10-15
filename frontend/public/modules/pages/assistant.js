@@ -330,13 +330,18 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
     if (status.overall_status === 'FAILED') setNotice(statusPanel.body, 'status:failed', 'FAILED：调查失败。', 'error');
     if (status.overall_status === 'CANCELLED') setNotice(statusPanel.body, 'status:cancelled', 'CANCELLED：已取消。', 'conflict');
     if (Array.isArray(status.warnings)) for (const warning of status.warnings) setNotice(statusPanel.body, 'status:warn:' + text(warning), 'warning: ' + text(warning), 'warning');
-    cancelButton.hidden = !(status.overall_status === 'RUNNING' && !status.cancel_requested);
+    cancelButton.hidden = !((status.overall_status === 'RUNNING' || status.processing_complete === false) && !status.cancel_requested && !status.supplement?.cancel_requested);
     statusPanel.body.append(cancelButton);
   }
 
   function acceptRevision(status) {
     if (!Number.isInteger(status.revision) || status.revision < 0) throw new InvestigationApiError('状态回执缺少合法 revision。', { kind: 'invalid_response' });
     if (status.revision < state.lastRevision) return false;
+    const version = status.result_version || 1;
+    if (version !== (state.resultVersion || 1)) {
+      state.integrationId = null; state.traceRevision = -1; state.resultVersion = version;
+    }
+    state.resultVersion = version;
     state.lastRevision = status.revision;
     return true;
   }
@@ -365,9 +370,10 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
       const status = bound(scope, response);
       if (!acceptRevision(status)) { schedule(POLL_MS); return; }
       renderStatus(status);
+      if (status.supplement) setNotice(statusPanel.body, 'status:supplement', '补充调查：' + text(status.supplement.status) + ' · ' + text(status.supplement.reason) + ' · 新证据 ' + (status.supplement.new_evidence_ids?.length || 0), 'status');
       await refreshTrace(status, scope);
       if (!current(scope)) return;
-      if (status.overall_status === 'RUNNING') {
+      if (status.overall_status === 'RUNNING' || status.processing_complete === false) {
         state.polls += 1;
         if (state.polls < POLL_LIMIT) schedule(POLL_MS);
         else setNotice(statusPanel.body, 'status:limit', '已达轮询上限；用「读取已有调查」继续。', 'status');
@@ -401,7 +407,7 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
   async function refreshTrace(status, scope) {
     if (status.revision === state.traceRevision) return;
     try {
-      const response = await scope.client.trace(scope.id, scope.signal);
+      const response = await scope.client.trace(scope.id, scope.signal, state.resultVersion);
       if (!current(scope)) return;
       const trace = bound(scope, response);
       if (typeof trace.revision === 'number' && trace.revision < state.traceRevision) return;
@@ -413,7 +419,7 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
       renderAgents(trace);
       renderWarnings(status, trace);
       try {
-        const artifacts = await scope.client.artifacts(scope.id, scope.signal);
+        const artifacts = await scope.client.artifacts(scope.id, scope.signal, state.resultVersion);
         if (!current(scope)) return;
         renderArtifacts(bound(scope, artifacts, ['investigation_id']));
       } catch (error) {
@@ -437,7 +443,7 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
     clearBody(answerPanel); mockTag(answerPanel);
     clearBody(gatePanel); mockTag(gatePanel);
     try {
-      const answer = await scope.client.answer(scope.id, scope.signal);
+      const answer = await scope.client.answer(scope.id, scope.signal, state.resultVersion);
       if (!current(scope)) return;
       bound(scope, answer, ['logical_investigation_id']);
       rememberGateReference(answer.integration_result_id);
@@ -448,7 +454,7 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
       else setNotice(answerPanel.body, 'answer:error', codeLine(error), 'error');
     }
     try {
-      const integration = await scope.client.integration(scope.id, scope.signal);
+      const integration = await scope.client.integration(scope.id, scope.signal, state.resultVersion);
       if (!current(scope)) return;
       renderGate(boundGate(integration));
     } catch (error) {

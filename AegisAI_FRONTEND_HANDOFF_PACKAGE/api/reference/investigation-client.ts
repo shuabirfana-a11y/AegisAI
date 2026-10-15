@@ -30,10 +30,10 @@ export class InvestigationApiClient {
     return this.call('', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey }, body: JSON.stringify(request) });
   }
   status(id: string): Promise<InvestigationStatusResponse> { return this.call('/' + encodeURIComponent(id) + '/status'); }
-  trace(id: string): Promise<TraceResponse> { return this.call('/' + encodeURIComponent(id) + '/trace'); }
-  artifacts(id: string): Promise<ArtifactResponse> { return this.call('/' + encodeURIComponent(id) + '/artifacts'); }
-  integration(id: string): Promise<IntegrationResponse> { return this.call('/' + encodeURIComponent(id) + '/integration'); }
-  answer(id: string): Promise<AnswerResponse> { return this.call('/' + encodeURIComponent(id) + '/answer'); }
+  trace(id: string, version?: 1 | 2): Promise<TraceResponse> { return this.call('/' + encodeURIComponent(id) + '/trace' + (version === undefined ? '' : '?version=' + version)); }
+  artifacts(id: string, version?: 1 | 2): Promise<ArtifactResponse> { return this.call('/' + encodeURIComponent(id) + '/artifacts' + (version === undefined ? '' : '?version=' + version)); }
+  integration(id: string, version?: 1 | 2): Promise<IntegrationResponse> { return this.call('/' + encodeURIComponent(id) + '/integration' + (version === undefined ? '' : '?version=' + version)); }
+  answer(id: string, version?: 1 | 2): Promise<AnswerResponse> { return this.call('/' + encodeURIComponent(id) + '/answer' + (version === undefined ? '' : '?version=' + version)); }
   createBatch(request: BatchRequest, idempotencyKey: string): Promise<BatchResponse> {
     return this.call('/batches', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey }, body: JSON.stringify(request) });
   }

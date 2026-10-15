@@ -70,6 +70,7 @@ def test_trace_keeps_safe_tool_summary_without_raw_tool_arguments(monkeypatch):
                        status='success', duration_ms=12, evidence_ids=('SYNTHETIC-evidence',))
     service = object.__new__(InvestigationApiService)
     service.reader = SimpleNamespace(store=object(), get_result=lambda *a, **k: SimpleNamespace(context=c))
+    service.supplements = SimpleNamespace(read=lambda *a, **k: None, summary=lambda *a, **k: None)
     monkeypatch.setattr(trace_module, 'build_trace', lambda *a, **k: trace_for(c, (call,)))
     response = service.trace(c.logical_investigation_id, actor=c.owner)
     assert response.agent_runs[0].tool_calls == (call,)
@@ -92,6 +93,7 @@ def test_trace_retries_changed_root_but_never_masks_stable_binding_corruption(mo
         return trace_for(result.context)
     service = object.__new__(InvestigationApiService)
     service.reader = SimpleNamespace(store=object(), get_result=read)
+    service.supplements = SimpleNamespace(read=lambda *a, **k: None, summary=lambda *a, **k: None)
     monkeypatch.setattr(trace_module, 'build_trace', build)
     if progresses:
         assert service.trace(old.logical_investigation_id, actor=old.owner).revision == new.revision
