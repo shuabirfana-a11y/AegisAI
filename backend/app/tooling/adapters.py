@@ -138,8 +138,23 @@ def execute_local(session,name,args,actor):
         data=get_remediation(session,target,UUID(str(args['package_id'])))
     elif name=='semantic_search':
         from app.knowledge.retrieval import SemanticSearch
-        from app.knowledge.embedding import local_embedding
-        data={'items':SemanticSearch.search(session,args['query'],local_embedding(),limit=args.get('limit',5))}
+        from app.knowledge.embedding import local_embedding,MODEL
+        from app.knowledge.index import CHUNKER
+        limit=args.get('limit',5)
+        if not args['query'].strip() or len(args['query'])>2000 or not 1<=limit<=20:
+            raise ValueError('Invalid semantic query')
+        # Empty/stale/deleted corpora need no embedding inference. Keep exactly
+        # the current-model/revision/chunker constraints used by SemanticSearch.
+        searchable=session.scalar(select(m.KnowledgeEmbedding.id)
+            .join(m.KnowledgeChunk,m.KnowledgeEmbedding.chunk_id==m.KnowledgeChunk.id)
+            .join(m.KnowledgeDocument,m.KnowledgeChunk.document_id==m.KnowledgeDocument.id)
+            .join(m.RawDocument,m.KnowledgeChunk.raw_document_id==m.RawDocument.id)
+            .where(m.KnowledgeEmbedding.model_version==MODEL,
+                m.KnowledgeChunk.document_revision==m.KnowledgeDocument.revision,
+                m.KnowledgeChunk.chunker_version==CHUNKER,
+                m.KnowledgeDocument.deleted_at.is_(None)).limit(1))
+        data={'items':[] if searchable is None else
+            SemanticSearch.search(session,args['query'],local_embedding(),limit=limit)}
         refs=[{k:v for k,v in r.items() if k not in ('content','score','title')} for r in data['items']]
     elif name=='get_system_status':data={'sources':core.list_sources(session),'sync_runs':core.list_sync_runs(session,limit=10)}
     else:raise ValueError('Unregistered adapter')

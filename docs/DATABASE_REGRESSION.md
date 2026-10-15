@@ -27,6 +27,10 @@ python scripts/ci/run_database_tests.py --full
 
 CI 四项名称分别说明范围。PostgreSQL job 用两个仅绑定 loopback 的临时服务，不使用真实 API Key。便携 job 仍显式排除一项真实缓存 embedding 测试；不得把排除算作通过。
 
+## 空知识索引与模型依赖
+
+新增 CI 的第一次真实运行暴露三项检查失败：当前知识索引为空，语义工具仍提前初始化 CI 未安装的 FastEmbed。空索引不是模型执行失败。修复只在语义工具适配器增加与既有检索相同的 model/revision/chunker/deleted 约束，确认无可检索行后返回 no_result；不创建 Evidence，也不表示资产安全。有有效索引时照常加载模型，加载失败保留，绝不以空结果掩盖。四项数据库测试覆盖空索引、过期索引、软删除及有索引时的依赖失败。CI 不下载模型；本地全量中的真实 Embedding 测试继续需要缓存。
+
 ## 两项历史契约断言
 
 Phase13-F.4 已批准：缺部署版本在 API preflight 返回 NEED_CONTEXT / NOT_STARTED，不创建 Planner/调查/Gate。测试保留“不猜版本、不声称安全、无模型调用”的负向检查。

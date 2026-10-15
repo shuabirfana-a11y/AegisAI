@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CRITICAL_TESTS = [
     'tests/test_api.py', 'tests/test_collectors_sync.py', 'tests/test_database.py',
     'tests/test_ingestion_database.py', 'tests/test_migration.py',
+    'tests/test_semantic_empty_index.py',
     'tests/test_phase14_api.py', 'tests/test_phase14_storage.py',
     'tests/test_phase14b2_agent.py', 'tests/test_phase14b2_pipeline.py',
     'tests/test_phase7_api_jobs.py', 'tests/test_phase7_enrichers.py',
