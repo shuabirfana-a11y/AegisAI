@@ -2050,7 +2050,7 @@
       "test_nodeid": "tests/test_phase14_api.py::test_intelligence_api_exposes_typed_safe_projection_and_404",
       "test_file": "backend/tests/test_phase14_api.py",
       "failure_phase": "call",
-      "exception_type": "assert (89 == 1)",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -2405,7 +2405,7 @@
       "test_nodeid": "tests/test_phase14_storage.py::test_corrected_feed_keeps_history_but_searches_only_current_edition[RSS_TRAIL_OF_BITS-ids0]",
       "test_file": "backend/tests/test_phase14_storage.py",
       "failure_phase": "call",
-      "exception_type": "assert 3 == 2\n +  where 3 = len([<app.db.models.intel.KnowledgeDocument object at 0x00000163D1DC4BF0>, <app.db.models.intel.KnowledgeDocument object at 0x00000163D1D94D70>, <app.db.models.intel.KnowledgeDocument object at 0x00000163D1D95BE0>])",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -2476,7 +2476,7 @@
       "test_nodeid": "tests/test_phase14_storage.py::test_corrected_feed_keeps_history_but_searches_only_current_edition[ARXIV-ids1]",
       "test_file": "backend/tests/test_phase14_storage.py",
       "failure_phase": "call",
-      "exception_type": "assert 3 == 2\n +  where 3 = len([<app.db.models.intel.KnowledgeDocument object at 0x00000163D1D05E80>, <app.db.models.intel.KnowledgeDocument object at 0x00000163D1D06330>, <app.db.models.intel.KnowledgeDocument object at 0x00000163D1D05FA0>])",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -2689,7 +2689,7 @@
       "test_nodeid": "tests/test_phase14_storage.py::test_native_monitoring_bridges_explicit_cvss_facts_to_existing_evidence_tools",
       "test_file": "backend/tests/test_phase14_storage.py",
       "failure_phase": "call",
-      "exception_type": "assert (8.1 == 9.8)",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -3044,7 +3044,7 @@
       "test_nodeid": "tests/test_phase14b2_pipeline.py::test_record_http_is_read_only_and_contains_actual_progress_without_owner_details",
       "test_file": "backend/tests/test_phase14b2_pipeline.py",
       "failure_phase": "call",
-      "exception_type": "assert (200 == 200 and 0 == 1)\n +  where 200 = <Response [200 OK]>.status_code",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -3186,7 +3186,7 @@
       "test_nodeid": "tests/test_phase7_api_jobs.py::test_jobs_persist_no_result_and_repeat_history",
       "test_file": "backend/tests/test_phase7_api_jobs.py",
       "failure_phase": "call",
-      "exception_type": "assert (9 == 2)\n +  where 9 = len([<app.db.models.enrichment.EnrichmentJob object at 0x00000163D6CDE900>, <app.db.models.enrichment.EnrichmentJob object...nrichmentJob object at 0x00000163D6CDE810>, <app.db.models.enrichment.EnrichmentJob object at 0x00000163D6CDFC80>, ...])",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -3754,7 +3754,7 @@
       "test_nodeid": "tests/test_phase8_api_events.py::test_intelligence_event_queue_targets_only_related_assets_once",
       "test_file": "backend/tests/test_phase8_api_events.py",
       "failure_phase": "call",
-      "exception_type": "assert (50 == 1)\n +  where 50 = len([<app.db.models.assets.AssetRecomputeJob object at 0x00000163D5745BE0>, <app.db.models.assets.AssetRecomputeJob object...RecomputeJob object at 0x00000163D57B3380>, <app.db.models.assets.AssetRecomputeJob object at 0x00000163E2FB74D0>, ...])",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
@@ -3825,7 +3825,7 @@
       "test_nodeid": "tests/test_phase8_final_regressions.py::test_new_phase6_range_without_event_invalidates_and_targets_asset",
       "test_file": "backend/tests/test_phase8_final_regressions.py",
       "failure_phase": "call",
-      "exception_type": "assert False\n +  where False = any(<generator object test_new_phase6_range_without_event_invalidates_and_targets_asset.<locals>.<genexpr> at 0x00000163E3034860>)",
+      "exception_type": "AssertionError",
       "original_failure": [
         {
           "tag": "failure",
