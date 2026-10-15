@@ -21,6 +21,7 @@ TESTS = [
     "tests/agents/analysis/test_schemas.py", "tests/orchestration/test_contracts_scope.py",
     "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
     "tests/investigation_api/test_contract.py",
+    "tests/investigation_api/test_multi_asset.py",
     "tests/investigation_api/test_service.py", "tests/investigation_api/test_review_regressions.py",
     "tests/investigation_api/test_http_probe.py",
     "tests/investigation_api/test_planner_stability.py",

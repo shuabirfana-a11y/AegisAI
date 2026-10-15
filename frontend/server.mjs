@@ -37,7 +37,8 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
       if (!['GET', 'HEAD', 'POST'].includes(request.method)) return json(response, 405, 'Method not supported by the skeleton.');
       if (request.method === 'POST') {
         const investigationWrite = url.pathname === '/api/investigations' ||
-          /^\/api\/investigations\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/cancel$/i.test(url.pathname);
+          url.pathname === '/api/investigations/batches' ||
+          /^\/api\/investigations\/(?:batches\/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/cancel$/i.test(url.pathname);
         if (url.pathname !== '/api/v1/assistant/query' && !investigationWrite) return json(response, 405, 'Only Assistant queries and investigation creation/cancellation are supported.');
         if (request.headers.origin !== 'http://' + host) return json(response, 403, 'Assistant queries require the same frontend origin.');
         if (!/^application\/json(?:\s*;|$)/i.test(request.headers['content-type'] || '')) return json(response, 415, 'Assistant queries require application/json.');
