@@ -171,15 +171,21 @@ class InvestigationSnapshotReader:
                 include(ref.task_id)
             refs=[];metadata={};claims={};candidate_rows=[];records=[]
             root=str(artifact.vulnerability_id) if artifact.vulnerability_id else ''
-            for task in plan.tasks:
-                if task.task_id not in selected:continue
-                for call in ns['artifacts'].get(task.task_id,{}).get('tool_calls',[]):
+            source_tasks=[(task,ns,row.id,False) for task in plan.tasks if task.task_id in selected]
+            extra_ids=()
+            if request.supplement_id:
+                from app.orchestration.supplement.runtime import read_extra_sources
+                extra_id,extra_plan,extra_ns=read_extra_sources(self.engine,request,actor)
+                extra_ids=(extra_id,)
+                source_tasks.extend((task,extra_ns,extra_id,True) for task in extra_plan.tasks)
+            for task,source_ns,source_id,supplementary in source_tasks:
+                for call in source_ns['artifacts'].get(task.task_id,{}).get('tool_calls',[]):
                     record=db.get(m.ToolCallRecord,UUID(call['record_id']))
-                    if record is None or record.agent_run_id!=row.id:raise ValueError('Invalid source receipt')
+                    if record is None or record.agent_run_id!=source_id:raise ValueError('Invalid source receipt')
                     envelope=record.output_summary
-                    records.append((record,task.task_id))
+                    if not supplementary:records.append((record,task.task_id))
                     refs.append({**call,'input_hash':fingerprint(record.input_summary),
-                                 'output_hash':fingerprint(envelope)})
+                                 'output_hash':fingerprint(envelope),**({'source_run_id':str(source_id)} if supplementary else {})})
                     for item in envelope.get('evidence_refs',[]):
                         if item.get('evidence_id'):
                             key=str(item['evidence_id']);previous=metadata.get(key,{})
@@ -242,6 +248,7 @@ class InvestigationSnapshotReader:
                 extension['impact_version_evidence']=impact_references(tuple(claims[i] for i in kept),evidence)
                 if not extension['version_observations']:unresolved.append('ASSET_VERSION_OBSERVATION_MISSING_OR_AMBIGUOUS')
             return VerificationSourceSnapshot(source_run_id=row.id,source_task_id=artifact.task_id,
+                supplementary_run_ids=extra_ids,
                 source_artifact_id=artifact.artifact_id,source_snapshot_as_of=now,artifact=artifact.model_dump(mode='json'),
                 receipt_references=tuple(refs),claims=tuple(claims[i] for i in kept),evidence=tuple(evidence),
                 omitted_claim_ids=tuple(all_ids[32:288]),omitted_claim_count=max(0,len(all_ids)-32),

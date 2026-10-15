@@ -195,3 +195,45 @@ test('Gate with a different integration ID is rejected despite a matching HTTP r
   await env.open(); env.watch(B); await flush();
   assert.match(env.view.querySelector('[data-panel-id="gate"]').textContent, /ROOT_BINDING_MISMATCH/);
 });
+
+test('supplement keeps polling and switches to the committed second answer version', async t => {
+  let polls=0;const newGate='55555555-5555-4555-8555-555555555555';
+  const env=await environment(t,path => {
+    if(path.endsWith(B+'/status')) {
+      polls++;
+      return json({...fixture(B,'status',polls===1?'INCOMPLETE':'SUCCEEDED'),revision:polls,
+        processing_complete:polls>1,result_version:polls>1?2:1,
+        supplement:{status:polls>1?'COMPLETED':'RUNNING',reason:'TARGETED_EVIDENCE_LOOKUP',new_evidence_ids:polls>1?['new-evidence']:[]}});
+    }
+    if(polls>1 && path.endsWith(B+'/trace'))return json({...fixture(B,'trace'),revision:2,integration_result_id:newGate});
+    if(polls>1 && path.endsWith(B+'/answer'))return json({...fixture(B,'answer'),integration_result_id:newGate,summary:'Second answer version'});
+    if(polls>1 && path.endsWith(B+'/integration'))return json({...fixture(B,'integration'),integration_id:newGate});
+  });
+  await env.open();env.watch(B);await flush();
+  assert.match(env.view.textContent,/补充调查：RUNNING/);
+  assert.ok(!env.calls.some(call=>call.path.endsWith('/answer')),'First terminal verdict must not prematurely finish polling');
+  await new Promise(resolve=>setTimeout(resolve,1200));
+  await until(()=>env.view.textContent.includes('Second answer version'));
+  assert.doesNotMatch(env.view.textContent,/ROOT_BINDING_MISMATCH/);
+});
+
+test('late cancellation of v1 cannot reset the published v2 Gate binding', async t => {
+  const pending=deferred();let polls=0;
+  const gate='55555555-5555-4555-8555-555555555555';
+  const env=await environment(t,path=>{
+    if(path.endsWith(B+'/cancel'))return pending.promise;
+    if(path.endsWith(B+'/status')){
+      polls++;return json({...fixture(B,'status',polls===1?'RUNNING':'SUCCEEDED'),revision:polls,
+        result_version:polls===1?1:2,processing_complete:polls>1});
+    }
+    if(path.endsWith(B+'/trace'))return json({...fixture(B,'trace'),revision:polls,integration_result_id:gate});
+    if(path.endsWith(B+'/answer'))return json({...fixture(B,'answer'),integration_result_id:gate,summary:'Committed v2'});
+    if(path.endsWith(B+'/integration'))return json({...fixture(B,'integration'),integration_id:gate});
+  });
+  await env.open();env.watch(B);await flush();
+  [...env.view.querySelectorAll('button')].find(b=>b.textContent==='请求取消').click();
+  await new Promise(resolve=>setTimeout(resolve,1100));await until(()=>env.view.textContent.includes('Committed v2'));
+  pending.resolve(json({...fixture(B,'status','RUNNING'),revision:1,result_version:1,cancel_requested:true}));await flush();
+  assert.equal(env.view.querySelector('[data-ui-state]').dataset.uiState,'COMPLETED');
+  assert.match(env.view.textContent,/Committed v2/);assert.doesNotMatch(env.view.textContent,/ROOT_BINDING_MISMATCH/);
+});

@@ -50,6 +50,7 @@ export type AnswerResponse = {
   "historical_snapshot"?: true;
   "fact_origin"?: "FROZEN_GATE_CONTEXT";
   "explanation_provider"?: "DETERMINISTIC_TEMPLATE";
+  "result_version"?: 1 | 2;
 };
 
 export type ApiError = {
@@ -74,6 +75,8 @@ export type ArtifactResponse = {
   "analysis"?: (PublicRiskAnalysisArtifact | null);
   "content_trust_level"?: "UNTRUSTED_EXTERNAL_CONTENT";
   "projection_version"?: "investigation-api-public-v1";
+  "supplement"?: (SupplementSummary | null);
+  "result_version"?: 1 | 2;
 };
 
 export type AssetMatchResult = {
@@ -110,6 +113,8 @@ export type BatchItem = {
   "artifact_references"?: Array<ArtifactRef>;
   "integration_result_id"?: (string | null);
   "answer_id"?: (string | null);
+  "result_version"?: 1 | 2;
+  "supplement"?: (SupplementSummary | null);
   "gate_status"?: ("PASS" | "PASS_WITH_WARNINGS" | "REPLAN_REQUIRED" | "HUMAN_REVIEW_REQUIRED" | "FAILED" | null);
   "verification_status"?: (string | null);
   "impact"?: "AFFECTED" | "NOT_AFFECTED" | "UNKNOWN";
@@ -303,6 +308,9 @@ export type HistoryItem = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
   "original_question": string;
   "answer_id"?: (string | null);
   "integration_result_id"?: (string | null);
@@ -362,6 +370,7 @@ export type IntegrationResponse = {
   "evaluation_time": string;
   "historical_snapshot"?: true;
   "persistence"?: "STORED" | "NOT_STORED";
+  "result_version"?: 1 | 2;
 };
 
 export type InventoryComponent = {
@@ -410,6 +419,9 @@ export type InvestigationCreateResponse = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
   "reused": boolean;
   "persistence"?: "STORED";
   "execution_backend"?: "IN_PROCESS_BOUNDED_WORKER";
@@ -451,6 +463,9 @@ export type InvestigationStatusResponse = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
 };
 
 export type ModelExecutionMetadata = {
@@ -657,6 +672,41 @@ export type StageEvent = {
   "references"?: Record<string, string>;
 };
 
+export type SupplementSummary = {
+  "policy_version"?: "evidence-supplement-v1";
+  "supplement_id"?: (string | null);
+  "parent_investigation_id": string;
+  "parent_integration_id"?: (string | null);
+  "status": "DISABLED" | "NOT_ELIGIBLE" | "RUNNING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPLETED" | "STOPPED" | "CANCELLED" | "FAILED";
+  "eligible"?: boolean;
+  "reason": string;
+  "claim_ids"?: Array<string>;
+  "acquisition_run_id"?: (string | null);
+  "acquisition_artifact"?: (ArtifactRef | null);
+  "new_evidence_ids"?: Array<string>;
+  "resolved_claim_ids"?: Array<string>;
+  "extra_acquisition_calls"?: number;
+  "extra_model_calls"?: 0;
+  "extra_total_tool_calls"?: number;
+  "latest_result_version"?: 1 | 2;
+  "result_version"?: 1 | 2;
+  "cancel_requested"?: boolean;
+  "recovery_required"?: boolean;
+  "error_code"?: (string | null);
+  "heartbeat_at"?: (string | null);
+  "started_at"?: (string | null);
+  "finished_at"?: (string | null);
+  "deadline_at"?: (string | null);
+  "tool_calls"?: Array<SupplementToolCall>;
+};
+
+export type SupplementToolCall = {
+  "record_id": string;
+  "tool": "get_evidence";
+  "status": "succeeded" | "partial" | "failed" | "timeout" | "cancelled";
+  "evidence_ids"?: Array<string>;
+};
+
 export type TaskExecution = {
   "run_id": string;
   "task_id": string;
@@ -702,6 +752,8 @@ export type TraceResponse = {
   "stages": Array<TraceStage>;
   "revision": number;
   "model_execution"?: (ModelExecutionMetadata | null);
+  "supplement"?: (SupplementSummary | null);
+  "result_version"?: 1 | 2;
 };
 
 export type TraceStage = {

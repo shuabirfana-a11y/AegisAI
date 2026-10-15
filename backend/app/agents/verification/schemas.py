@@ -43,6 +43,7 @@ class VerificationRequest(Bounded):
     supporting_artifacts: tuple[InvestigationArtifactReference,...] = Field(default=(),max_length=16,exclude_if=lambda v:not v)
     asset_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
     component_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
+    supplement_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
 
     @model_validator(mode='after')
     def unique_selection(self):
@@ -110,6 +111,7 @@ class VerificationEvidence(Bounded):
 
 
 class VerificationSourceSnapshot(Bounded):
+    supplementary_run_ids: tuple[UUID,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
     source_run_id: UUID
     source_task_id: TaskId
     source_artifact_id: UUID

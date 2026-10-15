@@ -90,6 +90,10 @@ class MultiAssetService:
                     (item.answer_id and item.answer_id!=context.answer_id)):
                     raise ValueError('BATCH_CHILD_BINDING_INVALID')
                 if item.execution_status in ('COMPLETED','FAILED') and item.error_code!='CHILD_RESULT_UNAVAILABLE':
+                    if hasattr(self.single,'supplements'):
+                        state=self.single.status(item.investigation_id,actor=actor)
+                        if item.result_version!=state.result_version or item.supplement!=state.supplement:
+                            raise ValueError('BATCH_SUPPLEMENT_BINDING_INVALID')
                     artifacts=self.single.artifacts(item.investigation_id,actor=actor)
                     answer=self.single.answer(item.investigation_id,actor=actor) if child.answer else None
                     if item.planner_run_id!=context.planner_run_id:raise ValueError('BATCH_PLANNER_BINDING_INVALID')
@@ -102,6 +106,11 @@ class MultiAssetService:
                     for key,value in self._decision(answer,artifacts,item.snapshot_valid).items():
                         if getattr(item,key)!=value:raise ValueError('BATCH_DECISION_BINDING_INVALID')
         response=BatchResponse.model_validate(public_copy(record.response.model_dump(mode='json')))
+        # The general projection suppresses raw tool_calls. This narrow contract
+        # carries only IDs, the fixed read-only tool name and execution statuses;
+        # never tool arguments, output text, credentials or worker metadata.
+        for public_item,stored_item in zip(response.items,record.response.items):
+            public_item.supplement=stored_item.supplement
         if any(i.execution_status=='RUNNING' for i in response.items) and response.execution_status in TERMINAL:
             response.recovery_required=True
             response.warnings=(*response.warnings,'CHILD_STOP_NOT_YET_CONFIRMED')
@@ -111,7 +120,8 @@ class MultiAssetService:
         return response
 
     def _bound_child(self,item,actor,target=None):
-        child=self.single.reader.get_result(item.investigation_id,actor=actor)
+        reader=self.single.result if hasattr(self.single,'result') else self.single.reader.get_result
+        child=reader(item.investigation_id,actor=actor)
         request=child.context.original_request;p=request.planner_input
         selected=next((c for c in item.snapshot.components if c.component_id==item.snapshot.selected_component_id),None)
         if (request.request_key!=item.child_request_key or p.query.asset_id!=item.snapshot.asset_id or
@@ -291,6 +301,8 @@ class MultiAssetService:
             def bind(record):record.response.items[index].investigation_id=existing[0].logical_investigation_id
             record=self.repo.mutate(id,actor,bind);item=record.response.items[index]
         child=self._bound_child(item,actor,record.response.vulnerability_id)
+        state=self.single.status(item.investigation_id,actor=actor) if hasattr(self.single,'supplements') else None
+        if state and not state.processing_complete:return False
         if child.context.current_stage not in TERMINAL_STAGES:return False
         artifacts=self.single.artifacts(item.investigation_id,actor=actor)
         answer=self.single.answer(item.investigation_id,actor=actor) if child.answer else None
@@ -309,6 +321,9 @@ class MultiAssetService:
             it.artifact_references=child.context.artifact_references
             it.integration_result_id=child.context.integration_result_id
             it.answer_id=child.context.answer_id
+            if state:
+                it.result_version=state.result_version
+                it.supplement=state.supplement
             for key,value in self._decision(answer,artifacts,valid).items():setattr(it,key,value)
             it.unresolved_items=answer.unresolved_items if answer else child.context.unresolved_items
             it.warnings=answer.warnings if answer else child.context.warnings

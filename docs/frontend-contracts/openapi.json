@@ -6728,6 +6728,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "responses": {
@@ -6845,6 +6863,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -6964,6 +7000,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "responses": {
@@ -7081,6 +7135,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -8427,6 +8499,15 @@
             "const": "DETERMINISTIC_TEMPLATE",
             "title": "Explanation Provider",
             "default": "DETERMINISTIC_TEMPLATE"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -8561,6 +8642,25 @@
             "const": "investigation-api-public-v1",
             "title": "Projection Version",
             "default": "investigation-api-public-v1"
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -8868,6 +8968,25 @@
               }
             ],
             "title": "Answer Id"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "gate_status": {
             "anyOf": [
@@ -10341,6 +10460,30 @@
             ],
             "title": "Finished At"
           },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
           "original_question": {
             "type": "string",
             "title": "Original Question"
@@ -10779,6 +10922,15 @@
             ],
             "title": "Persistence",
             "default": "STORED"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -11312,6 +11464,30 @@
             ],
             "title": "Finished At"
           },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
           "reused": {
             "type": "boolean",
             "title": "Reused"
@@ -11596,6 +11772,30 @@
               }
             ],
             "title": "Finished At"
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -14488,6 +14688,288 @@
         ],
         "title": "StageEvent"
       },
+      "SupplementSummary": {
+        "properties": {
+          "policy_version": {
+            "type": "string",
+            "const": "evidence-supplement-v1",
+            "title": "Policy Version",
+            "default": "evidence-supplement-v1"
+          },
+          "supplement_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supplement Id"
+          },
+          "parent_investigation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Parent Investigation Id"
+          },
+          "parent_integration_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Integration Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DISABLED",
+              "NOT_ELIGIBLE",
+              "RUNNING",
+              "VERIFYING",
+              "ANALYZING",
+              "INTEGRATING",
+              "COMPLETED",
+              "STOPPED",
+              "CANCELLED",
+              "FAILED"
+            ],
+            "title": "Status"
+          },
+          "eligible": {
+            "type": "boolean",
+            "title": "Eligible",
+            "default": false
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 100,
+            "title": "Reason"
+          },
+          "claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Claim Ids",
+            "default": []
+          },
+          "acquisition_run_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acquisition Run Id"
+          },
+          "acquisition_artifact": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "new_evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 48,
+            "title": "New Evidence Ids",
+            "default": []
+          },
+          "resolved_claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Resolved Claim Ids",
+            "default": []
+          },
+          "extra_acquisition_calls": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Extra Acquisition Calls",
+            "default": 0
+          },
+          "extra_model_calls": {
+            "type": "integer",
+            "const": 0,
+            "title": "Extra Model Calls",
+            "default": 0
+          },
+          "extra_total_tool_calls": {
+            "type": "integer",
+            "maximum": 5.0,
+            "minimum": 0.0,
+            "title": "Extra Total Tool Calls",
+            "default": 0
+          },
+          "latest_result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Latest Result Version",
+            "default": 1
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
+          "cancel_requested": {
+            "type": "boolean",
+            "title": "Cancel Requested",
+            "default": false
+          },
+          "recovery_required": {
+            "type": "boolean",
+            "title": "Recovery Required",
+            "default": false
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "heartbeat_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Heartbeat At"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "deadline_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deadline At"
+          },
+          "tool_calls": {
+            "items": {
+              "$ref": "#/components/schemas/SupplementToolCall"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Tool Calls",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "parent_investigation_id",
+          "status",
+          "reason"
+        ],
+        "title": "SupplementSummary"
+      },
+      "SupplementToolCall": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Record Id"
+          },
+          "tool": {
+            "type": "string",
+            "const": "get_evidence",
+            "title": "Tool"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "succeeded",
+              "partial",
+              "failed",
+              "timeout",
+              "cancelled"
+            ],
+            "title": "Status"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 16,
+            "title": "Evidence Ids",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "record_id",
+          "tool",
+          "status"
+        ],
+        "title": "SupplementToolCall"
+      },
       "TaskExecution": {
         "properties": {
           "run_id": {
@@ -14765,6 +15247,25 @@
                 "type": "null"
               }
             ]
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,

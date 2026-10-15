@@ -17,6 +17,7 @@ from app.agents.verification.schemas import VerificationArtifact
 from app.agents.analysis.schemas import RiskAnalysisArtifact
 from app.integration.contracts import IntegrationResult
 from app.investigation_api.errors import ApiFailure
+from app.orchestration.supplement.contracts import SupplementSummary
 
 
 class PublicModel(BaseModel):
@@ -80,6 +81,9 @@ class InvestigationStatusResponse(InvestigationStatus):
     status: Stage
     created_at: AwareDatetime
     finished_at: AwareDatetime | None = None
+    supplement: SupplementSummary | None = None
+    processing_complete: bool = True
+    result_version: Literal[1,2] = 1
 
 
 class InvestigationCreateResponse(InvestigationStatusResponse):
@@ -125,6 +129,8 @@ class TraceResponse(InvestigationTrace):
     stages: tuple[TraceStage, ...]
     revision: int
     model_execution: ModelExecutionMetadata | None = None
+    supplement: SupplementSummary | None = None
+    result_version: Literal[1,2] = 1
 
 
 def public_artifact_model(name, source, excluded):
@@ -143,6 +149,8 @@ PublicVerificationArtifact = public_artifact_model('PublicVerificationArtifact',
 PublicRiskAnalysisArtifact = public_artifact_model('PublicRiskAnalysisArtifact', RiskAnalysisArtifact, PRIVATE_ARTIFACT_FIELDS)
 IntegrationResponse = public_artifact_model('IntegrationResponse', IntegrationResult, frozenset())
 AnswerResponse = public_artifact_model('AnswerResponse', AnswerEnvelope, frozenset())
+IntegrationResponse = create_model('IntegrationResponse',__base__=IntegrationResponse,result_version=(Literal[1,2],1))
+AnswerResponse = create_model('AnswerResponse',__base__=AnswerResponse,result_version=(Literal[1,2],1))
 
 
 class ArtifactResponse(PublicModel):
@@ -153,6 +161,8 @@ class ArtifactResponse(PublicModel):
     analysis: PublicRiskAnalysisArtifact | None = None
     content_trust_level: Literal['UNTRUSTED_EXTERNAL_CONTENT'] = 'UNTRUSTED_EXTERNAL_CONTENT'
     projection_version: Literal['investigation-api-public-v1'] = 'investigation-api-public-v1'
+    supplement: SupplementSummary | None = None
+    result_version: Literal[1,2] = 1
 
 
 class HistoryItem(InvestigationStatusResponse):

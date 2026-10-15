@@ -56,6 +56,7 @@ export function createInvestigationClient({ baseUrl = '', getToken = () => '', l
     return data;
   }
   const idOf = value => encodeURIComponent(String(value));
+  const versionQuery = value => value === undefined ? '' : '?version=' + (value === 1 || value === 2 ? value : (() => { throw new InvestigationApiError('非法结果版本。', { kind: 'invalid_request' }); })());
   return {
     isMock: false,
     create(request, idempotencyKey, signal) {
@@ -65,10 +66,10 @@ export function createInvestigationClient({ baseUrl = '', getToken = () => '', l
       return call('', { method: 'POST', body: { ...request, user_query: question }, headers: { 'Idempotency-Key': idempotencyKey }, signal });
     },
     status: (id, signal) => call('/' + idOf(id) + '/status', { signal }),
-    trace: (id, signal) => call('/' + idOf(id) + '/trace', { signal }),
-    artifacts: (id, signal) => call('/' + idOf(id) + '/artifacts', { signal }),
-    integration: (id, signal) => call('/' + idOf(id) + '/integration', { signal }),
-    answer: (id, signal) => call('/' + idOf(id) + '/answer', { signal }),
+    trace: (id, signal, version) => call('/' + idOf(id) + '/trace' + versionQuery(version), { signal }),
+    artifacts: (id, signal, version) => call('/' + idOf(id) + '/artifacts' + versionQuery(version), { signal }),
+    integration: (id, signal, version) => call('/' + idOf(id) + '/integration' + versionQuery(version), { signal }),
+    answer: (id, signal, version) => call('/' + idOf(id) + '/answer' + versionQuery(version), { signal }),
     cancel: (id, signal) => call('/' + idOf(id) + '/cancel', { method: 'POST', body: {}, signal }),
     history(options = {}, signal) {
       const query = new URLSearchParams();

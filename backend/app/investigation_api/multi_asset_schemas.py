@@ -7,6 +7,7 @@ from app.tooling.contracts import Target
 from app.agents.analysis.schemas import RiskLevel, Priority
 from app.integration.contracts import Status, ArtifactRef
 from app.orchestration.answer_contracts import Citation, EvidenceObservation, ActionView
+from app.orchestration.supplement.contracts import SupplementSummary
 
 
 class BatchRequest(PublicModel):
@@ -73,6 +74,8 @@ class BatchItem(PublicModel):
     artifact_references: tuple[ArtifactRef,...] = ()
     integration_result_id: UUID | None = None
     answer_id: UUID | None = None
+    result_version: Literal[1,2] = 1
+    supplement: SupplementSummary | None = None
     gate_status: Status | None = None
     verification_status: str | None = None
     impact: Literal['AFFECTED','NOT_AFFECTED','UNKNOWN'] = 'UNKNOWN'

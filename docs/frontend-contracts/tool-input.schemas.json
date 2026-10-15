@@ -69,6 +69,42 @@
       "title": "EmptyInput",
       "type": "object"
     },
+    "EvidenceInput": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "claim_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Claim Id"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "title": "EvidenceInput",
+      "type": "object"
+    },
     "IdInput": {
       "additionalProperties": false,
       "properties": {
@@ -501,6 +537,9 @@
     },
     "TargetInput": {
       "$ref": "#/$defs/TargetInput"
+    },
+    "EvidenceInput": {
+      "$ref": "#/$defs/EvidenceInput"
     },
     "IdInput": {
       "$ref": "#/$defs/IdInput"
