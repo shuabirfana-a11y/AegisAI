@@ -32,7 +32,7 @@ ci: add portable unit and contract checks
 
 1. 写明问题、变更范围、接口/Schema 影响和明确未实现项。
 2. 提供实际测试命令、结果；界面改动附脱敏截图。
-3. CI 的三个检查全部通过。失败不得改成跳过或伪造通过。
+3. CI 的四个检查全部通过（含 PostgreSQL critical regression）。失败不得改成跳过或伪造通过。
 4. 由另一位队员或负责人审查边界、权限、证据引用、状态和兼容性；作者逐项回应。
 5. 负责人确认后显式合并。未审查的同学代码不能自动合并。
 
@@ -42,7 +42,7 @@ ci: add portable unit and contract checks
 
 - 所有 PR：敏感路径检查、Gitleaks、工程检查、现有前端测试及契约类型检查。
 - 后端：portable unit baseline 和当前 Pydantic/OpenAPI 契约比较。
-- API/数据库/Runtime 行为改动：除基础 CI 外，还须在专用测试库完成相应集成验收，明确测试库和实际结果。不能把开发或比赛演示数据库用于测试。
+- API/数据库/Runtime 行为改动：除基础 CI 外，还须在两个独立、空的专用测试实例完成集成验收；提交数据的 Runtime fixture 和回滚 fixture 不可共用库。入口及范围见 docs/DATABASE_REGRESSION.md。不能把开发或比赛演示数据库用于测试。
 - Schema 变更同步 OpenAPI、JSON Schema、TypeScript、接口清单和文档；旧响应缺 response_model 的限制必须保留。
 - Mock、合成测试、真实模型运行和业务 Benchmark 分开标识。工程测试数量不是准确率。
 

@@ -1,0 +1,18 @@
+{
+  "changes": {
+    "backend/tests/conftest.py": {
+      "baseline_sha256": "186e459f7036175d5920e0ef3d8dd193e211f4704bf3a2269175c1eb82310380",
+      "previous_sha256": "186e459f7036175d5920e0ef3d8dd193e211f4704bf3a2269175c1eb82310380",
+      "current_sha256": "56e21c7c058074375812d10cbf787287b2955d56eefb7c0ec4924bdfda0bc23a",
+      "authorization": "PHASE14B4_1_USER_AUTHORIZED_TEST_DATABASE_ISOLATION",
+      "reason": "Only fail-closed test fixture guard: distinct committed Runtime and rollback database identities. No business source change."
+    },
+    "backend/app/tooling/adapters.py": {
+      "baseline_sha256": "59bb2965aa691cd221af6573086b2dc4715584290c663da87cd6a128067fe6b5",
+      "previous_sha256": "59bb2965aa691cd221af6573086b2dc4715584290c663da87cd6a128067fe6b5",
+      "current_sha256": "23645410fd5ce21487e35c2e12dd4b33c36684dc20e25401bf6ac007580e5088",
+      "authorization": "PHASE14B4_1_USER_AUTHORIZED_EMPTY_CORPUS_FIX",
+      "reason": "CI 3 failures and red 3/4 reproduce premature embedding initialization. Only an exact current-model/revision/chunker corpus existence query is added; empty returns no_result, populated corpus still preserves model failures."
+    }
+  }
+}

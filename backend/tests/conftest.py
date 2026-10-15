@@ -26,6 +26,14 @@ def engine():
     url=os.environ.get('AEGIS_TEST_DATABASE_URL')
     if not url: pytest.fail('AEGIS_TEST_DATABASE_URL required; database tests must not be silently skipped')
     if make_url(url).database!='aegis_phase5_test': pytest.fail('Only dedicated aegis_phase5_test database is permitted')
+    runtime_url=os.environ.get('AEGIS_RUNTIME_TEST_DATABASE_URL')
+    if runtime_url:
+        root_db=make_url(url);runtime_db=make_url(runtime_url)
+        local={'localhost','127.0.0.1','::1'}
+        root_host='loopback' if root_db.host in local else root_db.host
+        runtime_host='loopback' if runtime_db.host in local else runtime_db.host
+        if (root_host,root_db.port or 5432,root_db.database)==(runtime_host,runtime_db.port or 5432,runtime_db.database):
+            pytest.fail('DISTINCT_TEST_DATABASES_REQUIRED: committed Runtime fixtures cannot share rollback fixtures')
     engine=make_engine(url)
     yield engine
     engine.dispose()
