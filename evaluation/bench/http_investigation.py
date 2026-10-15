@@ -82,7 +82,10 @@ def project_answer(question,raw,*,trace=None,artifacts=None):
     # The original domain validator checks frozen fact/citation references.
     backend_imports()
     from app.orchestration.answer_contracts import AnswerEnvelope
-    e=AnswerEnvelope.model_validate(raw)
+    # Validate HTTP metadata separately; it is not part of the immutable domain
+    # envelope and must not alter any fact, evidence or metric projection.
+    public=api_models().AnswerResponse.model_validate(raw)
+    e=AnswerEnvelope.model_validate(public.model_dump(mode='python',exclude={'result_version'}))
     answer={'native_answer_status':e.answer_status,'native_gate_status':e.integration_status,
             'native_citations':[c.model_dump(mode='json') for c in e.citations]}
     if e.answer_status in {'FAILED','CANCELLED'}:
@@ -226,7 +229,7 @@ class InvestigationHTTPAdapter:
         if len(response.content)>4*1024*1024:raise HTTPFailure('RESPONSE_SIZE_LIMIT')
         try:result=model.model_validate(response.json()).model_dump(mode='json')
         except (ValueError,TypeError):raise HTTPFailure('INVALID_RESPONSE_SCHEMA') from None
-        record['created' if method=='POST' else path.rsplit('/',1)[-1]]=result
+        record['created' if method=='POST' else path.rsplit('/',1)[-1].split('?',1)[0]]=result
         return result
 
     def run(self,question,sources):
@@ -255,18 +258,20 @@ class InvestigationHTTPAdapter:
                 state=self._call('GET',f'/api/investigations/{identifier}/status',models.InvestigationStatusResponse,record,deadline=deadline)
                 if state['investigation_id']!=identifier or state['logical_investigation_id']!=identifier:
                     raise HTTPFailure('INVESTIGATION_ID_MISMATCH')
-                if state['current_stage'] in {'COMPLETED','WAITING_REVIEW','FAILED','CANCELLED'}:break
+                if (state['current_stage'] in {'COMPLETED','WAITING_REVIEW','FAILED','CANCELLED'}
+                        and state.get('processing_complete',True)):break
                 time.sleep(min(self.poll_interval,max(0,deadline-time.monotonic())))
-            trace=self._call('GET',f'/api/investigations/{identifier}/trace',models.TraceResponse,record,deadline=deadline)
+            version_query='?version=2' if state.get('result_version',1)==2 else ''
+            trace=self._call('GET',f'/api/investigations/{identifier}/trace{version_query}',models.TraceResponse,record,deadline=deadline)
             if trace['investigation_id']!=identifier or trace['logical_investigation_id']!=identifier:
                 raise HTTPFailure('TRACE_ID_MISMATCH')
             mode=trace.get('model_execution')
             if not mode or mode['execution_mode']!=self.expected_mode or (self.expected_mode=='REAL' and mode['provider']=='mock'):
                 raise HTTPFailure('MODEL_EXECUTION_MODE_MISMATCH')
             if not trace['planner'] or trace['planner']['validation_status']!='VALIDATED':raise HTTPFailure('PLANNING_FAILED')
-            artifacts=self._call('GET',f'/api/investigations/{identifier}/artifacts',models.ArtifactResponse,record,deadline=deadline)
-            gate=self._call('GET',f'/api/investigations/{identifier}/integration',models.IntegrationResponse,record,deadline=deadline)
-            answer=self._call('GET',f'/api/investigations/{identifier}/answer',models.AnswerResponse,record,deadline=deadline)
+            artifacts=self._call('GET',f'/api/investigations/{identifier}/artifacts{version_query}',models.ArtifactResponse,record,deadline=deadline)
+            gate=self._call('GET',f'/api/investigations/{identifier}/integration{version_query}',models.IntegrationResponse,record,deadline=deadline)
+            answer=self._call('GET',f'/api/investigations/{identifier}/answer{version_query}',models.AnswerResponse,record,deadline=deadline)
             if (artifacts['investigation_id']!=identifier or answer['logical_investigation_id']!=identifier
                 or answer['integration_result_id']!=gate['integration_id'] or trace['integration_result_id']!=gate['integration_id']
                 or answer['integration_status']!=gate['status'] or trace['answer_id']!=answer['answer_id']

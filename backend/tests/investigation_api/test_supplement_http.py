@@ -34,6 +34,18 @@ def test_tcp_automatic_supplement_versions_and_read_only_history(engine,monkeypa
             answer=client.get('/api/investigations/'+id+'/answer').json()
             original=client.get('/api/investigations/'+id+'/answer?version=1').json()
             assert original['integration_status']=='REPLAN_REQUIRED'
+            # HTTP version metadata must remain outside the immutable domain
+            # envelope without changing the existing evaluation projection.
+            import sys
+            from pathlib import Path
+            sys.path.insert(0,str(Path(__file__).resolve().parents[3]))
+            from evaluation.bench.http_investigation import project_answer
+            from evaluation.bench.schema import Question
+            q=Question(id='SYNTHETIC_SUPPLEMENT_HTTP_NOT_GOLD',question=request.user_query,
+                category='risk',origin='TEST_FIXTURE',source_ids=['SYNTHETIC_NOT_BENCHMARK'],input_context={})
+            assert project_answer(q,original).status=='SUCCEEDED'
+            assert project_answer(q,answer).status=='SUCCEEDED'
+            with pytest.raises(ValueError):project_answer(q,{**answer,'result_version':99})
             if enabled:
                 assert state['supplement']['status']=='COMPLETED',state
                 assert state['supplement']['new_evidence_ids'] and state['supplement']['resolved_claim_ids']
