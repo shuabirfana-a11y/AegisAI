@@ -6019,6 +6019,174 @@
       "api_status": "AVAILABLE",
       "browser_access": "AVAILABLE",
       "method": "POST",
+      "url": "/api/investigations/batches",
+      "request": {
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/BatchRequest"
+        }
+      },
+      "response": {
+        "success_http_status": 202,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/batches/{id}",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/batches/{id}/summary",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
+      "url": "/api/investigations/batches/{id}/cancel",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
       "url": "/api/investigations",
       "request": {
         "parameters": [

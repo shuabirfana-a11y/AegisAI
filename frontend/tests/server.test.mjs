@@ -85,6 +85,26 @@ test('investigation writes enforce origin, JSON and exact POST allowlist', async
   assert.equal((await write('/api/investigations/not-a-uuid/cancel')).status, 405);
 });
 
+test('batch create and cancel proxy preserve controls without permitting other writes', async t => {
+  const received = [];
+  const upstream = http.createServer((req, res) => {
+    received.push({ path: req.url, key: req.headers['idempotency-key'], auth: req.headers.authorization });
+    req.resume(); req.on('end', () => { res.writeHead(202, { 'content-type': 'application/json' }); res.end('{}'); });
+  });
+  await start(t, upstream);
+  const url = await start(t, createFrontendServer({ backendPort: upstream.address().port }));
+  const write = (suffix, origin = url) => fetch(url + suffix, { method: 'POST',
+    headers: { Origin: origin, 'Content-Type': 'application/json', Authorization: 'Bearer synthetic', 'Idempotency-Key': 'batch-key' }, body: '{}' });
+  const id = '11111111-1111-4111-8111-111111111111';
+  assert.equal((await write('/api/investigations/batches')).status, 202);
+  assert.equal((await write(`/api/investigations/batches/${id}/cancel`)).status, 202);
+  assert.equal((await write('/api/investigations/batches', 'https://attacker.invalid')).status, 403);
+  assert.equal((await write(`/api/investigations/batches/${id}/summary`)).status, 405);
+  assert.equal((await write('/api/investigations/batches/not-uuid/cancel')).status, 405);
+  assert.deepEqual(received.map(x => x.path), ['/api/investigations/batches', `/api/investigations/batches/${id}/cancel`]);
+  assert.ok(received.every(x => x.key === 'batch-key' && x.auth === 'Bearer synthetic'));
+});
+
 test('same-origin assistant writes preserve JSON body and HTTP conflict', async t => {
   let body = '';
   const upstream = http.createServer((req, res) => {

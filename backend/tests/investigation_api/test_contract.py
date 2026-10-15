@@ -8,7 +8,7 @@ def test_openapi_has_eight_typed_investigation_operations_and_no_empty_legacy_su
     schema = create_app().openapi()
     operations = [(path, method, op) for path, item in schema['paths'].items()
                   for method, op in item.items() if method in ('get', 'post', 'patch', 'delete', 'put')]
-    added = [op for path, method, op in operations if path.startswith('/api/investigations')]
+    added = [op for path, method, op in operations if path.startswith('/api/investigations') and '/batches' not in path]
     assert len(added) == 8
     # New monitoring endpoints are independently typed; retain the original
     # 42-operation investigation/legacy contract as the compatibility boundary.
@@ -16,7 +16,9 @@ def test_openapi_has_eight_typed_investigation_operations_and_no_empty_legacy_su
     assert len(monitoring) == 10  # Existing eight + two authorized readonly graph operations.
     graph_paths={path for path in schema['paths'] if path.startswith('/api/v1/intelligence') and '/graph' in path}
     assert graph_paths=={'/api/v1/intelligence/vulnerabilities/{id}/graph','/api/v1/intelligence/graph/query'}
-    assert len(operations) - len(monitoring) == 42
+    batches = [op for path, method, op in operations if path.startswith('/api/investigations/batches')]
+    assert len(batches) == 4
+    assert len(operations) - len(monitoring) - len(batches) == 42
     for path, method, op in operations:
         code = next(code for code in op['responses'] if code.startswith('2'))
         assert op['responses'][code]['content']['application/json']['schema'], (path, method)

@@ -100,6 +100,99 @@ export type AssetView = {
   "claim_ids"?: Array<string>;
 };
 
+export type BatchItem = {
+  "snapshot": BatchSnapshot;
+  "relations"?: CandidateRelations;
+  "execution_status"?: "NOT_STARTED" | "RUNNING" | "COMPLETED" | "NEED_CONTEXT" | "FAILED" | "NOT_EXECUTED";
+  "child_request_key"?: (string | null);
+  "investigation_id"?: (string | null);
+  "planner_run_id"?: (string | null);
+  "artifact_references"?: Array<ArtifactRef>;
+  "integration_result_id"?: (string | null);
+  "answer_id"?: (string | null);
+  "gate_status"?: ("PASS" | "PASS_WITH_WARNINGS" | "REPLAN_REQUIRED" | "HUMAN_REVIEW_REQUIRED" | "FAILED" | null);
+  "verification_status"?: (string | null);
+  "impact"?: "AFFECTED" | "NOT_AFFECTED" | "UNKNOWN";
+  "risk_level"?: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "UNKNOWN";
+  "priority"?: "P0" | "P1" | "P2" | "P3" | "DEFER" | "REVIEW_REQUIRED";
+  "evidence_ids"?: Array<string>;
+  "claim_ids"?: Array<string>;
+  "citations"?: Array<Citation>;
+  "evidence_observations"?: Array<EvidenceObservation>;
+  "recommended_actions"?: Array<ActionView>;
+  "missing_fields"?: Array<string>;
+  "unresolved_items"?: Array<string>;
+  "warnings"?: Array<string>;
+  "error_code"?: (string | null);
+  "snapshot_valid"?: boolean;
+  "evaluation_time"?: (string | null);
+  "historical_snapshot"?: true;
+  "current_safety_evaluated"?: false;
+};
+
+export type BatchRequest = {
+  "vulnerability_id": string;
+  "asset_ids": Array<string>;
+  "timeout_seconds"?: number;
+  "child_timeout_seconds"?: number;
+  "idempotency_key"?: (string | null);
+};
+
+export type BatchResponse = {
+  "schema_version"?: "multi-asset-batch-v1";
+  "batch_id": string;
+  "vulnerability_id": string;
+  "execution_status": "QUEUED" | "RUNNING" | "CANCEL_REQUESTED" | "COMPLETED" | "CANCELLED" | "TIMED_OUT" | "FAILED";
+  "items": Array<BatchItem>;
+  "summary": BatchSummary;
+  "created_at": string;
+  "updated_at": string;
+  "deadline_at": string;
+  "finished_at"?: (string | null);
+  "cancel_requested_at"?: (string | null);
+  "cancellation_observed"?: boolean;
+  "recovery_required"?: boolean;
+  "reused"?: boolean;
+  "duplicate_asset_count"?: number;
+  "warnings"?: Array<string>;
+  "max_assets": number;
+  "model_provider": string;
+  "model_name": string;
+  "execution_mode": "MOCK" | "REAL";
+  "revision"?: number;
+};
+
+export type BatchSnapshot = {
+  "asset_id": string;
+  "asset_name": string;
+  "captured_at": string;
+  "inventory_hash": string;
+  "environment"?: string;
+  "exposure"?: string;
+  "criticality"?: "unknown";
+  "is_demo"?: boolean;
+  "components"?: Array<InventoryComponent>;
+  "selected_component_id"?: (string | null);
+  "provenance"?: "USER_INVENTORY_NOT_SCANNED";
+};
+
+export type BatchSummary = {
+  "counts": Record<string, number>;
+  "actionable_asset_ids": Array<string>;
+  "unresolved_asset_ids": Array<string>;
+  "unaffected_asset_ids": Array<string>;
+  "sorting_rule"?: "EXISTING_PRIORITY_THEN_ASSET_UUID";
+  "scope_notice"?: string;
+};
+
+export type CandidateRelations = {
+  "node_ids"?: Array<string>;
+  "edge_ids"?: Array<string>;
+  "warnings"?: Array<string>;
+  "truncated"?: boolean;
+  "meaning"?: "CANDIDATE_RELATIONS_NOT_IMPACT_PROOF";
+};
+
 export type Citation = {
   "evidence_id": string;
   "claim_id": string;
@@ -269,6 +362,21 @@ export type IntegrationResponse = {
   "evaluation_time": string;
   "historical_snapshot"?: true;
   "persistence"?: "STORED" | "NOT_STORED";
+};
+
+export type InventoryComponent = {
+  "component_id": string;
+  "product_id"?: (string | null);
+  "package_identifier_id"?: (string | null);
+  "name"?: (string | null);
+  "package_name"?: (string | null);
+  "ecosystem"?: string;
+  "namespace"?: string;
+  "purl"?: (string | null);
+  "version"?: (string | null);
+  "inventory_revision": number;
+  "source": string;
+  "identity_status": string;
 };
 
 export type InvestigationArtifactReference = {

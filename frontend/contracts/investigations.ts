@@ -3,6 +3,7 @@ import type {
   InvestigationCreateRequest, InvestigationCreateResult, InvestigationStatusResponse,
   TraceResponse, ArtifactResponse, IntegrationResponse, AnswerResponse, HistoryResponse,
   ApiError, Overall,
+  BatchRequest, BatchResponse,
 } from '../../docs/frontend-contracts/investigation-http.js';
 
 export class InvestigationApiError extends Error {
@@ -33,6 +34,14 @@ export class InvestigationApiClient {
   artifacts(id: string): Promise<ArtifactResponse> { return this.call('/' + encodeURIComponent(id) + '/artifacts'); }
   integration(id: string): Promise<IntegrationResponse> { return this.call('/' + encodeURIComponent(id) + '/integration'); }
   answer(id: string): Promise<AnswerResponse> { return this.call('/' + encodeURIComponent(id) + '/answer'); }
+  createBatch(request: BatchRequest, idempotencyKey: string): Promise<BatchResponse> {
+    return this.call('/batches', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey }, body: JSON.stringify(request) });
+  }
+  batch(id: string): Promise<BatchResponse> { return this.call('/batches/' + encodeURIComponent(id)); }
+  batchSummary(id: string): Promise<BatchResponse> { return this.call('/batches/' + encodeURIComponent(id) + '/summary'); }
+  cancelBatch(id: string): Promise<BatchResponse> {
+    return this.call('/batches/' + encodeURIComponent(id) + '/cancel', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+  }
   cancel(id: string): Promise<InvestigationStatusResponse> {
     return this.call('/' + encodeURIComponent(id) + '/cancel', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
   }
