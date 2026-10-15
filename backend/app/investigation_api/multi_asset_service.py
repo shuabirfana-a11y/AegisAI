@@ -94,8 +94,9 @@ class MultiAssetService:
                         state=self.single.status(item.investigation_id,actor=actor)
                         if item.result_version!=state.result_version or item.supplement!=state.supplement:
                             raise ValueError('BATCH_SUPPLEMENT_BINDING_INVALID')
-                    artifacts=self.single.artifacts(item.investigation_id,actor=actor)
-                    answer=self.single.answer(item.investigation_id,actor=actor) if child.answer else None
+                    version={'version':item.result_version} if hasattr(self.single,'supplements') else {}
+                    artifacts=self.single.artifacts(item.investigation_id,actor=actor,**version)
+                    answer=self.single.answer(item.investigation_id,actor=actor,**version) if child.answer else None
                     if item.planner_run_id!=context.planner_run_id:raise ValueError('BATCH_PLANNER_BINDING_INVALID')
                     if (item.artifact_references!=context.artifact_references or
                         item.integration_result_id!=context.integration_result_id or item.answer_id!=context.answer_id or
@@ -119,9 +120,10 @@ class MultiAssetService:
             response.warnings=(*response.warnings,'WORKER_HEARTBEAT_STALE_NO_AUTOMATIC_REPLAY')
         return response
 
-    def _bound_child(self,item,actor,target=None):
+    def _bound_child(self,item,actor,target=None,*,version=None):
         reader=self.single.result if hasattr(self.single,'result') else self.single.reader.get_result
-        child=reader(item.investigation_id,actor=actor)
+        selected={'version':item.result_version if version is None else version} if hasattr(self.single,'supplements') else {}
+        child=reader(item.investigation_id,actor=actor,**selected)
         request=child.context.original_request;p=request.planner_input
         selected=next((c for c in item.snapshot.components if c.component_id==item.snapshot.selected_component_id),None)
         if (request.request_key!=item.child_request_key or p.query.asset_id!=item.snapshot.asset_id or
@@ -300,12 +302,16 @@ class MultiAssetService:
                 return False
             def bind(record):record.response.items[index].investigation_id=existing[0].logical_investigation_id
             record=self.repo.mutate(id,actor,bind);item=record.response.items[index]
-        child=self._bound_child(item,actor,record.response.vulnerability_id)
         state=self.single.status(item.investigation_id,actor=actor) if hasattr(self.single,'supplements') else None
         if state and not state.processing_complete:return False
+        # A supplement may publish between two reads. Select the completed
+        # status version first, then bind every result/source read to that same
+        # immutable version; never combine v1 references with a v2 decision.
+        version={'version':state.result_version} if state else {}
+        child=self._bound_child(item,actor,record.response.vulnerability_id,**version)
         if child.context.current_stage not in TERMINAL_STAGES:return False
-        artifacts=self.single.artifacts(item.investigation_id,actor=actor)
-        answer=self.single.answer(item.investigation_id,actor=actor) if child.answer else None
+        artifacts=self.single.artifacts(item.investigation_id,actor=actor,**version)
+        answer=self.single.answer(item.investigation_id,actor=actor,**version) if child.answer else None
         valid=self._matches(item.snapshot,actor)
         analysis=artifacts.analysis
         c=next(c for c in item.snapshot.components if c.component_id==item.snapshot.selected_component_id)
