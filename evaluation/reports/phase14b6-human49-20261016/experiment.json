@@ -1,0 +1,621 @@
+{
+  "phase": "PHASE14B6",
+  "evaluation_mode": "ONLINE_EVALUATION",
+  "frozen_at_utc": "2026-10-15T15:34:44.245697+00:00",
+  "code": {
+    "commit": "b8182eac1153e08bd9323b949f1b56af162360c8",
+    "branch": "codex/phase14b6-answer-chain-retest",
+    "tracked_dirty": false,
+    "preexisting_untracked_preserved": [
+      "PHASE_14C_RESULT.md",
+      "docs/phase14c/"
+    ]
+  },
+  "dataset": {
+    "version": "AegisBench-v0.4-human49-20261014",
+    "manifest": "evaluation/datasets/AegisBench-v0.4-human49-20261014/manifest.json",
+    "manifest_sha256": "002f021912a56f629c79a6207d30a91abe126c55f3d5f201adbfc358e8ae13e3",
+    "questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+    "annotations_sha256": "1d72276e477fa552bd30364ecfabe749a1a34f6e10e266e512321271e7ce7c99",
+    "approved_count": 49
+  },
+  "model": {
+    "name": "aegisai-qwen25-planner:latest",
+    "model": "aegisai-qwen25-planner:latest",
+    "modified_at": "2026-10-12T10:55:23.5419291+08:00",
+    "size": 4683086978,
+    "digest": "15aaf3fda3b8e9bb6724e5e9911eec3b9cbdb6bd967646b6bf49ee9846b7ec16",
+    "details": {
+      "parent_model": "qwen2.5:7b-instruct-q4_K_M",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "7.6B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 3584,
+      "runner": "llamacpp"
+    },
+    "capabilities": [
+      "completion",
+      "tools"
+    ]
+  },
+  "temperature": 0.0,
+  "model_timeout_seconds": 60,
+  "structured_mode": "json_schema",
+  "prompt": {
+    "planner": "investigation-plan-v6",
+    "planner_file_sha256": "7075cae933bb2eba41504e62248b63119320435689dae60b44e7199d5c32e0ab",
+    "answer": "DETERMINISTIC_COMPOSER_UNCHANGED",
+    "answer_file_sha256": "a969593c046ab2ea1de5a21cb4fd4d0f73890602a9574c55d0985dd35aebb461"
+  },
+  "evaluator_hashes": {
+    "evaluate.py": "3473a243b904ddef2a8a0f4075b141106d26621d04383936eb4dc2535f824b71",
+    "evaluation/dataset.py": "67459a49116265cb13d0d2933d4fbd436abf53e34cd32ebd048bc05109cb73d7",
+    "evaluation/metrics/__init__.py": "e073a19eae9e95137744e6e2c06eb8b79e3bfcf129c311baa7a6cf6581540f65",
+    "backend/app/services/versions.py": "95cb4c4434233595876349a816b986b069ddc7b4f91e547ecd074f8dfda419c6",
+    "backend/app/assets/versions.py": "17d48e4b40fad7ae1a2b0e65ee3185e0bdb893a608a60fb554973eda966711ea",
+    "backend/app/enrichment/versions.py": "ac17a6746277ae97ea11d720fcdacdb518664d6936af4f57fb8d7a4a6d25a4ee",
+    "evaluation/bench/__init__.py": "5a36bce081396cc9a91b5770e0bbeb11a6b3708b247a40e905f45d4265ac787d",
+    "evaluation/bench/adapters.py": "35e2379bd3191704ff46fbf5e6bce220c6bbb2035c2e91710232f67e4c529459",
+    "evaluation/bench/build_pilot.py": "619e46cf13168e7709cc3864c9f9bb55684d3bad98455a8914a70ef319aa8504",
+    "evaluation/bench/data.py": "c78fe1935a01336da8e841713f55b05a85a63e02705cd9d06bd55be941c6f71b",
+    "evaluation/bench/e2e.py": "b0c0d80f253544db8c022950cf74704d16a001e1cde0d37584d4f6ded93067b0",
+    "evaluation/bench/http_batch.py": "ea005bb70d85ed122c4a73864d337b14cf76c2e01634e85d5dcaa33183c52ad1",
+    "evaluation/bench/http_investigation.py": "5d759f441edb7eb89762f4757f390e6a052dd6dffc993e11b2f249b6c81de57d",
+    "evaluation/bench/native.py": "433749e4794ed6e98fb090d5207c22f468c7925599d1183ac5182809050d0c35",
+    "evaluation/bench/quality.py": "f41702b3efb39f672c020ee734b46df7f4a6bf1f106e10a6165c2f5236e2a8c3",
+    "evaluation/bench/question_contract.py": "bf1c0ecac615b2ef1914d65587454da3ce975c4192d9d05e004de3b68f83fa40",
+    "evaluation/bench/readiness.py": "1e872cc78b0034ab76e257954145a878d7bd9432087bc713365c556074b40759",
+    "evaluation/bench/runner.py": "edb6179fa41117d0c48eb0acd79bcd9982778dd7dc6c8bb5aae9da0c9e21b7d4",
+    "evaluation/bench/schema.py": "19786cc4273d099b74b92387be285a55b9bdfc6537421eccb88e39d879bdab74",
+    "evaluation/bench/sources.py": "988145b309bfb44b646854f12cde0682647a6313f51e6cfc854f70bf68ba0be4"
+  },
+  "http_base_url": "http://127.0.0.1:8012",
+  "http_timeout_seconds": 180,
+  "supplement": {
+    "enabled": true,
+    "rounds_per_logical_investigation": 1,
+    "extra_acquisition_calls": 3,
+    "shared_batch_budget": true
+  },
+  "source_mode": "FROZEN_PUBLIC_SOURCE_GRAPH_REPLAY_NOT_LIVE_REFRESH",
+  "source_hashes": {
+    "5ad539a3-bdc5-4470-9ff2-0e40c7dfa719": "e159ce5c70f4da325c5497a47b17cef44f4bb25ad39f82d03acac9c619dc406f",
+    "26043b83-058c-4c61-89df-bf63fe066319": "017ca3f14e7fc83b1bc7eb25160eac64941e9eed0fe34a5c97a43167dec9b63c",
+    "22acab42-3a3c-4e2f-9029-96169c4a089e": "08741ce13e6d06c58009cfda29685dec0953805aaaa7da3153e596c79a29f12b",
+    "74c8596e-a6ad-4ad5-8940-92286122bec9": "664017341dc9e14d5c1eb4450c57cc2132c38a47aeeece5278d5bd1bb67c436e",
+    "d1c811d1-4724-4342-9f33-46f750ac0674": "203413a3cef96b7a3df5c053eeb0d4c6d8070673e1aec5748fa897cc51b7cc33",
+    "024d392e-c591-4711-941b-1cc3ec865c72": "fa2a60f2e733918dcc0c3cd3ab6842d9e0be394da74149dd9ec36f89e856e343",
+    "350d9614-e24b-40ba-bd03-da8c6938427e": "47589769099fe9976555b64ccc7055d83576e84d9ec3eff07748ae01f68a0f04",
+    "94a5e1ae-f025-4582-8a75-d98a308224f3": "393a9d4ea5acf2d149a99241e872b8e77280c292faadf4159a9c73a37d9e5365",
+    "0408466a-913f-4fd0-94ff-2b1852d018cc": "5c7326f53ca55c8e128e5122cab2cbf946eed772e1692f022ebccc66e44b751a",
+    "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+    "7374abcb-89b9-41cc-bc35-93f85a36ca64": "5e174c2f8acd87a63e51bb5af7f3b8f00d030048de6a476a1218e361f38ad6de",
+    "2d4b3020-f80f-479e-b86e-1dbe02800cbd": "762f068dbe4214de45c6ce3124a1ba8be52207029dc63210bc3d3bdba0c85448"
+  },
+  "database_counts_before": {
+    "Asset": 43,
+    "AssetComponent": 43,
+    "RawDocument": 12,
+    "Claim": 28,
+    "Evidence": 51,
+    "AgentRun": 0
+  },
+  "case_order": [
+    "GHSA-53q9-r3pm-6pq6-facts",
+    "GHSA-53q9-r3pm-6pq6-affected",
+    "GHSA-53q9-r3pm-6pq6-fixed",
+    "GHSA-53q9-r3pm-6pq6-unknown",
+    "GHSA-53q9-r3pm-6pq6-release-and-poc",
+    "GHSA-53q9-r3pm-6pq6-commit-candidate",
+    "GHSA-53q9-r3pm-6pq6-risk-affected",
+    "GHSA-53q9-r3pm-6pq6-risk-fixed",
+    "GHSA-53q9-r3pm-6pq6-multihop",
+    "GHSA-47fc-vmwq-366v-facts",
+    "GHSA-47fc-vmwq-366v-affected",
+    "GHSA-47fc-vmwq-366v-fixed",
+    "GHSA-47fc-vmwq-366v-unknown",
+    "GHSA-47fc-vmwq-366v-release-and-poc",
+    "GHSA-47fc-vmwq-366v-commit-candidate",
+    "GHSA-47fc-vmwq-366v-risk-affected",
+    "GHSA-47fc-vmwq-366v-risk-fixed",
+    "GHSA-47fc-vmwq-366v-multihop",
+    "GHSA-c67j-w6g6-q2cm-facts",
+    "GHSA-c67j-w6g6-q2cm-affected",
+    "GHSA-c67j-w6g6-q2cm-fixed",
+    "GHSA-c67j-w6g6-q2cm-unknown",
+    "GHSA-c67j-w6g6-q2cm-release-and-poc",
+    "GHSA-c67j-w6g6-q2cm-commit-candidate",
+    "GHSA-c67j-w6g6-q2cm-risk-affected",
+    "GHSA-c67j-w6g6-q2cm-risk-fixed",
+    "GHSA-c67j-w6g6-q2cm-multihop",
+    "GHSA-9rwj-6rc7-p77c-facts",
+    "GHSA-9rwj-6rc7-p77c-affected",
+    "GHSA-9rwj-6rc7-p77c-fixed",
+    "GHSA-9rwj-6rc7-p77c-unknown",
+    "GHSA-9rwj-6rc7-p77c-release-and-poc",
+    "GHSA-9rwj-6rc7-p77c-commit-candidate",
+    "GHSA-9rwj-6rc7-p77c-risk-affected",
+    "GHSA-9rwj-6rc7-p77c-risk-fixed",
+    "GHSA-9rwj-6rc7-p77c-multihop",
+    "GHSA-935w-9g4m-p28p-facts",
+    "GHSA-935w-9g4m-p28p-affected",
+    "GHSA-935w-9g4m-p28p-fixed",
+    "GHSA-935w-9g4m-p28p-unknown",
+    "GHSA-935w-9g4m-p28p-release-and-poc",
+    "GHSA-935w-9g4m-p28p-commit-candidate",
+    "GHSA-935w-9g4m-p28p-risk-affected",
+    "GHSA-935w-9g4m-p28p-risk-fixed",
+    "GHSA-935w-9g4m-p28p-multihop",
+    "GHSA-c67j-w6g6-q2cm-gap",
+    "GHSA-c67j-w6g6-q2cm-older-fix",
+    "cross-advisory-priorities",
+    "cross-advisory-missing-version"
+  ],
+  "bindings_sha256": "63a8f95d1b0cba6d1a9ed343819a3f9082aaea309731dbf6a56a1cd217cdaf36",
+  "inventory_sha256": "bc465a1164ed2db046540e465d2c864ab9d641c507686e024bd2e8e088520b36",
+  "ground_truth_usage": "FINAL_SCORER_ONLY",
+  "estimated_model_calls": {
+    "normal": 47,
+    "max_planner_attempts": 94,
+    "note": "37 single admitted plus 10 batch children; per-question HTTP deadline180s, model60s; missing context/unsupported preserved."
+  },
+  "embedding": "UNCHANGED_MOCK_EMBEDDING_V1_384; FULL_MODEL_STACK_NOT_ALL_REAL",
+  "baseline_status": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED"
+  },
+  "service_proof": {
+    "mode": "formal",
+    "code_commit": "b8182eac1153e08bd9323b949f1b56af162360c8",
+    "configuration_source": "EXPLICIT_LOCAL_ENVIRONMENT_NOT_FRONTEND",
+    "profile": {
+      "MODEL_PROVIDER": "openai_compatible",
+      "MODEL_NAME": "aegisai-qwen25-planner:latest",
+      "MODEL_ALLOW_KEYLESS_LOCAL": "true",
+      "MODEL_API_BASE": "http://127.0.0.1:11434/v1",
+      "MODEL_TIMEOUT_SECONDS": "60",
+      "MODEL_MAX_OUTPUT_TOKENS": "4096",
+      "MODEL_STRUCTURED_MODE": "json_schema",
+      "MODEL_REASONING_EFFORT": "none",
+      "MODEL_TOKEN_PARAMETER": "max_tokens",
+      "MODEL_EMBEDDING_PROVIDER": "mock",
+      "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+      "MODEL_EMBEDDING_DIMENSION": "384",
+      "AEGIS_EVIDENCE_SUPPLEMENT_ENABLED": "1",
+      "AEGIS_ASSET_OWNER": "phase14b6-experiment-operator",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    },
+    "port": 8012,
+    "reload": false,
+    "database_name": "aegis_phase14b6_formal",
+    "api_key_present": false,
+    "token_exported": false,
+    "source_app": "backend/app/main.py",
+    "app_location_verified": true,
+    "source_tree_verified": true,
+    "interpreter_verified": true,
+    "private_runtime_details": "Retained locally in formal-service-proof.json"
+  },
+  "collection": {
+    "mode": "ONLINE_EVALUATION",
+    "started_at_utc": "2026-10-15T15:35:32.814190+00:00",
+    "finished_at_utc": "2026-10-15T15:58:46.173877+00:00",
+    "attempted": 49,
+    "execution": {
+      "SUCCEEDED": 42,
+      "NOT_EVALUATED": 7
+    },
+    "question_gate_counts": {
+      "PASS_WITH_WARNINGS": 6,
+      "REPLAN_REQUIRED": 15,
+      "NO_SINGLE_GATE": 12,
+      "HUMAN_REVIEW_REQUIRED": 16
+    },
+    "errors": {
+      "BATCH_TARGET_REQUIRED": 2
+    },
+    "metrics": {
+      "status": "EVALUATED",
+      "eligible_gold_count": 49,
+      "scored_count": 49,
+      "excluded_annotations": [],
+      "accuracy": 0.0,
+      "field_accuracy": {
+        "cve": {
+          "correct": 2,
+          "n": 5,
+          "accuracy": 0.4
+        },
+        "cvss_v3": {
+          "correct": 0,
+          "n": 5,
+          "accuracy": 0.0
+        },
+        "cvss_v4": {
+          "correct": 0,
+          "n": 5,
+          "accuracy": 0.0
+        },
+        "cwes": {
+          "correct": 0,
+          "n": 5,
+          "accuracy": 0.0
+        },
+        "summary": {
+          "correct": 0,
+          "n": 5,
+          "accuracy": 0.0
+        },
+        "affected": {
+          "correct": 0,
+          "n": 27,
+          "accuracy": 0.0
+        },
+        "patch_status": {
+          "correct": 1,
+          "n": 10,
+          "accuracy": 0.1
+        },
+        "poc_status": {
+          "correct": 0,
+          "n": 5,
+          "accuracy": 0.0
+        },
+        "priority": {
+          "correct": 0,
+          "n": 10,
+          "accuracy": 0.0
+        },
+        "risk_level": {
+          "correct": 0,
+          "n": 10,
+          "accuracy": 0.0
+        },
+        "priority_asset_ids": {
+          "correct": 0,
+          "n": 6,
+          "accuracy": 0.0
+        },
+        "can_confirm_not_affected": {
+          "correct": 0,
+          "n": 1,
+          "accuracy": 0.0
+        }
+      },
+      "version": {
+        "n": 27,
+        "accuracy": 0.0,
+        "per_class": {
+          "AFFECTED": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 10,
+            "support": 10,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "NOT_AFFECTED": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 12,
+            "support": 12,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "UNKNOWN": {
+            "tp": 0,
+            "fp": 16,
+            "fn": 5,
+            "support": 5,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "confusion_matrix": {
+          "AFFECTED": {
+            "AFFECTED": 0,
+            "NOT_AFFECTED": 0,
+            "UNKNOWN": 8,
+            "NO_PREDICTION": 2
+          },
+          "NOT_AFFECTED": {
+            "AFFECTED": 0,
+            "NOT_AFFECTED": 0,
+            "UNKNOWN": 8,
+            "NO_PREDICTION": 4
+          },
+          "UNKNOWN": {
+            "AFFECTED": 0,
+            "NOT_AFFECTED": 0,
+            "UNKNOWN": 0,
+            "NO_PREDICTION": 5
+          }
+        },
+        "macro_f1": 0.0,
+        "macro_f1_defined_classes": 3,
+        "unknown_rate": 0.5925925925925926,
+        "no_prediction_count": 11,
+        "false_safe_count": 0,
+        "false_safe_rate": 0.0,
+        "false_affected_count": 0,
+        "false_affected_rate": 0.0,
+        "sample_count": 27
+      },
+      "poc_classification": {
+        "n": 5,
+        "accuracy": 0.0,
+        "per_class": {
+          "POC_CANDIDATE": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "VERIFIED_EXPLOIT": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "UNKNOWN": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          },
+          "NO_EVIDENCE": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "support": 5,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "confusion_matrix": {
+          "POC_CANDIDATE": {
+            "POC_CANDIDATE": 0,
+            "VERIFIED_EXPLOIT": 0,
+            "UNKNOWN": 0,
+            "NO_EVIDENCE": 0,
+            "NO_PREDICTION": 0
+          },
+          "VERIFIED_EXPLOIT": {
+            "POC_CANDIDATE": 0,
+            "VERIFIED_EXPLOIT": 0,
+            "UNKNOWN": 0,
+            "NO_EVIDENCE": 0,
+            "NO_PREDICTION": 0
+          },
+          "UNKNOWN": {
+            "POC_CANDIDATE": 0,
+            "VERIFIED_EXPLOIT": 0,
+            "UNKNOWN": 0,
+            "NO_EVIDENCE": 0,
+            "NO_PREDICTION": 0
+          },
+          "NO_EVIDENCE": {
+            "POC_CANDIDATE": 0,
+            "VERIFIED_EXPLOIT": 0,
+            "UNKNOWN": 0,
+            "NO_EVIDENCE": 0,
+            "NO_PREDICTION": 5
+          }
+        },
+        "macro_f1": 0.0,
+        "macro_f1_defined_classes": 1,
+        "unknown_rate": 0.0,
+        "no_prediction_count": 5,
+        "false_safe_count": 0,
+        "false_safe_rate": null,
+        "false_affected_count": 0,
+        "false_affected_rate": null,
+        "sample_count": 5
+      },
+      "patch_classification": {
+        "n": 10,
+        "accuracy": 0.1,
+        "per_class": {
+          "PATCH_CANDIDATE": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 5,
+            "support": 5,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0
+          },
+          "CONFIRMED_FIX": {
+            "tp": 1,
+            "fp": 1,
+            "fn": 4,
+            "support": 5,
+            "precision": 0.5,
+            "recall": 0.2,
+            "f1": 0.2857142857142857
+          },
+          "UNKNOWN": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "support": 0,
+            "precision": null,
+            "recall": null,
+            "f1": null
+          }
+        },
+        "confusion_matrix": {
+          "PATCH_CANDIDATE": {
+            "PATCH_CANDIDATE": 0,
+            "CONFIRMED_FIX": 1,
+            "UNKNOWN": 0,
+            "NO_PREDICTION": 4
+          },
+          "CONFIRMED_FIX": {
+            "PATCH_CANDIDATE": 0,
+            "CONFIRMED_FIX": 1,
+            "UNKNOWN": 0,
+            "NO_PREDICTION": 4
+          },
+          "UNKNOWN": {
+            "PATCH_CANDIDATE": 0,
+            "CONFIRMED_FIX": 0,
+            "UNKNOWN": 0,
+            "NO_PREDICTION": 0
+          }
+        },
+        "macro_f1": 0.14285714285714285,
+        "macro_f1_defined_classes": 2,
+        "unknown_rate": 0.0,
+        "no_prediction_count": 8,
+        "false_safe_count": 0,
+        "false_safe_rate": null,
+        "false_affected_count": 0,
+        "false_affected_rate": null,
+        "sample_count": 10
+      },
+      "risk_accuracy": 0.0,
+      "priority_accuracy": 0.0,
+      "abstention": {
+        "n": 49,
+        "should_abstain_n": 7,
+        "answerable_n": 42,
+        "correct_abstention_count": 0,
+        "correct_abstention_rate": 0.0,
+        "incorrect_abstention_count": 32,
+        "incorrect_abstention_rate": 0.7619047619047619,
+        "false_confident_answer_count": 0,
+        "false_confident_answer_rate": 0.0,
+        "no_prediction_count": 16,
+        "precision": 0.0,
+        "recall": 0.0,
+        "missing_prediction_count": 16,
+        "inconsistent_flag_count": 1,
+        "basis": "STRUCTURED_UNKNOWN_FIELDS_WITH_FLAG_CONSISTENCY",
+        "quality_accuracy": 0.02040816326530612
+      },
+      "reasoning_completeness": 0.39285714285714285,
+      "reasoning_completeness_basis": "RECORDED_WORKFLOW_STEPS_NOT_REASONING_CORRECTNESS",
+      "evidence_coverage": null,
+      "hallucination_rate": null,
+      "audit": {
+        "emitted_claims": 310,
+        "human_reviewed_claims": 0,
+        "answers_requiring_audit": 42,
+        "human_audited_answers": 0,
+        "answer_audit_coverage": 0.0,
+        "coverage": 0.0,
+        "complete": false,
+        "unresolved_claims": 0,
+        "reviewed_subset_evidence_coverage": null,
+        "reviewed_subset_hallucination_rate": null
+      },
+      "invalid_label_count": 0,
+      "execution": {
+        "SUCCEEDED": 42,
+        "NOT_EVALUATED": 7
+      },
+      "missing_predictions": 0,
+      "latency": {
+        "n": 42,
+        "p50_ms": 29938.181400000758,
+        "p95_ms": 69602.62819000345,
+        "mean_ms": 33059.46814047638,
+        "max_ms": 78451.49260000471,
+        "percentile_method": "linear interpolation at (n-1)*p"
+      },
+      "limitations": [
+        "Human gold and outcome audit are distinct gates.",
+        "Absent class support has null recall; macro F1 lists defined classes.",
+        "Workflow step coverage does not establish reasoning correctness.",
+        "Pilot questions sharing advisories are correlated, not independent trials."
+      ]
+    },
+    "outcome_audit": "PENDING_HUMAN",
+    "comparison_status": "NOT_COMPARABLE"
+  },
+  "frozen_scorer_hashes": {
+    "evaluate.py": "3473a243b904ddef2a8a0f4075b141106d26621d04383936eb4dc2535f824b71",
+    "evaluation/dataset.py": "67459a49116265cb13d0d2933d4fbd436abf53e34cd32ebd048bc05109cb73d7",
+    "evaluation/metrics/__init__.py": "e073a19eae9e95137744e6e2c06eb8b79e3bfcf129c311baa7a6cf6581540f65",
+    "backend/app/services/versions.py": "95cb4c4434233595876349a816b986b069ddc7b4f91e547ecd074f8dfda419c6",
+    "backend/app/assets/versions.py": "17d48e4b40fad7ae1a2b0e65ee3185e0bdb893a608a60fb554973eda966711ea",
+    "backend/app/enrichment/versions.py": "ac17a6746277ae97ea11d720fcdacdb518664d6936af4f57fb8d7a4a6d25a4ee",
+    "evaluation/bench/__init__.py": "5a36bce081396cc9a91b5770e0bbeb11a6b3708b247a40e905f45d4265ac787d",
+    "evaluation/bench/adapters.py": "35e2379bd3191704ff46fbf5e6bce220c6bbb2035c2e91710232f67e4c529459",
+    "evaluation/bench/build_pilot.py": "619e46cf13168e7709cc3864c9f9bb55684d3bad98455a8914a70ef319aa8504",
+    "evaluation/bench/data.py": "c78fe1935a01336da8e841713f55b05a85a63e02705cd9d06bd55be941c6f71b",
+    "evaluation/bench/e2e.py": "b0c0d80f253544db8c022950cf74704d16a001e1cde0d37584d4f6ded93067b0",
+    "evaluation/bench/http_batch.py": "ea005bb70d85ed122c4a73864d337b14cf76c2e01634e85d5dcaa33183c52ad1",
+    "evaluation/bench/http_investigation.py": "5d759f441edb7eb89762f4757f390e6a052dd6dffc993e11b2f249b6c81de57d",
+    "evaluation/bench/native.py": "433749e4794ed6e98fb090d5207c22f468c7925599d1183ac5182809050d0c35",
+    "evaluation/bench/quality.py": "f41702b3efb39f672c020ee734b46df7f4a6bf1f106e10a6165c2f5236e2a8c3",
+    "evaluation/bench/question_contract.py": "bf1c0ecac615b2ef1914d65587454da3ce975c4192d9d05e004de3b68f83fa40",
+    "evaluation/bench/readiness.py": "1e872cc78b0034ab76e257954145a878d7bd9432087bc713365c556074b40759",
+    "evaluation/bench/runner.py": "edb6179fa41117d0c48eb0acd79bcd9982778dd7dc6c8bb5aae9da0c9e21b7d4",
+    "evaluation/bench/schema.py": "19786cc4273d099b74b92387be285a55b9bdfc6537421eccb88e39d879bdab74",
+    "evaluation/bench/sources.py": "988145b309bfb44b646854f12cde0682647a6313f51e6cfc854f70bf68ba0be4"
+  },
+  "original_native_response_sha256": "8984eee1286262a19626a04fe93d4189fe5c58f81a948a2f466ddeb6b4b4308e",
+  "original_report_sha256": "ed88250adb94db33a2aa1dcea2feffaf7129be8419dc36d614f2ea2fbc5376a3",
+  "protected_hash_check": "PASS",
+  "local_full_regression": {
+    "tests": 1725,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "deselected": 0,
+    "exit_code": 0,
+    "duration_seconds": 1924.72,
+    "warnings": 175,
+    "scope": "backend/tests ALL",
+    "independent_empty_databases": 2
+  },
+  "output_review_package": {
+    "zip_sha256": "91f9cea3e4722d041c2a6c1f3c465f94336c7d7890b9e3cef794bd44c52d59c0",
+    "case_count": 49,
+    "unsigned_human_forms": 49,
+    "metric_audit_forms": 42,
+    "source_count": 12,
+    "source_excerpts": 482,
+    "gold_answers_in_package": false,
+    "private_credentials_exported": false,
+    "public_transcript": "DESENSITIZED_COPY_WITH_SCOPE_MAP"
+  },
+  "raw_sensitive_logs_published": false,
+  "transcript_desensitization": {
+    "counts": {
+      "replay_keys_removed": 215,
+      "scope_labels_pseudonymized": 3566
+    },
+    "unique_non_auth_scope_refs": 23,
+    "no_scanner_rules_disabled": true,
+    "metrics_and_predictions_changed": false,
+    "original_private_http_preserved": true,
+    "initial_scanner_findings": {
+      "staged": 198,
+      "package": 307,
+      "rule": "generic-api-key"
+    },
+    "adjudication": "All matches were request/idempotency keys and non-auth domain scope keys; no API credentials were found. Public copies sanitized anyway."
+  }
+}

@@ -13,6 +13,11 @@ def api_models():
     return schemas
 
 
+def build_batch_request(question,binding=None,*,timeout=180):
+    from .http_batch import build_batch_request as build
+    return build(question,binding,timeout=timeout)
+
+
 def input_values(question):
     context=question.input_context
     assets=context.get('assets',[])
@@ -91,6 +96,11 @@ def project_answer(question,raw,*,trace=None,artifacts=None):
     if e.answer_status in {'FAILED','CANCELLED'}:
         return Prediction(question_id=question.id,baseline='aegisai',status='FAILED',answer=answer,
                           error_code='INVESTIGATION_'+e.answer_status)
+    # Read only confirmed native fields. Never use the question or gold to fill
+    # an identity, and do not select the first of conflicting identities.
+    identities={f.value['cve'] for f in e.verified_claims
+        if f.claim_type=='VENDOR_CONFIRMED' and isinstance(f.value.get('cve'),str)}
+    if len(identities)==1:answer['cve']=identities.pop()
     risk=e.risk_assessment
     if risk:
         if risk.conclusion_scope=='ACCEPTED' or risk.risk_level=='UNKNOWN':
@@ -232,7 +242,70 @@ class InvestigationHTTPAdapter:
         record['created' if method=='POST' else path.rsplit('/',1)[-1].split('?',1)[0]]=result
         return result
 
+    def read_existing(self,identifier,question,body,record,deadline,*,started=None,
+            expected_version=None,use_trace_question=False):
+        # A batch has already admitted this child; GET never starts a new Run.
+        started=time.monotonic() if started is None else started
+        models=api_models()
+        while True:
+            state=self._call('GET',f'/api/investigations/{identifier}/status',models.InvestigationStatusResponse,record,deadline=deadline)
+            if state['investigation_id']!=identifier or state['logical_investigation_id']!=identifier:
+                raise HTTPFailure('INVESTIGATION_ID_MISMATCH')
+            if (state['current_stage'] in {'COMPLETED','WAITING_REVIEW','FAILED','CANCELLED'}
+                    and state.get('processing_complete',True)):break
+            time.sleep(min(self.poll_interval,max(0,deadline-time.monotonic())))
+        if expected_version is not None and state.get('result_version',1)!=expected_version:
+            raise HTTPFailure('BATCH_RESULT_VERSION_MISMATCH')
+        version_query='?version=2' if state.get('result_version',1)==2 else ''
+        trace=self._call('GET',f'/api/investigations/{identifier}/trace{version_query}',models.TraceResponse,record,deadline=deadline)
+        if trace['investigation_id']!=identifier or trace['logical_investigation_id']!=identifier:
+            raise HTTPFailure('TRACE_ID_MISMATCH')
+        if use_trace_question:
+            question=question.model_copy(update={'question':trace['original_question']})
+        mode=trace.get('model_execution')
+        if not mode or mode['execution_mode']!=self.expected_mode or (self.expected_mode=='REAL' and mode['provider']=='mock'):
+            raise HTTPFailure('MODEL_EXECUTION_MODE_MISMATCH')
+        if not trace['planner'] or trace['planner']['validation_status']!='VALIDATED':raise HTTPFailure('PLANNING_FAILED')
+        artifacts=self._call('GET',f'/api/investigations/{identifier}/artifacts{version_query}',models.ArtifactResponse,record,deadline=deadline)
+        gate=self._call('GET',f'/api/investigations/{identifier}/integration{version_query}',models.IntegrationResponse,record,deadline=deadline)
+        answer=self._call('GET',f'/api/investigations/{identifier}/answer{version_query}',models.AnswerResponse,record,deadline=deadline)
+        if (artifacts['investigation_id']!=identifier or answer['logical_investigation_id']!=identifier
+            or answer['integration_result_id']!=gate['integration_id'] or trace['integration_result_id']!=gate['integration_id']
+            or answer['integration_status']!=gate['status'] or trace['answer_id']!=answer['answer_id']
+            or trace['planner']['planner_run_id']!=state['planner_run_id']):raise HTTPFailure('ANSWER_BINDING_MISMATCH')
+        for name in ('investigation','verification','analysis'):
+            artifact=artifacts[name]
+            if artifact and artifact['run_id']!=state[name+'_run_id']:raise HTTPFailure('ARTIFACT_RUN_MISMATCH')
+        if not artifacts['investigation'] or not artifacts['verification']:raise HTTPFailure('REQUIRED_AGENT_ARTIFACT_MISSING')
+        for name in ('verification','analysis'):
+            artifact=artifacts[name]
+            if artifact and not any(r['run_id']==artifact['run_id'] and any(
+                ref['artifact_id']==artifact['artifact_id'] for ref in r['artifact_references']) for r in trace['agent_runs']):
+                raise HTTPFailure('ARTIFACT_TRACE_MISMATCH')
+        for expected in ('environment','exposure','version'):
+            desired=question.input_context.get(expected)
+            observations=artifacts['verification'].get('version_observations',[])
+            if desired is not None and body['asset_scope'].get('asset_id') and (
+                len(observations)!=1 or observations[0].get(expected)!=desired):raise HTTPFailure('OBSERVED_ASSET_INPUT_MISMATCH')
+        validate_bindings(question,body,state,trace,artifacts,gate,answer)
+        if state.get('result_version',1)==2:
+            original={'endpoints':[],'result_version':1}
+            for name,model in (('trace',models.TraceResponse),('artifacts',models.ArtifactResponse),
+                    ('integration',models.IntegrationResponse),('answer',models.AnswerResponse)):
+                self._call('GET',f'/api/investigations/{identifier}/{name}?version=1',model,original,deadline=deadline)
+            validate_bindings(question,body,state,original['trace'],original['artifacts'],original['integration'],original['answer'])
+            record['first_result']=original
+        prediction=project_answer(question,answer,trace=trace,artifacts=artifacts)
+        record['completed']=True
+        return prediction.model_copy(update={'latency_ms':(time.monotonic()-started)*1000,
+            'metadata':{'provider':mode['provider'],'model':mode['model'],'is_mock':mode['execution_mode']=='MOCK',
+            'prompt_version':trace['planner']['prompt_version'],'logical_investigation_id':identifier,
+            'native_status':answer['answer_status'],'native_priority_taxonomy':True}})
+
     def run(self,question,sources):
+        if isinstance(question.input_context.get('assets'),list) and len(question.input_context['assets'])>1:
+            from .http_batch import run_batch
+            return run_batch(self,question)
         started=time.monotonic();deadline=started+self.timeout
         record={'question_id':question.id,'transport':'HTTP','endpoints':[],'completed':False,'http_attempted':False}
         self.records[question.id]=record;identifier=None
@@ -254,49 +327,7 @@ class InvestigationHTTPAdapter:
                     abstained=True,latency_ms=(time.monotonic()-started)*1000,
                     metadata={'execution_mode':'NOT_STARTED','investigation_created':False})
             identifier=created['investigation_id'];record['investigation_id']=identifier
-            while True:
-                state=self._call('GET',f'/api/investigations/{identifier}/status',models.InvestigationStatusResponse,record,deadline=deadline)
-                if state['investigation_id']!=identifier or state['logical_investigation_id']!=identifier:
-                    raise HTTPFailure('INVESTIGATION_ID_MISMATCH')
-                if (state['current_stage'] in {'COMPLETED','WAITING_REVIEW','FAILED','CANCELLED'}
-                        and state.get('processing_complete',True)):break
-                time.sleep(min(self.poll_interval,max(0,deadline-time.monotonic())))
-            version_query='?version=2' if state.get('result_version',1)==2 else ''
-            trace=self._call('GET',f'/api/investigations/{identifier}/trace{version_query}',models.TraceResponse,record,deadline=deadline)
-            if trace['investigation_id']!=identifier or trace['logical_investigation_id']!=identifier:
-                raise HTTPFailure('TRACE_ID_MISMATCH')
-            mode=trace.get('model_execution')
-            if not mode or mode['execution_mode']!=self.expected_mode or (self.expected_mode=='REAL' and mode['provider']=='mock'):
-                raise HTTPFailure('MODEL_EXECUTION_MODE_MISMATCH')
-            if not trace['planner'] or trace['planner']['validation_status']!='VALIDATED':raise HTTPFailure('PLANNING_FAILED')
-            artifacts=self._call('GET',f'/api/investigations/{identifier}/artifacts{version_query}',models.ArtifactResponse,record,deadline=deadline)
-            gate=self._call('GET',f'/api/investigations/{identifier}/integration{version_query}',models.IntegrationResponse,record,deadline=deadline)
-            answer=self._call('GET',f'/api/investigations/{identifier}/answer{version_query}',models.AnswerResponse,record,deadline=deadline)
-            if (artifacts['investigation_id']!=identifier or answer['logical_investigation_id']!=identifier
-                or answer['integration_result_id']!=gate['integration_id'] or trace['integration_result_id']!=gate['integration_id']
-                or answer['integration_status']!=gate['status'] or trace['answer_id']!=answer['answer_id']
-                or trace['planner']['planner_run_id']!=state['planner_run_id']):raise HTTPFailure('ANSWER_BINDING_MISMATCH')
-            for name in ('investigation','verification','analysis'):
-                artifact=artifacts[name]
-                if artifact and artifact['run_id']!=state[name+'_run_id']:raise HTTPFailure('ARTIFACT_RUN_MISMATCH')
-            if not artifacts['investigation'] or not artifacts['verification']:raise HTTPFailure('REQUIRED_AGENT_ARTIFACT_MISSING')
-            for name in ('verification','analysis'):
-                artifact=artifacts[name]
-                if artifact and not any(r['run_id']==artifact['run_id'] and any(
-                    ref['artifact_id']==artifact['artifact_id'] for ref in r['artifact_references']) for r in trace['agent_runs']):
-                    raise HTTPFailure('ARTIFACT_TRACE_MISMATCH')
-            for expected in ('environment','exposure','version'):
-                desired=question.input_context.get(expected)
-                observations=artifacts['verification'].get('version_observations',[])
-                if desired is not None and body['asset_scope'].get('asset_id') and (
-                    len(observations)!=1 or observations[0].get(expected)!=desired):raise HTTPFailure('OBSERVED_ASSET_INPUT_MISMATCH')
-            validate_bindings(question,body,state,trace,artifacts,gate,answer)
-            prediction=project_answer(question,answer,trace=trace,artifacts=artifacts)
-            record['completed']=True
-            return prediction.model_copy(update={'latency_ms':(time.monotonic()-started)*1000,
-                'metadata':{'provider':mode['provider'],'model':mode['model'],'is_mock':mode['execution_mode']=='MOCK',
-                'prompt_version':trace['planner']['prompt_version'],'logical_investigation_id':identifier,
-                'native_status':answer['answer_status'],'native_priority_taxonomy':True}})
+            return self.read_existing(identifier,question,body,record,deadline,started=started)
         except (HTTPFailure,httpx.HTTPError,ValueError,TypeError) as error:
             code=error.code if isinstance(error,HTTPFailure) else 'HTTP_TIMEOUT' if isinstance(error,httpx.TimeoutException) else 'HTTP_ADAPTER_FAILED'
             record['error_code']=code
