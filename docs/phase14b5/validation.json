@@ -546,6 +546,30 @@
   },
   "validation_summary": {
     "historical_full_backend": 1702,
+    "new_backend_cases": 22,
+    "new_frontend_cases": 4,
+    "full_backend": {
+      "tests": 1724,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "full_backend_seconds": 1664.4,
+    "full_backend_code_commit": "98b0bac0186165cb7857d24073c76cb1acada1c4",
+    "full_backend_deselected": 0,
+    "full_backend_exit_code": 0,
+    "full_backend_warnings": 23,
+    "github_critical_passed": 275,
+    "github_portable_passed": 687,
+    "github_portable_deselected": 1,
+    "aegisbench_framework_passed": 129,
+    "frontend_passed": 72,
+    "frontend_failed": 0,
+    "frontend_skipped": 0,
+    "note": "Suites overlap; never sum these counts. Functional experiments are not pytest cases or accuracy metrics."
+  },
+  "previous_completed_regression": {
+    "historical_full_backend": 1702,
     "new_backend_cases": 21,
     "new_frontend_cases": 4,
     "full_backend": {
@@ -567,5 +591,54 @@
     "frontend_failed": 0,
     "frontend_skipped": 0,
     "note": "Suites overlap; never sum these counts. Functional experiments are not pytest cases or accuracy metrics."
+  },
+  "read_publication_race": {
+    "failed_ci_run": 38735011568,
+    "failed": 1,
+    "passed": 273,
+    "root_cause": "Status v2 and earlier child v1 references were combined at supplement publication.",
+    "fix": "Read completed status version first; pin result, artifacts and answer to one immutable version.",
+    "deterministic_test": "test_batch_collection_pins_published_version_before_reading_child",
+    "before_fix": "FAILED: answer-v1 != answer-v2",
+    "after_fix": "PASSED",
+    "targeted_tests": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "targeted_seconds": 167.828,
+    "ci": {
+      "run_id": 38739647701,
+      "head_sha": "98b0bac0186165cb7857d24073c76cb1acada1c4",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 116437699354,
+          "name": "Backend unit and contracts",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "id": 116437699816,
+          "name": "Backend PostgreSQL critical regression",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "id": 116437699957,
+          "name": "Repository safety",
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "id": 116437700365,
+          "name": "Frontend tests and types",
+          "status": "completed"
+        }
+      ]
+    }
   }
 }
