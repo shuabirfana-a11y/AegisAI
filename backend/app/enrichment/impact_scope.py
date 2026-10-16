@@ -9,6 +9,11 @@ from app.enrichment.versions import intervals
 
 VERSION='impact-scope-v1'
 
+def valid_fixed_version(value):
+    if not isinstance(value,str) or not value or len(value)>120:return False
+    try:Version(value);return True
+    except InvalidVersion:return False
+
 class ImpactInterval(FrozenModel):
     lower: str|None=None
     lower_inclusive: bool=True

@@ -106,3 +106,18 @@ def test_large_explicit_version_set_does_not_crash_or_truncate_scope():
     assert not cs[0].impact_scope.affected_version_range
     assert len(cs[0].value['explicit_versions'])==130
     assert evaluate_snapshot(context(cs,es)).claims[0].status!='CONFIRMED'
+
+@pytest.mark.parametrize('version',['not-a-version','>= 0.7.0',3])
+def test_invalid_prepopulated_fixed_value_cannot_be_confirmed(version):
+    c=claim('bad',claim_type='FIXED_VERSION',value={'ecosystem':'PyPI','package':'vllm','version':version})
+    e=evidence('E1','bad',observed_value=c.value)
+    cs,es=normalize([c],[e])
+    assert cs[0].value==c.value
+    assert cs[0].impact_scope.normalization_state=='UNSUPPORTED'
+    assert cs[0].impact_scope.fixed_version is None
+    assert evaluate_snapshot(context(cs,es)).claims[0].status!='CONFIRMED'
+
+def test_version_order_does_not_use_lexicographic_comparison():
+    c=claim('A','<1.9');e=evidence('E1','A','<1.9')
+    cs,es=normalize([c],[e])
+    assert compare_version('1.10',cs[0].value)['affected'] is False

@@ -3,7 +3,7 @@ from copy import deepcopy
 import json
 from app.agents.contracts import fingerprint
 from app.enrichment.versions import canonical_value,intervals
-from app.enrichment.impact_scope import ImpactScope,ScopeEvidenceReference,scope_intervals,explicit_fixed_constraint
+from app.enrichment.impact_scope import ImpactScope,ScopeEvidenceReference,scope_intervals,explicit_fixed_constraint,valid_fixed_version
 
 KINDS={'AFFECTS_VERSION','FIXED_VERSION'}
 
@@ -43,10 +43,12 @@ def normalize_bundle(claims,evidence,*,source_artifact_id=None,asset_id=None,coa
                 e=e.model_copy(update={'exclusion_reasons':tuple(dict.fromkeys((*e.exclusion_reasons,'IMPACT_APPLICABILITY_UNRESOLVED')))})
             if c.claim_type=='AFFECTS_VERSION' and intervals(c.value) is not None and not scope_intervals(c.value):
                 e=e.model_copy(update={'exclusion_reasons':tuple(dict.fromkeys((*e.exclusion_reasons,'IMPACT_SCOPE_LIMIT')))})
+            if c.claim_type=='FIXED_VERSION' and changed[c.claim_id].value.get('version') is not None and not valid_fixed_version(changed[c.claim_id].value['version']):
+                e=e.model_copy(update={'exclusion_reasons':tuple(dict.fromkeys((*e.exclusion_reasons,'UNSUPPORTED_FIXED_VERSION')))})
         normalized_e.append(e.model_copy(update={'observed_value':value,'details':details}))
     groups={}
     for c in changed.values():
-        supported=bool(scope_intervals(c.value)) if c.claim_type=='AFFECTS_VERSION' else bool(c.value.get('version'))
+        supported=bool(scope_intervals(c.value)) if c.claim_type=='AFFECTS_VERSION' else valid_fixed_version(c.value.get('version'))
         # No identity, unsupported input or explicitly selected raw IDs are not collapsed.
         collapse=coalesce and c.claim_type in KINDS and supported and c.package_identifier_id is not None
         semantic_meta={k:c.related_entities.get(k) for k in ('cvss_version','assessment_kind')}
@@ -66,12 +68,12 @@ def normalize_bundle(claims,evidence,*,source_artifact_id=None,asset_id=None,coa
             source_id=e.source_id,raw_document_id=e.raw_document_id,observation_id=e.observation_id,
             reference=deepcopy(e.reference)) for e in local)
         ranges=scope_intervals(value) if representative.claim_type=='AFFECTS_VERSION' else ()
-        supported=bool(ranges) if representative.claim_type=='AFFECTS_VERSION' else bool(value.get('version'))
+        supported=bool(ranges) if representative.claim_type=='AFFECTS_VERSION' else valid_fixed_version(value.get('version'))
         scope=ImpactScope(vulnerability_id=representative.vulnerability_id,
             affected_product=value.get('product') if isinstance(value.get('product'),str) else None,
             affected_component=value.get('package') if isinstance(value.get('package'),str) else None,
             ecosystem=value.get('ecosystem'),affected_version_range=ranges,
-            fixed_version=value.get('version') if representative.claim_type=='FIXED_VERSION' else None,
+            fixed_version=value.get('version') if representative.claim_type=='FIXED_VERSION' and supported else None,
             **{k:value.get(k) if isinstance(value.get(k),str) else None for k in ('condition','platform','architecture')},
             branch=representative.branch,source_artifact_id=source_artifact_id,asset_id=asset_id,
             source_claim_ids=ids,evidence_refs=refs,source_refs=tuple(sorted({str(e.source_id) for e in local if e.source_id})),
