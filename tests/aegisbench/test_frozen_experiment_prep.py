@@ -86,6 +86,13 @@ def test_model_prompt_and_source_configuration_are_frozen_without_answer_llm():
             assert latest['previous_sha256']==exception['current_sha256']
             assert latest['authorization']=='PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES'
             assert latest['current_sha256']==current
+        elif p['path']=='backend/app/orchestration/composer.py':
+            transition=json.loads((ROOT/'docs/phase14b7/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
+            assert transition['authorization']=='PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE'
+            assert transition['historical_configuration_modified'] is False
+            assert transition['legacy_projection_unchanged'] is True
+            assert transition['previous_sha256']==p['sha256']
+            assert transition['current_sha256']==current
         else:assert current==p['sha256']
     assert c['prompt']['planner_version']=='investigation-plan-v4'
     assert c['prompt']['answer_prompt_version']=='NOT_APPLICABLE_DETERMINISTIC_TEMPLATE'

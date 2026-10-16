@@ -1,0 +1,40 @@
+{
+  "changes": {
+    "backend/app/orchestration/composer.py": {
+      "authorization": "PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE",
+      "historical_configuration_modified": false,
+      "legacy_projection_unchanged": true,
+      "baseline_sha256": null,
+      "previous_sha256": "a969593c046ab2ea1de5a21cb4fd4d0f73890602a9574c55d0985dd35aebb461",
+      "current_sha256": "05dae9537a6b8f8f99ced308743cf6d2a9d22b7287ec488b4f1862426ce5f378",
+      "reason": "New snapshots normalize source-bound scope before sealing; legacy sealed inputs and Answer projection are retained."
+    },
+    "backend/app/agents/verification/schemas.py": {
+      "authorization": "PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE",
+      "historical_configuration_modified": false,
+      "legacy_projection_unchanged": true,
+      "baseline_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "previous_sha256": "52f98b750a7eb114b12f9485d44818cd52c5d5b87bbc3713c2c3d1c0e410b7d8",
+      "current_sha256": "5d1e71aa6019d8374ed0eca68e76816fcadc5d17074d8a30450c57d5113e30ef",
+      "reason": "New snapshots normalize source-bound scope before sealing; legacy sealed inputs and Answer projection are retained."
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "authorization": "PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE",
+      "historical_configuration_modified": false,
+      "legacy_projection_unchanged": true,
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "previous_sha256": "656bf3cadab6dd6b3c5f1c47a78c25ea613b9848b2f138668342466ee3f4a3fa",
+      "current_sha256": "dc2a2864a61af459547ce497258003f71a14d10d237c6315c76162fb1c8454f9",
+      "reason": "New snapshots normalize source-bound scope before sealing; legacy sealed inputs and Answer projection are retained."
+    },
+    "backend/app/investigation_api/projection.py": {
+      "authorization": "PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE",
+      "historical_configuration_modified": false,
+      "legacy_projection_unchanged": true,
+      "baseline_sha256": null,
+      "previous_sha256": "0cffa5c32b43426eebd0bed1e3d43c113ece83ba35939369ec1f1a42623d6cce",
+      "current_sha256": "fd0c81b07811ec6ec0350cf79ced8ec9c790f1644389f7fe84398d9beb022b76",
+      "reason": "New snapshots normalize source-bound scope before sealing; legacy sealed inputs and Answer projection are retained."
+    }
+  }
+}

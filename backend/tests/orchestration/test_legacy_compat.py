@@ -95,7 +95,18 @@ def test_old_api_and_business_source_hashes_are_unchanged():
     assert set(supplement_changes)=={'backend/app/agents/analysis/snapshot.py','backend/app/agents/verification/schemas.py',
         'backend/app/agents/verification/snapshot.py','backend/app/integration/snapshot.py',
         'backend/app/tooling/adapters.py','backend/app/tooling/contracts.py','frontend/public/modules/pages/assistant.js'}
+    impact_changes=json.loads((root/'docs/phase14b7/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(impact_changes)=={'backend/app/orchestration/composer.py','backend/app/agents/verification/schemas.py',
+        'backend/app/agents/verification/snapshot.py','backend/app/investigation_api/projection.py'}
     for path,digest in baseline.items():
+        if path in impact_changes:
+            entry=impact_changes[path]
+            prior=next((group[path]['current_sha256'] for group in
+                (supplement_changes,regression_changes,frontend_changes,f3_changes,f2_changes,asset_changes,planner_changes,changes) if path in group),digest)
+            assert entry['baseline_sha256']==digest and entry['previous_sha256']==prior,path
+            assert entry['authorization']=='PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in supplement_changes:
             entry=supplement_changes[path]
             prior=next((group[path]['current_sha256'] for group in

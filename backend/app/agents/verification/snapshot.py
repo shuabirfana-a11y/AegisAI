@@ -215,9 +215,8 @@ class InvestigationSnapshotReader:
                 value={'raw_expression':item.get('raw_expression'),
                        'ecosystem':match.value.get('ecosystem') if match else None,
                        'package':match.value.get('package') if match else None}
-                if request.asset_id:
-                    from app.agents.verification.asset_snapshot import candidate_version_value
-                    value=candidate_version_value(item,match)
+                from app.agents.verification.asset_snapshot import candidate_version_value
+                value=candidate_version_value(item,match)
                 if not root or not value['raw_expression'] or any(c.claim_type==ClaimType.AFFECTS_VERSION and
                     c.package_identifier_id==package and canonical_value('AFFECTS_VERSION',c.value)==canonical_value('AFFECTS_VERSION',value)
                     for c in claims.values()):continue
@@ -236,6 +235,11 @@ class InvestigationSnapshotReader:
                     if len(bound)>=16 or len(evidence)>=128:omitted+=1;continue
                     evidence.append(_evidence(db,stored,claim,meta,now));bound.append(eid)
                 claims[identifier]=claim.model_copy(update={'evidence_ids':tuple(bound)})
+            from app.agents.verification.impact_normalization import normalize_bundle
+            normalized,bound_evidence=normalize_bundle(tuple(claims[i] for i in kept),tuple(evidence),
+                source_artifact_id=artifact.artifact_id,asset_id=request.asset_id,
+                coalesce=not request.claim_ids and request.task_type=='evidence_verification')
+            claims={c.claim_id:c for c in normalized};kept=list(claims);evidence=list(bound_evidence)
             unresolved=list(artifact.uncertainties)
             if any(c.origin=='derived' and not c.evidence_ids for c in (claims[i] for i in kept)):
                 unresolved.append('Derived ranges without immutable claim-bound evidence remain candidates')

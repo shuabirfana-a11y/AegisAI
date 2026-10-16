@@ -325,6 +325,35 @@ export type HistoryResponse = {
   "status_filter"?: ("RUNNING" | "SUCCEEDED" | "SUCCEEDED_WITH_WARNINGS" | "INCOMPLETE" | "REVIEW_REQUIRED" | "FAILED" | "CANCELLED" | null);
 };
 
+export type ImpactInterval = {
+  "lower"?: (string | null);
+  "lower_inclusive"?: boolean;
+  "upper"?: (string | null);
+  "upper_inclusive"?: boolean;
+};
+
+export type ImpactScope = {
+  "normalization_version"?: "impact-scope-v1";
+  "vulnerability_id": string;
+  "affected_product"?: (string | null);
+  "affected_component"?: (string | null);
+  "ecosystem"?: (string | null);
+  "affected_version_range"?: Array<ImpactInterval>;
+  "fixed_version"?: (string | null);
+  "condition"?: (string | null);
+  "platform"?: (string | null);
+  "architecture"?: (string | null);
+  "branch"?: (string | null);
+  "source_artifact_id"?: (string | null);
+  "asset_id"?: (string | null);
+  "source_claim_ids"?: Array<string>;
+  "evidence_refs"?: Array<ScopeEvidenceReference>;
+  "source_refs"?: Array<string>;
+  "normalization_state"?: "NORMALIZED" | "UNSUPPORTED";
+  "verification_state"?: ("CONFIRMED" | "PENDING" | "CONFLICT" | "INSUFFICIENT_EVIDENCE" | "REJECTED" | null);
+  "confidence"?: (number | null);
+};
+
 export type ImpactVersionEvidence = {
   "id": string;
   "type"?: "IMPACT_VERSION_EVIDENCE";
@@ -664,6 +693,15 @@ export type RiskView = {
   "conclusion_scope": "ACCEPTED" | "OBSERVATION";
 };
 
+export type ScopeEvidenceReference = {
+  "evidence_id": string;
+  "source_claim_id": string;
+  "source_id"?: (string | null);
+  "raw_document_id"?: (string | null);
+  "observation_id"?: (string | null);
+  "reference"?: Record<string, unknown>;
+};
+
 export type StageEvent = {
   "stage": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "code": string;
@@ -771,6 +809,7 @@ export type UserContext = {
 };
 
 export type VerificationClaim = {
+  "impact_scope"?: (ImpactScope | null);
   "claim_id": string;
   "statement": string;
   "claim_type": ClaimType;
