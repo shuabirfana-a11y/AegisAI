@@ -1,0 +1,416 @@
+{
+  "same_49_ids": true,
+  "same_gold": true,
+  "old_run_preserved": true,
+  "counts": {
+    "strict_matches_before": 0,
+    "strict_matches_after": 3
+  },
+  "note": "Observation-only comparison; no answer or scoring rule modified.",
+  "changed_question_count": 13,
+  "changes": [
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-multihop",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": null,
+      "after_gate": null,
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "unknown_asset_ids": {
+          "before": [
+            "demo-GHSA-53q9-r3pm-6pq6-affected",
+            "demo-GHSA-53q9-r3pm-6pq6-fixed"
+          ],
+          "after": [
+            "demo-GHSA-53q9-r3pm-6pq6-fixed",
+            "demo-GHSA-53q9-r3pm-6pq6-affected"
+          ]
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-fixed",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "HUMAN_REVIEW_REQUIRED",
+      "after_gate": "HUMAN_REVIEW_REQUIRED",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "affected": {
+          "before": null,
+          "after": "UNKNOWN"
+        },
+        "priority": {
+          "before": null,
+          "after": "REVIEW_REQUIRED"
+        },
+        "risk_level": {
+          "before": null,
+          "after": "UNKNOWN"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-multihop",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": null,
+      "after_gate": null,
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "unknown_asset_ids": {
+          "before": [
+            "demo-GHSA-47fc-vmwq-366v-fixed",
+            "demo-GHSA-47fc-vmwq-366v-affected"
+          ],
+          "after": [
+            "demo-GHSA-47fc-vmwq-366v-affected",
+            "demo-GHSA-47fc-vmwq-366v-fixed"
+          ]
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-affected",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "HUMAN_REVIEW_REQUIRED",
+      "after_gate": "HUMAN_REVIEW_REQUIRED",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "affected": {
+          "before": "UNKNOWN",
+          "after": null
+        },
+        "priority": {
+          "before": "REVIEW_REQUIRED",
+          "after": null
+        },
+        "risk_level": {
+          "before": "UNKNOWN",
+          "after": null
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-facts",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "PASS_WITH_WARNINGS",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-affected",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "REPLAN_REQUIRED",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": true,
+      "changed_fields": {
+        "affected": {
+          "before": "UNKNOWN",
+          "after": "AFFECTED"
+        },
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "native_answer_status": {
+          "before": "INCOMPLETE",
+          "after": "COMPLETE_WITH_WARNINGS"
+        },
+        "native_gate_status": {
+          "before": "REPLAN_REQUIRED",
+          "after": "PASS_WITH_WARNINGS"
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "priority": {
+          "before": "REVIEW_REQUIRED",
+          "after": "P3"
+        },
+        "risk_level": {
+          "before": "UNKNOWN",
+          "after": "MEDIUM"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-fixed",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "REPLAN_REQUIRED",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": true,
+      "changed_fields": {
+        "affected": {
+          "before": "UNKNOWN",
+          "after": "NOT_AFFECTED"
+        },
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "native_answer_status": {
+          "before": "INCOMPLETE",
+          "after": "COMPLETE_WITH_WARNINGS"
+        },
+        "native_gate_status": {
+          "before": "REPLAN_REQUIRED",
+          "after": "PASS_WITH_WARNINGS"
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "priority": {
+          "before": "REVIEW_REQUIRED",
+          "after": "DEFER"
+        },
+        "risk_level": {
+          "before": "UNKNOWN",
+          "after": "LOW"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-release-and-poc",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "REPLAN_REQUIRED",
+      "after_gate": "REPLAN_REQUIRED",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-commit-candidate",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "PASS_WITH_WARNINGS",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-affected",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "REPLAN_REQUIRED",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "affected": {
+          "before": "UNKNOWN",
+          "after": "AFFECTED"
+        },
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "native_answer_status": {
+          "before": "INCOMPLETE",
+          "after": "COMPLETE_WITH_WARNINGS"
+        },
+        "native_gate_status": {
+          "before": "REPLAN_REQUIRED",
+          "after": "PASS_WITH_WARNINGS"
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "priority": {
+          "before": "REVIEW_REQUIRED",
+          "after": "P3"
+        },
+        "risk_level": {
+          "before": "UNKNOWN",
+          "after": "MEDIUM"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-fixed",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "REPLAN_REQUIRED",
+      "after_gate": "PASS_WITH_WARNINGS",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "affected": {
+          "before": "UNKNOWN",
+          "after": "NOT_AFFECTED"
+        },
+        "fixed_versions": {
+          "before": null,
+          "after": [
+            "0.30.0"
+          ]
+        },
+        "native_answer_status": {
+          "before": "INCOMPLETE",
+          "after": "COMPLETE_WITH_WARNINGS"
+        },
+        "native_gate_status": {
+          "before": "REPLAN_REQUIRED",
+          "after": "PASS_WITH_WARNINGS"
+        },
+        "patch_status": {
+          "before": null,
+          "after": "CONFIRMED_FIX"
+        },
+        "priority": {
+          "before": "REVIEW_REQUIRED",
+          "after": "DEFER"
+        },
+        "risk_level": {
+          "before": "UNKNOWN",
+          "after": "LOW"
+        },
+        "verification_status": {
+          "before": "PENDING",
+          "after": "CONFIRMED"
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-multihop",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": null,
+      "after_gate": null,
+      "strict_before": false,
+      "strict_after": true,
+      "changed_fields": {
+        "priority_asset_ids": {
+          "before": [],
+          "after": [
+            "demo-GHSA-935w-9g4m-p28p-affected"
+          ]
+        },
+        "unknown_asset_ids": {
+          "before": [
+            "demo-GHSA-935w-9g4m-p28p-fixed",
+            "demo-GHSA-935w-9g4m-p28p-affected"
+          ],
+          "after": []
+        }
+      },
+      "human_semantics": "PENDING"
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-gap",
+      "before_status": "SUCCEEDED",
+      "after_status": "SUCCEEDED",
+      "before_gate": "HUMAN_REVIEW_REQUIRED",
+      "after_gate": "HUMAN_REVIEW_REQUIRED",
+      "strict_before": false,
+      "strict_after": false,
+      "changed_fields": {
+        "affected": {
+          "before": null,
+          "after": "UNKNOWN"
+        },
+        "priority": {
+          "before": null,
+          "after": "REVIEW_REQUIRED"
+        },
+        "risk_level": {
+          "before": null,
+          "after": "UNKNOWN"
+        }
+      },
+      "human_semantics": "PENDING"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mode": "OFFLINE_REPLAY",
+  "new_http_calls": 0,
+  "new_model_calls": 0,
+  "all_variant_metrics_identical": true,
+  "strict_match": 3,
+  "denominator": 49,
+  "risk_matches": 1,
+  "risk_denominator": 10,
+  "outcome_audit": "PENDING_HUMAN"
+}

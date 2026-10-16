@@ -1,0 +1,151 @@
+{
+  "question_count": 49,
+  "prediction_status_counts": {
+    "SUCCEEDED": 42,
+    "NOT_EVALUATED": 7
+  },
+  "single_or_child_investigations": 47,
+  "observed_model_calls": 48,
+  "observed_original_tool_calls": 258,
+  "single_and_child_gate_counts": {
+    "PASS_WITH_WARNINGS": 12,
+    "REPLAN_REQUIRED": 15,
+    "HUMAN_REVIEW_REQUIRED": 20
+  },
+  "supplement_stop_reasons": {
+    "GATE_NOT_REPLAN": 32,
+    "NO_UNREAD_EVIDENCE_ENTRY": 12,
+    "UNSUPPORTED_GAP": 3
+  },
+  "supplement_published_v2": 0,
+  "extra_acquisition_calls": 0,
+  "extra_total_tool_calls": 0,
+  "extra_model_calls": 0,
+  "new_evidence_ids": [],
+  "resolved_claim_ids": [],
+  "claim_status_counts": [
+    {
+      "claim_type": "AFFECTS_PRODUCT",
+      "status": "CONFIRMED",
+      "count": 18
+    },
+    {
+      "claim_type": "AFFECTS_PRODUCT",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "count": 29
+    },
+    {
+      "claim_type": "AFFECTS_VERSION",
+      "status": "CONFIRMED",
+      "count": 9
+    },
+    {
+      "claim_type": "AFFECTS_VERSION",
+      "status": "CONFLICT",
+      "count": 51
+    },
+    {
+      "claim_type": "AFFECTS_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "count": 18
+    },
+    {
+      "claim_type": "CVSS_SCORE",
+      "status": "CONFIRMED",
+      "count": 9
+    },
+    {
+      "claim_type": "CVSS_SCORE",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "count": 47
+    },
+    {
+      "claim_type": "FIXED_VERSION",
+      "status": "CONFIRMED",
+      "count": 18
+    },
+    {
+      "claim_type": "FIXED_VERSION",
+      "status": "CONFLICT",
+      "count": 22
+    },
+    {
+      "claim_type": "FIXED_VERSION",
+      "status": "INSUFFICIENT_EVIDENCE",
+      "count": 18
+    },
+    {
+      "claim_type": "VENDOR_CONFIRMED",
+      "status": "CONFIRMED",
+      "count": 18
+    }
+  ],
+  "field_issue_counts": {
+    "cve": {
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 2,
+      "NOT_LOCATED_NO_INVENTED_FACT": 3
+    },
+    "cvss_v3": {
+      "NOT_LOCATED_NO_INVENTED_FACT": 1,
+      "FACT_RECORDED_NOT_CONFIRMED": 3,
+      "CONFIRMED_FACT_OUTPUT_REPRESENTATION_GAP_PENDING_HUMAN": 1
+    },
+    "cvss_v4": {
+      "FACT_RECORDED_NOT_CONFIRMED": 2,
+      "NOT_LOCATED_NO_INVENTED_FACT": 3
+    },
+    "cwes": {
+      "FORMAL_FACT_CONTRACT_NOT_DEFINED": 5
+    },
+    "summary": {
+      "FORMAL_FACT_CONTRACT_NOT_DEFINED": 5
+    },
+    "affected": {
+      "FACT_RECORDED_NOT_CONFIRMED": 18,
+      "CONTEXT_OR_SCOPE_NOT_SCORED": 5,
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 4
+    },
+    "patch_status": {
+      "FACT_RECORDED_NOT_CONFIRMED": 6,
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 2,
+      "VALUE_MISMATCH_OR_SCOPE_DIFFERENCE_PENDING_HUMAN": 2
+    },
+    "poc_status": {
+      "NOT_LOCATED_NO_INVENTED_FACT": 5
+    },
+    "priority": {
+      "FACT_RECORDED_NOT_CONFIRMED": 8,
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 1,
+      "VALUE_MISMATCH_OR_SCOPE_DIFFERENCE_PENDING_HUMAN": 1
+    },
+    "risk_level": {
+      "FACT_RECORDED_NOT_CONFIRMED": 8,
+      "VALUE_MISMATCH_OR_SCOPE_DIFFERENCE_PENDING_HUMAN": 1,
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 1
+    },
+    "priority_asset_ids": {
+      "VALUE_MISMATCH_OR_SCOPE_DIFFERENCE_PENDING_HUMAN": 4,
+      "STRICT_FIELD_MATCH_HUMAN_SEMANTICS_PENDING": 1,
+      "CONTEXT_OR_SCOPE_NOT_SCORED": 1
+    },
+    "can_confirm_not_affected": {
+      "CONTEXT_OR_SCOPE_NOT_SCORED": 1
+    }
+  },
+  "gold_approved": 49,
+  "output_human_reviews": 0,
+  "semantic_audit": "PENDING_HUMAN",
+  "baselines": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED"
+  },
+  "source_documents": 12,
+  "source_mode": "FROZEN_PUBLIC_SOURCE_GRAPH_REPLAY_NOT_LIVE_REFRESH",
+  "source_excerpt_status_counts": {
+    "EXTRACTED_EXACT_JSON": 462,
+    "LOCATOR_NOT_RESOLVED": 20
+  },
+  "protected_hashes_match": true,
+  "historical_result_preserved": true,
+  "generated_at_utc": "2026-10-16T03:27:29.862225+00:00"
+}
