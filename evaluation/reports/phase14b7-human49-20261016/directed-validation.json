@@ -1,0 +1,1378 @@
+{
+  "case_count": 8,
+  "leaf_count": 8,
+  "traceable_confirmed_impact_decisions": 2,
+  "raw_citation_bindings_checked": 28,
+  "model_digest_unchanged": true,
+  "program_failures": 0,
+  "formal49_admitted": true,
+  "human_semantic_review": "PENDING",
+  "notes": "This is provenance and non-promotion checking, not independent human answer approval.",
+  "cases": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "fb93c80d-a24b-4cfc-90b5-9326e110cc36",
+          "verification": "PENDING",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "PASS_WITH_WARNINGS",
+          "answer_id": "621d3b67-b5f2-5603-91e9-225876a7c8ae",
+          "scopes": [
+            {
+              "claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "2.6.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "57e19c06-ffa9-43f9-a63c-f1630bf5ca0d",
+                "asset_id": null,
+                "source_claim_ids": [
+                  "65867ab4-943c-482e-9b01-d12b004bd283"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "74854af4-f7a6-46c0-a37b-3947f28b23b4",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bf92e729-3367-48f1-904b-f7d92f8d0600",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "2.6.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "57e19c06-ffa9-43f9-a63c-f1630bf5ca0d",
+                "asset_id": null,
+                "source_claim_ids": [
+                  "e9d74b56-04ba-4584-a075-4dbbd81653bb"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "9619a3f5-1d3e-43a7-a950-a49d5db210d4",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e0ed8936-7de7-4c54-8e14-c73ad44d4b74",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-affected",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "933c621a-de5b-49d3-9485-b1c934c17f69",
+          "verification": "PENDING",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "REPLAN_REQUIRED",
+          "answer_id": "6079371e-bf63-50ba-9928-18b60f6c497b",
+          "scopes": [
+            {
+              "claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "2.6.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "7bed2995-964e-4b52-be93-c619fcaa8a6c",
+                "asset_id": "0bb62cd7-4355-494d-a7a2-891c4ae8e46b",
+                "source_claim_ids": [
+                  "65867ab4-943c-482e-9b01-d12b004bd283"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "74854af4-f7a6-46c0-a37b-3947f28b23b4",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bf92e729-3367-48f1-904b-f7d92f8d0600",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "2.6.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "7bed2995-964e-4b52-be93-c619fcaa8a6c",
+                "asset_id": "0bb62cd7-4355-494d-a7a2-891c4ae8e46b",
+                "source_claim_ids": [
+                  "e9d74b56-04ba-4584-a075-4dbbd81653bb"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "9619a3f5-1d3e-43a7-a950-a49d5db210d4",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e0ed8936-7de7-4c54-8e14-c73ad44d4b74",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-multihop",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "b10cc407-1019-43bf-8a0f-fe97cfafdd82",
+          "verification": "PENDING",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "REPLAN_REQUIRED",
+          "answer_id": "58f3e5d5-1304-5e3f-95b4-0fd1f07518ee",
+          "scopes": [
+            {
+              "claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "2.6.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "39d599b1-b884-4f73-8c1d-a2b9644d1889",
+                "asset_id": "45cd7b9f-296e-4b13-b6f6-902f6505d369",
+                "source_claim_ids": [
+                  "65867ab4-943c-482e-9b01-d12b004bd283"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "74854af4-f7a6-46c0-a37b-3947f28b23b4",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bf92e729-3367-48f1-904b-f7d92f8d0600",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "2.6.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "39d599b1-b884-4f73-8c1d-a2b9644d1889",
+                "asset_id": "45cd7b9f-296e-4b13-b6f6-902f6505d369",
+                "source_claim_ids": [
+                  "e9d74b56-04ba-4584-a075-4dbbd81653bb"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "9619a3f5-1d3e-43a7-a950-a49d5db210d4",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e0ed8936-7de7-4c54-8e14-c73ad44d4b74",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        },
+        {
+          "run_id": "be5a7776-8969-4277-b944-67109e50e1d5",
+          "verification": "PENDING",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "REPLAN_REQUIRED",
+          "answer_id": "d34d6dbc-8d68-50ed-bac1-eb7e5eaca56c",
+          "scopes": [
+            {
+              "claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "2.6.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "dc1974fa-0e3e-4763-a2db-2dc37f60df1f",
+                "asset_id": "baa61ac9-7c78-4ad8-a58b-7a5f821cfa20",
+                "source_claim_ids": [
+                  "65867ab4-943c-482e-9b01-d12b004bd283"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "74854af4-f7a6-46c0-a37b-3947f28b23b4",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bf92e729-3367-48f1-904b-f7d92f8d0600",
+                    "source_claim_id": "65867ab4-943c-482e-9b01-d12b004bd283",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "197ce5fd-1935-444b-96c7-13fb1d61c4ea",
+                "affected_product": null,
+                "affected_component": "torch",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "2.6.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "dc1974fa-0e3e-4763-a2db-2dc37f60df1f",
+                "asset_id": "baa61ac9-7c78-4ad8-a58b-7a5f821cfa20",
+                "source_claim_ids": [
+                  "e9d74b56-04ba-4584-a075-4dbbd81653bb"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "9619a3f5-1d3e-43a7-a950-a49d5db210d4",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "26043b83-058c-4c61-89df-bf63fe066319",
+                    "observation_id": "376412f6-2194-4f13-b681-0e98e2f074be",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e0ed8936-7de7-4c54-8e14-c73ad44d4b74",
+                    "source_claim_id": "e9d74b56-04ba-4584-a075-4dbbd81653bb",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "0408466a-913f-4fd0-94ff-2b1852d018cc",
+                    "observation_id": "90771609-67fe-4fb9-8923-d5545b947363",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "0aa79543-29dc-43f3-a5aa-73238fb4912e",
+          "verification": "CONFIRMED",
+          "impact": "AFFECTED",
+          "risk": "MEDIUM",
+          "gate": "PASS_WITH_WARNINGS",
+          "answer_id": "d7756987-cf6b-5f72-b153-74c27ff51d91",
+          "scopes": [
+            {
+              "claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+              "status": "CONFIRMED",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "49b10bdd-cd8c-441b-a2f1-b9060a61ea0b",
+                "affected_product": null,
+                "affected_component": "vllm",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "0.30.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "7111f972-72a5-491e-bfaf-c19183600a76",
+                "asset_id": "33e6582f-d938-4ee6-a474-800a1216ad71",
+                "source_claim_ids": [
+                  "2834f881-1a49-4ce9-9e36-3b8d1009bdf2"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "15d6c0e3-1cf0-435e-a6eb-9f00494c06dc",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                    "raw_document_id": "350d9614-e24b-40ba-bd03-da8c6938427e",
+                    "observation_id": "b1fd14bf-3308-43d0-8652-80a3290063e9",
+                    "reference": {
+                      "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bee0e29f-0fd5-4c15-aad3-4b462c4d133e",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "22acab42-3a3c-4e2f-9029-96169c4a089e",
+                    "observation_id": "fda89619-38b0-4a01-816e-c7923dabd917",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e9ae73d0-3762-414e-96a0-48ca247c5d1f",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8",
+                    "observation_id": "e645cdcb-d018-4e28-8b10-5a39932bbdfa",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+              "status": "CONFIRMED",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "49b10bdd-cd8c-441b-a2f1-b9060a61ea0b",
+                "affected_product": null,
+                "affected_component": "vllm",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "0.30.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "7111f972-72a5-491e-bfaf-c19183600a76",
+                "asset_id": "33e6582f-d938-4ee6-a474-800a1216ad71",
+                "source_claim_ids": [
+                  "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+                  "b568e381-7ec0-48e3-bfc3-6c40f52f7bad"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "eebfb08d-f72e-41f5-9df7-d8f90131c603",
+                    "source_claim_id": "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+                    "source_id": "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                    "raw_document_id": "350d9614-e24b-40ba-bd03-da8c6938427e",
+                    "observation_id": "b1fd14bf-3308-43d0-8652-80a3290063e9",
+                    "reference": {
+                      "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/vulnerabilities/0/patched_versions"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "24e005bf-f8b1-4d04-95d7-ed8615cc775a",
+                    "source_claim_id": "b568e381-7ec0-48e3-bfc3-6c40f52f7bad",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8",
+                    "observation_id": "e645cdcb-d018-4e28-8b10-5a39932bbdfa",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "deaef60e-eea9-404c-866a-1a9d5056da19",
+                    "source_claim_id": "b568e381-7ec0-48e3-bfc3-6c40f52f7bad",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "22acab42-3a3c-4e2f-9029-96169c4a089e",
+                    "observation_id": "fda89619-38b0-4a01-816e-c7923dabd917",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-fixed",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "4fd9d909-c0cf-4fb8-b986-b55611a144b9",
+          "verification": "CONFIRMED",
+          "impact": "NOT_AFFECTED",
+          "risk": "LOW",
+          "gate": "PASS_WITH_WARNINGS",
+          "answer_id": "3c42e6f7-e889-5b98-8310-5e3f283ba6af",
+          "scopes": [
+            {
+              "claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+              "status": "CONFIRMED",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "49b10bdd-cd8c-441b-a2f1-b9060a61ea0b",
+                "affected_product": null,
+                "affected_component": "vllm",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "0.30.0",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "c4b4708f-2ef5-40fb-b601-4c37c875561a",
+                "asset_id": "0df1a5ae-70c1-4a9e-8591-a669154a8c01",
+                "source_claim_ids": [
+                  "2834f881-1a49-4ce9-9e36-3b8d1009bdf2"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "15d6c0e3-1cf0-435e-a6eb-9f00494c06dc",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                    "raw_document_id": "350d9614-e24b-40ba-bd03-da8c6938427e",
+                    "observation_id": "b1fd14bf-3308-43d0-8652-80a3290063e9",
+                    "reference": {
+                      "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "bee0e29f-0fd5-4c15-aad3-4b462c4d133e",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "22acab42-3a3c-4e2f-9029-96169c4a089e",
+                    "observation_id": "fda89619-38b0-4a01-816e-c7923dabd917",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "e9ae73d0-3762-414e-96a0-48ca247c5d1f",
+                    "source_claim_id": "2834f881-1a49-4ce9-9e36-3b8d1009bdf2",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8",
+                    "observation_id": "e645cdcb-d018-4e28-8b10-5a39932bbdfa",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+              "status": "CONFIRMED",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "49b10bdd-cd8c-441b-a2f1-b9060a61ea0b",
+                "affected_product": null,
+                "affected_component": "vllm",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "0.30.0",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "c4b4708f-2ef5-40fb-b601-4c37c875561a",
+                "asset_id": "0df1a5ae-70c1-4a9e-8591-a669154a8c01",
+                "source_claim_ids": [
+                  "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+                  "b568e381-7ec0-48e3-bfc3-6c40f52f7bad"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "eebfb08d-f72e-41f5-9df7-d8f90131c603",
+                    "source_claim_id": "3ccad033-a4f8-4d4e-bfe4-a8feac396a56",
+                    "source_id": "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                    "raw_document_id": "350d9614-e24b-40ba-bd03-da8c6938427e",
+                    "observation_id": "b1fd14bf-3308-43d0-8652-80a3290063e9",
+                    "reference": {
+                      "url": "https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/vulnerabilities/0/patched_versions"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "24e005bf-f8b1-4d04-95d7-ed8615cc775a",
+                    "source_claim_id": "b568e381-7ec0-48e3-bfc3-6c40f52f7bad",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "72e09b94-08f2-4ada-9fc5-700e7cc0b8c8",
+                    "observation_id": "e645cdcb-d018-4e28-8b10-5a39932bbdfa",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "deaef60e-eea9-404c-866a-1a9d5056da19",
+                    "source_claim_id": "b568e381-7ec0-48e3-bfc3-6c40f52f7bad",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "22acab42-3a3c-4e2f-9029-96169c4a089e",
+                    "observation_id": "fda89619-38b0-4a01-816e-c7923dabd917",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-935w-9g4m-p28p",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "b9ee8b64-9b71-49ad-bca7-c3adb823d642",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-c67j-w6g6-q2cm-affected",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "d9f6a11c-21fd-4d51-8d29-cfb8b16b67eb",
+          "verification": "CONFLICT",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "HUMAN_REVIEW_REQUIRED",
+          "answer_id": "8f2aeba1-fdee-5b93-8d30-eb0104a9c80c",
+          "scopes": [
+            {
+              "claim_id": "2005c0f5-ccba-4fe5-a207-67d758fcdf85",
+              "status": "CONFLICT",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "fd89a5d5-e758-4f3c-ad2f-9dd8c6aa6641",
+                "affected_product": null,
+                "affected_component": "langchain-core",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "0.3.81",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "10e87ef4-d0d2-43fc-aee5-db5a799b0f25",
+                "asset_id": "951c5728-178c-486f-8e80-93f47c659c32",
+                "source_claim_ids": [
+                  "2005c0f5-ccba-4fe5-a207-67d758fcdf85"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "1774d6fb-1a3e-4265-ada5-35cf4a3a801e",
+                    "source_claim_id": "2005c0f5-ccba-4fe5-a207-67d758fcdf85",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/1/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "5a85896f-be5a-40cf-bae8-93a557c081af",
+              "status": "CONFLICT",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "fd89a5d5-e758-4f3c-ad2f-9dd8c6aa6641",
+                "affected_product": null,
+                "affected_component": "langchain-core",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "0.3.81",
+                    "upper_inclusive": false
+                  },
+                  {
+                    "lower": "1.0.0",
+                    "lower_inclusive": true,
+                    "upper": "1.2.5",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "10e87ef4-d0d2-43fc-aee5-db5a799b0f25",
+                "asset_id": "951c5728-178c-486f-8e80-93f47c659c32",
+                "source_claim_ids": [
+                  "5a85896f-be5a-40cf-bae8-93a557c081af"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "462005cb-b288-4d14-820c-760da06d47fb",
+                    "source_claim_id": "5a85896f-be5a-40cf-bae8-93a557c081af",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {}
+                    }
+                  },
+                  {
+                    "evidence_id": "a4d2c3d7-dc28-4db2-9742-7272ec7e1916",
+                    "source_claim_id": "5a85896f-be5a-40cf-bae8-93a557c081af",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {}
+                    }
+                  },
+                  {
+                    "evidence_id": "cedf3708-eed1-4a5d-856e-924a7a81ee70",
+                    "source_claim_id": "5a85896f-be5a-40cf-bae8-93a557c081af",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/1/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "f33bd84b-50f4-4e68-84fa-70f3019331ca",
+                    "source_claim_id": "5a85896f-be5a-40cf-bae8-93a557c081af",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+              "status": "CONFLICT",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "fd89a5d5-e758-4f3c-ad2f-9dd8c6aa6641",
+                "affected_product": null,
+                "affected_component": "langchain-core",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "0.3.81",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "10e87ef4-d0d2-43fc-aee5-db5a799b0f25",
+                "asset_id": "951c5728-178c-486f-8e80-93f47c659c32",
+                "source_claim_ids": [
+                  "73ce33c5-4dca-493c-b64c-0dce21770a2a"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "001d50c8-858f-4f25-a29d-5bab8b212be6",
+                    "source_claim_id": "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "3aeafcf9-2106-4cfd-966b-a4d17fce9e60",
+                    "source_claim_id": "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/1/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "cfb97031-124f-4486-ac50-b09c7e8d659d",
+                    "source_claim_id": "73ce33c5-4dca-493c-b64c-0dce21770a2a",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/1/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "a95430a2-77a0-426e-9844-7e3658073478",
+              "status": "CONFLICT",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "fd89a5d5-e758-4f3c-ad2f-9dd8c6aa6641",
+                "affected_product": null,
+                "affected_component": "langchain-core",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": "1.0.0",
+                    "lower_inclusive": true,
+                    "upper": "1.2.5",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "10e87ef4-d0d2-43fc-aee5-db5a799b0f25",
+                "asset_id": "951c5728-178c-486f-8e80-93f47c659c32",
+                "source_claim_ids": [
+                  "a95430a2-77a0-426e-9844-7e3658073478"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "b1f215cd-88d7-4546-80a2-489a464011cf",
+                    "source_claim_id": "a95430a2-77a0-426e-9844-7e3658073478",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec",
+              "status": "CONFLICT",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "fd89a5d5-e758-4f3c-ad2f-9dd8c6aa6641",
+                "affected_product": null,
+                "affected_component": "langchain-core",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "1.2.5",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "10e87ef4-d0d2-43fc-aee5-db5a799b0f25",
+                "asset_id": "951c5728-178c-486f-8e80-93f47c659c32",
+                "source_claim_ids": [
+                  "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "17bbf0c8-7019-40b9-9cc5-2adc295ffa7f",
+                    "source_claim_id": "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "1be7610d-2ce0-4b40-8342-70c97c41732e",
+                    "source_claim_id": "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "2d4b3020-f80f-479e-b86e-1dbe02800cbd",
+                    "observation_id": "08d80986-f037-4c6c-8d9c-941949e1c84f",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "5820bb10-fc6c-420b-8a12-9fc2b2637575",
+                    "source_claim_id": "cc5e91c6-daf8-4de5-99a7-ad57be38f5ec",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "d1c811d1-4724-4342-9f33-46f750ac0674",
+                    "observation_id": "53f0effe-97b5-44f6-9cba-b6f4ec613e50",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-c67j-w6g6-q2cm",
+                      "locator": {
+                        "json_pointer": "/affected/1/ranges/0"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-9rwj-6rc7-p77c-affected",
+      "prediction_status": "SUCCEEDED",
+      "leaves": [
+        {
+          "run_id": "2c431370-224c-46d8-a180-2839382deb49",
+          "verification": "PENDING",
+          "impact": "UNKNOWN",
+          "risk": "UNKNOWN",
+          "gate": "REPLAN_REQUIRED",
+          "answer_id": "56a2639d-73a6-5e11-b01b-a61614ad41ea",
+          "scopes": [
+            {
+              "claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+                "affected_product": null,
+                "affected_component": "langgraph-checkpoint-sqlite",
+                "ecosystem": "PyPI",
+                "affected_version_range": [],
+                "fixed_version": "3.0.1",
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "cb290a5d-1f3c-4e9a-a7d0-474518979c6f",
+                "asset_id": "a5e42465-117d-4b5f-8618-502d5a298fa5",
+                "source_claim_ids": [
+                  "a831f817-d8f1-4329-a60f-18111f4e3345"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "8c8efdf2-4857-495c-bfba-615d90195af8",
+                    "source_claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+                    "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "ff050478-584b-4b4b-b987-936c0310a251",
+                    "source_claim_id": "a831f817-d8f1-4329-a60f-18111f4e3345",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+                    "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/first_patched_version"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            },
+            {
+              "claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+              "status": "INSUFFICIENT_EVIDENCE",
+              "scope": {
+                "normalization_version": "impact-scope-v1",
+                "vulnerability_id": "960feee6-aa4b-4889-a641-32e980503ee7",
+                "affected_product": null,
+                "affected_component": "langgraph-checkpoint-sqlite",
+                "ecosystem": "PyPI",
+                "affected_version_range": [
+                  {
+                    "lower": null,
+                    "lower_inclusive": true,
+                    "upper": "3.0.1",
+                    "upper_inclusive": false
+                  }
+                ],
+                "fixed_version": null,
+                "condition": null,
+                "platform": null,
+                "architecture": null,
+                "branch": null,
+                "source_artifact_id": "cb290a5d-1f3c-4e9a-a7d0-474518979c6f",
+                "asset_id": "a5e42465-117d-4b5f-8618-502d5a298fa5",
+                "source_claim_ids": [
+                  "eb664061-7063-4446-b286-8bc8d47fa8c0"
+                ],
+                "evidence_refs": [
+                  {
+                    "evidence_id": "76fd567d-ad0e-4327-96ab-b9a4ff488351",
+                    "source_claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+                    "source_id": "d947b70d-fe4d-4110-ab66-08764f40a18a",
+                    "raw_document_id": "74c8596e-a6ad-4ad5-8940-92286122bec9",
+                    "observation_id": "9ab9bb5d-4e8e-47e2-ae1d-c2383a30fcdb",
+                    "reference": {
+                      "url": "https://api.osv.dev/v1/vulns/GHSA-9rwj-6rc7-p77c",
+                      "locator": {
+                        "json_pointer": "/affected/0/ranges/0"
+                      }
+                    }
+                  },
+                  {
+                    "evidence_id": "b3ac79d5-1156-4119-aa0f-f93b7d42da12",
+                    "source_claim_id": "eb664061-7063-4446-b286-8bc8d47fa8c0",
+                    "source_id": "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                    "raw_document_id": "7374abcb-89b9-41cc-bc35-93f85a36ca64",
+                    "observation_id": "1f6eadb6-09a0-4909-99ae-99d76a102f29",
+                    "reference": {
+                      "url": "https://api.github.com/advisories/GHSA-9rwj-6rc7-p77c",
+                      "locator": {
+                        "json_pointer": "/record/vulnerabilities/0/vulnerable_version_range"
+                      }
+                    }
+                  }
+                ],
+                "source_refs": [
+                  "061714e1-d506-4d9b-b3cb-6189a49d2521",
+                  "d947b70d-fe4d-4110-ab66-08764f40a18a"
+                ],
+                "normalization_state": "NORMALIZED",
+                "verification_state": null,
+                "confidence": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-unknown",
+      "prediction_status": "NOT_EVALUATED",
+      "leaves": [],
+      "context": "NEED_CONTEXT_NO_PLANNER_NO_RUN"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 import os
 import re
 from app.integration.redaction import credential_key, public_reference, public_lineage
-from app.orchestration.composer import safe_text, safe_value, safe_reference
+from app.orchestration.composer import safe_text, safe_value, safe_reference, safe_impact_value
 from app.investigation_api.schemas import PRIVATE_ARTIFACT_FIELDS
 
 PRIVATE_KEYS = PRIVATE_ARTIFACT_FIELDS | frozenset({
@@ -40,7 +40,7 @@ def public_copy(value):
             if credential_key(key) or normalized in PRIVATE_NORMALIZED:
                 continue
             if key in ('value', 'observed_value') and isinstance(item, dict):
-                result[key] = public_copy(safe_value(item))
+                result[key] = public_copy(safe_impact_value(item))
             elif key == 'reference' and isinstance(item, dict):
                 result[key] = public_copy(safe_reference(item))
             elif key == 'lineage_key':

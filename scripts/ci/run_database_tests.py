@@ -29,6 +29,7 @@ CRITICAL_TESTS = [
     'tests/investigation_api/test_supplement_http.py',
     'tests/investigation_api/test_supplement_read_race.py',
     'tests/investigation_api/test_batch_evaluation.py',
+    'tests/investigation_api/test_impact_scope_chain.py',
 ]
 
 

@@ -51,6 +51,8 @@ TESTS = [
     "tests/test_phase14b2_pipeline.py::test_pipeline_cli_preserves_explicit_zero_budget",
     "tests/test_phase14b2_pipeline.py::test_automation_adapter_does_not_replace_zero_with_six",
     "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository",
+    "tests/agents/verification/test_impact_normalization.py",
+    "tests/orchestration/test_impact_projection.py",
 ]
 
 

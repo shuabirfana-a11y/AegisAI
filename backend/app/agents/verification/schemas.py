@@ -7,6 +7,7 @@ from app.runtime.contracts import FrozenModel, TaskId, TaskState, ARTIFACT_LIMIT
 from app.enrichment.contracts import ClaimType, VerificationStatus
 from app.agents.asset_observations import InvestigationArtifactReference, VersionObservation, ImpactVersionEvidence
 from app.agents.verification.conflict_evidence import ConflictEvidenceArtifact
+from app.enrichment.impact_scope import ImpactScope
 
 RULES_VERSION = 'verification-rules-v1'
 SNAPSHOT_LIMIT = 2 * 1024 * 1024
@@ -60,6 +61,7 @@ class VerificationRequest(Bounded):
 
 
 class VerificationClaim(Bounded):
+    impact_scope: ImpactScope | None = Field(default=None,exclude_if=lambda v:v is None)
     claim_id: Identifier
     statement: str = Field(min_length=1, max_length=2400)
     claim_type: ClaimType

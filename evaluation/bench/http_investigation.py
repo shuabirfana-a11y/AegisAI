@@ -172,7 +172,14 @@ def validate_bindings(question,body,state,trace,artifacts,gate,answer):
     assessments={x['claim']['claim_id']:x for x in verification['claims']}
     for fact in answer['verified_claims']:
         checked=assessments.get(fact['claim_id'])
-        if (not checked or checked['status']!='CONFIRMED' or checked['claim']['value']!=fact['value']
+        # Compare the exact formal Answer projection, including scoped proof
+        # metadata. Legacy facts still use their original projection.
+        from app.agents.verification.schemas import VerificationClaim
+        from app.orchestration.composer import project_fact_value
+        from app.investigation_api.projection import public_copy
+        expected=public_copy(project_fact_value(VerificationClaim.model_validate(checked['claim']),
+            verification_state=checked['status'],confidence=checked['confidence'])) if checked else None
+        if (not checked or checked['status']!='CONFIRMED' or expected!=fact['value']
             or checked['claim']['claim_type']!=fact['claim_type']):
             raise HTTPFailure('VERIFIED_FACT_MISMATCH')
     evidence={x['evidence_id']:x for x in verification['supporting_evidence']+verification['conflicting_evidence']}
