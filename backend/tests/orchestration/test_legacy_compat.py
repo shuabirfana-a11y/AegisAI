@@ -96,9 +96,18 @@ def test_old_api_and_business_source_hashes_are_unchanged():
         'backend/app/agents/verification/snapshot.py','backend/app/integration/snapshot.py',
         'backend/app/tooling/adapters.py','backend/app/tooling/contracts.py','frontend/public/modules/pages/assistant.js'}
     impact_changes=json.loads((root/'docs/phase14b7/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    primary_changes=json.loads((root/'docs/phase14b8/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(primary_changes)=={'backend/app/enrichment/acquisition.py','backend/app/enrichment/parsing.py',
+                                  'backend/app/enrichment/enrichers/vendor.py'}
     assert set(impact_changes)=={'backend/app/orchestration/composer.py','backend/app/agents/verification/schemas.py',
         'backend/app/agents/verification/snapshot.py','backend/app/investigation_api/projection.py'}
     for path,digest in baseline.items():
+        if path in primary_changes:
+            entry=primary_changes[path]
+            assert entry['baseline_sha256']==digest and entry['previous_sha256']==digest,path
+            assert entry['authorization']=='PHASE14B8_USER_AUTHORIZED_TOP1_PRIMARY_EVIDENCE_ADAPTER',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in impact_changes:
             entry=impact_changes[path]
             prior=next((group[path]['current_sha256'] for group in
