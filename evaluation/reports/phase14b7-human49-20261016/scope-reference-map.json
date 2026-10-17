@@ -1,0 +1,117 @@
+[
+  {
+    "public_label": "S1",
+    "recorded_scope_reference": "vendor:pytorch/pytorch",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S2",
+    "recorded_scope_reference": "CVE-2025-32434:4.0",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S3",
+    "recorded_scope_reference": "PyPI:torch",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S4",
+    "recorded_scope_reference": "9a2556d50fd4fe4a7bbd7cbddff94a21142d90a88e226e919ebb1d9a55dbb666",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S5",
+    "recorded_scope_reference": "7b2be1fa0823358d1a643ddd0657f3da6f10eafb3ad5f651721b65ff32a02b96",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S6",
+    "recorded_scope_reference": "CVE-2022-45907:3.1",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S7",
+    "recorded_scope_reference": "CVE-2022-45907:4.0",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S8",
+    "recorded_scope_reference": "b5e4474f900383e306d77ace16e3d856e893a072590b1b40a4922d9bb80943e4",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S9",
+    "recorded_scope_reference": "c9c9b83b5a49f740f0b1d4de3ad17b277e831dd7ac44d3b679d704664576df63",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S10",
+    "recorded_scope_reference": "CVE-2025-68664:3.1",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S11",
+    "recorded_scope_reference": "PyPI:langchain-core",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S12",
+    "recorded_scope_reference": "ac6c0f5b7441c996af8d95cffc56b77065e5d9e0443933fafd3331449b2f3223",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S13",
+    "recorded_scope_reference": "23c76d5758af54465c4c4c2877a4e1296575cf0262c04c19fb04312e8cf40441",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S14",
+    "recorded_scope_reference": "deeb2bd9237ebbe0b92edf5e9294e3ac501aca3d03cf8d2c01ada730a39260f8",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S15",
+    "recorded_scope_reference": "CVE-2025-67644:3.1",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S16",
+    "recorded_scope_reference": "PyPI:langgraph-checkpoint-sqlite",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S17",
+    "recorded_scope_reference": "6d3576f41619b9d93e7a7b4d973fa5e8ef1a0ce4bb9d8afe89949bebae33ead6",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S18",
+    "recorded_scope_reference": "d10405c5c56c728ae65874ad30b601bddc6f5c9241b70db9ec150f89df16c8f7",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S19",
+    "recorded_scope_reference": "vendor:vllm-project/vllm",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S20",
+    "recorded_scope_reference": "CVE-2026-105752:3.1",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S21",
+    "recorded_scope_reference": "PyPI:vllm",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S22",
+    "recorded_scope_reference": "1dba1c04c68ad5b2acbb186fc008bcd9d65ca838ddc2f0fb5fce56b36c5c4a21",
+    "purpose": "Non-auth domain scope, not a credential"
+  },
+  {
+    "public_label": "S23",
+    "recorded_scope_reference": "9ea66c4d09b88df01f279dde592a3f0ad43787b90861f47d1f6965bb5499b6db",
+    "purpose": "Non-auth domain scope, not a credential"
+  }
+]

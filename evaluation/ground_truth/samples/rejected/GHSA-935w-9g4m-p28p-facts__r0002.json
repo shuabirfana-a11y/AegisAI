@@ -1,0 +1,285 @@
+{
+  "schema_version": "aegisbench-ground-truth-workflow-v1",
+  "record_kind": "HUMAN_RECORD",
+  "id": "GHSA-935w-9g4m-p28p-facts",
+  "question": "查询 CVE-2026-105752 的描述、CWE 和按版本区分的 CVSS。",
+  "type": "VULNERABILITY_FACTS",
+  "additional_types": [],
+  "category": "facts",
+  "input_context": {
+    "component": "vllm",
+    "ecosystem": "PyPI",
+    "target": "CVE-2026-105752"
+  },
+  "dataset_version": "AegisBench-v0.2.1-pilot",
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "question_sha256": "d4499eb6b14eac455110929ab31f301efe623b710ee733789a2eeb4b5c1f87db",
+  "origin": "REAL_SOURCE",
+  "source_ids": [
+    "GHSA-935w-9g4m-p28p"
+  ],
+  "evaluation_profile": "FACTUAL",
+  "expected_answer": {
+    "cve": "CVE-2026-105752",
+    "summary": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+    "cwes": [
+      "CWE-200",
+      "CWE-524"
+    ],
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+      "score": 3.1
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0.0
+    }
+  },
+  "judgments": [
+    {
+      "judgment_id": "j-cve",
+      "answer_path": "/cve",
+      "decision": "CVE-2026-105752",
+      "evidence_ids": [
+        "ev-cve"
+      ],
+      "rationale": "冻结公告 record.cve_id 直接给出；已与 NVD 交叉核对。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-summary",
+      "answer_path": "/summary",
+      "decision": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+      "evidence_ids": [
+        "ev-summary"
+      ],
+      "rationale": "冻结公告 record.summary 原文，与 NVD 描述一致。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cwes",
+      "answer_path": "/cwes",
+      "decision": "CWE-200/CWE-524",
+      "evidence_ids": [
+        "ev-cwes"
+      ],
+      "rationale": "CWE 取自 record.cwes（CWE-502 反序列化等）。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cvssv3",
+      "answer_path": "/cvss_v3",
+      "decision": "vector_string=CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N；score=3.1",
+      "evidence_ids": [
+        "ev-cvssv3"
+      ],
+      "rationale": "CVSS v3 单独记录；缺向量时分数为占位 0.0，不等于零风险。",
+      "missing_information": []
+    },
+    {
+      "judgment_id": "j-cvssv4",
+      "answer_path": "/cvss_v4",
+      "decision": "vector_string=null；score=0.0",
+      "evidence_ids": [
+        "ev-cvssv4"
+      ],
+      "rationale": "CVSS v4 单独记录。",
+      "missing_information": []
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-cve",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "CVE-2026-105752",
+      "locator": "/record/cve_id",
+      "canonical_excerpt": "\"CVE-2026-105752\"",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cve"
+      ]
+    },
+    {
+      "evidence_id": "ev-summary",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle",
+      "locator": "/record/summary",
+      "canonical_excerpt": "\"vLLM: Harmony tool continuations drop `cache_salt` — restoring a cross-tenant prefix-cache membership oracle\"",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-summary"
+      ]
+    },
+    {
+      "evidence_id": "ev-cwes",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "[{\"cwe_id\":\"CWE-200\",\"name\":\"Exposure of Sensitive Information to an Unauthorized Actor\"},{\"cwe_id\":\"CWE-524\",\"name\":\"Use of Cache Containing Sensitive Information\"}]",
+      "locator": "/record/cwes",
+      "canonical_excerpt": "[{\"cwe_id\":\"CWE-200\",\"name\":\"Exposure of Sensitive Information to an Unauthorized Actor\"},{\"cwe_id\":\"CWE-524\",\"name\":\"Use of Cache Containing Sensitive Information\"}]",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cwes"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvssv3",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "vector_string=CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N；score=3.1",
+      "locator": "/record/cvss_severities/cvss_v3",
+      "canonical_excerpt": "{\"score\":3.1,\"vector_string\":\"CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N\"}",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cvssv3"
+      ]
+    },
+    {
+      "evidence_id": "ev-cvssv4",
+      "source_name": "GitHub Advisory Database",
+      "source_id": "GHSA-935w-9g4m-p28p",
+      "url": "https://api.github.com/advisories/GHSA-935w-9g4m-p28p",
+      "quote": "vector_string=null；score=0.0",
+      "locator": "/record/cvss_severities/cvss_v4",
+      "canonical_excerpt": "{\"score\":0.0,\"vector_string\":null}",
+      "snapshot_sha256": "342ef9ea2351cf7a5ca61d124341157cda27d6a72d6d8c35d3dad7b5093daac5",
+      "authority_level": "L1_OFFICIAL",
+      "published_time": "2026-10-06T00:02:02Z",
+      "retrieved_time": "2026-10-11T06:18:36.235642+00:00",
+      "time_note": "",
+      "role": "SUPPORTING",
+      "judgment_ids": [
+        "j-cvssv4"
+      ]
+    }
+  ],
+  "evaluation": {
+    "confidence": "HIGH",
+    "should_abstain": false,
+    "required_hops": [],
+    "scored_fields": [
+      "cve",
+      "summary",
+      "cwes",
+      "cvss_v3",
+      "cvss_v4"
+    ],
+    "supplementary_fields": [],
+    "export_status": "NOT_PREPARED",
+    "export_notes": "AI 辅助草稿，标注人已本人查源确认；尚须独立第二人复核后才可能进入 Phase 13-D 冻结。"
+  },
+  "uncertainties": [
+    "NVD published=2026-10-05T23:17Z 与 GHSA published=2026-10-06T00:02Z 相差约 45 分钟（各数据库自记时间戳，仅备案，不构成事实冲突）。"
+  ],
+  "ai_assistance": {
+    "used": true,
+    "tool": "TraeCode / DeepSeek-V4.1-Flash",
+    "version": "DeepSeek-V4.1-Flash",
+    "used_at": "2026-10-11T14:29:06+00:00",
+    "scope": "依据包内冻结 GHSA 投影生成答案与定位；2026-10-11 联网逐源核对（GHSA 投影 ↔ NVD REST 2.0 ↔ PYSEC ↔ 厂商公告）：CVE-2026-105752：NVD 描述『vLLM <0.30.0 Harmony 工具续写丢失 cache_salt、跨租户前缀缓存成员推断，0.30.0 修复』、受影响 < 0.30.0、CWE-200/CWE-524、CVSS v3.1=3.1（CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N）与冻结投影完全一致；厂商公告 github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p、release v0.30.0、patch commit 6a2a2bb0 一致。核对发现的差异/冲突已逐条记入 uncertainties，待人工确认。",
+    "human_source_checks": [
+      "【AI 辅助核验，非本人查源】2026-10-11 联网逐源核对：CVE-2026-105752：NVD 描述『vLLM <0.30.0 Harmony 工具续写丢失 cache_salt、跨租户前缀缓存成员推断，0.30.0 修复』、受影响 < 0.30.0、CWE-200/CWE-524、CVSS v3.1=3.1（CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N）与冻结投影完全一致；厂商公告 github.com/vllm-project/vllm/security/advisories/GHSA-935w-9g4m-p28p、release v0.30.0、patch commit 6a2a2bb0 一致。本条为 AI 联网核对记录，不构成人工查源；本人核验后请追加人工查源记录并置 annotator_confirmed_source_check=true。",
+      "【本人查源】2026-10-11 ZhangWang 本人打开各记录 evidence 所引 GHSA API/NVD/PYSEC/厂商公告逐条核对：版本区间、修复版本、CVSS、CWE 与本记录一致；uncertainties 所列 NVD 口径差异已知晓，c67j 按冻结源 9.3 维持 CRITICAL/P1、47fc 按冻结源维持 CWE-77。"
+    ]
+  },
+  "content_sha256": "5336a2835a4caee85475f2a915d27c8d50ab301210a296720963c136242e5aca",
+  "annotation": {
+    "annotator": "ZhangWang",
+    "reviewer": "谢妍",
+    "annotator_type": "HUMAN",
+    "reviewer_type": "HUMAN",
+    "annotated_at": "2026-10-11T14:29:06+00:00",
+    "review_started_at": "2026-10-12T21:24:59+08:00",
+    "reviewed_at": "2026-10-12T23:19:56+08:00",
+    "status": "REJECTED",
+    "revision": 2,
+    "reviewed_content_sha256": null,
+    "annotation_note": "标注人本人已逐条查源确认（annotator_confirmed_source_check=true）；AI 辅助核验记录见 ai_assistance；尚未完成独立第二人复核，不得按 APPROVED 使用。",
+    "review_note": "【Codex AI 辅助连续核对，非人工签核；2026-10-12T19:30:02+08:00】\nCVE、标题摘要、CWE 与分版本 CVSS 已逐字段对照冻结来源，结构化答案相符；解释文字和来源冲突仍需分别处理。 cvss_v4 无向量，score=0.0 为冻结缺项占位，不认定实际零风险。\n[DEFINITE_REVISION_NEEDED] 字段 judgments[2].rationale；证据 ev-cwes；解释写 CWE-502 反序列化，答案和冻结原文实际为 CWE-200,CWE-524。 建议：改写为本漏洞实际 CWE 的说明，保留原证据及已披露的来源冲突。\n[NEEDS_CHECK] 字段 evidence[*].authority_level；证据 ev-cve,ev-summary,ev-cwes,ev-cvssv3,ev-cvssv4；证据均标 L1_OFFICIAL，但来源为 GitHub 公告数据库投影；需按实际发布者及引用链说明，而非按域名统一评级。 建议：管理员或标注人说明 L1 来源链；若需调整评级，创建新修订。\n[NEEDS_CHECK] 字段 uncertainties；证据 需补充登记；原记录含 NVD/SSVC/其他页面的交叉核对声称，本轮 NVD 网页读取返回空内容，无法独立确认这些声称。 建议：保留原冲突，不把原标注人的声称记成谢妍已查源；补查相应正式记录或让管理员保存材料。\n当前辅助结果：结构化答案与冻结源/声明政策一致，人工查源、未决冲突及正式签署仍待完成。未改答案或证据，未代勾人工清单。\n2026-10-12T21:24:59+08:00：【谢妍本人同源查源摘录】本人从指定 vLLM 公告提供包名vllm/pip，版本表影响<0.30.0、修复0.30.0；同一正文另写vLLM≤0.25.1并明确0.25.1/commit752a3a504485已确认、较低影响起点需维护者补查。版本表与正文记载范围不同，本次不把两者无条件等同，也不从正文推出0.29.0安全；冻结版本题仍须明确其依据是版本表并保留差异。 与冻结分支逐项一致；本题相关版本/修复证据编号：本题所登记事实证据不直接引用区间字段。该摘录仅记录实际读取的包名与版本/修复范围；尚未按此填写整题来源确认、全部检查表或最终签核。\n2026-10-12T21:25:00+08:00：【谢妍本人查源摘录】本人提供 Summary：Harmony工具续轮重建tokens_input时遗漏cache_salt，续轮落入未加盐共享缓存，另一租户可读取cached-token计数形成prompt-membership oracle；与原冻结summary所述cache_salt遗漏及跨租户成员探测语义相符。正文明确区分另一个GHSA-4qjh-9fv9-r85r/CVE-2025-46570，本题目标仍按原输入CVE-2026-105752，待本人核对公告CVE ID确认，不把正文引用的旧CVE替代本题。本人也提供受影响代码定位和部分代码片段，定位明确固定于0.25.1的commit752a3a504485；不由旧版本定位推定0.29.0已被实际验证，也不把代码片段当作独立利用复现记录。未执行任何片段。\n2026-10-12T21:30:21+08:00：【谢妍本人查源摘录】本人提供 CVE-2026-105752、GHSA-935w-9g4m-p28p、CWE-200和CWE-524，以及完整向量CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N、数字评分3.1/Low，与原expected_answer及ev-cve/ev-cwes/ev-cvssv3一致。本次明确区分CVSS协议版本v3.1和数字分数3.1，未混作组件版本。Source code=vllm-project/vllm，署名为KernelClint/dhalf Finder与jperezdealgaba Coordinator，作为本人读取的来源身份线索记录，不单凭平台域名判定全部字段官方性。正文提及的CVE-2025-46570为另一个漏洞，本题身份已由CVE ID核对。原j-cwes解释误写CWE-502，与本人读取的两个CWE不符；既有修订提案已改正解释，旧稿及签署状态保留。EPSS0.216%/11th percentile仅作额外阅读范围，不替代CVSS评分或输入本题政策。\n2026-10-12T21:37:08+08:00：【谢妍本人查源摘录】本人从 NVD CVE-2026-105752 页面读取描述：prior to0.30.0受影响、0.30.0修复，Harmony POST /v1/responses续轮遗漏cache_salt，在开启prefix caching的部署可由能重建低熵续轮历史的认证租户查询cached_tokens_per_turn形成成员探测。该正式记录支持冻结公告版本表<0.30.0及修复0.30.0，与原summary语义一致；原公告正文≤0.25.1及0.25.1已确认的范围仍需区别保存，不据此声称0.29.0已实际测试。本人提供 NIST:NVD Base Score=N/A、assessment not yet provided，不能解释为NVD评定0分或评定3.1分；实际3.1 LOW及完整向量CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N归属CNA:GitHub,Inc.，与原冻结公告及本人先前摘录一致。本次Metrics中Version4/3/2与SSVC是页面项目名称，未提供v4评分或SSVC值，不推定其已查明。NVD发布日期本次尚未提供，原约45分钟时间差仍未据此确认为已本人精确核对。\n2026-10-12T21:37:09+08:00：【同源正式来源本人摘录复用】本人读取的NVD描述明确prior to0.30.0影响、0.30.0修复，支持冻结版本表；保留公告旧正文≤0.25.1/0.25.1确认范围差异，不宣称0.29.0已经实际验证。NVD自身未评定（N/A），GitHub CNA有效v3.1=3.1完整向量与冻结值一致。此CNA归属只据实核对CVSS字段来源链；实际生产影响仍须考虑正文的prefix caching/认证租户/Harmony续轮条件。本题版本/风险结论只按所声明冻结区间和演示政策范围。\n2026-10-12T22:19:38+08:00：【谢妍本人查源摘录】本人从 NVD 页面提供 NVD Published Date=Oct 06,2026。准确记录网页所显示日期为2026-10-06，不将该仅日期文本自行补写为精确UTC时间。原uncertainties含NVD published=2026-10-05T23:17Z与GHSA发布相差约45分钟的声称；现有摘录无时分/时区，不能据此证实精确差值，也不立即把日期显示与旧UTC记载判成矛盾。精确发布时间来源与时区仍待核查，保留不同阅读范围。\n2026-10-12T22:26:46+08:00：【AI辅助精确时间核对，非本人查源】另取NVD正式API与CVE Program原响应，分别保留为待登记新来源。NVD published原值2026-10-05T23:17:01.710，没有显式时区标记；按原标注UTC口径与GHSA发布时间计算相差约45分钟，对应北京时间日期10月6，与本人网页日期摘录可兼容。未单凭仅日期文本判为矛盾，也未冒称本人已核对接口精确时区。CVE Program自身datePublished=2026-10-05T22:32:59.299Z是另一套发布时间，不能替代NVD。实际贡献者及CNA来源用于来源链对照，不将同源转引算作独立代码验证。\n2026-10-12T22:41:17+08:00：【谢妍本人查源摘录】本人提供冻结vLLM来源cvss_v4.vector_string=null、score=0.0，published_at=2026-10-06T00:02:02Z、retrieved_at=2026-10-11T06:18:36.235642+00:00。v4缺有效向量，0.0仅为缺项占位；本题有效分数为本人已读的公告/GitHub CNA v3.1=3.1。两个时间分别为公告发布时间和旧资料冻结获取时间，不作为本次本人查源或最终审核时间。片段中的attribution只是用户一并复制的字段标题，不推定具体归属字段已本人读取。\n2026-10-12T22:41:18+08:00：【同源本人时间摘录与管理员定位核对】本人提供GHSA发布时间2026-10-06T00:02:02Z和冻结获取时间2026-10-11T06:18:36.235642+00:00，与本题证据的两种时间一致；管理员逐条核对来源URL、指针摘录与快照哈希。来源时间不冒充审核发生时间。【本事实题单项清单】本题CVE/包名/CWE-200及CWE-524答案字段、正文机制、公告/CNA v3.1=3.1完整评分向量、NVD自身N/A、冻结v4缺项及两个源时间已实际摘录核对；管理员辅助核对本题所登记五条GHSA证据的定位/时间/哈希。原CWE解释误写502仍需按既有提案修订，未勾claims_and_uncertainties_complete；整题正式签署和其他项目仍待继续。\n2026-10-12T23:19:56+08:00：【谢妍授权、Codex代录本题退回】已依据谢妍本人此前提供的公告 Weaknesses 摘录及 ev-cwes 核对，确认 CWE-502 理由与 CWE-200/CWE-524 原文和答案不符，退回标注人修订。谢妍在本轮明确要求“上面那个你帮我操作，我现在不方便”，所指为此前明确说明的第44题退回操作；Codex 仅代录该单题决定。未新增本人查源声明，未代勾剩余检查项。",
+    "rejection_reason": "字段 judgments[2].rationale（judgment_id=j-cwes）；证据 ev-cwes：公告 Weaknesses、冻结 record.cwes 及 expected_answer.cwes 均为 CWE-200、CWE-524，理由却误写“CWE-502 反序列化等”。请按原文修订该理由，创建新版本并重新复核；保留既有来源冲突与证据。",
+    "annotator_confirmed_source_check": true,
+    "reviewer_confirmed_source_check": false,
+    "review_checklist": {
+      "frozen_question_matches": false,
+      "independent_humans_confirmed": false,
+      "claims_and_uncertainties_complete": false,
+      "source_and_times_checked": true,
+      "authority_directness_conflicts_checked": false,
+      "version_and_fact_boundaries_checked": true,
+      "patch_and_poc_scope_checked": false,
+      "risk_policy_and_unknowns_checked": false,
+      "scoring_and_hops_checked": false,
+      "full_answer_and_evidence_read": false,
+      "review_hash_and_notes_checked": false,
+      "revision_progress_and_export_checked": false
+    }
+  },
+  "history": [
+    {
+      "revision": 1,
+      "from_status": null,
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:29:06+00:00",
+      "content_sha256": "c55d181781916f97c6404aae8615ede4313e49cc8df0cd4a5ef354b182626315",
+      "reason": "AI 辅助草稿建立（待本人查源确认）",
+      "record_path": "samples/draft/GHSA-935w-9g4m-p28p-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "DRAFT",
+      "actor": "ZhangWang",
+      "at": "2026-10-11T14:53:43+00:00",
+      "content_sha256": "5336a2835a4caee85475f2a915d27c8d50ab301210a296720963c136242e5aca",
+      "reason": "标注人本人查源确认（annotator_confirmed_source_check=true）",
+      "record_path": "samples/draft/GHSA-935w-9g4m-p28p-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "DRAFT",
+      "to_status": "REVIEWING",
+      "actor": "谢妍",
+      "at": "2026-10-12T21:24:59+08:00",
+      "content_sha256": "5336a2835a4caee85475f2a915d27c8d50ab301210a296720963c136242e5aca",
+      "reason": "开始同公告集中带读，已取得本人包名/版本/修复摘录，尚未整题签核",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-935w-9g4m-p28p-facts__r0001.json"
+    },
+    {
+      "revision": 2,
+      "from_status": "REVIEWING",
+      "to_status": "REJECTED",
+      "actor": "谢妍",
+      "at": "2026-10-12T23:19:56+08:00",
+      "content_sha256": "5336a2835a4caee85475f2a915d27c8d50ab301210a296720963c136242e5aca",
+      "reason": "谢妍明确授权 Codex 代录第44题退回；字段 judgments[2].rationale（judgment_id=j-cwes）；证据 ev-cwes：公告 Weaknesses、冻结 record.cwes 及 expected_answer.cwes 均为 CWE-200、CWE-524，理由却误写“CWE-502 反序列化等”。请按原文修订该理由，创建新版本并重新复核；保留既有来源冲突与证据。",
+      "record_path": "C:\\Users\\X\\Documents\\Codex\\2026-10-12\\49-121-draft-1-json-expected\\outputs\\复核工作副本\\draft\\GHSA-935w-9g4m-p28p-facts__r0001.json"
+    }
+  ]
+}

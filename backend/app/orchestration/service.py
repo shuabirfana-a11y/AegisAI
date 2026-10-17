@@ -65,13 +65,13 @@ class InvestigationOrchestrator:
             optional=selection.optional_tasks
             if selection.artifact:refs.append(artifact_ref(selection.artifact))
             control.event('INVESTIGATING','INVESTIGATION_READ',artifact_references=tuple(refs),unresolved_items=selection.reasons)
-            if selection.admission=='CONTINUE':
+            if selection.admission in ('CONTINUE','VERIFY_ONLY'):
                 control.check_start();control.event('VERIFYING','START')
                 verification=services.verify(build_verification_request(selection,claim.context.stage_keys['verification']),actor)
                 control.check_start()
                 if len(verification.artifacts)==1:refs.append(artifact_ref(verification.artifacts[0]))
                 control.event('VERIFYING','VERIFICATION_READ',artifact_references=tuple(refs))
-                if verification_admitted(verification,selection.artifact):
+                if selection.admission=='CONTINUE' and verification_admitted(verification,selection.artifact):
                     control.check_start();control.event('ANALYZING','START')
                     analysis=services.analyze(build_analysis_request(selection,verification.artifacts[0],
                         claim.context.resolved_scope,claim.context.stage_keys['analysis']),actor)

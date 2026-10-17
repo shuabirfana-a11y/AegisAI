@@ -1,0 +1,2383 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AegisAI ingestion API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/intelligence": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Listing",
+        "operationId": "listing_api_v1_intelligence_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntelligencePage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/sources": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Sources",
+        "operationId": "sources_api_v1_intelligence_sources_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SourceStatusPage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/records": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Records",
+        "operationId": "records_api_v1_intelligence_records_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/monitoring/runs": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Monitoring Runs",
+        "operationId": "monitoring_runs_api_v1_intelligence_monitoring_runs_get",
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PipelineRunPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/graph/query": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Graph Query",
+        "operationId": "graph_query_api_v1_intelligence_graph_query_get",
+        "parameters": [
+          {
+            "name": "component",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Component"
+            }
+          },
+          {
+            "name": "ecosystem",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ecosystem"
+            }
+          },
+          {
+            "name": "minimum_severity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "CRITICAL",
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Minimum Severity"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "default": 10,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeGraphPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/vulnerabilities/{id}/graph": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Graph",
+        "operationId": "graph_api_v1_intelligence_vulnerabilities__id__graph_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Asset Id"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Investigation Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeGraph"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/vulnerabilities/{id}": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Vulnerability",
+        "operationId": "vulnerability_api_v1_intelligence_vulnerabilities__id__get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityIntelligenceObject"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/documents/{id}": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Document",
+        "operationId": "document_api_v1_intelligence_documents__id__get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityIntelligenceObject"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/vulnerabilities/{id}/poc": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Poc",
+        "operationId": "poc_api_v1_intelligence_vulnerabilities__id__poc_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/POCPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intelligence/vulnerabilities/{id}/assets": {
+      "get": {
+        "tags": [
+          "intelligence"
+        ],
+        "summary": "Assets",
+        "operationId": "assets_api_v1_intelligence_vulnerabilities__id__assets_get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetRiskPage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "AssetRiskPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope",
+            "default": "Authenticated actor-owned inventory only; no public internet scan"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "AssetRiskPage"
+      },
+      "EnrichmentProgress": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Job Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "success",
+              "partial",
+              "no_result",
+              "failed",
+              "conflict",
+              "cancelled"
+            ],
+            "title": "Status"
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "retryable": {
+            "type": "boolean",
+            "title": "Retryable",
+            "default": false
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "job_id",
+          "status"
+        ],
+        "title": "EnrichmentProgress"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "IntelligencePage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SecurityIntelligenceObject"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "IntelligencePage"
+      },
+      "IntelligenceRecord": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "canonical_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Id"
+          },
+          "sources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DISCOVERED",
+              "NORMALIZED",
+              "ENRICHING",
+              "VERIFIED",
+              "AVAILABLE"
+            ],
+            "title": "Status"
+          },
+          "verification_status": {
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "CONFLICT",
+              "INSUFFICIENT_EVIDENCE"
+            ],
+            "title": "Verification Status"
+          },
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "MOCK",
+              "UNSPECIFIED"
+            ],
+            "title": "Execution Mode",
+            "default": "UNSPECIFIED"
+          },
+          "enrichment_progress": {
+            "items": {
+              "$ref": "#/components/schemas/EnrichmentProgress"
+            },
+            "type": "array",
+            "title": "Enrichment Progress",
+            "default": []
+          },
+          "query_available": {
+            "type": "boolean",
+            "title": "Query Available"
+          },
+          "verified_claims": {
+            "type": "integer",
+            "title": "Verified Claims",
+            "default": 0
+          },
+          "active_claims": {
+            "type": "integer",
+            "title": "Active Claims",
+            "default": 0
+          },
+          "evidence_count": {
+            "type": "integer",
+            "title": "Evidence Count",
+            "default": 0
+          },
+          "knowledge_chunks": {
+            "type": "integer",
+            "title": "Knowledge Chunks",
+            "default": 0
+          },
+          "stages": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "DISCOVERED",
+                "NORMALIZED",
+                "ENRICHING",
+                "VERIFIED",
+                "AVAILABLE"
+              ]
+            },
+            "type": "array",
+            "title": "Stages"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title",
+          "sources",
+          "status",
+          "verification_status",
+          "query_available",
+          "stages",
+          "observed_at"
+        ],
+        "title": "IntelligenceRecord"
+      },
+      "KnowledgeEdge": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "AFFECTS_COMPONENT",
+              "HAS_AFFECTED_RANGE",
+              "HAS_VERSION",
+              "DEPLOYED_ON",
+              "HAS_EVIDENCE",
+              "HAS_RISK",
+              "SUPPORTED_BY"
+            ],
+            "title": "Type"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "SOURCE_ASSERTED",
+              "CANDIDATE",
+              "CONFIRMED",
+              "CONFLICT",
+              "PENDING",
+              "REJECTED",
+              "INSUFFICIENT_EVIDENCE",
+              "UNKNOWN",
+              "USER_INVENTORY"
+            ],
+            "title": "Status"
+          },
+          "source_records": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "minItems": 1,
+            "title": "Source Records"
+          },
+          "claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "title": "Claim Ids",
+            "default": []
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "title": "Evidence Ids",
+            "default": []
+          },
+          "historical_snapshot": {
+            "type": "boolean",
+            "title": "Historical Snapshot",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "source",
+          "target",
+          "status",
+          "source_records"
+        ],
+        "title": "KnowledgeEdge"
+      },
+      "KnowledgeGraph": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "security-knowledge-graph-v1",
+            "title": "Schema Version",
+            "default": "security-knowledge-graph-v1"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "title": "Vulnerability Id"
+          },
+          "canonical_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Id"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeNode"
+            },
+            "type": "array",
+            "maxItems": 160,
+            "title": "Nodes",
+            "default": []
+          },
+          "edges": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeEdge"
+            },
+            "type": "array",
+            "maxItems": 320,
+            "title": "Edges",
+            "default": []
+          },
+          "truncated": {
+            "type": "boolean",
+            "title": "Truncated",
+            "default": false
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "RELATIONS_DO_NOT_IMPLY_VERIFIED_IMPACT",
+              "NO_RISK_DECISION_SELECTED"
+            ]
+          },
+          "investigation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Investigation Id"
+          },
+          "agent_references": {
+            "items": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Agent References",
+            "default": []
+          },
+          "gate_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate Status"
+          },
+          "answer_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Id"
+          },
+          "content_trust_level": {
+            "type": "string",
+            "const": "UNTRUSTED_EXTERNAL_CONTENT",
+            "title": "Content Trust Level",
+            "default": "UNTRUSTED_EXTERNAL_CONTENT"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id"
+        ],
+        "title": "KnowledgeGraph"
+      },
+      "KnowledgeGraphPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/KnowledgeGraph"
+            },
+            "type": "array",
+            "maxItems": 10,
+            "title": "Items",
+            "default": []
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 10.0,
+            "minimum": 1.0,
+            "title": "Limit"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "LOCAL_COLLECTED_RELATIONS_ONLY",
+              "SOURCE_SEVERITY_IS_NOT_ASSET_RISK"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "KnowledgeGraphPage"
+      },
+      "KnowledgeNode": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "VULNERABILITY",
+              "COMPONENT",
+              "VERSION",
+              "ASSET",
+              "EVIDENCE",
+              "RISK"
+            ],
+            "title": "Type"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 400,
+            "title": "Label"
+          },
+          "data": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Data"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label"
+        ],
+        "title": "KnowledgeNode"
+      },
+      "POCArtifact": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "poc-artifact-v1",
+            "title": "Schema Version",
+            "default": "poc-artifact-v1"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Vulnerability Id"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Source"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Reference"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 300,
+            "minLength": 1,
+            "title": "Title"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2400
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 80
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NO_EVIDENCE",
+              "POC_CANDIDATE",
+              "VERIFIED_EXPLOIT"
+            ],
+            "title": "Status"
+          },
+          "created_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created Time"
+          },
+          "verified_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verified Time"
+          },
+          "evidence_ref": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "minItems": 1,
+            "title": "Evidence Ref"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/POCEvidence"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Evidence",
+            "default": []
+          },
+          "verification": {
+            "items": {
+              "$ref": "#/components/schemas/POCVerification"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Verification",
+            "default": []
+          },
+          "association_status": {
+            "type": "string",
+            "title": "Association Status"
+          },
+          "usability_status": {
+            "type": "string",
+            "title": "Usability Status"
+          },
+          "omitted_evidence_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Evidence Count",
+            "default": 0
+          },
+          "excluded_evidence_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Excluded Evidence Count",
+            "default": 0
+          },
+          "omitted_verification_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Verification Count",
+            "default": 0
+          },
+          "exploit_executed": {
+            "type": "boolean",
+            "const": false,
+            "title": "Exploit Executed",
+            "default": false
+          },
+          "content_trust_level": {
+            "type": "string",
+            "const": "UNTRUSTED_EXTERNAL_CONTENT",
+            "title": "Content Trust Level",
+            "default": "UNTRUSTED_EXTERNAL_CONTENT"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "vulnerability_id",
+          "source",
+          "reference",
+          "title",
+          "status",
+          "created_time",
+          "evidence_ref",
+          "association_status",
+          "usability_status"
+        ],
+        "title": "POCArtifact"
+      },
+      "POCEvidence": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "type": {
+            "type": "string",
+            "const": "POC_EVIDENCE",
+            "title": "Type",
+            "default": "POC_EVIDENCE"
+          },
+          "claim_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Claim Id"
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Source"
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 2083,
+            "minLength": 1,
+            "format": "uri",
+            "title": "Reference"
+          },
+          "content": {
+            "type": "string",
+            "maxLength": 2400,
+            "title": "Content"
+          },
+          "raw_document_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Raw Document Id"
+          },
+          "observation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Observation Id"
+          },
+          "hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Hash"
+          },
+          "retrieved_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Retrieved Time"
+          },
+          "is_current": {
+            "type": "boolean",
+            "title": "Is Current"
+          },
+          "stance": {
+            "type": "string",
+            "enum": [
+              "support",
+              "contradict",
+              "neutral"
+            ],
+            "title": "Stance"
+          },
+          "supports_exploit_validation": {
+            "type": "boolean",
+            "title": "Supports Exploit Validation",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "claim_id",
+          "source",
+          "reference",
+          "content",
+          "raw_document_id",
+          "observation_id",
+          "hash",
+          "retrieved_time",
+          "is_current",
+          "stance"
+        ],
+        "title": "POCEvidence"
+      },
+      "POCPage": {
+        "properties": {
+          "vulnerability_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Vulnerability Id"
+          },
+          "canonical_id": {
+            "type": "string",
+            "title": "Canonical Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NO_EVIDENCE",
+              "POC_CANDIDATE",
+              "VERIFIED_EXPLOIT"
+            ],
+            "title": "Status"
+          },
+          "search_status": {
+            "type": "string",
+            "enum": [
+              "NOT_RUN",
+              "COMPLETED",
+              "PARTIAL",
+              "FAILED"
+            ],
+            "title": "Search Status"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/POCArtifact"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Total"
+          },
+          "stored_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Stored Count"
+          },
+          "omitted_count": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Omitted Count"
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Limit"
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date-time",
+            "title": "As Of"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations",
+            "default": [
+              "Static discovery only; this module never executes PoC code or scans a target.",
+              "NO_EVIDENCE is bounded absence in stored records, not proof no exploit exists.",
+              "Association confirmation alone cannot establish exploit usability.",
+              "Missing title details/language/verification time remain unknown; links are not fetched by this GET."
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id",
+          "canonical_id",
+          "status",
+          "search_status",
+          "items",
+          "total",
+          "stored_count",
+          "omitted_count",
+          "offset",
+          "limit",
+          "as_of"
+        ],
+        "title": "POCPage"
+      },
+      "POCVerification": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "claim_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Claim Id"
+          },
+          "claim_type": {
+            "type": "string",
+            "title": "Claim Type"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "INSUFFICIENT_EVIDENCE",
+              "CONFLICT",
+              "REJECTED"
+            ],
+            "title": "Status"
+          },
+          "current_revision": {
+            "type": "boolean",
+            "title": "Current Revision"
+          },
+          "verified_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Verified Time"
+          },
+          "method": {
+            "type": "string",
+            "title": "Method"
+          },
+          "verified_by_type": {
+            "type": "string",
+            "enum": [
+              "human",
+              "system"
+            ],
+            "title": "Verified By Type"
+          },
+          "evidence_ref": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Evidence Ref"
+          },
+          "exploit_validation": {
+            "type": "boolean",
+            "title": "Exploit Validation",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "claim_id",
+          "claim_type",
+          "status",
+          "current_revision",
+          "verified_time",
+          "method",
+          "verified_by_type",
+          "evidence_ref"
+        ],
+        "title": "POCVerification"
+      },
+      "PipelineRun": {
+        "properties": {
+          "sync_run_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Sync Run Id"
+          },
+          "cycle_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Cycle Id"
+          },
+          "last_cycle_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Last Cycle Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "LIVE",
+              "MOCK",
+              "UNSPECIFIED"
+            ],
+            "title": "Execution Mode"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "RUNNING",
+              "SUCCESS",
+              "PARTIAL",
+              "FAILED",
+              "CANCELLED"
+            ],
+            "title": "Status"
+          },
+          "collection_status": {
+            "type": "string",
+            "title": "Collection Status"
+          },
+          "processed_jobs": {
+            "type": "integer",
+            "title": "Processed Jobs"
+          },
+          "failed_jobs": {
+            "type": "integer",
+            "title": "Failed Jobs"
+          },
+          "pending_jobs": {
+            "type": "integer",
+            "title": "Pending Jobs",
+            "default": 0
+          },
+          "targets": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Targets"
+          },
+          "document_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Document Ids"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "errors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Errors",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sync_run_id",
+          "cycle_id",
+          "last_cycle_id",
+          "source",
+          "execution_mode",
+          "status",
+          "collection_status",
+          "processed_jobs",
+          "failed_jobs",
+          "targets",
+          "document_ids",
+          "started_at",
+          "updated_at"
+        ],
+        "title": "PipelineRun"
+      },
+      "PipelineRunPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PipelineRun"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "scheduler_semantics": {
+            "type": "string",
+            "title": "Scheduler Semantics",
+            "default": "Worker is operator opt-in; these GETs never trigger collection, models or risk computation."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "PipelineRunPage"
+      },
+      "RecordPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/IntelligenceRecord"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "offset": {
+            "type": "integer",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "integer",
+            "title": "Limit"
+          },
+          "availability_semantics": {
+            "type": "string",
+            "title": "Availability Semantics",
+            "default": "AVAILABLE is queryability, not a blanket verification or exploit verdict."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "offset",
+          "limit"
+        ],
+        "title": "RecordPage"
+      },
+      "SecurityIntelligenceObject": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "security-intelligence-v1",
+            "title": "Schema Version",
+            "default": "security-intelligence-v1"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "source": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Source"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "vulnerability",
+              "paper",
+              "blog",
+              "advisory",
+              "analysis",
+              "knowledge"
+            ],
+            "title": "Type"
+          },
+          "cve_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cve Id"
+          },
+          "affected_product": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Affected Product"
+          },
+          "affected_version": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Affected Version"
+          },
+          "fixed_versions": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Fixed Versions"
+          },
+          "cvss": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Cvss"
+          },
+          "cwe": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Cwe"
+          },
+          "published_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published Time"
+          },
+          "modified_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Modified Time"
+          },
+          "edition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Edition"
+          },
+          "is_current": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Is Current"
+          },
+          "canonical_publication_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canonical Publication Id"
+          },
+          "references": {
+            "items": {
+              "$ref": "#/components/schemas/SourceReference"
+            },
+            "type": "array",
+            "title": "References"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "SOURCE_ASSERTED",
+              "CANDIDATE",
+              "CONFLICT"
+            ],
+            "title": "Status",
+            "default": "SOURCE_ASSERTED"
+          },
+          "publication_status": {
+            "type": "string",
+            "title": "Publication Status",
+            "default": "unknown"
+          },
+          "poc_status": {
+            "type": "string",
+            "enum": [
+              "POC_CANDIDATE",
+              "VERIFIED_EXPLOIT",
+              "NO_EVIDENCE"
+            ],
+            "title": "Poc Status",
+            "default": "NO_EVIDENCE"
+          },
+          "poc_search_status": {
+            "type": "string",
+            "enum": [
+              "NOT_RUN",
+              "COMPLETED",
+              "PARTIAL",
+              "FAILED"
+            ],
+            "title": "Poc Search Status",
+            "default": "NOT_RUN"
+          },
+          "pocs": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Pocs"
+          },
+          "patches": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Patches"
+          },
+          "related_documents": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Related Documents"
+          },
+          "evidence": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "asset_risk_access": {
+            "type": "string",
+            "const": "AUTHENTICATED_ONLY",
+            "title": "Asset Risk Access",
+            "default": "AUTHENTICATED_ONLY"
+          },
+          "content_trust_level": {
+            "type": "string",
+            "const": "UNTRUSTED_EXTERNAL_CONTENT",
+            "title": "Content Trust Level",
+            "default": "UNTRUSTED_EXTERNAL_CONTENT"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Limitations"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "title",
+          "type"
+        ],
+        "title": "SecurityIntelligenceObject"
+      },
+      "SourceReference": {
+        "properties": {
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "raw_document_id": {
+            "type": "string",
+            "title": "Raw Document Id"
+          },
+          "hash": {
+            "type": "string",
+            "title": "Hash"
+          },
+          "reference": {
+            "type": "string",
+            "title": "Reference"
+          },
+          "locator": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Locator"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Retrieved At"
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Published At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source",
+          "raw_document_id",
+          "hash",
+          "reference",
+          "retrieved_at"
+        ],
+        "title": "SourceReference"
+      },
+      "SourceStatusPage": {
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "source_category_count": {
+            "type": "integer",
+            "title": "Source Category Count"
+          },
+          "collected_source_category_count": {
+            "type": "integer",
+            "title": "Collected Source Category Count",
+            "default": 0
+          },
+          "coverage": {
+            "type": "string",
+            "title": "Coverage",
+            "default": "Declared bounded sources; not global completeness or grade attainment"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "total",
+          "source_category_count"
+        ],
+        "title": "SourceStatusPage"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

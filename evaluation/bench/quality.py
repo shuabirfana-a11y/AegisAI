@@ -6,7 +6,7 @@ from .data import annotation_exclusion, canonical, prediction_fingerprint, valid
 
 
 VERSION_LABELS = ["AFFECTED", "NOT_AFFECTED", "UNKNOWN"]
-POC_LABELS = ["POC_CANDIDATE", "VERIFIED_EXPLOIT", "UNKNOWN"]
+POC_LABELS = ["POC_CANDIDATE", "VERIFIED_EXPLOIT", "UNKNOWN", "NO_EVIDENCE"]
 PATCH_LABELS = ["PATCH_CANDIDATE", "CONFIRMED_FIX", "UNKNOWN"]
 
 

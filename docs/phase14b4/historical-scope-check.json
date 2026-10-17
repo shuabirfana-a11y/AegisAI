@@ -1,0 +1,233 @@
+{
+  "kind": "DEVELOPMENT_REGRESSION_SCOPE_AUDIT_NOT_INDEPENDENT_BENCHMARK",
+  "ground_truth_modified": false,
+  "scoring_changed": false,
+  "legacy_evaluation_adapter_changed": false,
+  "historical_count": 7,
+  "contract_covered": 5,
+  "cases": [
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-multihop",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "SINGLE_CVE_TWO_EXPLICIT_ASSETS",
+      "covered_by_new_contract": true,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "torch",
+            "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "2.5.1"
+          },
+          {
+            "component": "torch",
+            "id": "demo-GHSA-53q9-r3pm-6pq6-fixed",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "2.6.0"
+          }
+        ],
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-32434",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": true,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": null
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-multihop",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "SINGLE_CVE_TWO_EXPLICIT_ASSETS",
+      "covered_by_new_contract": true,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "torch",
+            "id": "demo-GHSA-47fc-vmwq-366v-affected",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "1.13.0"
+          },
+          {
+            "component": "torch",
+            "id": "demo-GHSA-47fc-vmwq-366v-fixed",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "1.13.1"
+          }
+        ],
+        "component": "torch",
+        "ecosystem": "PyPI",
+        "target": "CVE-2022-45907",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": true,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": null
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-multihop",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "SINGLE_CVE_TWO_EXPLICIT_ASSETS",
+      "covered_by_new_contract": true,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "langchain-core",
+            "id": "demo-GHSA-c67j-w6g6-q2cm-affected",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "1.2.0"
+          },
+          {
+            "component": "langchain-core",
+            "id": "demo-GHSA-c67j-w6g6-q2cm-fixed",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "1.2.5"
+          }
+        ],
+        "component": "langchain-core",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-68664",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": true,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": null
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-multihop",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "SINGLE_CVE_TWO_EXPLICIT_ASSETS",
+      "covered_by_new_contract": true,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "langgraph-checkpoint-sqlite",
+            "id": "demo-GHSA-9rwj-6rc7-p77c-affected",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "3.0.0"
+          },
+          {
+            "component": "langgraph-checkpoint-sqlite",
+            "id": "demo-GHSA-9rwj-6rc7-p77c-fixed",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "3.0.1"
+          }
+        ],
+        "component": "langgraph-checkpoint-sqlite",
+        "ecosystem": "PyPI",
+        "target": "CVE-2025-67644",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": true,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": null
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-multihop",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "SINGLE_CVE_TWO_EXPLICIT_ASSETS",
+      "covered_by_new_contract": true,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "vllm",
+            "id": "demo-GHSA-935w-9g4m-p28p-affected",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "0.29.0"
+          },
+          {
+            "component": "vllm",
+            "id": "demo-GHSA-935w-9g4m-p28p-fixed",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "0.30.0"
+          }
+        ],
+        "component": "vllm",
+        "ecosystem": "PyPI",
+        "target": "CVE-2026-105752",
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": true,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": null
+    },
+    {
+      "question_id": "cross-advisory-priorities",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "CROSS_ADVISORY",
+      "covered_by_new_contract": false,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "torch",
+            "id": "demo-GHSA-53q9-r3pm-6pq6-cross",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "2.5.1"
+          },
+          {
+            "component": "langchain-core",
+            "id": "demo-GHSA-c67j-w6g6-q2cm-cross",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": "1.2.0"
+          },
+          {
+            "component": "langgraph-checkpoint-sqlite",
+            "id": "demo-GHSA-9rwj-6rc7-p77c-cross",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": null
+          }
+        ],
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": false,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": "Multiple vulnerabilities remain outside this phase"
+    },
+    {
+      "question_id": "cross-advisory-missing-version",
+      "original_rejection": "MULTI_ASSET_SCOPE_UNSUPPORTED",
+      "scope": "CROSS_ADVISORY",
+      "covered_by_new_contract": false,
+      "input_only_context": {
+        "assets": [
+          {
+            "component": "torch",
+            "id": "demo-GHSA-53q9-r3pm-6pq6-missing",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": null
+          },
+          {
+            "component": "langchain-core",
+            "id": "demo-GHSA-c67j-w6g6-q2cm-missing",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": null
+          },
+          {
+            "component": "langgraph-checkpoint-sqlite",
+            "id": "demo-GHSA-9rwj-6rc7-p77c-missing",
+            "scenario": "CONTROLLED_NOT_PRODUCTION",
+            "version": null
+          }
+        ],
+        "triage_policy": "benchmark-reference-triage-v1"
+      },
+      "new_request_schema_validated": false,
+      "asset_mapping": "Owned inventory UUIDs required; no inferred inventory",
+      "real_reexecution": false,
+      "benchmark_score_calculated": false,
+      "remaining_limit": "Multiple vulnerabilities remain outside this phase"
+    }
+  ]
+}

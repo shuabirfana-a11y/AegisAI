@@ -154,7 +154,7 @@ export type Citation = {
   "verification_artifact": ArtifactRef;
 };
 
-export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE";
+export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE" | "CWE" | "SOURCE_FACT";
 
 export type ClaimVerification = {
   "claim": VerificationClaim;

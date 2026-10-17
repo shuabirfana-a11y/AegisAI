@@ -1,0 +1,16 @@
+{
+  "phase": "14-B3",
+  "kind": "ENGINEERING_NOT_BENCHMARK",
+  "graph_tests_passed": 30,
+  "related_database_regression_passed": 120,
+  "database_tests_include_graph_tests": true,
+  "portable_passed": 675,
+  "portable_deselected": 1,
+  "frontend_passed": 68,
+  "typescript": "PASS",
+  "openapi": "PASS",
+  "full_database_suite": "NOT_RUN",
+  "demo_mode": "SAVED_REAL_INVESTIGATION_READ_ONLY_PROJECTION",
+  "new_model_calls": 0,
+  "main_merged": false
+}

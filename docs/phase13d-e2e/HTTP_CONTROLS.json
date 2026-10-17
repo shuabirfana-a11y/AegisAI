@@ -1,0 +1,194 @@
+{
+  "kind": "SYNTHETIC_HTTP_ENGINEERING_CONTROLS_NOT_BENCHMARK",
+  "cases": [
+    {
+      "case": "complete",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "96facba1-734e-469c-9a56-7aabd15502a4",
+      "planner_run_id": "b8a2fc32-c019-420c-bb2a-e641b40d7623",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "3caf9a44-8fda-4e1a-8293-77f97f58267b",
+        "f70ba6d9-7da6-44f1-944a-d53736716d4e",
+        "e595bbe8-a69b-40fe-a20b-532abc011f15"
+      ],
+      "gate_id": "5bf6e02f-e220-4cf8-8285-c369bf6d61f6",
+      "gate_status": "PASS",
+      "answer_id": "eca7ac9c-6872-51ea-aae9-592145b80717",
+      "answer_status": "COMPLETE",
+      "risk_level": "HIGH",
+      "affected": "AFFECTED",
+      "verification_status": "CONFIRMED",
+      "version_observation_count": 1,
+      "impact_evidence_count": 2,
+      "accuracy_measured": false,
+      "http_call_count": 215,
+      "endpoint_summary": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/96facba1-734e-469c-9a56-7aabd15502a4/status",
+          "http_status": 200,
+          "call_count": 210
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/96facba1-734e-469c-9a56-7aabd15502a4/trace",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/96facba1-734e-469c-9a56-7aabd15502a4/artifacts",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/96facba1-734e-469c-9a56-7aabd15502a4/integration",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/96facba1-734e-469c-9a56-7aabd15502a4/answer",
+          "http_status": 200,
+          "call_count": 1
+        }
+      ]
+    },
+    {
+      "case": "unknown_version",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "17f3d6f8-4d4a-486b-bfe6-71a62713dbaf",
+      "planner_run_id": "a730736c-d8c7-4b00-80a5-110aa75d9850",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "0ac7fc71-3098-4202-a549-41cc8462b564",
+        "6772f589-c70e-4574-9b1b-6d79ac8fb0c0",
+        "059cf2e0-15bc-4783-b8ee-ab838c9a3171"
+      ],
+      "gate_id": "3dfc42f3-7abf-45ea-9790-d38b5d8d96c8",
+      "gate_status": "REPLAN_REQUIRED",
+      "answer_id": "9eed5129-cdb5-52f4-998b-299e5f845839",
+      "answer_status": "INCOMPLETE",
+      "risk_level": "UNKNOWN",
+      "affected": "UNKNOWN",
+      "verification_status": "CONFIRMED",
+      "version_observation_count": 1,
+      "impact_evidence_count": 2,
+      "accuracy_measured": false,
+      "http_call_count": 167,
+      "endpoint_summary": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/17f3d6f8-4d4a-486b-bfe6-71a62713dbaf/status",
+          "http_status": 200,
+          "call_count": 162
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/17f3d6f8-4d4a-486b-bfe6-71a62713dbaf/trace",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/17f3d6f8-4d4a-486b-bfe6-71a62713dbaf/artifacts",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/17f3d6f8-4d4a-486b-bfe6-71a62713dbaf/integration",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/17f3d6f8-4d4a-486b-bfe6-71a62713dbaf/answer",
+          "http_status": 200,
+          "call_count": 1
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "origin": "SYNTHETIC_HTTP_ENGINEERING_CONTROL_NOT_BENCHMARK",
+      "prediction_status": "SUCCEEDED",
+      "execution_mode": "MOCK",
+      "investigation_id": "9ba330c2-0e77-4619-be55-2b98bd29dcad",
+      "planner_run_id": "175c4bb8-d819-496d-a92b-da0811f346a4",
+      "planner_status": "VALIDATED",
+      "agent_runs": [
+        "c42d1c9c-e8d4-4148-86a0-6ff97829c340",
+        "efc5248f-339b-4ef7-8ef9-2fc1b4ba3ba8",
+        "592fe987-5738-4436-9fd5-2db588772281"
+      ],
+      "gate_id": "aa07fa67-d724-4e20-83b3-7a71f3103039",
+      "gate_status": "HUMAN_REVIEW_REQUIRED",
+      "answer_id": "e65cb0d3-4cb5-5607-8c6e-cfc7dbc9ffe1",
+      "answer_status": "REVIEW_REQUIRED",
+      "risk_level": "UNKNOWN",
+      "affected": "UNKNOWN",
+      "verification_status": "CONFLICT",
+      "version_observation_count": 1,
+      "impact_evidence_count": 3,
+      "accuracy_measured": false,
+      "http_call_count": 216,
+      "endpoint_summary": [
+        {
+          "method": "POST",
+          "path": "/api/investigations",
+          "http_status": 202,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/9ba330c2-0e77-4619-be55-2b98bd29dcad/status",
+          "http_status": 200,
+          "call_count": 211
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/9ba330c2-0e77-4619-be55-2b98bd29dcad/trace",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/9ba330c2-0e77-4619-be55-2b98bd29dcad/artifacts",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/9ba330c2-0e77-4619-be55-2b98bd29dcad/integration",
+          "http_status": 200,
+          "call_count": 1
+        },
+        {
+          "method": "GET",
+          "path": "/api/investigations/9ba330c2-0e77-4619-be55-2b98bd29dcad/answer",
+          "http_status": 200,
+          "call_count": 1
+        }
+      ]
+    }
+  ]
+}

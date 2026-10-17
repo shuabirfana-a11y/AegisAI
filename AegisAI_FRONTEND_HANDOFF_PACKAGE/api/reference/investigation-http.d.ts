@@ -50,6 +50,7 @@ export type AnswerResponse = {
   "historical_snapshot"?: true;
   "fact_origin"?: "FROZEN_GATE_CONTEXT";
   "explanation_provider"?: "DETERMINISTIC_TEMPLATE";
+  "result_version"?: 1 | 2;
 };
 
 export type ApiError = {
@@ -74,6 +75,8 @@ export type ArtifactResponse = {
   "analysis"?: (PublicRiskAnalysisArtifact | null);
   "content_trust_level"?: "UNTRUSTED_EXTERNAL_CONTENT";
   "projection_version"?: "investigation-api-public-v1";
+  "supplement"?: (SupplementSummary | null);
+  "result_version"?: 1 | 2;
 };
 
 export type AssetMatchResult = {
@@ -89,6 +92,7 @@ export type AssetScope = {
   "snapshot_id"?: (string | null);
   "component"?: (ResolutionInput | null);
   "target"?: (string | null);
+  "candidate_reference"?: (string | null);
 };
 
 export type AssetView = {
@@ -98,6 +102,101 @@ export type AssetView = {
   "provenance"?: "USER_INVENTORY_NOT_SCANNED";
   "source_artifact": ArtifactRef;
   "claim_ids"?: Array<string>;
+};
+
+export type BatchItem = {
+  "snapshot": BatchSnapshot;
+  "relations"?: CandidateRelations;
+  "execution_status"?: "NOT_STARTED" | "RUNNING" | "COMPLETED" | "NEED_CONTEXT" | "FAILED" | "NOT_EXECUTED";
+  "child_request_key"?: (string | null);
+  "investigation_id"?: (string | null);
+  "planner_run_id"?: (string | null);
+  "artifact_references"?: Array<ArtifactRef>;
+  "integration_result_id"?: (string | null);
+  "answer_id"?: (string | null);
+  "result_version"?: 1 | 2;
+  "supplement"?: (SupplementSummary | null);
+  "gate_status"?: ("PASS" | "PASS_WITH_WARNINGS" | "REPLAN_REQUIRED" | "HUMAN_REVIEW_REQUIRED" | "FAILED" | null);
+  "verification_status"?: (string | null);
+  "impact"?: "AFFECTED" | "NOT_AFFECTED" | "UNKNOWN";
+  "risk_level"?: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "UNKNOWN";
+  "priority"?: "P0" | "P1" | "P2" | "P3" | "DEFER" | "REVIEW_REQUIRED";
+  "evidence_ids"?: Array<string>;
+  "claim_ids"?: Array<string>;
+  "citations"?: Array<Citation>;
+  "evidence_observations"?: Array<EvidenceObservation>;
+  "recommended_actions"?: Array<ActionView>;
+  "missing_fields"?: Array<string>;
+  "unresolved_items"?: Array<string>;
+  "warnings"?: Array<string>;
+  "error_code"?: (string | null);
+  "snapshot_valid"?: boolean;
+  "evaluation_time"?: (string | null);
+  "historical_snapshot"?: true;
+  "current_safety_evaluated"?: false;
+};
+
+export type BatchRequest = {
+  "vulnerability_id": string;
+  "asset_ids": Array<string>;
+  "timeout_seconds"?: number;
+  "child_timeout_seconds"?: number;
+  "idempotency_key"?: (string | null);
+};
+
+export type BatchResponse = {
+  "schema_version"?: "multi-asset-batch-v1";
+  "batch_id": string;
+  "vulnerability_id": string;
+  "execution_status": "QUEUED" | "RUNNING" | "CANCEL_REQUESTED" | "COMPLETED" | "CANCELLED" | "TIMED_OUT" | "FAILED";
+  "items": Array<BatchItem>;
+  "summary": BatchSummary;
+  "created_at": string;
+  "updated_at": string;
+  "deadline_at": string;
+  "finished_at"?: (string | null);
+  "cancel_requested_at"?: (string | null);
+  "cancellation_observed"?: boolean;
+  "recovery_required"?: boolean;
+  "reused"?: boolean;
+  "duplicate_asset_count"?: number;
+  "warnings"?: Array<string>;
+  "max_assets": number;
+  "model_provider": string;
+  "model_name": string;
+  "execution_mode": "MOCK" | "REAL";
+  "revision"?: number;
+};
+
+export type BatchSnapshot = {
+  "asset_id": string;
+  "asset_name": string;
+  "captured_at": string;
+  "inventory_hash": string;
+  "environment"?: string;
+  "exposure"?: string;
+  "criticality"?: "unknown";
+  "is_demo"?: boolean;
+  "components"?: Array<InventoryComponent>;
+  "selected_component_id"?: (string | null);
+  "provenance"?: "USER_INVENTORY_NOT_SCANNED";
+};
+
+export type BatchSummary = {
+  "counts": Record<string, number>;
+  "actionable_asset_ids": Array<string>;
+  "unresolved_asset_ids": Array<string>;
+  "unaffected_asset_ids": Array<string>;
+  "sorting_rule"?: "EXISTING_PRIORITY_THEN_ASSET_UUID";
+  "scope_notice"?: string;
+};
+
+export type CandidateRelations = {
+  "node_ids"?: Array<string>;
+  "edge_ids"?: Array<string>;
+  "warnings"?: Array<string>;
+  "truncated"?: boolean;
+  "meaning"?: "CANDIDATE_RELATIONS_NOT_IMPACT_PROOF";
 };
 
 export type Citation = {
@@ -111,7 +210,7 @@ export type Citation = {
   "verification_artifact": ArtifactRef;
 };
 
-export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE";
+export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE" | "CWE" | "SOURCE_FACT";
 
 export type ClaimVerification = {
   "claim": VerificationClaim;
@@ -125,6 +224,15 @@ export type ClaimVerification = {
   "score_components"?: Record<string, unknown>;
   "warnings"?: Array<string>;
   "unresolved_items"?: Array<string>;
+};
+
+export type ContextRequiredResponse = {
+  "status": "NEED_CONTEXT";
+  "missing_fields": Array<"vulnerability_id" | "component" | "version" | "asset_context">;
+  "message"?: string;
+  "next_actions"?: Array<"SUPPLY_CONTEXT" | "PUBLIC_FACT_LOOKUP">;
+  "investigation_created"?: false;
+  "execution_mode"?: "NOT_STARTED";
 };
 
 export type CreateOptions = {
@@ -201,6 +309,9 @@ export type HistoryItem = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
   "original_question": string;
   "answer_id"?: (string | null);
   "integration_result_id"?: (string | null);
@@ -213,6 +324,35 @@ export type HistoryResponse = {
   "limit": number;
   "sort": "created_desc" | "created_asc";
   "status_filter"?: ("RUNNING" | "SUCCEEDED" | "SUCCEEDED_WITH_WARNINGS" | "INCOMPLETE" | "REVIEW_REQUIRED" | "FAILED" | "CANCELLED" | null);
+};
+
+export type ImpactInterval = {
+  "lower"?: (string | null);
+  "lower_inclusive"?: boolean;
+  "upper"?: (string | null);
+  "upper_inclusive"?: boolean;
+};
+
+export type ImpactScope = {
+  "normalization_version"?: "impact-scope-v1";
+  "vulnerability_id": string;
+  "affected_product"?: (string | null);
+  "affected_component"?: (string | null);
+  "ecosystem"?: (string | null);
+  "affected_version_range"?: Array<ImpactInterval>;
+  "fixed_version"?: (string | null);
+  "condition"?: (string | null);
+  "platform"?: (string | null);
+  "architecture"?: (string | null);
+  "branch"?: (string | null);
+  "source_artifact_id"?: (string | null);
+  "asset_id"?: (string | null);
+  "source_claim_ids"?: Array<string>;
+  "evidence_refs"?: Array<ScopeEvidenceReference>;
+  "source_refs"?: Array<string>;
+  "normalization_state"?: "NORMALIZED" | "UNSUPPORTED";
+  "verification_state"?: ("CONFIRMED" | "PENDING" | "CONFLICT" | "INSUFFICIENT_EVIDENCE" | "REJECTED" | null);
+  "confidence"?: (number | null);
 };
 
 export type ImpactVersionEvidence = {
@@ -260,6 +400,22 @@ export type IntegrationResponse = {
   "evaluation_time": string;
   "historical_snapshot"?: true;
   "persistence"?: "STORED" | "NOT_STORED";
+  "result_version"?: 1 | 2;
+};
+
+export type InventoryComponent = {
+  "component_id": string;
+  "product_id"?: (string | null);
+  "package_identifier_id"?: (string | null);
+  "name"?: (string | null);
+  "package_name"?: (string | null);
+  "ecosystem"?: string;
+  "namespace"?: string;
+  "purl"?: (string | null);
+  "version"?: (string | null);
+  "inventory_revision": number;
+  "source": string;
+  "identity_status": string;
 };
 
 export type InvestigationArtifactReference = {
@@ -293,12 +449,17 @@ export type InvestigationCreateResponse = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
   "reused": boolean;
   "persistence"?: "STORED";
   "execution_backend"?: "IN_PROCESS_BOUNDED_WORKER";
   "model_provider": string;
   "is_mock": boolean;
 };
+
+export type InvestigationCreateResult = (InvestigationCreateResponse | ContextRequiredResponse);
 
 export type InvestigationOptions = {
   "objective_profile"?: ("overview_v1" | "asset_impact_v1" | "asset_risk_v1" | null);
@@ -332,6 +493,9 @@ export type InvestigationStatusResponse = {
   "status": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "created_at": string;
   "finished_at"?: (string | null);
+  "supplement"?: (SupplementSummary | null);
+  "processing_complete"?: boolean;
+  "result_version"?: 1 | 2;
 };
 
 export type ModelExecutionMetadata = {
@@ -361,6 +525,7 @@ export type PlannerInput = {
   "component_id"?: (string | null);
   "snapshot_id"?: (string | null);
   "component"?: (ResolutionInput | null);
+  "candidate_reference"?: (string | null);
 };
 
 export type PlannerSummary = {
@@ -530,12 +695,56 @@ export type RiskView = {
   "conclusion_scope": "ACCEPTED" | "OBSERVATION";
 };
 
+export type ScopeEvidenceReference = {
+  "evidence_id": string;
+  "source_claim_id": string;
+  "source_id"?: (string | null);
+  "raw_document_id"?: (string | null);
+  "observation_id"?: (string | null);
+  "reference"?: Record<string, unknown>;
+};
+
 export type StageEvent = {
   "stage": "CREATED" | "PLANNING" | "INVESTIGATING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPOSING" | "COMPLETED" | "WAITING_REVIEW" | "FAILED" | "CANCELLED";
   "code": string;
   "at"?: string;
   "overall_status"?: ("RUNNING" | "SUCCEEDED" | "SUCCEEDED_WITH_WARNINGS" | "INCOMPLETE" | "REVIEW_REQUIRED" | "FAILED" | "CANCELLED" | null);
   "references"?: Record<string, string>;
+};
+
+export type SupplementSummary = {
+  "policy_version"?: "evidence-supplement-v1";
+  "supplement_id"?: (string | null);
+  "parent_investigation_id": string;
+  "parent_integration_id"?: (string | null);
+  "status": "DISABLED" | "NOT_ELIGIBLE" | "RUNNING" | "VERIFYING" | "ANALYZING" | "INTEGRATING" | "COMPLETED" | "STOPPED" | "CANCELLED" | "FAILED";
+  "eligible"?: boolean;
+  "reason": string;
+  "claim_ids"?: Array<string>;
+  "acquisition_run_id"?: (string | null);
+  "acquisition_artifact"?: (ArtifactRef | null);
+  "new_evidence_ids"?: Array<string>;
+  "resolved_claim_ids"?: Array<string>;
+  "extra_acquisition_calls"?: number;
+  "extra_model_calls"?: 0;
+  "extra_total_tool_calls"?: number;
+  "latest_result_version"?: 1 | 2;
+  "result_version"?: 1 | 2;
+  "cancel_requested"?: boolean;
+  "recovery_required"?: boolean;
+  "error_code"?: (string | null);
+  "heartbeat_at"?: (string | null);
+  "started_at"?: (string | null);
+  "finished_at"?: (string | null);
+  "deadline_at"?: (string | null);
+  "tool_calls"?: Array<SupplementToolCall>;
+};
+
+export type SupplementToolCall = {
+  "record_id": string;
+  "tool": "get_evidence";
+  "status": "succeeded" | "partial" | "failed" | "timeout" | "cancelled";
+  "evidence_ids"?: Array<string>;
 };
 
 export type TaskExecution = {
@@ -583,6 +792,8 @@ export type TraceResponse = {
   "stages": Array<TraceStage>;
   "revision": number;
   "model_execution"?: (ModelExecutionMetadata | null);
+  "supplement"?: (SupplementSummary | null);
+  "result_version"?: 1 | 2;
 };
 
 export type TraceStage = {
@@ -600,6 +811,7 @@ export type UserContext = {
 };
 
 export type VerificationClaim = {
+  "impact_scope"?: (ImpactScope | null);
   "claim_id": string;
   "statement": string;
   "claim_type": ClaimType;

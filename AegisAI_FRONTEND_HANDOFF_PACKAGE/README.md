@@ -1,3 +1,11 @@
+## 当前交接：C9 已验证版本（2026-10-17）
+
+当前 Schema、TypeScript 和 Client 以本包 api/reference 与 contracts/generated 的文件为准。MANIFEST 与下载 ZIP 已按本次文件重新生成。下方较早阶段的运行回执、测试数量、Mock 示例和 proposed-* 内容仍按各自历史时间与标签解释，不能视为当前新增接口或当前测试。
+
+已验证的后端代码与七个前端页面在 GitHub 的 codex/current-verified-delivery 分支；main 的合并状态独立记录。C10 后续证据工作不在本包中。49题本次自动严格匹配12/49、风险3/10、字段32/94，不是人工语义准确率。真实调查服务地址和认证信息由部署方提供，凭据不得写入前端。
+
+---
+
 # AegisAI 前端团队交接包
 
 **先读本页，再读快速入门和页面需求。此包可以独立转交，不包含后端程序、数据库、账号或密钥。**
@@ -52,3 +60,7 @@
 ## Phase 12-D.3 资产风险对接
 
 仍使用八个调查 HTTP 接口；核验 Artifact 新增可选 `version_observations` 与 `impact_version_evidence`。按 [资产风险交接说明](api/ASSET_RISK_HANDOFF.md)展示来源、版本和演示标识，历史响应缺字段按空数组处理。封存事实和风险只针对指定组件/漏洞，UNKNOWN 不等于安全。最新验证状态见 `PHASE12D3_VERIFICATION.json`；代码位于独立 Phase12D.3 分支，是否进入 main 以 PR 合并为准。
+
+## Phase 14-B3 知识关联
+
+两个只读 Graph API 已实现，六类实体/七种关系由现有 SQL 和调查 Artifact 投影。请先阅读 [知识关联契约](docs/KNOWLEDGE_GRAPH_API.md)，使用 contracts/knowledge-graph.ts 与 IntelligenceApiClient.graph/queryGraphs。默认不返回资产；Risk 是带时间的历史决策；truncated 必须展示。图形页面未新增，是否进入 main 以阶段 PR 为准。

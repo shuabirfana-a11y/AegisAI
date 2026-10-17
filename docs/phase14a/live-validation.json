@@ -1,0 +1,622 @@
+{
+  "kind": "REAL_SOURCE_INTEGRATION_CHECK_NOT_BENCHMARK",
+  "ground_truth_loaded": false,
+  "benchmark_scoring_run": false,
+  "initial_attempts": [
+    {
+      "source": "NVD",
+      "sync_run_id": "1aed3bd1-7d65-4308-8dbe-100bcbda2d1b",
+      "status": "partial",
+      "fetched": 2,
+      "created": 2,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "vulnerabilities_created": 2,
+      "duration_ms": 6425.558099999762,
+      "timings": {
+        "normalizer_ms": 0.7936000001791399,
+        "database_ms": 188.20789999699628
+      },
+      "errors": [],
+      "pending_count": 10
+    },
+    {
+      "source": "RSS_TRAIL_OF_BITS",
+      "sync_run_id": "050b618d-5852-4066-9dc4-2cbd09bf3b28",
+      "status": "succeeded",
+      "fetched": 2,
+      "created": 2,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "errors": [],
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "global_complete": false
+    },
+    {
+      "source": "ARXIV",
+      "sync_run_id": "b99f8ad5-be9f-4c4b-9966-5240b7220e57",
+      "status": "failed",
+      "fetched": 0,
+      "created": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 1,
+      "errors": [
+        {
+          "error_type": "HTTPStatusError"
+        }
+      ],
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "global_complete": false
+    },
+    {
+      "source": "OSV",
+      "sync_run_id": "38575a7c-d305-451d-aa0e-8897cd6d4edd",
+      "status": "partial",
+      "fetched": 2,
+      "created": 1,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 1,
+      "vulnerabilities_created": 0,
+      "duration_ms": 29290.21990000001,
+      "timings": {
+        "normalizer_ms": 0.5719999990105862,
+        "database_ms": 128.96360000013374
+      },
+      "errors": [
+        {
+          "external_id": "GHSA-53q9-r3pm-6pq6",
+          "error_type": "ConnectTimeout"
+        }
+      ],
+      "pending_count": 1
+    },
+    {
+      "source": "GHSA",
+      "sync_run_id": "22ff4d46-96d6-4252-a8cf-034d27d56108",
+      "status": "failed",
+      "fetched": 0,
+      "created": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "vulnerabilities_created": 0,
+      "duration_ms": 53858.492999999726,
+      "timings": {
+        "normalizer_ms": 0,
+        "database_ms": 0
+      },
+      "errors": [
+        {
+          "external_id": null,
+          "error_type": "ReadTimeout"
+        }
+      ],
+      "pending_count": 0
+    },
+    {
+      "source": "VENDOR_VLLM",
+      "sync_run_id": "b0ec25a1-cd47-4eb4-8e76-b7c1c12d7d8d",
+      "status": "failed",
+      "fetched": 0,
+      "created": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "vulnerabilities_created": 0,
+      "duration_ms": 6026.32039999844,
+      "timings": {
+        "normalizer_ms": 0,
+        "database_ms": 0
+      },
+      "errors": [
+        {
+          "external_id": null,
+          "error_type": "ConnectError"
+        }
+      ],
+      "pending_count": 0
+    },
+    {
+      "source": "RSS_GOOGLE_SECURITY",
+      "sync_run_id": "1d5484d8-fe08-459f-b175-dbb9114a1bfb",
+      "status": "failed",
+      "fetched": 0,
+      "created": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 1,
+      "errors": [
+        {
+          "error_type": "ConnectTimeout"
+        }
+      ],
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "global_complete": false
+    }
+  ],
+  "paper_retry": [
+    {
+      "source": "ARXIV",
+      "sync_run_id": "48b1ee4a-4477-4572-8e0c-7cf2c43b962e",
+      "status": "succeeded",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "errors": [],
+      "content_trust_level": "UNTRUSTED_EXTERNAL_CONTENT",
+      "global_complete": false
+    }
+  ],
+  "raw_provenance": [
+    {
+      "id": "ef0dae83-ae62-4dbd-ad79-16a904ed2a3e",
+      "source": "NVD",
+      "external_id": "CVE-2025-32434",
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32434",
+      "hash": "2eef04293d369873344094e1c0fd19cb84c0eb12092a91515cdb584c3e748ba1",
+      "bytes": 4233,
+      "retrieved_at": "2026-10-14T03:11:08.336173+00:00"
+    },
+    {
+      "id": "6c687112-5400-4f19-b0e4-d8ec20c938cb",
+      "source": "NVD",
+      "external_id": "CVE-2022-45907",
+      "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-45907",
+      "hash": "f0e0c0c7aac97d4db952dcba76d11acc130e1ba9898f4cb1de40c485d43c2527",
+      "bytes": 3160,
+      "retrieved_at": "2026-10-14T03:11:13.370633+00:00"
+    },
+    {
+      "id": "aa76e5c8-0196-4a8c-8dca-632df28e689d",
+      "source": "RSS_TRAIL_OF_BITS",
+      "external_id": "feed:latest100",
+      "url": "https://blog.trailofbits.com/index.xml",
+      "hash": "9498f6e8f05fe43de47111761f8b8952ff3d48a8d5ac35438750845a651c4a9b",
+      "bytes": 951556,
+      "retrieved_at": "2026-10-14T03:11:13.451816+00:00"
+    },
+    {
+      "id": "867aeef9-7f6b-409e-aa71-243d78bb9eec",
+      "source": "OSV",
+      "external_id": "PyPI/modified_id.csv:prefix1000",
+      "url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/modified_id.csv",
+      "hash": "fb3c6f1da0c4dfdb285d521f37249cac813cc27efe54151a8107615d7cf11824",
+      "bytes": 49034,
+      "retrieved_at": "2026-10-14T03:12:35.316990+00:00"
+    },
+    {
+      "id": "7064b44e-2f1f-46e7-b190-aa46c1dd90da",
+      "source": "OSV",
+      "external_id": "GHSA-47fc-vmwq-366v",
+      "url": "https://storage.googleapis.com/osv-vulnerabilities/PyPI/GHSA-47fc-vmwq-366v.json",
+      "hash": "c3b8cc51aaef9312071cf539b14d09ebb6433e496accd23a180d33aa3e5ac9eb",
+      "bytes": 2155,
+      "retrieved_at": "2026-10-14T03:13:00.907422+00:00"
+    }
+  ],
+  "source_fact_bridge": {
+    "kind": "REAL_CAPTURED_NATIVE_SOURCE_FACT_BRIDGE",
+    "original_sync_run_id": "1aed3bd1-7d65-4308-8dbe-100bcbda2d1b",
+    "result": {
+      "status": "AVAILABLE",
+      "claim_count": 4,
+      "evidence_count": 4,
+      "verification_performed": false
+    },
+    "model_called": false
+  },
+  "enrichment_status_counts": {
+    "SUCCESS": 4,
+    "NO_RESULT": 8,
+    "FAILED": 4,
+    "PARTIAL": 2
+  },
+  "enrichment_results": [
+    {
+      "task_id": "32670fad-3d63-460b-8dec-3b9f736dda4a",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "epss",
+      "status": "SUCCESS",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 1592.1292999992147
+    },
+    {
+      "task_id": "79b0a324-7d8d-4731-a59a-45f833f5111f",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "vendor",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 20.521399999779533
+    },
+    {
+      "task_id": "680290fe-70f8-4703-b198-488fbf83ec49",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "version",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 36.3842000006116
+    },
+    {
+      "task_id": "ee4ffdbf-4f3e-4ad4-bff0-80e19e42e6f7",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "vendor",
+      "status": "FAILED",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 598.1635000007373
+    },
+    {
+      "task_id": "6e40d520-0251-491d-8c3d-1a0f46a642d1",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "poc",
+      "status": "SUCCESS",
+      "claims_created": 3,
+      "evidence_created": 3,
+      "candidates_created": 3,
+      "duration_ms": 16840.468799999144
+    },
+    {
+      "task_id": "7c6a8315-74d8-4da1-8d29-f4010f30beb7",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "vendor",
+      "status": "FAILED",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 593.75750000072
+    },
+    {
+      "task_id": "7f4ac173-112c-4199-90dd-413d13032353",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "vendor",
+      "status": "FAILED",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 2041.2909999995463
+    },
+    {
+      "task_id": "8744d1f3-d927-43b8-a017-46b46190b436",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "version",
+      "status": "SUCCESS",
+      "claims_created": 3,
+      "evidence_created": 3,
+      "candidates_created": 0,
+      "duration_ms": 217.5293000000238
+    },
+    {
+      "task_id": "0aa472ba-e916-4b9d-8978-6934f645f33a",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "vendor",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 14.560299998265691
+    },
+    {
+      "task_id": "8a93c377-9019-4265-bf1a-0deffe7e2226",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "poc",
+      "status": "PARTIAL",
+      "claims_created": 3,
+      "evidence_created": 3,
+      "candidates_created": 3,
+      "duration_ms": 31974.776900000506
+    },
+    {
+      "task_id": "c443ad48-8ad7-4e6c-af7b-74977126a8e9",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "vendor",
+      "status": "FAILED",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 760.9528000011778
+    },
+    {
+      "task_id": "8fb8b31f-bfe9-4239-b6bf-ac13fd7bcfdc",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "patch",
+      "status": "PARTIAL",
+      "claims_created": 2,
+      "evidence_created": 2,
+      "candidates_created": 2,
+      "duration_ms": 4845.084400001724
+    },
+    {
+      "task_id": "96ba2506-a803-43ea-946e-e7638b5a7a27",
+      "target_id": "125faf76-ac24-4da0-81a9-02d529395f05",
+      "enrichment_type": "kev",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 150.29209999920567
+    },
+    {
+      "task_id": "acff1434-244a-4474-9be7-0503c741ee85",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "vendor",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 63.234100000045146
+    },
+    {
+      "task_id": "99b55804-792b-484e-aa18-c7721b8c4e41",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "patch",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 61.08990000029735
+    },
+    {
+      "task_id": "bdff5843-f1a9-43a0-b329-c84307a03e12",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "kev",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 66.33179999880667
+    },
+    {
+      "task_id": "ebb9fb97-d88f-4654-a641-04e7f011b22e",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "vendor",
+      "status": "NO_RESULT",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 63.20919999961916
+    },
+    {
+      "task_id": "ffc63a70-fe26-43af-adf0-5394cf8f6e1a",
+      "target_id": "008f2901-ae40-4f89-8590-130d6b09da5f",
+      "enrichment_type": "epss",
+      "status": "SUCCESS",
+      "claims_created": 0,
+      "evidence_created": 0,
+      "candidates_created": 0,
+      "duration_ms": 964.011500000197
+    }
+  ],
+  "knowledge_qa": {
+    "run_id": "4bd4b542-93bd-41ae-ae6a-65dd755cc645",
+    "final_status": "COMPLETED",
+    "route": {
+      "days": null,
+      "path": "fast",
+      "asset": false,
+      "router": "bounded-rules-v1",
+      "blocked": false,
+      "product": null,
+      "targets": [],
+      "asset_id": null,
+      "retrieval": "semantic",
+      "high_severity": false,
+      "model_capability": "DETERMINISTIC_ONLY; no generation model configured"
+    },
+    "tool_calls": [
+      {
+        "tool": "semantic_search",
+        "status": "succeeded",
+        "duration_ms": 6156
+      }
+    ]
+  },
+  "semantic_tool": {
+    "status": "success",
+    "retrieved_documents": [
+      {
+        "document_id": "202ab063-9fe9-496a-9384-d0e3949729e4",
+        "title": "ACE: A Security Architecture for LLM-Integrated App Systems",
+        "url": "https://arxiv.org/abs/2504.20984v3",
+        "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+      },
+      {
+        "document_id": "202ab063-9fe9-496a-9384-d0e3949729e4",
+        "title": "ACE: A Security Architecture for LLM-Integrated App Systems",
+        "url": "https://arxiv.org/abs/2504.20984v3",
+        "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+      },
+      {
+        "document_id": "f0296120-842c-413b-b991-863504a49e33",
+        "title": "Don't let TEEs break your MPC",
+        "url": "https://blog.trailofbits.com/2026/09/25/dont-let-tees-break-your-mpc/",
+        "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+      }
+    ]
+  },
+  "professional_investigation": {
+    "case_id": "phase14a-collected-vulnerability",
+    "data_origin": "REAL_SOURCE",
+    "checked_at_utc": "2026-10-14T03:48:27.234696+00:00",
+    "transport": "LOOPBACK_HTTP",
+    "benchmark": false,
+    "endpoints": {
+      "create": {
+        "http_status": 202,
+        "schema_valid": true
+      },
+      "status": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "trace": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "artifacts": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "integration": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "answer": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "history": {
+        "http_status": 200,
+        "schema_valid": true
+      },
+      "cancel": {
+        "http_status": 200,
+        "schema_valid": true
+      }
+    },
+    "chain_verified": true,
+    "ready": true,
+    "error_code": null,
+    "investigation_id": "0588d3f6-6169-4ef1-9c72-66b6c608151d",
+    "model_mode": {
+      "requested": "REAL",
+      "provider": "openai_compatible",
+      "is_mock": false,
+      "observed": "NON_MOCK",
+      "matched": true,
+      "error_code": null,
+      "model_quality_evaluated": false,
+      "source": "PERSISTED_PLANNER_CALL",
+      "model": "aegisai-qwen25-planner:latest",
+      "planner_attempt_count": 1
+    },
+    "creation_model_mode": {
+      "requested": "REAL",
+      "provider": "openai_compatible",
+      "is_mock": false,
+      "observed": "NON_MOCK",
+      "matched": true,
+      "error_code": null,
+      "model_quality_evaluated": false
+    },
+    "overall_status": "SUCCEEDED_WITH_WARNINGS",
+    "current_stage": "COMPLETED",
+    "planner_present": true,
+    "planner_validation": "VALIDATED",
+    "chain_error_code": null,
+    "agent_run_count": 3,
+    "tool_call_count": 5,
+    "artifact_count": 3,
+    "integration_status": "PASS_WITH_WARNINGS",
+    "answer_status": "COMPLETE_WITH_WARNINGS",
+    "citation_count": 0,
+    "artifact_ids": {
+      "investigation": "34bf8777-4ad4-4a80-bd6e-51233bbaf910",
+      "verification": "6b76a809-98be-4846-ba38-7a073ae6f3f8",
+      "analysis": "3f6ffc89-6494-4419-9ffd-2c0dbf0dea8e"
+    },
+    "integration_result_id": "c579c015-21be-4c5b-9ebf-133c2ac72ac2",
+    "answer_id": "8ef1925f-780e-526e-ac57-a3bab5f314f4",
+    "warnings": [
+      "OVERVIEW_BOUNDED_ABSTENTION",
+      "UNRESOLVED_ANALYSIS",
+      "UNKNOWN_IS_NOT_SAFE",
+      "POC_USABILITY_NOT_EVALUATED",
+      "PATCH_CANDIDATE_NOT_A_FIX",
+      "POC_CANDIDATES_NOT_VERIFIED"
+    ]
+  },
+  "database_counts": {
+    "vulnerabilities": 2,
+    "knowledge_documents": 3,
+    "chunks": 31,
+    "embeddings": 31,
+    "related_documents": 0,
+    "claims": 15,
+    "evidence": 15,
+    "poc_candidates": 6,
+    "patch_candidates": 2
+  },
+  "embedding_models": [
+    "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  ],
+  "source_status_summary": [
+    {
+      "source": "ARXIV",
+      "status": "succeeded",
+      "category": "paper"
+    },
+    {
+      "source": "EPSS",
+      "status": "succeeded",
+      "category": "enrichment"
+    },
+    {
+      "source": "GHSA",
+      "status": "failed",
+      "category": "security_community"
+    },
+    {
+      "source": "GITHUB",
+      "status": "failed",
+      "category": "enrichment"
+    },
+    {
+      "source": "NVD",
+      "status": "partial",
+      "category": "vulnerability_database"
+    },
+    {
+      "source": "OSV",
+      "status": "partial",
+      "category": "vulnerability_database"
+    },
+    {
+      "source": "RSS_GOOGLE_SECURITY",
+      "status": "failed",
+      "category": "blog"
+    },
+    {
+      "source": "RSS_TRAIL_OF_BITS",
+      "status": "succeeded",
+      "category": "blog"
+    },
+    {
+      "source": "VENDOR_PYTORCH",
+      "status": "failed",
+      "category": "vendor_advisory"
+    },
+    {
+      "source": "VENDOR_VLLM",
+      "status": "failed",
+      "category": "vendor_advisory"
+    }
+  ],
+  "actual_publication_titles": [
+    "SequenceHash: multihashing for the rest of us",
+    "Don't let TEEs break your MPC",
+    "ACE: A Security Architecture for LLM-Integrated App Systems"
+  ],
+  "code_base_commit": "8294f553bed52897eb1a44a7072571d0c0d84355",
+  "new_http_api_validation": {
+    "list": 200,
+    "sources": 200,
+    "vulnerability": 200,
+    "authorized_assets": 200,
+    "document": 200,
+    "document_schema_valid": true,
+    "paper_title": "ACE: A Security Architecture for LLM-Integrated App Systems"
+  }
+}

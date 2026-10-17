@@ -1049,7 +1049,9 @@
         "VENDOR_CONFIRMED",
         "EXPLOIT_CONDITION",
         "REMEDIATION",
-        "CVSS_SCORE"
+        "CVSS_SCORE",
+        "CWE",
+        "SOURCE_FACT"
       ],
       "title": "ClaimType",
       "type": "string"
@@ -1473,6 +1475,267 @@
         "message"
       ],
       "title": "GateCheck",
+      "type": "object"
+    },
+    "ImpactInterval": {
+      "additionalProperties": false,
+      "properties": {
+        "lower": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "lower_inclusive": {
+          "default": true,
+          "title": "Lower Inclusive",
+          "type": "boolean"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        },
+        "upper_inclusive": {
+          "default": false,
+          "title": "Upper Inclusive",
+          "type": "boolean"
+        }
+      },
+      "title": "ImpactInterval",
+      "type": "object"
+    },
+    "ImpactScope": {
+      "additionalProperties": false,
+      "properties": {
+        "normalization_version": {
+          "const": "impact-scope-v1",
+          "default": "impact-scope-v1",
+          "title": "Normalization Version",
+          "type": "string"
+        },
+        "vulnerability_id": {
+          "title": "Vulnerability Id",
+          "type": "string"
+        },
+        "affected_product": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Affected Product"
+        },
+        "affected_component": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Affected Component"
+        },
+        "ecosystem": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ecosystem"
+        },
+        "affected_version_range": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ImpactInterval"
+          },
+          "maxItems": 128,
+          "title": "Affected Version Range",
+          "type": "array"
+        },
+        "fixed_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixed Version"
+        },
+        "condition": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Condition"
+        },
+        "platform": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Platform"
+        },
+        "architecture": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Architecture"
+        },
+        "branch": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Branch"
+        },
+        "source_artifact_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Artifact Id"
+        },
+        "asset_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Id"
+        },
+        "source_claim_ids": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 32,
+          "title": "Source Claim Ids",
+          "type": "array"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ScopeEvidenceReference"
+          },
+          "maxItems": 128,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "source_refs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 128,
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "normalization_state": {
+          "default": "UNSUPPORTED",
+          "enum": [
+            "NORMALIZED",
+            "UNSUPPORTED"
+          ],
+          "title": "Normalization State",
+          "type": "string"
+        },
+        "verification_state": {
+          "anyOf": [
+            {
+              "enum": [
+                "CONFIRMED",
+                "PENDING",
+                "CONFLICT",
+                "INSUFFICIENT_EVIDENCE",
+                "REJECTED"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verification State"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Confidence"
+        }
+      },
+      "required": [
+        "vulnerability_id"
+      ],
+      "title": "ImpactScope",
       "type": "object"
     },
     "ImpactVersionEvidence": {
@@ -3321,6 +3584,20 @@
             }
           ],
           "default": null
+        },
+        "candidate_reference": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Reference"
         }
       },
       "required": [
@@ -4262,6 +4539,73 @@
       "title": "RunSnapshot",
       "type": "object"
     },
+    "ScopeEvidenceReference": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "source_claim_id": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Source Claim Id",
+          "type": "string"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "raw_document_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Raw Document Id"
+        },
+        "observation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Observation Id"
+        },
+        "reference": {
+          "additionalProperties": true,
+          "title": "Reference",
+          "type": "object"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "source_claim_id"
+      ],
+      "title": "ScopeEvidenceReference",
+      "type": "object"
+    },
     "StageEvent": {
       "additionalProperties": false,
       "properties": {
@@ -4925,6 +5269,17 @@
     "VerificationClaim": {
       "additionalProperties": false,
       "properties": {
+        "impact_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ImpactScope"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "claim_id": {
           "maxLength": 200,
           "minLength": 1,

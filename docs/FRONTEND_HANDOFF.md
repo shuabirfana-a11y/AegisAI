@@ -2,7 +2,7 @@
 
 更新：2026-10-12，Phase 12-D.3。调查路由保持八个；新增版本 Observation / 影响证据的可选输出，详细接入见 [资产风险联调变化](phase12d3/FRONTEND_ADAPTER_NOTES.md)。真实本地模型已在官方来源快照与明确标识的演示库存上完成资产风险 HTTP 闭环，不代表真实企业扫描或正式评测准确率。
 
-**当前有 41 条路径、42 个 HTTP 操作；8 个智能调查操作已经开放。完整成功链通过专用测试库的 TCP 联调验证，当前本地默认 Mock 对普通调查仍会规划失败。** 接口已存在、内部链可执行、真实模型可用、队友工作台已完成，是四个不同状态。
+**2026-10-14 Phase 14-A 增量：现有调查八接口保持，另增加五个只读监测/富化接口。现有 46 条路径、47 个 HTTP 操作。** 入口为 `/api/v1/intelligence`，字段与接入见 [监测与富化对接](phase14a/FRONTEND_ADAPTER_NOTES.md)。新增契约来自实际 Pydantic/OpenAPI；资产风险仍需要 Bearer，并只返回当前成员的库存。接口、链路、模型和前端页面完成度需分别验收，不能用接口存在宣称全部业务已通过。
 
 ## 1. 项目与接入入口
 
@@ -279,3 +279,28 @@ PLANNING_FAILED 是调查生命周期业务错误，不等于创建HTTP失败；
 GET /api/investigations/{id}/trace 的 model_execution 是可选且可为null的公共字段；其对象包含 execution_mode（MOCK/REAL）、provider、model（保存回执中的实际返回模型名）、source=PERSISTED_PLANNER_CALL、attempt_count（1–2）。不含模型地址、Key、原始输出或Prompt。服务重启/切换模型不改变历史标签，未知旧值须显示未知，不回填。
 
 AnswerEnvelope仍由确定性模板生成；重复读取不请求模型，Verification/Risk/Gate仍由既有规则决定。文本模型REAL与独立Embedding Mock必须分别标识；浏览器只访问AegisAI API，不访问模型端口11434。
+
+## Phase 14-B3 知识关联只读接口
+
+已实现 `GET /api/v1/intelligence/vulnerabilities/{id}/graph` 和 `GET /api/v1/intelligence/graph/query`，均需现有 Bearer 身份；默认不返回资产，显式请求时按 actor 过滤。指定 investigation_id 读取已有三 Agent/Gate/Answer，不重新调查。
+
+前端类型：`frontend/contracts/knowledge-graph.ts`；方法：IntelligenceApiClient.graph / queryGraphs；完整参数、节点字段、状态、权限和错误说明见 [知识关联契约](phase14b3/KNOWLEDGE_GRAPH_API.md)。生成 OpenAPI 和交接包已同步。
+
+部署版本与影响范围是不同节点；来源严重程度不等于资产风险；所有 Risk 是带 evaluation_time 的已保存决策，current_safety_evaluated=false。truncated=true 时展示部分图提示。演示 JSON 和 PPT 链路见 [真实演示链](phase14b3/demo/DEMO_CHAIN.md)。本阶段提供数据和契约，没有新增图形页面。
+
+
+## Phase 14-B5：一次受控证据补查
+
+服务端 `AEGIS_EVIDENCE_SUPPLEMENT_ENABLED=1` 启用；默认 `0`。不增加 API 或客户端预算参数。仅支持已知且获授权的资产/组件/部署版本、Gate 原状态为 REPLAN_REQUIRED、结构化 version_impact 缺口，且尚未读到依据的存储 Claim。首版通过 get_evidence 的 claim_id 过滤读取已收集资料；没有新增公网检索或采集来源。
+
+每个逻辑调查最多一轮，每个批次最多一个子调查获得自动补查额度。新增证据采集最多三次（包括失败调用）；不额外调用模型。原调查 deadline 和已发生工具调用继续计入预算；重新核验和风险读取同样计入总预算。缺用户版本、冲突、已有弱证据、目标不明、已查过、库存变化或预算不足不自动扩展。
+
+`GET /api/investigations/{id}/status` 新增 `supplement`、`processing_complete` 和 `result_version`。原 Gate 已终止但 `processing_complete=false` 时继续刷新。补查状态与 Gate 状态分开，首次阻断结果仍真实保留。supplement 中可读取具体 claim_ids、父 Gate、执行状态、固定工具调用记录、new_evidence_ids、resolved_claim_ids、调用数量、停止原因与恢复提示。tool_calls 仅有固定只读工具名、记录 UUID、状态和证据 UUID，不含参数、原始输出、密钥或 worker token。
+
+Trace / Artifacts / Integration / Answer 四个既有 GET 支持 `?version=1|2`。缺省为已完整提交的最新版本；1 永远读取原结果；2 未完整提交返回 409 RESULT_NOT_READY，非法版本返回 422。状态取得 result_version 后应把同一版本传给四个读取，避免同时读取不同版本。TS Client 方法的第三个参数为版本：`client.answer(id, signal, 1)`；JS Client 一致。
+
+补查原 Planner 与调查 Run 不重跑；新增采集 Run、Verification/Risk/Gate 和答案 v2。状态、Trace 和历史读取不会触发补查。取消意图与新步骤创建在同一数据库锁边界协调，过期或取消结果不能发布。进程中断保持未完成状态，过期 heartbeat 标记 recovery_required，未实现自动续跑。取消请求仍不是已取消确认。
+
+批次 items 新增 result_version 与 supplement，可区分生成新判断的资产和未获得额度、仍存在证据缺口的资产。各资产的版本、核验、风险和答案引用独立；公共漏洞资料不代替资产适用核验。history 的 status 筛选仍依据首次根调查状态，返回项可附最新答案与补查摘要；不要用该筛选推断 v2 的 Gate 状态。
+
+类型与枚举以本包生成的 investigation-http.d.ts / investigation-http.openapi.json 为准。程序完整性错误保持错误，不当作证据不足；新证据也可能继续被 Gate 拒绝。没有新可用证据时原答案保留，不推出资料不存在。正向受控资料与真实模型调用分别标识，本阶段不产生 Benchmark 准确率。

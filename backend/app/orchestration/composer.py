@@ -32,6 +32,48 @@ def safe_value(value):
     return safe_text(value) if isinstance(value,str) else value
 
 
+def safe_impact_value(value):
+    """Public range fields are data; credentials remain outside the allowlist."""
+    result=safe_value(value)
+    if not isinstance(value,dict):return result
+    # Only validated source fact shapes; arbitrary input keys remain filtered.
+    from app.enrichment.source_facts import fact_value
+    kind='CWE' if 'cwe' in value else 'SOURCE_FACT' if value.get('field')=='summary' else None
+    if kind:
+        try:result.update({k:safe_text(v) for k,v in fact_value(kind,value).items()})
+        except (ValueError,TypeError):pass
+    for key in ('range','range_type','parse_status'):
+        item=value.get(key)
+        if isinstance(item,str) and len(item)<=2400:result[key]=safe_text(item)
+    if isinstance(value.get('explicit_versions'),(list,tuple)):
+        result['explicit_versions']=[safe_text(x) for x in value['explicit_versions'] if isinstance(x,str)]
+    if isinstance(value.get('impact_scope'),dict):
+        from app.enrichment.impact_scope import ImpactScope
+        try:result['impact_scope']=ImpactScope.model_validate(value['impact_scope']).model_dump(mode='json',exclude_none=True)
+        except (ValueError,TypeError):pass
+    return result
+
+
+def project_fact_value(claim,*,verification_state,confidence):
+    # Existing immutable answers must retain their old deterministic projection.
+    if claim.impact_scope is None:
+        result=safe_impact_value(claim.value) if claim.claim_type in ('CWE','SOURCE_FACT') else safe_value(claim.value)
+        # A CVSS vector is part of this typed metric, not a generic JSON field.
+        # Preserve only its supplied scalar; never fetch or calculate one here.
+        if claim.claim_type=='CVSS_SCORE' and 'vector' in claim.value:
+            vector=claim.value['vector']
+            if vector is None:result['vector']=None
+            elif isinstance(vector,str) and len(vector)<=2400:result['vector']=safe_text(vector)
+        return result
+    result=safe_impact_value(claim.value)
+    result['impact_scope']=claim.impact_scope.model_copy(update={'verification_state':getattr(verification_state,'value',verification_state),
+        'confidence':confidence}).model_dump(mode='json',exclude_none=True)
+    for ref in result['impact_scope']['evidence_refs']:ref['reference']=safe_reference(ref['reference'])
+    for key in ('affected_product','affected_component','condition','platform','architecture','branch'):
+        if isinstance(result['impact_scope'].get(key),str):result['impact_scope'][key]=safe_text(result['impact_scope'][key])
+    return result
+
+
 def public_locator(value):
     """Only bounded position selectors are exportable; no arbitrary excerpts."""
     if not isinstance(value,dict):return {}
@@ -89,13 +131,15 @@ class AnswerComposer:
                 claim=assessment.claim
                 if assessment.status!='CONFIRMED':
                     disputed.append(DisputedClaim(claim_id=claim.claim_id,claim_type=claim.claim_type,
-                        verification_status=assessment.status,value=safe_value(claim.value),scope_key=safe_text(claim.scope_key),
+                        verification_status=assessment.status,value=project_fact_value(claim,verification_state=assessment.status,
+                            confidence=assessment.confidence),scope_key=safe_text(claim.scope_key),
                         supporting_evidence_ids=assessment.supporting_evidence_ids,conflicting_evidence_ids=assessment.conflicting_evidence_ids,
                         verification_artifact=vref))
                 if not grounded(source,claim.claim_id):continue
                 evidence=[refs[id] for id in assessment.supporting_evidence_ids if id in refs and eligible(refs[id],claim)]
                 if not evidence:continue
-                facts.append(VerifiedFact(claim_id=claim.claim_id,claim_type=claim.claim_type,value=safe_value(claim.value),
+                facts.append(VerifiedFact(claim_id=claim.claim_id,claim_type=claim.claim_type,
+                    value=project_fact_value(claim,verification_state=assessment.status,confidence=assessment.confidence),
                     evidence_ids=tuple(e.evidence_id for e in evidence),source_artifact=vref))
                 for e in evidence:
                     reference=safe_reference(e.reference)

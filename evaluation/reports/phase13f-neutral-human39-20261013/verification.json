@@ -1,0 +1,32 @@
+{
+  "runtime_source_commit": "bbb3a0fd40e098c52db3dd0499b77bd53aecef86",
+  "scorer_compatibility_version": "aegisbench-metrics-v0.2+human-no-evidence-enum-v1",
+  "scorer_quality_file_sha256": "f41702b3efb39f672c020ee734b46df7f4a6bf1f106e10a6165c2f5236e2a8c3",
+  "change_authorized_by_user": "Add NO_EVIDENCE as a distinct PoC category, then score existing 39 offline",
+  "protected_files_checked": 499,
+  "intentional_changes": [
+    "evaluation/bench/quality.py"
+  ],
+  "all_other_protected_files_unchanged": true,
+  "original_predictions_exactly_preserved": 39,
+  "original_predictions_sha256": "3cefa2f2bae1d69910d9557c350180d2a12c4aae136ef6b1be75f1b94984aa56",
+  "original_native_records_sha256": "72bcbdbf3a7c69bf2222b0739153e130e4f633ee13221c7ceb15e6c7532415af",
+  "checkpoint_sha256": "5f010cdcb57fa354a1c97cad75f708f9bab78010c743a9cd0ba347f722966406",
+  "new_model_calls_during_scoring": 0,
+  "new_investigation_calls_during_scoring": 0,
+  "planner_input_and_asset_metadata_isolation": "PASS",
+  "raw_source_hashes_match_prerun_freeze": true,
+  "engineering_tests": {
+    "aegisbench": {
+      "passed": 108,
+      "failed": 0
+    },
+    "portable_backend": {
+      "passed": 531,
+      "deselected": 1,
+      "warning": "Existing Starlette/AnyIO deprecation warning; real embedding test explicitly deselected"
+    }
+  },
+  "human_outcome_review": "PENDING",
+  "independent_baselines": "NOT_IMPLEMENTED"
+}

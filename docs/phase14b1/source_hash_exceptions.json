@@ -1,0 +1,16 @@
+{
+  "changes": {
+    "backend/app/enrichment/enrichers/poc.py": {
+      "baseline_sha256": "a9daea3b726268ddbc8460233cf7e9b221ed5939c841cf48c99869766b068df2",
+      "previous_sha256": "a9daea3b726268ddbc8460233cf7e9b221ed5939c841cf48c99869766b068df2",
+      "current_sha256": "5aceeb52dc54796c89ee76654c39e32269f26dad565993da2475dd7966d1094d",
+      "authorization": "PHASE14B1_USER_AUTHORIZED_POC_ARTIFACT_ADAPTER"
+    },
+    "backend/app/enrichment/service.py": {
+      "baseline_sha256": "02f83edc128c1b8f10dfad4c4bd609a663902ea594b722bc3daa8e3395450c00",
+      "previous_sha256": "02f83edc128c1b8f10dfad4c4bd609a663902ea594b722bc3daa8e3395450c00",
+      "current_sha256": "93233b8eddf779bc7abba3246a3eab40041a7cd15efe399cc6c04b9fb14882f5",
+      "authorization": "PHASE14B1_USER_AUTHORIZED_POC_ARTIFACT_ADAPTER"
+    }
+  }
+}

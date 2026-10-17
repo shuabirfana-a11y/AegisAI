@@ -9,7 +9,8 @@ from app.repositories.ingestion import unique_row
 from app.utils.time import utcnow
 from app.enrichment.contracts import CONTENT_TRUST
 
-VENDORS={'VENDOR_PYTORCH':'pytorch/pytorch','VENDOR_VLLM':'vllm-project/vllm','VENDOR_MLFLOW':'mlflow/mlflow'}
+VENDORS={'VENDOR_PYTORCH':'pytorch/pytorch','VENDOR_VLLM':'vllm-project/vllm','VENDOR_MLFLOW':'mlflow/mlflow',
+         'VENDOR_LANGGRAPH':'langchain-ai/langgraph'}
 REPO=r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+'
 
 def validate_enrichment_url(url):

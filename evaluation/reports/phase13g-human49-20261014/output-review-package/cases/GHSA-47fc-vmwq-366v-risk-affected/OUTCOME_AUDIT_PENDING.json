@@ -1,0 +1,41 @@
+{
+  "baseline": "aegisai",
+  "claim_inventory_complete": false,
+  "claims": [
+    {
+      "claim_id": "4d86bc6f-8d02-453f-9f49-abe45b21c191",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "4f85afc8-e8f9-4745-bb3e-bad02be8d9be",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-summary",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-0",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    },
+    {
+      "claim_id": "native-finding-1",
+      "evidence_refs": [],
+      "review_note": "Pending independent human semantic review",
+      "verdict": "UNRESOLVED"
+    }
+  ],
+  "prediction_sha256": "6cdeb6069d397380016e5fccdf2f1f8ba5c5a8466e60c1647059991e42124ce0",
+  "question_id": "GHSA-47fc-vmwq-366v-risk-affected",
+  "review_status": "PENDING",
+  "reviewer": "",
+  "reviewer_type": "MACHINE"
+}

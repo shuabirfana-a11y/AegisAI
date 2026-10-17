@@ -1,0 +1,17 @@
+{
+  "mode": "ONLINE_HTTP_DIAGNOSTIC_NOT_NEW_FORMAL49",
+  "ids": [
+    "GHSA-935w-9g4m-p28p-affected",
+    "GHSA-935w-9g4m-p28p-fixed",
+    "GHSA-935w-9g4m-p28p-multihop",
+    "GHSA-53q9-r3pm-6pq6-facts",
+    "GHSA-53q9-r3pm-6pq6-affected",
+    "GHSA-c67j-w6g6-q2cm-affected",
+    "GHSA-9rwj-6rc7-p77c-affected",
+    "GHSA-53q9-r3pm-6pq6-unknown"
+  ],
+  "dataset_unchanged": true,
+  "expected_answers_sent_to_server": false,
+  "source_graph": "Original 12 records; original neutral inventory; no new source acquisition",
+  "goal": "Confirm safety boundary and preserve three prior exact matches; detect any regression. No Top1 business fix is claimed."
+}

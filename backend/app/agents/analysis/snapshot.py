@@ -107,7 +107,10 @@ class AnalysisSnapshotReader:
                 refs=[];epss=[]
                 for ref in source.receipt_references:
                     record=db.get(m.ToolCallRecord,UUID(ref['record_id']))
-                    if (record is None or record.agent_run_id!=investigation.run_id or
+                    allowed_run=UUID(ref['source_run_id']) if ref.get('source_run_id') else investigation.run_id
+                    if allowed_run!=investigation.run_id and allowed_run not in source.supplementary_run_ids:
+                        raise ValueError('Unbound supplementary receipt')
+                    if (record is None or record.agent_run_id!=allowed_run or
                         record.tool_name!=ref['tool_name'] or record.sequence_no!=ref['sequence_no'] or
                         fingerprint(record.input_summary)!=ref['input_hash'] or
                         fingerprint(record.output_summary)!=ref['output_hash']):

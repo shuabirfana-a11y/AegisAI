@@ -1,0 +1,911 @@
+[
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-facts",
+    "category": "facts",
+    "question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+    "input_context": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434"
+    },
+    "expected_fields": [
+      "cve",
+      "cvss_v3",
+      "cvss_v4",
+      "cwes",
+      "summary"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "request",
+      "created",
+      "investigation_id",
+      "status",
+      "trace",
+      "artifacts",
+      "integration",
+      "answer"
+    ],
+    "request": {
+      "user_query": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "[LOCAL]"
+    },
+    "error": null,
+    "gate": "PASS_WITH_WARNINGS",
+    "inv_fields": [
+      "artifact_id",
+      "task_id",
+      "agent_id",
+      "run_id",
+      "schema_version",
+      "status",
+      "runtime_status",
+      "partial_result",
+      "information_status",
+      "vulnerability_id",
+      "canonical_id",
+      "description",
+      "component",
+      "asset",
+      "affected_versions",
+      "fixed_versions",
+      "version_match",
+      "cvss",
+      "cwe",
+      "poc_candidates",
+      "patch_information",
+      "evidence",
+      "uncertainties",
+      "conflicts",
+      "confidence",
+      "dependency_artifact_ids",
+      "evidence_storage",
+      "findings"
+    ],
+    "inv_status": "COMPLETE",
+    "ver_status": "PENDING",
+    "claims": [
+      {
+        "type": "VENDOR_CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "status": "CONFIRMED",
+        "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.6.0"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+            }
+          ],
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_PRODUCT",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "CVSS_SCORE",
+        "value": {
+          "score": 9.3,
+          "version": "4.0",
+          "severity": "critical"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI",
+          "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Version expression is unsupported; no guessed range.",
+        "support_count": 0,
+        "exclusions": []
+      },
+      {
+        "type": "FIXED_VERSION",
+        "value": {
+          "package": "torch",
+          "version": "2.6.0",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      }
+    ],
+    "verified_facts": [
+      {
+        "claim_id": "621a8f1e-1bb9-463a-8d17-c11f9e90fb1b",
+        "claim_type": "VENDOR_CONFIRMED",
+        "verification_status": "CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "evidence_ids": [
+          "6ad969a2-3d6b-47af-a3b4-b98a7121fa7d"
+        ],
+        "source_artifact": {
+          "run_id": "9b94fe75-0d44-4c34-80d9-cff92395f109",
+          "task_id": "verify",
+          "artifact_id": "2b069f36-332a-4960-8ce8-7f293d888a53",
+          "schema_version": "verification-artifact-v1"
+        }
+      }
+    ],
+    "risk": {
+      "risk_level": "UNKNOWN",
+      "priority": "REVIEW_REQUIRED",
+      "affected": null,
+      "verification_status": "PENDING",
+      "source_artifact": {
+        "run_id": "c9473024-9596-4760-a038-1cc6a0de33df",
+        "task_id": "analyze",
+        "artifact_id": "dfbdec96-7cdb-486c-b7ec-5f64f8347e1d",
+        "schema_version": "risk-analysis-artifact-v1"
+      },
+      "asset_match_status": "UNKNOWN",
+      "version_match_status": "UNKNOWN",
+      "exploitation_status": "UNKNOWN",
+      "usability": "NOT_EVALUATED",
+      "patch_status": "UNCONFIRMED",
+      "patch_applied": "UNKNOWN",
+      "conclusion_scope": "ACCEPTED"
+    },
+    "candidate_poc": [],
+    "patch": []
+  },
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-affected",
+    "category": "version",
+    "question": "torch 版本 2.5.1 是否受 CVE-2025-32434 影响？",
+    "input_context": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434",
+      "version": "2.5.1"
+    },
+    "expected_fields": [
+      "affected"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "request",
+      "created",
+      "investigation_id",
+      "status",
+      "trace",
+      "artifacts",
+      "integration",
+      "answer"
+    ],
+    "request": {
+      "user_query": "torch 版本 2.5.1 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "bfecb14f-473b-4a52-bc5c-37e3b00334fa",
+        "component_id": "14ab20bd-91d9-4312-853f-cc576dd4d7e7",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "[LOCAL]"
+    },
+    "error": null,
+    "gate": "REPLAN_REQUIRED",
+    "inv_fields": [
+      "artifact_id",
+      "task_id",
+      "agent_id",
+      "run_id",
+      "schema_version",
+      "status",
+      "runtime_status",
+      "partial_result",
+      "information_status",
+      "vulnerability_id",
+      "canonical_id",
+      "description",
+      "component",
+      "asset",
+      "affected_versions",
+      "fixed_versions",
+      "version_match",
+      "cvss",
+      "cwe",
+      "poc_candidates",
+      "patch_information",
+      "evidence",
+      "uncertainties",
+      "conflicts",
+      "confidence",
+      "dependency_artifact_ids",
+      "evidence_storage",
+      "findings"
+    ],
+    "inv_status": "COMPLETE",
+    "ver_status": "PENDING",
+    "claims": [
+      {
+        "type": "VENDOR_CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "status": "CONFIRMED",
+        "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.6.0"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+            }
+          ],
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_PRODUCT",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "CVSS_SCORE",
+        "value": {
+          "score": 9.3,
+          "version": "4.0",
+          "severity": "critical"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "FIXED_VERSION",
+        "value": {
+          "package": "torch",
+          "version": "2.6.0",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      }
+    ],
+    "verified_facts": [
+      {
+        "claim_id": "621a8f1e-1bb9-463a-8d17-c11f9e90fb1b",
+        "claim_type": "VENDOR_CONFIRMED",
+        "verification_status": "CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "evidence_ids": [
+          "6ad969a2-3d6b-47af-a3b4-b98a7121fa7d"
+        ],
+        "source_artifact": {
+          "run_id": "99d6bae3-13bd-4d68-afa1-403ceb8ffa85",
+          "task_id": "verify",
+          "artifact_id": "c163fad0-437f-489c-bc9c-72f1ab58c9f2",
+          "schema_version": "verification-artifact-v1"
+        }
+      }
+    ],
+    "risk": {
+      "risk_level": "UNKNOWN",
+      "priority": "REVIEW_REQUIRED",
+      "affected": null,
+      "verification_status": "PENDING",
+      "source_artifact": {
+        "run_id": "141ed2e1-9eff-4856-b7fe-e5ee90bd9c42",
+        "task_id": "analyze",
+        "artifact_id": "f15d6817-ef84-44c4-b197-1452db236815",
+        "schema_version": "risk-analysis-artifact-v1"
+      },
+      "asset_match_status": "UNKNOWN",
+      "version_match_status": "UNKNOWN",
+      "exploitation_status": "UNKNOWN",
+      "usability": "NOT_EVALUATED",
+      "patch_status": "UNCONFIRMED",
+      "patch_applied": "UNKNOWN",
+      "conclusion_scope": "OBSERVATION"
+    },
+    "candidate_poc": [],
+    "patch": []
+  },
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+    "category": "risk",
+    "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+    "input_context": {
+      "asset": {
+        "component": "torch",
+        "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+        "scenario": "CONTROLLED_NOT_PRODUCTION",
+        "version": "2.5.1"
+      },
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434",
+      "triage_policy": "benchmark-reference-triage-v1"
+    },
+    "expected_fields": [
+      "affected",
+      "priority",
+      "risk_level"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "request",
+      "created",
+      "investigation_id",
+      "status",
+      "trace",
+      "artifacts",
+      "integration",
+      "answer"
+    ],
+    "request": {
+      "user_query": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+      "asset_scope": {
+        "asset_id": "f8ffac79-eafc-4fdd-b706-29027d09520d",
+        "component_id": "a79f1a2a-b182-4b63-aa7f-27dc766478ad",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch",
+          "version": "2.5.1"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "[LOCAL]"
+    },
+    "error": null,
+    "gate": "REPLAN_REQUIRED",
+    "inv_fields": [
+      "artifact_id",
+      "task_id",
+      "agent_id",
+      "run_id",
+      "schema_version",
+      "status",
+      "runtime_status",
+      "partial_result",
+      "information_status",
+      "vulnerability_id",
+      "canonical_id",
+      "description",
+      "component",
+      "asset",
+      "affected_versions",
+      "fixed_versions",
+      "version_match",
+      "cvss",
+      "cwe",
+      "poc_candidates",
+      "patch_information",
+      "evidence",
+      "uncertainties",
+      "conflicts",
+      "confidence",
+      "dependency_artifact_ids",
+      "evidence_storage",
+      "findings"
+    ],
+    "inv_status": "COMPLETE",
+    "ver_status": "PENDING",
+    "claims": [
+      {
+        "type": "VENDOR_CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "status": "CONFIRMED",
+        "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.6.0"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+            }
+          ],
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_PRODUCT",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "CVSS_SCORE",
+        "value": {
+          "score": 9.3,
+          "version": "4.0",
+          "severity": "critical"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "FIXED_VERSION",
+        "value": {
+          "package": "torch",
+          "version": "2.6.0",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      }
+    ],
+    "verified_facts": [
+      {
+        "claim_id": "621a8f1e-1bb9-463a-8d17-c11f9e90fb1b",
+        "claim_type": "VENDOR_CONFIRMED",
+        "verification_status": "CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "evidence_ids": [
+          "6ad969a2-3d6b-47af-a3b4-b98a7121fa7d"
+        ],
+        "source_artifact": {
+          "run_id": "26cfd39c-f6a4-4711-93b5-329cea1dfabb",
+          "task_id": "verify",
+          "artifact_id": "c5d211bc-887b-4a05-85be-a55cd400503d",
+          "schema_version": "verification-artifact-v1"
+        }
+      }
+    ],
+    "risk": {
+      "risk_level": "UNKNOWN",
+      "priority": "REVIEW_REQUIRED",
+      "affected": null,
+      "verification_status": "PENDING",
+      "source_artifact": {
+        "run_id": "38ff954c-ba85-445e-84b0-348e09ee951d",
+        "task_id": "analyze",
+        "artifact_id": "a6699615-d383-4375-b12e-6892dad6a3f1",
+        "schema_version": "risk-analysis-artifact-v1"
+      },
+      "asset_match_status": "UNKNOWN",
+      "version_match_status": "UNKNOWN",
+      "exploitation_status": "UNKNOWN",
+      "usability": "NOT_EVALUATED",
+      "patch_status": "UNCONFIRMED",
+      "patch_applied": "UNKNOWN",
+      "conclusion_scope": "OBSERVATION"
+    },
+    "candidate_poc": [],
+    "patch": []
+  },
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+    "category": "poc_patch",
+    "question": "按公告的修复版本记录判断 CVE-2025-32434 的 release fix；公开 PoC 是否经过独立验证？",
+    "input_context": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434"
+    },
+    "expected_fields": [
+      "patch_status",
+      "poc_status"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "request",
+      "created",
+      "investigation_id",
+      "status",
+      "trace",
+      "artifacts",
+      "integration",
+      "answer"
+    ],
+    "request": {
+      "user_query": "按公告的修复版本记录判断 CVE-2025-32434 的 release fix；公开 PoC 是否经过独立验证？",
+      "asset_scope": {
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "overview_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "[LOCAL]"
+    },
+    "error": null,
+    "gate": "REPLAN_REQUIRED",
+    "inv_fields": [
+      "artifact_id",
+      "task_id",
+      "agent_id",
+      "run_id",
+      "schema_version",
+      "status",
+      "runtime_status",
+      "partial_result",
+      "information_status",
+      "vulnerability_id",
+      "canonical_id",
+      "description",
+      "component",
+      "asset",
+      "affected_versions",
+      "fixed_versions",
+      "version_match",
+      "cvss",
+      "cwe",
+      "poc_candidates",
+      "patch_information",
+      "evidence",
+      "uncertainties",
+      "conflicts",
+      "confidence",
+      "dependency_artifact_ids",
+      "evidence_storage",
+      "findings"
+    ],
+    "inv_status": "COMPLETE",
+    "ver_status": "PENDING",
+    "claims": [
+      {
+        "type": "VENDOR_CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "status": "CONFIRMED",
+        "reason": "Explicit authoritative primary evidence or independent high-quality corroboration.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "ranges": [
+            {
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "2.6.0"
+                }
+              ],
+              "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+            }
+          ],
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_PRODUCT",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      },
+      {
+        "type": "CVSS_SCORE",
+        "value": {
+          "score": 9.3,
+          "version": "4.0",
+          "severity": "critical"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 1,
+        "exclusions": []
+      },
+      {
+        "type": "AFFECTS_VERSION",
+        "value": {
+          "package": "torch",
+          "ecosystem": "PyPI",
+          "raw_expression": "{\"type\":\"ECOSYSTEM\",\"events\":[{\"introduced\":\"0\"},{\"fixed\":\"2.6.0\"}],\"versions\":[\"1.0.0\",\"1.0.1\",\"1.1.0\",\"1.10.0\",\"1.10.1\",\"1.10.2\",\"1.11.0\",\"1.12.0\",\"1.12.1\",\"1.13.0\",\"1.13.1\",\"1.2.0\",\"1.3.0\",\"1.3.1\",\"1.4.0\",\"1.5.0\",\"1.5.1\",\"1.6.0\",\"1.7.0\",\"1.7.1\",\"1.8.0\",\"1.8.1\",\"1.9.0\",\"1.9.1\",\"2.0.0\",\"2.0.1\",\"2.1.0\",\"2.1.1\",\"2.1.2\",\"2.2.0\",\"2.2.1\",\"2.2.2\",\"2.3.0\",\"2.3.1\",\"2.4.0\",\"2.4.1\",\"2.5.0\",\"2.5.1\"]}"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Version expression is unsupported; no guessed range.",
+        "support_count": 0,
+        "exclusions": []
+      },
+      {
+        "type": "FIXED_VERSION",
+        "value": {
+          "package": "torch",
+          "version": "2.6.0",
+          "ecosystem": "PyPI"
+        },
+        "status": "INSUFFICIENT_EVIDENCE",
+        "reason": "Insufficient current, explicit, independent evidence.",
+        "support_count": 2,
+        "exclusions": []
+      }
+    ],
+    "verified_facts": [
+      {
+        "claim_id": "621a8f1e-1bb9-463a-8d17-c11f9e90fb1b",
+        "claim_type": "VENDOR_CONFIRMED",
+        "verification_status": "CONFIRMED",
+        "value": {
+          "cve": "CVE-2025-32434",
+          "repository": "pytorch/pytorch"
+        },
+        "evidence_ids": [
+          "6ad969a2-3d6b-47af-a3b4-b98a7121fa7d"
+        ],
+        "source_artifact": {
+          "run_id": "9918ad79-2c01-4ebe-80f9-a01990af60af",
+          "task_id": "verify",
+          "artifact_id": "a1f5c45c-1691-49bf-b8e0-70867da1aca7",
+          "schema_version": "verification-artifact-v1"
+        }
+      }
+    ],
+    "risk": {
+      "risk_level": "UNKNOWN",
+      "priority": "REVIEW_REQUIRED",
+      "affected": null,
+      "verification_status": "PENDING",
+      "source_artifact": {
+        "run_id": "26cf90b1-ed52-416d-af12-10764f75d6d4",
+        "task_id": "analyze",
+        "artifact_id": "7ecc8a4c-2d1a-47f1-a429-6d9de6817a62",
+        "schema_version": "risk-analysis-artifact-v1"
+      },
+      "asset_match_status": "UNKNOWN",
+      "version_match_status": "UNKNOWN",
+      "exploitation_status": "UNKNOWN",
+      "usability": "NOT_EVALUATED",
+      "patch_status": "UNCONFIRMED",
+      "patch_applied": "UNKNOWN",
+      "conclusion_scope": "OBSERVATION"
+    },
+    "candidate_poc": [],
+    "patch": []
+  },
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-multihop",
+    "category": "multihop",
+    "question": "按 benchmark-reference-triage-v1 查询公告、比较版本并分析这两个演示资产，哪一个应优先处理？",
+    "input_context": {
+      "assets": [
+        {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-affected",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "2.5.1"
+        },
+        {
+          "component": "torch",
+          "id": "demo-GHSA-53q9-r3pm-6pq6-fixed",
+          "scenario": "CONTROLLED_NOT_PRODUCTION",
+          "version": "2.6.0"
+        }
+      ],
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434",
+      "triage_policy": "benchmark-reference-triage-v1"
+    },
+    "expected_fields": [
+      "priority_asset_ids"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "error_code"
+    ],
+    "request": null,
+    "error": "REQUEST_BINDING_INVALID",
+    "gate": null,
+    "inv_fields": [],
+    "inv_status": null,
+    "ver_status": null,
+    "claims": [],
+    "verified_facts": null,
+    "risk": null,
+    "candidate_poc": null,
+    "patch": null
+  },
+  {
+    "id": "GHSA-53q9-r3pm-6pq6-unknown",
+    "category": "version",
+    "question": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+    "input_context": {
+      "component": "torch",
+      "ecosystem": "PyPI",
+      "target": "CVE-2025-32434",
+      "version": null
+    },
+    "expected_fields": [
+      "affected"
+    ],
+    "record_keys": [
+      "question_id",
+      "transport",
+      "endpoints",
+      "completed",
+      "http_attempted",
+      "request",
+      "created",
+      "context_required",
+      "investigation_created"
+    ],
+    "request": {
+      "user_query": "torch 版本 未提供 是否受 CVE-2025-32434 影响？",
+      "asset_scope": {
+        "asset_id": "0d544612-4e38-40bd-b2ef-d94c9c951bbf",
+        "component_id": "0e1fcec1-daf2-45e7-a5f6-fe9c590821ca",
+        "component": {
+          "name": "torch",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "target": "CVE-2025-32434"
+      },
+      "options": {
+        "objective_profile": "asset_risk_v1",
+        "timeout_seconds": 300,
+        "mode": "auto",
+        "realtime": false
+      },
+      "idempotency_key": "[LOCAL]"
+    },
+    "error": null,
+    "gate": null,
+    "inv_fields": [],
+    "inv_status": null,
+    "ver_status": null,
+    "claims": [],
+    "verified_facts": null,
+    "risk": null,
+    "candidate_poc": null,
+    "patch": null
+  }
+]

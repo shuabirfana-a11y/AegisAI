@@ -6,13 +6,13 @@
   },
   "x-contract-origin": "ACTUAL_HTTP_REQUEST_AND_RESPONSE_MODELS",
   "paths": {
-    "/api/investigations": {
+    "/api/investigations/batches": {
       "post": {
         "tags": [
-          "investigations"
+          "multi-asset-investigations"
         ],
         "summary": "Create",
-        "operationId": "create_api_investigations_post",
+        "operationId": "create_api_investigations_batches_post",
         "security": [
           {
             "HTTPBearer": []
@@ -41,15 +41,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/InvestigationCreateRequest"
-                  },
-                  {
-                    "$ref": "#/components/schemas/InvestigationRequest"
-                  }
-                ],
-                "title": "Body"
+                "$ref": "#/components/schemas/BatchRequest"
               }
             }
           }
@@ -60,7 +52,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InvestigationCreateResponse"
+                  "$ref": "#/components/schemas/BatchResponse"
                 }
               }
             }
@@ -144,6 +136,512 @@
               }
             },
             "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/api/investigations/batches/{id}": {
+      "get": {
+        "tags": [
+          "multi-asset-investigations"
+        ],
+        "summary": "Get",
+        "operationId": "get_api_investigations_batches__id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/api/investigations/batches/{id}/summary": {
+      "get": {
+        "tags": [
+          "multi-asset-investigations"
+        ],
+        "summary": "Summary",
+        "operationId": "summary_api_investigations_batches__id__summary_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/api/investigations/batches/{id}/cancel": {
+      "post": {
+        "tags": [
+          "multi-asset-investigations"
+        ],
+        "summary": "Cancel",
+        "operationId": "cancel_api_investigations_batches__id__cancel_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/api/investigations": {
+      "post": {
+        "tags": [
+          "investigations"
+        ],
+        "summary": "Create",
+        "operationId": "create_api_investigations_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/InvestigationCreateRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/InvestigationRequest"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestigationCreateResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "200": {
+            "description": "Required context missing; no investigation was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContextRequiredResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -458,6 +956,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "responses": {
@@ -575,6 +1091,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -694,6 +1228,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "responses": {
@@ -811,6 +1363,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -1396,6 +1966,15 @@
             "const": "DETERMINISTIC_TEMPLATE",
             "title": "Explanation Provider",
             "default": "DETERMINISTIC_TEMPLATE"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -1530,6 +2109,25 @@
             "const": "investigation-api-public-v1",
             "title": "Projection Version",
             "default": "investigation-api-public-v1"
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -1641,6 +2239,19 @@
               }
             ],
             "title": "Target"
+          },
+          "candidate_reference": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Reference"
           }
         },
         "additionalProperties": false,
@@ -1712,6 +2323,671 @@
         ],
         "title": "AssetView"
       },
+      "BatchItem": {
+        "properties": {
+          "snapshot": {
+            "$ref": "#/components/schemas/BatchSnapshot"
+          },
+          "relations": {
+            "$ref": "#/components/schemas/CandidateRelations"
+          },
+          "execution_status": {
+            "type": "string",
+            "enum": [
+              "NOT_STARTED",
+              "RUNNING",
+              "COMPLETED",
+              "NEED_CONTEXT",
+              "FAILED",
+              "NOT_EXECUTED"
+            ],
+            "title": "Execution Status",
+            "default": "NOT_STARTED"
+          },
+          "child_request_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Child Request Key"
+          },
+          "investigation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Investigation Id"
+          },
+          "planner_run_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Planner Run Id"
+          },
+          "artifact_references": {
+            "items": {
+              "$ref": "#/components/schemas/ArtifactRef"
+            },
+            "type": "array",
+            "title": "Artifact References",
+            "default": []
+          },
+          "integration_result_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Integration Result Id"
+          },
+          "answer_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer Id"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "gate_status": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "PASS",
+                  "PASS_WITH_WARNINGS",
+                  "REPLAN_REQUIRED",
+                  "HUMAN_REVIEW_REQUIRED",
+                  "FAILED"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate Status"
+          },
+          "verification_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verification Status"
+          },
+          "impact": {
+            "type": "string",
+            "enum": [
+              "AFFECTED",
+              "NOT_AFFECTED",
+              "UNKNOWN"
+            ],
+            "title": "Impact",
+            "default": "UNKNOWN"
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": [
+              "CRITICAL",
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "UNKNOWN"
+            ],
+            "title": "Risk Level",
+            "default": "UNKNOWN"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "P0",
+              "P1",
+              "P2",
+              "P3",
+              "DEFER",
+              "REVIEW_REQUIRED"
+            ],
+            "title": "Priority",
+            "default": "REVIEW_REQUIRED"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "default": []
+          },
+          "claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Claim Ids",
+            "default": []
+          },
+          "citations": {
+            "items": {
+              "$ref": "#/components/schemas/Citation"
+            },
+            "type": "array",
+            "title": "Citations",
+            "default": []
+          },
+          "evidence_observations": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceObservation"
+            },
+            "type": "array",
+            "title": "Evidence Observations",
+            "default": []
+          },
+          "recommended_actions": {
+            "items": {
+              "$ref": "#/components/schemas/ActionView"
+            },
+            "type": "array",
+            "title": "Recommended Actions",
+            "default": []
+          },
+          "missing_fields": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Missing Fields",
+            "default": []
+          },
+          "unresolved_items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unresolved Items",
+            "default": []
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "snapshot_valid": {
+            "type": "boolean",
+            "title": "Snapshot Valid",
+            "default": true
+          },
+          "evaluation_time": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evaluation Time"
+          },
+          "historical_snapshot": {
+            "type": "boolean",
+            "const": true,
+            "title": "Historical Snapshot",
+            "default": true
+          },
+          "current_safety_evaluated": {
+            "type": "boolean",
+            "const": false,
+            "title": "Current Safety Evaluated",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot"
+        ],
+        "title": "BatchItem"
+      },
+      "BatchRequest": {
+        "properties": {
+          "vulnerability_id": {
+            "type": "string",
+            "maxLength": 80,
+            "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+            "title": "Vulnerability Id"
+          },
+          "asset_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Asset Ids"
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "maximum": 1500.0,
+            "minimum": 1.0,
+            "title": "Timeout Seconds",
+            "default": 900
+          },
+          "child_timeout_seconds": {
+            "type": "integer",
+            "maximum": 300.0,
+            "minimum": 1.0,
+            "title": "Child Timeout Seconds",
+            "default": 300
+          },
+          "idempotency_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Idempotency Key"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id",
+          "asset_ids"
+        ],
+        "title": "BatchRequest"
+      },
+      "BatchResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "multi-asset-batch-v1",
+            "title": "Schema Version",
+            "default": "multi-asset-batch-v1"
+          },
+          "batch_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Batch Id"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "title": "Vulnerability Id"
+          },
+          "execution_status": {
+            "type": "string",
+            "enum": [
+              "QUEUED",
+              "RUNNING",
+              "CANCEL_REQUESTED",
+              "COMPLETED",
+              "CANCELLED",
+              "TIMED_OUT",
+              "FAILED"
+            ],
+            "title": "Execution Status"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BatchItem"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/BatchSummary"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          },
+          "deadline_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Deadline At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "cancel_requested_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cancel Requested At"
+          },
+          "cancellation_observed": {
+            "type": "boolean",
+            "title": "Cancellation Observed",
+            "default": false
+          },
+          "recovery_required": {
+            "type": "boolean",
+            "title": "Recovery Required",
+            "default": false
+          },
+          "reused": {
+            "type": "boolean",
+            "title": "Reused",
+            "default": false
+          },
+          "duplicate_asset_count": {
+            "type": "integer",
+            "title": "Duplicate Asset Count",
+            "default": 0
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "max_assets": {
+            "type": "integer",
+            "title": "Max Assets"
+          },
+          "model_provider": {
+            "type": "string",
+            "title": "Model Provider"
+          },
+          "model_name": {
+            "type": "string",
+            "title": "Model Name"
+          },
+          "execution_mode": {
+            "type": "string",
+            "enum": [
+              "MOCK",
+              "REAL"
+            ],
+            "title": "Execution Mode"
+          },
+          "revision": {
+            "type": "integer",
+            "title": "Revision",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "batch_id",
+          "vulnerability_id",
+          "execution_status",
+          "items",
+          "summary",
+          "created_at",
+          "updated_at",
+          "deadline_at",
+          "max_assets",
+          "model_provider",
+          "model_name",
+          "execution_mode"
+        ],
+        "title": "BatchResponse"
+      },
+      "BatchSnapshot": {
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Asset Id"
+          },
+          "asset_name": {
+            "type": "string",
+            "title": "Asset Name"
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Captured At"
+          },
+          "inventory_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Inventory Hash"
+          },
+          "environment": {
+            "type": "string",
+            "title": "Environment",
+            "default": "unknown"
+          },
+          "exposure": {
+            "type": "string",
+            "title": "Exposure",
+            "default": "unknown"
+          },
+          "criticality": {
+            "type": "string",
+            "const": "unknown",
+            "title": "Criticality",
+            "default": "unknown"
+          },
+          "is_demo": {
+            "type": "boolean",
+            "title": "Is Demo",
+            "default": false
+          },
+          "components": {
+            "items": {
+              "$ref": "#/components/schemas/InventoryComponent"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "title": "Components",
+            "default": []
+          },
+          "selected_component_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Selected Component Id"
+          },
+          "provenance": {
+            "type": "string",
+            "const": "USER_INVENTORY_NOT_SCANNED",
+            "title": "Provenance",
+            "default": "USER_INVENTORY_NOT_SCANNED"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "asset_id",
+          "asset_name",
+          "captured_at",
+          "inventory_hash"
+        ],
+        "title": "BatchSnapshot"
+      },
+      "BatchSummary": {
+        "properties": {
+          "counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Counts"
+          },
+          "actionable_asset_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Actionable Asset Ids"
+          },
+          "unresolved_asset_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Unresolved Asset Ids"
+          },
+          "unaffected_asset_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "title": "Unaffected Asset Ids"
+          },
+          "sorting_rule": {
+            "type": "string",
+            "const": "EXISTING_PRIORITY_THEN_ASSET_UUID",
+            "title": "Sorting Rule",
+            "default": "EXISTING_PRIORITY_THEN_ASSET_UUID"
+          },
+          "scope_notice": {
+            "type": "string",
+            "title": "Scope Notice",
+            "default": "仅评价指定漏洞与固定库存快照；未知、失败和未执行不表示安全。"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "counts",
+          "actionable_asset_ids",
+          "unresolved_asset_ids",
+          "unaffected_asset_ids"
+        ],
+        "title": "BatchSummary"
+      },
+      "CandidateRelations": {
+        "properties": {
+          "node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Node Ids",
+            "default": []
+          },
+          "edge_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Edge Ids",
+            "default": []
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "truncated": {
+            "type": "boolean",
+            "title": "Truncated",
+            "default": false
+          },
+          "meaning": {
+            "type": "string",
+            "const": "CANDIDATE_RELATIONS_NOT_IMPACT_PROOF",
+            "title": "Meaning",
+            "default": "CANDIDATE_RELATIONS_NOT_IMPACT_PROOF"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "CandidateRelations"
+      },
       "Citation": {
         "properties": {
           "evidence_id": {
@@ -1779,7 +3055,9 @@
           "VENDOR_CONFIRMED",
           "EXPLOIT_CONDITION",
           "REMEDIATION",
-          "CVSS_SCORE"
+          "CVSS_SCORE",
+          "CWE",
+          "SOURCE_FACT"
         ],
         "title": "ClaimType"
       },
@@ -1861,6 +3139,70 @@
           "reason_summary"
         ],
         "title": "ClaimVerification"
+      },
+      "ContextRequiredResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "const": "NEED_CONTEXT",
+            "title": "Status"
+          },
+          "missing_fields": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "vulnerability_id",
+                "component",
+                "version",
+                "asset_context"
+              ]
+            },
+            "type": "array",
+            "maxItems": 4,
+            "minItems": 1,
+            "title": "Missing Fields"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Message",
+            "default": "请补充调查上下文；信息不足，不能判断资产影响或风险。"
+          },
+          "next_actions": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "SUPPLY_CONTEXT",
+                "PUBLIC_FACT_LOOKUP"
+              ]
+            },
+            "type": "array",
+            "title": "Next Actions",
+            "default": [
+              "SUPPLY_CONTEXT",
+              "PUBLIC_FACT_LOOKUP"
+            ]
+          },
+          "investigation_created": {
+            "type": "boolean",
+            "const": false,
+            "title": "Investigation Created",
+            "default": false
+          },
+          "execution_mode": {
+            "type": "string",
+            "const": "NOT_STARTED",
+            "title": "Execution Mode",
+            "default": "NOT_STARTED"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "missing_fields"
+        ],
+        "title": "ContextRequiredResponse"
       },
       "CreateOptions": {
         "properties": {
@@ -2416,6 +3758,30 @@
             ],
             "title": "Finished At"
           },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
           "original_question": {
             "type": "string",
             "title": "Original Question"
@@ -2524,6 +3890,253 @@
           "sort"
         ],
         "title": "HistoryResponse"
+      },
+      "ImpactInterval": {
+        "properties": {
+          "lower": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Lower"
+          },
+          "lower_inclusive": {
+            "type": "boolean",
+            "title": "Lower Inclusive",
+            "default": true
+          },
+          "upper": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upper"
+          },
+          "upper_inclusive": {
+            "type": "boolean",
+            "title": "Upper Inclusive",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ImpactInterval"
+      },
+      "ImpactScope": {
+        "properties": {
+          "normalization_version": {
+            "type": "string",
+            "const": "impact-scope-v1",
+            "title": "Normalization Version",
+            "default": "impact-scope-v1"
+          },
+          "vulnerability_id": {
+            "type": "string",
+            "title": "Vulnerability Id"
+          },
+          "affected_product": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Affected Product"
+          },
+          "affected_component": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Affected Component"
+          },
+          "ecosystem": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ecosystem"
+          },
+          "affected_version_range": {
+            "items": {
+              "$ref": "#/components/schemas/ImpactInterval"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Affected Version Range",
+            "default": []
+          },
+          "fixed_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fixed Version"
+          },
+          "condition": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Condition"
+          },
+          "platform": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform"
+          },
+          "architecture": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Architecture"
+          },
+          "branch": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Branch"
+          },
+          "source_artifact_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Artifact Id"
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Asset Id"
+          },
+          "source_claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 32,
+            "title": "Source Claim Ids",
+            "default": []
+          },
+          "evidence_refs": {
+            "items": {
+              "$ref": "#/components/schemas/ScopeEvidenceReference"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Evidence Refs",
+            "default": []
+          },
+          "source_refs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 128,
+            "title": "Source Refs",
+            "default": []
+          },
+          "normalization_state": {
+            "type": "string",
+            "enum": [
+              "NORMALIZED",
+              "UNSUPPORTED"
+            ],
+            "title": "Normalization State",
+            "default": "UNSUPPORTED"
+          },
+          "verification_state": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "CONFIRMED",
+                  "PENDING",
+                  "CONFLICT",
+                  "INSUFFICIENT_EVIDENCE",
+                  "REJECTED"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Verification State"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "vulnerability_id"
+        ],
+        "title": "ImpactScope"
       },
       "ImpactVersionEvidence": {
         "properties": {
@@ -2854,6 +4467,15 @@
             ],
             "title": "Persistence",
             "default": "STORED"
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -2870,6 +4492,115 @@
           "evaluation_time"
         ],
         "title": "IntegrationResponse"
+      },
+      "InventoryComponent": {
+        "properties": {
+          "component_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Component Id"
+          },
+          "product_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Product Id"
+          },
+          "package_identifier_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Package Identifier Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "package_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Package Name"
+          },
+          "ecosystem": {
+            "type": "string",
+            "title": "Ecosystem",
+            "default": "unknown"
+          },
+          "namespace": {
+            "type": "string",
+            "title": "Namespace",
+            "default": ""
+          },
+          "purl": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Purl"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "inventory_revision": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Inventory Revision"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "identity_status": {
+            "type": "string",
+            "title": "Identity Status"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "component_id",
+          "inventory_revision",
+          "source",
+          "identity_status"
+        ],
+        "title": "InventoryComponent"
       },
       "InvestigationArtifactReference": {
         "properties": {
@@ -3095,6 +4826,30 @@
             ],
             "title": "Finished At"
           },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
           "reused": {
             "type": "boolean",
             "title": "Reused"
@@ -3136,6 +4891,17 @@
           "is_mock"
         ],
         "title": "InvestigationCreateResponse"
+      },
+      "InvestigationCreateResult": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/InvestigationCreateResponse"
+          },
+          {
+            "$ref": "#/components/schemas/ContextRequiredResponse"
+          }
+        ],
+        "title": "InvestigationCreateResult"
       },
       "InvestigationOptions": {
         "properties": {
@@ -3368,6 +5134,30 @@
               }
             ],
             "title": "Finished At"
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "processing_complete": {
+            "type": "boolean",
+            "title": "Processing Complete",
+            "default": true
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -3559,6 +5349,19 @@
                 "type": "null"
               }
             ]
+          },
+          "candidate_reference": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Reference"
           }
         },
         "additionalProperties": false,
@@ -4752,6 +6555,70 @@
         ],
         "title": "RiskView"
       },
+      "ScopeEvidenceReference": {
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Evidence Id"
+          },
+          "source_claim_id": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "title": "Source Claim Id"
+          },
+          "source_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Id"
+          },
+          "raw_document_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Raw Document Id"
+          },
+          "observation_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Observation Id"
+          },
+          "reference": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Reference"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source_claim_id"
+        ],
+        "title": "ScopeEvidenceReference"
+      },
       "StageEvent": {
         "properties": {
           "stage": {
@@ -4817,6 +6684,288 @@
           "code"
         ],
         "title": "StageEvent"
+      },
+      "SupplementSummary": {
+        "properties": {
+          "policy_version": {
+            "type": "string",
+            "const": "evidence-supplement-v1",
+            "title": "Policy Version",
+            "default": "evidence-supplement-v1"
+          },
+          "supplement_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Supplement Id"
+          },
+          "parent_investigation_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Parent Investigation Id"
+          },
+          "parent_integration_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Parent Integration Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DISABLED",
+              "NOT_ELIGIBLE",
+              "RUNNING",
+              "VERIFYING",
+              "ANALYZING",
+              "INTEGRATING",
+              "COMPLETED",
+              "STOPPED",
+              "CANCELLED",
+              "FAILED"
+            ],
+            "title": "Status"
+          },
+          "eligible": {
+            "type": "boolean",
+            "title": "Eligible",
+            "default": false
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 100,
+            "title": "Reason"
+          },
+          "claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Claim Ids",
+            "default": []
+          },
+          "acquisition_run_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Acquisition Run Id"
+          },
+          "acquisition_artifact": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ArtifactRef"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "new_evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 48,
+            "title": "New Evidence Ids",
+            "default": []
+          },
+          "resolved_claim_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Resolved Claim Ids",
+            "default": []
+          },
+          "extra_acquisition_calls": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 0.0,
+            "title": "Extra Acquisition Calls",
+            "default": 0
+          },
+          "extra_model_calls": {
+            "type": "integer",
+            "const": 0,
+            "title": "Extra Model Calls",
+            "default": 0
+          },
+          "extra_total_tool_calls": {
+            "type": "integer",
+            "maximum": 5.0,
+            "minimum": 0.0,
+            "title": "Extra Total Tool Calls",
+            "default": 0
+          },
+          "latest_result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Latest Result Version",
+            "default": 1
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
+          },
+          "cancel_requested": {
+            "type": "boolean",
+            "title": "Cancel Requested",
+            "default": false
+          },
+          "recovery_required": {
+            "type": "boolean",
+            "title": "Recovery Required",
+            "default": false
+          },
+          "error_code": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error Code"
+          },
+          "heartbeat_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Heartbeat At"
+          },
+          "started_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Started At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "deadline_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deadline At"
+          },
+          "tool_calls": {
+            "items": {
+              "$ref": "#/components/schemas/SupplementToolCall"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Tool Calls",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "parent_investigation_id",
+          "status",
+          "reason"
+        ],
+        "title": "SupplementSummary"
+      },
+      "SupplementToolCall": {
+        "properties": {
+          "record_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Record Id"
+          },
+          "tool": {
+            "type": "string",
+            "const": "get_evidence",
+            "title": "Tool"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "succeeded",
+              "partial",
+              "failed",
+              "timeout",
+              "cancelled"
+            ],
+            "title": "Status"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "type": "array",
+            "maxItems": 16,
+            "title": "Evidence Ids",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "record_id",
+          "tool",
+          "status"
+        ],
+        "title": "SupplementToolCall"
       },
       "TaskExecution": {
         "properties": {
@@ -5095,6 +7244,25 @@
                 "type": "null"
               }
             ]
+          },
+          "supplement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SupplementSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "result_version": {
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ],
+            "title": "Result Version",
+            "default": 1
           }
         },
         "additionalProperties": false,
@@ -5208,6 +7376,16 @@
       },
       "VerificationClaim": {
         "properties": {
+          "impact_scope": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ImpactScope"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "claim_id": {
             "type": "string",
             "maxLength": 200,

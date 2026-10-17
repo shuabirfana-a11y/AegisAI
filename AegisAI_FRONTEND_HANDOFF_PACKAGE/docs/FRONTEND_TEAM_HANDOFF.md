@@ -273,3 +273,20 @@ PLANNING_FAILED 是调查生命周期业务错误，不等于创建HTTP失败；
 ### ApiError
 
 `error_code`, `message`, `request_id`, `retryable`
+
+
+## Phase 14-B5：一次受控证据补查
+
+服务端 `AEGIS_EVIDENCE_SUPPLEMENT_ENABLED=1` 启用；默认 `0`。不增加 API 或客户端预算参数。仅支持已知且获授权的资产/组件/部署版本、Gate 原状态为 REPLAN_REQUIRED、结构化 version_impact 缺口，且尚未读到依据的存储 Claim。首版通过 get_evidence 的 claim_id 过滤读取已收集资料；没有新增公网检索或采集来源。
+
+每个逻辑调查最多一轮，每个批次最多一个子调查获得自动补查额度。新增证据采集最多三次（包括失败调用）；不额外调用模型。原调查 deadline 和已发生工具调用继续计入预算；重新核验和风险读取同样计入总预算。缺用户版本、冲突、已有弱证据、目标不明、已查过、库存变化或预算不足不自动扩展。
+
+`GET /api/investigations/{id}/status` 新增 `supplement`、`processing_complete` 和 `result_version`。原 Gate 已终止但 `processing_complete=false` 时继续刷新。补查状态与 Gate 状态分开，首次阻断结果仍真实保留。supplement 中可读取具体 claim_ids、父 Gate、执行状态、固定工具调用记录、new_evidence_ids、resolved_claim_ids、调用数量、停止原因与恢复提示。tool_calls 仅有固定只读工具名、记录 UUID、状态和证据 UUID，不含参数、原始输出、密钥或 worker token。
+
+Trace / Artifacts / Integration / Answer 四个既有 GET 支持 `?version=1|2`。缺省为已完整提交的最新版本；1 永远读取原结果；2 未完整提交返回 409 RESULT_NOT_READY，非法版本返回 422。状态取得 result_version 后应把同一版本传给四个读取，避免同时读取不同版本。TS Client 方法的第三个参数为版本：`client.answer(id, signal, 1)`；JS Client 一致。
+
+补查原 Planner 与调查 Run 不重跑；新增采集 Run、Verification/Risk/Gate 和答案 v2。状态、Trace 和历史读取不会触发补查。取消意图与新步骤创建在同一数据库锁边界协调，过期或取消结果不能发布。进程中断保持未完成状态，过期 heartbeat 标记 recovery_required，未实现自动续跑。取消请求仍不是已取消确认。
+
+批次 items 新增 result_version 与 supplement，可区分生成新判断的资产和未获得额度、仍存在证据缺口的资产。各资产的版本、核验、风险和答案引用独立；公共漏洞资料不代替资产适用核验。history 的 status 筛选仍依据首次根调查状态，返回项可附最新答案与补查摘要；不要用该筛选推断 v2 的 Gate 状态。
+
+类型与枚举以本包生成的 investigation-http.d.ts / investigation-http.openapi.json 为准。程序完整性错误保持错误，不当作证据不足；新证据也可能继续被 Gate 拒绝。没有新可用证据时原答案保留，不推出资料不存在。正向受控资料与真实模型调用分别标识，本阶段不产生 Benchmark 准确率。

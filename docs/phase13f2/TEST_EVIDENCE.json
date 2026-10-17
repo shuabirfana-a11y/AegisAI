@@ -1,0 +1,28 @@
+{
+  "kind": "ENGINEERING_AND_FIVE_CASE_DIAGNOSTICS_NOT_BENCHMARK_ACCURACY",
+  "implementation_commit": "d623a5d2752fdca8707754ae9b19a7a9b29f007e",
+  "new_backend_cases": 18,
+  "new_evaluation_cases": 11,
+  "commands": [
+    {"command": "python scripts/ci/run_backend_tests.py", "result": "549 passed, 1 deselected, 1 warning in 16.10s", "exit_code": 0, "deselected": "test_cached_real_local_embedding_through_gateway (documented portable CI exclusion)"},
+    {"command": "python -m pytest tests/aegisbench -q", "result": "126 passed in 11.18s", "exit_code": 0},
+    {"cwd": "backend", "command": "python -m pytest -q", "result": "31 failed, 1416 passed, 23 warnings in 963.80s", "exit_code": 1, "failure_cause": "Runtime committed synthetic rows and count/migration tests used the same dedicated DB; 31 empty/count assumptions failed. Original output retained."},
+    {"cwd": "backend", "command": "python -m pytest --lf -q", "environment": "Fresh separate PostgreSQL cluster; same dedicated test DB name; no previous data deleted", "result": "31 passed, 1 warning in 8.69s", "exit_code": 0},
+    {"command": "python scripts/ci/check_contracts.py", "result": "PASS: 42 HTTP operations, 5 current Python schema groups, 40 synthetic objects; no database access/export changes", "exit_code": 0},
+    {"command": "python scripts/export_investigation_api.py --check", "result": "PASS: 10 unchanged export files", "exit_code": 0},
+    {"command": "python -m unittest discover -s tests/engineering -v", "result": "Ran 18 tests in 8.948s; OK", "exit_code": 0},
+    {"command": "Independent read-only repair verification", "result": "26 related controls passed; four Important findings closed", "scope": "No API/model/DB calls"}
+  ],
+  "red_green_controls": [
+    "Scope, handoff and missing input controls failed against prior behavior, then passed.",
+    "JSONB key reorder and 70KB conflict failed before canonical pointer/hash repair.",
+    "Malformed targets raised TypeError/KeyError before controlled validation.",
+    "Eight-target schema exceeded the old inline expansion budget; shared local defs passes."
+  ],
+  "live_diagnostics": {"investigations": 5, "planner_attempts": 10, "validated_plans": 2, "planning_failed": 3, "gate_replan_required": 2, "gate_not_reached": 3, "semantic_accuracy_calculated": false},
+  "warning_notes": ["AnyIO deprecation in existing Starlette dependency", "Existing synthetic enum serialization warnings"],
+  "full_suite_single_run_all_green": false,
+  "retry_failed_cases_all_green": true,
+  "further_model_calls": 0,
+  "raw_logs": "Local ignored work/phase13f2; not committed as credentials-bearing environment logs"
+}

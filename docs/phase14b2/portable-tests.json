@@ -1,0 +1,3375 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-14T07:44:23.430249+00:00",
+  "exit_status": 0,
+  "passed": 673,
+  "failed": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_config_defaults_are_explicit_mock_and_embeddings_are_separate",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_model_configuration_fails_before_provider_construction[env0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_model_configuration_fails_before_provider_construction[env1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_model_configuration_fails_before_provider_construction[env2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_model_configuration_fails_before_provider_construction[env3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_model_configuration_fails_before_provider_construction[env4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_credentials_are_not_exposed_by_configuration_or_errors",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_text_contract_rejects_unbounded_or_unapproved_inputs[payload0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_text_contract_rejects_unbounded_or_unapproved_inputs[payload1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_text_contract_rejects_unbounded_or_unapproved_inputs[payload2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_text_contract_rejects_unbounded_or_unapproved_inputs[payload3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_embedding_query_rejects_more_than_one_text",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_text_generation_records_metadata_and_explicit_mock_identity",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_structured_generation_runs_pydantic_validation_and_preserves_schema_identity",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_raw_json_schema_is_validated_and_can_reject_extra_fields",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[not JSON]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[```json\\n{}\\n```]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[{\"cve\":\"CVE-2099-9999001\",\"risk\":\"high\",\"evidence\":[]} trailing]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[{\"risk\":\"high\",\"risk\":\"low\"}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[{\"risk\":NaN}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_json_is_never_repaired_or_reported_success[{\"risk\":Infinity}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_json_schema_and_custom_pydantic_validators_are_both_enforced[fixture0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_json_schema_and_custom_pydantic_validators_are_both_enforced[fixture1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_json_schema_and_custom_pydantic_validators_are_both_enforced[fixture2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_or_external_schemas_fail_before_provider_call[schema0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_or_external_schemas_fail_before_provider_call[schema1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_or_external_schemas_fail_before_provider_call[schema2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_or_external_schemas_fail_before_provider_call[schema3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_structured_generation_requires_exactly_one_schema_source",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_invalid_input_has_safe_error_zero_calls_and_an_audit_record",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_config_output_limit_is_enforced_before_call",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_embeddings_are_ordered_finite_nonzero_and_explicitly_simulated",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_health_check_and_closed_gateway_are_audited_without_generation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_audit_write_failure_is_explicit_and_does_not_repeat_the_model_call",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_jsonl_records_are_safe_and_complete_under_threaded_calls",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_structured_json_rejects_float_overflow_and_invalid_unicode[{\"metric\":1e400}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_structured_json_rejects_float_overflow_and_invalid_unicode[{\"description\":\"\\\\ud800\"}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_config_rejects_api_key_reflected_in_loggable_model_metadata[MODEL_NAME]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_config_rejects_api_key_reflected_in_loggable_model_metadata[MODEL_EMBEDDING_NAME]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_audit_failure_preserves_original_model_error_and_known_usage",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_trace_ids_cannot_put_urls_or_invalid_unicode_in_call_records[https://private.invalid/path?token=private]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_trace_ids_cannot_put_urls_or_invalid_unicode_in_call_records[//private.invalid/path?token=private]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_trace_ids_cannot_put_urls_or_invalid_unicode_in_call_records[\\ud800]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_unresolved_local_schema_references_fail_before_model_call[schema0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_unresolved_local_schema_references_fail_before_model_call[schema1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_valid_local_schema_reference_remains_supported",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_local_reference_target_must_itself_be_a_schema",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_contracts.py::test_audit_failure_still_returns_safe_result_when_fallback_logger_also_fails",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_compatible_text_request_respects_base_prefix_auth_and_usage",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_compatible_structured_modes_are_explicit_and_locally_validated[prompt_json]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_compatible_structured_modes_are_explicit_and_locally_validated[json_object]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_compatible_structured_modes_are_explicit_and_locally_validated[json_schema]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_compatible_invalid_structured_output_preserves_actual_token_usage",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_embedding_response_indices_restore_input_order",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_invalid_embedding_shapes_or_indices_never_succeed[data0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_invalid_embedding_shapes_or_indices_never_succeed[data1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_invalid_embedding_shapes_or_indices_never_succeed[data2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_invalid_embedding_shapes_or_indices_never_succeed[data3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_invalid_embedding_shapes_or_indices_never_succeed[data4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[401-AUTHENTICATION_FAILED-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[403-AUTHENTICATION_FAILED-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[429-RATE_LIMITED-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[500-PROVIDER_ERROR-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[400-PROVIDER_REQUEST_REJECTED-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_http_failures_are_safe_and_never_auto_retry_or_redirect[302-INVALID_RESPONSE-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_transport_errors_map_without_exposing_exception_text[ReadTimeout-TIMEOUT]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_transport_errors_map_without_exposing_exception_text[ConnectError-NETWORK_ERROR]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_malformed_refused_and_truncated_responses_are_explicit[payload0-INVALID_RESPONSE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_malformed_refused_and_truncated_responses_are_explicit[payload1-INVALID_RESPONSE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_malformed_refused_and_truncated_responses_are_explicit[payload2-MODEL_REFUSED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_malformed_refused_and_truncated_responses_are_explicit[payload3-OUTPUT_TRUNCATED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_malformed_refused_and_truncated_responses_are_explicit[payload4-INVALID_RESPONSE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_health_probe_only_lists_models_and_unsupported_probe_does_not_generate",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_missing_usage_remains_unknown_and_missing_model_has_a_warning",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_non_json_and_oversize_http_responses_are_bounded_failures[invalid-json]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_non_json_and_oversize_http_responses_are_bounded_failures[oversize]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_unsafe_model_addresses_are_rejected_by_configuration[http://public.example.invalid/v1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_unsafe_model_addresses_are_rejected_by_configuration[https://user:password@model.example.invalid/v1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_unsafe_model_addresses_are_rejected_by_configuration[https://model.example.invalid/v1?key=x]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_unsafe_model_addresses_are_rejected_by_configuration[https://model.example.invalid/v1#fragment]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_provider_switch_uses_same_gateway_call_and_real_loopback_http",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_refusal_preserves_usage_when_only_output_tokens_are_known",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_http_adapter.py::test_constructor_identity_failure_closes_both_created_http_clients",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_local_profiles_are_valid_and_embedding_stays_mock",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_keyless_local_profile_cannot_be_repointed_to_remote",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_model_profile_has_bounded_timeout_and_output",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_local_profile_health_accepts_canonical_ollama_alias",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_optional_thinking_control_is_configured_only_at_gateway",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_local_profile.py::test_unrecognized_reasoning_effort_fails_configuration",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_probe_calls_gateway_not_model_sdk",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_invalid_json_does_not_execute_plan",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_unknown_task_and_forbidden_tool_are_rejected[unknown_task]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_unknown_task_and_forbidden_tool_are_rejected[forbidden_tool]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_timeout_empty_and_truncated_response_are_reported[TIMEOUT]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_timeout_empty_and_truncated_response_are_reported[EMPTY]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_timeout_empty_and_truncated_response_are_reported[TRUNCATED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_failed_probe_overwrites_previous_success",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_probe_deadline_stops_only_owned_worker",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_interrupt_cleans_owned_worker",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_provider_probe.py::test_interrupt_invalidates_stale_success_before_worker",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_providers.py::test_local_embedding_is_lazy_and_preserves_query_document_semantics",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_providers.py::test_missing_local_model_does_not_download_or_fall_back_to_mock",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_providers.py::test_local_health_reports_loaded_model_without_calling_inference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_providers.py::test_local_adapter_does_not_claim_text_generation_support",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/model_gateway/test_providers.py::test_local_model_identity_and_dimension_are_fixed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_schema_contract.py::test_phase5_has_43_explicit_domain_tables",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_schema_contract.py::test_composite_unique_constraint_names_do_not_collide",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_real_cve_fixture_identity_metrics_and_adp",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_real_osv_fixture_package_events_and_cvss",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_real_kev_catalog_has_original_pointer",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_osv_multiple_cves_are_not_collapsed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_osv_last_affected_is_not_fixed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_missing_collections_remain_unknown",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_rejected_cve_without_cna_description_is_retained",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_future_schema_is_quarantined",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_invalid_kev_count_is_not_accepted",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_input_is_not_mutated",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_normalizers.py::test_cve_explicit_semver_never_uses_pep440_build_order",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_settings_environment_and_secret_repr",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_429_uses_retry_after_and_retains_body",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_400_is_not_retried",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_timeout_has_bounded_retry",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_blocks_unapproved_addresses[http://api.osv.dev/v1/test]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_blocks_unapproved_addresses[https://127.0.0.1/private]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_blocks_unapproved_addresses[https://evil.test/feed]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_blocks_unapproved_addresses[https://api.osv.dev.evil.test/feed]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_blocks_unapproved_addresses[https://user:password@api.osv.dev/test]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_preserves_non_json_bytes_before_decode",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_size_is_bounded",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_gzip_response_is_decoded_once",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_http_discovery_prefix_retains_complete_lines_and_marks_partial",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_time_is_utc_with_source_precision[2025-01-01T00:00:00Z]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_time_is_utc_with_source_precision[2025-01-01T08:00:00+08:00]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_time_is_utc_with_source_precision[2025-01-01]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_naive_full_timestamp_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_time_stays_null",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_explicit_pypi_alias_is_canonical[torch]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_explicit_pypi_alias_is_canonical[Torch]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_explicit_pypi_alias_is_canonical[ TORCH ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_same_name_different_ecosystem_is_not_merged",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unqualified_triton_is_ambiguous",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[< 0.8.4-expected0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[<= 0.8.3-expected1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[>= 1.0, < 1.2-expected2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[>=2.0rc1,<2.0-expected3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[==2.0.post1-expected4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_pypi_comparators_preserve_boundary_semantics[==2.0.dev2+cpu-expected5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_versions_remain_unsupported[2.x]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_versions_remain_unsupported[all builds before blue]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_versions_remain_unsupported[>1.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_versions_remain_unsupported[>=2,<1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_unknown_versions_remain_unsupported[~=1.4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_osv_zero_sentinel_and_last_affected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_git_range_is_preserved_unsupported",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_inclusive_single_version_interval_is_valid",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_semver_event_is_not_interpreted_as_pep440",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_ingestion_units.py::test_strict_fixed_boundary_cannot_equal_introduction",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_name_only_is_not_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_explicit_mechanism_product_and_steps_remains_candidate_without_independent_reference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_scanner_is_rejected_even_when_popular_and_identified",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_association_confirmed_only_with_explanatory_content_and_independent_explicit_reference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_readme_instructions_do_not_change_candidate_rules",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_fork_and_copied_readme_cannot_independently_confirm",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_official_advisory_explicit_commit_is_strong_patch_association",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_commit_security_word_alone_does_not_confirm_patch",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_patch_url_with_short_sha_or_unrelated_owner_is_not_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_wrong_cve_vendor_payload_is_unresolved",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_explicit_vendor_fixed_version_becomes_structured_claim",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_two_independent_high_quality_agree_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_correlated_osv_ghsa_and_cve_are_one_lineage_not_three_votes",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_only_low_information_source_abstains",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_no_evidence_abstains",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_authority_does_not_suppress_explicit_contradiction",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_same_source_old_revision_is_history_not_current_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_stale_or_future_source_cannot_be_adopted",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_only_explicit_kev_positive_confirms_exploitation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_complete_catalog_absence_does_not_prove_no_exploitation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_scoped_range_conflict_and_equal_semantic_ranges",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_fixed_version_inside_current_affected_range_conflicts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_severity_versions_coexist_and_same_version_conflicts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_unsupported_version_expression_never_fabricates_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_adjacent_source_intervals_compare_as_one_affected_set",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_qualified_readme_and_independent_official_reference_confirm_association",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_roundtrip_preserves_inputs_and_limits",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes6]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes7]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes8]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes9]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes10]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_contract_rejects_unsafe_or_unbounded_values[changes11]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_artifact_confidence_is_unknown_and_rejects_nonfinite_values",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_tool_contract_reuses_actual_input_and_envelope_schemas",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_rules_create_actual_parallel_tools_and_no_generated_plan",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_missing_asset_becomes_zero_call_input_required",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_asset_template_reads_existing_risks_and_never_refreshes_matching",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_router_blocked_request_is_rejected_before_a_plan_exists",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_contracts_plan.py::test_input_size_limit_rejects_large_tool_arguments",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_graph_builder_supports_tasks_then_compiles_dependency_layers",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[cycle]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[missing]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[duplicate]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[self]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[depth]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[budget]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_invalid_graphs_are_rejected[unknown]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_graph_rejects_seventeenth_task_and_lower_policy_limits",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_server_permissions_cannot_be_granted_by_task_allowlist[match_component_vulnerabilities-args0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_server_permissions_cannot_be_granted_by_task_allowlist[find_poc_candidates-args1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_graph_rejects_wrong_tool_input_before_execution",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_graph_snapshot_is_not_mutable_through_original_or_returned_task",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_graph_states.py::test_state_machine_branches_and_rejects_late_success",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_dependencies_finish_before_downstream_starts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_poc_patch_ready_tasks_are_really_parallel",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_parallel_limit_is_enforced_with_more_than_three_roots",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_failed_or_review_branch_blocks_dependencies_but_not_independent_tasks[failed-failed]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_failed_or_review_branch_blocks_dependencies_but_not_independent_tasks[no_result-partial]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_exception_in_executor_does_not_escape_scheduler",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_run_timeout_stops_real_worker_and_does_not_launch_queued_tasks",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/runtime/test_scheduler.py::test_reserved_global_call_budget_prevents_any_execution_when_exceeded",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_default_registration_is_interface_only",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_registration_rejects_duplicate_or_overlap[False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_registration_rejects_duplicate_or_overlap[True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes6]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes7]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes8]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes9]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes10]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_contract_schema_and_tool_limits[changes11]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_snapshot_cannot_change_after_registration",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_contracts_registry.py::test_interfaces_expose_only_abstract_capabilities",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_agent_artifact_round_trip_preserves_provenance",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[run]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[task]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[extra]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[missing]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[review]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_accepts_only_same_run_successful_dependencies[duplicate]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_a_to_b_is_typed_and_preserves_dependency_ids",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_revalidates_mutated_nested_data_and_size[nan]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_revalidates_mutated_nested_data_and_size[extra_field]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_artifacts.py::test_handoff_revalidates_mutated_nested_data_and_size[oversize_extension]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_router_selects_registered_capability[vulnerability_lookup-get_vulnerability-args0-investigation_agent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_router_selects_registered_capability[version_match-match_component_vulnerabilities-args1-investigation_agent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_router_selects_registered_capability[patch_analysis-find_patch_candidates-args2-investigation_agent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_router_selects_registered_capability[evidence_search-get_evidence-args3-verification_agent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_router_selects_registered_capability[risk_analysis-get_epss-args4-security_analysis_agent]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_unknown_type_returns_agent_not_found",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_agent_tools_do_not_expand_task_permission",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_binding_requires_exact_semantic_task_set[mapping0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_binding_requires_exact_semantic_task_set[mapping1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_input_required_stays_unassigned",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_binding_preserves_tasks_and_rejects_supplied_metadata",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/test_router.py::test_binding_uses_original_permission_validation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[confidence-nan]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[confidence-inf]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[confidence--0.1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[confidence-1.1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[plan_id-not-uuid]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_bad_plan_fields[extra_permission-WRITE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_unknown_type",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_original_contract_bounds[max_tool_calls-9]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_original_contract_bounds[max_tool_calls-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_original_contract_bounds[timeout_seconds-61]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_original_contract_bounds[permission-WRITE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_full_candidate_bounded",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_registry_and_schema_are_fixed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_schemas_registry.py::test_context_is_server_owned_and_snapshot",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_valid_immutable_runtime_snapshot",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_role_allowlist[unknown_tool]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_role_allowlist[get_system_status]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_role_allowlist[match_component_vulnerabilities]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_scope_and_typed_arguments[arguments0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_scope_and_typed_arguments[arguments1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_scope_and_typed_arguments[arguments2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_scope_and_typed_arguments[arguments3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_scope_and_typed_arguments[arguments4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_minimum_criteria[criteria0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_minimum_criteria[criteria1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_minimum_criteria[criteria2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_evidence_requires_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_graph_validation[cycle]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_graph_validation[missing]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_graph_validation[duplicate]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_graph_validation[budget]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_required_complex_chain_and_missing_inputs",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_asset_question_cannot_skip_version_or_patch_or_risk",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_resolver_is_not_version_match",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_missing_fields_must_be_genuinely_missing[password]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_missing_fields_must_be_genuinely_missing[target]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_missing_fields_must_be_genuinely_missing[version]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_missing_fields_must_be_genuinely_missing[write_authorization]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_refresh_is_always_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_component_asset_version_substitution_and_write_permission",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_all_explicit_targets_must_be_covered",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_router_blocked_request_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_explicit_target_requires_exact_lookup[filters0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_explicit_target_requires_exact_lookup[filters1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_explicit_target_requires_exact_lookup[filters2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_explicit_target_requires_exact_lookup[filters3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_explicit_target_requires_exact_lookup[filters4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_product_search_cannot_add_unrequested_filters[filters0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_product_search_cannot_add_unrequested_filters[filters1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_product_search_cannot_add_unrequested_filters[filters2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_product_search_cannot_add_unrequested_filters[filters3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_validation.py::test_requested_search_filters_preserved",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_rejects_direct_tool_arguments_in_task_input",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_accepts_existing_tool_steps_and_pydantic_contract",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_rejects_unknown_step_field",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_requires_tool_allowlist_for_tool_sequence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_rejects_empty_tool_sequence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/planner/test_task_input_schema.py::test_model_schema_accepts_existing_zero_tool_input_required",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_request_rejects_duplicate_artifact_refs_and_external_payload",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_request_key_bounded[]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_request_key_bounded[ ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_request_key_bounded[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_objective_profiles_are_closed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_objective_respects_original_scope_not_model_plan",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/integration/test_contracts.py::test_overview_unknown_is_bounded_scope_and_time_is_explicit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_exact_three_roles_eight_tools",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_registry_routes_evidence_to_investigation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_asset_lookup_uses_existing_router_with_scoped_table",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_legacy_planner_schema_and_registry_remain_five",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_component_question_requires_readonly_version_observation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_illegal_plan_rejected[scope-TARGET_SCOPE_MISMATCH]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_illegal_plan_rejected[write-TASK_TOOL_FORBIDDEN]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_illegal_plan_rejected[refresh-TOOL_INPUT_INVALID]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_illegal_plan_rejected[unknown-SCHEMA]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_illegal_plan_rejected[no_exact-TASK_TOOL_FORBIDDEN]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_asset_missing_id_requires_real_input",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_adapter_uses_model_gateway_and_existing_attempt_protocol",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_planning.py::test_candidate_cannot_request_dag_cycle",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_rejects_direct_arguments_without_steps",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_accepts_existing_nested_tool_steps",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_rejects_unknown_tool_step_field",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_requires_executable_tool_contract[missing_allowlist]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_requires_executable_tool_contract[empty_steps]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_preserves_zero_tool_input_required",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_preserves_exact_three_task_roles[unknown_action]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_preserves_exact_three_task_roles[risk_analysis]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_schema_preserves_exact_three_task_roles[version_match]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_prompt_payload_distinguishes_optional_inputs_and_fixes_sampling",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_no_task_repair_or_mock_fallback_after_two_rejected_candidates[unknown_task]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_no_task_repair_or_mock_fallback_after_two_rejected_candidates[unknown_tool]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_model_schema.py::test_no_task_repair_or_mock_fallback_after_two_rejected_candidates[invented_missing]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_cve_artifact_preserves_provenance",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_poc_is_candidate_even_when_existing_status_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_authoritative_current_traceable_source_is_insufficient[changes5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_existing_current_conflict_preserves_both_claims",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_partial_keeps_failed_tool_and_available_data",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_no_data_is_insufficient_not_safe",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_cvss_multiple_sources_are_retained",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_projection_does_not_mutate_inputs",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_mismatched_target_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_dependency_identity_must_match_exact_run",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_projection_size_reference_keeps_full_receipt",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_semantic_hit_alone_does_not_confirm_vulnerability",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_official_source_is_not_automatic_confirmation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_size_fallback_is_explicit_and_points_to_complete_receipts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_existing_current_confirmed_claim_is_preserved",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_superseded_claim_is_not_current_confirmation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_current_same_scope_assertions_conflict_without_verification",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalize.py::test_historical_assertion_does_not_create_current_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_verification_status_round_trip_preserves_identity[CONFIRMED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_verification_status_round_trip_preserves_identity[PENDING]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_verification_status_round_trip_preserves_identity[CONFLICT]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_verification_status_round_trip_preserves_identity[INSUFFICIENT_EVIDENCE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_verification_status_round_trip_preserves_identity[REJECTED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_invalid_verification_output_is_rejected[change6]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_claim_keeps_requested_fields_and_rejects_unknown_type",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_evidence_is_traceable_without_using_model_authority",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_nested_nonfinite_value_and_artifact_overflow_are_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_schemas.py::test_request_cannot_override_actor_or_supply_unknown_task",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_schemas_roundtrip_preserves_unknown",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_request_rejects_extra_or_unscoped_inputs[change0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_request_rejects_extra_or_unscoped_inputs[change1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_request_rejects_extra_or_unscoped_inputs[change2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_request_rejects_extra_or_unscoped_inputs[change3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_request_rejects_extra_or_unscoped_inputs[change4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_nonfinite_or_out_of_bounds_confidence_rejected[nan]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_nonfinite_or_out_of_bounds_confidence_rejected[inf]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_nonfinite_or_out_of_bounds_confidence_rejected[-0.1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_nonfinite_or_out_of_bounds_confidence_rejected[1.1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_unverified_result_cannot_claim_risk_or_safety[change0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_unverified_result_cannot_claim_risk_or_safety[change1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_unverified_result_cannot_claim_risk_or_safety[change2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_unverified_result_cannot_claim_risk_or_safety[change3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_generated_unknown_roundtrips_keep_tristate_and_warnings",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/analysis/test_schemas.py::test_original_artifacts_parse_unchanged",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_original_query_and_extracted_component_are_frozen",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_question_and_typed_scope_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_explicit_version_cannot_replace_question_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_text_window_is_not_clamped[0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_text_window_is_not_clamped[366]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_text_window_is_not_clamped[99999]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_explicit_time_is_retained_without_rewriting_query",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_typed_and_text_time_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_poc_scope_does_not_masquerade_as_complete_overview",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_client_cannot_expand_permissions_or_budget[extra0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_client_cannot_expand_permissions_or_budget[extra1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_client_cannot_expand_permissions_or_budget[extra2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_client_cannot_expand_permissions_or_budget[extra3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_request_id_is_not_semantic_idempotency_content",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_authenticated_actor_required[]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_authenticated_actor_required[   ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_authenticated_actor_required[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_temporal_scope_is_not_silently_removed[\\u4ec5\\u4f9d\\u636e2025\\u5e741\\u67081\\u65e5\\u81f32025\\u5e741\\u670831\\u65e5\\u7684\\u8d44\\u6599\\uff0c]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_temporal_scope_is_not_silently_removed[\\u6700\\u8fd1\\u4e24\\u5929\\uff0c]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_temporal_scope_is_not_silently_removed[\\u8fc7\\u53bb2\\u5468\\uff0c]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_temporal_scope_is_not_silently_removed[\\u622a\\u81f32025-01-31\\uff0c]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_contracts_scope.py::test_unsupported_temporal_scope_is_not_silently_removed[\\u4e0a\\u4e2a\\u6708\\uff0c]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_legacy_compat.py::test_old_api_and_business_source_hashes_are_unchanged",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_openapi_has_eight_typed_investigation_operations_and_no_empty_legacy_success",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_investigation_auth_errors_use_safe_public_protocol",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_cors_is_explicit_and_does_not_replace_auth",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_validation_and_internal_errors_never_echo_inputs_or_exceptions",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_create_rejects_invalid_key_before_business[body0-None-IDEMPOTENCY_KEY_REQUIRED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_create_rejects_invalid_key_before_business[body1-None-INVALID_IDEMPOTENCY_KEY]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_create_rejects_invalid_key_before_business[body2-two-IDEMPOTENCY_KEY_MISMATCH]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_nested_public_projection_strips_credentials_and_preserves_verdict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_http_preserves_five_gate_states_without_reclassification[PASS]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_http_preserves_five_gate_states_without_reclassification[PASS_WITH_WARNINGS]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_http_preserves_five_gate_states_without_reclassification[REPLAN_REQUIRED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_http_preserves_five_gate_states_without_reclassification[HUMAN_REVIEW_REQUIRED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_contract.py::test_http_preserves_five_gate_states_without_reclassification[FAILED]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_service.py::test_terminal_without_gate_is_unavailable_not_retry_forever",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_public_artifact_redacts_credentials_and_paths_without_changing_verdict[Authorization: Basic U1lOVEhFVElDOlNFQ1JFVA==-U1lOVEhFVElDOlNFQ1JFVA==]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_public_artifact_redacts_credentials_and_paths_without_changing_verdict[local file /opt/aegis/private.env-/opt/aegis/private.env]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_public_artifact_redacts_credentials_and_paths_without_changing_verdict[local file C:\\\\Program Files\\\\Private App\\\\secret.txt-Private App\\\\secret.txt]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_trace_keeps_safe_tool_summary_without_raw_tool_arguments",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_trace_retries_changed_root_but_never_masks_stable_binding_corruption[True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_trace_retries_changed_root_but_never_masks_stable_binding_corruption[False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_pre_gate_artifact_must_match_root_run_and_scope[run]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_pre_gate_artifact_must_match_root_run_and_scope[target]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_shutdown_carries_cancellation_to_late_claim_before_execution",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_dedicated_openapi_resolves_info_and_security",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_review_regressions.py::test_export_preserves_legacy_proxy_restrictions",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_real_request_rejects_mock_metadata",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_non_mock_metadata_is_not_a_model_quality_evaluation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_real_readiness_requires_saved_model_calls",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_persisted_mock_call_cannot_be_relabelled_by_current_real_config",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_inconsistent_provider_flags_are_rejected[mock-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_inconsistent_provider_flags_are_rejected[openai_compatible-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[https://example.invalid]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[http://127.0.0.1.evil.invalid:8769]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[http://user:secret@localhost:8000]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[http://localhost:8000/api]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[http://localhost:8000?key=secret]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_probe_refuses_external_or_ambiguous_origins[http://localhost:8000/#fragment]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_fixed_case_has_no_generated_answer_or_asset",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_documented_model_profiles_validate_offline[MOCK]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_documented_model_profiles_validate_offline[REMOTE_COMPATIBLE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_documented_model_profiles_validate_offline[LOCAL_COMPATIBLE]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_failed_cli_overwrites_stale_success_without_exposing_secrets",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_invalid_arguments_replace_the_requested_report[invalid_args0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_invalid_arguments_replace_the_requested_report[invalid_args1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_http_probe.py::test_invalid_arguments_replace_the_requested_report[invalid_args2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_classification_keeps_json_schema_and_validation_separate",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_invalid_model_output_cannot_be_counted_as_schema_success[invalid]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_invalid_model_output_cannot_be_counted_as_schema_success[{\"tasks\":[],\"tasks\":[]}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_invalid_model_output_cannot_be_counted_as_schema_success[{\"confidence\":NaN}]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_invalid_model_output_cannot_be_counted_as_schema_success[[]]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_no_text_and_redacted_diagnostic_are_explicitly_unmeasured",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_schema_success_does_not_undo_semantic_rejection",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_retry_and_failed_logical_run_remain_in_denominators",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_replan_is_not_gate_acceptance_even_when_every_stage_ran",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_fixed_case_sequence_covers_20_without_random_filtering",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_empty_measurement_reports_missing_values",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_planner_only_runs_do_not_inflate_full_chain_denominator",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_attempt_receipt_never_exports_raw_output_or_prompt",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_runner_retains_failure_and_does_not_read_other_histories",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_interrupted_run_records_failure_and_cancels_only_its_own_id",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_planner_stability.py::test_prewarm_uses_utf8_and_never_downloads_an_unknown_model",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_setup_failure_replaces_previous_success_report[warm]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_setup_failure_replaces_previous_success_report[cases]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_setup_failure_replaces_previous_success_report[config]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_keyboard_interrupt_preserves_inflight_repetition_in_denominator",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_private_model_task_identifiers_are_redacted_in_receipts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_http_timeout_recovers_already_persisted_owned_attempts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_interrupted_planner_finalizes_only_its_owned_audit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_stability_failures.py::test_offline_statistics_import_does_not_require_http_server_runtime",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_preserves_gate_failure_and_original_unknown_without_mutating_input",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_missing_gate_is_reported_as_not_executed_instead_of_invented_verdict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_upstream_stop_keeps_native_reason_without_claiming_a_gate_decision",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_separate_version_observation_is_linked_without_merging_or_promoting_it",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_valid_inventory_does_not_erase_remaining_evidence_blockers",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_recorded_conflict_is_not_falsely_described_as_verified_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_inherited_conflict_observations_are_not_counted_as_independent_records",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_blocking_rules_link_verification_and_risk_artifacts_too",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_redacts_untrusted_question_and_task_identifiers",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_rejects_mock_measurement_in_real_scene_report",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_successful_overview_retains_pending_claims_and_is_not_security_accuracy",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_started_run_without_artifact_is_still_collectable[VERIFYING]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_started_run_without_artifact_is_still_collectable[ANALYZING]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_diagnostic_read_failure_does_not_prevent_following_independent_case",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_inventory_actor_cannot_be_adopted_from_another_owners_asset",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_inventory_requires_independently_configured_owner",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_matching_owner_is_preserved_without_adopting_new_identity",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_failure_diagnostics.py::test_source_only_case_uses_separate_temporary_actor",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_asset_handoff.py::test_later_version_and_independent_asset_are_handed_to_verifier",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_asset_handoff.py::test_incomplete_supporting_task_cannot_be_consumed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_asset_handoff.py::test_overview_legacy_request_dump_is_unchanged",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_impact_input.py::test_parsed_range_retains_events_for_existing_comparator",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_impact_input.py::test_unsupported_range_stays_unsupported",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_asset_nonimpact.py::test_different_distribution_stays_scoped_nonimpact_in_output",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_observation_proof.py::test_invalid_evidence_cannot_inherit_confirmed_claim_status",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_observation_proof.py::test_verification_output_cannot_change_sealed_observation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_observation_proof.py::test_complete_output_must_include_original_observation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_demo_case_export.py::test_demo_case_can_export_after_transaction_expired_inventory_objects",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_model_schema_rejects_out_of_scope_arguments_before_generation[get_vulnerability-args0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_model_schema_rejects_out_of_scope_arguments_before_generation[semantic_search-args1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_model_schema_rejects_out_of_scope_arguments_before_generation[inspect_component_version-args2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_model_schema_rejects_out_of_scope_arguments_before_generation[get_asset-args3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_missing_version_has_no_version_tool_but_keeps_input_required",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_supplied_version_exact_asset_and_original_query_remain_executable",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_scope_schema.py::test_eight_target_scope_fits_existing_gateway_schema_budget",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_conflict_artifact_links_exact_sources_and_stable_parent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_conflict_without_source_does_not_invent_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_source_snapshot_rejects_changed_conflict_reference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_conflict_snapshot_survives_jsonb_key_reordering",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_large_legal_conflict_uses_reference_without_copying_payload",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_conflict_artifact.py::test_many_conflicts_do_not_duplicate_large_evidence_references",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_conflict_handoff.py::test_conflict_enters_verification_only_and_preserves_blocked_reason",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_conflict_handoff.py::test_partial_failed_or_non_conflict_never_uses_verification_only[change0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_conflict_handoff.py::test_partial_failed_or_non_conflict_never_uses_verification_only[change1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_conflict_handoff.py::test_partial_failed_or_non_conflict_never_uses_verification_only[change2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/orchestration/test_conflict_handoff.py::test_partial_failed_or_non_conflict_never_uses_verification_only[change3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_explicit_component_version_and_cve_are_extracted_from_question",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_cvss_version_and_advisory_range_are_not_asset_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_missing_context_stays_unknown_and_does_not_create_asset",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_explicit_context_binding_preserved_without_mutation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_explicit_null_version_is_not_filled_from_question",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_disagreeing_user_context_is_rejected_before_planning",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_multiple_component_versions_remain_ambiguous",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_conflict_intent_is_not_a_verification_verdict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_normalizer_rejects_nested_gold_metadata",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_absent_version_marker_is_not_a_version_observation[UNKNOWN]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_absent_version_marker_is_not_a_version_observation[unknown]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_absent_version_marker_is_not_a_version_observation[\\u672a\\u77e5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_absent_version_marker_is_not_a_version_observation[]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_explicit_asset_conditions_are_preserved_but_no_identity_is_created",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_ranges_are_never_deployment_version[Affected range for CVE-2099-9999001: vLLM 0.6.0 to 0.7.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_ranges_are_never_deployment_version[CVE-2099-9999001 \\u7684\\u53d7\\u5f71\\u54cd\\u7248\\u672c\\u4e3a vLLM 0.6.0 \\u81f3 0.7.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_ranges_are_never_deployment_version[vLLM 0.6.0 and earlier: CVE-2099-9999001]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_conflicting_nested_and_top_version_is_rejected[0.6-0.7]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_conflicting_nested_and_top_version_is_rejected[None-0.7]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_sentence_period_is_not_part_of_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_official_fix_does_not_conflict_with_declared_deployment",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_declared_component_cannot_override_different_deployment_in_question",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_forms_with_unknown_deployment_remain_unknown[0.6.0 - 0.7.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_forms_with_unknown_deployment_remain_unknown[0.6.0\\u20130.7.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_forms_with_unknown_deployment_remain_unknown[0.6.0 or earlier]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_forms_with_unknown_deployment_remain_unknown[0.6.0 and older]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_advisory_forms_with_unknown_deployment_remain_unknown[0.6.0..0.7.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_normalization.py::test_fixed_in_is_not_deployment_and_separate_deployment_sentence_is_kept",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_wrong_role_tool_is_rejected_by_model_facing_schema",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_duplicate_root_lookup_rejected_without_relaxing_runtime",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_four_intent_templates_only_describe_existing_investigation_roles",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_gateway_receives_normalized_goal_and_template_with_no_answer_label",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_backend_goal_never_invents_fields_outside_frozen_scope",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/investigation/test_task_templates.py::test_fact_template_does_not_offer_missing_deployment_version_task",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_missing_required_input_produces_need_context_without_mutating_request[changes0-version]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_missing_required_input_produces_need_context_without_mutating_request[changes1-asset_context]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_missing_required_input_produces_need_context_without_mutating_request[changes2-vulnerability_id]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_complete_context_proceeds_without_any_missing_fields",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_exact_fact_question_does_not_require_an_asset_or_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_public_search_without_exact_target_is_limited_investigation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[unknown]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[UNKNOWN]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[\\u672a\\u77e5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[ Unknown ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[ \\u672a\\u77e5 ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_unknown_version_markers_are_not_a_real_deployed_version[ ]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_overview_does_not_hide_existing_validator_version_requirement",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_http_need_context_has_no_worker_model_or_investigation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_context_check_rejects_conflicting_scope_instead_of_treating_it_as_missing",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_overview_profile_cannot_hide_question_required_context[CVE-2099-9999001 \\u7684\\u98ce\\u9669\\u8bc4\\u4f30\\uff1f]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_overview_profile_cannot_hide_question_required_context[CVE-2099-9999001 \\u662f\\u5426\\u5f71\\u54cd\\u6211\\u7684\\u670d\\u52a1\\uff1f]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_legacy_advisory_inference_is_not_a_deployed_version[\\u5b98\\u65b9\\u4fee\\u590d\\u7248\\u672c vllm 0.6.1\\uff0cCVE-2099-9999001 \\u662f\\u5426\\u5f71\\u54cd\\u6211\\uff1f]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_legacy_advisory_inference_is_not_a_deployed_version[\\u5b98\\u65b9\\u53d7\\u5f71\\u54cd\\u7248\\u672c vllm 0.6.1 \\u81f3 0.6.5\\uff0cCVE-2099-9999001 \\u662f\\u5426\\u5f71\\u54cd\\u6211\\uff1f]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_version_influence_with_three_fields_may_proceed_without_creating_asset",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_public_context_status_is_a_required_discriminator",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_missing_context_cannot_reuse_an_inflight_key_for_different_content",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_closed_service_does_not_return_a_new_preflight_response",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_explicit_null_is_not_overwritten_by_legacy_question_inference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_blank_component_identity_is_missing_context",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_literals_outside_frozen_scope_request_structured_context[My deployed vllm v0.6.0 is affected by CVE-2099-9999001?]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_literals_outside_frozen_scope_request_structured_context[My deployed langchain-core 0.2.3 is affected by CVE-2099-9999001?]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/investigation_api/test_missing_context.py::test_bare_component_risk_question_requests_context",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_ghsa_native_fields_keep_source_provenance_and_explicit_fix",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_ghsa_exclusive_boundary_is_not_invented_fix",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_native_upper_only_range_is_consumable_by_existing_version_matcher",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_native_conjunction_order_does_not_change_version_meaning[< 0.6.1, >= 0.5.0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_native_conjunction_order_does_not_change_version_meaning[>= 0.5.0, < 0.6.1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_native_patch_expression_is_retained_without_guessing_a_release",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_unpublished_vendor_advisory_is_not_projected_as_public_fact",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_nvd_preserves_metrics_and_does_not_guess_package_or_fix",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[http://127.0.0.1/feed]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[https://api.github.com/user]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[https://api.github.com@127.0.0.1/advisories]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[https://blog.trailofbits.com/private]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[https://export.arxiv.org/other]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_monitoring_does_not_fetch_unregistered_paths[https://api.github.com/advisories#secret]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_rss_text_and_locator_preserve_exact_item_identity",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_arxiv_atom_keeps_paper_metadata_and_no_fabricated_cve",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_untrusted_feed_rejects_dtd_malformed_and_unsupported_encoding[<!DOCTYPE a [<!ENTITY secret SYSTEM \"file:///C:/secret\">]><rss/>]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_untrusted_feed_rejects_dtd_malformed_and_unsupported_encoding[<!DOCTYPE a [<!ENTITY x \"expand\">]><rss/>]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_untrusted_feed_rejects_dtd_malformed_and_unsupported_encoding[<rss>broken]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_sources.py::test_untrusted_feed_rejects_dtd_malformed_and_unsupported_encoding[\\xff\\xfe<\\x00r\\x00s\\x00s\\x00/\\x00>\\x00]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_cli.py::test_invalid_cycle_interval_is_rejected_before_any_database_or_network[nan]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_cli.py::test_invalid_cycle_interval_is_rejected_before_any_database_or_network[inf]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_cli.py::test_invalid_cycle_interval_is_rejected_before_any_database_or_network[-inf]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_cli.py::test_invalid_cycle_interval_is_rejected_before_any_database_or_network[2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_cli.py::test_collector_investigation_never_accepts_credentials_in_url",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_api.py::test_intelligence_openapi_schema_documents_source_and_poc_states",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[javascript:alert(1)]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[file:///tmp/poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://127.0.0.1/poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://user:pass@github.com/a/b]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?api_key=secret]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[not-a-url]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://service.local./poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://service.internal./poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?X-Amz-Credential=SYNTHETIC&X-Amz-Signature=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?auth_token=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b#access_token=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_state_or_missing_evidence_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_poc_openapi_has_all_fields_and_exact_states",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_configuration_is_bounded_before_network[kwargs5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_registry_covers_existing_categories_without_automatic_mock_fallback",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_scheduler_stop_prevents_extra_cycles_and_does_not_force_every_refresh",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_mock_is_rejected_for_a_development_database_before_any_work",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_openapi_is_typed_and_keeps_availability_distinct_from_verification",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_invalid_pipeline_deadline_is_rejected_before_db_or_http[nan]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_invalid_pipeline_deadline_is_rejected_before_db_or_http[inf]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_invalid_pipeline_deadline_is_rejected_before_db_or_http[0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_invalid_pipeline_deadline_is_rejected_before_db_or_http[3601]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_guard_invalidates_on_uncertain_acquisition_commit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_cli_preserves_explicit_zero_budget[extra0-6]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_cli_preserves_explicit_zero_budget[extra1-0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_pipeline_cli_preserves_explicit_zero_budget[extra2-2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b2_pipeline.py::test_automation_adapter_does_not_replace_zero_with_six",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[vllm-project/vllm-https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-xxxx-yyyy-zzzz-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[unrelated/repo-https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-xxxx-yyyy-zzzz-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[vllm-project/vllm-https://api.github.com/repos/unrelated/repo/security-advisories/GHSA-xxxx-yyyy-zzzz-False]",
+      "phase": "call",
+      "outcome": "passed"
+    }
+  ]
+}

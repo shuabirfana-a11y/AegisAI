@@ -37,7 +37,8 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
       if (!['GET', 'HEAD', 'POST'].includes(request.method)) return json(response, 405, 'Method not supported by the skeleton.');
       if (request.method === 'POST') {
         const investigationWrite = url.pathname === '/api/investigations' ||
-          /^\/api\/investigations\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/cancel$/i.test(url.pathname);
+          url.pathname === '/api/investigations/batches' ||
+          /^\/api\/investigations\/(?:batches\/)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/cancel$/i.test(url.pathname);
         if (url.pathname !== '/api/v1/assistant/query' && !investigationWrite) return json(response, 405, 'Only Assistant queries and investigation creation/cancellation are supported.');
         if (request.headers.origin !== 'http://' + host) return json(response, 403, 'Assistant queries require the same frontend origin.');
         if (!/^application\/json(?:\s*;|$)/i.test(request.headers['content-type'] || '')) return json(response, 415, 'Assistant queries require application/json.');
@@ -46,7 +47,8 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
       if (request.headers.authorization) headers.Authorization = request.headers.authorization;
       if (investigationRoute && request.headers['idempotency-key']) headers['Idempotency-Key'] = request.headers['idempotency-key'];
       const protectedDemoRoute = url.pathname === '/api/v1/assets' || url.pathname.startsWith('/api/v1/assets/') ||
-        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/') || investigationRoute;
+        url.pathname === '/api/v1/assistant' || url.pathname.startsWith('/api/v1/assistant/') || investigationRoute ||
+        url.pathname === '/api/v1/intelligence/graph/query' || /^\/api\/v1\/intelligence\/vulnerabilities\/[^/]+\/graph$/.test(url.pathname);
       if (localDemoToken && protectedDemoRoute) headers.Authorization = 'Bearer ' + localDemoToken;
       if (request.method === 'POST') headers['Content-Type'] = 'application/json';
       let settled = false;
@@ -80,7 +82,7 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
     let decoded;
     try { decoded = decodeURIComponent(url.pathname); } catch { return json(response, 400, 'Invalid path encoding.'); }
     if (/[\\\x00]/.test(decoded) || decoded.split('/').some(segment => segment === '..')) return json(response, 400, 'Invalid static path.');
-    const isRoute = decoded === '/' || /^\/(dashboard|vulnerabilities|assets|reviews|assistant|system)\/?$/.test(decoded) || /^\/vulnerabilities\/[^/]+\/?$/.test(decoded);
+    const isRoute = decoded === '/' || /^\/(dashboard|vulnerabilities|assets|reviews|assistant|system)\/?$/.test(decoded) || /^\/(vulnerabilities|assets|reviews)\/[^/]+\/?$/.test(decoded);
     const target = path.resolve(publicRoot, '.' + (isRoute ? '/index.html' : decoded));
     if (!target.startsWith(path.resolve(publicRoot) + path.sep)) return json(response, 403, 'Invalid static path.');
     try {

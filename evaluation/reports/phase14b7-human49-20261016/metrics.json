@@ -1,0 +1,330 @@
+{
+  "status": "EVALUATED",
+  "eligible_gold_count": 49,
+  "scored_count": 49,
+  "excluded_annotations": [],
+  "accuracy": 0.061224489795918366,
+  "field_accuracy": {
+    "cve": {
+      "correct": 2,
+      "n": 5,
+      "accuracy": 0.4
+    },
+    "cvss_v3": {
+      "correct": 0,
+      "n": 5,
+      "accuracy": 0.0
+    },
+    "cvss_v4": {
+      "correct": 0,
+      "n": 5,
+      "accuracy": 0.0
+    },
+    "cwes": {
+      "correct": 0,
+      "n": 5,
+      "accuracy": 0.0
+    },
+    "summary": {
+      "correct": 0,
+      "n": 5,
+      "accuracy": 0.0
+    },
+    "affected": {
+      "correct": 4,
+      "n": 27,
+      "accuracy": 0.14814814814814814
+    },
+    "patch_status": {
+      "correct": 2,
+      "n": 10,
+      "accuracy": 0.2
+    },
+    "poc_status": {
+      "correct": 0,
+      "n": 5,
+      "accuracy": 0.0
+    },
+    "priority": {
+      "correct": 1,
+      "n": 10,
+      "accuracy": 0.1
+    },
+    "risk_level": {
+      "correct": 1,
+      "n": 10,
+      "accuracy": 0.1
+    },
+    "priority_asset_ids": {
+      "correct": 1,
+      "n": 6,
+      "accuracy": 0.16666666666666666
+    },
+    "can_confirm_not_affected": {
+      "correct": 0,
+      "n": 1,
+      "accuracy": 0.0
+    }
+  },
+  "version": {
+    "n": 27,
+    "accuracy": 0.14814814814814814,
+    "per_class": {
+      "AFFECTED": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 8,
+        "support": 10,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.3333333333333333
+      },
+      "NOT_AFFECTED": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 10,
+        "support": 12,
+        "precision": 1.0,
+        "recall": 0.16666666666666666,
+        "f1": 0.2857142857142857
+      },
+      "UNKNOWN": {
+        "tp": 0,
+        "fp": 13,
+        "fn": 5,
+        "support": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "confusion_matrix": {
+      "AFFECTED": {
+        "AFFECTED": 2,
+        "NOT_AFFECTED": 0,
+        "UNKNOWN": 5,
+        "NO_PREDICTION": 3
+      },
+      "NOT_AFFECTED": {
+        "AFFECTED": 0,
+        "NOT_AFFECTED": 2,
+        "UNKNOWN": 8,
+        "NO_PREDICTION": 2
+      },
+      "UNKNOWN": {
+        "AFFECTED": 0,
+        "NOT_AFFECTED": 0,
+        "UNKNOWN": 0,
+        "NO_PREDICTION": 5
+      }
+    },
+    "macro_f1": 0.20634920634920634,
+    "macro_f1_defined_classes": 3,
+    "unknown_rate": 0.48148148148148145,
+    "no_prediction_count": 10,
+    "false_safe_count": 0,
+    "false_safe_rate": 0.0,
+    "false_affected_count": 0,
+    "false_affected_rate": 0.0,
+    "sample_count": 27
+  },
+  "poc_classification": {
+    "n": 5,
+    "accuracy": 0.0,
+    "per_class": {
+      "POC_CANDIDATE": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "VERIFIED_EXPLOIT": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "UNKNOWN": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "NO_EVIDENCE": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "support": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "confusion_matrix": {
+      "POC_CANDIDATE": {
+        "POC_CANDIDATE": 0,
+        "VERIFIED_EXPLOIT": 0,
+        "UNKNOWN": 0,
+        "NO_EVIDENCE": 0,
+        "NO_PREDICTION": 0
+      },
+      "VERIFIED_EXPLOIT": {
+        "POC_CANDIDATE": 0,
+        "VERIFIED_EXPLOIT": 0,
+        "UNKNOWN": 0,
+        "NO_EVIDENCE": 0,
+        "NO_PREDICTION": 0
+      },
+      "UNKNOWN": {
+        "POC_CANDIDATE": 0,
+        "VERIFIED_EXPLOIT": 0,
+        "UNKNOWN": 0,
+        "NO_EVIDENCE": 0,
+        "NO_PREDICTION": 0
+      },
+      "NO_EVIDENCE": {
+        "POC_CANDIDATE": 0,
+        "VERIFIED_EXPLOIT": 0,
+        "UNKNOWN": 0,
+        "NO_EVIDENCE": 0,
+        "NO_PREDICTION": 5
+      }
+    },
+    "macro_f1": 0.0,
+    "macro_f1_defined_classes": 1,
+    "unknown_rate": 0.0,
+    "no_prediction_count": 5,
+    "false_safe_count": 0,
+    "false_safe_rate": null,
+    "false_affected_count": 0,
+    "false_affected_rate": null,
+    "sample_count": 5
+  },
+  "patch_classification": {
+    "n": 10,
+    "accuracy": 0.2,
+    "per_class": {
+      "PATCH_CANDIDATE": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "support": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "CONFIRMED_FIX": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 3,
+        "support": 5,
+        "precision": 0.5,
+        "recall": 0.4,
+        "f1": 0.4444444444444444
+      },
+      "UNKNOWN": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "confusion_matrix": {
+      "PATCH_CANDIDATE": {
+        "PATCH_CANDIDATE": 0,
+        "CONFIRMED_FIX": 2,
+        "UNKNOWN": 0,
+        "NO_PREDICTION": 3
+      },
+      "CONFIRMED_FIX": {
+        "PATCH_CANDIDATE": 0,
+        "CONFIRMED_FIX": 2,
+        "UNKNOWN": 0,
+        "NO_PREDICTION": 3
+      },
+      "UNKNOWN": {
+        "PATCH_CANDIDATE": 0,
+        "CONFIRMED_FIX": 0,
+        "UNKNOWN": 0,
+        "NO_PREDICTION": 0
+      }
+    },
+    "macro_f1": 0.2222222222222222,
+    "macro_f1_defined_classes": 2,
+    "unknown_rate": 0.0,
+    "no_prediction_count": 6,
+    "false_safe_count": 0,
+    "false_safe_rate": null,
+    "false_affected_count": 0,
+    "false_affected_rate": null,
+    "sample_count": 10
+  },
+  "risk_accuracy": 0.1,
+  "priority_accuracy": 0.1,
+  "abstention": {
+    "n": 49,
+    "should_abstain_n": 7,
+    "answerable_n": 42,
+    "correct_abstention_count": 0,
+    "correct_abstention_rate": 0.0,
+    "incorrect_abstention_count": 28,
+    "incorrect_abstention_rate": 0.6666666666666666,
+    "false_confident_answer_count": 0,
+    "false_confident_answer_rate": 0.0,
+    "no_prediction_count": 15,
+    "precision": 0.0,
+    "recall": 0.0,
+    "missing_prediction_count": 15,
+    "inconsistent_flag_count": 1,
+    "basis": "STRUCTURED_UNKNOWN_FIELDS_WITH_FLAG_CONSISTENCY",
+    "quality_accuracy": 0.12244897959183673
+  },
+  "reasoning_completeness": 0.42857142857142855,
+  "reasoning_completeness_basis": "RECORDED_WORKFLOW_STEPS_NOT_REASONING_CORRECTNESS",
+  "evidence_coverage": null,
+  "hallucination_rate": null,
+  "audit": {
+    "emitted_claims": 323,
+    "human_reviewed_claims": 0,
+    "answers_requiring_audit": 42,
+    "human_audited_answers": 0,
+    "answer_audit_coverage": 0.0,
+    "coverage": 0.0,
+    "complete": false,
+    "unresolved_claims": 0,
+    "reviewed_subset_evidence_coverage": null,
+    "reviewed_subset_hallucination_rate": null
+  },
+  "invalid_label_count": 0,
+  "execution": {
+    "SUCCEEDED": 42,
+    "NOT_EVALUATED": 7
+  },
+  "missing_predictions": 0,
+  "latency": {
+    "n": 42,
+    "p50_ms": 29742.7888000002,
+    "p95_ms": 75126.08020999985,
+    "mean_ms": 33800.73424523813,
+    "max_ms": 80658.61169999972,
+    "percentile_method": "linear interpolation at (n-1)*p"
+  },
+  "limitations": [
+    "Human gold and outcome audit are distinct gates.",
+    "Absent class support has null recall; macro F1 lists defined classes.",
+    "Workflow step coverage does not establish reasoning correctness.",
+    "Pilot questions sharing advisories are correlated, not independent trials."
+  ]
+}

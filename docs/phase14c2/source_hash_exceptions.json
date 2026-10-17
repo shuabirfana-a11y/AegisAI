@@ -1,0 +1,31 @@
+{
+  "phase": "14-C2",
+  "status": "USER_CONFIRMED",
+  "changes": {
+    "backend/app/agents/verification/rules.py": {
+      "baseline_sha256": "8fcdcf08388d883e590cf2161faadf0d5ca0c67f6eaf18e0c201ad2e9d03105b",
+      "previous_sha256": "8fcdcf08388d883e590cf2161faadf0d5ca0c67f6eaf18e0c201ad2e9d03105b",
+      "current_sha256": "83aec756f86ad77ffd4680295cec8078902bad8d6ac368eab5c0f4528c1c127f",
+      "authorization": "PHASE14C2_USER_AUTHORIZED_SOURCE_SCOPE_COMPARABILITY_ONLY"
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "previous_sha256": "4586262750bbe6f5b59f54f5fb45ad042b86bfd45301f15c306a38ea5eb5a914",
+      "current_sha256": "f4d08281f86839e845eaa45b71270460188c060036985a281af2cf608cbcd689",
+      "authorization": "PHASE14C2_USER_AUTHORIZED_SOURCE_SCOPE_COMPARABILITY_ONLY"
+    },
+    "backend/app/enrichment/conflict.py": {
+      "baseline_sha256": "fe01c803ee25f5616585779ab7e4581cedcd0d464c549707a8a9c05d47830928",
+      "previous_sha256": "fe01c803ee25f5616585779ab7e4581cedcd0d464c549707a8a9c05d47830928",
+      "current_sha256": "aee7130ebb71c064b60b64b32472242f0f00d80ee0819c4eeb5652b13abea59c",
+      "authorization": "PHASE14C2_USER_AUTHORIZED_SOURCE_SCOPE_COMPARABILITY_ONLY"
+    },
+    "backend/app/enrichment/rules.py": {
+      "baseline_sha256": "bd294beb45b99bfdaa24ffd74de690f5b5975e371a417a4e2267b78800871932",
+      "previous_sha256": "bd294beb45b99bfdaa24ffd74de690f5b5975e371a417a4e2267b78800871932",
+      "current_sha256": "47b5b9f28eb089b840be07df114c1864e1bd0d0c01ed2891bde99c810ac1ad40",
+      "authorization": "PHASE14C2_USER_AUTHORIZED_SOURCE_SCOPE_COMPARABILITY_ONLY"
+    }
+  },
+  "exception": "ONLY_STATIC_HASH_AUTHORIZATION_METADATA_AND_EXISTING_GUARD_READER"
+}

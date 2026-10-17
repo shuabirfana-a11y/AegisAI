@@ -1,0 +1,25 @@
+{
+  "changes": {
+    "backend/app/enrichment/acquisition.py": {
+      "baseline_sha256": "e637d6fcdf192f568ef82479ad9fd387d8e043c6ddf0bb12c19a847df0f2d673",
+      "previous_sha256": "e637d6fcdf192f568ef82479ad9fd387d8e043c6ddf0bb12c19a847df0f2d673",
+      "current_sha256": "b63c125c57f2f3a89fbf89f87f7c0762df14f16f31f24b617501099a1296d0a9",
+      "authorization": "PHASE14B8_USER_AUTHORIZED_TOP1_PRIMARY_EVIDENCE_ADAPTER",
+      "reason": "One explicitly scoped primary source and its CVSS/package field preservation; no decision/gate/scorer changes"
+    },
+    "backend/app/enrichment/parsing.py": {
+      "baseline_sha256": "7da34c698c29ea0cbe820b5982777bf57a33f53354905f198cc61ebacedcf007",
+      "previous_sha256": "7da34c698c29ea0cbe820b5982777bf57a33f53354905f198cc61ebacedcf007",
+      "current_sha256": "90c5a8b8744925d92c196a2ae93095ef840ad13f62abd1af2561527e895af78b",
+      "authorization": "PHASE14B8_USER_AUTHORIZED_TOP1_PRIMARY_EVIDENCE_ADAPTER",
+      "reason": "One explicitly scoped primary source and its CVSS/package field preservation; no decision/gate/scorer changes"
+    },
+    "backend/app/enrichment/enrichers/vendor.py": {
+      "baseline_sha256": "616b8584a3c3ea8ebd26b2e1edaccc6f53dca46a93d8a10741a8fcd11e2a31bf",
+      "previous_sha256": "616b8584a3c3ea8ebd26b2e1edaccc6f53dca46a93d8a10741a8fcd11e2a31bf",
+      "current_sha256": "ea8bcba735230ec2fa3b86edb0d712608b33d5ddbd2124c06b2a9fc7400293fa",
+      "authorization": "PHASE14B8_USER_AUTHORIZED_TOP1_PRIMARY_EVIDENCE_ADAPTER",
+      "reason": "One explicitly scoped primary source and its CVSS/package field preservation; no decision/gate/scorer changes"
+    }
+  }
+}

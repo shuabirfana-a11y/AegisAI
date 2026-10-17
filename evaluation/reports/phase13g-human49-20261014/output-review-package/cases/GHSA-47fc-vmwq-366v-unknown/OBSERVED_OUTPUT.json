@@ -1,0 +1,85 @@
+{
+  "answer": {
+    "missing_fields": [
+      "version"
+    ],
+    "native_context_status": "NEED_CONTEXT"
+  },
+  "answer_status": "NEED_CONTEXT",
+  "artifact_references": [],
+  "context_required": true,
+  "errors": [],
+  "failed_stage": "CONTEXT_PREFLIGHT",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": true,
+  "input_context": {
+    "component": "torch",
+    "ecosystem": "PyPI",
+    "target": "CVE-2022-45907",
+    "version": null
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [
+    "version"
+  ],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "89ac9b08-d261-4c9d-b4a1-7eb5761a075d",
+      "component_id": "aca987a8-5226-4d2e-8b21-59e862647988"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "torch",
+      "package_name": "torch",
+      "version": null
+    },
+    "input_status": "INPUT_REQUIRED",
+    "missing_fields": [
+      "version"
+    ],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "torch 版本 未提供 是否受 CVE-2022-45907 影响？",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2022-45907"
+    ],
+    "task_type": "version_impact",
+    "version": null,
+    "vulnerability_id": "CVE-2022-45907",
+    "warnings": []
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "torch 版本 未提供 是否受 CVE-2022-45907 影响？",
+  "question_id": "GHSA-47fc-vmwq-366v-unknown",
+  "run_id": null,
+  "type": "version",
+  "prediction": {
+    "question_id": "GHSA-47fc-vmwq-366v-unknown",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {
+      "native_context_status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ]
+    },
+    "claims": [],
+    "abstained": true,
+    "completed_hops": [],
+    "latency_ms": 15.138299999307492,
+    "error_code": null,
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "699eedfd62686ae494125b45fe91f6703eaaa1d160ff69deb2c1620d0d84ed81"
+}

@@ -1,0 +1,62 @@
+{
+  "projection": "github-global-advisory-selected-fields-v1",
+  "projection_note": "Selected original API fields. Description/PoC bodies omitted. No inferred facts.",
+  "source_url": "https://api.github.com/advisories/GHSA-53q9-r3pm-6pq6",
+  "retrieved_at": "2026-10-11T06:18:31.053133+00:00",
+  "attribution": {
+    "creator": "GitHub Advisory Database and credited upstream researchers",
+    "original_url": "https://github.com/advisories/GHSA-53q9-r3pm-6pq6",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/github/advisory-database/blob/main/LICENSE.md",
+    "changes": "Field projection; no description reproduced",
+    "warranty": "AS-IS"
+  },
+  "record": {
+    "ghsa_id": "GHSA-53q9-r3pm-6pq6",
+    "cve_id": "CVE-2025-32434",
+    "summary": "PyTorch: `torch.load` with `weights_only=True` leads to remote code execution",
+    "severity": "critical",
+    "published_at": "2025-04-18T15:19:28Z",
+    "updated_at": "2025-08-29T19:45:47Z",
+    "withdrawn_at": null,
+    "cvss": {
+      "vector_string": null,
+      "score": null
+    },
+    "cvss_severities": {
+      "cvss_v3": {
+        "vector_string": null,
+        "score": 0.0
+      },
+      "cvss_v4": {
+        "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+        "score": 9.3
+      }
+    },
+    "cwes": [
+      {
+        "cwe_id": "CWE-502",
+        "name": "Deserialization of Untrusted Data"
+      }
+    ],
+    "references": [
+      "https://github.com/pytorch/pytorch/security/advisories/GHSA-53q9-r3pm-6pq6",
+      "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32434",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/torch/PYSEC-2025-41.yaml",
+      "https://github.com/advisories/GHSA-53q9-r3pm-6pq6"
+    ],
+    "vulnerabilities": [
+      {
+        "package": {
+          "ecosystem": "pip",
+          "name": "torch"
+        },
+        "vulnerable_version_range": "< 2.6.0",
+        "first_patched_version": "2.6.0"
+      }
+    ]
+  },
+  "response_sha256": "7d9abb97b1d515b560245d64e2919faefae4da3659dabf5b82b7b1a58f7d931c"
+}

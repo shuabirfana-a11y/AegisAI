@@ -1,0 +1,15 @@
+{
+  "baseline-eight-audit.json": "bec4d74356702d94dc7cb5f1ead4d4fa4b40268267b53cfb6b783b36dcebd026",
+  "baseline49-breakpoints.json": "947809a2a5b8c39002877d4f1bca32bbd3b505d1e7c49019286c7df1b6114709",
+  "comparison-b6-b7.json": "e889ba308bfd0942514050485d4e46c4923c81013acf7fab858a381281cc2a30",
+  "delivery-validation.json": "1c3121961cfcd4f3a64374aef4fbff1c4cad068b8089dd149aa898232a111d1b",
+  "directed-validation.json": "d0e0aa38e1073d2d8571a38da8a98365bb9c3fc7e0ee07691654fb7a9f76ebc2",
+  "execution-summary.json": "9be2eb723294f6e6006edf8758c14f80594827e43d33e79a72e09e7e34eefe8d",
+  "experiment.json": "f5af6f01b621306645cb072fb5b1f4338b6523dd495c6182248bee97d2095636",
+  "field-chain-ledger.jsonl": "700b3a7e700f5862f0ae5b9c76995d044abe18187a020d2bee987049848e3713",
+  "legacy-compatibility.json": "a40b751b1d1bb410312e6dcb5ac7f656e57bf6587464fd2d69c9b53a04a437da",
+  "metrics.json": "9dc493f711363bfe22bbaeaefb3c4e06f9a8ed4fcd0905e1a85bc58cf95fb0a3",
+  "offline-reproduction.json": "7956474e8a034262083b63faedd169f6e7199e7b5470abe7e10b880e910155f2",
+  "predictions.jsonl": "0e87aced6b26ef632af0d19a5dfd565a7b53f588174bebec1bc00e4ef328ac5a",
+  "scope-reference-map.json": "ad0a03cd714025958fee83f016667b85a30d78a6b112d468d2b133a96ec396ce"
+}

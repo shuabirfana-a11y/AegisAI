@@ -1,0 +1,67 @@
+{
+  "new_phase14_tests": 48,
+  "targeted_tests": {
+    "passed": 70,
+    "failed": 0,
+    "includes_existing_source_formats_and_compatibility": true
+  },
+  "portable_ci": {
+    "passed": 641,
+    "failed": 0,
+    "deselected": 1,
+    "deselection": "existing cached-real-embedding test; separate live CPU embedding proof available"
+  },
+  "frontend": {
+    "passed": 23,
+    "failed": 0
+  },
+  "engineering": {
+    "passed": 18,
+    "failed": 0
+  },
+  "typecheck": "PASS",
+  "contract_operations": 47,
+  "raw_full_regression_before_final_source_fix": {
+    "passed": 1546,
+    "failed": 3
+  },
+  "fixed_in_phase14": "native catalog shadowed vendor scope; original scope regression now passes",
+  "baseline_8294_reproduction": {
+    "passed": 3,
+    "failed": 2,
+    "failures": [
+      "unknown_version: NEED_CONTEXT admission versus old SUCCEEDED assertion",
+      "ambiguous: no Gate result before context admission versus old REPLAN assertion"
+    ]
+  },
+  "all_backend_tests_green": false,
+  "formal_benchmark_run": false,
+  "protected_files": 652,
+  "protected_changes": 0,
+  "source_file_hashes": {
+    "backend/app/api/intelligence.py": "57d88a82127dd0dc00d950cd359d2d51cb3399e0224cf65f75d883a1e0391696",
+    "backend/app/api/openapi_contracts.py": "e9b63b2e914ef91130c57f879d47bcd45c42c956e26b2a2634090ef7288a1166",
+    "backend/app/main.py": "9b8da06265ba87a616704e4de9314600724732dc56496f50cfed6e6028fc7c57",
+    "backend/app/monitoring/__init__.py": "f50d5d74760d13134669c570397c98cd4be568e787c6a09fd5384aaa96545da8",
+    "backend/app/monitoring/catalog.py": "54a79a9d12ff3a0fe952831dc347ea0ca26c7288df7f472922b854bdddf2094b",
+    "backend/app/monitoring/cli.py": "94274b771a7a8c3ef0b278a455cd1e34e1427a67abed2ad3a71a641d46e41385",
+    "backend/app/monitoring/collectors.py": "b0132be841cfce661c4501832907d99f44660c051ae048e5a7b95deadc40f458",
+    "backend/app/monitoring/facts.py": "821a6571d6ce26b78743210d46f5f734b72582116b2cdbebc3eed2d20f93e637",
+    "backend/app/monitoring/feeds.py": "92c9af61bfb5a3e49e76931de588e8ff2f573874fe31cf6c3f02bd06cca26d3c",
+    "backend/app/monitoring/knowledge.py": "b9bb16b4e1258254c81d7a99b5bf4acd3686873cd4d9a2a16ab0667aa3af253e",
+    "backend/app/monitoring/native_sources.json": "98b3ff23ceadebd156a3832237918f9579ce8d544c8b23bda4bb938c872002cf",
+    "backend/app/monitoring/schemas.py": "e09f4a3dc5ce4ba1fe5133e6b1073423cb5030608436608fd8215e41f66eaeef",
+    "backend/app/monitoring/service.py": "9aa06c55a757a8507bad162b455d98ec5d72ca017093d59d7712aa3d339903be",
+    "backend/app/monitoring/views.py": "789808fb2b92509e07aacd50a0d8f4b516230e006d66773294834f0deaa990ac",
+    "backend/app/normalizers/ghsa.py": "ed12da7de9a168dff4fb532133f69b6e6002e7e9b1b07dc6e3134b9b03de8b62",
+    "backend/app/normalizers/nvd.py": "89d6046fe8a113812688d0dbc65566bb2230f72430c6114eca2387c40028e577",
+    "backend/app/repositories/ingestion.py": "713bc357095aba1926daf33a7df8a6c32807b01c61bfad2969bc4787ecd41784",
+    "backend/app/repositories/sources.py": "a475e6e4c01da32564fb704c4f475dfc561c9d54a417bc87b2e92284f254a123",
+    "backend/tests/test_phase14_api.py": "5ae2b5423ad5a538741f94f78a8373e498134156dc6d468f868aa50dfa1bf4fb",
+    "backend/tests/test_phase14_cli.py": "8c2243f1072f20bf35f9065d016beb67f3e8b8b33b84ca0ae61f56b391f6e25b",
+    "backend/tests/test_phase14_sources.py": "505ca746d79eb26f18869f84815abb3c441769b8bf1b513fc3ae38ac4f3e3812",
+    "backend/tests/test_phase14_storage.py": "1f7d599b2218b53484bc0f7b35ea0c244efbc54aa60d7ecd497a51ddac8e5a42",
+    "frontend/contracts/intelligence.ts": "cffbd211a2d9d7943fd3f17b4578190e37a0b8360380a6c8bffad6e7a3f02aa9",
+    "scripts/export_intelligence_api.py": "3762f8e77280081250b484fe6be8bf09ac6ab3d479db93e7aa92a1e00ce11b7a"
+  }
+}

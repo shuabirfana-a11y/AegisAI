@@ -1,0 +1,29 @@
+{
+  "base_commit": "68efb25a9f09a1facd2ac254505d1a21011b9e0d",
+  "changes": {
+    "backend/app/agents/investigation/planner.py": {
+      "baseline_sha256": "2ace4a1acfd9b6e6e35767eda0ea46219a9225b8178b22f5d6ac0115fd21c365",
+      "previous_sha256": "0666830691c20a82c7e92f0b1e06b486e75f40d8702aff2ddeae45801f22fb83",
+      "current_sha256": "29cd0632af65905c900fc44b4625a7193f86918d9ad935297f627ad058828508",
+      "authorization": "PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES"
+    },
+    "backend/app/agents/investigation/planning.py": {
+      "baseline_sha256": "c7c0986bcab8d41a40ee067012314e7459248df142f4c454ba97041100540135",
+      "previous_sha256": "b2190ca013a0a0bab97a997d5c577dd8540280b797e6c06e85e1a3efb67703b7",
+      "current_sha256": "3f47170795611bf679a360899c0a19be06884f76e108c0ad2b4275cae5d0fa42",
+      "authorization": "PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES"
+    },
+    "backend/app/agents/investigation/roles.py": {
+      "baseline_sha256": "63a0e2e21d0f1fae667b051a1f7b52277927772bcf0a346d6fed3111e0b30293",
+      "previous_sha256": "88cf75d0c315ddac74ce65a06d7fbccff1833ea264dc4009c0439e5d77b2d0ed",
+      "current_sha256": "cefefd263dd3de316030fc155051be57f5ec8aa62c9ec6c350bc6d3f7d12e992",
+      "authorization": "PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES"
+    },
+    "backend/tests/agents/investigation/test_planning.py": {
+      "baseline_sha256": "2403c627565e9b703451503a361c1b4e0c300bfc272718a1d5e38358de516402",
+      "previous_sha256": "38b3c030e045e9e45dceb0a6bf243218d26bde8127d6151a728624c1d6af5104",
+      "current_sha256": "ff350ecf7f39c5f28431f9209483266acd56fb1fac3b82b4fd74c50e98137ea4",
+      "authorization": "PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES"
+    }
+  }
+}

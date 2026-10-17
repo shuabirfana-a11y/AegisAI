@@ -137,7 +137,7 @@ def install_openapi(application):
             return application.openapi_schema
         schema = get_openapi(title=application.title, version=application.version, routes=application.routes)
         for path, item in schema['paths'].items():
-            if path.startswith('/api/investigations'):
+            if path.startswith(('/api/investigations','/api/v1/intelligence')):
                 continue
             for method, operation in item.items():
                 if method not in ('get', 'post', 'patch', 'delete', 'put'):

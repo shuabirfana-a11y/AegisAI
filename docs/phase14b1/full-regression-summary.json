@@ -1,0 +1,10 @@
+{
+  "command": "python -m pytest -q --tb=short",
+  "result": "2 failed, 1574 passed, 23 warnings in 1092.99s (0:18:12)",
+  "failure_node_ids": [
+    "tests/investigation_api/test_bench_http.py::test_evaluation_adapter_reaches_full_original_http_chain[unknown_version]",
+    "tests/orchestration/test_failure_cancel.py::test_essential_partial_blocked_or_ambiguous_stops_downstream[ambiguous]"
+  ],
+  "baseline_failures_previously_reproduced": true,
+  "note": "Full suite started before the final review boundary fixes; the final targeted run verifies those fixes. No core Agent/Planner/Gate changes."
+}

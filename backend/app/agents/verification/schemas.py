@@ -6,6 +6,8 @@ from pydantic import AwareDatetime, Field, StrictBool, model_validator
 from app.runtime.contracts import FrozenModel, TaskId, TaskState, ARTIFACT_LIMIT, json_bytes
 from app.enrichment.contracts import ClaimType, VerificationStatus
 from app.agents.asset_observations import InvestigationArtifactReference, VersionObservation, ImpactVersionEvidence
+from app.agents.verification.conflict_evidence import ConflictEvidenceArtifact
+from app.enrichment.impact_scope import ImpactScope
 
 RULES_VERSION = 'verification-rules-v1'
 SNAPSHOT_LIMIT = 2 * 1024 * 1024
@@ -39,9 +41,11 @@ class VerificationRequest(Bounded):
     claim_ids: tuple[Identifier, ...] = Field(default=(), max_length=32)
     request_key: str = Field(min_length=1, max_length=150)
     model_assistance: StrictBool = False
+    include_source_facts: StrictBool = Field(default=False,exclude_if=lambda v:not v)
     supporting_artifacts: tuple[InvestigationArtifactReference,...] = Field(default=(),max_length=16,exclude_if=lambda v:not v)
     asset_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
     component_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
+    supplement_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
 
     @model_validator(mode='after')
     def unique_selection(self):
@@ -58,6 +62,7 @@ class VerificationRequest(Bounded):
 
 
 class VerificationClaim(Bounded):
+    impact_scope: ImpactScope | None = Field(default=None,exclude_if=lambda v:v is None)
     claim_id: Identifier
     statement: str = Field(min_length=1, max_length=2400)
     claim_type: ClaimType
@@ -73,6 +78,15 @@ class VerificationClaim(Bounded):
     origin: Literal['stored','derived'] = 'derived'
     source_field: str | None = Field(None, max_length=500)
     evidence_ids: tuple[Identifier, ...] = Field(default=(), max_length=16)
+
+    @model_validator(mode='after')
+    def typed_source_fact(self):
+        from app.enrichment.source_facts import FACT_TYPES, fact_value
+        if self.claim_type in FACT_TYPES:
+            fact_value(self.claim_type,self.value)
+            if self.package_identifier_id is not None or self.impact_scope is not None:
+                raise ValueError('Source facts are vulnerability-scoped, not asset decisions')
+        return self
 
 
 class VerificationEvidence(Bounded):
@@ -109,6 +123,7 @@ class VerificationEvidence(Bounded):
 
 
 class VerificationSourceSnapshot(Bounded):
+    supplementary_run_ids: tuple[UUID,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
     source_run_id: UUID
     source_task_id: TaskId
     source_artifact_id: UUID
@@ -123,6 +138,15 @@ class VerificationSourceSnapshot(Bounded):
     warnings: tuple[str, ...] = ()
     unresolved_items: tuple[str, ...] = ()
     parent_planner_run_id: str | None = None
+    conflict_evidence_artifacts:tuple[ConflictEvidenceArtifact,...]=Field(default=(),max_length=32,exclude_if=lambda v:not v)
+
+    @model_validator(mode='after')
+    def conflict_provenance(self):
+        if self.conflict_evidence_artifacts:
+            from app.agents.verification.conflict_evidence import conflict_artifacts
+            if self.conflict_evidence_artifacts!=conflict_artifacts(self.artifact,self.evidence):
+                raise ValueError('CONFLICT_ARTIFACT_PROVENANCE_MISMATCH')
+        return self
     version_observations: tuple[VersionObservation,...] = Field(default=(),max_length=1,exclude_if=lambda v:not v)
     impact_version_evidence: tuple[ImpactVersionEvidence,...] = Field(default=(),max_length=128,exclude_if=lambda v:not v)
 

@@ -2,7 +2,7 @@
 import os
 import re
 from app.integration.redaction import credential_key, public_reference, public_lineage
-from app.orchestration.composer import safe_text, safe_value, safe_reference
+from app.orchestration.composer import safe_text, safe_value, safe_reference, safe_impact_value
 from app.investigation_api.schemas import PRIVATE_ARTIFACT_FIELDS
 
 PRIVATE_KEYS = PRIVATE_ARTIFACT_FIELDS | frozenset({
@@ -40,7 +40,13 @@ def public_copy(value):
             if credential_key(key) or normalized in PRIVATE_NORMALIZED:
                 continue
             if key in ('value', 'observed_value') and isinstance(item, dict):
-                result[key] = public_copy(safe_value(item))
+                metric=safe_impact_value(item)
+                # Typed metric only; keep source text and upstream verification state.
+                if value.get('claim_type')=='CVSS_SCORE' and 'vector' in item:
+                    vector=item['vector']
+                    if vector is None:metric['vector']=None
+                    elif isinstance(vector,str) and len(vector)<=2400:metric['vector']=public_text(vector)
+                result[key] = public_copy(metric)
             elif key == 'reference' and isinstance(item, dict):
                 result[key] = public_copy(safe_reference(item))
             elif key == 'lineage_key':

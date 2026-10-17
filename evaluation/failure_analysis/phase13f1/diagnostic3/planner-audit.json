@@ -1,0 +1,222 @@
+{
+  "diagnostic_runs": [
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-facts",
+      "planner_run_id": "b6814289-88d4-47ee-a082-c7d3bec11559",
+      "validation_status": "VALIDATED",
+      "final_issues": [],
+      "captured_planner_input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2025-32434",
+          "asset_id": null,
+          "question": "查询 CVE-2025-32434 的描述、CWE 和按版本区分的 CVSS。",
+          "realtime": false,
+          "request_key": "orchestration:2804f864-497e-41f6-b075-d819a8478d47:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null
+      },
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "prompt": "investigation-plan-v4",
+      "attempts": [
+        {
+          "number": 1,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "model_call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4840,
+              "total_tokens": 5113,
+              "output_tokens": 273
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "f067d487-66ef-4e33-9621-e8e3aa1a5462",
+            "request_id": "f5721c20-1170-4b77-a7d6-25af9bb3b0c4",
+            "started_at": "2026-10-13T10:45:31.383089Z",
+            "duration_ms": 13139.729200000147,
+            "finished_at": "2026-10-13T10:45:44.524021Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "planner_run_id": "657050de-1156-4c0c-a24c-7c315c310dd3",
+      "validation_status": "PLANNING_FAILED",
+      "final_issues": [
+        {
+          "code": "QUERY_SCOPE_MISMATCH",
+          "path": "$.tasks[4]",
+          "message": "Candidate plan rejected by server validation."
+        }
+      ],
+      "captured_planner_input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2025-32434",
+          "asset_id": "5e90cd76-efc3-42ba-8121-4cc0f3125d33",
+          "question": "按 benchmark-reference-triage-v1 评估此演示资产对 CVE-2025-32434 的风险与优先级。",
+          "realtime": false,
+          "request_key": "orchestration:0ae496c8-4cc2-4b2a-9f36-4aa3108bc7e3:planner"
+        },
+        "component": {
+          "name": "torch",
+          "purl": null,
+          "version": "2.5.1",
+          "ecosystem": "PyPI",
+          "package_name": "torch"
+        },
+        "snapshot_id": null,
+        "component_id": "0521ef39-d2f5-4632-8020-c4e84871fc6f"
+      },
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "prompt": "investigation-plan-v4",
+      "attempts": [
+        {
+          "number": 1,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[4]",
+              "message": "Candidate plan rejected by server validation."
+            }
+          ],
+          "model_call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5045,
+              "total_tokens": 6080,
+              "output_tokens": 1035
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "dca0dbca-dc29-4944-87b5-35ee06f4e559",
+            "request_id": "800711a3-c0f9-48d8-b58b-06cda4bb3828",
+            "started_at": "2026-10-13T10:46:24.380286Z",
+            "duration_ms": 18216.594800000166,
+            "finished_at": "2026-10-13T10:46:42.596852Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        },
+        {
+          "number": 2,
+          "validation_status": "REJECTED",
+          "issues": [
+            {
+              "code": "QUERY_SCOPE_MISMATCH",
+              "path": "$.tasks[4]",
+              "message": "Candidate plan rejected by server validation."
+            }
+          ],
+          "model_call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 5075,
+              "total_tokens": 6106,
+              "output_tokens": 1031
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "dca0dbca-dc29-4944-87b5-35ee06f4e559",
+            "request_id": "3b3f7a1e-348f-40f0-b083-7c0b4b89097a",
+            "started_at": "2026-10-13T10:46:42.609447Z",
+            "duration_ms": 18202.155500002846,
+            "finished_at": "2026-10-13T10:47:00.811740Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ]
+    },
+    {
+      "id": "GHSA-935w-9g4m-p28p-affected",
+      "planner_run_id": "f32e9f79-ba95-4923-b559-68f38bf313cc",
+      "validation_status": "VALIDATED",
+      "final_issues": [],
+      "captured_planner_input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2026-105752",
+          "asset_id": "3e5decd1-2cc5-45d1-ab78-3f1952b7d3ee",
+          "question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+          "realtime": false,
+          "request_key": "orchestration:1c4f823a-f278-4264-9ff3-be6d2ee60377:planner"
+        },
+        "component": {
+          "name": "vllm",
+          "purl": null,
+          "version": "0.29.0",
+          "ecosystem": "PyPI",
+          "package_name": "vllm"
+        },
+        "snapshot_id": null,
+        "component_id": "2a2a054c-668b-41a5-a262-f64beef43b77"
+      },
+      "model": {
+        "model": "aegisai-qwen25-planner:latest",
+        "is_mock": false,
+        "provider": "openai_compatible"
+      },
+      "prompt": "investigation-plan-v4",
+      "attempts": [
+        {
+          "number": 1,
+          "validation_status": "VALIDATED",
+          "issues": [],
+          "model_call_metadata": {
+            "error": null,
+            "model": "aegisai-qwen25-planner:latest",
+            "usage": {
+              "input_tokens": 4983,
+              "total_tokens": 5608,
+              "output_tokens": 625
+            },
+            "status": "success",
+            "is_mock": false,
+            "function": "generate_structured",
+            "provider": "openai_compatible",
+            "trace_id": "9e0cd793-f4af-4d79-8a85-da75af08d226",
+            "request_id": "c65964fe-8ce6-4dd3-8600-6faf10f4d954",
+            "started_at": "2026-10-13T10:45:56.536589Z",
+            "duration_ms": 11236.897599999793,
+            "finished_at": "2026-10-13T10:46:07.773866Z",
+            "attempt_count": 1,
+            "original_error": null,
+            "requested_model": "aegisai-qwen25-planner:latest"
+          }
+        }
+      ]
+    }
+  ],
+  "source_hashes_unchanged": true,
+  "model_and_prompt_not_modified": true,
+  "private_raw_model_output_not_exported": true
+}

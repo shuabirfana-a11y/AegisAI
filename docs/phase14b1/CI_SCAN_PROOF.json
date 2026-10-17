@@ -1,0 +1,66 @@
+{
+  "commit": "a6b3ece384f9187c120c9b8f111be7ae32701218",
+  "file": "frontend/public/mock/investigation-demo.json",
+  "canonical_json_identical_to_existing_handoff": true,
+  "fixture_label": "DEMO",
+  "production_data": false,
+  "data_origin": "REAL_CODE_EXECUTION_WITH_SYNTHETIC_TEST_SEED_NOT_HTTP_CAPTURE_NOT_BENCHMARK",
+  "fields": [
+    {
+      "line": 25,
+      "field": "request_key"
+    },
+    {
+      "line": 74,
+      "field": "request_key"
+    },
+    {
+      "line": 123,
+      "field": "request_key"
+    },
+    {
+      "line": 172,
+      "field": "request_key"
+    },
+    {
+      "line": 221,
+      "field": "request_key"
+    },
+    {
+      "line": 270,
+      "field": "request_key"
+    },
+    {
+      "line": 319,
+      "field": "request_key"
+    },
+    {
+      "line": 368,
+      "field": "request_key"
+    },
+    {
+      "line": 417,
+      "field": "request_key"
+    },
+    {
+      "line": 470,
+      "field": "request_key"
+    }
+  ],
+  "findings": 10,
+  "verdict": "FALSE_POSITIVE_SYNTHETIC_IDEMPOTENCY_REQUEST_KEYS",
+  "not_credentials": true,
+  "exception_scope": "10 exact commit:path:rule:line fingerprints; source frontend file unchanged",
+  "fingerprints": [
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:25",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:74",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:123",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:172",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:221",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:270",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:319",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:368",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:417",
+    "a6b3ece384f9187c120c9b8f111be7ae32701218:frontend/public/mock/investigation-demo.json:generic-api-key:470"
+  ]
+}

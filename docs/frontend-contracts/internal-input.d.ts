@@ -1,6 +1,7 @@
 // Generated from current Python JSON Schema. INTERNAL schemas are not HTTP API contracts.
 // UUID and date-time are wire strings; Python validation and JSON Schema bounds still apply.
 // Schemaless dictionaries map to unknown; static types do not validate external content.
+
 export type AnalysisRequest = {
   "investigation_run_id": string;
   "investigation_task_id": string;
@@ -79,6 +80,7 @@ export type PlannerInput = {
   "component_id"?: (string | null);
   "snapshot_id"?: (string | null);
   "component"?: (ResolutionInput | null);
+  "candidate_reference"?: (string | null);
 };
 
 export type QueryRequest = {
@@ -116,8 +118,9 @@ export type VerificationRequest = {
   "claim_ids"?: Array<string>;
   "request_key": string;
   "model_assistance"?: boolean;
+  "include_source_facts"?: boolean;
   "supporting_artifacts"?: Array<InvestigationArtifactReference>;
   "asset_id"?: (string | null);
   "component_id"?: (string | null);
+  "supplement_id"?: (string | null);
 };
-

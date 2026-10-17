@@ -1,0 +1,25 @@
+{
+  "record_kind": "C9_PUBLICATION_CURRENT_CONTRACT_CHECKS",
+  "checked_at_utc": "2026-10-17T03:46:53.765647+00:00",
+  "backend_portable": {
+    "passed": 716,
+    "failed": 0,
+    "deselected": 1,
+    "explicit_exclusion": "cached real local embedding"
+  },
+  "evaluation_engineering": {
+    "passed": 138,
+    "failed": 0
+  },
+  "frontend": {
+    "passed": 72,
+    "failed": 0
+  },
+  "schema_export_checks": "PASS",
+  "formal_49_experiment_rerun_for_publication": false,
+  "historical_full_suite_failure": "ROOT_CAUSE_NOT_VERIFIED",
+  "ts_contract_mirrors_refreshed": true,
+  "business_code_changed_for_publication": false,
+  "compatibility_guard_fixture": "VERSIONED_ORIGINAL_BYTES_SAME_HASH_NO_ASSERTION_RELAXATION",
+  "ci_status": "SEE_CURRENT_PULL_REQUEST_CHECKS"
+}

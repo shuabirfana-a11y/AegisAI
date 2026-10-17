@@ -1,0 +1,85 @@
+{
+  "answer": {
+    "missing_fields": [
+      "version"
+    ],
+    "native_context_status": "NEED_CONTEXT"
+  },
+  "answer_status": "NEED_CONTEXT",
+  "artifact_references": [],
+  "context_required": true,
+  "errors": [],
+  "failed_stage": "CONTEXT_PREFLIGHT",
+  "gate_blocking_checks": [],
+  "gate_rule_codes": [],
+  "gate_status": null,
+  "http_attempted": true,
+  "input_context": {
+    "component": "langgraph-checkpoint-sqlite",
+    "ecosystem": "PyPI",
+    "target": "CVE-2025-67644",
+    "version": null
+  },
+  "integration_id": null,
+  "investigation_id": null,
+  "missing_fields": [
+    "version"
+  ],
+  "native_answer_envelope": null,
+  "normalized_context": {
+    "asset_context": {
+      "asset_id": "119af39b-d119-419b-af89-71756896dda6",
+      "component_id": "09dfa740-a1ad-4bea-a39b-d2355582bfba"
+    },
+    "component": {
+      "ecosystem": "PyPI",
+      "name": "langgraph-checkpoint-sqlite",
+      "package_name": "langgraph-checkpoint-sqlite",
+      "version": null
+    },
+    "input_status": "INPUT_REQUIRED",
+    "missing_fields": [
+      "version"
+    ],
+    "normalizer_version": "question-normalizer-v1",
+    "objective": "langgraph-checkpoint-sqlite 版本 未提供 是否受 CVE-2025-67644 影响？",
+    "provenance": {
+      "asset_context": "ACTUAL_ASSET_BINDING",
+      "component": "INPUT_CONTEXT",
+      "version": "INPUT_CONTEXT",
+      "vulnerability_id": "INPUT_CONTEXT"
+    },
+    "targets": [
+      "CVE-2025-67644"
+    ],
+    "task_type": "version_impact",
+    "version": null,
+    "vulnerability_id": "CVE-2025-67644",
+    "warnings": []
+  },
+  "planner_status": null,
+  "prediction_status": "NOT_EVALUATED",
+  "question": "langgraph-checkpoint-sqlite 版本 未提供 是否受 CVE-2025-67644 影响？",
+  "question_id": "GHSA-9rwj-6rc7-p77c-unknown",
+  "run_id": null,
+  "type": "version",
+  "prediction": {
+    "question_id": "GHSA-9rwj-6rc7-p77c-unknown",
+    "baseline": "aegisai",
+    "status": "NOT_EVALUATED",
+    "answer": {
+      "native_context_status": "NEED_CONTEXT",
+      "missing_fields": [
+        "version"
+      ]
+    },
+    "claims": [],
+    "abstained": true,
+    "completed_hops": [],
+    "latency_ms": 17.65979999981937,
+    "error_code": null,
+    "error": null,
+    "metadata": {}
+  },
+  "prediction_sha256": "7bbe6cd3206dc87bd9678a2567bdda350fdb35be4bb1cb8597aaa1080017fc3f"
+}

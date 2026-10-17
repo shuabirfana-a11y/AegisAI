@@ -73,6 +73,8 @@ def normalize_investigation(task, outcome, dependencies=()):
             conflicts.extend(c for c in intel.get('conflicts',[]) if c.get('status')=='open')
         if name in ('get_claims','get_evidence'):
             findings.extend({'tool':name,'data':_copy(row),'observation_only':True} for row in data.get('items',[]))
+        if name in ('get_evidence','get_vulnerability') and isinstance(data.get('candidate_reference'),dict):
+            values.setdefault('patch_information',[]).append(_copy(data['candidate_reference']))
         if name=='get_claims':claims.extend(data.get('items',[]))
     if details:
         ids={d.get('id') or d['canonical_id'] for d in details}

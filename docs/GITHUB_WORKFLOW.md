@@ -19,7 +19,7 @@ git switch -c frontend/yourname-investigation-view
 
 实现后在个人分支提交、推送，打开 PR 到 feature/frontend。后端对应 feature/backend。两条协作线准备进入稳定版时，再向 main 开 PR。先确认目标分支，没有权限时先接受仓库邀请。
 
-每个 PR 都填写模板，并查看 **Repository safety**、**Backend unit and contracts**、**Frontend tests and types**。作者不能用历史日志替代当前 CI；别人新增提交后必须查看最新提交的结果。合并决定由负责人明确执行，不开启 auto-merge。
+每个 PR 都填写模板，并查看 **Repository safety**、**Backend unit and contracts**、**Backend PostgreSQL critical regression**、**Frontend tests and types**。数据库检查使用两个独立测试服务，仍是明确的关键子集，不能称为全量。作者不能用历史日志替代当前 CI；别人新增提交后必须查看最新提交的结果。合并决定由负责人明确执行，不开启 auto-merge。
 
 本分支的 CI 在所有目标分支的 PR 创建/更新时运行，也在 main 推送和手动运行时执行。此前只覆盖 main、feature/backend、feature/frontend，导致标注工作使用的两份堆叠 PR 没有触发检查；本次去掉目标分支筛选，保留三项检查、只读权限和显式手动触发。个人分支直接 push 后，请创建/更新 PR 或手动运行检查；不会同时重复运行 push/PR 检查。此配置进入对应目标分支后才对该分支生效。
 

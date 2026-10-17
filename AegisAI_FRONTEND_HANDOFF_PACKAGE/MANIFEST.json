@@ -22,13 +22,13 @@
     },
     {
       "path": "api/AVAILABLE_API.md",
-      "bytes": 3586,
-      "sha256": "c197688cc763e2c92d3371b205a569c14c74da91b9410a1c943cb01b7bc739c4"
+      "bytes": 3982,
+      "sha256": "c9d0dc8ec30a01da2554c4eaaaf6bf6af7e4298f4046663e34ab5aee1693288f"
     },
     {
       "path": "api/INVESTIGATION_API.md",
-      "bytes": 9755,
-      "sha256": "5fa4c315c4340bc285e9a0544ba0fc296f4273d5c9643cfccf896191b69ece2e"
+      "bytes": 12750,
+      "sha256": "c2772c09c4150eeaa32b66e3f60fc77144495bec1d431d8c64bdbb318883cfae"
     },
     {
       "path": "api/proposed-investigations.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "api/reference/http-apis.json",
-      "bytes": 177364,
-      "sha256": "88eb0e0b660d1df20a07e30fcf631b24e9e13ae589ea2493eefdf49061c42f03"
+      "bytes": 200157,
+      "sha256": "8ac5226a8fb448f5138fafd5c09c70ea860ef22a38e119943895c2fc41e4d35c"
     },
     {
       "path": "api/reference/http-data-columns.d.ts",
@@ -91,14 +91,24 @@
       "sha256": "047e692941a70264461127bf76c1179b7548d808c1cd514363fde88f8138b6c0"
     },
     {
+      "path": "api/reference/intelligence-http.d.ts",
+      "bytes": 7577,
+      "sha256": "3104ce2fc4b8907f32a0515a309ae3e7949a525235d3af5c504787b5a783ac01"
+    },
+    {
+      "path": "api/reference/intelligence-http.openapi.json",
+      "bytes": 60460,
+      "sha256": "f132412345f563d204227be3a990f179d5e1970c3d2e31d055e1c2ac3ffeb5ab"
+    },
+    {
       "path": "api/reference/internal-input.d.ts",
       "bytes": 3780,
       "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b"
     },
     {
       "path": "api/reference/internal-input.schemas.json",
-      "bytes": 19750,
-      "sha256": "39ff06cccc3429228ea836078faa02c5dcf16d3171acf0fb8c46ba62d60f986a"
+      "bytes": 20503,
+      "sha256": "f3721ca7c0e223c50849b1f5b9c6601360d65741f51383ef64a26889196fe55f"
     },
     {
       "path": "api/reference/internal-output.d.ts",
@@ -107,23 +117,23 @@
     },
     {
       "path": "api/reference/internal-output.schemas.json",
-      "bytes": 141335,
-      "sha256": "9633d327760cb24acce5ed0f55b345405bc17646489927612140d0bb3969d3fc"
+      "bytes": 149317,
+      "sha256": "edaf85d7a17a34ffbc1a5bf54ed3222bb159852cb530757676caa540c1e4887c"
     },
     {
       "path": "api/reference/investigation-client.ts",
-      "bytes": 2643,
-      "sha256": "5a2b119f68800b9a51d98ef3149216fa8f3562617a937a46ea06369e5f6aa077"
+      "bytes": 3655,
+      "sha256": "a6b4080c0c331543baafb34242f558fdc47c06d3815ca7f5aacb5dc905c5d020"
     },
     {
       "path": "api/reference/investigation-http.d.ts",
-      "bytes": 24734,
-      "sha256": "705158141203a4468949ff58a7eb8dfb35ca4ac11ece620d453dd96bf2eaaf9b"
+      "bytes": 31862,
+      "sha256": "79cb96f36a2bcdac68c058027c1219c0c3c2c6f816e552a65877655f6743319d"
     },
     {
       "path": "api/reference/investigation-http.openapi.json",
-      "bytes": 153922,
-      "sha256": "a044115688a22d5393664aa9bb88d740eaa7375ddfcfb9b319cdc1087c7c3ced"
+      "bytes": 209628,
+      "sha256": "5326db961fa05f02ab86846edc2c4b635c4d9181d9fee2c1b6b566aa4f24fb3e"
     },
     {
       "path": "api/reference/legacy-output.d.ts",
@@ -137,8 +147,8 @@
     },
     {
       "path": "api/reference/openapi.json",
-      "bytes": 346443,
-      "sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c"
+      "bytes": 461122,
+      "sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde"
     },
     {
       "path": "api/reference/phase12c-http-probes.json",
@@ -157,8 +167,8 @@
     },
     {
       "path": "api/reference/tool-input.schemas.json",
-      "bytes": 12210,
-      "sha256": "c8a2d3858ffc1c372aa4fc84a80c13fea037958fd0eadc1510209106dd0dc372"
+      "bytes": 14403,
+      "sha256": "e89a0c2ff5b593b7ccfadbd108eba85a8cac97641bb6b8eac468d3ae43d9b419"
     },
     {
       "path": "api/reference/tools.registry.json",
@@ -202,13 +212,13 @@
     },
     {
       "path": "contracts/generated/internal-input.ts",
-      "bytes": 3780,
-      "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b"
+      "bytes": 3896,
+      "sha256": "bfc55ff6c8ac807680d4adf5602b32b676eb3333076197e34589e88c06588390"
     },
     {
       "path": "contracts/generated/internal-output.ts",
-      "bytes": 28764,
-      "sha256": "76ec009dc9d4817bafc0e86d87688bb76a1a4ac0751c1608ef7eed9dbff72435"
+      "bytes": 28788,
+      "sha256": "0835b5c49cf954067a9173f8b7338d2464ca3d9d780c35688396450432a4eced"
     },
     {
       "path": "contracts/generated/legacy-output.ts",
@@ -217,8 +227,8 @@
     },
     {
       "path": "contracts/generated/tool-input.ts",
-      "bytes": 2830,
-      "sha256": "4dabf4ce0aeaa9a46280bff172f1226d655532e1bcdac0c2e7a67c7d846bca3e"
+      "bytes": 2169,
+      "sha256": "8bf6825ef71fec0e635b7afd0736a0572de8c10f08f5e975db074caa67f2786d"
     },
     {
       "path": "contracts/HttpContracts.ts",
@@ -236,6 +246,11 @@
       "sha256": "ec84df273aeaf5c4ca14ea887327a43c31f6f51208014fafb5be3e2858227767"
     },
     {
+      "path": "contracts/intelligence.ts",
+      "bytes": 3750,
+      "sha256": "6afe585734711420a39cad667dc072f1b77509bd1bd19af4ae9756a32be006d2"
+    },
+    {
       "path": "contracts/InvestigationArtifact.ts",
       "bytes": 212,
       "sha256": "94c36975259999ad229d41c85d2ccb699a820f7d308f0878585461fafcc3ca00"
@@ -249,6 +264,21 @@
       "path": "contracts/InvestigationStatus.ts",
       "bytes": 402,
       "sha256": "21c99b7d7a2ac7e7006b6286ea03d736fb670d78f427665415b9cbe5cec501cd"
+    },
+    {
+      "path": "contracts/knowledge-graph.ts",
+      "bytes": 214,
+      "sha256": "3dc7234ee3ff80b30cf7a97ca8574cc164872d589200c1cdde8659ff57c6a5ea"
+    },
+    {
+      "path": "contracts/monitoring.ts",
+      "bytes": 230,
+      "sha256": "b316a298a64505a2508630fec3f5aabc3f0ad1111051785908b84b01a4d7dd6c"
+    },
+    {
+      "path": "contracts/poc.ts",
+      "bytes": 195,
+      "sha256": "96b7b4e0f0d59f19e6b3fd910acf5742d329fee372629a1bab365f053de7e2d5"
     },
     {
       "path": "contracts/README.md",
@@ -297,8 +327,13 @@
     },
     {
       "path": "docs/FRONTEND_TEAM_HANDOFF.md",
-      "bytes": 24510,
-      "sha256": "6193e45812d5b267a91cd393ecabd97a44e481e512e7ec6679cda6313071753f"
+      "bytes": 27505,
+      "sha256": "e62bb1de018d4c968ac6ac51a995c6724b5041c6645b598a6ca236a3a4c6d533"
+    },
+    {
+      "path": "docs/KNOWLEDGE_GRAPH_API.md",
+      "bytes": 6220,
+      "sha256": "a0f9dcf33e97b4cdc728851b497e0d31fe91791ed2faf14194daa89ccd4a8c04"
     },
     {
       "path": "docs/PHASE12C_INTEGRATION.md",
@@ -396,9 +431,19 @@
       "sha256": "3f722954dc809de3617ba9d85e124007075ce52a734ce0345faab531b28baf69"
     },
     {
+      "path": "PHASE14B3_VERIFICATION.json",
+      "bytes": 453,
+      "sha256": "53685747865d9a085014f71cfe27e5a120c4adb2bd9c560ae8bac8e33f0ec848"
+    },
+    {
+      "path": "PHASE14C9_VERIFICATION.json",
+      "bytes": 797,
+      "sha256": "61e4832fb11f90e2cced9abe9c0d26aa22db10e557c9748b5f6dadbcf13ee56a"
+    },
+    {
       "path": "README.md",
-      "bytes": 5273,
-      "sha256": "56ccf591f0d272c1b696c13da2d53f9215f1016bbccad2bdffaa6977a1797639"
+      "bytes": 6454,
+      "sha256": "44a003e10e45617bb96efe243865c88f502e83bd4b16c91c53248f9fef030757"
     },
     {
       "path": "VALIDATION.json",
@@ -406,9 +451,9 @@
       "sha256": "7d5030b0e141d92931b502eb2b934d0159cdfaa9ee3b7ba27287280915928c2c"
     }
   ],
-  "file_count_excluding_manifest": 80,
+  "file_count_excluding_manifest": 89,
   "manifest_self_hash_included": false,
-  "current_openapi_sha256": "cb6af756e064324d74d0466d234841a2ca3f17d218f20c69bedcb6a1f1a07f3c",
+  "current_openapi_sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
   "original_handoff_artifacts_unchanged": false,
@@ -420,10 +465,12 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-12T13:01:52.746993+00:00",
-  "current_phase": "12-D.3",
-  "verification_file": "PHASE12D3_VERIFICATION.json",
+  "updated_at_utc": "2026-10-17T03:46:53.765647+00:00",
+  "current_phase": "14-C9",
+  "verification_file": "PHASE14C9_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
   "historical_manifest_fields_preserved": true,
-  "model_validation_status": "REAL_SOURCE_DEMO_PASSED_NOT_BENCHMARK"
+  "model_validation_status": "SAVED_REAL_INVESTIGATION_READ_ONLY_PROJECTION",
+  "phase14b3_note": "Historical test fields remain historical; current checks are in PHASE14B3_VERIFICATION.json. No new inference or scoring.",
+  "phase14c9_note": "Historical test/creation fields below remain historical. Current verification_file describes only fresh publication checks, not a new 49-case experiment."
 }

@@ -30,6 +30,7 @@ CATALOG_SCOPES={item['source_id']:item['authority_level'] for item in json.loads
     (Path(__file__).resolve().parents[2]/'resources/sources.json').read_text(encoding='utf-8'))}
 PACKAGE_CLAIMS={ClaimType.AFFECTS_PRODUCT,ClaimType.AFFECTS_VERSION,ClaimType.FIXED_VERSION}
 STATIC_CLAIMS={ClaimType.POC_EXISTS,ClaimType.POC_ASSOCIATION,ClaimType.PATCH_EXISTS,ClaimType.FIX_COMMIT}
+from app.enrichment.source_facts import FACT_TYPES
 
 
 def scope_supported(scope, claim, *, source_key=None, reference=None):
@@ -40,7 +41,7 @@ def scope_supported(scope, claim, *, source_key=None, reference=None):
         if text!=CATALOG_SCOPES[source_key].casefold():return False
         if source_key=='CISA_KEV':
             return kind==ClaimType.KNOWN_EXPLOITED and claim.value.get('known_exploited') is True
-        if source_key=='OSV':return kind in PACKAGE_CLAIMS
+        if source_key=='OSV':return kind in PACKAGE_CLAIMS|FACT_TYPES
         # CVE identity alone is not a verdict; CNA-scoped content still needs
         # the original kernel's explicit evidence and independent lineage rules.
         return kind in PACKAGE_CLAIMS|{ClaimType.CVSS_SCORE}
@@ -114,6 +115,13 @@ def _evidence(session, stored, claim, meta, now):
         reasons.append('INCONSISTENT_SOURCE_TIME')
     direct=bool(stored.details.get('explicit') and integrity=='VALID')
     source_type=stored.evidence_type
+    details=dict(stored.details)
+    # Reserved derived metadata is always rebuilt from this raw witness.
+    details.pop('normalized_version_scope',None)
+    if integrity=='VALID' and claim.claim_type in ('AFFECTS_VERSION','FIXED_VERSION'):
+        from app.enrichment.version_scope import stored_scope
+        version_scope=stored_scope(session,stored,claim.claim_type)
+        if version_scope:details['normalized_version_scope']=version_scope.model_dump(mode='json')
     return VerificationEvidence(evidence_id=str(stored.id),claim_id=claim.claim_id,
         source_id=stored.source_id,source_key=meta.get('source_key') or 'unknown',source_type=source_type,
         source_name=stored.publisher[:300],source_time=stored.published_at or stored.retrieved_at,
@@ -125,7 +133,7 @@ def _evidence(session, stored, claim, meta, now):
         published_at=stored.published_at,retrieved_at=stored.retrieved_at,observed_value=stored.observed_value or {},
         scope_key=stored.scope_key,vulnerability_id=claim.vulnerability_id,stance=stored.stance,
         directness='direct' if direct else 'mention',evidence_type=stored.evidence_type,is_current=current,
-        integrity_status=integrity,exclusion_reasons=tuple(reasons),details=stored.details)
+        integrity_status=integrity,exclusion_reasons=tuple(reasons),details=details)
 
 
 def _claim(value, source_task_id, vulnerability_id):
@@ -171,15 +179,21 @@ class InvestigationSnapshotReader:
                 include(ref.task_id)
             refs=[];metadata={};claims={};candidate_rows=[];records=[]
             root=str(artifact.vulnerability_id) if artifact.vulnerability_id else ''
-            for task in plan.tasks:
-                if task.task_id not in selected:continue
-                for call in ns['artifacts'].get(task.task_id,{}).get('tool_calls',[]):
+            source_tasks=[(task,ns,row.id,False) for task in plan.tasks if task.task_id in selected]
+            extra_ids=()
+            if request.supplement_id:
+                from app.orchestration.supplement.runtime import read_extra_sources
+                extra_id,extra_plan,extra_ns=read_extra_sources(self.engine,request,actor)
+                extra_ids=(extra_id,)
+                source_tasks.extend((task,extra_ns,extra_id,True) for task in extra_plan.tasks)
+            for task,source_ns,source_id,supplementary in source_tasks:
+                for call in source_ns['artifacts'].get(task.task_id,{}).get('tool_calls',[]):
                     record=db.get(m.ToolCallRecord,UUID(call['record_id']))
-                    if record is None or record.agent_run_id!=row.id:raise ValueError('Invalid source receipt')
+                    if record is None or record.agent_run_id!=source_id:raise ValueError('Invalid source receipt')
                     envelope=record.output_summary
-                    records.append((record,task.task_id))
+                    if not supplementary:records.append((record,task.task_id))
                     refs.append({**call,'input_hash':fingerprint(record.input_summary),
-                                 'output_hash':fingerprint(envelope)})
+                                 'output_hash':fingerprint(envelope),**({'source_run_id':str(source_id)} if supplementary else {})})
                     for item in envelope.get('evidence_refs',[]):
                         if item.get('evidence_id'):
                             key=str(item['evidence_id']);previous=metadata.get(key,{})
@@ -200,6 +214,9 @@ class InvestigationSnapshotReader:
                     rows=intel.get('claims',[]) + (data.get('items',[]) if record.tool_name=='get_claims' else [])
                     for item in rows:
                         got=_claim(item,task.task_id,root)
+                        # Auxiliary source facts are an explicit factual query scope,
+                        # not new required decisions for existing asset tasks.
+                        if got and got.claim_type in FACT_TYPES and not request.include_source_facts:continue
                         if got:claims[got.claim_id]=got
                     if isinstance(data.get('affected_versions'),list):candidate_rows+=data['affected_versions']
             # Parsed source ranges become candidates when no equivalent stored claim exists.
@@ -209,9 +226,8 @@ class InvestigationSnapshotReader:
                 value={'raw_expression':item.get('raw_expression'),
                        'ecosystem':match.value.get('ecosystem') if match else None,
                        'package':match.value.get('package') if match else None}
-                if request.asset_id:
-                    from app.agents.verification.asset_snapshot import candidate_version_value
-                    value=candidate_version_value(item,match)
+                from app.agents.verification.asset_snapshot import candidate_version_value
+                value=candidate_version_value(item,match)
                 if not root or not value['raw_expression'] or any(c.claim_type==ClaimType.AFFECTS_VERSION and
                     c.package_identifier_id==package and canonical_value('AFFECTS_VERSION',c.value)==canonical_value('AFFECTS_VERSION',value)
                     for c in claims.values()):continue
@@ -230,17 +246,24 @@ class InvestigationSnapshotReader:
                     if len(bound)>=16 or len(evidence)>=128:omitted+=1;continue
                     evidence.append(_evidence(db,stored,claim,meta,now));bound.append(eid)
                 claims[identifier]=claim.model_copy(update={'evidence_ids':tuple(bound)})
+            from app.agents.verification.impact_normalization import normalize_bundle
+            normalized,bound_evidence=normalize_bundle(tuple(claims[i] for i in kept),tuple(evidence),
+                source_artifact_id=artifact.artifact_id,asset_id=request.asset_id,
+                coalesce=not request.claim_ids and request.task_type=='evidence_verification')
+            claims={c.claim_id:c for c in normalized};kept=list(claims);evidence=list(bound_evidence)
             unresolved=list(artifact.uncertainties)
             if any(c.origin=='derived' and not c.evidence_ids for c in (claims[i] for i in kept)):
                 unresolved.append('Derived ranges without immutable claim-bound evidence remain candidates')
             if len(all_ids)>32 or omitted:unresolved.append('VERIFICATION_INPUT_LIMIT: unprocessed claims/evidence retained as counts')
-            extension={}
+            from app.agents.verification.conflict_evidence import conflict_artifacts
+            extension={'conflict_evidence_artifacts':conflict_artifacts(artifact.model_dump(mode='json'),evidence)}
             if request.asset_id:
                 from app.agents.verification.asset_snapshot import capture_version_observation,impact_references
                 extension['version_observations']=capture_version_observation(request,records,artifacts,tuple(claims[i] for i in kept),actor)
                 extension['impact_version_evidence']=impact_references(tuple(claims[i] for i in kept),evidence)
                 if not extension['version_observations']:unresolved.append('ASSET_VERSION_OBSERVATION_MISSING_OR_AMBIGUOUS')
             return VerificationSourceSnapshot(source_run_id=row.id,source_task_id=artifact.task_id,
+                supplementary_run_ids=extra_ids,
                 source_artifact_id=artifact.artifact_id,source_snapshot_as_of=now,artifact=artifact.model_dump(mode='json'),
                 receipt_references=tuple(refs),claims=tuple(claims[i] for i in kept),evidence=tuple(evidence),
                 omitted_claim_ids=tuple(all_ids[32:288]),omitted_claim_count=max(0,len(all_ids)-32),

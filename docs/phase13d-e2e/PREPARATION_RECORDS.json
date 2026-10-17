@@ -1,0 +1,69 @@
+{
+  "kind": "HUMAN_GOLD_ADMISSION_CHECK_NOT_FORMAL_EVALUATION",
+  "reports": {
+    "preparation": {
+      "run_id": "377525d5-acae-4ddb-b052-68be1e1d0d8d",
+      "mode": "ONLINE",
+      "samples": 49,
+      "approved": 0,
+      "quality_status": "NOT_EVALUATED",
+      "http_executed": false,
+      "report_sha256": "acbd9826f9e9ebac86d9d3742cf090a08e8be1d19015b4c88138023beeb4a07d",
+      "metrics": {
+        "rag_only": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        },
+        "agent_without_verification": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        },
+        "aegisai": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        }
+      }
+    },
+    "replay": {
+      "run_id": "4c1aa1b8-82cc-4448-b803-25eb64f9f134",
+      "mode": "OFFLINE",
+      "samples": 49,
+      "approved": 0,
+      "quality_status": "NOT_EVALUATED",
+      "http_executed": false,
+      "report_sha256": "0284041415f7532d21eab752489db4c5d9acfc15a06b9c7f79b27a99eacf19bb",
+      "metrics": {
+        "rag_only": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        },
+        "agent_without_verification": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        },
+        "aegisai": {
+          "accuracy": null,
+          "risk_accuracy": null,
+          "priority_accuracy": null,
+          "evidence_coverage": null,
+          "hallucination_rate": null
+        }
+      }
+    }
+  }
+}

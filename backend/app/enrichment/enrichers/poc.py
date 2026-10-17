@@ -43,7 +43,7 @@ class PocEnricher(BaseEnricher):
             row.details={**decision,'verification_status':decision['status'],'search_raw_id':str(doc.raw_id),
                 'readme_raw_id':str(readme_doc.raw_id) if readme_doc else None,'association_only':True}
             row.details.update({'repository_created_at':repo.get('created_at'),'repository_updated_at':repo.get('updated_at'),
-                'description':repo.get('description'),'fork':repo.get('fork',False),'cve_reference':ctx.canonical_id,
+                'description':repo.get('description'),'language':repo.get('language'),'fork':repo.get('fork',False),'cve_reference':ctx.canonical_id,
                 'README_reference':readme_doc.url if readme_doc else None})
             out.candidates.append(row.id)
             # The proposal has a stable identity; its current classifier decision belongs to verification.
@@ -54,9 +54,10 @@ class PocEnricher(BaseEnricher):
                 m.Claim.scope_key==claim.scope_key,m.Claim.id!=claim.id)):
                 human=session.scalar(select(m.VerificationResult.id).where(m.VerificationResult.claim_id==legacy.id,m.VerificationResult.verified_by_type=='human').limit(1))
                 if not human:legacy.details={**legacy.details,'superseded':True,'superseded_reason':'Stable PoC proposal identity v2'};legacy.adopted=False
-            obs=session.get(m.SourceObservation,(readme_doc or doc).observation_id)
-            evidence=EvidenceService.add(session,claim,obs,value,{'json_pointer':'/content' if readme_doc else f'/items/{i}'},
-                evidence_type='repository_readme' if readme_doc else 'repository_search',explicit=bool(readme),details={'classification':decision['status'],
+            evidence_doc=readme_doc if readme is not None else doc
+            obs=session.get(m.SourceObservation,evidence_doc.observation_id)
+            evidence=EvidenceService.add(session,claim,obs,value,{'json_pointer':'/content' if readme is not None else f'/items/{i}'},
+                evidence_type='repository_readme' if readme is not None else 'repository_search',explicit=bool(readme),details={'classification':decision['status'],
                     'features':decision['features']},excerpt=readme)
             out.claims.append(claim.id);out.evidence.append(evidence.id)
             if decision['status']=='CONFIRMED':emit(session,ctx.target_id,'POC_CONFIRMED',str(row.id),'Static association confirmed; usability remains untested',claim=claim,evidence=evidence,source_id=doc.source_id)

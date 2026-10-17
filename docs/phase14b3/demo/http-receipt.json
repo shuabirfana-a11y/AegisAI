@@ -1,0 +1,63 @@
+{
+  "checked_at_utc": "2026-10-14T15:13:42.179656+00:00",
+  "mode": "SAVED_REAL_INVESTIGATION_READ_ONLY_PROJECTION",
+  "investigation_id": "a583d1ae-ea72-45f6-92c7-85ef80879e65",
+  "new_model_calls": 0,
+  "database_transaction_read_only": true,
+  "record_counts_unchanged": true,
+  "statement_types": [
+    "SELECT"
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/v1/intelligence/vulnerabilities/CVE-2025-47277/graph",
+      "parameters": {
+        "investigation_id": "a583d1ae-ea72-45f6-92c7-85ef80879e65"
+      },
+      "status_code": 200,
+      "node_count": 19,
+      "edge_count": 23,
+      "gate_status": "PASS",
+      "truncated": true,
+      "model_execution": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/intelligence/graph/query",
+      "parameters": {
+        "component": "vllm",
+        "ecosystem": "PyPI",
+        "minimum_severity": "HIGH"
+      },
+      "status_code": 200,
+      "node_count": 0,
+      "edge_count": 0,
+      "gate_status": null,
+      "truncated": null,
+      "model_execution": null
+    },
+    {
+      "method": "GET",
+      "path": "/api/investigations/a583d1ae-ea72-45f6-92c7-85ef80879e65/trace",
+      "parameters": {},
+      "status_code": 200,
+      "node_count": 0,
+      "edge_count": 0,
+      "gate_status": null,
+      "truncated": null,
+      "model_execution": {
+        "execution_mode": "REAL",
+        "provider": "openai_compatible",
+        "model": "aegisai-qwen25-planner:latest",
+        "source": "PERSISTED_PLANNER_CALL",
+        "attempt_count": 1
+      }
+    }
+  ],
+  "provenance": {
+    "vulnerability": "official advisory/OSV snapshot",
+    "asset": "USER_INVENTORY_NOT_SCANNED / is_demo=true",
+    "risk": "saved Qwen real investigation historical decision; not current safety assessment"
+  }
+}

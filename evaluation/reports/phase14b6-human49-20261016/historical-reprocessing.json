@@ -1,0 +1,1300 @@
+{
+  "mode": "HISTORICAL_REPROCESSING_SAME_HTTP_RESPONSES",
+  "original_record_sha256": "63e5d37222e730cf06749e102e2dea752bece627d6eebff7775d46682f43b5db",
+  "original_report_sha256": "9c712e2ccbe3d37923d187b088cc9f4c16fffcbbfd05b94fc919f591d48f55d6",
+  "original_strict_accuracy": 0.0,
+  "metrics": {
+    "status": "EVALUATED",
+    "eligible_gold_count": 49,
+    "scored_count": 49,
+    "excluded_annotations": [],
+    "accuracy": 0.0,
+    "field_accuracy": {
+      "cve": {
+        "correct": 2,
+        "n": 5,
+        "accuracy": 0.4
+      },
+      "cvss_v3": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "cvss_v4": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "cwes": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "summary": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "affected": {
+        "correct": 0,
+        "n": 27,
+        "accuracy": 0.0
+      },
+      "patch_status": {
+        "correct": 1,
+        "n": 10,
+        "accuracy": 0.1
+      },
+      "poc_status": {
+        "correct": 0,
+        "n": 5,
+        "accuracy": 0.0
+      },
+      "priority": {
+        "correct": 0,
+        "n": 10,
+        "accuracy": 0.0
+      },
+      "risk_level": {
+        "correct": 0,
+        "n": 10,
+        "accuracy": 0.0
+      },
+      "priority_asset_ids": {
+        "correct": 0,
+        "n": 6,
+        "accuracy": 0.0
+      },
+      "can_confirm_not_affected": {
+        "correct": 0,
+        "n": 1,
+        "accuracy": 0.0
+      }
+    },
+    "version": {
+      "n": 27,
+      "accuracy": 0.0,
+      "per_class": {
+        "AFFECTED": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 10,
+          "support": 10,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "NOT_AFFECTED": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "support": 12,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 16,
+          "fn": 5,
+          "support": 5,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "confusion_matrix": {
+        "AFFECTED": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 7,
+          "NO_PREDICTION": 3
+        },
+        "NOT_AFFECTED": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 9,
+          "NO_PREDICTION": 3
+        },
+        "UNKNOWN": {
+          "AFFECTED": 0,
+          "NOT_AFFECTED": 0,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 5
+        }
+      },
+      "macro_f1": 0.0,
+      "macro_f1_defined_classes": 3,
+      "unknown_rate": 0.5925925925925926,
+      "no_prediction_count": 11,
+      "false_safe_count": 0,
+      "false_safe_rate": 0.0,
+      "false_affected_count": 0,
+      "false_affected_rate": 0.0,
+      "sample_count": 27
+    },
+    "poc_classification": {
+      "n": 5,
+      "accuracy": 0.0,
+      "per_class": {
+        "POC_CANDIDATE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "VERIFIED_EXPLOIT": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "NO_EVIDENCE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "confusion_matrix": {
+        "POC_CANDIDATE": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "VERIFIED_EXPLOIT": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "UNKNOWN": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 0
+        },
+        "NO_EVIDENCE": {
+          "POC_CANDIDATE": 0,
+          "VERIFIED_EXPLOIT": 0,
+          "UNKNOWN": 0,
+          "NO_EVIDENCE": 0,
+          "NO_PREDICTION": 5
+        }
+      },
+      "macro_f1": 0.0,
+      "macro_f1_defined_classes": 1,
+      "unknown_rate": 0.0,
+      "no_prediction_count": 5,
+      "false_safe_count": 0,
+      "false_safe_rate": null,
+      "false_affected_count": 0,
+      "false_affected_rate": null,
+      "sample_count": 5
+    },
+    "patch_classification": {
+      "n": 10,
+      "accuracy": 0.1,
+      "per_class": {
+        "PATCH_CANDIDATE": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5,
+          "support": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "CONFIRMED_FIX": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 4,
+          "support": 5,
+          "precision": 0.5,
+          "recall": 0.2,
+          "f1": 0.2857142857142857
+        },
+        "UNKNOWN": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "confusion_matrix": {
+        "PATCH_CANDIDATE": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 1,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 4
+        },
+        "CONFIRMED_FIX": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 1,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 4
+        },
+        "UNKNOWN": {
+          "PATCH_CANDIDATE": 0,
+          "CONFIRMED_FIX": 0,
+          "UNKNOWN": 0,
+          "NO_PREDICTION": 0
+        }
+      },
+      "macro_f1": 0.14285714285714285,
+      "macro_f1_defined_classes": 2,
+      "unknown_rate": 0.0,
+      "no_prediction_count": 8,
+      "false_safe_count": 0,
+      "false_safe_rate": null,
+      "false_affected_count": 0,
+      "false_affected_rate": null,
+      "sample_count": 10
+    },
+    "risk_accuracy": 0.0,
+    "priority_accuracy": 0.0,
+    "abstention": {
+      "n": 49,
+      "should_abstain_n": 7,
+      "answerable_n": 42,
+      "correct_abstention_count": 0,
+      "correct_abstention_rate": 0.0,
+      "incorrect_abstention_count": 25,
+      "incorrect_abstention_rate": 0.5952380952380952,
+      "false_confident_answer_count": 0,
+      "false_confident_answer_rate": 0.0,
+      "no_prediction_count": 22,
+      "precision": 0.0,
+      "recall": 0.0,
+      "missing_prediction_count": 22,
+      "inconsistent_flag_count": 2,
+      "basis": "STRUCTURED_UNKNOWN_FIELDS_WITH_FLAG_CONSISTENCY",
+      "quality_accuracy": 0.04081632653061224
+    },
+    "reasoning_completeness": 0.0,
+    "reasoning_completeness_basis": "RECORDED_WORKFLOW_STEPS_NOT_REASONING_CORRECTNESS",
+    "evidence_coverage": null,
+    "hallucination_rate": null,
+    "audit": {
+      "emitted_claims": 235,
+      "human_reviewed_claims": 0,
+      "answers_requiring_audit": 37,
+      "human_audited_answers": 0,
+      "answer_audit_coverage": 0.0,
+      "coverage": 0.0,
+      "complete": false,
+      "unresolved_claims": 0,
+      "reviewed_subset_evidence_coverage": null,
+      "reviewed_subset_hallucination_rate": null
+    },
+    "invalid_label_count": 0,
+    "execution": {
+      "SUCCEEDED": 37,
+      "NOT_EVALUATED": 12
+    },
+    "missing_predictions": 0,
+    "latency": {
+      "n": 37,
+      "p50_ms": 28813.303500000075,
+      "p95_ms": 35423.294620000146,
+      "mean_ms": 29286.926937837838,
+      "max_ms": 48773.648700000194,
+      "percentile_method": "linear interpolation at (n-1)*p"
+    },
+    "limitations": [
+      "Human gold and outcome audit are distinct gates.",
+      "Absent class support has null recall; macro F1 lists defined classes.",
+      "Workflow step coverage does not establish reasoning correctness.",
+      "Pilot questions sharing advisories are correlated, not independent trials."
+    ]
+  },
+  "field_changes": [
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-facts",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-commit-candidate",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-risk-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-risk-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2025-32434"
+      }
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-facts",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-release-and-poc",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-commit-candidate",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-risk-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-risk-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence",
+        "fixed_versions",
+        "patch_status"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-facts",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-release-and-poc",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-commit-candidate",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-risk-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-risk-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-facts",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-release-and-poc",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-commit-candidate",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-risk-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-risk-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-facts",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-release-and-poc",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-commit-candidate",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-affected",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-risk-fixed",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "cve",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {
+        "cve": "CVE-2026-105752"
+      }
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-gap",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-older-fix",
+      "old_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "new_fields": [
+        "native_answer_status",
+        "native_gate_status",
+        "native_citations",
+        "affected",
+        "risk_level",
+        "priority",
+        "verification_status",
+        "version_observations",
+        "impact_version_evidence"
+      ],
+      "added": {}
+    }
+  ],
+  "new_model_calls": 0,
+  "original_results_overwritten": false
+}

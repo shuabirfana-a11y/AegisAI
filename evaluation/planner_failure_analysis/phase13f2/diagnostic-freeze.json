@@ -1,0 +1,72 @@
+{
+  "diagnostic_not_formal_experiment": true,
+  "selected_ids": [
+    "GHSA-53q9-r3pm-6pq6-facts",
+    "GHSA-935w-9g4m-p28p-affected",
+    "GHSA-53q9-r3pm-6pq6-risk-affected",
+    "GHSA-c67j-w6g6-q2cm-affected",
+    "GHSA-53q9-r3pm-6pq6-unknown"
+  ],
+  "max_new_investigations": 5,
+  "original_model": {
+    "provider": "openai_compatible",
+    "model_name": "aegisai-qwen25-planner:latest",
+    "temperature": 0.0,
+    "timeout_seconds": 40.0,
+    "max_output_tokens": 4096,
+    "structured_mode": "json_object",
+    "manifest_digest": "sha256:15aaf3fda3b8e9bb6724e5e9911eec3b9cbdb6bd967646b6bf49ee9846b7ec16",
+    "blobs_verified": true,
+    "runtime_attestation": "TAG_MANIFEST_VERIFIED_BEFORE_CALLS"
+  },
+  "profile": {
+    "MODEL_PROVIDER": "openai_compatible",
+    "MODEL_NAME": "aegisai-qwen25-planner:latest",
+    "MODEL_API_BASE": "http://127.0.0.1:11434/v1",
+    "MODEL_ALLOW_KEYLESS_LOCAL": "true",
+    "MODEL_TIMEOUT_SECONDS": "40",
+    "MODEL_MAX_OUTPUT_TOKENS": "4096",
+    "MODEL_STRUCTURED_MODE": "json_object",
+    "MODEL_REASONING_EFFORT": "none",
+    "MODEL_TOKEN_PARAMETER": "max_tokens",
+    "MODEL_EMBEDDING_PROVIDER": "mock",
+    "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+    "MODEL_EMBEDDING_DIMENSION": "384"
+  },
+  "prompt": {
+    "planner_version": "investigation-plan-v5",
+    "answer_prompt_version": "NOT_APPLICABLE_DETERMINISTIC_TEMPLATE",
+    "answer_schema_version": "answer-envelope-v1"
+  },
+  "manifest_sha256": "0651efb54fdfe12c6c05493429dac4f73d309bb51f6297b7f66da71f84552002",
+  "bindings_sha256": "90c4cc075f6a8e563183bdd2438834d93b4e35c5fca7048db80e8adbd2a587bb",
+  "human_labels_sent": false,
+  "http_base_url": "http://127.0.0.1:8004",
+  "scoring_rules_unchanged": true,
+  "protected_runtime_and_gold": "File-hash guard in protected-before.json",
+  "model_modified": false,
+  "prompt_version": "investigation-plan-v5",
+  "code_commit": "d623a5d2752fdca8707754ae9b19a7a9b29f007e",
+  "worktree_changes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "new_source_files_sha256": {
+    "backend/app/agents/investigation/investigation_plan_v5.txt": "15cc7be3dd4bc79b2ad9a1e6167d8208924cf618cca75c37e1c73ca994eca799",
+    "backend/app/agents/verification/conflict_evidence.py": "7f7696a5fda1e1adcbafe9946cc3383481e8165f5bb4cfa78312904f9b1a5aa7",
+    "evaluation/bench/question_contract.py": "bf1c0ecac615b2ef1914d65587454da3ce975c4192d9d05e004de3b68f83fa40"
+  },
+  "implementation_branch": "codex/phase13f2-planner-contract",
+  "source_files_sha256": {
+    "backend/app/agents/investigation/investigation_plan_v5.txt": "15cc7be3dd4bc79b2ad9a1e6167d8208924cf618cca75c37e1c73ca994eca799",
+    "backend/app/agents/investigation/planner.py": "0666830691c20a82c7e92f0b1e06b486e75f40d8702aff2ddeae45801f22fb83",
+    "backend/app/agents/investigation/planning.py": "b2190ca013a0a0bab97a997d5c577dd8540280b797e6c06e85e1a3efb67703b7",
+    "backend/app/agents/investigation/roles.py": "88cf75d0c315ddac74ce65a06d7fbccff1833ea264dc4009c0439e5d77b2d0ed",
+    "backend/app/agents/verification/conflict_evidence.py": "7f7696a5fda1e1adcbafe9946cc3383481e8165f5bb4cfa78312904f9b1a5aa7",
+    "backend/app/agents/verification/schemas.py": "ec21530e5a32b57466e4348e2f2920e00e88396b8ada68f411f81643c55a43a0",
+    "backend/app/agents/verification/snapshot.py": "bdc1763c9bd67b04aea6a30d509fe36bee2afc63f13f17d7facef642ed6f54fb",
+    "backend/app/orchestration/handoff.py": "0e45547788dc41493dbb615b33f810d175a6118b06c4096c09fc37f5dbbcdd4d",
+    "backend/app/orchestration/service.py": "300b3fcb2163eb92840e2c707bcc4a89c70ac2ce9fbebadafc0b4104483524d0",
+    "evaluation/bench/http_investigation.py": "48027c8db0785b2889a7bdbff9892625c8bd08d51ce828a2729a1cc299608ea1",
+    "evaluation/bench/question_contract.py": "bf1c0ecac615b2ef1914d65587454da3ce975c4192d9d05e004de3b68f83fa40"
+  },
+  "prompt_modified": true,
+  "frozen_at_utc": "2026-10-13T12:45:33.669287+00:00"
+}

@@ -1,0 +1,66 @@
+{
+  "status": "HTTP_COLLECTION_COMPLETE_SCORING_BLOCKED",
+  "approved_attempted": 39,
+  "unapproved_http_attempted": 0,
+  "execution": {
+    "FAILED": 37,
+    "SUCCEEDED": 2
+  },
+  "invalid_gold_enum": [
+    {
+      "question_id": "GHSA-53q9-r3pm-6pq6-release-and-poc",
+      "field": "poc_status",
+      "value": "NO_EVIDENCE",
+      "accepted": [
+        "POC_CANDIDATE",
+        "VERIFIED_EXPLOIT",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "question_id": "GHSA-47fc-vmwq-366v-release-and-poc",
+      "field": "poc_status",
+      "value": "NO_EVIDENCE",
+      "accepted": [
+        "POC_CANDIDATE",
+        "VERIFIED_EXPLOIT",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "question_id": "GHSA-c67j-w6g6-q2cm-release-and-poc",
+      "field": "poc_status",
+      "value": "NO_EVIDENCE",
+      "accepted": [
+        "POC_CANDIDATE",
+        "VERIFIED_EXPLOIT",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "question_id": "GHSA-9rwj-6rc7-p77c-release-and-poc",
+      "field": "poc_status",
+      "value": "NO_EVIDENCE",
+      "accepted": [
+        "POC_CANDIDATE",
+        "VERIFIED_EXPLOIT",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "question_id": "GHSA-935w-9g4m-p28p-release-and-poc",
+      "field": "poc_status",
+      "value": "NO_EVIDENCE",
+      "accepted": [
+        "POC_CANDIDATE",
+        "VERIFIED_EXPLOIT",
+        "UNKNOWN"
+      ]
+    }
+  ],
+  "formal_metrics": null,
+  "ground_truth_unchanged": true,
+  "scorer_unchanged": true,
+  "original_outputs_preserved": true,
+  "new_model_or_http_calls_for_recovery": 0
+}

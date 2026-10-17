@@ -11,8 +11,11 @@ import os
 from urllib.parse import urlsplit
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.investigations import router as investigations_router
+from app.api.intelligence import router as intelligence_router
 from app.api.openapi_contracts import install_openapi
 from app.investigation_api.service import InvestigationApiService
+from app.investigation_api.multi_asset_service import MultiAssetService
+from app.api.multi_asset import router as multi_asset_router
 
 def cors_allowlist():
     values=os.environ.get('AEGIS_CORS_ORIGINS','http://localhost:5173,http://127.0.0.1:5173,http://localhost:8769,http://127.0.0.1:8769')
@@ -33,11 +36,15 @@ def create_app(engine=None,*,investigation_gateway=None):
         assistant=AssistantService(app.state.engine)
         app.state.assistant=assistant
         investigations=None
+        multi_asset=None
         try:
             investigations=InvestigationApiService(app.state.engine,investigation_gateway)
             app.state.investigations=investigations
+            multi_asset=MultiAssetService(app.state.engine,investigations)
+            app.state.multi_asset=multi_asset
             yield
         finally:
+            if multi_asset is not None:multi_asset.close()
             if investigations is not None:investigations.close()
             assistant.close()
             if engine is None:app.state.engine.dispose()
@@ -47,7 +54,9 @@ def create_app(engine=None,*,investigation_gateway=None):
     application.include_router(assets_router)
     application.include_router(assistant_router)
     application.include_router(tools_router)
+    application.include_router(multi_asset_router)
     application.include_router(investigations_router)
+    application.include_router(intelligence_router)
     application.add_middleware(CORSMiddleware,allow_origins=cors_allowlist(),allow_credentials=False,
         allow_methods=['GET','POST','PATCH','OPTIONS'],allow_headers=['Authorization','Content-Type','Idempotency-Key','X-Request-Key'],
         expose_headers=['Location','Retry-After','X-Request-ID'])

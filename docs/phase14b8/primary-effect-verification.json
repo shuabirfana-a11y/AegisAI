@@ -1,0 +1,40 @@
+{
+  "mode": "READ_ONLY_SEALED_CONTEXT_COUNTERFACTUAL_NOT_FORMAL_EVALUATION",
+  "question_id": "GHSA-9rwj-6rc7-p77c-affected",
+  "run_id": "99145a4a-3c79-497a-9f28-a80ced075479",
+  "same_asset_and_planner_context": true,
+  "same_kernel_and_evaluation_time": true,
+  "with_primary": "CONFIRMED",
+  "without_primary": "PENDING",
+  "removed_evidence_count": 5,
+  "per_claim": [
+    {
+      "claim_type": "VENDOR_CONFIRMED",
+      "with_primary": "CONFIRMED",
+      "without_primary": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "claim_type": "AFFECTS_PRODUCT",
+      "with_primary": "CONFIRMED",
+      "without_primary": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "claim_type": "FIXED_VERSION",
+      "with_primary": "CONFIRMED",
+      "without_primary": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "claim_type": "CVSS_SCORE",
+      "with_primary": "CONFIRMED",
+      "without_primary": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "claim_type": "AFFECTS_VERSION",
+      "with_primary": "CONFIRMED",
+      "without_primary": "INSUFFICIENT_EVIDENCE"
+    }
+  ],
+  "ground_truth_used": false,
+  "model_or_api_calls": 0,
+  "database_written": false
+}

@@ -1,0 +1,41 @@
+{
+  "record_kind": "PREPARATION_TEMPLATE_NOT_EXECUTED",
+  "experiment_name": "AegisBench-first-approved-pilot-v0.1",
+  "minimum_eligible_human_gold": 10,
+  "mode": "ONLINE",
+  "planned_dataset": "First independently approved cohort; create a new frozen manifest",
+  "approved_manifest": null,
+  "approved_manifest_sha256": null,
+  "question_and_source_fingerprint": null,
+  "model": {
+    "historical_selected_tag": "aegisai-qwen25-planner:latest",
+    "immutable_digest": null,
+    "actual_provider": null,
+    "status": "NOT_FROZEN"
+  },
+  "prompt": {
+    "historical_version": "investigation-plan-v4",
+    "template_file": "backend/app/agents/investigation/investigation_plan_v4.txt",
+    "sha256": null,
+    "status": "NOT_FROZEN"
+  },
+  "runtime": {
+    "base_url_environment": "AEGIS_API_BASE",
+    "authentication_environment": "AEGIS_ASSET_TOKEN",
+    "local_binding_file": null,
+    "binding_sha256": null,
+    "client_timeout_seconds": 180,
+    "source_inventory_equivalence": "NOT_INDEPENDENTLY_ATTESTED"
+  },
+  "baselines": {
+    "rag_only": "NOT_IMPLEMENTED",
+    "agent_without_verification": "NOT_IMPLEMENTED",
+    "aegisai": "PUBLIC_HTTP_IMPLEMENTED_NOT_EXECUTED"
+  },
+  "report_policy": {
+    "unmeasured_metrics": "NOT_EVALUATED",
+    "independent_outcome_audit_required": true,
+    "configuration_drift_check": "OPERATOR_CHECK_REQUIRED_BEFORE_PUBLICATION",
+    "results": null
+  }
+}

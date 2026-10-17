@@ -1,5 +1,13 @@
 # 历史敏感信息扫描复核
 
+## Phase 13-D 补充扫描
+
+完整历史扫描首次命中 2 项：提交 `f0f23768078895dc1a11c8428c1eb17dff82179d` 的 `docs/phase13d-e2e/PROTECTED_FILES.json` 第 70、74 行。指向 `backend/app/api/openapi_contracts.py` 与 `backend/app/assets/auth.py` 的文件摘要；已从稳定基线 `59ea2a239556e70514ce19bba52141121a98d570` 的 Git blob 重新计算 SHA-256，与每条记录逐字一致。两项均为 FALSE POSITIVE。
+
+复核数据流为已跟踪源文件 → SHA-256 → 冻结文件清单，不读取环境变量或运行凭据，没有登录/授权消费方。告警由路径包含 api/auth 与长十六进制值触发；用重新计算摘要可复现，无法演示凭据泄露影响。标准复核及反向检查确认，没有依赖未经核验的防护假设；内存、并发和越界类检查不适用。两项在真实安全影响与利用验证门禁失败。仅追加这两个准确 commit/path/rule/line 指纹，不排除目录或规则。最终复扫结果另见本轮验证记录。
+
+提交 `818c539084dda495f360a9c18d6af8632851d919` 的冻结合成 HTTP 夹具另有 8 项告警，均为 `Source.source_key`。逐条符合 `VERIFY_TEST_` 或 `ORCH_SYNTHETIC_` 加随机 UUID 的结构；对照 `backend/tests/agents/verification/conftest.py` 和 `backend/tests/orchestration/fixtures.py`，数据来自 `uuid4().hex`，写入合成数据源标识再随公开 Evidence 响应导出，不读取凭据或用于认证。不存在可演示的凭据利用路径，8 项均为 FALSE POSITIVE。仅追加提交/路径/行号的8个精确指纹。没有排除整个夹具目录。
+
 工具：Gitleaks v8.30.1，[官方来源](https://github.com/gitleaks/gitleaks/releases/tag/v8.30.1)。本机 Windows 归档对照发布 checksums 验证；CI Linux 归档固定 SHA256，扫描完整 Git 历史，输出启用 100% redaction。
 
 ## 初始扫描
@@ -44,3 +52,14 @@ Gitleaks 的准确指纹忽略只适用于 Git 历史扫描；检查当前未提
 ## Phase 12-D.3 补充扫描
 
 完整历史扫描仅新增一个候选：提交 544e5f0b7d9936fcec82e0b23723a32ee12c7912 的 MANIFEST.json 第 411 行 current_openapi_sha256。通过同一提交的实际 OpenAPI Git blob 重新计算摘要，与该字段和命中行完全一致，因此它是文件校验值，不是凭据。只追加这一 commit/path/rule/line 的准确历史指纹，不排除目录、文件或规则；推送前再次扫描全部历史。
+
+## Phase 14-B3 补充扫描
+
+暂存差异命中两项，均为删除前与新增的 OpenAPI 文件校验 SHA256；已逐项与相应文件字节核对。完整历史扫描仅新增一个候选：提交 089ca470a485ed8e94daba49fe4f83733705c1d0 的 MANIFEST.json 第 451 行 current_openapi_sha256。经同提交 OpenAPI Git blob 重算完全一致，属于校验摘要。只追加该 commit/path/rule/line 准确指纹，不排除目录、文件或规则；推送前再次扫描全部历史。没有发现需提交的凭据，原始扫描输出仅保存在忽略的 work 目录。
+
+
+## C9 已验证版本同步安全复核（2026-10-17）
+
+本次暂存扫描35项、完整Git历史94个提交扫描35项，逐项定位为docs/phase14c2和phase14c5的源码文件SHA-256基线，以及交接MANIFEST的当前OpenAPI SHA-256。源码条目是受冻结校验的文件路径到64位摘要映射；可取得的原始历史文件重新计算摘要一致，OpenAPI摘要由本次实际文件字节重算一致。没有将它们解释为模型或数据库凭据。
+
+仅登记提交3b1c31bda388523929b5549360e71e86211c110d对应准确commit/path/rule/line指纹。保留原扫描规则，不排除目录或规则；后续修改相同文件仍需重新审查。扫描全程脱敏，原始报告和逐项复核记录保留本地work目录，不上传运行数据或凭据。

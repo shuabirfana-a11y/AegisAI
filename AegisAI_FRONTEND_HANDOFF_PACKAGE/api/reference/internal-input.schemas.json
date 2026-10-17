@@ -543,6 +543,20 @@
             }
           ],
           "default": null
+        },
+        "candidate_reference": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Reference"
         }
       },
       "required": [
@@ -778,6 +792,11 @@
           "title": "Model Assistance",
           "type": "boolean"
         },
+        "include_source_facts": {
+          "default": false,
+          "title": "Include Source Facts",
+          "type": "boolean"
+        },
         "supporting_artifacts": {
           "default": [],
           "items": {
@@ -812,6 +831,19 @@
           ],
           "default": null,
           "title": "Component Id"
+        },
+        "supplement_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Supplement Id"
         }
       },
       "required": [

@@ -1,0 +1,41 @@
+{
+  "phase": "14-B9.1",
+  "changes": {
+    "backend/app/enrichment/contracts.py": {
+      "baseline_sha256": "b8beec5f87f06e4465d3a7909d70fa5944b25ece338d671d735ed4cb8360deba",
+      "previous_sha256": "b8beec5f87f06e4465d3a7909d70fa5944b25ece338d671d735ed4cb8360deba",
+      "current_sha256": "5aaa248c84427291629fc3a950183d389fa28266617eee2ab49a0fee9d7af0b6",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    },
+    "backend/app/enrichment/enrichers/version.py": {
+      "baseline_sha256": "fc55df84702540a382294404047cdefc1e5429edc54e1c5ee8da3261084b0ff9",
+      "previous_sha256": "fc55df84702540a382294404047cdefc1e5429edc54e1c5ee8da3261084b0ff9",
+      "current_sha256": "e778a651a22b24da8a66e24ca0d9e6bbb8f70aef148bf80e8a366f7aeede72d3",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    },
+    "backend/app/enrichment/enrichers/vendor.py": {
+      "baseline_sha256": "616b8584a3c3ea8ebd26b2e1edaccc6f53dca46a93d8a10741a8fcd11e2a31bf",
+      "previous_sha256": "ea8bcba735230ec2fa3b86edb0d712608b33d5ddbd2124c06b2a9fc7400293fa",
+      "current_sha256": "c6d8a455a9e77c0ba7f93e338430e28bf6ea337e5b647e895a6b39ad81359975",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    },
+    "backend/app/agents/verification/snapshot.py": {
+      "baseline_sha256": "bc8c2b8b4a6a6903d812c5f9b76b8a6074d5716acdbc6f4f639435d4a1ba5890",
+      "previous_sha256": "dc2a2864a61af459547ce497258003f71a14d10d237c6315c76162fb1c8454f9",
+      "current_sha256": "4586262750bbe6f5b59f54f5fb45ad042b86bfd45301f15c306a38ea5eb5a914",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    },
+    "backend/app/agents/verification/schemas.py": {
+      "baseline_sha256": "5bc738a49874a47acfb49fb310a6de3c59e83a96321b8f550fc8506a146af6fc",
+      "previous_sha256": "5d1e71aa6019d8374ed0eca68e76816fcadc5d17074d8a30450c57d5113e30ef",
+      "current_sha256": "fdb9adc1dfdd0b0f4be709444cf00dbb09d2fbdea950bfa645c7335e77e63c21",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    },
+    "backend/app/orchestration/composer.py": {
+      "baseline_sha256": null,
+      "previous_sha256": "05dae9537a6b8f8f99ced308743cf6d2a9d22b7287ec488b4f1862426ce5f378",
+      "current_sha256": "7dff52e794dbaca173090b191a26364426661a0bcf1d79a5f84138a9e2bb03e9",
+      "authorization": "PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "diagnostic_not_formal_experiment": true,
+  "selected_ids": [
+    "GHSA-53q9-r3pm-6pq6-facts",
+    "GHSA-935w-9g4m-p28p-affected",
+    "GHSA-53q9-r3pm-6pq6-risk-affected"
+  ],
+  "max_new_investigations": 3,
+  "original_model": {
+    "provider": "openai_compatible",
+    "model_name": "aegisai-qwen25-planner:latest",
+    "temperature": 0.0,
+    "timeout_seconds": 40.0,
+    "max_output_tokens": 4096,
+    "structured_mode": "json_object",
+    "manifest_digest": "sha256:15aaf3fda3b8e9bb6724e5e9911eec3b9cbdb6bd967646b6bf49ee9846b7ec16",
+    "blobs_verified": true,
+    "runtime_attestation": "NOT_CALLED_OR_ATTESTED"
+  },
+  "profile": {
+    "MODEL_PROVIDER": "openai_compatible",
+    "MODEL_NAME": "aegisai-qwen25-planner:latest",
+    "MODEL_API_BASE": "http://127.0.0.1:11434/v1",
+    "MODEL_ALLOW_KEYLESS_LOCAL": "true",
+    "MODEL_TIMEOUT_SECONDS": "40",
+    "MODEL_MAX_OUTPUT_TOKENS": "4096",
+    "MODEL_STRUCTURED_MODE": "json_object",
+    "MODEL_REASONING_EFFORT": "none",
+    "MODEL_TOKEN_PARAMETER": "max_tokens",
+    "MODEL_EMBEDDING_PROVIDER": "mock",
+    "MODEL_EMBEDDING_NAME": "mock-embedding-v1",
+    "MODEL_EMBEDDING_DIMENSION": "384"
+  },
+  "prompt": {
+    "planner_version": "investigation-plan-v4",
+    "answer_prompt_version": "NOT_APPLICABLE_DETERMINISTIC_TEMPLATE",
+    "answer_schema_version": "answer-envelope-v1",
+    "source_files": [
+      {
+        "path": "backend/app/agents/investigation/investigation_plan_v4.txt",
+        "sha256": "ebf366a2bc24d6f348c5831e5df14850662ecf82021936439eb7de32d7468b38"
+      },
+      {
+        "path": "backend/app/agents/investigation/planner.py",
+        "sha256": "2c1f943b24dcd3c7b92909e07f2904eef47db85afb145e175526faa152fb0a11"
+      },
+      {
+        "path": "backend/app/orchestration/composer.py",
+        "sha256": "a969593c046ab2ea1de5a21cb4fd4d0f73890602a9574c55d0985dd35aebb461"
+      },
+      {
+        "path": "backend/app/orchestration/answer_contracts.py",
+        "sha256": "dd7a16499bf062ace9bed04876d799a80b31d474e54afcf82822023279f44f9e"
+      }
+    ]
+  },
+  "manifest_sha256": "0651efb54fdfe12c6c05493429dac4f73d309bb51f6297b7f66da71f84552002",
+  "bindings_sha256": "42375f2b14310f55ef0965e77301ad00e854e901ccde978f6a7c99abb056d297",
+  "model_and_prompt_modified": false,
+  "human_labels_sent": false,
+  "http_base_url": "http://127.0.0.1:8003",
+  "scoring_rules_unchanged": true,
+  "protected_runtime_and_gold": "File-hash guard in protected-before.json"
+}

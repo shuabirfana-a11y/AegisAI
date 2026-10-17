@@ -1,0 +1,940 @@
+{
+  "kind": "REAL POSTGRESQL / SCHEMA CONTRACT TESTS; NOT BENCHMARK",
+  "checked_at_utc": "2026-10-14T05:10:44.544325+00:00",
+  "exit_status": 0,
+  "passed": 186,
+  "failed": 0,
+  "skipped": 0,
+  "tests": [
+    {
+      "test": "tests/test_phase14b1_poc.py::test_artifact_is_typed_and_association_does_not_verify_exploit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_verified_requires_current_human_result_and_linked_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_conflict_cannot_be_verified",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_future_human_verification_cannot_establish_current_usability",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_candidate_source_must_match_its_original_observation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_stale_validation_cannot_borrow_freshness_from_another_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_human_result_cannot_verify_evidence_acquired_after_review",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_absence_reports_search_state_without_fake_artifact",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_damaged_provenance_is_omitted",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_public_projection_excludes_asset_scoped_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_page_status_is_independent_of_current_page_and_reads_are_pure",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[javascript:alert(1)]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[file:///tmp/poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://127.0.0.1/poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://user:pass@github.com/a/b]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?api_key=secret]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[not-a-url]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://service.local./poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[http://service.internal./poc]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?X-Amz-Credential=SYNTHETIC&X-Amz-Signature=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b?auth_token=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_reference_is_rejected[https://github.com/a/b#access_token=SYNTHETIC]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_invalid_state_or_missing_evidence_is_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_http_query_is_read_only_typed_paginated_and_not_found",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_poc_openapi_has_all_fields_and_exact_states",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_existing_enricher_emits_evidence_linked_artifact_after_verification",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_list_detail_and_poc_endpoint_have_consistent_provenance_status",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_malformed_readme_or_locator_is_invalid_evidence_not_api_failure[[]-locator0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_malformed_readme_or_locator_is_invalid_evidence_not_api_failure[{}-locator1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_malformed_readme_or_locator_is_invalid_evidence_not_api_failure[{\"encoding\":\"base64\",\"content\":[],\"size\":0}-locator2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_malformed_readme_or_locator_is_invalid_evidence_not_api_failure[{\"encoding\":\"base64\",\"content\":{\"value\":\"SYNTHETIC\"},\"size\":0}-locator3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_long_evidence_history_preserves_current_candidate_with_explicit_bounds",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_history_clipping_preserves_the_actual_validating_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_poc.py::test_malformed_readme_keeps_search_evidence_and_partial_snapshot",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14b1_agent.py::test_existing_professional_verifier_consumes_discovered_poc_and_never_executes_it",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_phase7_http_policy_rejects_arbitrary_reference_targets",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_malformed_external_json_remains_in_raw_when_parse_fails",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_epss_two_dates_remain_snapshots_and_unknown_model_is_not_api_version",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_epss_missing_record_is_no_result_without_zero_score",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_epss_wrong_cve_or_invalid_score_refuses_snapshot",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_vendor_mismatching_identifier_is_not_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_vendor_fixed_claim_has_original_advisory_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_poc_empty_search_is_no_result_and_search_snapshot_is_saved",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_incomplete_search_with_zero_results_is_partial_not_no_poc",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_poc_readme_missing_retains_candidate_with_insufficient_status",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_kev_reuses_complete_original_catalog_without_network",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_base64_readme_size_is_bounded_and_never_executes",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_patch_explicit_advisory_commit_retains_raw_link_and_full_sha",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_version_enrichment_uses_explicit_fixed_event_without_guessing",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_enrichers.py::test_reenrichment_after_no_result_detects_new_repository_and_event",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_name_only_is_not_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_explicit_mechanism_product_and_steps_remains_candidate_without_independent_reference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_scanner_is_rejected_even_when_popular_and_identified",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_poc_association_confirmed_only_with_explanatory_content_and_independent_explicit_reference",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_readme_instructions_do_not_change_candidate_rules",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_fork_and_copied_readme_cannot_independently_confirm",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_official_advisory_explicit_commit_is_strong_patch_association",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_commit_security_word_alone_does_not_confirm_patch",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_patch_url_with_short_sha_or_unrelated_owner_is_not_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_wrong_cve_vendor_payload_is_unresolved",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_explicit_vendor_fixed_version_becomes_structured_claim",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_two_independent_high_quality_agree_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_correlated_osv_ghsa_and_cve_are_one_lineage_not_three_votes",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_only_low_information_source_abstains",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_no_evidence_abstains",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_authority_does_not_suppress_explicit_contradiction",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_same_source_old_revision_is_history_not_current_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_stale_or_future_source_cannot_be_adopted",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_only_explicit_kev_positive_confirms_exploitation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_complete_catalog_absence_does_not_prove_no_exploitation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_scoped_range_conflict_and_equal_semantic_ranges",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_fixed_version_inside_current_affected_range_conflicts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_severity_versions_coexist_and_same_version_conflicts",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_unsupported_version_expression_never_fabricates_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_adjacent_source_intervals_compare_as_one_affected_set",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_rules.py::test_qualified_readme_and_independent_official_reference_confirm_association",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_enrichment_job_retains_no_result_as_terminal_outcome",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_conflict_retains_both_claims_and_review_relationship",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_rejected_claim_and_immutable_verification_can_be_stored",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_enrichment_contract_refuses_invalid_terminal_timing[override0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_enrichment_contract_refuses_invalid_terminal_timing[override1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_storage.py::test_enrichment_contract_refuses_invalid_terminal_timing[override2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_equal_claims_and_same_raw_locator_are_idempotent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_evidence_preserves_raw_source_locator_and_hash",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_critical_claim_without_evidence_cannot_pass_gate",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_confirmed_claim_has_verification_evidence_and_real_event",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_two_different_current_ranges_generate_conflict_and_review",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_same_content_sources_do_not_create_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_old_same_publisher_revision_retained_without_false_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_review_resolution_result_audit_timeline_and_retry_are_atomic",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_rejected_review_is_explicit_and_keeps_history",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_automatic_reverification_does_not_overwrite_human_resolution",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_new_evidence_appends_verification_revision_but_same_evidence_does_not",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_resolved_conflict_is_not_reopened_by_identical_sources",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_verification_retains_value_snapshot",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_typed_human_confirmation_cannot_change_to_unsupported_value",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_ghsa_reprint_uses_same_vendor_origin",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_trust.py::test_stale_current_source_assertions_do_not_manufacture_live_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_jobs_persist_no_result_and_repeat_history",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_failed_enricher_does_not_skip_other_steps",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_job_emits_structured_trace_log",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_scheduler_does_not_duplicate_pending_jobs",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[enrichment]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[claims]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[evidence]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[pocs]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[patches]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_phase7_target_read_routes[timeline]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_aggregate_keeps_phase6_and_adds_trusted_data",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_review_write_disabled_without_server_secret",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_review_token_actor_idempotency_and_stale_revision",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_api_jobs.py::test_review_confirmation_without_support_rejected",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_version_conjunction_order_preserves_bounded_membership",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_successful_identical_refresh_has_fresh_observation_not_duplicate_raw",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_a_b_a_content_restores_a_current_observation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_human_replacement_keeps_one_adopted_value_and_audit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_same_readme_with_new_official_reference_reverifies_consistently",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_resolved_pair_new_opposing_raw_requires_one_recheck",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_patch_checked_reference_limit_includes_failures",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_vendor_publication_timestamp_is_evidence_time",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_final_existing_patch_candidate_refreshes_after_vendor_recovery",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase7_final_regressions.py::test_real_api_unsupported_patched_expression_is_unknown_not_fixed_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_native_collector_preserves_raw_and_replay_is_idempotent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_feed_ingestion_indexes_without_confirming_document_association",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_invalid_feed_keeps_raw_but_does_not_create_knowledge_or_success",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_projection_never_turns_poc_name_or_association_into_verified_exploit",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_asset_projection_keeps_original_risk_and_never_returns_another_owners_rows",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_monitoring_source_failure_cannot_suppress_next_source",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_collection_enqueues_existing_enrichment_jobs_without_new_agent",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_304_reuses_matching_raw_and_does_not_erase_documents",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_unchanged_source_revision_can_refresh_aged_enrichment_jobs",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_explicit_patch_release_survives_inclusive_affected_boundary",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_corrected_feed_keeps_history_but_searches_only_current_edition[RSS_TRAIL_OF_BITS-ids0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_corrected_feed_keeps_history_but_searches_only_current_edition[ARXIV-ids1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_historical_human_exploit_result_is_not_a_current_confirmation",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_asset_projection_paginates_beyond_one_hundred_owned_assets",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_feed_source_can_return_to_previous_text_without_losing_revision_history",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_same_feed_bytes_at_different_query_urls_keep_a_valid_304_cache",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_only_current_human_validated_exploit_projects_verified",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_public_intelligence_does_not_disclose_asset_scoped_evidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_native_source_catalog_restores_adapter_metadata_without_touching_legacy_sources",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_storage.py::test_native_monitoring_bridges_explicit_cvss_facts_to_existing_evidence_tools",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_api.py::test_intelligence_api_exposes_typed_safe_projection_and_404",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_api.py::test_intelligence_assets_require_auth_and_keep_actor_scope",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/test_phase14_api.py::test_intelligence_openapi_schema_documents_source_and_poc_states",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_explicit_official_affected_range_is_confirmed",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_weak_blog_has_lower_confidence_and_cannot_confirm",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_conflicting_current_version_ranges_are_not_hidden_by_authority[False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_conflicting_current_version_ranges_are_not_hidden_by_authority[True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_no_evidence_requires_abstention_and_zero_score",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change0]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change1]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change2]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change3]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change4]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change5]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change6]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change7]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_invalid_old_future_or_unrelated_evidence_never_confirms[change8]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_correlated_mirrors_do_not_count_as_independent_confirmations",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_equivalent_ranges_historical_and_cross_scope_do_not_conflict",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_selected_claim_cannot_omit_current_counterevidence",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_explicit_rejection_and_absent_kev_are_different",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_poc_static_confirmation_never_asserts_runtime_usability",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_rules.py::test_conflict_only_task_cannot_certify_unchecked_claims",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[CISA_KEV-KNOWN_EXPLOITED-value0-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[CISA_KEV-KNOWN_EXPLOITED-value1-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[CISA_KEV-AFFECTS_VERSION-value2-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[OSV-AFFECTS_VERSION-value3-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[OSV-FIXED_VERSION-value4-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[OSV-KNOWN_EXPLOITED-value5-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[CVE_LIST-AFFECTS_PRODUCT-value6-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_catalog_scope_is_limited_to_its_existing_claim_contract[CVE_LIST-POC_EXISTS-value7-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_actual_kev_scope_reaches_original_positive_membership_rule",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[vllm-project/vllm-https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-xxxx-yyyy-zzzz-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[unrelated/repo-https://api.github.com/repos/vllm-project/vllm/security-advisories/GHSA-xxxx-yyyy-zzzz-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_package_less_vendor_confirmation_binds_exact_repository[vllm-project/vllm-https://api.github.com/repos/unrelated/repo/security-advisories/GHSA-xxxx-yyyy-zzzz-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_github_is_static_candidate_evidence_not_version_or_exploit_authority",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change0-SYNTHETIC decoded README-True]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change1-invented quote-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change2-SYNTHETIC decoded README-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change3-SYNTHETIC decoded README-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change4-SYNTHETIC decoded README-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_readme_quote_reconstructs_only_bounded_original_encoding[change5-SYNTHETIC decoded README-False]",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_decoded_readme_truncation_matches_producer_without_relaxing_other_types",
+      "phase": "call",
+      "outcome": "passed"
+    },
+    {
+      "test": "tests/agents/verification/test_source_formats.py::test_existing_readme_producer_reaches_real_gateway_as_candidate",
+      "phase": "call",
+      "outcome": "passed"
+    }
+  ]
+}

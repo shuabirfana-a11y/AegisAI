@@ -1,5 +1,6 @@
 """Transport orchestration, not security business logic or a second Runtime."""
 import logging
+import os
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from threading import BoundedSemaphore, Event, Lock
@@ -15,12 +16,14 @@ from app.agents.verification.reader import VerificationReader
 from app.agents.analysis.reader import AnalysisReader
 from app.investigation_api.repository import InvestigationRepository
 from app.investigation_api.model_execution import read_model_execution
+from app.investigation_api.context_check import check_context
 from app.investigation_api.errors import ApiFailure, not_ready
 from app.investigation_api.projection import public_copy, public_text, public_artifact
 from app.investigation_api.schemas import (
     InvestigationStatusResponse, InvestigationCreateResponse, TraceResponse, TraceStage,
     ArtifactResponse, PublicInvestigationArtifact, PublicVerificationArtifact, PublicRiskAnalysisArtifact,
     IntegrationResponse, AnswerResponse, HistoryResponse, HistoryItem,
+    ContextRequiredResponse,
 )
 
 logger = logging.getLogger('aegisai.investigation_api')
@@ -57,13 +60,19 @@ class ClaimAcknowledgementStore:
 
 
 class InvestigationApiService:
-    def __init__(self, engine, gateway=None, *, max_workers=2, ack_timeout=10):
+    def __init__(self, engine, gateway=None, *, max_workers=2, ack_timeout=10, supplement_enabled=None):
         if max_workers not in (1, 2):
             raise ValueError('API worker capacity must match existing Runtime bounds')
         self.engine = engine
         self.gateway = gateway or ModelGateway()
         self.owns_gateway = gateway is None
         self.reader = InvestigationOrchestrator(engine, self.gateway)
+        from app.orchestration.supplement.service import EvidenceSupplementService
+        setting=os.environ.get('AEGIS_EVIDENCE_SUPPLEMENT_ENABLED','0')
+        if supplement_enabled is None:
+            if setting not in ('0','1'):raise ValueError('AEGIS_EVIDENCE_SUPPLEMENT_ENABLED must be 0 or 1')
+            supplement_enabled=setting=='1'
+        self.supplements=EvidenceSupplementService(engine,self.gateway,enabled=supplement_enabled)
         self.repository = InvestigationRepository(engine)
         self.pool = ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix='investigation-api')
         self.slots, self.lock = BoundedSemaphore(max_workers), Lock()
@@ -78,7 +87,31 @@ class InvestigationApiService:
             status=context.current_stage, created_at=context.created_at, finished_at=context.finished_at)
 
     def status(self, id, *, actor):
-        return self._status(*self.reader.store.read_audit(id, actor=actor))
+        context,ns=self.reader.store.read_audit(id,actor=actor)
+        view=self.supplements.read(id,actor=actor)
+        summary=view.summary if view else self.supplements.store.read_decision(id,actor)
+        if view and view.summary.latest_result_version==2:context=view.result.context
+        with self.lock:
+            pending=(actor,context.original_request.request_key) in self.pending
+        response=self._status(context,ns)
+        return response.model_copy(update={'supplement':summary,
+            'processing_complete':not pending and (summary is None or summary.status in ('DISABLED','NOT_ELIGIBLE','COMPLETED','STOPPED','CANCELLED','FAILED')),
+            'result_version':summary.latest_result_version if summary else 1})
+
+    def result(self,id,*,actor,version=None):
+        original=self.reader.get_result(id,actor=actor)
+        if version==1:return original
+        if not hasattr(self,'supplements'):
+            if version==2:raise not_ready()
+            return original
+        view=self.supplements.read(id,actor=actor)
+        if view and view.summary.latest_result_version==2:return view.result
+        if version==2:raise not_ready()
+        return original
+
+    @staticmethod
+    def _version(result):
+        return 2 if result.context.stage_keys.get('verification','').startswith('supplement:') else 1
 
     def _created(self, id, actor, reused):
         status = self.status(id, actor=actor)
@@ -103,6 +136,9 @@ class InvestigationApiService:
             if pending and pending.request_hash != request_hash:
                 raise IdempotencyConflict('Request fingerprint mismatch')
             if not pending:
+                resolution=check_context(request,actor=actor)
+                if resolution.status=='NEED_CONTEXT':
+                    return ContextRequiredResponse(status='NEED_CONTEXT',missing_fields=resolution.missing_fields)
                 if not self.slots.acquire(blocking=False):
                     raise InvestigationBusy('INVESTIGATION_BUSY')
                 pending = Pending(request_hash, actor)
@@ -127,6 +163,7 @@ class InvestigationApiService:
         orchestrator.store = ClaimAcknowledgementStore(orchestrator.store, pending, self.lock)
         try:
             result = orchestrator.investigate(request, actor=pending.actor)
+            if self.supplements.enabled:self.supplements.maybe_run(result,actor=pending.actor)
             if pending.receipt is None:
                 # Existing process-wide capacity path returns an owned result.
                 existing = self.repository.by_key(pending.actor, request.request_key)
@@ -146,8 +183,8 @@ class InvestigationApiService:
                     self.pending.pop(key)
                 self.slots.release()
 
-    def trace(self, id, *, actor):
-        result = self.reader.get_result(id, actor=actor)
+    def trace(self, id, *, actor, version=None):
+        result = self.result(id, actor=actor,version=version)
         from app.orchestration.trace import build_trace
         for attempt in range(3):
             try:
@@ -156,7 +193,7 @@ class InvestigationApiService:
             except ValueError as exc:
                 if str(exc) not in ('TRACE_PLANNER_RUN_MISMATCH', 'TRACE_ARTIFACT_REFERENCE_INVALID'):
                     raise
-                latest_result = self.reader.get_result(id, actor=actor)
+                latest_result = self.result(id, actor=actor,version=version)
                 if latest_result.context.revision <= result.context.revision:
                     # Stable corruption remains an error; do not repair references.
                     raise
@@ -183,6 +220,7 @@ class InvestigationApiService:
         for public_run, original_run in zip(data['agent_runs'], trace.agent_runs):
             public_run['tool_calls'] = [public_copy(call.model_dump(mode='json')) for call in original_run.tool_calls]
         return TraceResponse(**data, investigation_id=id, stages=tuple(stages), revision=context.revision,
+                             supplement=self.supplements.summary(id,actor=actor),result_version=self._version(result),
                              model_execution=(read_model_execution(self.engine, context, actor=actor)
                                               if context.planner_run_id is not None else None))
 
@@ -218,38 +256,43 @@ class InvestigationApiService:
             raise ValueError('API_ARTIFACT_BINDING_INVALID')
         return inv, ver, analysis
 
-    def artifacts(self, id, *, actor):
-        result = self.reader.get_result(id, actor=actor)
+    def artifacts(self, id, *, actor,version=None):
+        result = self.result(id, actor=actor,version=version)
         inv, ver, analysis = self._sources(result.context, actor)
         return ArtifactResponse(investigation_id=id, revision=result.context.revision,
+            supplement=self.supplements.summary(id,actor=actor),result_version=self._version(result),
             investigation=public_artifact(inv, PublicInvestigationArtifact) if inv else None,
             verification=public_artifact(ver, PublicVerificationArtifact) if ver else None,
             analysis=public_artifact(analysis, PublicRiskAnalysisArtifact) if analysis else None)
 
-    def integration(self, id, *, actor):
-        result = self.reader.get_result(id, actor=actor)
+    def integration(self, id, *, actor,version=None):
+        result = self.result(id, actor=actor,version=version)
         if result.context.integration_result_id is None:
             if result.context.current_stage in TERMINAL_STAGES:
                 raise ApiFailure('RESULT_UNAVAILABLE', '该调查已终止，没有产生 Gate 结果。', status=409)
             raise not_ready()
         _, gate, _ = AnswerSourcesLoader(self.engine).load(result.context, actor=actor)
-        return IntegrationResponse.model_validate(public_copy(gate.model_dump(mode='json')))
+        return IntegrationResponse.model_validate({**public_copy(gate.model_dump(mode='json')),'result_version':self._version(result)})
 
-    def answer(self, id, *, actor):
-        result = self.reader.get_result(id, actor=actor)
+    def answer(self, id, *, actor,version=None):
+        result = self.result(id, actor=actor,version=version)
         if result.answer is None:
             raise not_ready()
-        return AnswerResponse.model_validate(public_copy(result.answer.model_dump(mode='json')))
+        return AnswerResponse.model_validate({**public_copy(result.answer.model_dump(mode='json')),'result_version':self._version(result)})
 
     def cancel(self, id, *, actor):
+        if self.supplements.enabled:self.supplements.store.cancel(id,actor)
         self.reader.cancel(id, actor=actor)
         return self.status(id, actor=actor)
 
     def history(self, *, actor, status=None, offset=0, limit=20, sort='created_desc'):
         records, total = self.repository.history(actor, status=status, offset=offset, limit=limit, sort=sort)
-        items = [HistoryItem(**self._status(context, ns).model_dump(),
-            original_question=public_text(context.original_request.user_query), answer_id=context.answer_id,
-            integration_result_id=context.integration_result_id) for context, ns in records]
+        items=[]
+        for context,ns in records:
+            latest=self.result(context.logical_investigation_id,actor=actor).context
+            items.append(HistoryItem(**self.status(context.logical_investigation_id,actor=actor).model_dump(),
+                original_question=public_text(context.original_request.user_query),answer_id=latest.answer_id,
+                integration_result_id=latest.integration_result_id))
         return HistoryResponse(items=tuple(items), total=total, offset=offset, limit=limit, sort=sort, status_filter=status)
 
     def close(self):
@@ -262,6 +305,7 @@ class InvestigationApiService:
             if item.receipt:
                 try:
                     self.reader.cancel(item.receipt.logical_id, actor=item.actor)
+                    if self.supplements.enabled:self.supplements.store.cancel(item.receipt.logical_id,item.actor)
                 except Exception:
                     logger.error('Unable to request cancellation during shutdown')
         self.pool.shutdown(wait=True, cancel_futures=False)

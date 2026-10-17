@@ -1,0 +1,18 @@
+{
+  "record_kind": "REPORT_TEMPLATE_NOT_EXECUTED",
+  "experiment_id": "Experiment-001",
+  "dataset_version": "AegisBench-v0.3-human39-20261013",
+  "approved_count": 39,
+  "rejected_count": 10,
+  "formal_experiment_executed": false,
+  "quality_status": "NOT_EVALUATED",
+  "metrics": {
+    "answer_accuracy": null,
+    "evidence_coverage": null,
+    "hallucination_rate": null,
+    "risk_accuracy": null,
+    "abstention_quality": null
+  },
+  "result_output": null,
+  "outcome_audit": "REQUIRED_AFTER_ACTUAL_OUTPUT"
+}

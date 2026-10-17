@@ -3,6 +3,7 @@ from datetime import timedelta
 from sqlalchemy import select
 from app.db import models as m
 from app.enrichment.rules import compare_claims
+from app.enrichment.version_scope import stored_scope,compare_scopes
 from app.enrichment.evidence import EvidenceService,current_evidence
 from app.enrichment.repository import digest,lock,ensure_review,emit
 from app.repositories.ingestion import unique_row
@@ -30,9 +31,32 @@ class ConflictDetectionService:
                         request_key='retire:'+str(obsolete.id),request_hash=digest([str(obsolete.id),'inactive'])))
             emit(session,target,'CONFLICT_RETIRED',str(obsolete.id),'An obsolete source conflict was retired; history retained',payload={'conflict_id':str(obsolete.id)},now=now)
         results=[]
+        assertions={}
+        for c in active:
+            scopes=[]
+            if c.claim_type in ('AFFECTS_VERSION','FIXED_VERSION'):
+                current_ids={x['id'] for x in current_evidence(session,c) if x['is_current'] and x['stance']=='support'
+                             and now-timedelta(days=30)<=x['retrieved_at']<=now+timedelta(minutes=5)}
+                for e in session.scalars(select(m.Evidence).where(m.Evidence.claim_id==c.id,m.Evidence.stance=='support')):
+                    if e.published_at and (e.published_at>now+timedelta(minutes=5)
+                        or e.published_at>e.retrieved_at+timedelta(minutes=5)):continue
+                    if str(e.id) in current_ids and (scope:=stored_scope(session,e,c.claim_type)):
+                        scopes.append(scope.model_dump(mode='json'))
+            assertions[c.id]={'type':c.claim_type,'scope':c.scope_key,'value':c.value_json,'version_scopes':scopes}
         for a,b in combinations(active,2):
-            kind=compare_claims({'type':a.claim_type,'scope':a.scope_key,'value':a.value_json},{'type':b.claim_type,'scope':b.scope_key,'value':b.value_json})
-            if not kind:continue
+            kind=compare_claims(assertions[a.id],assertions[b.id])
+            if not kind:
+                if a.scope_key==b.scope_key and a.claim_type in ('AFFECTS_VERSION','FIXED_VERSION') and b.claim_type in ('AFFECTS_VERSION','FIXED_VERSION'):
+                    comparison=compare_scopes(assertions[a.id],assertions[b.id])
+                    if comparison.result in ('DIFFERENT_SCOPE','BRANCH_DIFFERENCE'):
+                        for obsolete in session.scalars(select(m.ConflictRecord).where(m.ConflictRecord.vulnerability_id==target,
+                            m.ConflictRecord.claim_a_id.in_([a.id,b.id]),m.ConflictRecord.claim_b_id.in_([a.id,b.id]),m.ConflictRecord.status=='open')):
+                            obsolete.status='resolved';obsolete.resolved_at=now;obsolete.resolved_by='system:version-comparability-v1'
+                            obsolete.resolution={'method':'source_entry_comparability','comparison':comparison.model_dump(mode='json'),
+                                'history_and_evidence_retained':True}
+                            emit(session,target,'CONFLICT_SCOPE_RECLASSIFIED',str(obsolete.id),'Bound source entries are compatible; historical evidence retained',
+                                payload={'conflict_id':str(obsolete.id),'comparison':comparison.model_dump(mode='json')},now=now)
+                continue
             if b.adopted and not a.adopted:a,b=b,a
             ordered=sorted([str(a.id),str(b.id)])
             fingerprint=digest(sorted(x['fingerprint'] for c in (a,b) for x in current_evidence(session,c) if x['is_current'] and x['stance']=='support'))

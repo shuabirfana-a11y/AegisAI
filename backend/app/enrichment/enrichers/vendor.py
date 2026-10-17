@@ -20,12 +20,16 @@ class VendorEnricher(BaseEnricher):
                 except Exception as exc:out.errors.append(failure(exc,key));continue
                 data=parse_advisory(doc.payload,repo,ctx.canonical_id,ctx.aliases)
                 if data['association']!='MATCHED':out.unresolved.append('Vendor record did not match target');continue
+                out.unresolved.extend(data.get('unresolved',[]))
                 ctx.vendor_documents.append({'document':doc,'parsed':data,'repository':repo})
                 obs=session.get(m.SourceObservation,doc.observation_id)
+                from app.enrichment.source_facts import persist_source_facts
+                fact_claims,fact_evidence=persist_source_facts(session,ctx,obs)
+                out.claims.extend(fact_claims);out.evidence.extend(fact_evidence)
                 for item in data['claims']:
                     package=ctx.package(item['value'].get('package',''))
                     # A structured vendor record cannot silently change the target's package identity.
-                    if item['type']!='VENDOR_CONFIRMED' and (package is None or package['ecosystem']!=item['value'].get('ecosystem')):
+                    if item['type'] in ('AFFECTS_PRODUCT','AFFECTS_VERSION','FIXED_VERSION') and (package is None or package['ecosystem']!=item['value'].get('ecosystem')):
                         out.unresolved.append('Vendor package outside existing target scope');continue
                     subject={'package_identifier_id':package['package_id']} if package else None
                     claim=ClaimStore.add(session,ctx.target_id,item['type'],item['scope'],item['value'],subject=subject)

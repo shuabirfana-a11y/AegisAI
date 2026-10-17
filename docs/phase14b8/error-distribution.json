@@ -1,0 +1,27 @@
+{
+  "exclusive_question_counts": {
+    "CLAIM": 10,
+    "EVIDENCE": 20,
+    "INPUT": 5,
+    "IMPACT_SCOPE": 7,
+    "MATCH": 3,
+    "RISK": 2,
+    "UNSUPPORTED_SCOPE": 2
+  },
+  "total": 49,
+  "failed_or_unscored": 46,
+  "matched": 3,
+  "category_counts": {
+    "C": 10,
+    "G": 20,
+    "H": 5,
+    "B": 7,
+    "MATCH": 3,
+    "D": 2,
+    "I": 2
+  },
+  "model_reasoning_error": 0,
+  "model_reasoning_note": "Final verification/risk/answer are deterministic. No evidence meeting J criteria was found; not a claim that all model behaviour is correct.",
+  "evidence_top1_count": 20,
+  "evidence_count_note": "Includes 5 negative-PoC proof gaps and 5 unresolved source-scope conflicts; do not treat 20 as one fixable bug."
+}

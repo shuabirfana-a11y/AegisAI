@@ -6019,6 +6019,174 @@
       "api_status": "AVAILABLE",
       "browser_access": "AVAILABLE",
       "method": "POST",
+      "url": "/api/investigations/batches",
+      "request": {
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "body_schema": {
+          "$ref": "#/components/schemas/BatchRequest"
+        }
+      },
+      "response": {
+        "success_http_status": 202,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/batches/{id}",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/investigations/batches/{id}/summary",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
+      "url": "/api/investigations/batches/{id}/cancel",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/BatchResponse"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / server-side owner",
+      "source": "backend/app/api/investigations.py",
+      "errors": {
+        "401": "ApiError",
+        "403": "ApiError",
+        "404": "ApiError",
+        "409": "ApiError",
+        "422": "ApiError",
+        "429": "ApiError",
+        "500": "ApiError",
+        "503": "ApiError"
+      }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "POST",
       "url": "/api/investigations",
       "request": {
         "parameters": [
@@ -6054,7 +6222,7 @@
       "response": {
         "success_http_status": 202,
         "openapi_success_schema": {
-          "$ref": "#/components/schemas/InvestigationCreateResponse"
+          "$ref": "#/components/schemas/InvestigationCreateResult"
         }
       },
       "response_validation": "STRICT_PYDANTIC",
@@ -6219,6 +6387,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "body_schema": null
@@ -6258,6 +6444,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -6299,6 +6503,24 @@
               "format": "uuid",
               "title": "Id"
             }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
+            }
           }
         ],
         "body_schema": null
@@ -6338,6 +6560,24 @@
               "type": "string",
               "format": "uuid",
               "title": "Id"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "maximum": 2,
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Version"
             }
           }
         ],
@@ -6402,6 +6642,648 @@
         "500": "ApiError",
         "503": "ApiError"
       }
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence",
+      "request": {
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/IntelligencePage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/sources",
+      "request": {
+        "parameters": [],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/SourceStatusPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/records",
+      "request": {
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "vulnerability",
+                    "paper",
+                    "blog",
+                    "advisory",
+                    "analysis",
+                    "knowledge"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Type"
+            }
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 150
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Q"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/RecordPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/monitoring/runs",
+      "request": {
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 100
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Source"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/PipelineRunPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/graph/query",
+      "request": {
+        "parameters": [
+          {
+            "name": "component",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Component"
+            }
+          },
+          {
+            "name": "ecosystem",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ecosystem"
+            }
+          },
+          {
+            "name": "minimum_severity",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "CRITICAL",
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Minimum Severity"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 10,
+              "minimum": 1,
+              "default": 10,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/KnowledgeGraphPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / actor-owned assets and investigations",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/vulnerabilities/{id}/graph",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Asset Id"
+            }
+          },
+          {
+            "name": "include_assets",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Include Assets"
+            }
+          },
+          {
+            "name": "investigation_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Investigation Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/KnowledgeGraph"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / actor-owned assets and investigations",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/vulnerabilities/{id}",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/SecurityIntelligenceObject"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/documents/{id}",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/SecurityIntelligenceObject"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/vulnerabilities/{id}/poc",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/POCPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Public intelligence only; no private inventory",
+      "source": "backend/app/api/intelligence.py"
+    },
+    {
+      "api_status": "AVAILABLE",
+      "browser_access": "AVAILABLE",
+      "method": "GET",
+      "url": "/api/v1/intelligence/vulnerabilities/{id}/assets",
+      "request": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0,
+              "title": "Offset"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "default": 20,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          }
+        ],
+        "body_schema": null
+      },
+      "response": {
+        "success_http_status": 200,
+        "openapi_success_schema": {
+          "$ref": "#/components/schemas/AssetRiskPage"
+        }
+      },
+      "response_validation": "STRICT_PYDANTIC",
+      "permissions": "Bearer / actor-owned assets and investigations",
+      "source": "backend/app/api/intelligence.py"
     }
   ]
 }
