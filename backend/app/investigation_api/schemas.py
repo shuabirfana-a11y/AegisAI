@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field, AwareDatetime, create_model, 
 from app.investigation_api.context_check import MissingField
 from app.assistant.contracts import QueryRequest
 from app.tooling.contracts import ResolutionInput, Target
+from app.tooling.candidate_reference import CandidateReference
 from app.planner.schemas import PlannerInput
 from app.orchestration.contracts import (
     InvestigationRequest, InvestigationOptions, InvestigationStatus, Stage, Overall, TimeScope,
@@ -30,6 +31,7 @@ class AssetScope(PublicModel):
     snapshot_id: UUID | None = None
     component: ResolutionInput | None = None
     target: Target | None = None
+    candidate_reference: CandidateReference | None = Field(None,exclude_if=lambda v:v is None)
 
 
 class CreateOptions(InvestigationOptions):
@@ -51,7 +53,8 @@ class InvestigationCreateRequest(PublicModel):
             query=QueryRequest(question=self.user_query, asset_id=scope.asset_id,
                                target=scope.target, mode=options.mode, request_key=key,
                                realtime=options.realtime),
-            component_id=scope.component_id, snapshot_id=scope.snapshot_id, component=scope.component),
+            component_id=scope.component_id, snapshot_id=scope.snapshot_id, component=scope.component,
+            candidate_reference=scope.candidate_reference),
             time_scope=options.time_scope,
             investigation_options=InvestigationOptions(objective_profile=options.objective_profile,
                                                       timeout_seconds=options.timeout_seconds))

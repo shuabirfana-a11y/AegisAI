@@ -33,6 +33,43 @@
       "title": "AssetInput",
       "type": "object"
     },
+    "CandidateTargetInput": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "maxLength": 80,
+          "pattern": "^(CVE-\\d{4}-\\d{4,}|[0-9a-fA-F]{8}-[0-9a-fA-F-]{27})$",
+          "title": "Target",
+          "type": "string"
+        },
+        "limit": {
+          "default": 20,
+          "maximum": 100,
+          "minimum": 1,
+          "title": "Limit",
+          "type": "integer"
+        },
+        "candidate_reference": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Reference"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "title": "CandidateTargetInput",
+      "type": "object"
+    },
     "ClaimInput": {
       "additionalProperties": false,
       "properties": {
@@ -97,6 +134,20 @@
           ],
           "default": null,
           "title": "Claim Id"
+        },
+        "candidate_reference": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Reference"
         }
       },
       "required": [
@@ -534,6 +585,9 @@
   "x-roots": {
     "SearchInput": {
       "$ref": "#/$defs/SearchInput"
+    },
+    "CandidateTargetInput": {
+      "$ref": "#/$defs/CandidateTargetInput"
     },
     "TargetInput": {
       "$ref": "#/$defs/TargetInput"

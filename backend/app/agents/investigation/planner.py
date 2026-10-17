@@ -29,6 +29,9 @@ class InvestigationPlannerAdapter(LLMTaskPlanner):
         targets=[{'target':t} for t in scope['targets']]
         component={k:v for k,v in (scope.get('component') or {}).items() if v is not None}
         exact={n:targets for n in ('get_vulnerability','get_evidence','get_claims','relation_query')}
+        if scope.get('candidate_reference'):
+            exact['get_evidence']=[{**t,'candidate_reference':scope['candidate_reference']} for t in targets]
+            exact['get_vulnerability']=[{**t,'candidate_reference':scope['candidate_reference']} for t in targets]
         exact['inspect_component_version']=[{**t,**component} for t in targets] if component.get('version') else []
         exact['semantic_search']={'query':scope['question']}
         exact['get_asset']={'asset_id':scope['asset_id']} if scope.get('asset_id') else None

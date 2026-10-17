@@ -24,6 +24,8 @@ def scoped_plan_model(context):
         variants=[]
         if name in ('get_vulnerability','get_evidence','get_claims','relation_query'):
             variants=[{'target':t} for t in targets]
+            if name in ('get_evidence','get_vulnerability') and scope.get('candidate_reference'):
+                variants=[{**args,'candidate_reference':scope['candidate_reference']} for args in variants]
         elif name=='inspect_component_version' and component.get('version'):
             variants=[{'target':t,**component} for t in targets]
         elif name=='get_asset' and scope.get('asset_id'):
@@ -35,6 +37,8 @@ def scoped_plan_model(context):
                 'days':route.get('days'),'high_severity':bool(route.get('high_severity')),'ai_relevance':None}]
         for exact in variants:
             args=deepcopy(REGISTRY[name].input.model_json_schema())
+            if exact.get('candidate_reference'):
+                args['required']=list(dict.fromkeys(args.get('required',[])+['candidate_reference']))
             for key,prop in args.get('properties',{}).items():
                 # Unbound optional fields cannot be guessed; bounded pagination
                 # retains the original registered limits and defaults.
@@ -97,6 +101,13 @@ def scoped_plan_model(context):
             props['input_data']['properties']['steps'].setdefault('allOf',[]).append(
                 {'contains':lookup,'minContains':0,'maxContains':1})
         if conditions:schema['properties']['tasks']['allOf']=conditions
+        if scope.get('candidate_reference'):
+            step={'type':'object','required':['name','arguments'],'properties':{
+                'name':{'const':'get_evidence'},'arguments':{'required':['candidate_reference'],
+                'properties':{'candidate_reference':{'const':scope['candidate_reference']}}}}}
+            schema['properties']['tasks'].setdefault('allOf',[]).append({'contains':{
+                'required':['input_data'],'properties':{'input_data':{'required':['steps'],
+                'properties':{'steps':{'contains':step,'minContains':1}}}}},'minContains':1})
     # Field-level TaskContract schemas are resolved into $defs after Pydantic's
     # root json_schema_extra hook. Constrain the complete resolved schema.
     def model_schema(cls,*args,**kwargs):

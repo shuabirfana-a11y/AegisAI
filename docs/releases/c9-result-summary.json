@@ -1,0 +1,380 @@
+{
+  "record_kind": "FINAL_C9_BASELINE_SUMMARY_NOT_A_NEW_EXPERIMENT",
+  "dataset": "AegisBench-v0.4-human49-20261014",
+  "approved_count": 49,
+  "dataset_questions_sha256": "f1f4be86e202ec263c6ebac66782b74d265840d706b559d913ab0c8c5f45e6f1",
+  "gold_sha256": "1d72276e477fa552bd30364ecfabe749a1a34f6e10e266e512321271e7ce7c99",
+  "historical_c0": {
+    "strict": [
+      7,
+      49
+    ],
+    "risk": [
+      3,
+      10
+    ],
+    "fields": [
+      21,
+      94
+    ]
+  },
+  "c9": {
+    "strict": [
+      12,
+      49
+    ],
+    "risk": [
+      3,
+      10
+    ],
+    "fields": [
+      32,
+      94
+    ]
+  },
+  "human_evidence_support": "NOT_EVALUATED",
+  "hallucination_rate": "NOT_EVALUATED",
+  "historical_test_root_cause": "NOT_VERIFIED",
+  "frozen_code_base": "88741c7e5ed0d3d684a89ba9bcb67021850c8314",
+  "frozen_changed_files": [
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-input.schemas.json",
+      "sha256": "f3721ca7c0e223c50849b1f5b9c6601360d65741f51383ef64a26889196fe55f",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/internal-output.schemas.json",
+      "sha256": "edaf85d7a17a34ffbc1a5bf54ed3222bb159852cb530757676caa540c1e4887c",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/investigation-http.d.ts",
+      "sha256": "79cb96f36a2bcdac68c058027c1219c0c3c2c6f816e552a65877655f6743319d",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/investigation-http.openapi.json",
+      "sha256": "5326db961fa05f02ab86846edc2c4b635c4d9181d9fee2c1b6b566aa4f24fb3e",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/openapi.json",
+      "sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/api/reference/tool-input.schemas.json",
+      "sha256": "e89a0c2ff5b593b7ccfadbd108eba85a8cac97641bb6b8eac468d3ae43d9b419",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/generated/internal-input.ts",
+      "sha256": "bfc55ff6c8ac807680d4adf5602b32b676eb3333076197e34589e88c06588390",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/generated/internal-output.ts",
+      "sha256": "0835b5c49cf954067a9173f8b7338d2464ca3d9d780c35688396450432a4eced",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "AegisAI_FRONTEND_HANDOFF_PACKAGE/contracts/generated/tool-input.ts",
+      "sha256": "8bf6825ef71fec0e635b7afd0736a0572de8c10f08f5e975db074caa67f2786d",
+      "frozen_code": false,
+      "verification_kind": "DERIVED_CONTRACT_MIRROR_CHECKED_AGAINST_CURRENT_EXPORT"
+    },
+    {
+      "path": "backend/app/agents/investigation/normalize.py",
+      "sha256": "87356a1e540f270fae99959f200420525f94dbb30468c8fe50c3866b92c1de86",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/investigation/planner.py",
+      "sha256": "6775aeaa5fd7db6f9bae0333fc8535095b78083a42effc74b051778160e68571",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/investigation/planning.py",
+      "sha256": "6a14ec580dbf38e90f17451c1faca01bf80de58ce83301919bcb4cc9393605ad",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/investigation/service.py",
+      "sha256": "2eb1e954d99fcd78ae7d8f0e719d18607b4d2c678074dfdd27f29a6b812b222d",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/investigation/validation.py",
+      "sha256": "7aa15d8e83db29d402f0a6f3f2ea646772476e831dd306034691ab42ca2b5c14",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/verification/rules.py",
+      "sha256": "83aec756f86ad77ffd4680295cec8078902bad8d6ac368eab5c0f4528c1c127f",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/verification/schemas.py",
+      "sha256": "fdb9adc1dfdd0b0f4be709444cf00dbb09d2fbdea950bfa645c7335e77e63c21",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/agents/verification/snapshot.py",
+      "sha256": "f4d08281f86839e845eaa45b71270460188c060036985a281af2cf608cbcd689",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/conflict.py",
+      "sha256": "aee7130ebb71c064b60b64b32472242f0f00d80ee0819c4eeb5652b13abea59c",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/contracts.py",
+      "sha256": "5aaa248c84427291629fc3a950183d389fa28266617eee2ab49a0fee9d7af0b6",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/enrichers/vendor.py",
+      "sha256": "c6d8a455a9e77c0ba7f93e338430e28bf6ea337e5b647e895a6b39ad81359975",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/enrichers/version.py",
+      "sha256": "e778a651a22b24da8a66e24ca0d9e6bbb8f70aef148bf80e8a366f7aeede72d3",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/rules.py",
+      "sha256": "47b5b9f28eb089b840be07df114c1864e1bd0d0c01ed2891bde99c810ac1ad40",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/investigation_api/projection.py",
+      "sha256": "4e75f380d8ed7964826b2b765b3ff18b20d01390bedb825586ee2c5c99f8dbb0",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/investigation_api/schemas.py",
+      "sha256": "5535e731f1439c31a5420ae9af5b2e737ae86d7653555859e2bf149b3a9d2ce1",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/orchestration/composer.py",
+      "sha256": "12882724da47c6695f9939a1631292173e996aab3ecb96cd2b19cf4fe7ac6247",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/orchestration/handoff.py",
+      "sha256": "1847cf978089196e53ad861075097389412dd6c1160a0a8f2203de4e574f5ef9",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/planner/schemas.py",
+      "sha256": "d62e4aefdeb66f8b4c9b27ad5fa405c8c81a94f630f613f3fbefbcfd9df31c69",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/tooling/adapters.py",
+      "sha256": "2ae91ba2c8e97cbc2293d09bdf0f4d94a01a241aab561efdd2d9230f0aa65af2",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/tooling/contracts.py",
+      "sha256": "ef6df82c481f6f2f77346c5a1837bd196d54a2923fba9dca5d23ad0f91f6661a",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/orchestration/test_asset_handoff.py",
+      "sha256": "f7126de92f953d3c0a53dbee6e19d5a92df91e21a23a3be2ee3f5c9a65c33591",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/orchestration/test_legacy_compat.py",
+      "frozen_code": false,
+      "c9_sha256": "d57fa15e093eac0134e7b1d942fa4dbaa826e65ac088acb352a25a03ca196d6b",
+      "publication_sha256": "0e9f64adc178bb3aacfa0070583c0181ef4536fe30c1873304d569bfeac58284",
+      "verification_kind": "PORTABLE_ORIGINAL_FIXTURE_PATH_ONLY_ASSERTIONS_PRESERVED"
+    },
+    {
+      "path": "docs/frontend-contracts/internal-input.schemas.json",
+      "sha256": "f3721ca7c0e223c50849b1f5b9c6601360d65741f51383ef64a26889196fe55f",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/frontend-contracts/internal-output.schemas.json",
+      "sha256": "edaf85d7a17a34ffbc1a5bf54ed3222bb159852cb530757676caa540c1e4887c",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.d.ts",
+      "sha256": "79cb96f36a2bcdac68c058027c1219c0c3c2c6f816e552a65877655f6743319d",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/frontend-contracts/investigation-http.openapi.json",
+      "sha256": "5326db961fa05f02ab86846edc2c4b635c4d9181d9fee2c1b6b566aa4f24fb3e",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/frontend-contracts/openapi.json",
+      "sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/frontend-contracts/tool-input.schemas.json",
+      "sha256": "e89a0c2ff5b593b7ccfadbd108eba85a8cac97641bb6b8eac468d3ae43d9b419",
+      "frozen_code": true
+    },
+    {
+      "path": "evaluation/bench/http_investigation.py",
+      "sha256": "e1db75693fae61f74f3335992d0bd5855d49e5f3943c5c1e300d307763f23b87",
+      "frozen_code": true
+    },
+    {
+      "path": "evaluation/contracts/investigation-http-eval-v1.schema.json",
+      "sha256": "f9b3a3d1e385f5b550bb397ed1c3e5a771f1a9ce8661ef3164e44629163e922a",
+      "frozen_code": true
+    },
+    {
+      "path": "tests/aegisbench/test_frozen_experiment_prep.py",
+      "sha256": "8def77e382671d9776954a6bd04a4022d90c31b2d5e874e9835891bbb9c50d04",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/source_facts.py",
+      "sha256": "c0c5ea69318ca9ef47daee5f2eabfa40a2458987bedc642ec56f85e49e5a81c6",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/enrichment/version_scope.py",
+      "sha256": "96279d9a330f455fd03c4de140b09dbc4eb2e2ff28a2868457893e10f00db7b1",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/tooling/candidate_evidence.py",
+      "sha256": "1afe2866148658ed362acda3a782519f3e6d4c8e821af37e2ca843edee3b665b",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/app/tooling/candidate_reference.py",
+      "sha256": "22bef27c2ea2e797034c7d46287ff637b8edb24214462685b2572f6a322ddf43",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/agents/analysis/test_patch_scope_c5.py",
+      "sha256": "49bb9b45b9ca8f99b84657d73d149572f6f79674e0d140b2684ca430f838cecc",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/agents/test_artifact_diagnostics_b93.py",
+      "sha256": "53f14ee708ea617f104ff0032f63cc3e5d0eb35866aa2bb2f25a8b0a92fc248a",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/agents/verification/test_source_fact_contract.py",
+      "sha256": "57492518a00f758c242d01dc56032582931b48db4facd1081f33bbc47407d17e",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/diagnostics/__init__.py",
+      "sha256": "70d8c853707e88a0b11aec1a32c623354382e0dfa35635fb2ee4fafb08b6aa8f",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/diagnostics/artifact_observer.py",
+      "sha256": "1b4e388636c7e8ff0ce1d5e6bbdee3cb0415da0d4ffdc4641bcf2a47b8d74be8",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/investigation_api/test_c5_boundaries.py",
+      "sha256": "650d6c8aa2aff9889b87778a25f256f25ee16274c14959a60f3a4c9486a8c993",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/investigation_api/test_risk_artifact_stability.py",
+      "sha256": "5b8bec33b369f68de44e6e1ed8a5771553654f7065ebbd0cc2dd2ebeece3ee56",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/test_fact_projection_c3.py",
+      "sha256": "0a87c3898ee2793ac31efd11c680fc4b991563a8c1ea8abc003027b69b906ec6",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/test_patch_scope_persistence_c5.py",
+      "sha256": "f4fd04ace439156178ee4d4cdff665afe4cf1085bcdef2c7f55c780e46d921cb",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/test_phase14b9_1_facts.py",
+      "sha256": "c73321bf53c52a5feeb362177c66d907586b5b309bf7c5b575afe028f8df63f2",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/test_version_scope_c2.py",
+      "sha256": "8866d9321701f068200e6956ab8d81df6575419c5696dfa09237dff1252fe9b3",
+      "frozen_code": true
+    },
+    {
+      "path": "backend/tests/test_version_scope_storage_c2.py",
+      "sha256": "fa04676e953683b541e792c3a1e37cfc0ddebaed6b856ac623b48d1f83aa0ab3",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14b9_1/before-code.json",
+      "sha256": "e6800d471d784ec6dd71cc984ccf5121903bee0cc7e0a99c13c349d9070076ba",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14b9_1/source_hash_exceptions.json",
+      "sha256": "e3c3c39988320f731d7ae8b5bb73c22a3012a6763660f152c997e0f82b9b7931",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14c2/before-code.json",
+      "sha256": "c8e6d66dd22c3a2e2529a000daa6cb37025eccf873f21c7d07ac059dd48311b4",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14c2/source_hash_exceptions.json",
+      "sha256": "d44fa135130e3d9b6d271c59cd31947161ea5c20ece4884947f27db6fe965bf4",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14c3/source_hash_exceptions.json",
+      "sha256": "114e943c66b8b506d0e22e849b8fb15a119f9fa07c6c5fab4785358f9ae8df64",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14c5/before-code.json",
+      "sha256": "df1970896d0115ca0df0efc52db6411d34ae47a9a532c301ca6aa4d899550ee1",
+      "frozen_code": true
+    },
+    {
+      "path": "docs/phase14c5/source_hash_exceptions.json",
+      "sha256": "ff7c30556297931ffb5618488506698d9fa27aeaa0e738ff7e15cc6b09e511c4",
+      "frozen_code": true
+    }
+  ],
+  "excluded_unverified_c10": [
+    "backend/app/enrichment/acquisition.py",
+    "backend/app/enrichment/parsing.py",
+    "backend/tests/test_authoritative_vendor_c10.py"
+  ],
+  "raw_runs_and_database": "RETAINED_LOCALLY_NOT_PUBLISHED",
+  "source_mode": "FROZEN_PUBLIC_SOURCE_REPLAY_REAL_MODEL",
+  "formal_passes": 1,
+  "publication_only_changes": [
+    "Latest README/CURRENT_STATUS release entry",
+    "Versioned original C5 compatibility source bytes and guard read path",
+    "Derived TypeScript mirrors, handoff manifest and ZIP refreshed"
+  ]
+}

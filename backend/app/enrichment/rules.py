@@ -72,6 +72,10 @@ def evaluate_claim(kind,value,evidence,now):
 def compare_claims(a,b):
     if a['scope']!=b['scope']:return None
     ta,tb=a['type'],b['type'];va,vb=a['value'],b['value']
+    if ta in ('AFFECTS_VERSION','FIXED_VERSION') and tb in ('AFFECTS_VERSION','FIXED_VERSION'):
+        from app.enrichment.version_scope import compare_scopes
+        result=compare_scopes(a,b).result
+        if result in ('DIFFERENT_SCOPE','BRANCH_DIFFERENCE','NOT_COMPARABLE'):return None
     if {ta,tb}=={'AFFECTS_VERSION','FIXED_VERSION'}:
         affected,fixed=(va,vb) if ta=='AFFECTS_VERSION' else (vb,va)
         return 'VERSION_CONFLICT' if contains(affected,fixed.get('version')) is True else None

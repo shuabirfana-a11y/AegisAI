@@ -41,6 +41,7 @@ class VerificationRequest(Bounded):
     claim_ids: tuple[Identifier, ...] = Field(default=(), max_length=32)
     request_key: str = Field(min_length=1, max_length=150)
     model_assistance: StrictBool = False
+    include_source_facts: StrictBool = Field(default=False,exclude_if=lambda v:not v)
     supporting_artifacts: tuple[InvestigationArtifactReference,...] = Field(default=(),max_length=16,exclude_if=lambda v:not v)
     asset_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
     component_id: UUID | None = Field(None,exclude_if=lambda v:v is None)
@@ -77,6 +78,15 @@ class VerificationClaim(Bounded):
     origin: Literal['stored','derived'] = 'derived'
     source_field: str | None = Field(None, max_length=500)
     evidence_ids: tuple[Identifier, ...] = Field(default=(), max_length=16)
+
+    @model_validator(mode='after')
+    def typed_source_fact(self):
+        from app.enrichment.source_facts import FACT_TYPES, fact_value
+        if self.claim_type in FACT_TYPES:
+            fact_value(self.claim_type,self.value)
+            if self.package_identifier_id is not None or self.impact_scope is not None:
+                raise ValueError('Source facts are vulnerability-scoped, not asset decisions')
+        return self
 
 
 class VerificationEvidence(Bounded):

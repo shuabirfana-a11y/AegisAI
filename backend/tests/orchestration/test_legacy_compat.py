@@ -101,7 +101,49 @@ def test_old_api_and_business_source_hashes_are_unchanged():
                                   'backend/app/enrichment/enrichers/vendor.py'}
     assert set(impact_changes)=={'backend/app/orchestration/composer.py','backend/app/agents/verification/schemas.py',
         'backend/app/agents/verification/snapshot.py','backend/app/investigation_api/projection.py'}
+    fact_changes=json.loads((root/'docs/phase14b9_1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    assert set(fact_changes)=={'backend/app/agents/verification/schemas.py', 'backend/app/enrichment/enrichers/vendor.py', 'backend/app/orchestration/composer.py', 'backend/app/agents/verification/snapshot.py', 'backend/app/enrichment/contracts.py', 'backend/app/enrichment/enrichers/version.py'}
+    before_fact=json.loads((root/'docs/phase14b9_1/before-code.json').read_text(encoding='utf-8'))
+    c2_changes=json.loads((root/'docs/phase14c2/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    before_c2=json.loads((root/'docs/phase14c2/before-code.json').read_text(encoding='utf-8'))
+    assert set(c2_changes)=={'backend/app/enrichment/conflict.py','backend/app/enrichment/rules.py',
+                            'backend/app/agents/verification/snapshot.py','backend/app/agents/verification/rules.py'}
+    c5_changes=json.loads((root/'docs/phase14c5/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes']
+    before_c5=json.loads((root/'docs/phase14c5/before-code.json').read_text(encoding='utf-8'))
+    guarded_c5={'backend/app/agents/investigation/normalize.py','backend/app/agents/investigation/planner.py',
+        'backend/app/agents/investigation/planning.py','backend/app/agents/investigation/service.py',
+        'backend/app/agents/investigation/validation.py','backend/app/planner/schemas.py',
+        'backend/app/tooling/adapters.py','backend/app/tooling/contracts.py'}
+    assert set(c5_changes)&set(baseline)==guarded_c5
     for path,digest in baseline.items():
+        if path in guarded_c5:
+            entry=c5_changes[path]
+            prior=next((group[path]['current_sha256'] for group in
+                (c2_changes,fact_changes,primary_changes,impact_changes,supplement_changes,regression_changes,
+                 batch_changes,frontend_changes,poc_changes,monitoring_changes,f3_changes,f2_changes,
+                 asset_changes,planner_changes,changes) if path in group),digest)
+            if path in allowed:
+                prior=hashlib.sha256((root/'docs/phase14c5/compatibility-baseline'/path).read_bytes()).hexdigest()
+            assert entry['baseline_sha256']==digest and entry['previous_sha256']==before_c5[path]==prior,path
+            assert entry['authorization']=='PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
+        if path in c2_changes:
+            entry=c2_changes[path]
+            prior=next((group[path]['current_sha256'] for group in
+                (fact_changes,primary_changes,impact_changes,supplement_changes,regression_changes,
+                 batch_changes,frontend_changes,poc_changes,monitoring_changes,f3_changes,f2_changes,
+                 asset_changes,planner_changes,changes) if path in group),digest)
+            assert entry['baseline_sha256']==digest and entry['previous_sha256']==before_c2[path]==prior,path
+            assert entry['authorization']=='PHASE14C2_USER_AUTHORIZED_SOURCE_SCOPE_COMPARABILITY_ONLY',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
+        if path in fact_changes:
+            entry=fact_changes[path]
+            assert entry['baseline_sha256']==digest and entry['previous_sha256']==before_fact[path],path
+            assert entry['authorization']=='PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY',path
+            assert hashlib.sha256((root/path).read_bytes()).hexdigest()==entry['current_sha256'],path
+            continue
         if path in primary_changes:
             entry=primary_changes[path]
             assert entry['baseline_sha256']==digest and entry['previous_sha256']==digest,path

@@ -1,0 +1,66 @@
+{
+  "historical_baseline_modified": false,
+  "business_test_expectations_modified": false,
+  "changes": {
+    "backend/app/agents/investigation/normalize.py": {
+      "baseline_sha256": "4e30e52ebbd80b3c3a216adc7dd3e1929a8814e4a238d961da1e6cf18c1a3adb",
+      "previous_sha256": "4e30e52ebbd80b3c3a216adc7dd3e1929a8814e4a238d961da1e6cf18c1a3adb",
+      "current_sha256": "87356a1e540f270fae99959f200420525f94dbb30468c8fe50c3866b92c1de86",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/agents/investigation/planner.py": {
+      "baseline_sha256": "2ace4a1acfd9b6e6e35767eda0ea46219a9225b8178b22f5d6ac0115fd21c365",
+      "previous_sha256": "29cd0632af65905c900fc44b4625a7193f86918d9ad935297f627ad058828508",
+      "current_sha256": "6775aeaa5fd7db6f9bae0333fc8535095b78083a42effc74b051778160e68571",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/agents/investigation/planning.py": {
+      "baseline_sha256": "c7c0986bcab8d41a40ee067012314e7459248df142f4c454ba97041100540135",
+      "previous_sha256": "3f47170795611bf679a360899c0a19be06884f76e108c0ad2b4275cae5d0fa42",
+      "current_sha256": "6a14ec580dbf38e90f17451c1faca01bf80de58ce83301919bcb4cc9393605ad",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/agents/investigation/service.py": {
+      "baseline_sha256": "565251bb40962ed7b3692f12ba21013ab728374942bd453d4fd65307b14656d9",
+      "previous_sha256": "09c95b3c8e6b4786bcd60ee4154e5819656d0fa8f3225fb28e9b30de862bc49f",
+      "current_sha256": "2eb1e954d99fcd78ae7d8f0e719d18607b4d2c678074dfdd27f29a6b812b222d",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/agents/investigation/validation.py": {
+      "baseline_sha256": "23864ef1f761f253d7eecebd80ff609c15291a1ec20f4ea6f48cf7dcce254be9",
+      "previous_sha256": "23864ef1f761f253d7eecebd80ff609c15291a1ec20f4ea6f48cf7dcce254be9",
+      "current_sha256": "7aa15d8e83db29d402f0a6f3f2ea646772476e831dd306034691ab42ca2b5c14",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/investigation_api/projection.py": {
+      "baseline_sha256": null,
+      "previous_sha256": "fd0c81b07811ec6ec0350cf79ced8ec9c790f1644389f7fe84398d9beb022b76",
+      "current_sha256": "4e75f380d8ed7964826b2b765b3ff18b20d01390bedb825586ee2c5c99f8dbb0",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/investigation_api/schemas.py": {
+      "baseline_sha256": null,
+      "previous_sha256": "15c4a36cbcab795d70f78016b678a7026acfd8cbc49e68260a4c1a65dff46413",
+      "current_sha256": "5535e731f1439c31a5420ae9af5b2e737ae86d7653555859e2bf149b3a9d2ce1",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/planner/schemas.py": {
+      "baseline_sha256": "9a5e96634d31a3d2053a5137019b23be3ebc9de964197f373332d3034aab6f37",
+      "previous_sha256": "466cfd82553948e293aece57788e6a8a83f5512eda4e9df15cb198dd1da02009",
+      "current_sha256": "d62e4aefdeb66f8b4c9b27ad5fa405c8c81a94f630f613f3fbefbcfd9df31c69",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/tooling/adapters.py": {
+      "baseline_sha256": "59bb2965aa691cd221af6573086b2dc4715584290c663da87cd6a128067fe6b5",
+      "previous_sha256": "8c2f182632d1ab97655ef830b9ebab9acde2ef27563ec0fa6294829d7aa4b43c",
+      "current_sha256": "2ae91ba2c8e97cbc2293d09bdf0f4d94a01a241aab561efdd2d9230f0aa65af2",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    },
+    "backend/app/tooling/contracts.py": {
+      "baseline_sha256": "2b1568d1ef9edf8525335bb36373f93a1eef174d7cf760e9dfed471d95352aa0",
+      "previous_sha256": "3d1502165eb6dad56dc07f2ac3c43770f9cb14eb579230696693cf0b5afc56a5",
+      "current_sha256": "ef6df82c481f6f2f77346c5a1837bd196d54a2923fba9dca5d23ad0f91f6661a",
+      "authorization": "PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS"
+    }
+  }
+}

@@ -14,6 +14,7 @@ def validate_investigation_plan(plan,context):
     scope=context.scope; route=context.route
     if route.get('blocked'):reject('REQUEST_BLOCKED')
     covered=set(); observed_versions=set(); asset_covered=False; version_input=False
+    candidate_covered=False
     ids={t.task_id for t in plan.tasks}
     if len(ids)!=len(plan.tasks):reject('DUPLICATE_TASK')
     missing=missing_fields(scope,context.policy)
@@ -34,6 +35,11 @@ def validate_investigation_plan(plan,context):
             try:args=spec.input.model_validate(step.arguments).model_dump(mode='json',exclude_none=True)
             except (ValueError,TypeError):reject('TOOL_INPUT_INVALID',path)
             if args.get('refresh'):reject('REFRESH_FORBIDDEN',path)
+            if scope.get('candidate_reference') and step.name=='get_vulnerability' and not args.get('candidate_reference'):
+                reject('CANDIDATE_LOOKUP_REQUIRED',path)
+            if args.get('candidate_reference'):
+                if args['candidate_reference']!=scope.get('candidate_reference'):reject('CANDIDATE_SCOPE_MISMATCH',path)
+                if step.name=='get_evidence':candidate_covered=True
             if 'target' in args:
                 if args['target'] not in scope['targets']:reject('TARGET_SCOPE_MISMATCH',path)
                 if step.name=='get_vulnerability':covered.add(args['target'])
@@ -53,6 +59,7 @@ def validate_investigation_plan(plan,context):
                 if str(args.get('product') or '').casefold()!=str(product or '').casefold():reject('PRODUCT_SCOPE_MISMATCH',path)
                 if args.get('days')!=route.get('days') or args.get('high_severity',False)!=bool(route.get('high_severity')) or args.get('ai_relevance') is not None:reject('FILTER_SCOPE_MISMATCH',path)
     if not set(scope['targets'])<=covered:reject('TARGET_COVERAGE_MISSING')
+    if scope.get('candidate_reference') and not candidate_covered:reject('CANDIDATE_REFERENCE_REQUIRED')
     if (scope.get('component') or {}).get('version') and scope['targets'] and not set(scope['targets'])<=observed_versions:reject('VERSION_OBSERVATION_REQUIRED')
     if scope.get('component') and scope['asset_analysis'] and scope['targets'] and not scope['component'].get('version') and not version_input:reject('VERSION_INPUT_REQUIRED')
     if scope.get('asset_id') and not asset_covered:reject('ASSET_LOOKUP_REQUIRED')

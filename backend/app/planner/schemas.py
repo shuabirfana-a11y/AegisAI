@@ -7,6 +7,7 @@ from pydantic import ConfigDict, Field, model_validator
 from app.assistant.contracts import QueryRequest
 from app.runtime.contracts import FrozenModel, TaskContract, TaskInput, RuntimePolicy, json_bytes
 from app.tooling.contracts import ResolutionInput
+from app.tooling.candidate_reference import CandidateReference
 
 PlannerType = Literal['vulnerability_lookup', 'version_match', 'evidence_search',
                       'patch_analysis', 'risk_analysis']
@@ -24,6 +25,7 @@ class PlannerInput(FrozenModel):
     component_id: UUID | None = None
     snapshot_id: UUID | None = None
     component: ResolutionInput | None = None
+    candidate_reference: CandidateReference | None = Field(None,exclude_if=lambda v:v is None)
 
 def _task_input_schema():
     schema = TaskInput.model_json_schema()

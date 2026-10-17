@@ -19,6 +19,7 @@ class ArtifactSelection(Sized):
     supporting_artifacts: tuple[InvestigationArtifactReference,...] = ()
     asset_id: UUID | None = None
     component_id: UUID | None = None
+    include_source_facts: bool = Field(default=False,exclude_if=lambda v:not v)
 
 
 def artifact_ref(artifact):
@@ -88,7 +89,8 @@ def select_investigation(result: InvestigationRunResult,scope,plan: TaskPlan):
         and traces.get(artifact.task_id) is not None and traces[artifact.task_id].status=='WAITING_REVIEW')
     return ArtifactSelection(artifact=artifact,admission='VERIFY_ONLY' if verify_only else 'STOP' if reasons else 'CONTINUE',
         reasons=tuple(reasons),optional_tasks=tuple(optional),supporting_artifacts=tuple(supporting),
-        asset_id=scope.planner_input.query.asset_id,component_id=scope.planner_input.component_id)
+        asset_id=scope.planner_input.query.asset_id,component_id=scope.planner_input.component_id,
+        include_source_facts=scope.objective_profile=='overview_v1')
 
 
 def build_verification_request(selection,stage_key):
@@ -96,7 +98,8 @@ def build_verification_request(selection,stage_key):
     art=selection.artifact
     return VerificationRequest(source_run_id=art.run_id,source_task_id=art.task_id,
         source_artifact_id=art.artifact_id,request_key=stage_key,task_type='evidence_verification',model_assistance=False,
-        supporting_artifacts=selection.supporting_artifacts,asset_id=selection.asset_id,component_id=selection.component_id)
+        supporting_artifacts=selection.supporting_artifacts,asset_id=selection.asset_id,component_id=selection.component_id,
+        include_source_facts=selection.include_source_facts)
 
 
 def verification_admitted(result,investigation):

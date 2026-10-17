@@ -1,3 +1,5 @@
+**当前可协作版本：C9 已验证基线；C10 正在本地验证。** [最新交付与已知限制](docs/releases/C9_VERIFIED_BASELINE.md)。历史阶段说明与测试数字按 CURRENT_STATUS.md 的最新入口解读。
+
 # AegisAI
 
 **面向 AI 生态的可信安全情报与自主调查智能体系统。**

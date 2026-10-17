@@ -10,6 +10,9 @@ class VersionEnricher(BaseEnricher):
         out=WorkOutcome()
         for oid in ctx.current_observation_ids:
             obs=session.get(m.SourceObservation,oid);data=obs.normalized_payload;groups=defaultdict(list)
+            from app.enrichment.source_facts import persist_source_facts
+            fact_claims,fact_evidence=persist_source_facts(session,ctx,obs)
+            out.claims.extend(fact_claims);out.evidence.extend(fact_evidence)
             out.checked.append({'source':session.get(m.Source,obs.source_id).source_key,'raw_document_id':str(obs.raw_document_id),
                 'checked_at':obs.retrieved_at.isoformat(),'scope':'current Phase6 normalized observation; no network'})
             for item in data.get('affected_versions') or []:

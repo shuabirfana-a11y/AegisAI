@@ -4,6 +4,7 @@ from itertools import combinations
 from app.agents.contracts import fingerprint
 from app.enrichment.rules import evaluate_claim, compare_claims
 from app.enrichment.contracts import VerificationStatus as Status
+from app.enrichment.version_scope import evidence_scopes,compare_scopes
 from app.agents.verification.snapshot import authority_weight, scope_supported
 from app.agents.verification.schemas import (
     VerificationContext,VerificationAssessment,ClaimVerification,VerificationConflict,
@@ -56,8 +57,8 @@ def _scan_conflicts(claims,evidence,selected=()):
         if ea.evidence_id==eb.evidence_id or scopes[a.claim_id]!=scopes[b.claim_id]:continue
         # Use observed source values, including two different values bound to one Claim.
         scope=scopes[a.claim_id]
-        kind=compare_claims({'scope':scope,'type':a.claim_type,'value':ea.observed_value},
-                            {'scope':scope,'type':b.claim_type,'value':eb.observed_value})
+        kind=compare_claims({'scope':scope,'type':a.claim_type,'value':ea.observed_value,'version_scopes':evidence_scopes(ea,a.claim_type)},
+                            {'scope':scope,'type':b.claim_type,'value':eb.observed_value,'version_scopes':evidence_scopes(eb,b.claim_type)})
         if not kind:continue
         claim_ids=tuple(sorted({a.claim_id,b.claim_id}));evidence_ids=tuple(sorted({ea.evidence_id,eb.evidence_id}))
         for identifier in claim_ids:affected.setdefault(identifier,set()).update(evidence_ids)
@@ -104,6 +105,22 @@ def evaluate_snapshot(context,*,claim_ids=()):
         bad=_eligible(item,c,context.evaluation_time)
         if bad:excluded.setdefault(c.claim_id,[]).append({'evidence_id':item.evidence_id,'reasons':list(bad)})
         else:usable.append(item)
+    # Historical derived counter-evidence stays in the sealed snapshot. Its
+    # applicability is checked against valid supporting source-entry witnesses.
+    retained=[]
+    for item in usable:
+        c=by_claim[item.claim_id]
+        if item.stance=='contradict' and item.details.get('conflict_id') and c.claim_type in ('AFFECTS_VERSION','FIXED_VERSION'):
+            support_scopes=[scope for e in usable if e.claim_id==c.claim_id and e.stance=='support'
+                            for scope in evidence_scopes(e,c.claim_type)]
+            comparison=compare_scopes({'type':c.claim_type,'value':c.value,'version_scopes':support_scopes},
+                {'type':c.claim_type,'value':item.observed_value,'version_scopes':evidence_scopes(item,c.claim_type)})
+            if comparison.result in ('DIFFERENT_SCOPE','BRANCH_DIFFERENCE'):
+                excluded.setdefault(c.claim_id,[]).append({'evidence_id':item.evidence_id,
+                    'reasons':['PROVEN_DIFFERENT_VERSION_SCOPE'],'comparison':comparison.model_dump(mode='json')})
+                continue
+        retained.append(item)
+    usable=retained
     conflicts,conflicts_omitted,conflict_map=_scan_conflicts(claims,tuple(usable),selected)
     results=[];warnings=list(context.snapshot.warnings);support_ids=set();conflict_ids=set()
     if conflicts_omitted:warnings.append('CONFLICT_LIMIT_REACHED: detailed relationships capped at 128; all bounded source pairs were checked')

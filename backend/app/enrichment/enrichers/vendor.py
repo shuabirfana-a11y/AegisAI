@@ -23,6 +23,9 @@ class VendorEnricher(BaseEnricher):
                 out.unresolved.extend(data.get('unresolved',[]))
                 ctx.vendor_documents.append({'document':doc,'parsed':data,'repository':repo})
                 obs=session.get(m.SourceObservation,doc.observation_id)
+                from app.enrichment.source_facts import persist_source_facts
+                fact_claims,fact_evidence=persist_source_facts(session,ctx,obs)
+                out.claims.extend(fact_claims);out.evidence.extend(fact_evidence)
                 for item in data['claims']:
                     package=ctx.package(item['value'].get('package',''))
                     # A structured vendor record cannot silently change the target's package identity.

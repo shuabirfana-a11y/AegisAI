@@ -8810,6 +8810,19 @@
               }
             ],
             "title": "Target"
+          },
+          "candidate_reference": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Reference"
           }
         },
         "additionalProperties": false,
@@ -9613,7 +9626,9 @@
           "VENDOR_CONFIRMED",
           "EXPLOIT_CONDITION",
           "REMEDIATION",
-          "CVSS_SCORE"
+          "CVSS_SCORE",
+          "CWE",
+          "SOURCE_FACT"
         ],
         "title": "ClaimType"
       },
@@ -13303,6 +13318,19 @@
                 "type": "null"
               }
             ]
+          },
+          "candidate_reference": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2000,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Candidate Reference"
           }
         },
         "additionalProperties": false,

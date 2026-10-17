@@ -27,8 +27,8 @@
     },
     {
       "path": "api/INVESTIGATION_API.md",
-      "bytes": 9755,
-      "sha256": "5fa4c315c4340bc285e9a0544ba0fc296f4273d5c9643cfccf896191b69ece2e"
+      "bytes": 12750,
+      "sha256": "c2772c09c4150eeaa32b66e3f60fc77144495bec1d431d8c64bdbb318883cfae"
     },
     {
       "path": "api/proposed-investigations.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "api/reference/http-apis.json",
-      "bytes": 198425,
-      "sha256": "e854541d3ae6a7974c5eaa3986f4a786ec9abb72218e2e39f55f77bc94a7d08f"
+      "bytes": 200157,
+      "sha256": "8ac5226a8fb448f5138fafd5c09c70ea860ef22a38e119943895c2fc41e4d35c"
     },
     {
       "path": "api/reference/http-data-columns.d.ts",
@@ -107,8 +107,8 @@
     },
     {
       "path": "api/reference/internal-input.schemas.json",
-      "bytes": 19750,
-      "sha256": "39ff06cccc3429228ea836078faa02c5dcf16d3171acf0fb8c46ba62d60f986a"
+      "bytes": 20503,
+      "sha256": "f3721ca7c0e223c50849b1f5b9c6601360d65741f51383ef64a26889196fe55f"
     },
     {
       "path": "api/reference/internal-output.d.ts",
@@ -117,23 +117,23 @@
     },
     {
       "path": "api/reference/internal-output.schemas.json",
-      "bytes": 141335,
-      "sha256": "9633d327760cb24acce5ed0f55b345405bc17646489927612140d0bb3969d3fc"
+      "bytes": 149317,
+      "sha256": "edaf85d7a17a34ffbc1a5bf54ed3222bb159852cb530757676caa540c1e4887c"
     },
     {
       "path": "api/reference/investigation-client.ts",
-      "bytes": 3367,
-      "sha256": "966baabfea36d1650a4a89438a86cceac6ddc5c2c8c5a5bf4da18ea8348c43b1"
+      "bytes": 3655,
+      "sha256": "a6b4080c0c331543baafb34242f558fdc47c06d3815ca7f5aacb5dc905c5d020"
     },
     {
       "path": "api/reference/investigation-http.d.ts",
-      "bytes": 28628,
-      "sha256": "ea0bc387a3384cc164490c174ac320b26fae065cf5808fd02029c0a26378b9cb"
+      "bytes": 31862,
+      "sha256": "79cb96f36a2bcdac68c058027c1219c0c3c2c6f816e552a65877655f6743319d"
     },
     {
       "path": "api/reference/investigation-http.openapi.json",
-      "bytes": 188718,
-      "sha256": "b7c559362e95a2bb431204d313a64ceeb2ba8febf94e7fcfee2598686426a759"
+      "bytes": 209628,
+      "sha256": "5326db961fa05f02ab86846edc2c4b635c4d9181d9fee2c1b6b566aa4f24fb3e"
     },
     {
       "path": "api/reference/legacy-output.d.ts",
@@ -147,8 +147,8 @@
     },
     {
       "path": "api/reference/openapi.json",
-      "bytes": 440212,
-      "sha256": "a6392a3aca465695ca2a6c637371c823849f5a764ed3aba6bd64e90ae0736ef8"
+      "bytes": 461122,
+      "sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde"
     },
     {
       "path": "api/reference/phase12c-http-probes.json",
@@ -167,8 +167,8 @@
     },
     {
       "path": "api/reference/tool-input.schemas.json",
-      "bytes": 12210,
-      "sha256": "c8a2d3858ffc1c372aa4fc84a80c13fea037958fd0eadc1510209106dd0dc372"
+      "bytes": 14403,
+      "sha256": "e89a0c2ff5b593b7ccfadbd108eba85a8cac97641bb6b8eac468d3ae43d9b419"
     },
     {
       "path": "api/reference/tools.registry.json",
@@ -212,13 +212,13 @@
     },
     {
       "path": "contracts/generated/internal-input.ts",
-      "bytes": 3780,
-      "sha256": "8b29e04530e1c5d02e459d45f9f6a6d48ce907e69154774eb2de3e41de976b3b"
+      "bytes": 3896,
+      "sha256": "bfc55ff6c8ac807680d4adf5602b32b676eb3333076197e34589e88c06588390"
     },
     {
       "path": "contracts/generated/internal-output.ts",
-      "bytes": 28764,
-      "sha256": "76ec009dc9d4817bafc0e86d87688bb76a1a4ac0751c1608ef7eed9dbff72435"
+      "bytes": 28788,
+      "sha256": "0835b5c49cf954067a9173f8b7338d2464ca3d9d780c35688396450432a4eced"
     },
     {
       "path": "contracts/generated/legacy-output.ts",
@@ -227,8 +227,8 @@
     },
     {
       "path": "contracts/generated/tool-input.ts",
-      "bytes": 2830,
-      "sha256": "4dabf4ce0aeaa9a46280bff172f1226d655532e1bcdac0c2e7a67c7d846bca3e"
+      "bytes": 2169,
+      "sha256": "8bf6825ef71fec0e635b7afd0736a0572de8c10f08f5e975db074caa67f2786d"
     },
     {
       "path": "contracts/HttpContracts.ts",
@@ -327,8 +327,8 @@
     },
     {
       "path": "docs/FRONTEND_TEAM_HANDOFF.md",
-      "bytes": 24510,
-      "sha256": "6193e45812d5b267a91cd393ecabd97a44e481e512e7ec6679cda6313071753f"
+      "bytes": 27505,
+      "sha256": "e62bb1de018d4c968ac6ac51a995c6724b5041c6645b598a6ca236a3a4c6d533"
     },
     {
       "path": "docs/KNOWLEDGE_GRAPH_API.md",
@@ -436,9 +436,14 @@
       "sha256": "53685747865d9a085014f71cfe27e5a120c4adb2bd9c560ae8bac8e33f0ec848"
     },
     {
+      "path": "PHASE14C9_VERIFICATION.json",
+      "bytes": 797,
+      "sha256": "61e4832fb11f90e2cced9abe9c0d26aa22db10e557c9748b5f6dadbcf13ee56a"
+    },
+    {
       "path": "README.md",
-      "bytes": 5701,
-      "sha256": "ffdaf8f0c6adee8c258afea58afba13eee85be9dab311d0bc14fc987cd340114"
+      "bytes": 6454,
+      "sha256": "44a003e10e45617bb96efe243865c88f502e83bd4b16c91c53248f9fef030757"
     },
     {
       "path": "VALIDATION.json",
@@ -446,9 +451,9 @@
       "sha256": "7d5030b0e141d92931b502eb2b934d0159cdfaa9ee3b7ba27287280915928c2c"
     }
   ],
-  "file_count_excluding_manifest": 88,
+  "file_count_excluding_manifest": 89,
   "manifest_self_hash_included": false,
-  "current_openapi_sha256": "028ffb1d8d3812ee5271a165e1686bcf9786b0a035e344e021c21dbca294b0e7",
+  "current_openapi_sha256": "40ec5297209ca2c2d016b2161f72e7db6beaba5d4ad3cc4961fbf50eb2b73bde",
   "source_baseline_sha256": "a58a5febcf8f09892b7a02ee3423413d85bf41e07356fa5618746b5887f558bb",
   "business_files_checked": 258,
   "original_handoff_artifacts_unchanged": false,
@@ -460,11 +465,12 @@
     "original_handoff_artifacts_unchanged_at_initial_creation": true,
     "current_handoff_type_compatibility_correction": true
   },
-  "updated_at_utc": "2026-10-14T15:21:29.477956+00:00",
-  "current_phase": "14-B3",
-  "verification_file": "PHASE14B3_VERIFICATION.json",
+  "updated_at_utc": "2026-10-17T03:46:53.765647+00:00",
+  "current_phase": "14-C9",
+  "verification_file": "PHASE14C9_VERIFICATION.json",
   "phase12c_code_baseline_commit": "8e0bfe6bd398d26fc7270e5f0b5aeb6d03d354fd",
   "historical_manifest_fields_preserved": true,
   "model_validation_status": "SAVED_REAL_INVESTIGATION_READ_ONLY_PROJECTION",
-  "phase14b3_note": "Historical test fields remain historical; current checks are in PHASE14B3_VERIFICATION.json. No new inference or scoring."
+  "phase14b3_note": "Historical test fields remain historical; current checks are in PHASE14B3_VERIFICATION.json. No new inference or scoring.",
+  "phase14c9_note": "Historical test/creation fields below remain historical. Current verification_file describes only fresh publication checks, not a new 49-case experiment."
 }

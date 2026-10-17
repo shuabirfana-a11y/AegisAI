@@ -1,0 +1,9 @@
+{
+  "backend/app/enrichment/contracts.py": "b8beec5f87f06e4465d3a7909d70fa5944b25ece338d671d735ed4cb8360deba",
+  "backend/app/enrichment/enrichers/version.py": "fc55df84702540a382294404047cdefc1e5429edc54e1c5ee8da3261084b0ff9",
+  "backend/app/enrichment/enrichers/vendor.py": "ea8bcba735230ec2fa3b86edb0d712608b33d5ddbd2124c06b2a9fc7400293fa",
+  "backend/app/agents/verification/snapshot.py": "dc2a2864a61af459547ce497258003f71a14d10d237c6315c76162fb1c8454f9",
+  "backend/app/agents/verification/schemas.py": "5d1e71aa6019d8374ed0eca68e76816fcadc5d17074d8a30450c57d5113e30ef",
+  "backend/app/orchestration/handoff.py": "0e45547788dc41493dbb615b33f810d175a6118b06c4096c09fc37f5dbbcdd4d",
+  "backend/app/orchestration/composer.py": "05dae9537a6b8f8f99ced308743cf6d2a9d22b7287ec488b4f1862426ce5f378"
+}

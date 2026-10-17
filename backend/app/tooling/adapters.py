@@ -58,6 +58,11 @@ def execute_local(session,name,args,actor):
                 'total':session.scalar(select(func.count()).select_from(q.subquery())),'window_days':args['days'],'coverage':'Locally collected records only'}
     elif name=='get_vulnerability':
         data=core.vulnerability_detail(session,str(target));data['intelligence']=intel.aggregate(session,target)
+        if args.get('candidate_reference'):
+            from app.tooling.candidate_evidence import candidate_evidence
+            observed,_=candidate_evidence(session,target,args['candidate_reference'],refs)
+            data['candidate_reference']=observed['candidate_reference']
+            warnings.append('Specified patch reference is an observation only; commit validation and installation are not inferred.')
         # Sources without extracted claim evidence still retain raw provenance.
         refs.extend({'raw_document_id':str(r['id']),'source_id':str(r['source_id']),'url':r['source_url'],
             'locator':r['locator'],'content_trust_level':'UNTRUSTED_EXTERNAL_CONTENT'} for r in data['source_documents'])
@@ -66,7 +71,12 @@ def execute_local(session,name,args,actor):
         if row is None or row.deleted_at:raise LookupError('Product not found')
         data=core.columns(row)
     elif name in ('get_claims','get_evidence','get_timeline'):
-        if name=='get_evidence' and args.get('claim_id'):
+        if name=='get_evidence' and args.get('candidate_reference'):
+            from app.tooling.candidate_evidence import candidate_evidence
+            data,refs=candidate_evidence(session,target,args['candidate_reference'],refs,
+                claim_id=args.get('claim_id'),limit=args.get('limit',20))
+            warnings.append('Candidate reference checked against collected sources only; no remote fetch, commit validation, patch applicability or installation is inferred.')
+        elif name=='get_evidence' and args.get('claim_id'):
             claim=session.get(m.Claim,UUID(args['claim_id']))
             if claim is None or claim.vulnerability_id!=target:raise PermissionError('Claim target mismatch')
             from sqlalchemy import func
