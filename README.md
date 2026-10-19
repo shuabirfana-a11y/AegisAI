@@ -4,6 +4,12 @@
 
 AegisAI 面向 AI 软件组件的安全情报调查：采集漏洞公告与技术资料，核对产品、包身份、维护分支和登记资产版本，返回带证据引用的影响判断与处置建议。当前交付用于本地研究和演示，需要分析人员复核重要安全结论。
 
+## 在线查看与下载
+
+- [GitHub Pages 静态案例展示](https://shuabirfana-a11y.github.io/AegisAI/)：查看 C08/C09 历史真实调查、证据定位和源码下载；不发起实时 AI 调查。
+- 当前交付源码分支：`codex/github-pages-final`。后端保持 `4fddc5c`，团队前端更新为 `437cb84`；[版本与演示数据说明](docs/release/GITHUB_PAGES_DEMO.md)。
+- 前端监测看板、编排和知识页面含演示数据；页面中的模拟计数不是实际采集或业务评测成绩。完整系统需按下方说明在自己的环境运行。
+
 ## 从这里启动
 
 1. 阅读 [Windows 快速启动](QUICKSTART_WINDOWS.md)，准备 Python、Node.js、PostgreSQL 和真实模型服务。

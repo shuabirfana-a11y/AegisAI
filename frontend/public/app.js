@@ -3,12 +3,15 @@ import { createSession } from './modules/state.js';
 import { attachRouter, resolveRoute } from './modules/router.js';
 import { el, pageTitle, message } from './modules/components.js';
 import { dashboard } from './modules/pages/dashboard.js';
+import { intel } from './modules/pages/intel.js';
 import { vulnerabilities, vulnerability } from './modules/pages/vulnerabilities.js';
 import { assets } from './modules/pages/assets.js';
 import { asset } from './modules/pages/asset.js';
 import { reviews } from './modules/pages/reviews.js';
 import { review } from './modules/pages/review.js';
 import { assistant } from './modules/pages/assistant.js';
+import { agents } from './modules/pages/agents.js';
+import { knowledge } from './modules/pages/knowledge.js';
 import { system } from './modules/pages/system.js';
 
 const session = createSession();
@@ -18,7 +21,7 @@ try {
   if (response.ok) localDemoAccess = (await response.json()).localDemoAccess === true;
 } catch { /* Manual token entry remains available if config cannot be read. */ }
 const api = createApi({ getToken: session.getToken, localDemoAccess });
-const pages = { dashboard, vulnerabilities, vulnerability, assets, asset, reviews, review, assistant, system };
+const pages = { dashboard, intel, vulnerabilities, vulnerability, assets, asset, reviews, review, assistant, agents, knowledge, system };
 const view = document.querySelector('#view');
 let controller;
 function render(route) {
@@ -61,6 +64,18 @@ document.querySelector('#clear-token').addEventListener('click', () => {
   render(resolveRoute(location.pathname));
 });
 const navigate = attachRouter(render);
+
+/* ---------- 顶栏实时时钟 ---------- */
+const clockEl = document.querySelector('#header-clock');
+if (clockEl) {
+  const tick = () => {
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    clockEl.textContent = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  };
+  tick();
+  setInterval(tick, 1000);
+}
 
 /* ---------- Ctrl+K 全局搜索（漏洞 / 资产 / 页面导航） ---------- */
 const searchButton = document.querySelector('#global-search');
@@ -108,7 +123,7 @@ async function runSearch(term, results) {
         for (const row of hits) results.append(searchResult(row.name, row.id, '/assets/' + encodeURIComponent(row.id)));
       }
     }
-    const pageMatches = [['仪表盘', '/dashboard'], ['漏洞', '/vulnerabilities'], ['资产', '/assets'], ['复核', '/reviews'], ['调查', '/assistant'], ['系统', '/system']]
+    const pageMatches = [['总览驾驶舱', '/dashboard'], ['情报监测中心', '/intel'], ['漏洞情报', '/vulnerabilities'], ['AI 安全问答', '/assistant'], ['Agent 编排中心', '/agents'], ['知识底座', '/knowledge'], ['资产', '/assets'], ['复核', '/reviews'], ['系统运维', '/system']]
       .filter(([name]) => name.toLowerCase().includes(lower));
     if (pageMatches.length) {
       results.append(el('div', '页面', { class: 'search-group' }));

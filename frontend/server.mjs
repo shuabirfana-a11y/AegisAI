@@ -9,7 +9,7 @@ const safeHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'no-referrer',
   'Cache-Control': 'no-store',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
 };
 
 function json(response, status, detail) {
@@ -82,7 +82,7 @@ export function createFrontendServer({ backendPort = 8000, localDemoToken = '' }
     let decoded;
     try { decoded = decodeURIComponent(url.pathname); } catch { return json(response, 400, 'Invalid path encoding.'); }
     if (/[\\\x00]/.test(decoded) || decoded.split('/').some(segment => segment === '..')) return json(response, 400, 'Invalid static path.');
-    const isRoute = decoded === '/' || /^\/(dashboard|vulnerabilities|assets|reviews|assistant|system)\/?$/.test(decoded) || /^\/(vulnerabilities|assets|reviews)\/[^/]+\/?$/.test(decoded);
+    const isRoute = decoded === '/' || /^\/(dashboard|intel|vulnerabilities|assistant|agents|knowledge|assets|reviews|system)\/?$/.test(decoded) || /^\/(vulnerabilities|assets|reviews)\/[^/]+\/?$/.test(decoded);
     const target = path.resolve(publicRoot, '.' + (isRoute ? '/index.html' : decoded));
     if (!target.startsWith(path.resolve(publicRoot) + path.sep)) return json(response, 403, 'Invalid static path.');
     try {

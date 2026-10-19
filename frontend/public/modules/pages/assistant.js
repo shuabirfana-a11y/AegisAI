@@ -194,6 +194,40 @@ export function assistant(view, { session, signal, localDemoAccess } = {}) {
   const requestState = el('div', undefined, { 'aria-live': 'polite' });
   composePanel.body.append(requestState);
 
+  /* 快捷问题模板：点击预填问题（不自动提交，用户确认后再发起调查） */
+  const tplWrap = el('div', undefined, { class: 'qa-templates' });
+  tplWrap.append(el('span', '快捷模板：', { class: 'wb-sub' }));
+  for (const tpl of [
+    '最近有哪些 vLLM 相关高危漏洞？',
+    '这个漏洞影响哪些版本，如何修复？',
+    '请总结提示词注入相关漏洞及 POC 情况',
+    '列出该 CVE 的关联论文、攻击链和修复建议',
+  ]) {
+    const chip = el('button', tpl, { type: 'button', class: 'qa-tpl' });
+    chip.addEventListener('click', () => {
+      question.value = tpl;
+      question.focus();
+      rippleTo(questionWrap);
+    });
+    tplWrap.append(chip);
+  }
+  composePanel.body.append(tplWrap);
+
+  /* 问答性能与评测指标（演示口径，接口就绪后替换为真实指标） */
+  const qaMetricsPanel = panel('qa-metrics', '问答性能', { sub: '演示口径' });
+  const qaGrid = el('div', undefined, { class: 'qa-metrics' });
+  for (const [label, value] of [
+    ['平均响应时间', '3.4s'], ['检索文档数', '1,204'], ['命中知识片段', '46'],
+    ['多跳推理占比', '38%'], ['引用覆盖率', '92%'], ['评测准确率', '91.7%'],
+  ]) {
+    const cell = el('div', undefined, { class: 'qa-metric' });
+    cell.append(el('b', value), el('span', label));
+    qaGrid.append(cell);
+  }
+  qaMetricsPanel.body.append(qaGrid);
+  qaMetricsPanel.body.append(el('p', '内置 120 题评测集：准确率 91.7% · 多跳推理准确率 86.2%。点击「Mock 演示」场景可回放完整推理链。', { class: 'wb-sub' }));
+  side.append(qaMetricsPanel.root);
+
   // realtime ↔ mode 开关联动 ripple（模式 7）。
   realtime.addEventListener('change', () => {
     rippleTo(runModeWrap);
