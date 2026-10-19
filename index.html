@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AegisAI 赛题九静态案例演示、真实调查记录与源码下载。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>AegisAI · 静态案例演示</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <aside class="sidebar">
+    <a href="#overview" class="brand"><span aria-hidden="true">⬡</span> AegisAI</a>
+    <p class="nav-label">项目展示</p>
+    <nav aria-label="内容导航">
+      <a href="#overview">界面预览</a>
+      <a href="#C08">C08 · 版本分支</a>
+      <a href="#C09">C09 · 版本与引用</a>
+      <a href="#source">源码与运行</a>
+      <a href="#scope">验证范围</a>
+    </nav>
+    <p class="sidebar-bottom">F9-014<br>中国电子杯 · 赛题九</p>
+  </aside>
+  <div class="workspace">
+    <header><span>AI 安全知识情报系统</span><span class="static-badge">静态案例演示</span></header>
+    <main id="main">
+      <section id="overview" aria-labelledby="title">
+        <div class="section-heading"><div><h1 id="title">从漏洞公告到资产影响判断</h1><p>查看界面预览、已保存的调查结果与可追溯证据，或下载源码在本地运行。</p></div><a class="button primary" href="#source">获取源码</a></div>
+        <p class="notice">本站展示历史记录，不连接模型、不创建新调查。实时调查需按启动说明部署完整后端。</p>
+        <figure class="preview"><a href="assets/frontend-preview.png" target="_blank" rel="noopener"><img src="assets/frontend-preview.png" alt="用户提供的深色 AegisAI 情报监测中心界面，包含多源列表和筛选入口" width="2539" height="1399"></a><figcaption>前端布局预览。截图中的采集数量与成功率为界面演示数据，不作为采集成效或业务正确性成绩。点击可查看原图。</figcaption></figure>
+      </section>
+      <section id="C08" class="case" data-case="C08" aria-labelledby="title-c08">
+        <div class="section-heading"><div><span class="case-index">C08 · 历史真实 HTTP</span><h2 id="title-c08">保留维护分支，判断具体资产版本</h2><p>langchain-core 1.2.0 · CVE-2025-68664</p></div><span class="status">PASS_WITH_WARNINGS</span></div>
+        <p>该记录保留不同维护分支的版本范围，并给出当前分支升级至 1.2.5 的建议。风险等级来自当时系统输出，指定风险政策的绑定仍需复核。</p>
+        <div class="case-content" aria-live="polite"><p>正在读取已保存记录……</p></div>
+        <p class="data-links"><a href="data/C08.json" download>下载 C08 记录</a><a href="https://github.com/advisories/GHSA-c67j-w6g6-q2cm" target="_blank" rel="noopener">查看原始公告</a></p>
+      </section>
+      <section id="C09" class="case" data-case="C09" aria-labelledby="title-c09">
+        <div class="section-heading"><div><span class="case-index">C09 · 历史真实 HTTP</span><h2 id="title-c09">核对版本顺序，定位结论引用</h2><p>vLLM 0.29.0 · CVE-2026-105752</p></div><span class="status">PASS_WITH_WARNINGS</span></div>
+        <p>该记录对 0.29.0 与 0.30.0 进行适用性判断，并保留公告的结构化范围与证据定位。首次计划缺少必填字段，随后在原重试预算内修正。</p>
+        <div class="case-content" aria-live="polite"><p>正在读取已保存记录……</p></div>
+        <p class="data-links"><a href="data/C09.json" download>下载 C09 记录</a><a href="https://github.com/advisories/GHSA-935w-9g4m-p28p" target="_blank" rel="noopener">查看原始公告</a></p>
+      </section>
+      <section id="source" aria-labelledby="source-title">
+        <h2 id="source-title">源码与本地运行</h2>
+        <p>源码包包含完整后端、前端、数据库迁移、依赖文件及启动说明。后端基线为 <code>4fddc5c</code>，团队前端更新为 <code>437cb84</code>；案例运行时间与源码版本分别记录。</p>
+        <div class="source-actions"><a class="button primary" href="downloads/AegisAI-F9-014-source.zip" download>下载完整源码 ZIP</a><a class="button" href="https://github.com/shuabirfana-a11y/AegisAI/tree/codex/github-pages-final">查看交付源码分支</a><a class="button" href="downloads/QUICKSTART_WINDOWS.md">Windows 启动说明</a></div>
+        <ol class="startup"><li>准备 Python 3.12、Node.js 22+、PostgreSQL、Git 和可用的模型服务。</li><li>按说明创建自己的专用数据库，安装锁定依赖并配置模型；凭证只保存在本机。</li><li>启动后端和 Node 同源代理，再访问本地工作台提交真实调查。</li></ol>
+        <p>源码不包含模型权重、真实 API Key、原数据库备份或原演示机资产库存。首次运行需要自行准备这些资源。</p>
+        <details><summary>文件指纹与发布来源</summary><pre id="manifest">正在读取文件清单……</pre><a href="data/manifest.json" download>下载发布清单</a></details>
+      </section>
+      <section id="scope" aria-labelledby="scope-title">
+        <h2 id="scope-title">验证范围与使用边界</h2>
+        <p>C08/C09 是限定场景的真实历史运行记录。页面保留同源警告、未知状态及核验引用；本次静态发布没有重新调用模型或进行 49 题评测。</p>
+        <ul><li>窗口中的界面示例与下方真实调查记录分开展示，不将演示计数作为实验结果。</li><li>Windows Worker 组合执行可靠性问题仍未解决；并发、取消、超时及冷启动尚未充分验证。</li><li>风险政策适用性与整体语义正确性仍需进一步复核；小样本不能证明整体架构优于单次模型回答。</li><li>适用于本地研究与项目演示，重要安全结论应由分析人员复核。</li></ul>
+      </section>
+    </main>
+    <footer>AegisAI · F9-014 · 静态历史案例展示　<a href="https://github.com/shuabirfana-a11y/AegisAI/blob/codex/github-pages-final/THIRD_PARTY.md">第三方依赖与内容说明</a></footer>
+  </div>
+</body>
+</html>

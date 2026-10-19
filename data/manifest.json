@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-10-19T12:56:12.659981+00:00",
+  "site_mode": "STATIC_HISTORICAL_RECORDS",
+  "new_model_calls": 0,
+  "backend_source_commit": "4fddc5c40eb8231cb6e7a55f7f479035502b4ea9",
+  "frontend_source_commit": "437cb844830116f638f6aaed66680e8de367e8c2",
+  "frontend_preview": {
+    "kind": "USER_SUPPLIED_UI_SCREENSHOT",
+    "sha256": "f239a1c46bdb79e40bca359ce6a67b0d53ec1134c6bd1fff7693e6dfff89e987",
+    "data_note": "The monitoring counters in the screenshot are UI demonstration data, as confirmed in frontend/public/modules/pages/intel.js, not measured collection results."
+  },
+  "cases": [
+    {
+      "case_id": "C08",
+      "path": "data/C08.json",
+      "sha256": "f7fd8fb79530623abe6bfdff8aa18f55d9b85237f2ba4272ce0eac423d3fbaa2",
+      "source_record_sha256": "7f9035c93f545ae8b1ef697cd6cf049d58b0353c8bffc6a6809fe83b18bd0ed1"
+    },
+    {
+      "case_id": "C09",
+      "path": "data/C09.json",
+      "sha256": "e984d5b41ad38b24e06fa31192621f5bfb6d4710579a3eb7f1bb8985ae9ac207",
+      "source_record_sha256": "0a9a5c182e8e77a832d8656f55b76f61487d9b5cbc8d51459670a97c21d04207"
+    }
+  ],
+  "source_archive": {
+    "path": "downloads/AegisAI-F9-014-source.zip",
+    "sha256": "52200f06a9d0762d3b28d655c7b3ba06cb4d4e0d862aa3b6beb12fe9b381b08c",
+    "bytes": 10450390,
+    "frontend_updated_files": [
+      "frontend/public/app.js",
+      "frontend/public/index.html",
+      "frontend/public/modules/charts.js",
+      "frontend/public/modules/mock-data.js",
+      "frontend/public/modules/pages/agents.js",
+      "frontend/public/modules/pages/assistant.js",
+      "frontend/public/modules/pages/dashboard.js",
+      "frontend/public/modules/pages/intel.js",
+      "frontend/public/modules/pages/knowledge.js",
+      "frontend/public/modules/pages/system.js",
+      "frontend/public/modules/pages/vulnerabilities.js",
+      "frontend/public/modules/router.js",
+      "frontend/public/styles.css",
+      "frontend/server.mjs"
+    ]
+  }
+}
