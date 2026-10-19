@@ -39,8 +39,14 @@ def test_incomplete_supporting_task_cannot_be_consumed():
     assert selected.admission=='STOP'
 
 
-def test_overview_legacy_request_dump_is_unchanged():
+def test_overview_request_explicitly_selects_source_facts_without_changing_asset_scope():
     result,scope,plan=input_data()
     request=build_verification_request(select_investigation(result,scope,plan),'legacy')
     assert set(request.model_dump(mode='json'))=={'source_run_id','source_task_id','source_artifact_id',
-        'task_type','claim_ids','request_key','model_assistance'}
+        'task_type','claim_ids','request_key','model_assistance','include_source_facts'}
+    assert request.include_source_facts is True
+    result,scope,plan=asset_case()
+    scope=scope.model_copy(update={'objective_profile':'asset_risk_v1'})
+    request=build_verification_request(select_investigation(result,scope,plan),'asset-required-facts')
+    assert not request.include_source_facts
+    assert 'include_source_facts' not in request.model_dump(mode='json')

@@ -1,29 +1,19 @@
-# AegisAI frontend skeleton and local proxy
+# AegisAI 前端工作台
 
-This independent frontend uses browser ES modules and Node's built-in HTTP server. It adds no dependencies or formal visual design.
+现有前端使用 JavaScript ES modules、History Router 和 Node 内置 HTTP 同源代理。调查页已实现提交、状态轮询、Trace、Artifact、Gate、结构化答案和证据引用；旧 Assistant 方法保留兼容用途。
 
-Run from the repository root with an available Node runtime:
+## 启动
 
-```powershell
-& 'C:/Users/X/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' frontend/server.mjs
-```
+从仓库根目录运行 `node frontend/server.mjs`，打开 `http://127.0.0.1:8769/assistant`。默认代理到本地后端8000。完整依赖、数据库和模型准备见[Windows快速启动](../QUICKSTART_WINDOWS.md)。不要直接使用历史文档中的个人运行时绝对路径。
 
-Open `http://127.0.0.1:8769/dashboard`. The existing prototype on port 8768 is separate. Start the existing backend on `127.0.0.1:8000` using the project backend instructions. The frontend does not start or change the database.
+受保护接口使用后端配置的本机访问令牌；单独启动代理时在页面密码字段输入同一令牌。令牌不属于提交材料。显式本地演示模式可由原启动器在服务端注入令牌，但原启动器依赖开发机便携数据库缓存。
 
-Protected APIs require the backend-configured `AEGIS_ASSET_TOKEN`; the backend controls the owner. With a separately started proxy, enter your own token in the password field: it stays in browser memory and disappears on reload. The existing `scripts/start-local-demo.ps1` instead creates an ephemeral token and supplies it to both local service processes; in that explicit local mode the proxy injects it server-side and `/client-config` reports `localDemoAccess`, without returning the token to the browser. That launcher depends on this developer machine's PostgreSQL cache.
+## 页面与数据
 
-Routes: `/dashboard`, `/vulnerabilities`, `/vulnerabilities/:id`, `/assets`, `/reviews`, `/assistant`, `/system`.
+`/dashboard`、`/vulnerabilities`、`/assets`、`/reviews`、`/assistant`、`/system` 及已实现的详情路由。真实模式读取后端；Mock 模式只用于前端开发与协议回放。新数据库不会自动安装演示数据。
 
-The proxy forwards `/api/v1/*`, the eight `/api/investigations` operations and `/health` to the fixed loopback backend. It excludes browser cookies and enforces same-origin JSON requests on its exact write allowlist: Assistant submission, investigation creation and cancellation. Other existing writes remain blocked. Of 42 backend operations, 35 are available through this proxy and 7 writes remain blocked.
+轮询在调查终态停止；缺上下文、证据冲突、需人工复核和服务错误按接口状态展示。现有界面仍有窄屏、高级字段和可读性限制，不能由接口测试推断全部GUI已验收。
 
-The seven existing pages still use the earlier Assistant workflow. A Phase 11-D investigation workbench is a teammate frontend task; adding proxy support does not add that UI or convert the old response into AnswerEnvelope. Use the exported TypeScript client and [HTTP contract](../docs/PHASE12B_INVESTIGATION_API.md). Poll investigation status about once per second, fetch trace/artifacts when `revision` changes, and stop on terminal states. No SSE/WebSocket API exists.
+## 测试
 
-Default Mock has no PlannerPlan fixture and therefore cannot plan an arbitrary investigation. See [backend demo checks](../docs/BACKEND_DEMO_STABILITY.md) for the explicit separation between transport readiness, a controlled synthetic offline chain and a real model run.
-
-Node built-in tests use real temporary local HTTP servers for protocol behavior; those fixture tests are not evidence of backend or database integration:
-
-```powershell
-& 'C:/Users/X/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' --test frontend/tests/*.test.mjs
-```
-
-Data dates and states are displayed as returned. No sample records are installed. Missing data, auth failures, conflicts and backend errors are visible. Task trace displays allowlisted audit summary fields, not internal model reasoning.
+在 frontend 目录运行 `npm ci`，再运行 `npm test`。jsdom 是锁定的DOM测试开发依赖。测试使用协议或页面fixture，真实浏览器与后端调查记录应分别评价。本轮发布未重跑完整前后端测试或49题实验。

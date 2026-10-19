@@ -1,15 +1,19 @@
 from collections import defaultdict
+import os
 from app.db import models as m
 from app.enrichment.repository import ClaimStore,emit
 from app.enrichment.evidence import EvidenceService
 from app.enrichment.enrichers.base import BaseEnricher,WorkOutcome
 
 class VersionEnricher(BaseEnricher):
-    name='version';depends_on=('vendor',);sources=('CVE_LIST','OSV')
+    name='version';depends_on=('vendor',);sources=('CVE_LIST','OSV','PYPI_METADATA')
     def investigate(self,ctx,session,acq):
         out=WorkOutcome()
         for oid in ctx.current_observation_ids:
             obs=session.get(m.SourceObservation,oid);data=obs.normalized_payload;groups=defaultdict(list)
+            from app.enrichment.source_facts import persist_source_facts
+            fact_claims,fact_evidence=persist_source_facts(session,ctx,obs)
+            out.claims.extend(fact_claims);out.evidence.extend(fact_evidence)
             out.checked.append({'source':session.get(m.Source,obs.source_id).source_key,'raw_document_id':str(obs.raw_document_id),
                 'checked_at':obs.retrieved_at.isoformat(),'scope':'current Phase6 normalized observation; no network'})
             for item in data.get('affected_versions') or []:
@@ -39,4 +43,7 @@ class VersionEnricher(BaseEnricher):
                 emit(session,ctx.target_id,'FIX_VERSION_FOUND',str(c.id),'A source supplied an explicit fixed event',claim=c,evidence=e,source_id=obs.source_id)
         if out.claims:out.status='SUCCESS'
         else:out.unresolved.append('No supported current package version assertion')
+        if os.environ.get('AEGIS_PYPI_METADATA_ENABLED')=='1':
+            from app.enrichment.package_registry import attach_registry_metadata
+            attach_registry_metadata(ctx,session,out,acq)
         return out

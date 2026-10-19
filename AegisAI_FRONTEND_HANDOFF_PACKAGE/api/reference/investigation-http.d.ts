@@ -92,6 +92,7 @@ export type AssetScope = {
   "snapshot_id"?: (string | null);
   "component"?: (ResolutionInput | null);
   "target"?: (string | null);
+  "candidate_reference"?: (string | null);
 };
 
 export type AssetView = {
@@ -209,7 +210,7 @@ export type Citation = {
   "verification_artifact": ArtifactRef;
 };
 
-export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE";
+export type ClaimType = "AFFECTS_PRODUCT" | "AFFECTS_VERSION" | "FIXED_VERSION" | "POC_EXISTS" | "POC_ASSOCIATION" | "PATCH_EXISTS" | "FIX_COMMIT" | "KNOWN_EXPLOITED" | "VENDOR_CONFIRMED" | "EXPLOIT_CONDITION" | "REMEDIATION" | "CVSS_SCORE" | "CWE" | "SOURCE_FACT";
 
 export type ClaimVerification = {
   "claim": VerificationClaim;
@@ -524,6 +525,7 @@ export type PlannerInput = {
   "component_id"?: (string | null);
   "snapshot_id"?: (string | null);
   "component"?: (ResolutionInput | null);
+  "candidate_reference"?: (string | null);
 };
 
 export type PlannerSummary = {

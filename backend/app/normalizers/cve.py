@@ -5,7 +5,7 @@ from app.normalizers.common import external,metric,CVE_RE
 from app.services.products import canonicalize
 from app.services.versions import blank,parse_expression
 
-VERSION='cve-normalizer-v0.2'
+VERSION='cve-normalizer-v0.3-inline-range'
 
 def normalize(payload, raw_document_id, retrieved_at):
     if not str(payload['dataVersion']).startswith('5.'): raise ValueError('Unsupported CVE schema major')
@@ -45,11 +45,22 @@ def normalize(payload, raw_document_id, retrieved_at):
             original=json.dumps(version,ensure_ascii=False,separators=(',',':'))
             start=version.get('version'); upper=version.get('lessThan'); inclusive=version.get('lessThanOrEqual')
             expression=(('>='+start+',') if start and start not in ('0','*') and (upper or inclusive) else '')+(('<'+upper) if upper else ('<='+inclusive) if inclusive else '=='+str(start))
+            # Some CNA records put an explicit constraint in `version` itself.
+            # Preserve it for the existing parser instead of inventing '==<x'.
+            inline=bool(not (upper or inclusive) and isinstance(start,str)
+                and re.match(r'^\s*(?:>=|<=|==|<)',start))
+            if inline:expression=start.strip()
             supported_type=version.get('versionType') in (None,'python','pep440','pep-440')
             parsed=parse_expression(expression,qualified['ecosystem']) if supported_type and not version.get('changes') else blank(original,range_type='ECOSYSTEM')
             if not supported_type:parsed['parse_reason']='Explicit source versionType is unsupported: '+str(version.get('versionType'))
             parsed.update({'raw_expression':original,'package':package,'locator':pointer+f'/versions/{j}','source_version_type':version.get('versionType'),'source_status':version.get('status')})
             if parsed['parse_status']=='parsed' and (upper or inclusive) and start=='0': parsed['introduced']='0'
+            if inline and parsed['parse_status']=='parsed' and not parsed.get('explicit_versions'):
+                # A conjunction is not an event log: make its lower bound
+                # explicit so the unchanged event consumer can read '< x'.
+                parsed['events']=[{'introduced':parsed.get('introduced') or '0'}]
+                for bound in ('fixed','last_affected'):
+                    if parsed.get(bound):parsed['events'].append({bound:parsed[bound]});break
             # A CNA lessThan bound states affected membership; it does not itself prove a fixed release.
             if parsed.get('fixed'):
                 parsed['limit_version']=parsed['fixed']; parsed['fixed']=None

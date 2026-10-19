@@ -51,6 +51,44 @@ def match_asset(context):
         claim_ids=tuple(c.claim_id for c in matches or claims),package_identifier_id=asset.package_identifier_id)
 
 
+def _record_union_selection(context,results):
+    """Consume sealed C2 proofs; never infer that differing ranges are a union."""
+    from app.enrichment.version_scope import evidence_scopes,compare_scopes,VersionScope
+    from app.enrichment.versions import canonical_value
+    from app.assets.identity import _name
+    asset=context.inputs.asset
+    if asset.ecosystem!='PyPI' or asset.namespace:return None
+    refs={e.evidence_id:e for e in context.inputs.verification.supporting_evidence}
+    assertions=[];all_scopes=[];representatives=[]
+    for row in results:
+        c=row.claim;scopes=[]
+        if any(c.value.get(k) for k in ('condition','platform','architecture')):return None
+        for eid in row.supporting_evidence_ids:
+            e=refs[eid]
+            if not e.details.get('normalized_version_scope'):continue
+            if (not e.is_current or e.integrity_status!='VALID' or e.exclusion_reasons or
+                e.stance!='support' or e.scope_key!=c.scope_key or e.vulnerability_id!=c.vulnerability_id):return None
+            proven=evidence_scopes(e,'AFFECTS_VERSION')
+            if not proven:return None
+            for data in proven:
+                proof=VersionScope.model_validate(data)
+                if (proof.value_hash!=fingerprint(canonical_value('AFFECTS_VERSION',c.value)) or
+                    proof.component!=c.value.get('package') or _name(proof.component,'PyPI')!=asset.package_name or
+                    proof.product!=(c.value.get('product') if isinstance(c.value.get('product'),str) else None)):return None
+                scopes.append(data);all_scopes.append(proof)
+                if proof.coverage=='RECORD_UNION':representatives.append(c.claim_id)
+        if not scopes:return None
+        assertions.append({'type':'AFFECTS_VERSION','scope':c.scope_key,'value':c.value,'version_scopes':scopes})
+    if not representatives:return None
+    for left in assertions:
+        for right in assertions:
+            if compare_scopes(left,right).result not in ('SAME_SCOPE','DIFFERENT_SCOPE','BRANCH_DIFFERENCE'):return None
+    return {'method':'VERIFIED_RECORD_UNION','claim_id':representatives[0],
+        'covered_claim_ids':[r.claim.claim_id for r in results],
+        'evidence_ids':sorted({s.evidence_id for s in all_scopes}),
+        'raw_document_ids':sorted({s.raw_document_id for s in all_scopes})}
+
+
 def match_version(context,asset_match):
     if asset_match.status!='MATCHED':return VersionMatchResult(reason='No exact matching asset component')
     asset=context.inputs.asset
@@ -62,10 +100,18 @@ def match_version(context,asset_match):
     values=[(r.claim.claim_id,compare_version(asset.deployed_version,r.claim.value)) for r in results]
     affected=[r['affected'] for _,r in values]
     status='AFFECTED' if all(v is True for v in affected) else 'NOT_AFFECTED' if all(v is False for v in affected) else 'UNKNOWN'
+    normalization=values[0][1]['normalization'];selection=None
+    if status=='UNKNOWN' and all(v is not None for v in affected):
+        selection=_record_union_selection(context,results)
+        if selection:
+            outcome=next(v['affected'] for cid,v in values if cid==selection['claim_id'])
+            status='AFFECTED' if outcome is True else 'NOT_AFFECTED' if outcome is False else 'UNKNOWN'
+            normalization={**normalization,'scope_resolution':selection}
     return VersionMatchResult(status=status,affected=True if status=='AFFECTED' else False if status=='NOT_AFFECTED' else None,
-        reason='All confirmed exact-package interval comparisons agree' if status!='UNKNOWN' else 'Version/range unsupported or comparisons disagree',
+        reason='Confirmed complete-record union covers source-bound maintenance entries' if selection else
+            'All confirmed exact-package interval comparisons agree' if status!='UNKNOWN' else 'Version/range unsupported or comparisons disagree',
         claim_ids=tuple(c for c,_ in values),comparisons=tuple({'claim_id':c,**part} for c,r in values for part in r['comparisons']),
-        normalization=values[0][1]['normalization'])
+        normalization=normalization)
 
 
 def _gate(context,asset_match):

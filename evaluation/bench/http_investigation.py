@@ -56,6 +56,7 @@ def build_request(question,binding=None):
     if binding.get('target') and binding['target']!=target:raise ValueError('TARGET_BINDING_MISMATCH')
     scope={k:v for k,v in binding.items() if k in {'asset_id','component_id','snapshot_id'}}
     if target:scope['target']=target
+    if values.get('candidate_reference') is not None:scope['candidate_reference']=values['candidate_reference']
     component=values.get('component')
     if isinstance(component,dict):
         allowed={'name','ecosystem','package_name','namespace','purl','version','package_identifier_id'}
@@ -101,6 +102,31 @@ def project_answer(question,raw,*,trace=None,artifacts=None):
     identities={f.value['cve'] for f in e.verified_claims
         if f.claim_type=='VENDOR_CONFIRMED' and isinstance(f.value.get('cve'),str)}
     if len(identities)==1:answer['cve']=identities.pop()
+    # Typed facts already accepted by the native verification/delivery chain.
+    # This is field mapping only: no question, annotation or raw-source fallback.
+    from app.enrichment.source_facts import fact_value
+    cwes=set();summaries=set();metrics={};blocked_metrics=set()
+    for f in e.verified_claims:
+        if f.claim_type in ('CWE','SOURCE_FACT'):
+            try:value=fact_value(f.claim_type,f.value)
+            except (ValueError,TypeError):continue
+            if f.claim_type=='CWE':cwes.add(value['cwe'])
+            else:summaries.add(value['text'])
+        elif f.claim_type=='CVSS_SCORE':
+            value=f.value;version=value.get('version')
+            field='cvss_v3' if version in ('3.0','3.1') else 'cvss_v4' if version=='4.0' else None
+            if field is None:continue
+            score=value.get('score');vector=value.get('vector')
+            if (type(score) not in (int,float) or not math.isfinite(score) or not 0<=score<=10
+                or 'vector' not in value or vector is not None and
+                (not isinstance(vector,str) or not vector.startswith('CVSS:'+version+'/'))):
+                blocked_metrics.add(field);continue
+            metric={'score':score,'vector_string':vector}
+            metrics.setdefault(field,{})[canonical(metric)]=metric
+    if cwes:answer['cwes']=sorted(cwes)
+    if len(summaries)==1:answer['summary']=next(iter(summaries))
+    for field,values in metrics.items():
+        if field not in blocked_metrics and len(values)==1:answer[field]=next(iter(values.values()))
     risk=e.risk_assessment
     if risk:
         if risk.conclusion_scope=='ACCEPTED' or risk.risk_level=='UNKNOWN':
@@ -112,7 +138,17 @@ def project_answer(question,raw,*,trace=None,artifacts=None):
         answer['version_observations']=v.get('version_observations',[])
         answer['impact_version_evidence']=v.get('impact_version_evidence',[])
     fixes=sorted({f.value['version'] for f in e.verified_claims if str(f.claim_type)=='FIXED_VERSION' and f.value.get('version')})
-    if fixes:answer.update(fixed_versions=fixes,patch_status='CONFIRMED_FIX')
+    if fixes:answer['fixed_versions']=fixes
+    candidate=question.input_context.get('candidate_reference')
+    if candidate is None and len(question.input_context.get('assets',[]))<=1:
+        candidate=input_values(question).get('candidate_reference')
+    if candidate:
+        # A release fix says nothing about the specified commit or an installed patch.
+        observed=(artifacts or {}).get('investigation') or {}
+        references=[p for p in observed.get('patch_information',[]) if p.get('reference')==candidate
+                    and p.get('reference_evidence')]
+        answer['patch_status']='PATCH_CANDIDATE' if references else 'UNKNOWN'
+    elif fixes:answer['patch_status']='CONFIRMED_FIX'
     # No absent PoC, risk or fact field is filled from question or reference gold.
     if any(str(f.claim_type) in {'POC_EXISTS','POC_ASSOCIATION'} for f in e.verified_claims):
         answer['poc_status']='POC_CANDIDATE'

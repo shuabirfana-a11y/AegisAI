@@ -32,6 +32,8 @@ class ClaimType(StrEnum):
     EXPLOIT_CONDITION='EXPLOIT_CONDITION'
     REMEDIATION='REMEDIATION'
     CVSS_SCORE='CVSS_SCORE'
+    CWE='CWE'
+    SOURCE_FACT='SOURCE_FACT'
 
 class EnrichmentError(BaseModel):
     code:str

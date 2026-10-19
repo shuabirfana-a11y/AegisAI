@@ -1,0 +1,125 @@
+{
+  "provenance": "C23 third question recorded model outputs; request context only, no Gold or scoring labels",
+  "input": {
+    "query": {
+      "mode": "auto",
+      "target": "CVE-2026-105752",
+      "asset_id": "2aaa2c30-0fd5-48b9-b3ad-8b67e986ad60",
+      "question": "vllm 版本 0.29.0 是否受 CVE-2026-105752 影响？",
+      "realtime": false,
+      "request_key": "orchestration:08466436-257f-48ef-85cb-b6b8d1160b7e:planner"
+    },
+    "component": {
+      "name": "vllm",
+      "purl": null,
+      "version": "0.29.0",
+      "ecosystem": "PyPI",
+      "package_name": "vllm"
+    },
+    "snapshot_id": null,
+    "component_id": "a45bb163-6100-4f96-aad6-60f056bb2a81"
+  },
+  "plans": [
+    {
+      "plan_id": "589e4b7f-2d34-4f8b-9e5d-7f8b4c9e5d34",
+      "objective": "Determine if vllm version 0.29.0 is impacted by CVE-2026-105752",
+      "tasks": [
+        {
+          "task_id": "lookup",
+          "task_type": "tool_sequence",
+          "description": "Check if vllm version 0.29.0 is impacted by CVE-2026-105752",
+          "input_data": {
+            "steps": [
+              {
+                "name": "get_vulnerability",
+                "arguments": {
+                  "target": "CVE-2026-105752"
+                }
+              },
+              {
+                "name": "inspect_component_version",
+                "arguments": {
+                  "name": "vllm",
+                  "version": "0.29.0",
+                  "target": "CVE-2026-105752",
+                  "ecosystem": "PyPI"
+                }
+              }
+            ]
+          },
+          "allowed_tools": [
+            "get_vulnerability",
+            "inspect_component_version"
+          ],
+          "max_tool_calls": 2,
+          "type": "vulnerability_lookup"
+        },
+        {
+          "task_id": "asset",
+          "task_type": "tool_sequence",
+          "description": "Read the supplied owned asset",
+          "input_data": {
+            "steps": [
+              {
+                "name": "get_asset",
+                "arguments": {
+                  "asset_id": "2aaa2c30-0fd5-48b9-b3ad-8b67e986ad60"
+                }
+              }
+            ]
+          },
+          "allowed_tools": [
+            "get_asset"
+          ],
+          "max_tool_calls": 1,
+          "type": "asset_lookup"
+        }
+      ],
+      "reasoning_summary": "Check the vulnerability status and asset details for the given version and component.",
+      "confidence": 0.9
+    },
+    {
+      "plan_id": "d9f7b8c2-5e1a-4f3d-8b9c-2f3d5e8b9c2f",
+      "objective": "Determine if vllm version 0.29.0 is impacted by CVE-2026-105752",
+      "tasks": [
+        {
+          "task_id": "lookup",
+          "task_type": "tool_sequence",
+          "description": "Check if vllm version 0.29.0 is impacted by CVE-2026-105752",
+          "input_data": {
+            "steps": [
+              {
+                "name": "get_vulnerability",
+                "arguments": {
+                  "target": "CVE-2026-105752"
+                }
+              },
+              {
+                "name": "inspect_component_version",
+                "arguments": {
+                  "name": "vllm",
+                  "version": "0.29.0",
+                  "target": "CVE-2026-105752",
+                  "ecosystem": "PyPI"
+                }
+              }
+            ]
+          },
+          "allowed_tools": [
+            "get_vulnerability",
+            "inspect_component_version"
+          ],
+          "max_tool_calls": 2,
+          "type": "vulnerability_lookup",
+          "dependencies": [],
+          "acceptance_criteria": [
+            "tools_succeeded",
+            "output_nonempty"
+          ]
+        }
+      ],
+      "reasoning_summary": "Check the vulnerability status and component version for the given version and component.",
+      "confidence": 0.9
+    }
+  ]
+}

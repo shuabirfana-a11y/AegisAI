@@ -1,0 +1,435 @@
+{
+  "provenance": "C25 original business inputs and model plans only; no Gold, reviewer comments or scoring labels",
+  "cases": [
+    {
+      "input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2025-32434",
+          "asset_id": null,
+          "question": "此链接仅出现在 CVE-2025-32434 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+          "realtime": false,
+          "request_key": "orchestration:5fbbc70e-b1d4-4467-a541-dc8f36497277:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null,
+        "candidate_reference": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04"
+      },
+      "plans": [
+        {
+          "plan_id": "53a8b9e4-2d6f-4f8b-8c2d-7f8b9e42d6f8",
+          "objective": "Verify if the provided URL is associated with a confirmed patch or fix for CVE-2025-32434.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2025-32434",
+                      "candidate_reference": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "task_type": "tool_sequence",
+              "description": "Read stored source claims and evidence",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_claims",
+                    "arguments": {
+                      "target": "CVE-2025-32434"
+                    }
+                  },
+                  {
+                    "name": "get_evidence",
+                    "arguments": {
+                      "target": "CVE-2025-32434",
+                      "candidate_reference": "https://github.com/pytorch/pytorch/commit/8d4b8a920a2172523deb95bf20e8e52d50649c04"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_claims",
+                "get_evidence"
+              ],
+              "max_tool_calls": 2,
+              "type": "evidence_search",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty",
+                "evidence_present"
+              ]
+            }
+          ],
+          "reasoning_summary": "Check the provided URL for evidence of a confirmed patch or fix for CVE-2025-32434 by first looking up the vulnerability details and then searching for related claims and evidence.",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2022-45907",
+          "asset_id": null,
+          "question": "此链接仅出现在 CVE-2022-45907 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+          "realtime": false,
+          "request_key": "orchestration:8a18d53f-d070-4820-af8e-17658d9cb9e8:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null,
+        "candidate_reference": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3"
+      },
+      "plans": [
+        {
+          "plan_id": "53a8b9e4-2d6f-4f8b-8c2d-7f8b9e42d6f8",
+          "objective": "Verify if the provided URL is associated with a confirmed patch or fix for CVE-2022-45907.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2022-45907",
+                      "candidate_reference": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "task_type": "tool_sequence",
+              "description": "Read stored source claims and evidence",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_claims",
+                    "arguments": {
+                      "target": "CVE-2022-45907"
+                    }
+                  },
+                  {
+                    "name": "get_evidence",
+                    "arguments": {
+                      "target": "CVE-2022-45907",
+                      "candidate_reference": "https://github.com/pytorch/pytorch/commit/767f6aa49fe20a2766b9843d01e3b7f7793df6a3"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_claims",
+                "get_evidence"
+              ],
+              "max_tool_calls": 2,
+              "type": "evidence_search",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty",
+                "evidence_present"
+              ]
+            }
+          ],
+          "reasoning_summary": "First, we will look up the details of CVE-2022-45907 to understand the vulnerability. Then, we will search for any claims and evidence related to the provided URL to determine if it confirms the patch or fix.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2025-68664",
+          "asset_id": null,
+          "question": "此链接仅出现在 CVE-2025-68664 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+          "realtime": false,
+          "request_key": "orchestration:9db5a004-4b2c-4587-ad43-bb6d549c64b5:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null,
+        "candidate_reference": "https://github.com/langchain-ai/langchain/commit/5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8"
+      },
+      "plans": [
+        {
+          "plan_id": "587d9e2b-4f3c-4d6b-8f2a-5e7d6c8b9f0a",
+          "objective": "Verify if the provided URL references a known fact about CVE-2025-68664, and determine if it has been patched or not.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2025-68664",
+                      "candidate_reference": "https://github.com/langchain-ai/langchain/commit/5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            }
+          ],
+          "reasoning_summary": "The provided URL is checked against the known facts about CVE-2025-68664 to determine if it has been patched or not.",
+          "confidence": 0.95
+        },
+        {
+          "plan_id": "d41d8cd9-8f00-498b-824a-569d52294716",
+          "objective": "Verify if the provided URL references a known fact about CVE-2025-68664, and determine if it has been patched or not.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2025-68664",
+                      "candidate_reference": "https://github.com/langchain-ai/langchain/commit/5ec0fa69de31bbe3d76e4cf9cd65a6accb8466c8"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            }
+          ],
+          "reasoning_summary": "The provided URL is checked against the known facts about CVE-2025-68664 to determine if it has been patched or not.",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2025-67644",
+          "asset_id": null,
+          "question": "此链接仅出现在 CVE-2025-67644 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+          "realtime": false,
+          "request_key": "orchestration:7f1cdc4b-3719-47e7-b773-7c0de9562209:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null,
+        "candidate_reference": "https://github.com/langchain-ai/langgraph/commit/297242913f8ad2143ee3e2f72e67db0911d48e2a"
+      },
+      "plans": [
+        {
+          "plan_id": "533d9e2b-4f5a-4f7b-8e2b-4f5a8e2b4f5a",
+          "objective": "Determine if the provided URL references a verified patch or fix for CVE-2025-67644.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2025-67644",
+                      "candidate_reference": "https://github.com/langchain-ai/langgraph/commit/297242913f8ad2143ee3e2f72e67db0911d48e2a"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "task_type": "tool_sequence",
+              "description": "Read stored source claims and evidence",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_claims",
+                    "arguments": {
+                      "target": "CVE-2025-67644"
+                    }
+                  },
+                  {
+                    "name": "get_evidence",
+                    "arguments": {
+                      "target": "CVE-2025-67644",
+                      "candidate_reference": "https://github.com/langchain-ai/langgraph/commit/297242913f8ad2143ee3e2f72e67db0911d48e2a"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_claims",
+                "get_evidence"
+              ],
+              "max_tool_calls": 2,
+              "type": "evidence_search",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty",
+                "evidence_present"
+              ]
+            }
+          ],
+          "reasoning_summary": "Check the provided URL for a verified patch or fix for CVE-2025-67644 by first looking up the vulnerability details and then searching for relevant claims and evidence.",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "input": {
+        "query": {
+          "mode": "auto",
+          "target": "CVE-2026-105752",
+          "asset_id": null,
+          "question": "此链接仅出现在 CVE-2026-105752 的参考文献列表。没有代码验证记录时，能否认定为已验证补丁？",
+          "realtime": false,
+          "request_key": "orchestration:b77ea1d3-355b-4930-89b7-6a823ac2cb11:planner"
+        },
+        "component": null,
+        "snapshot_id": null,
+        "component_id": null,
+        "candidate_reference": "https://github.com/vllm-project/vllm/commit/6a2a2bb02b563b83f946012959fd3927984d072a"
+      },
+      "plans": [
+        {
+          "plan_id": "53e0f8d0-4b5b-4f8a-9e5b-4b5b4b5b4b5b",
+          "objective": "Determine if the provided URL references a known fact about CVE-2026-105752, and if it has been verified.",
+          "tasks": [
+            {
+              "task_id": "lookup",
+              "task_type": "tool_sequence",
+              "description": "Read the supplied vulnerability",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_vulnerability",
+                    "arguments": {
+                      "target": "CVE-2026-105752",
+                      "candidate_reference": "https://github.com/vllm-project/vllm/commit/6a2a2bb02b563b83f946012959fd3927984d072a"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_vulnerability"
+              ],
+              "max_tool_calls": 1,
+              "type": "vulnerability_lookup",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty"
+              ]
+            },
+            {
+              "task_id": "evidence",
+              "task_type": "tool_sequence",
+              "description": "Read stored source claims and evidence",
+              "input_data": {
+                "steps": [
+                  {
+                    "name": "get_claims",
+                    "arguments": {
+                      "target": "CVE-2026-105752"
+                    }
+                  },
+                  {
+                    "name": "get_evidence",
+                    "arguments": {
+                      "target": "CVE-2026-105752",
+                      "candidate_reference": "https://github.com/vllm-project/vllm/commit/6a2a2bb02b563b83f946012959fd3927984d072a"
+                    }
+                  }
+                ]
+              },
+              "allowed_tools": [
+                "get_claims",
+                "get_evidence"
+              ],
+              "max_tool_calls": 2,
+              "type": "evidence_search",
+              "dependencies": [],
+              "acceptance_criteria": [
+                "tools_succeeded",
+                "output_nonempty",
+                "evidence_present"
+              ]
+            }
+          ],
+          "reasoning_summary": "Check if the provided URL references a known fact about CVE-2026-105752 and if it has been verified.",
+          "confidence": 0.9
+        }
+      ]
+    }
+  ]
+}

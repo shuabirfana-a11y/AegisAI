@@ -8,6 +8,7 @@ from app.runtime.contracts import TaskInput, TaskState, WIRE_LIMIT, ARTIFACT_LIM
 from app.runtime.executor import evidence, evidence_reference
 from app.tooling.attestation import evidence_key
 from app.enrichment.rules import compare_claims
+from app.enrichment.version_scope import VersionScope
 
 def _copy(value):
     return json.loads(json_bytes(value,WIRE_LIMIT))
@@ -43,7 +44,7 @@ def normalize_investigation(task, outcome, dependencies=()):
         'runtime_status':artifact.status,'confidence':artifact.confidence,'evidence':list(refs.values()),
         'tool_calls':_copy(artifact.tool_calls),'dependency_artifact_ids':tuple(str(a.artifact_id) for a in dependencies),
         'uncertainties':list(artifact.unresolved_questions),'status':'INSUFFICIENT_EVIDENCE'}
-    details=[]; claims=[]; conflicts=[]; failed=[]; findings=[]
+    details=[]; claims=[]; conflicts=[]; failed=[]; findings=[]; version_observed=False
     for result in outputs:
         data=result.get('data'); name=result.get('tool')
         if result.get('status')=='failed':
@@ -58,6 +59,18 @@ def normalize_investigation(task, outcome, dependencies=()):
         if name=='inspect_component_version':
             values['version_match']=data
             values['component']=data.get('component')
+            # A separate version task has no get_vulnerability detail payload.
+            # Its source-bound observation can be complete without confirming
+            # applicability. Existing authoritative evidence checks still apply.
+            component=data.get('component') or {}
+            version_observed=bool(isinstance(component,dict) and data.get('vulnerability_id')
+                and data.get('canonical_id') in targets
+                and (data.get('identity_resolution') or {}).get('status')=='RESOLVED'
+                and any(r.get('is_current') is True for r in data.get('source_range_results',[]))
+                and any(step.name=='inspect_component_version'
+                    and step.arguments.get('target')==data.get('canonical_id')
+                    and all(component.get(k)==v for k,v in step.arguments.items() if k!='target')
+                    for step in inputs.steps))
         intel=data.get('intelligence',data if name=='relation_query' else {})
         if name=='relation_query' and data.get('canonical_id'):
             if targets and data.get('canonical_id') not in targets and data.get('id') not in targets:
@@ -73,6 +86,8 @@ def normalize_investigation(task, outcome, dependencies=()):
             conflicts.extend(c for c in intel.get('conflicts',[]) if c.get('status')=='open')
         if name in ('get_claims','get_evidence'):
             findings.extend({'tool':name,'data':_copy(row),'observation_only':True} for row in data.get('items',[]))
+        if name in ('get_evidence','get_vulnerability') and isinstance(data.get('candidate_reference'),dict):
+            values.setdefault('patch_information',[]).append(_copy(data['candidate_reference']))
         if name=='get_claims':claims.extend(data.get('items',[]))
     if details:
         ids={d.get('id') or d['canonical_id'] for d in details}
@@ -96,9 +111,26 @@ def normalize_investigation(task, outcome, dependencies=()):
     for c in claims:
         matching=[r for key,r in refs.items() if relevant(key,r) and r.get('claim_id')==str(c.get('id')) and r.get('claim_revision')==c.get('revision')]
         if not c.get('details',{}).get('superseded') and any(r.get('is_current') is True and r.get('stance')=='support' for r in matching):active.append(c)
+    def assertion(claim):
+        scopes=[]
+        for key,ref in refs.items():
+            if (not relevant(key,ref) or ref.get('claim_id')!=str(claim.get('id'))
+                or ref.get('claim_revision')!=claim.get('revision')
+                or ref.get('is_current') is not True or ref.get('stance')!='support'):
+                continue
+            try:scope=VersionScope.model_validate(ref.get('normalized_version_scope'))
+            except (ValueError,TypeError):continue
+            value=claim.get('value_json',{})
+            if (scope.kind==claim.get('claim_type') and scope.evidence_id==ref.get('evidence_id')
+                and scope.raw_document_id==str(ref.get('raw_document_id')) and scope.raw_hash==ref.get('hash')
+                and scope.component==value.get('package')
+                and scope.product==(value.get('product') if isinstance(value.get('product'),str) else None)):
+                scopes.append(scope.model_dump(mode='json'))
+        return {'type':claim.get('claim_type'),'scope':claim.get('scope_key'),
+                'value':claim.get('value_json',{}),'version_scopes':scopes}
+    assertions={str(c.get('id')):assertion(c) for c in active}
     for a,b in combinations(active,2):
-        kind=compare_claims({'type':a.get('claim_type'),'scope':a.get('scope_key'),'value':a.get('value_json',{})},
-                            {'type':b.get('claim_type'),'scope':b.get('scope_key'),'value':b.get('value_json',{})})
+        kind=compare_claims(assertions[str(a.get('id'))],assertions[str(b.get('id'))])
         if kind:conflicts.append({'conflict_type':kind,'scope_key':a.get('scope_key'),'claim_a':a,'claim_b':b,'status':'unverified_conflict'})
     confirmed=any(c.get('trusted') is True and c.get('verification_status')=='CONFIRMED' and any(
         r.get('verified') is True and r.get('claim_id')==str(c.get('id')) and r.get('claim_revision')==c.get('revision')
@@ -107,7 +139,7 @@ def normalize_investigation(task, outcome, dependencies=()):
         if r.envelope.status=='failed':failed.append({'tool':r.name,'call_index':r.call_index,'errors':_copy(r.envelope.errors)})
     partial=any(r.envelope.status in ('partial','failed','no_result') for r in outcome.receipts) or artifact.status in (TaskState.FAILED,TaskState.BLOCKED)
     values.update(failed_tools=failed,partial_result=partial,conflicts=conflicts)
-    has_data=bool(details or values.get('asset') or findings)
+    has_data=bool(details or values.get('asset') or findings or version_observed)
     enough=bool(values.get('asset') and not targets) or (has_data and any(
         _credible(r) and relevant(key,r) for key,r in refs.items()))
     if conflicts:values.update(status='PARTIAL' if failed else 'CONFLICT',information_status='CONFLICT');values['uncertainties'].append('Current same-scope source assertions conflict; verification required')

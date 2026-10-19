@@ -1,5 +1,6 @@
 import json
 import re
+from urllib.parse import urlsplit
 from hashlib import sha256
 from sqlalchemy import select
 from app.db import models as m
@@ -21,6 +22,22 @@ def origin(observation):
     for url in refs:
         match=re.match(r'https://github\.com/([^/]+/[^/]+)/security/advisories/GHSA-',url)
         if match:return 'github:'+match.group(1).casefold()
+    # A declared copy of this exact advisory takes precedence over a package's
+    # repository hint. Otherwise OSV and the original advisory database can be
+    # counted as two publishers simply because their normalized shapes differ.
+    identifiers={value for value in (payload.get('external_id'),payload.get('ghsa_id'),
+        getattr(observation,'external_id',None)) if isinstance(value,str) and
+        re.fullmatch(r'GHSA-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}',value)}
+    if len(identifiers)==1:
+        identifier=next(iter(identifiers))
+        for url in refs:
+            try:address=urlsplit(url)
+            except (ValueError,TypeError):continue
+            if (address.scheme!='https' or address.hostname!='github.com' or
+                address.username or address.password):continue
+            match=re.fullmatch(r'/github/advisory-database/blob/[^/]+/advisories/github-reviewed/\d{4}/\d{2}/'
+                r'(GHSA-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4})/\1\.json',address.path)
+            if match and match.group(1)==identifier:return 'github:advisory-database'
     if str(payload.get('external_id','')).startswith('GHSA-'):
         repos={OFFICIAL_REPOS[p['name']] for p in payload.get('packages') or [] if p.get('ecosystem')=='PyPI' and p.get('name') in OFFICIAL_REPOS}
         if len(repos)==1:return 'github:'+next(iter(repos)).casefold()

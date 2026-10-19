@@ -47,6 +47,7 @@ def test_supplied_version_exact_asset_and_original_query_remain_executable():
     p['tasks'][0].update(allowed_tools=['get_vulnerability','inspect_component_version'],max_tool_calls=2)
     p['tasks'].append(task('asset_lookup',task_id='asset',name='get_asset',arguments={'asset_id':str(aid)}))
     p['tasks'].append(task('evidence_search',task_id='evidence',name='semantic_search',arguments={'query':c.scope['question']}))
+    p['tasks'][-1]['acceptance_criteria'].append('evidence_present')
     validator(c).validate(p)
     changed=deepcopy(p);changed['tasks'][0]['input_data']['steps'][1]['arguments']['version']='2.1'
     with pytest.raises(ValidationError):validator(c).validate(changed)

@@ -36,6 +36,12 @@ def safe_impact_value(value):
     """Public range fields are data; credentials remain outside the allowlist."""
     result=safe_value(value)
     if not isinstance(value,dict):return result
+    # Only validated source fact shapes; arbitrary input keys remain filtered.
+    from app.enrichment.source_facts import fact_value
+    kind='CWE' if 'cwe' in value else 'SOURCE_FACT' if value.get('field')=='summary' else None
+    if kind:
+        try:result.update({k:safe_text(v) for k,v in fact_value(kind,value).items()})
+        except (ValueError,TypeError):pass
     for key in ('range','range_type','parse_status'):
         item=value.get(key)
         if isinstance(item,str) and len(item)<=2400:result[key]=safe_text(item)
@@ -50,7 +56,15 @@ def safe_impact_value(value):
 
 def project_fact_value(claim,*,verification_state,confidence):
     # Existing immutable answers must retain their old deterministic projection.
-    if claim.impact_scope is None:return safe_value(claim.value)
+    if claim.impact_scope is None:
+        result=safe_impact_value(claim.value) if claim.claim_type in ('CWE','SOURCE_FACT') else safe_value(claim.value)
+        # A CVSS vector is part of this typed metric, not a generic JSON field.
+        # Preserve only its supplied scalar; never fetch or calculate one here.
+        if claim.claim_type=='CVSS_SCORE' and 'vector' in claim.value:
+            vector=claim.value['vector']
+            if vector is None:result['vector']=None
+            elif isinstance(vector,str) and len(vector)<=2400:result['vector']=safe_text(vector)
+        return result
     result=safe_impact_value(claim.value)
     result['impact_scope']=claim.impact_scope.model_copy(update={'verification_state':getattr(verification_state,'value',verification_state),
         'confidence':confidence}).model_dump(mode='json',exclude_none=True)

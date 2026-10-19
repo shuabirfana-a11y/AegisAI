@@ -52,3 +52,14 @@ Thumbs.db
 # Plan execution scratch and native benchmark account/resource mappings.
 /.superpowers/
 /evaluation/experiments/local/
+
+# Competition release: keep private archives and runtime captures local.
+*.bundle
+/backups/
+**/private/
+**/private-databases/
+*.mp4
+*.mkv
+*.webm
+# Superseded generated handoff archive; editable directory remains tracked.
+/AegisAI_FRONTEND_HANDOFF_PACKAGE.zip

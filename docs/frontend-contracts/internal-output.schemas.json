@@ -1049,7 +1049,9 @@
         "VENDOR_CONFIRMED",
         "EXPLOIT_CONDITION",
         "REMEDIATION",
-        "CVSS_SCORE"
+        "CVSS_SCORE",
+        "CWE",
+        "SOURCE_FACT"
       ],
       "title": "ClaimType",
       "type": "string"
@@ -3582,6 +3584,20 @@
             }
           ],
           "default": null
+        },
+        "candidate_reference": {
+          "anyOf": [
+            {
+              "maxLength": 2000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Candidate Reference"
         }
       },
       "required": [

@@ -85,14 +85,32 @@ def test_model_prompt_and_source_configuration_are_frozen_without_answer_llm():
             latest=json.loads((ROOT/'docs/phase13f3/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
             assert latest['previous_sha256']==exception['current_sha256']
             assert latest['authorization']=='PHASE13F3_USER_AUTHORIZED_NORMALIZATION_AND_TASK_TEMPLATES'
-            assert latest['current_sha256']==current
+            c5=json.loads((ROOT/'docs/phase14c5/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
+            assert c5['previous_sha256']==latest['current_sha256']
+            assert c5['authorization']=='PHASE14C5_USER_AUTHORIZED_CONFIRMED_DEFECT_ADAPTER_REPAIRS'
+            c13=json.loads((ROOT/'docs/phase14c13/source_hash_exceptions.json').read_text(encoding='utf-8'))
+            assert c13['authorization']=='PHASE14C13_USER_AUTHORIZED_REQUIRED_OBSERVATION_FEEDBACK'
+            assert c13['historical_configuration_modified'] is False
+            assert c13['gold_scoring_gate_verification_unchanged'] is True
+            assert set(c13['changes'])=={'backend/app/agents/investigation/planner.py'}
+            assert c13['changes'][p['path']]['previous_sha256']==c5['current_sha256']
+            assert c13['changes'][p['path']]['current_sha256']==current
         elif p['path']=='backend/app/orchestration/composer.py':
             transition=json.loads((ROOT/'docs/phase14b7/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
             assert transition['authorization']=='PHASE14B7_USER_AUTHORIZED_IMPACT_SCOPE_CLAIM_AND_ANSWER_CLOSURE'
             assert transition['historical_configuration_modified'] is False
             assert transition['legacy_projection_unchanged'] is True
             assert transition['previous_sha256']==p['sha256']
-            assert transition['current_sha256']==current
+            latest=json.loads((ROOT/'docs/phase14b9_1/source_hash_exceptions.json').read_text(encoding='utf-8'))['changes'][p['path']]
+            assert latest['authorization']=='PHASE14B9_1_USER_AUTHORIZED_FACT_VERIFICATION_CONTRACT_ONLY'
+            assert latest['previous_sha256']==transition['current_sha256']
+            c3=json.loads((ROOT/'docs/phase14c3/source_hash_exceptions.json').read_text(encoding='utf-8'))
+            assert c3['status']=='USER_CONFIRMED' and c3['historical_configuration_modified'] is False
+            assert set(c3['changes'])=={'backend/app/orchestration/composer.py'}
+            projection=c3['changes'][p['path']]
+            assert projection['authorization']=='PHASE14C3_USER_CONFIRMED_TYPED_FACT_PROJECTION_HASH_RECORD_ONLY'
+            assert projection['previous_sha256']==latest['current_sha256']
+            assert projection['current_sha256']==current
         else:assert current==p['sha256']
     assert c['prompt']['planner_version']=='investigation-plan-v4'
     assert c['prompt']['answer_prompt_version']=='NOT_APPLICABLE_DETERMINISTIC_TEMPLATE'

@@ -1,7 +1,7 @@
 """All business logic stays in deterministic Phase6–8 services, outside roles."""
 from uuid import UUID
 from datetime import timedelta
-from sqlalchemy import select
+from sqlalchemy import select,func,or_
 from app.db import models as m
 from app.repositories import queries as core
 from app.enrichment import queries as intel
@@ -14,6 +14,17 @@ def evidence_refs(session,target,claim_id=None):
     from app.tooling.provenance import current_support_ids
     refs=[];current={}
     query=intel.query(session,target,'evidence')
+    # Registry context is neutral and append-only. Its obsolete observations
+    # must not crowd current security witnesses out of the bounded Tool receipt.
+    # Full historical metadata remains available through the evidence API.
+    registry_editions=select(m.SourceObservation.id,
+        func.row_number().over(partition_by=(m.SourceObservation.source_id,m.SourceObservation.external_id),
+            order_by=(m.SourceObservation.retrieved_at.desc(),m.SourceObservation.created_at.desc(),
+                      m.SourceObservation.id.desc())).label('edition_rank'))\
+        .where(m.SourceObservation.parse_status=='parsed').subquery()
+    query=query.where(or_(m.Evidence.evidence_type!='package_registry_metadata',
+        m.Evidence.stance!='neutral',m.Evidence.observation_id.in_(
+            select(registry_editions.c.id).where(registry_editions.c.edition_rank==1))))
     if claim_id is not None:query=query.where(m.Evidence.claim_id==UUID(str(claim_id)))
     for row in session.scalars(query.limit(100)):
         c=session.get(m.Claim,row.claim_id)
@@ -31,6 +42,17 @@ def _claim(session,id,actor):
         component=session.get(m.AssetComponent,c.asset_component_id)
         owned_asset(session,component.asset_id,actor)
     return c
+
+def _intelligence_context(session,target,refs):
+    data=intel.aggregate(session,target)
+    visible={r['evidence_id'] for r in refs if r.get('evidence_id')}
+    rows=data.get('evidence',[])
+    data['evidence']=[r for r in rows if not (
+        r.get('evidence_type')=='package_registry_metadata' and r.get('stance')=='neutral')
+        or str(r['id']) in visible]
+    if len(rows)!=len(data['evidence']):
+        data['registry_history_omitted_from_tool_context']=len(rows)-len(data['evidence'])
+    return data
 
 def execute_local(session,name,args,actor):
     if name in ('analyze_risk_snapshot','analyze_asset_impact_snapshot','prioritize_remediation_snapshot'):
@@ -57,7 +79,12 @@ def execute_local(session,name,args,actor):
             data={'items':[core.columns(r) for r in session.scalars(q.order_by(m.Vulnerability.published_at.desc(),m.Vulnerability.id).limit(args.get('limit',20)))],
                 'total':session.scalar(select(func.count()).select_from(q.subquery())),'window_days':args['days'],'coverage':'Locally collected records only'}
     elif name=='get_vulnerability':
-        data=core.vulnerability_detail(session,str(target));data['intelligence']=intel.aggregate(session,target)
+        data=core.vulnerability_detail(session,str(target));data['intelligence']=_intelligence_context(session,target,refs)
+        if args.get('candidate_reference'):
+            from app.tooling.candidate_evidence import candidate_evidence
+            observed,_=candidate_evidence(session,target,args['candidate_reference'],refs)
+            data['candidate_reference']=observed['candidate_reference']
+            warnings.append('Specified patch reference is an observation only; commit validation and installation are not inferred.')
         # Sources without extracted claim evidence still retain raw provenance.
         refs.extend({'raw_document_id':str(r['id']),'source_id':str(r['source_id']),'url':r['source_url'],
             'locator':r['locator'],'content_trust_level':'UNTRUSTED_EXTERNAL_CONTENT'} for r in data['source_documents'])
@@ -66,7 +93,12 @@ def execute_local(session,name,args,actor):
         if row is None or row.deleted_at:raise LookupError('Product not found')
         data=core.columns(row)
     elif name in ('get_claims','get_evidence','get_timeline'):
-        if name=='get_evidence' and args.get('claim_id'):
+        if name=='get_evidence' and args.get('candidate_reference'):
+            from app.tooling.candidate_evidence import candidate_evidence
+            data,refs=candidate_evidence(session,target,args['candidate_reference'],refs,
+                claim_id=args.get('claim_id'),limit=args.get('limit',20))
+            warnings.append('Candidate reference checked against collected sources only; no remote fetch, commit validation, patch applicability or installation is inferred.')
+        elif name=='get_evidence' and args.get('claim_id'):
             claim=session.get(m.Claim,UUID(args['claim_id']))
             if claim is None or claim.vulnerability_id!=target:raise PermissionError('Claim target mismatch')
             from sqlalchemy import func
@@ -84,7 +116,7 @@ def execute_local(session,name,args,actor):
     elif name in ('find_vendor_advisories','find_poc_candidates','find_patch_candidates','get_epss','get_known_exploitation','investigate_vulnerability'):
         if args.get('refresh'):raise ValueError('Refresh runs only in isolated worker service')
         kind={'find_poc_candidates':'pocs','find_patch_candidates':'patches','get_epss':'epss','get_known_exploitation':'known_exploitation'}.get(name)
-        data=intel.page(session,target,kind,limit=args.get('limit',20)) if kind else intel.aggregate(session,target)
+        data=intel.page(session,target,kind,limit=args.get('limit',20)) if kind else _intelligence_context(session,target,refs)
         if name=='find_vendor_advisories':data={'items':[c for c in data['claims'] if c['claim_type']=='VENDOR_CONFIRMED'],'source_assertions_only':True}
         if kind in ('pocs','patches'):
             warnings.append('Candidates are static associations. PoC usability and patch applicability are not inferred; no code is executed.')

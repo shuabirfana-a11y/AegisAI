@@ -5,7 +5,7 @@ from packaging.version import Version,InvalidVersion
 from app.services.versions import parse_expression
 
 OFFICIAL_REPOS={'torch':'pytorch/pytorch','vllm':'vllm-project/vllm','mlflow':'mlflow/mlflow',
-                'langgraph-checkpoint-sqlite':'langchain-ai/langgraph'}
+                'langgraph-checkpoint-sqlite':'langchain-ai/langgraph','langchain-core':'langchain-ai/langchain'}
 
 def parse_advisory(payload,repo,target,aliases):
     cve=payload.get('cve_id');ghsa=payload.get('ghsa_id')

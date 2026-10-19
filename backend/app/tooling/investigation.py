@@ -1,10 +1,12 @@
 """Thin read-only wrappers around existing identity/range algorithms."""
 from uuid import UUID
+from datetime import timedelta
 from sqlalchemy import select
 from app.db import models as m
 from app.assets.identity import resolve_component
 from app.assets.versions import compare_version
 from app.repositories.queries import vulnerability_detail
+from app.utils.time import utcnow
 
 def inspect_component_version(session, arguments, actor):
     target=arguments['target']; component={k:v for k,v in arguments.items() if k!='target'}
@@ -36,6 +38,7 @@ def inspect_component_version(session, arguments, actor):
 def decorate_evidence(session, refs):
     """Source metadata is descriptive; it never changes a verified flag."""
     for ref in refs:
+        ref.pop('normalized_version_scope',None)
         source=session.get(m.Source,UUID(str(ref['source_id']))) if ref.get('source_id') else None
         ref['authority_level']=source.authority_level if source else None
         ref['authority_scope']=source.authority_scope if source else None
@@ -47,6 +50,21 @@ def decorate_evidence(session, refs):
                 observed=session.get(m.SourceObservation,stored.observation_id) if stored and stored.observation_id else None
                 claim=session.get(m.Claim,stored.claim_id) if stored else None
                 ref['vulnerability_id']=str(claim.vulnerability_id) if claim and claim.vulnerability_id else None
+                if (stored and claim and stored.source_id==source.id
+                    and str(stored.raw_document_id)==str(raw_id)
+                    and str(stored.claim_id)==ref.get('claim_id')
+                    and claim.revision==ref.get('claim_revision')
+                    and stored.stance=='support' and claim.claim_type in ('AFFECTS_VERSION','FIXED_VERSION')):
+                    from app.enrichment.version_scope import stored_scope
+                    now=utcnow();raw=session.get(m.RawDocument,stored.raw_document_id)
+                    timely=(now-timedelta(days=30)<=stored.retrieved_at<=now+timedelta(minutes=5)
+                        and all(p is None or (p<=now+timedelta(minutes=5)
+                            and p<=stored.retrieved_at+timedelta(minutes=5))
+                            for p in (stored.published_at,raw.published_at if raw else None)))
+                    scope=stored_scope(session,stored,claim.claim_type) if timely else None
+                    if scope is not None:
+                        ref['normalized_version_scope']=scope.model_dump(mode='json')
+                        ref['hash']=scope.raw_hash
             elif ref.get('observation_id'):
                 observed=session.get(m.SourceObservation,UUID(str(ref['observation_id'])))
             else:

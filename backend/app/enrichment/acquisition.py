@@ -10,12 +10,15 @@ from app.utils.time import utcnow
 from app.enrichment.contracts import CONTENT_TRUST
 
 VENDORS={'VENDOR_PYTORCH':'pytorch/pytorch','VENDOR_VLLM':'vllm-project/vllm','VENDOR_MLFLOW':'mlflow/mlflow',
-         'VENDOR_LANGGRAPH':'langchain-ai/langgraph'}
+         'VENDOR_LANGGRAPH':'langchain-ai/langgraph','VENDOR_LANGCHAIN':'langchain-ai/langchain'}
 REPO=r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+'
 
 def validate_enrichment_url(url):
     p=urlsplit(url)
     if p.scheme!='https' or p.username or p.password or p.port not in (None,443) or p.fragment:raise ValueError('Unapproved acquisition address')
+    if p.hostname=='pypi.org' and not p.query and re.fullmatch(r'/pypi/[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?/json',p.path):
+        # Distribution metadata only. Never follow project links or download wheels.
+        if '..' not in p.path:return
     if p.hostname=='api.first.org' and p.path=='/data/v1/epss':return
     if p.hostname=='api.github.com':
         if p.path=='/search/repositories':return
@@ -48,7 +51,9 @@ class EnrichmentAcquisition:
 
     def fetch(self,key,url,external_id,lineage):
         validate_enrichment_url(url)
-        if key not in {'EPSS','GITHUB',*VENDORS}:raise ValueError('Unregistered enrichment source')
+        if key not in {'EPSS','GITHUB','PYPI_METADATA',*VENDORS}:raise ValueError('Unregistered enrichment source')
+        if (key=='PYPI_METADATA') != (urlsplit(url).hostname=='pypi.org'):
+            raise ValueError('Registry source scope mismatch')
         if key in VENDORS and not urlsplit(url).path.startswith('/repos/'+VENDORS[key]+'/security-advisories/'):
             raise ValueError('Official vendor scope mismatch')
         now=utcnow();entry={'source':key,'url':url,'checked_at':now.isoformat(),'status':'running'};self.checked.append(entry)
@@ -58,8 +63,8 @@ class EnrichmentAcquisition:
         with self.factory() as s:
             source=unique_row(s,m.Source,{'source_key':key},{'name':key,'source_type':'api','category':'enrichment',
                 'authority_level':'community' if key=='GITHUB' else 'official',
-                'authority_scope':VENDORS.get(key,'FIRST EPSS probability only' if key=='EPSS' else 'Public hosting metadata; no exploit authority'),
-                'acquisition_method':'https_api','base_url':'https://api.first.org/data/v1/epss' if key=='EPSS' else 'https://api.github.com',
+                'authority_scope':VENDORS.get(key,'Registry distribution identity and release publication only' if key=='PYPI_METADATA' else 'FIRST EPSS probability only' if key=='EPSS' else 'Public hosting metadata; no exploit authority'),
+                'acquisition_method':'https_api','base_url':'https://pypi.org' if key=='PYPI_METADATA' else 'https://api.first.org/data/v1/epss' if key=='EPSS' else 'https://api.github.com',
                 'enabled':True,'license_scope':'Upstream terms; metadata/limited evidence only','details':{'content_trust_level':CONTENT_TRUST}})
             source_id=source.id
         try:response=self.http.get(url,headers=headers)

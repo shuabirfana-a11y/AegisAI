@@ -30,6 +30,7 @@ CATALOG_SCOPES={item['source_id']:item['authority_level'] for item in json.loads
     (Path(__file__).resolve().parents[2]/'resources/sources.json').read_text(encoding='utf-8'))}
 PACKAGE_CLAIMS={ClaimType.AFFECTS_PRODUCT,ClaimType.AFFECTS_VERSION,ClaimType.FIXED_VERSION}
 STATIC_CLAIMS={ClaimType.POC_EXISTS,ClaimType.POC_ASSOCIATION,ClaimType.PATCH_EXISTS,ClaimType.FIX_COMMIT}
+from app.enrichment.source_facts import FACT_TYPES
 
 
 def scope_supported(scope, claim, *, source_key=None, reference=None):
@@ -40,7 +41,7 @@ def scope_supported(scope, claim, *, source_key=None, reference=None):
         if text!=CATALOG_SCOPES[source_key].casefold():return False
         if source_key=='CISA_KEV':
             return kind==ClaimType.KNOWN_EXPLOITED and claim.value.get('known_exploited') is True
-        if source_key=='OSV':return kind in PACKAGE_CLAIMS
+        if source_key=='OSV':return kind in PACKAGE_CLAIMS|FACT_TYPES
         # CVE identity alone is not a verdict; CNA-scoped content still needs
         # the original kernel's explicit evidence and independent lineage rules.
         return kind in PACKAGE_CLAIMS|{ClaimType.CVSS_SCORE}
@@ -114,6 +115,13 @@ def _evidence(session, stored, claim, meta, now):
         reasons.append('INCONSISTENT_SOURCE_TIME')
     direct=bool(stored.details.get('explicit') and integrity=='VALID')
     source_type=stored.evidence_type
+    details=dict(stored.details)
+    # Reserved derived metadata is always rebuilt from this raw witness.
+    details.pop('normalized_version_scope',None)
+    if integrity=='VALID' and claim.claim_type in ('AFFECTS_VERSION','FIXED_VERSION'):
+        from app.enrichment.version_scope import stored_scope
+        version_scope=stored_scope(session,stored,claim.claim_type)
+        if version_scope:details['normalized_version_scope']=version_scope.model_dump(mode='json')
     return VerificationEvidence(evidence_id=str(stored.id),claim_id=claim.claim_id,
         source_id=stored.source_id,source_key=meta.get('source_key') or 'unknown',source_type=source_type,
         source_name=stored.publisher[:300],source_time=stored.published_at or stored.retrieved_at,
@@ -125,7 +133,7 @@ def _evidence(session, stored, claim, meta, now):
         published_at=stored.published_at,retrieved_at=stored.retrieved_at,observed_value=stored.observed_value or {},
         scope_key=stored.scope_key,vulnerability_id=claim.vulnerability_id,stance=stored.stance,
         directness='direct' if direct else 'mention',evidence_type=stored.evidence_type,is_current=current,
-        integrity_status=integrity,exclusion_reasons=tuple(reasons),details=stored.details)
+        integrity_status=integrity,exclusion_reasons=tuple(reasons),details=details)
 
 
 def _claim(value, source_task_id, vulnerability_id):
@@ -206,6 +214,9 @@ class InvestigationSnapshotReader:
                     rows=intel.get('claims',[]) + (data.get('items',[]) if record.tool_name=='get_claims' else [])
                     for item in rows:
                         got=_claim(item,task.task_id,root)
+                        # Auxiliary source facts are an explicit factual query scope,
+                        # not new required decisions for existing asset tasks.
+                        if got and got.claim_type in FACT_TYPES and not request.include_source_facts:continue
                         if got:claims[got.claim_id]=got
                     if isinstance(data.get('affected_versions'),list):candidate_rows+=data['affected_versions']
             # Parsed source ranges become candidates when no equivalent stored claim exists.

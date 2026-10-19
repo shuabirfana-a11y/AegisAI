@@ -24,6 +24,8 @@ def scoped_plan_model(context):
         variants=[]
         if name in ('get_vulnerability','get_evidence','get_claims','relation_query'):
             variants=[{'target':t} for t in targets]
+            if name in ('get_evidence','get_vulnerability') and scope.get('candidate_reference'):
+                variants=[{**args,'candidate_reference':scope['candidate_reference']} for args in variants]
         elif name=='inspect_component_version' and component.get('version'):
             variants=[{'target':t,**component} for t in targets]
         elif name=='get_asset' and scope.get('asset_id'):
@@ -35,6 +37,8 @@ def scoped_plan_model(context):
                 'days':route.get('days'),'high_severity':bool(route.get('high_severity')),'ai_relevance':None}]
         for exact in variants:
             args=deepcopy(REGISTRY[name].input.model_json_schema())
+            if exact.get('candidate_reference'):
+                args['required']=list(dict.fromkeys(args.get('required',[])+['candidate_reference']))
             for key,prop in args.get('properties',{}).items():
                 # Unbound optional fields cannot be guessed; bounded pagination
                 # retains the original registered limits and defaults.
@@ -49,12 +53,16 @@ def scoped_plan_model(context):
         from app.planner.schemas import _task_input_schema
         props['input_data']=_task_input_schema()
         props['input_data']['properties']['steps']['items']={'$ref':'#/$defs/ScopedToolStep'}
+        # Executable candidates must declare their existing role criteria;
+        # Runtime's legacy two-condition default is insufficient for evidence.
+        props['acceptance_criteria'].pop('default',None)
+        props['acceptance_criteria']['description']='Explicit registered acceptance conditions for this executable task role.'
         refs=[]
         for index,tool in enumerate(tools):
             key='ScopeTool'+str(index);definitions[key]=tool
             refs.append({'$ref':'#/$defs/'+key})
         definitions['ScopedToolStep']={'anyOf':refs}
-        executable={'required':['allowed_tools'],'properties':{
+        executable={'required':['allowed_tools','acceptance_criteria'],'properties':{
             'allowed_tools':{'minItems':1},'max_tool_calls':{'minimum':1},
             'input_data':{'required':['steps'],'properties':{'steps':{'minItems':1},'required_fields':{'maxItems':0}}}}}
         missing={'properties':{'allowed_tools':{'maxItems':0},'max_tool_calls':{'const':0},
@@ -68,6 +76,9 @@ def scoped_plan_model(context):
             rules.append({'if':{'properties':{'type':{'const':role}}},'then':{'properties':{
                 'allowed_tools':{'items':{'enum':sorted(spec.tools)}},
                 'input_data':{'properties':{'steps':{'items':{'$ref':'#/$defs/'+key}}}}}}})
+            rules.append({'if':{'properties':{'type':{'const':role},'task_type':{'const':'tool_sequence'}}},
+                'then':{'properties':{'acceptance_criteria':{'allOf':[
+                    {'contains':{'const':criterion},'minContains':1} for criterion in sorted(spec.criteria)]}}}})
             # Optional absent deployment metadata is not a required input for
             # fact discovery. Request only inputs needed by the frozen scope.
             required=[]
@@ -93,10 +104,33 @@ def scoped_plan_model(context):
             matches={'required':['input_data'],'properties':{'input_data':{'required':['steps'],
                 'properties':{'steps':{'contains':lookup,'minContains':1}}}}}
             conditions.append({'contains':matches,'minContains':1,'maxContains':1})
+            if component.get('version'):
+                observed={'type':'object','required':['name','arguments'],'properties':{
+                    'name':{'const':'inspect_component_version'},
+                    'arguments':{'required':['target'],'properties':{'target':{'const':target}}}}}
+                conditions.append({'contains':{'required':['input_data'],'properties':{'input_data':{
+                    'required':['steps'],'properties':{'steps':{'contains':observed,'minContains':1}}}}},
+                    'minContains':1})
             # Even differing pagination cannot duplicate the same target inside one task.
             props['input_data']['properties']['steps'].setdefault('allOf',[]).append(
                 {'contains':lookup,'minContains':0,'maxContains':1})
+        # Mirror the existing server obligation in the generation contract.
+        # A field-only repair must not silently discard the supplied asset read.
+        if scope.get('asset_id'):
+            asset_step={'type':'object','required':['name','arguments'],'properties':{
+                'name':{'const':'get_asset'},'arguments':{'required':['asset_id'],
+                'properties':{'asset_id':{'const':scope['asset_id']}}}}}
+            conditions.append({'contains':{'required':['input_data'],'properties':{'input_data':{
+                'required':['steps'],'properties':{'steps':{'contains':asset_step,'minContains':1}}}}},
+                'minContains':1})
         if conditions:schema['properties']['tasks']['allOf']=conditions
+        if scope.get('candidate_reference'):
+            step={'type':'object','required':['name','arguments'],'properties':{
+                'name':{'const':'get_evidence'},'arguments':{'required':['candidate_reference'],
+                'properties':{'candidate_reference':{'const':scope['candidate_reference']}}}}}
+            schema['properties']['tasks'].setdefault('allOf',[]).append({'contains':{
+                'required':['input_data'],'properties':{'input_data':{'required':['steps'],
+                'properties':{'steps':{'contains':step,'minContains':1}}}}},'minContains':1})
     # Field-level TaskContract schemas are resolved into $defs after Pydantic's
     # root json_schema_extra hook. Constrain the complete resolved schema.
     def model_schema(cls,*args,**kwargs):

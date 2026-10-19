@@ -29,6 +29,9 @@ class IntelligenceInvestigationService:
                 prompt_version=self.planner.prompt_version,registry_version=self.planner.registry_version)
             if self.observer is not None:self.observer.planner_created(saved)
         context=build_context(captured,actor,self.policy,saved.planner_run_id,saved.trace_id)
+        if captured.candidate_reference:
+            context=context.model_copy(update={'scope_json':json.dumps({**context.scope,
+                'candidate_reference':captured.candidate_reference},sort_keys=True)})
         if fresh:saved=self.store.complete(saved.planner_run_id,actor,self.planner.plan(captured,context))
         elif saved.planning_status=='PLANNING':return saved
         if self.observer is not None:self.observer.planner_completed(saved)

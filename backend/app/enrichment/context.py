@@ -20,7 +20,38 @@ class EnrichmentContext:
     @property
     def repositories(self):return list(dict.fromkeys(p['repository'] for p in self.packages if p.get('repository')))
 
-    def package(self,name):return next((p for p in self.packages if p['name'].casefold()==name.casefold()),None)
+    def package(self,name,ecosystem=None):
+        # Legacy callers still require one unambiguous distribution, never the first name hit.
+        if not isinstance(name,str):return None
+        matches=[p for p in self.packages if p['name'].casefold()==name.casefold()
+                 and (ecosystem is None or p['ecosystem']==ecosystem)]
+        return matches[0] if len(matches)==1 else None
+
+    def resolve_package(self,name,ecosystem,*,repository=None):
+        from packaging.utils import canonicalize_name
+        result={'status':'IDENTITY_UNKNOWN','original_name':name,'original_ecosystem':ecosystem,
+            'normalized_name':None,'package':None,'method':'NO_SUPPORTED_IDENTITY',
+            'reason':'Explicit package name and ecosystem are required','review_required':True,
+            'basis_reference':None}
+        if not isinstance(name,str) or not name.strip() or not ecosystem:return result
+        normalized=canonicalize_name(name) if ecosystem=='PyPI' else name
+        result['normalized_name']=normalized
+        found=[p for p in self.packages if p['ecosystem']==ecosystem and
+            (canonicalize_name(p['name']) if ecosystem=='PyPI' else p['name'])==normalized]
+        if len(found)==1:
+            exact=found[0]['name']==name
+            return {**result,'status':'EXACT_MATCH' if exact else 'VERIFIED_ALIAS','package':found[0],
+                'method':'ECOSYSTEM_PACKAGE_EXACT' if exact else 'PEP503_NAME_NORMALIZATION',
+                'reason':'One exact distribution identity' if exact else 'PyPI case and separator normalization only; not a product alias',
+                'review_required':False,'basis_reference':None if exact else
+                'https://packaging.python.org/en/latest/specifications/name-normalization/'}
+        if found:return {**result,'reason':'Multiple distribution identities require selection'}
+        if any(p['name'].casefold()==name.casefold() and p['ecosystem']!=ecosystem for p in self.packages):
+            return {**result,'status':'IDENTITY_CONFLICT','method':'ECOSYSTEM_MISMATCH','reason':'Same name in a different ecosystem is not the same package'}
+        if repository and any(p.get('repository')==repository for p in self.packages):
+            return {**result,'status':'RELATED_PACKAGE','method':'REPOSITORY_RELATION_ONLY',
+                'reason':'Shared upstream repository does not establish distribution identity'}
+        return {**result,'reason':'No exact supported distribution identity'}
 
     @classmethod
     def load(cls,session,target):

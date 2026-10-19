@@ -1,8 +1,53 @@
 """Grounded actions only; availability never proves a patch was deployed."""
 from urllib.parse import urlsplit
+from packaging.version import Version,InvalidVersion
 from app.assets.versions import compare_version
 from app.agents.analysis.rules import confirmed_claims,claim_applies_to_distribution
 from app.agents.analysis.schemas import RecommendedAction
+
+
+def _scoped_fix_applies(context,row,version_match):
+    """A source-bound fix applies to its maintenance entry, not every union member."""
+    from app.enrichment.version_scope import evidence_scopes,VersionScope
+    from app.enrichment.versions import canonical_value
+    from app.agents.contracts import fingerprint
+    from app.assets.identity import _name
+    asset=context.inputs.asset;c=row.claim
+    selection=version_match.normalization.get('scope_resolution',{})
+    if selection.get('method')!='VERIFIED_RECORD_UNION':return True
+    if any(c.value.get(k) for k in ('condition','platform','architecture')):return False
+    refs={e.evidence_id:e for e in context.inputs.verification.supporting_evidence}
+    unions=[]
+    for r in context.inputs.verification.claims:
+        if r.claim.claim_id!=selection.get('claim_id'):continue
+        for eid in r.supporting_evidence_ids:
+            e=refs.get(eid)
+            if e:
+                unions.extend(VersionScope.model_validate(p) for p in evidence_scopes(e,'AFFECTS_VERSION'))
+    proofs=[]
+    for eid in row.supporting_evidence_ids:
+        e=refs.get(eid)
+        if not e or not e.details.get('normalized_version_scope'):continue
+        if (not e.is_current or e.integrity_status!='VALID' or e.exclusion_reasons or
+            e.stance!='support' or e.scope_key!=c.scope_key or e.vulnerability_id!=c.vulnerability_id):return False
+        data=evidence_scopes(e,'FIXED_VERSION')
+        if not data:return False
+        for p in data:
+            proof=VersionScope.model_validate(p)
+            if (proof.value_hash!=fingerprint(canonical_value('FIXED_VERSION',c.value)) or
+                proof.component!=c.value.get('package') or _name(proof.component,'PyPI')!=asset.package_name or
+                proof.product!=c.value.get('product') or proof.fixed_version!=str(Version(c.value['version']))):return False
+            if not any(u.coverage=='RECORD_UNION' and u.component==proof.component and
+                u.product==proof.product and u.record_union==proof.record_union for u in unions):return False
+            ranges=[]
+            for lo,li,hi,ui in proof.predicate:
+                if lo is not None and not li:return False
+                events=[{'introduced':lo or '0'}]
+                if hi is not None:events.append({'last_affected' if ui else 'fixed':hi})
+                ranges.append({'events':events})
+            if not ranges or compare_version(asset.deployed_version,{'ecosystem':'PyPI','ranges':ranges})['affected'] is not True:return False
+            proofs.append(proof)
+    return bool(proofs)
 
 
 def build_actions(context,*,asset_match,version_match,risk_level,priority):
@@ -26,6 +71,9 @@ def build_actions(context,*,asset_match,version_match,risk_level,priority):
         if c.claim_type=='FIXED_VERSION' and scoped and version_match.status=='AFFECTED' and claim_applies_to_distribution(c,asset,require_identity=True):
             fixed=c.value.get('version')
             if not isinstance(fixed,str) or not ranges or not all(compare_version(fixed,value)['affected'] is False for value in ranges):continue
+            try:
+                if Version(fixed)<=Version(asset.deployed_version) or not _scoped_fix_applies(context,r,version_match):continue
+            except (InvalidVersion,TypeError,ValueError):continue
             actions.append(RecommendedAction(action_id='fix:'+c.claim_id,action_type='UPGRADE_VERIFIED_RELEASE',
                 category=category,summary='评估升级到已确认修复版本 '+fixed+'；先验证依赖与部署兼容性。',
                 target_component=asset.component,fixed_version=fixed,claim_ids=(c.claim_id,),
