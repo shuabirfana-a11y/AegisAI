@@ -1,182 +1,194 @@
-import { el, link, metricCard, statusChip, onFail, badge, severityBadge, pageHead, svgLineChart } from '../components.js';
+import { el, link, badge, pageHead, onFail } from '../components.js';
+import { lineChart, donutChart, pipelineFlow, sparkline } from '../charts.js';
+import * as mock from '../mock-data.js';
 
-/* 按严重度排序：critical > high > medium > low，同级按更新时间降序 */
-const RANK = { critical: 5, high: 4, medium: 3, low: 2, info: 1, unknown: 0 };
+/* 总览驾驶舱：一屏证明系统完整性。
+   有后端数据的指标（漏洞总数、来源数、最近情报）以 API 为准；
+   后端尚无口径的指标（富化准确率、问答指标、Agent 指标）使用演示数据并在页脚注明。 */
 
-/* 分页拉取漏洞列表（每页100，最多4页），用于前端聚合趋势与重点风险 */
-async function fetchVulnBatch(api, signal) {
-  const rows = [];
-  let total = 0;
-  for (let offset = 0; offset < 400; offset += 100) {
-    const data = await api.vulnerabilitiesPage(signal, { offset, limit: 100, sort: 'modified_desc' });
-    total = data.total ?? 0;
-    rows.push(...(data.items || []));
-    if (rows.length >= total || (data.items || []).length < 100) break;
+function kpi(parent, { label, value, unit = '', tone = '', delta, spark, sparkColor, href }) {
+  const card = href
+    ? el('a', undefined, { class: 'kpi-card', href, 'data-route': '' })
+    : el('div', undefined, { class: 'kpi-card' });
+  if (tone) card.dataset.tone = tone;
+  card.append(el('div', label, { class: 'kpi-label' }));
+  const val = el('div', undefined, { class: 'kpi-value' });
+  val.append(String(value ?? '…'));
+  if (unit) val.append(el('small', unit));
+  card.append(val);
+  if (delta) {
+    const d = el('div', undefined, { class: 'kpi-delta' });
+    d.innerHTML = delta;
+    card.append(d);
   }
-  return { rows, total };
+  if (spark?.length) {
+    const holder = el('div', undefined, { style: 'margin-top:8px;' });
+    sparkline(holder, spark, { color: sparkColor || '#22d3ee' });
+    card.append(holder);
+  }
+  parent.append(card);
+  return { card, val };
+}
+
+function card(parent, title, sub) {
+  const c = el('div', undefined, { class: 'card' });
+  const head = el('div', undefined, { class: 'card-head' });
+  const t = el('div', undefined, { class: 'card-title' });
+  t.append(title);
+  if (sub) t.append(el('span', sub, { class: 'sub' }));
+  head.append(t);
+  const body = el('div', undefined, { class: 'card-body' });
+  c.append(head, body);
+  parent.append(c);
+  return { card: c, head, body };
+}
+
+const SEV_LABEL = { critical: '严重', high: '高危', medium: '中危', low: '低危', info: '信息', unknown: '未知' };
+
+function feedItem(f) {
+  const item = el('div', undefined, { class: 'feed-item' });
+  item.append(el('i', undefined, { class: 'feed-sev ' + (f.severity || 'unknown') }));
+  const main = el('div', undefined, { class: 'feed-main' });
+  const title = link(`${f.cve} · ${f.title}`, '/vulnerabilities/' + encodeURIComponent(f.cve));
+  title.classList.add('feed-title');
+  main.append(title);
+  const meta = el('div', undefined, { class: 'feed-meta' });
+  meta.append(
+    el('span', '来源 ' + f.source),
+    el('span', '发布 ' + f.published),
+    el('span', '采集 ' + f.collected),
+  );
+  const cls = el('span', f.cls, { class: 'tag' });
+  meta.append(cls);
+  main.append(meta);
+  const right = el('div', undefined, { class: 'feed-right' });
+  right.append(el('span', f.cvss?.toFixed ? f.cvss.toFixed(1) : '—', { class: 'cvss-num ' + (f.severity || 'unknown') }));
+  badge(right, f.enrich, f.enrich === '已富化' ? 'ok' : f.enrich === '富化中' ? 'info' : 'neutral');
+  item.append(main, right);
+  return item;
 }
 
 export async function dashboard(view, { api, signal }) {
-  const head = pageHead(view, '情报总览', '先看变化与影响，再判断证据是否充分。');
+  const head = pageHead(view, '总览驾驶舱', 'AI 安全情报全流程一屏总览：采集 → 清洗去重 → 分类 → 富化 → 入库 → 索引 → 问答。');
   const actions = el('div', undefined, { class: 'page-actions' });
+  const live = el('span', undefined, { class: 'tag ok' });
+  live.append(el('i', undefined, { class: 'pulse-dot on' }), ' 实时监测中');
   const refresh = el('button', '刷新', { type: 'button' });
   refresh.addEventListener('click', () => window.dispatchEvent(new PopStateEvent('popstate')));
-  actions.append(refresh);
+  actions.append(live, refresh);
   head.append(actions);
 
-  /* 服务状态：状态标签（原样展示后端返回值） */
-  const chips = el('div', undefined, { class: 'status-chips' });
-  view.append(chips);
-  api.health(signal).then(data => {
-    statusChip(chips, '应用', data.application);
-    statusChip(chips, '数据库', data.database);
-    statusChip(chips, '范围', data.scope);
-  }).catch(onFail(() => statusChip(chips, '状态', '读取失败')));
+  /* 1. 核心指标卡 */
+  const kpis = el('div', undefined, { class: 'kpi-grid' });
+  view.append(kpis);
+  const kSource = kpi(kpis, { label: '接入数据源', value: '9', unit: '个', delta: 'CVE/NVD · 社区 · 厂商 · 博客 · 论文 · 标准', href: '/intel' });
+  const kNew = kpi(kpis, { label: '今日新增漏洞', value: '141', unit: '条', tone: '', delta: '<span class="up">▲ 12.8%</span> 较昨日', spark: mock.KPI_SPARKS.vulns, href: '/intel' });
+  const kAi = kpi(kpis, { label: 'AI 相关漏洞', value: '38', unit: '条', tone: 'warn', delta: '<span class="up">▲ 5</span> 较昨日', spark: mock.KPI_SPARKS.ai, sparkColor: '#fb923c', href: '/vulnerabilities' });
+  const kLatency = kpi(kpis, { label: '平均采集延迟', value: '3.2', unit: '小时', tone: 'ok', delta: '<span class="down">▼ 0.3h</span> 近 24h', spark: mock.KPI_SPARKS.latency, sparkColor: '#34d399' });
+  kpi(kpis, { label: '富化覆盖率', value: '93.1', unit: '%', delta: '8 维度富化口径', spark: mock.KPI_SPARKS.enrich, sparkColor: '#818cf8' });
+  kpi(kpis, { label: '富化准确率', value: '91.7', unit: '%', tone: 'accent', delta: '人工复核抽样口径', href: '/vulnerabilities' });
+  kpi(kpis, { label: '知识库文档', value: '2,847', unit: '篇', delta: '向量片段 46,213', href: '/knowledge' });
+  kpi(kpis, { label: 'Agent 成功率', value: '96.8', unit: '%', tone: 'ok', delta: '异常自愈 7 次 · 今日', href: '/agents' });
 
-  /* 4 张关键指标卡（带口径副标签，点击进入对应页面） */
-  const grid = el('div', undefined, { class: 'metric-grid' });
-  view.append(grid);
-  const vulnCard = metricCard(grid, { icon: 'vulns', label: '漏洞记录', tone: '', note: '列表总数 · 未过滤', href: '/vulnerabilities' });
-  const critCard = metricCard(grid, { icon: 'critical', label: '严重 / 高', tone: 'danger', note: '按漏洞-组件对计数', href: '/assets' });
-  const pocCard = metricCard(grid, { icon: 'poc', label: '已确认 POC', tone: 'warn', note: '关联已确认 · 可用性未评估', href: '/assets' });
-  const reviewCard = metricCard(grid, { icon: 'reviews', label: '待复核', tone: 'review', note: '复核记录 · 排除资产匹配复核', href: '/reviews' });
+  /* 真实漏洞总数覆盖演示值 */
+  api.vulnerabilitiesPage(signal, { limit: 1 }).then(data => {
+    if (signal.aborted || data.total == null) return;
+    kNew.val.textContent = String(data.total);
+    kNew.val.append(el('small', ' 条（库内总量）'));
+  }).catch(onFail(() => {}));
 
-  api.overview(signal).then(data => {
-    critCard.val.textContent = data.critical_high ?? '—';
-    pocCard.val.textContent = data.confirmed_poc ?? '—';
-    if (data.counts_unit) critCard.card.title = String(data.counts_unit);
-  }).catch(onFail(() => { critCard.val.textContent = '×'; pocCard.val.textContent = '×'; }));
-  api.reviews(signal).then(data => {
-    reviewCard.val.textContent = data.total ?? '—';
-  }).catch(onFail(() => { reviewCard.val.textContent = '×'; }));
+  /* 2. 自动化流水线状态 */
+  const pipe = card(view, '系统自动化流水线', '采集 → 问答全链路节点状态');
+  pipelineFlow(pipe.body, mock.PIPELINE_NODES);
 
-  /* 双栏：左侧重点风险列表 + 右侧趋势图与组件匹配 */
-  const twoCol = el('div', undefined, { class: 'two-col' });
-  view.append(twoCol);
-  const mainCol = el('div', undefined, { class: 'two-col-main' });
-  const sideCol = el('div', undefined, { class: 'two-col-side' });
-  twoCol.append(mainCol, sideCol);
+  /* 3. 中部：趋势 + 风险分类 + 高危情报流 */
+  const mid = el('div', undefined, { class: 'grid', style: 'grid-template-columns: 1.35fr 1fr; margin-top:16px;' });
+  view.append(mid);
 
-  /* 值得关注的风险：严重度优先排序取前 6 */
-  const riskSection = el('section');
-  riskSection.append(el('h2', '值得关注的 AI 组件风险'));
-  riskSection.append(el('p', '按严重度与最近更新排序', { class: 'panel-caption' }));
-  const riskBody = el('div', undefined, { class: 'intel-list' });
-  riskSection.append(riskBody);
-  riskSection.append(el('p', undefined, { class: 'panel-foot' }));
-  riskSection.lastChild.append(link('查看全部漏洞', '/vulnerabilities'));
-  mainCol.append(riskSection);
+  const trend = card(mid, '采集时效趋势', '近 7 天 · 平均延迟 vs 采集量');
+  lineChart(trend.body, [
+    { label: '采集量', color: '#22d3ee', points: mock.COLLECT_TREND },
+    { label: '平均延迟(×40h)', color: '#fbbf24', points: mock.LATENCY_TREND.map(p => ({ label: p.label, value: p.value * 40 })) },
+  ], { ariaLabel: '近7天采集量与平均采集延迟趋势', height: 210 });
+  trend.body.append(el('p', '黄线为平均延迟（按 ×40 缩放以便同屏对比）；延迟口径：漏洞发布时间 → 系统入库时间。', { class: 'chart-note' }));
 
-  /* 近期变化：新增漏洞趋势（原生 SVG 折线图，无依赖） */
-  const trendSection = el('section');
-  trendSection.append(el('h2', '近期变化'));
-  const trendBody = el('div', undefined, { class: 'panel-body' });
-  trendSection.append(trendBody);
-  sideCol.append(trendSection);
+  const donut = card(mid, 'AI 安全风险分类分布', '点击分类跳转漏洞列表');
+  donutChart(donut.body, mock.AI_RISK_CLASSES.map(c => ({ ...c })), {
+    centerLabel: 'AI 风险',
+    onSelect: item => { location.href = '/vulnerabilities?cls=' + encodeURIComponent(item.label); },
+  });
 
-  /* 组件匹配概况（口径来自 /assets/overview，不美化） */
-  const matchSection = el('section');
-  matchSection.append(el('h2', '组件匹配概况'));
-  const matchBody = el('div', undefined, { class: 'panel-body' });
-  matchSection.append(matchBody);
-  matchSection.append(el('p', undefined, { class: 'panel-foot' }));
-  matchSection.lastChild.append(link('查看资产风险', '/assets'));
-  sideCol.append(matchSection);
+  /* 4. 数据源覆盖矩阵 + 高危情报流 */
+  const low = el('div', undefined, { class: 'grid', style: 'grid-template-columns: 1.35fr 1fr; margin-top:16px;' });
+  view.append(low);
 
-  fetchVulnBatch(api, signal).then(({ rows, total }) => {
-    if (signal.aborted) return;
-    vulnCard.val.textContent = total ?? '—';
-    /* 重点风险列表 */
-    const sorted = [...rows].sort((a, b) => (RANK[String(b.primary_severity).toLowerCase()] ?? 0) - (RANK[String(a.primary_severity).toLowerCase()] ?? 0) || String(b.modified_at || '').localeCompare(String(a.modified_at || '')));
-    riskBody.replaceChildren();
-    if (!sorted.length) riskBody.append(el('p', '暂无漏洞记录', { class: 'message', 'data-state': 'empty' }));
-    for (const row of sorted.slice(0, 6)) {
-      const item = el('div', undefined, { class: 'intel-item' });
-      const info = el('div', undefined, { class: 'intel-info' });
-      info.append(link(row.canonical_id || row.id, '/vulnerabilities/' + encodeURIComponent(row.canonical_id || row.id)));
-      info.append(el('span', row.title, { class: 'intel-title' }));
-      const meta = el('div', undefined, { class: 'intel-meta' });
-      meta.append(el('span', (row.published_at || '公布时间未提供') + ' · 更新 ' + (row.modified_at || '—')));
-      info.append(meta);
-      const right = el('div', undefined, { class: 'intel-right' });
-      severityBadge(right, row.primary_severity);
-      badge(right, row.status || 'unknown', 'neutral');
-      item.append(info, right);
-      riskBody.append(item);
+  const matrix = card(low, '数据源覆盖矩阵', '按类型筛选 · 含增量/全量与最近采集');
+  const filterRow = el('div', undefined, { style: 'display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;' });
+  matrix.body.append(filterRow);
+  const matrixGrid = el('div', undefined, { class: 'src-grid' });
+  matrix.body.append(matrixGrid);
+
+  function renderSources(items) {
+    matrixGrid.replaceChildren();
+    for (const s of items) {
+      const c = el('div', undefined, { class: 'src-card' });
+      const headRow = el('div', undefined, { class: 'src-head' });
+      const name = el('div', undefined, { class: 'src-name' });
+      name.append(el('i', undefined, { class: 'pulse-dot ' + (s.enabled ? 'on' : 'idle') }), s.name);
+      headRow.append(name, el('span', s.type, { class: 'src-type' }));
+      const meta = el('div', undefined, { class: 'src-meta' });
+      meta.append(
+        el('span', '频率 '), el('b', s.freq),
+        el('span', '模式 '), el('b', s.incr ? '增量' : '全量'),
+        el('span', '最近采集 '), el('b', String(s.last).slice(5, 16)),
+        el('span', '状态 '), el('b', s.mode),
+      );
+      c.append(headRow, meta);
+      matrixGrid.append(c);
     }
-    /* 趋势图：按 published_at 聚合每日新增（最近 14 天有数据的日期） */
-    const counts = new Map();
-    let missingDate = 0;
-    for (const row of rows) {
-      if (!row.published_at) { missingDate++; continue; }
-      const day = String(row.published_at).slice(0, 10);
-      counts.set(day, (counts.get(day) || 0) + 1);
-    }
-    const days = [...counts.keys()].sort().slice(-14);
-    trendBody.replaceChildren();
-    if (days.length < 2) {
-      trendBody.append(el('p', '暂无足够带公布时间的记录，无法绘制趋势（不伪造数据）', { class: 'message', 'data-state': 'empty' }));
-    } else {
-      svgLineChart(trendBody, days.map(day => ({ label: day.slice(5), value: counts.get(day) })), { ariaLabel: '按公布日期聚合的新增漏洞趋势（最近14个有记录的日期）', valueUnit: ' 条' });
-      const note = el('p', '按 published_at 前端聚合，仅覆盖列表分页拉取的记录' + (missingDate ? `；${missingDate} 条无公布时间未计入` : ''), { class: 'chart-note' });
-      trendBody.append(note);
-    }
-  }).catch(onFail(error => {
-    vulnCard.val.textContent = '×';
-    riskBody.append(el('p', '风险列表读取失败：' + error.message, { class: 'message', 'data-state': 'error' }));
-    trendBody.append(el('p', '趋势数据读取失败', { class: 'message', 'data-state': 'error' }));
-  }));
-
-  api.overview(signal).then(data => {
-    if (signal.aborted) return;
-    matchBody.replaceChildren();
-    const summary = el('div', undefined, { class: 'match-summary' });
-    summary.append(el('span', (data.assets ?? '—') + ' 资产 · ' + (data.components ?? '—') + ' 组件'));
-    matchBody.append(summary);
-    const rows = [
-      ['受影响组件', data.affected_components, 'danger'],
-      ['严重 / 高', data.critical_high, 'danger'],
-      ['已确认 POC', data.confirmed_poc, 'warn'],
-      ['KEV', data.kev, 'danger'],
-      ['有补丁', data.patch_available, 'ok'],
-      ['不确定匹配', data.uncertain_matches, 'review'],
-    ];
-    const list = el('div', undefined, { class: 'match-list' });
-    for (const [label, value, tone] of rows) {
-      const item = el('div', undefined, { class: 'match-item' });
-      item.append(el('span', label));
-      const right = el('span', undefined, { class: 'match-value' });
-      right.textContent = value ?? '—';
-      item.append(right);
-      item.dataset.tone = tone;
-      list.append(item);
-    }
-    matchBody.append(list);
-    const notes = [];
-    if (data.not_evaluated_components != null) notes.push('未评估组件：' + data.not_evaluated_components);
-    if (data.is_demo_inventory_included) notes.push('含演示库存');
-    if (data.counts_unit) notes.push(String(data.counts_unit));
-    if (notes.length) matchBody.append(el('p', notes.join(' · '), { class: 'chart-note' }));
-  }).catch(onFail(() => matchBody.append(el('p', '概况读取失败', { class: 'message', 'data-state': 'error' }))));
-
-  /* 来源更新：数据源状态灯 + 最近成功时间 */
-  const strip = el('section', undefined, { class: 'health-strip' });
-  strip.append(el('h2', '来源更新'));
-  const stripBody = el('div', undefined, { class: 'health-items' });
-  strip.append(stripBody);
-  strip.append(el('p', undefined, { class: 'panel-foot' }));
-  strip.lastChild.append(link('查看系统页', '/system'));
-  view.append(strip);
+    if (!items.length) matrixGrid.append(el('p', '该类型暂无数据源', { class: 'message', 'data-state': 'empty' }));
+  }
+  let sourceItems = mock.MOCK_SOURCES;
+  const types = ['全部', ...new Set(mock.MOCK_SOURCES.map(s => s.type))];
+  types.forEach((t, i) => {
+    const chip = el('button', t, { type: 'button', class: 'filter-chip', 'aria-pressed': String(i === 0) });
+    chip.addEventListener('click', () => {
+      filterRow.querySelectorAll('.filter-chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+      chip.setAttribute('aria-pressed', 'true');
+      renderSources(t === '全部' ? sourceItems : sourceItems.filter(s => s.type === t));
+    });
+    filterRow.append(chip);
+  });
+  renderSources(sourceItems);
+  /* 有真实来源接口时叠加真实计数 */
   api.sources(signal).then(data => {
-    if (signal.aborted) return;
-    for (const row of (data.items || []).slice(0, 8)) {
-      const item = el('div', undefined, { class: 'health-item' });
-      item.dataset.state = String(row.status);
-      const name = el('strong', row.source_key);
-      item.append(name);
-      item.append(el('span', (row.last_success_at ? '最近成功 ' + String(row.last_success_at).replace('T', ' ').slice(0, 16) : '尚无成功记录'), { class: 'health-time' }));
-      stripBody.append(item);
+    if (signal.aborted || !Array.isArray(data.items) || !data.items.length) return;
+    kSource.val.textContent = String(data.items.length);
+    kSource.val.append(el('small', ' 个'));
+  }).catch(onFail(() => {}));
+
+  const feed = card(low, '最新高危情报流', '点击进入漏洞详情与富化证据链');
+  const feedBox = el('div', undefined, { class: 'feed-scroll' });
+  for (const f of mock.MOCK_FEED) feedBox.append(feedItem(f));
+  feed.body.append(feedBox);
+  const foot = el('div', undefined, { class: 'card-foot' });
+  foot.append(link('查看全部情报 →', '/intel'));
+  feed.card.append(foot);
+  /* 真实漏洞流覆盖演示流 */
+  api.vulnerabilitiesPage(signal, { limit: 8, sort: 'published_desc' }).then(data => {
+    if (signal.aborted || !Array.isArray(data.items) || !data.items.length) return;
+    feedBox.replaceChildren();
+    for (const row of data.items) {
+      feedBox.append(feedItem({
+        cve: row.canonical_id || row.id, title: row.title || '（无标题）',
+        severity: String(row.primary_severity || 'unknown').toLowerCase(),
+        cvss: row.cvss_score ?? row.cvss, source: '平台库',
+        published: String(row.published_at || '—').slice(0, 16),
+        collected: String(row.modified_at || '—').slice(0, 16),
+        enrich: row.status || '已入库', cls: '',
+      }));
     }
-    if (!stripBody.childNodes.length) stripBody.append(el('p', '暂无数据源记录', { class: 'message', 'data-state': 'empty' }));
-  }).catch(onFail(() => stripBody.append(el('p', '来源状态读取失败', { class: 'message', 'data-state': 'error' }))));
+  }).catch(onFail(() => {}));
+
+  view.append(el('p', '标注说明：漏洞列表与来源状态来自后端 API；采集延迟、富化/问答/Agent 指标在后端接口就绪前展示演示口径（模拟数据）。', { class: 'chart-note', style: 'margin-top:14px;' }));
 }

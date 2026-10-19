@@ -1,4 +1,4 @@
-const pages = new Set(['dashboard', 'vulnerabilities', 'assets', 'reviews', 'assistant', 'system']);
+const pages = new Set(['dashboard', 'intel', 'vulnerabilities', 'assistant', 'agents', 'knowledge', 'assets', 'reviews', 'system']);
 
 export function resolveRoute(pathname = '/') {
   if (pathname === '/') return { page: 'dashboard', params: {} };
