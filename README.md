@@ -4,6 +4,12 @@
 
 AegisAI 面向 AI 软件组件的安全情报调查：采集漏洞公告与技术资料，核对产品、包身份、维护分支和登记资产版本，返回带证据引用的影响判断与处置建议。当前交付用于本地研究和演示，需要分析人员复核重要安全结论。
 
+## 最终提交材料
+
+[技术报告 Word](docs/submission/AegisAI_Technical_Report.docx) · [技术报告 PDF](docs/submission/AegisAI_Technical_Report.pdf) · [技术讲解 PPTX](docs/submission/AegisAI_Technical_Presentation.pptx) · [技术讲解 PDF](docs/submission/AegisAI_Technical_Presentation.pdf)
+
+最新自测汇总与数据来源见[提交材料说明](docs/submission/README.md)。评委可先看报告和讲解，再查看下方真实案例及源码启动方式。
+
 ## 在线查看与下载
 
 - [GitHub Pages 静态案例展示](https://shuabirfana-a11y.github.io/AegisAI/)：查看 C08/C09 历史真实调查、证据定位和源码下载；不发起实时 AI 调查。
