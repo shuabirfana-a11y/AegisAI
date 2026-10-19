@@ -25,8 +25,8 @@
   ],
   "source_archive": {
     "path": "downloads/AegisAI-F9-014-source.zip",
-    "sha256": "52200f06a9d0762d3b28d655c7b3ba06cb4d4e0d862aa3b6beb12fe9b381b08c",
-    "bytes": 10450390,
+    "sha256": "cd80e49ab49b0479f7ca87df91265166346ee148bb60d5560ad7723f873d1618",
+    "bytes": 9889963,
     "frontend_updated_files": [
       "frontend/public/app.js",
       "frontend/public/index.html",
@@ -42,6 +42,44 @@
       "frontend/public/modules/router.js",
       "frontend/public/styles.css",
       "frontend/server.mjs"
-    ]
+    ],
+    "packaging_note": "Root historical phase documents omitted; backend, frontend, migrations and tests preserved byte-for-byte."
+  },
+  "final_submission": {
+    "published_at": "2026-10-19T15:07:50.591916+00:00",
+    "files": [
+      {
+        "name": "AegisAI_Technical_Report.docx",
+        "sha256": "fe2a647e0312fe657d943aeb0fcb52899833b65bbbe77993a5d72c66cc593a3a",
+        "bytes": 2523483
+      },
+      {
+        "name": "AegisAI_Technical_Report.pdf",
+        "sha256": "4af1d01469bc9ddab4905e78f983d5be342b185eac88c355e0af1847e4a56579",
+        "bytes": 2436578
+      },
+      {
+        "name": "AegisAI_Technical_Presentation.pptx",
+        "sha256": "c1eadf78bee3205ce99692af3452fc70832e29b8ab30302c3c97e3723754646e",
+        "bytes": 2401628
+      },
+      {
+        "name": "AegisAI_Technical_Presentation.pdf",
+        "sha256": "b4d25d70ec8caf279c91499b894616f5d0c0ab2238a050e4595358ead080c877",
+        "bytes": 22821898
+      }
+    ],
+    "summary": {
+      "strict": "35/49",
+      "fields": "77/94",
+      "risk": "7/10",
+      "provenance": "TEAM_PROVIDED_SELF_TEST_SUMMARY",
+      "independently_recomputed": false
+    },
+    "bundle": {
+      "path": "downloads/final/AegisAI-F9-014-final-submission.zip",
+      "sha256": "7ede0e5cb024007ee2a51798eca7e50d42938139a73d432d179d8e61d4306987",
+      "bytes": 34721404
+    }
   }
 }
